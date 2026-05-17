@@ -1,9 +1,27 @@
+import { Hero } from '@/components/Hero';
+import { Problem } from '@/components/Problem';
+import { WhyOrchestra } from '@/components/WhyOrchestra';
+import { HowWeWork } from '@/components/HowWeWork';
+import { WhatWeBuild } from '@/components/WhatWeBuild';
+import { CaseStudies } from '@/components/CaseStudies';
+import { Packages } from '@/components/Packages';
+import { Faq } from '@/components/Faq';
+import { Contact } from '@/components/Contact';
+import { Footer } from '@/components/Footer';
+
 export default function Page() {
   return (
-    <section>
-      <p className="eyebrow">Orchestra AI</p>
-      <h1>Agent orchestration for production AI workflows.</h1>
-      <p className="lead">Placeholder — sections wired in subsequent tasks.</p>
-    </section>
+    <>
+      <Hero />
+      <Problem />
+      <WhyOrchestra />
+      <HowWeWork />
+      <WhatWeBuild />
+      <CaseStudies />
+      <Packages />
+      <Faq />
+      <Contact />
+      <Footer />
+    </>
   );
 }
