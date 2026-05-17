@@ -1,169 +1,143 @@
 /* ===================================================================
    Orchestra AI — Design System
-   Semantic CSS. Tokens on :root, primitives first, role classes for
-   variants. No utility classes.
+   "Concert Hall × Lab Notebook"
+   Serif-led editorial. Deep ink. Vermillion accent. Musical signatures.
 =================================================================== */
 
 :root {
-  /* Surfaces */
-  --surface-base: #0a0d10;
-  --surface-elevated: #11161a;
-  --surface-soft: #161c22;
+  /* — Surfaces */
+  --ink: #0c0c10;
+  --ink-elev: #14141c;
+  --ink-soft: #1b1b25;
+  --paper: #f4eee2;
+  --paper-warm: #ece4d2;
 
-  /* Text */
-  --text-primary: #e9eef2;
-  --text-secondary: rgba(233, 238, 242, 0.74);
-  --text-tertiary: rgba(233, 238, 242, 0.48);
+  /* — Text */
+  --cream: #f0e9da;
+  --cream-2: rgba(240, 233, 218, 0.72);
+  --cream-3: rgba(240, 233, 218, 0.42);
+  --cream-4: rgba(240, 233, 218, 0.18);
 
-  /* Lines */
-  --line-soft: rgba(233, 238, 242, 0.08);
-  --line-strong: rgba(233, 238, 242, 0.18);
+  /* — Accent: vermillion (use sparingly — a signal, not decoration) */
+  --vermillion: #ff4a1c;
+  --vermillion-deep: #c8341a;
+  --vermillion-soft: rgba(255, 74, 28, 0.14);
+  --vermillion-line: rgba(255, 74, 28, 0.32);
 
-  /* Accent — clinical teal; revisit in visual pass */
-  --accent: #7BD8C9;
-  --accent-strong: #4FC4B0;
-  --accent-soft: rgba(123, 216, 201, 0.16);
+  /* — Lines */
+  --line-hair: rgba(240, 233, 218, 0.10);
+  --line-soft: rgba(240, 233, 218, 0.18);
+  --line-firm: rgba(240, 233, 218, 0.32);
 
-  /* Type scale */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, monospace;
-  --fs-eyebrow: 0.78rem;
-  --fs-body: 1.05rem;
-  --fs-lead: 1.25rem;
-  --fs-h3: 1.55rem;
-  --fs-h2: clamp(1.85rem, 1.4rem + 1.7vw, 2.6rem);
-  --fs-h1: clamp(2.6rem, 1.9rem + 3vw, 4.2rem);
-  --lh-tight: 1.12;
-  --lh-snug: 1.32;
+  /* — Type */
+  --font-display: 'Fraunces', 'Times New Roman', Times, serif;
+  --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* — Scale */
+  --fs-mark: clamp(0.7rem, 0.65rem + 0.2vw, 0.78rem);
+  --fs-meta: clamp(0.78rem, 0.74rem + 0.2vw, 0.85rem);
+  --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.08rem);
+  --fs-lead: clamp(1.18rem, 1rem + 0.8vw, 1.55rem);
+  --fs-h3: clamp(1.45rem, 1.1rem + 1.4vw, 2rem);
+  --fs-h2: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem);
+  --fs-h1: clamp(2.9rem, 1.6rem + 5.4vw, 5.6rem);
+  --fs-numeral: clamp(4rem, 2.5rem + 7vw, 8rem);
+
+  --lh-tight: 1.02;
+  --lh-snug: 1.18;
   --lh-body: 1.55;
 
-  /* Spacing */
-  --space-2xs: clamp(0.35rem, 0.3rem + 0.25vw, 0.55rem);
-  --space-xs: clamp(0.65rem, 0.55rem + 0.4vw, 0.9rem);
-  --space-s: clamp(0.9rem, 0.8rem + 0.55vw, 1.25rem);
-  --space-m: clamp(1.4rem, 1.1rem + 1vw, 2rem);
-  --space-l: clamp(2rem, 1.6rem + 1.7vw, 3.2rem);
-  --space-xl: clamp(3.5rem, 2.6rem + 3vw, 5.75rem);
-  --space-2xl: clamp(5rem, 3.5rem + 5vw, 8.5rem);
+  /* — Spacing */
+  --sp-2xs: clamp(0.35rem, 0.3rem + 0.25vw, 0.55rem);
+  --sp-xs: clamp(0.65rem, 0.55rem + 0.4vw, 0.9rem);
+  --sp-s: clamp(0.95rem, 0.8rem + 0.6vw, 1.3rem);
+  --sp-m: clamp(1.5rem, 1.15rem + 1.2vw, 2.25rem);
+  --sp-l: clamp(2.4rem, 1.8rem + 2.2vw, 4rem);
+  --sp-xl: clamp(4rem, 2.8rem + 4.5vw, 7rem);
+  --sp-2xl: clamp(6rem, 4rem + 7vw, 11rem);
 
-  /* Radii */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-pill: 999px;
+  /* — Layout */
+  --container-max: 1240px;
+  --gutter: clamp(1.25rem, 0.8rem + 2.2vw, 2.5rem);
 
-  /* Motion */
-  --duration-fast: 180ms;
-  --duration-base: 320ms;
-  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  /* — Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --d-fast: 220ms;
+  --d-med: 520ms;
+  --d-slow: 920ms;
 
-  /* Layout */
-  --container-max: 1180px;
-  --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+  /* — Radii (minimal — editorial favours hard edges) */
+  --r-card: 4px;
+  --r-pill: 999px;
 }
 
 * { box-sizing: border-box; }
+::selection { background: var(--vermillion); color: var(--ink); }
 
 html {
-  background: var(--surface-base);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-body);
   font-size: 16px;
-  line-height: var(--lh-body);
+  font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   margin: 0;
   min-height: 100dvh;
+  line-height: var(--lh-body);
+  background:
+    radial-gradient(120% 80% at 80% -10%, rgba(255, 74, 28, 0.07), transparent 55%),
+    radial-gradient(80% 60% at -10% 30%, rgba(240, 233, 218, 0.035), transparent 60%),
+    var(--ink);
 }
 
-main {
-  display: block;
-}
+main { display: block; }
 
+/* — Primitive headings, in display serif with optical fine-tuning */
 h1, h2, h3, h4 {
   margin: 0;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variation-settings: 'SOFT' 30, 'WONK' 1, 'opsz' 144;
+  letter-spacing: -0.02em;
   line-height: var(--lh-tight);
-  color: var(--text-primary);
+  color: var(--cream);
 }
 
-h1 { font-size: var(--fs-h1); letter-spacing: -0.02em; }
-h2 { font-size: var(--fs-h2); letter-spacing: -0.015em; }
-h3 { font-size: var(--fs-h3); }
+h1 { font-size: var(--fs-h1); letter-spacing: -0.035em; }
+h2 { font-size: var(--fs-h2); letter-spacing: -0.025em; }
+h3 { font-size: var(--fs-h3); letter-spacing: -0.018em; line-height: var(--lh-snug); }
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  color: var(--vermillion);
+  font-weight: 400;
+}
 
 p {
   margin: 0;
-  color: var(--text-secondary);
+  color: var(--cream-2);
   line-height: var(--lh-body);
+  font-size: var(--fs-body);
 }
 
 a {
-  color: var(--accent);
+  color: var(--cream);
   text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-standard);
+  border-bottom: 1px solid var(--cream-4);
+  padding-bottom: 1px;
+  transition: color var(--d-fast) var(--ease), border-color var(--d-fast) var(--ease);
 }
-a:hover { color: var(--accent-strong); }
+a:hover { color: var(--vermillion); border-bottom-color: var(--vermillion); }
 
-button, input, textarea, select {
-  font: inherit;
-  color: inherit;
-}
+button, input, textarea, select { font: inherit; color: inherit; }
 
-/* Primitive buttons */
-button {
-  appearance: none;
-  border: 1px solid var(--line-strong);
-  background: transparent;
-  color: var(--text-primary);
-  padding: 0.7rem 1.25rem;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: background var(--duration-fast) var(--ease-standard),
-              border-color var(--duration-fast) var(--ease-standard);
-}
-button:hover { background: var(--surface-soft); }
-
-/* Role variants — applies to button and a equally */
-:is(button, a).primary {
-  background: var(--accent);
-  color: #08221E;
-  border-color: var(--accent);
-  font-weight: 600;
-}
-:is(button, a).primary:hover {
-  background: var(--accent-strong);
-  border-color: var(--accent-strong);
-  color: #08221E;
-}
-
-:is(button, a).ghost {
-  background: transparent;
-  border-color: var(--line-soft);
-  color: var(--text-secondary);
-}
-:is(button, a).ghost:hover {
-  border-color: var(--line-strong);
-  color: var(--text-primary);
-}
-
-/* Inputs */
-input, textarea {
-  width: 100%;
-  background: var(--surface-elevated);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
-  color: var(--text-primary);
-  transition: border-color var(--duration-fast) var(--ease-standard);
-}
-input:focus, textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-/* Layout primitives — sparingly */
+/* — Layout */
 .page {
   max-width: var(--container-max);
   margin-inline: auto;
@@ -171,21 +145,265 @@ input:focus, textarea:focus {
 }
 
 section {
-  padding-block: var(--space-xl);
-  border-block-end: 1px solid var(--line-soft);
+  position: relative;
+  padding-block: var(--sp-xl);
 }
-section:last-of-type { border-block-end: none; }
+section + section { border-block-start: 1px solid var(--line-hair); }
 
+/* — Eyebrow (small-caps mono with hairline rule) */
 .eyebrow {
-  font-size: var(--fs-eyebrow);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-block-end: var(--sp-m);
+}
+.eyebrow::before {
+  content: '';
+  inline-size: clamp(28px, 5vw, 56px);
+  block-size: 1px;
+  background: var(--vermillion);
+}
+
+/* — Lead paragraph */
+.lead {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36, 'SOFT' 50, 'WONK' 0;
+  font-size: var(--fs-lead);
+  line-height: 1.35;
+  letter-spacing: -0.012em;
+  color: var(--cream);
+  max-width: 36ch;
+  font-weight: 400;
+}
+
+/* — Movement numeral (the signature element) */
+.numeral {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-size: var(--fs-numeral);
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--vermillion);
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+/* — Staff lines (musical signature motif, used as section decoration) */
+.staff {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  block-size: 36px;
+  background-image:
+    linear-gradient(to bottom,
+      transparent 0, transparent 7px,
+      var(--line-hair) 7px, var(--line-hair) 8px,
+      transparent 8px, transparent 14px,
+      var(--line-hair) 14px, var(--line-hair) 15px,
+      transparent 15px, transparent 21px,
+      var(--line-hair) 21px, var(--line-hair) 22px,
+      transparent 22px, transparent 28px,
+      var(--line-hair) 28px, var(--line-hair) 29px,
+      transparent 29px);
+  pointer-events: none;
+}
+
+/* — Buttons / link-buttons. Editorial: hard edges, mono labels. */
+:is(button, a).btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.4rem;
+  border: 1px solid var(--cream);
+  background: transparent;
+  color: var(--cream);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background var(--d-fast) var(--ease),
+              color var(--d-fast) var(--ease),
+              border-color var(--d-fast) var(--ease),
+              transform var(--d-fast) var(--ease);
+}
+:is(button, a).btn:hover {
+  background: var(--cream);
+  color: var(--ink);
+  border-color: var(--cream);
+  transform: translateY(-1px);
+}
+:is(button, a).btn.primary {
+  background: var(--vermillion);
+  border-color: var(--vermillion);
+  color: var(--ink);
+}
+:is(button, a).btn.primary:hover {
+  background: var(--vermillion-deep);
+  border-color: var(--vermillion-deep);
+  color: var(--cream);
+  transform: translateY(-1px);
+}
+:is(button, a).btn.ghost {
+  border-color: var(--line-soft);
+  color: var(--cream-2);
+}
+:is(button, a).btn.ghost:hover {
+  border-color: var(--cream);
+  color: var(--cream);
+  background: transparent;
+}
+
+/* — Inputs (editorial: rules, not boxes) */
+input, textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-block-end: 1px solid var(--line-soft);
+  padding: 0.85rem 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--cream);
+  border-radius: 0;
+  transition: border-color var(--d-fast) var(--ease);
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-block-end-color: var(--vermillion);
+}
+textarea { resize: vertical; min-block-size: 8rem; }
+
+label > span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-block-end: var(--space-s);
+  color: var(--cream-3);
+  margin-block-end: 0.5rem;
 }
 
-.lead {
-  font-size: var(--fs-lead);
-  color: var(--text-secondary);
-  max-width: 60ch;
+/* — Cards (concert-program / score-card pattern) */
+.card {
+  position: relative;
+  padding: var(--sp-m);
+  background: var(--ink-elev);
+  border: 1px solid var(--line-hair);
+  border-block-start: 2px solid var(--cream-4);
+  transition: border-color var(--d-fast) var(--ease),
+              transform var(--d-fast) var(--ease),
+              background var(--d-fast) var(--ease);
 }
+.card:hover {
+  border-block-start-color: var(--vermillion);
+  transform: translateY(-2px);
+  background: var(--ink-soft);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
+  color: var(--cream-3);
+}
+.meta-row > span { position: relative; }
+.meta-row > span + span::before {
+  content: '·';
+  margin-inline-end: 0.8rem;
+  color: var(--cream-4);
+}
+
+/* — Hairline rule */
+hr.hair {
+  border: 0;
+  block-size: 1px;
+  background: var(--line-hair);
+  margin: 0;
+}
+
+/* — Animated equalizer (footer signature) */
+.equalizer {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  block-size: 14px;
+}
+.equalizer i {
+  display: block;
+  inline-size: 3px;
+  background: var(--vermillion);
+  animation: eq 1.2s var(--ease) infinite;
+  transform-origin: bottom;
+}
+.equalizer i:nth-child(1) { block-size: 50%; animation-delay: 0ms; }
+.equalizer i:nth-child(2) { block-size: 90%; animation-delay: 120ms; }
+.equalizer i:nth-child(3) { block-size: 35%; animation-delay: 60ms; }
+.equalizer i:nth-child(4) { block-size: 70%; animation-delay: 240ms; }
+.equalizer i:nth-child(5) { block-size: 55%; animation-delay: 180ms; }
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+/* — Hero reveal: staggered fade-up on initial paint */
+.reveal { opacity: 0; transform: translateY(14px); animation: rise var(--d-slow) var(--ease) forwards; }
+.reveal[data-stagger="0"] { animation-delay: 60ms; }
+.reveal[data-stagger="1"] { animation-delay: 220ms; }
+.reveal[data-stagger="2"] { animation-delay: 380ms; }
+.reveal[data-stagger="3"] { animation-delay: 540ms; }
+.reveal[data-stagger="4"] { animation-delay: 700ms; }
+@keyframes rise {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; animation: none; }
+  .equalizer i { animation: none; transform: scaleY(0.7); }
+  *, *::before, *::after { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}
+
+/* — Section header (composed: numeral + eyebrow + title) */
+.section-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--sp-m);
+  row-gap: var(--sp-s);
+  align-items: start;
+  margin-block-end: var(--sp-l);
+}
+.section-head .numeral { grid-row: span 3; }
+.section-head .eyebrow { margin-block-end: 0; }
+.section-head h2 { max-width: 22ch; }
+@media (max-width: 640px) {
+  .section-head { grid-template-columns: 1fr; }
+  .section-head .numeral { grid-row: auto; font-size: clamp(3rem, 16vw, 5rem); }
+}
+
+/* — Generic grid for tiled content */
+.grid {
+  display: grid;
+  gap: var(--sp-m);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* — Tabular numerals where they belong */
+.tnum { font-variant-numeric: tabular-nums; }

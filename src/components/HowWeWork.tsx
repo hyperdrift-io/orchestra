@@ -19,23 +19,45 @@ const steps = [
 export function HowWeWork() {
   return (
     <section aria-labelledby="how-title">
-      <p className="eyebrow">How we work</p>
-      <h2 id="how-title">Three steps. No theatre.</h2>
+      <div className="section-head">
+        <p className="numeral" aria-hidden>03</p>
+        <p className="eyebrow">Movement III · How we work</p>
+        <h2 id="how-title">
+          Three steps. No <em>theatre</em>.
+        </h2>
+      </div>
+
       <ol
         style={{
-          marginBlockStart: 'var(--space-l)',
           display: 'grid',
-          gap: 'var(--space-l)',
+          gap: 'var(--sp-m)',
           gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
           listStyle: 'none',
           padding: 0,
+          margin: 0,
         }}
       >
         {steps.map((s) => (
-          <li key={s.n}>
-            <p style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>{s.n}</p>
-            <h3 style={{ marginBlockStart: 'var(--space-xs)' }}>{s.title}</h3>
-            <p style={{ marginBlockStart: 'var(--space-s)' }}>{s.body}</p>
+          <li
+            key={s.n}
+            className="card"
+            style={{ position: 'relative', overflow: 'hidden' }}
+          >
+            <p
+              aria-hidden
+              className="meta"
+              style={{
+                position: 'absolute',
+                top: 'var(--sp-m)',
+                right: 'var(--sp-m)',
+                color: 'var(--cream-4)',
+              }}
+            >
+              {s.n}
+            </p>
+            <p className="meta" style={{ color: 'var(--vermillion)' }}>Step {s.n}</p>
+            <h3 style={{ marginBlockStart: 'var(--sp-s)' }}>{s.title}</h3>
+            <p style={{ marginBlockStart: 'var(--sp-s)' }}>{s.body}</p>
           </li>
         ))}
       </ol>
