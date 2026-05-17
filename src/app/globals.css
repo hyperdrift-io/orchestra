@@ -1,0 +1,191 @@
+/* ===================================================================
+   Orchestra AI — Design System
+   Semantic CSS. Tokens on :root, primitives first, role classes for
+   variants. No utility classes.
+=================================================================== */
+
+:root {
+  /* Surfaces */
+  --surface-base: #0a0d10;
+  --surface-elevated: #11161a;
+  --surface-soft: #161c22;
+
+  /* Text */
+  --text-primary: #e9eef2;
+  --text-secondary: rgba(233, 238, 242, 0.74);
+  --text-tertiary: rgba(233, 238, 242, 0.48);
+
+  /* Lines */
+  --line-soft: rgba(233, 238, 242, 0.08);
+  --line-strong: rgba(233, 238, 242, 0.18);
+
+  /* Accent — clinical teal; revisit in visual pass */
+  --accent: #7BD8C9;
+  --accent-strong: #4FC4B0;
+  --accent-soft: rgba(123, 216, 201, 0.16);
+
+  /* Type scale */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, monospace;
+  --fs-eyebrow: 0.78rem;
+  --fs-body: 1.05rem;
+  --fs-lead: 1.25rem;
+  --fs-h3: 1.55rem;
+  --fs-h2: clamp(1.85rem, 1.4rem + 1.7vw, 2.6rem);
+  --fs-h1: clamp(2.6rem, 1.9rem + 3vw, 4.2rem);
+  --lh-tight: 1.12;
+  --lh-snug: 1.32;
+  --lh-body: 1.55;
+
+  /* Spacing */
+  --space-2xs: clamp(0.35rem, 0.3rem + 0.25vw, 0.55rem);
+  --space-xs: clamp(0.65rem, 0.55rem + 0.4vw, 0.9rem);
+  --space-s: clamp(0.9rem, 0.8rem + 0.55vw, 1.25rem);
+  --space-m: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  --space-l: clamp(2rem, 1.6rem + 1.7vw, 3.2rem);
+  --space-xl: clamp(3.5rem, 2.6rem + 3vw, 5.75rem);
+  --space-2xl: clamp(5rem, 3.5rem + 5vw, 8.5rem);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --container-max: 1180px;
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--surface-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+main {
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--fs-h1); letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-h2); letter-spacing: -0.015em; }
+h3 { font-size: var(--fs-h3); }
+
+p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: var(--lh-body);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+a:hover { color: var(--accent-strong); }
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Primitive buttons */
+button {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+button:hover { background: var(--surface-soft); }
+
+/* Role variants — applies to button and a equally */
+:is(button, a).primary {
+  background: var(--accent);
+  color: #08221E;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+:is(button, a).primary:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #08221E;
+}
+
+:is(button, a).ghost {
+  background: transparent;
+  border-color: var(--line-soft);
+  color: var(--text-secondary);
+}
+:is(button, a).ghost:hover {
+  border-color: var(--line-strong);
+  color: var(--text-primary);
+}
+
+/* Inputs */
+input, textarea {
+  width: 100%;
+  background: var(--surface-elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Layout primitives — sparingly */
+.page {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+section {
+  padding-block: var(--space-xl);
+  border-block-end: 1px solid var(--line-soft);
+}
+section:last-of-type { border-block-end: none; }
+
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-block-end: var(--space-s);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  max-width: 60ch;
+}
