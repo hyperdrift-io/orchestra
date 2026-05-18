@@ -1,0 +1,92 @@
+# Agent service as backend; clients as pluggable consumers.
+# The agent service is transport-agnostic. Auth resolves to TenantContext
+# at the boundary, regardless of how the request arrived.
+
+direction: right
+
+classes: {
+  client: {
+    style: {
+      fill: "#14141c"
+      stroke: "#3a3a45"
+      stroke-width: 1
+      font-color: "#f0e9da"
+      border-radius: 4
+    }
+  }
+  gate: {
+    style: {
+      fill: "#161c22"
+      stroke: "#FF4A1C"
+      stroke-width: 1
+      stroke-dash: 3
+      font-color: "#FF4A1C"
+      bold: true
+      border-radius: 4
+    }
+  }
+  service: {
+    style: {
+      fill: "#FF4A1C"
+      stroke: "#FF4A1C"
+      font-color: "#0c0c10"
+      bold: true
+      border-radius: 4
+    }
+  }
+  caption: {
+    shape: text
+    style: {
+      font-color: "#9a948a"
+      italic: true
+    }
+  }
+}
+
+clients: "Clients" {
+  shape: text
+  style.font-color: "#FF4A1C"
+  style.bold: true
+
+  ui: "In-product chat" {class: client}
+  mcp: |md
+    **MCP server**
+    Claude Desktop · Cursor
+    Goose · Claude Code
+  | {class: client}
+  api: |md
+    **REST / gRPC**
+    workers · integrations
+  | {class: client}
+  chat: "Slack · Discord · Teams" {class: client}
+  cron: |md
+    **Workers**
+    cron · webhooks · queues
+  | {class: client}
+}
+
+auth: |md
+  **Auth resolver**
+  → TenantContext
+| {class: gate}
+
+service: |md
+  **Agent service**
+  orchestration · tools · runs · audit
+| {class: service}
+
+clients.ui -> auth
+clients.mcp -> auth
+clients.api -> auth
+clients.chat -> auth
+clients.cron -> auth
+
+auth -> service: "resolved context"
+
+footnote: "Same service. Different transports. Tenancy comes from auth, not from how the request arrived." {
+  class: caption
+}
+
+service -> footnote: {
+  style.opacity: 0
+}

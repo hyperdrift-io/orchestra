@@ -78,9 +78,11 @@ interface TenantContext {
 }
 ```
 
-This object is constructed at the boundary where a request enters the agent layer (typically an HTTP route handler) and is passed through every subsequent call. **Nothing inside the agent layer is allowed to inspect global state for tenancy.** Tenancy travels with the work.
+This object is constructed at **the first point where auth has been resolved** — typically an HTTP route handler, but equally an MCP `call_tool` handler, a queue worker that pulled a job from a trusted queue, or a CLI command. From there it is passed through every subsequent call. The transport is irrelevant; what matters is that the agent layer never inspects global state for tenancy. **Tenancy travels with the work, not with the runtime.**
 
 ![Tenant context flow through the agent layer](/diagrams/tenant-context-flow.svg)
+
+A concrete consequence: `tenantId` is sourced from authentication, not from where the request arrived. In a UI flow it derives from the session cookie or JWT (user → tenant FK). In an MCP flow it derives from the API key or OAuth bearer that authenticated the client to the MCP server. In a background-worker flow it derives from a service-account credential or a signed job payload. Different transports, same axis. A second identifier — call it `runId` (the `audit.runId` above) — answers a different question: *which execution?* It is minted at the start of each agent run and threads through tools and logs. The two are independent: one tenant has many runs; one run always belongs to exactly one tenant.
 
 ## 5. Per-axis architecture
 
@@ -169,7 +171,32 @@ The architecture above is framework-agnostic. The `@orchestra/multitenant` libra
 
 The library is intentionally a *thin* layer — it adds the multi-tenant semantics without taking over orchestration, planning, or model selection.
 
-## 8. What this paper deliberately does not specify
+## 8. Clients of the agent service
+
+A useful re-framing of everything above: the agent layer is **a backend service**, not a feature embedded inside a particular UI. The clients that consume it are pluggable.
+
+![Agent service as backend; clients as pluggable consumers](/diagrams/agent-service-clients.svg)
+
+The agent service exposes its capabilities to:
+
+- **In-product chat** — the SaaS product's own UI, where the agent lives next to the existing workflow.
+- **MCP server** — Claude Desktop, Cursor, Goose, Claude Code and other Model Context Protocol clients connect over HTTP (or stdio for local servers) and call the tools as if they were native.
+- **REST / gRPC API** — workers, integrations, third-party backends that need the same capabilities programmatically.
+- **Workplace chat** — Slack / Discord / Teams bots that hand off requests to the agent service.
+- **Background workers** — cron, webhooks, queues. No client at all in the conventional sense; the agent runs because an event told it to.
+
+The same agent service serves all five. Tenancy comes from auth at the boundary, as discussed in §4. The agent layer never knows or cares about transport.
+
+This has practical consequences:
+
+- **Tools are defined once**, in the agent service. Each transport adapts them to its protocol surface (an MCP server lists them via `tools/list`; an HTTP API exposes them as routes; a Slack bot maps them to slash-commands), but the implementation is shared.
+- **Auth resolution is the only transport-specific concern.** Every transport must implement an auth-to-`TenantContext` mapping at its boundary; the rest of the stack receives a resolved context regardless.
+- **Audit and budget are unified.** A single tenant whose users hit the service via three transports simultaneously (UI, MCP, and a worker) sees one combined audit log and one combined cost ledger — because all three transports produce runs against the same agent service.
+- **MCP is increasingly the leverage point.** A vertical SaaS that exposes its agent service via MCP reaches every Claude Desktop, Cursor and Goose user *immediately* — no UI build required. For an OSS-aware engineering organisation, MCP is the cheapest way to put an agent in front of a knowledge-worker audience.
+
+A worked MCP example following these patterns lives at [`docs/examples/mcp-server-pattern.md`](../examples/mcp-server-pattern.md).
+
+## 9. What this paper deliberately does not specify
 
 - The internal mechanics of any specific agent framework.
 - The choice of vector store, RBAC engine, or observability vendor.
@@ -178,14 +205,14 @@ The library is intentionally a *thin* layer — it adds the multi-tenant semanti
 
 These are out of scope because they vary per engagement. The architecture is the contract; the implementation is the engagement.
 
-## 9. Open questions
+## 10. Open questions
 
 1. **Cross-tenant agent collaboration.** Some products allow tenants to share workflows. How should the tenant context behave when an agent runs across a delegation boundary? Proposed: an explicit *delegation token* with both tenants named and a shared budget pool.
 2. **Streaming and partial results.** Token streaming is now the norm; partial outputs are also subject to audit. The current spec covers complete runs; streaming is reserved for v0.2.
 3. **Background and scheduled runs.** When an agent run is initiated by cron rather than a user, the principal is a service account. The audit shape is the same, but tenant context construction needs a deterministic source for `correlationId`.
 4. **Multi-region tenancy.** Some SaaS products serve EU and US tenants from different regions for data-residency reasons. The architecture is silent on regionalisation; this is intentional for v0.1 — the patterns work per region.
 
-## 10. Status and next steps
+## 11. Status and next steps
 
 This is **draft v0.1**, open for comment. The Orchestra AI engineering practice will refine it based on:
 
