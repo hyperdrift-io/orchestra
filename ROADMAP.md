@@ -21,12 +21,25 @@
 
 **Remaining (requires user)**
 
-- Create remote: `gh repo create hyperdrift-io/orchestra --private --source apps/orchestra --push`.
-- Vercel project + env vars (`RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`, `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`).
-- DNS records for `ai.hyperdrift.io`.
-- Smoke test: every section, contact form end-to-end, PostHog `$pageview` events.
-- `make check-launch-readiness app=orchestra` (register orchestra in infra makefile if not present).
+Hyperdrift self-hosts on a Hostinger VPS. There is no Vercel / Netlify in the stack — the app is managed by PM2 behind nginx, with deploys driven by ansible from the `hyperdrift-infra` repo.
+
+- Create remote: `gh repo create hyperdrift-io/orchestra --private --source=. --remote=origin --push` (from `apps/orchestra/`).
+- Server-side env vars set on the Hostinger VPS for the `orchestra` PM2 process (`RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`, `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`).
+- DNS: A record for `ai.hyperdrift.io` → Hostinger VPS.
+- nginx server block for `ai.hyperdrift.io` proxying to `127.0.0.1:3005` (managed via ansible templates in `hyperdrift-infra`).
+- GitHub Actions secrets: `DEPLOY_WEBHOOK_URL`, `DEPLOY_WEBHOOK_TOKEN`, `NEXT_PUBLIC_POSTHOG_KEY`, `NEXT_PUBLIC_POSTHOG_HOST`.
+- First ansible deploy: `cd infra && make deploy app=orchestra` (or the per-app target the playbook exposes).
+- Smoke test: every section, contact form end-to-end, PostHog `$pageview` events, TLS valid.
+- `cd infra && make check-launch-readiness app=orchestra`.
 - Push hyper-drift updates to its existing remote.
+
+Port and infra registration (already committed in this repo + the `hyperdrift-infra` repo):
+
+- **Production port**: `3005` (next free slot per `infra/PORTS.md`).
+- **Development port**: `3105` (convention: prod + 100).
+- **App config**: `infra/group_vars/apps.yml` — `deploy_apps[name=orchestra]`.
+- **PM2 entry**: `apps/orchestra/ecosystem.config.cjs` mirrors the central `nginx-prod/ecosystem.config.js` block.
+- **CI**: `.github/workflows/deploy.yml` runs `test:ci` + `build`, then triggers the server-side deploy webhook.
 
 **Out of Phase 1 scope (deferred)**
 
