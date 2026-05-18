@@ -27,7 +27,7 @@ Convention: `prod_port + 100 = dev_port` (see `infra/PORTS.md`).
 
 ## Required env
 
-See [`.env.example`](./.env.example). The contact form needs `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`; analytics needs `NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLIC_POSTHOG_HOST`.
+See [`.env.example`](./.env.example). The contact form needs `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`. No analytics wiring in the MVP — we add measurement when there is something signal-shaped to measure.
 
 ## Deployment
 

@@ -41,9 +41,56 @@ Port and infra registration (already committed in this repo + the `hyperdrift-in
 - **PM2 entry**: `apps/orchestra/ecosystem.config.cjs` mirrors the central `nginx-prod/ecosystem.config.js` block.
 - **CI**: `.github/workflows/deploy.yml` runs `test:ci` + `build`, then triggers the server-side deploy webhook.
 
+**MVP discipline — what's intentionally NOT wired**
+
+- **No analytics in the MVP.** No PostHog, no GA, no instrumentation noise. We add measurement when there is something signal-shaped to measure (real visitors, a real funnel). Until then, instrumentation is decoration.
+- No CMS, blog scaffolding, or sub-vertical pages — these wait for content and case studies to justify them.
+- Aggressive YAGNI on every "while we're at it" addition. The MVP's job is to support the *agent demo → case study → article* loop, nothing else.
+
 **Out of Phase 1 scope (deferred)**
 
-- OSS libraries, sub-vertical landing pages, whitepapers, standalone domain.
+- OSS libraries, sub-vertical landing pages, whitepapers (drafted in the repo, not yet published on the site), standalone domain, any analytics.
+
+---
+
+## Phase 1.5 — Flagship use case as case study (overlap with Phase 1 close-out · ~Jun 2026)
+
+**Goal:** Build one *concrete, runnable, demonstrable* agentic flow that becomes the first case study on `ai.hyperdrift.io`. The MVP itself becomes the proof — not in addition to marketing, *as* marketing.
+
+The use case shape (to be locked in once we identify the target sub-vertical):
+
+- Demonstrates the **agent/automation boundary** explicitly — same input, the system shows which path it took and why. Makes the editorial point of the *Agents vs Automation* whitepaper visible in code.
+- Demonstrates **multi-tenant isolation** — at least two tenants, visible per-tenant memory and tool scoping. Makes the editorial point of the *Multi-tenant Agent Architecture* whitepaper visible in code.
+- Solves a problem the **competition is not addressing**: most agentic-workflow products either ignore multi-tenancy entirely or treat the agent/automation boundary as folklore.
+
+**Deliverables**
+
+- A runnable demo (initially local; later embedded on `ai.hyperdrift.io` as a case study).
+- A case-study write-up on Orchestra: problem · method · stack · outcome, with a link to the demo and to both whitepapers.
+- A companion article on Orchestra walking through the design decisions, cross-linked from the Hyperdrift blog.
+
+This is the seed of the content-distribution flow described below.
+
+---
+
+## Content distribution — where articles live
+
+**Agent-domain technical content lives on Orchestra. Hyperdrift stays the studio voice.**
+
+- **Orchestra hosts:** whitepapers, RFCs, agent patterns, case studies, engagement post-mortems, technical commentary on the broader agent ecosystem.
+- **Hyperdrift hosts:** studio thinking (philosophy, builder essays), portfolio app announcements, broader founder commentary.
+- **Cross-link, don't co-host:** Hyperdrift's blog links to Orchestra articles where relevant. Free distribution, no content duplication.
+- **Why:** topical authority compounds with concentration; HD declutters; Orchestra's content portfolio travels with it cleanly when the brand graduates (Phase 4).
+
+The content loop:
+
+1. Engagement (paid or POC) produces a real pattern or finding.
+2. The work becomes a case study on `ai.hyperdrift.io`.
+3. The pattern becomes an article on Orchestra (or a whitepaper, if the rigour is there).
+4. Hyperdrift's blog publishes a short pointer post that cross-links to the Orchestra article — driving HD traffic into Orchestra's funnel.
+5. Sub-vertical landing pages (`/for-construction-saas` etc.) reference the relevant case studies and articles.
+
+Every engagement should feed at least one item in this loop. The loop is the marketing engine; there is no separate "do marketing" task.
 
 ---
 
@@ -54,17 +101,20 @@ Port and infra registration (already committed in this repo + the `hyperdrift-in
 **Deliverables**
 
 - 2–3 paid client engagements taken and shipped.
-- Each engagement documented as a case study card on `ai.hyperdrift.io` (problem · method · stack · outcome).
+- Each engagement documented as a case study card on `ai.hyperdrift.io` (problem · method · stack · outcome) — *plus* at least one Orchestra article per engagement walking through the design.
+- HD cross-link post per engagement, pointing readers from `hyperdrift.io` to the Orchestra case study and article.
 - First OSS library shipped: **`@orchestra/multitenant`** — multi-tenant agent patterns (per-tenant memory and embedding isolation, tool scoping, cost attribution, audit trails, adapters for LangGraph / CrewAI / Claude Agent SDK / OpenAI Agents SDK).
-- First whitepaper: *"Multi-tenant agent architecture: a reference specification."* Published on the company blog and as an arXiv preprint if the rigour holds up.
-- First sub-vertical landing page (e.g. `/for-construction-saas`) — published only once a matching case study exists. Indexed for SEO, not in main nav, serves as the ad-group destination.
-- PostHog dashboards tracking the funnel: visit → case study → packages → contact submit.
+- First two whitepapers published on Orchestra (already drafted in this repo):
+  - *"Multi-tenant Agent Architecture: a reference specification"* — `docs/whitepapers/2026-multi-tenant-agent-architecture.md`.
+  - *"Agents vs Automation: drawing the right boundary"* — `docs/whitepapers/2026-agents-vs-automation.md`.
+- First sub-vertical landing page (e.g. `/for-construction-saas`) — published only once a matching case study exists.
+- **Light measurement only**, introduced once there is real traffic: a server-side hit counter or minimal pageview log. No third-party analytics SDK until the signal justifies it.
 
 **Exit criteria**
 
-- ≥ 2 paid client case studies live on `ai.hyperdrift.io`.
+- ≥ 2 paid client case studies live on `ai.hyperdrift.io`, each with a companion article and a cross-link from `hyperdrift.io`.
 - `@orchestra/multitenant` has a runnable reference integration, a documented README, and zero known correctness bugs.
-- The reference-spec whitepaper is published and linked from the site.
+- Both whitepapers published on Orchestra and referenced from the relevant case studies.
 
 ---
 
@@ -140,14 +190,15 @@ Each completed engagement seeds a sub-vertical landing page tied to an ad group.
 
 ### Measurement
 
-PostHog from day one, across both `ai.hyperdrift.io` and `hyperdrift.io`:
+**MVP posture: no instrumentation noise.** No PostHog, no GA, no SDKs in the MVP. Measurement is added only when the signal justifies it.
 
-- Page view + section scroll depth.
-- CTA clicks (per CTA).
-- Case-study engagement (open / scroll / demo interaction).
-- Form submit success.
-- Cross-property navigation (`hyperdrift.io` ↔ `ai.hyperdrift.io`).
-- Phase 2 onward: OSS repo star → docs view → contact funnel.
+When measurement does come in (Phase 2+), it stays minimal:
+
+- Server-side request log (route hit, referrer, timestamp) — no client SDK.
+- Contact-form submit count (already captured by the API route).
+- Cross-property navigation tracked via referrer headers, not third-party scripts.
+
+We will resist the temptation to wire full funnel analytics until there is a real funnel. The case-study → article → engagement loop is the engine; metrics describe it, they do not drive it.
 
 ### What we will not do at any phase
 
