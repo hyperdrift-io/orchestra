@@ -115,15 +115,30 @@ Most competing AI services pitch agentic workflows as a wholesale replacement fo
 
 This is the technical reading of "production-grade." It is not just multi-tenancy and audit logs; it is having the discipline to keep LLM calls out of the parts of the workflow that do not need them.
 
-## 7. Status and next steps
+## 7. Where the system actually lives
 
-This is **draft v0.1**, paired with the multi-tenant architecture spec at [./2026-multi-tenant-agent-architecture.md](./2026-multi-tenant-agent-architecture.md).
+A natural follow-up question: *where does this hybrid system run?* The answer turns out to matter, because it shapes what each cell in §3 looks like in production.
+
+The model that holds up across engagements: **the agent layer is a backend service.** The classifier, the agent-with-tools, the multi-agent orchestrator — all live inside a single service that exposes its capabilities to one or more clients. Clients are pluggable: the SaaS product's own UI, an MCP server for Claude Desktop / Cursor / Goose, a REST API for workers and integrations, workplace-chat bots, scheduled triggers.
+
+Two consequences follow directly from §3:
+
+- **Pure automation (c1) and classifier-as-router (c2) often run inside the same service as agents — but reached by different clients.** A cron-triggered classifier-as-router needs no UI; it produces a result on a queue. The same classifier surface can also be invoked by a Claude Desktop user over MCP. Same code, different transport.
+- **Agent + tools (c3) and multi-agent orchestration (c4) gain leverage from being headless.** When the agent is a service, every transport (in-product chat, MCP, Slack) is a reach into a different audience without rebuilding the orchestration.
+
+This is what we mean by "agent backend, not chat feature." Competitors who tie their agentic work to a particular UI surface end up rebuilding it for every channel; competitors who tie it to no surface at all (an academic LLM monoculture) cannot deliver into real products. The middle path — agent service with deterministic substrate, reached by pluggable clients — is the architecture that wins.
+
+For the multi-tenancy story this implies, see [`2026-multi-tenant-agent-architecture.md`](./2026-multi-tenant-agent-architecture.md) §8 *Clients of the agent service* and the worked MCP example at [`../examples/mcp-server-pattern.md`](../examples/mcp-server-pattern.md).
+
+## 8. Status and next steps
+
+This is **draft v0.1**, paired with the multi-tenant architecture spec at [`./2026-multi-tenant-agent-architecture.md`](./2026-multi-tenant-agent-architecture.md).
 
 Refinements expected:
 
-1. Concrete examples from real engagements, once shipped.
-2. A decision tree as a one-page diagram (the framework in §4, rendered).
-3. A short companion piece on **cost modelling** — how to estimate the price of an agentic workflow before you build it, broken down by pattern shape.
+1. Concrete examples from real engagements, once shipped — particularly a worked case showing the same workflow rendered as c1, c2, and c3 with cost and latency numbers, to make the boundary tangible.
+2. A short companion piece on **cost modelling** — how to estimate the price of an agentic workflow before you build it, broken down by pattern shape.
+3. Refinements to §3's four pattern shapes as engagements surface edge cases that do not fit cleanly.
 
 ---
 

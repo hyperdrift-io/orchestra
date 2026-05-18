@@ -162,14 +162,25 @@ Principles:
 
 ## 7. Adapters
 
-The architecture above is framework-agnostic. The `@orchestra/multitenant` library provides adapters for the major agent frameworks:
+The architecture is intentionally agnostic on two axes: the agent *framework* you use, and the *transport* clients use to reach it. `@orchestra/multitenant` provides adapters along both.
+
+### Framework adapters
 
 - **LangGraph**: a `TenantAwareGraph` wrapper that injects the tenant context into every node, scopes the checkpointer per tenant, and enforces budget at the graph runner.
 - **CrewAI**: middleware that resolves tool bindings per crew run and threads the tenant context through the crew's memory.
 - **Mastra**: integration with the Mastra agent registry to resolve per-tenant tool sets and per-tenant memory adapters.
 - **Claude Agent SDK / OpenAI Agents SDK**: tool wrappers that perform authorisation and cost accounting before delegating to the underlying tool, and stop-iteration helpers that respect tenant budgets.
 
-The library is intentionally a *thin* layer — it adds the multi-tenant semantics without taking over orchestration, planning, or model selection.
+### Transport adapters
+
+Each is a thin shim that resolves auth to a `TenantContext` and hands off to the agent service. See §8 for the conceptual frame and `docs/examples/mcp-server-pattern.md` for a worked MCP implementation.
+
+- **HTTP / REST**: bearer-token middleware that constructs the `TenantContext` and forwards to the agent service. The reference shape for most engagements.
+- **MCP (Streamable HTTP)**: an `@modelcontextprotocol/sdk` server that exposes per-tenant tool lists and routes `tools/call` through the same execution path as the in-product UI.
+- **Slack / Discord / Teams**: bot handlers that map workplace identity → tenant via OAuth installation records, then build the `TenantContext` from there.
+- **Worker / queue**: validators for signed job payloads that carry a `tenantId` claim, plus credentials for any external services the worker needs to authenticate downstream.
+
+The library is intentionally a *thin* layer — it adds the multi-tenant semantics without taking over orchestration, planning, model selection, or how tools are physically exposed.
 
 ## 8. Clients of the agent service
 
@@ -208,19 +219,25 @@ These are out of scope because they vary per engagement. The architecture is the
 ## 10. Open questions
 
 1. **Cross-tenant agent collaboration.** Some products allow tenants to share workflows. How should the tenant context behave when an agent runs across a delegation boundary? Proposed: an explicit *delegation token* with both tenants named and a shared budget pool.
-2. **Streaming and partial results.** Token streaming is now the norm; partial outputs are also subject to audit. The current spec covers complete runs; streaming is reserved for v0.2.
-3. **Background and scheduled runs.** When an agent run is initiated by cron rather than a user, the principal is a service account. The audit shape is the same, but tenant context construction needs a deterministic source for `correlationId`.
-4. **Multi-region tenancy.** Some SaaS products serve EU and US tenants from different regions for data-residency reasons. The architecture is silent on regionalisation; this is intentional for v0.1 — the patterns work per region.
+2. **Cross-transport correlation.** A single user may interact with the same tenant via in-product chat *and* MCP *and* a worker, sometimes within minutes. Should `audit.correlationId` thread across these to reconstruct a session, or do they remain distinct? Proposed: a per-tenant session identifier carried by the auth layer, optional on every transport, stitched server-side only.
+3. **Streaming and partial results.** Token streaming is now the norm; partial outputs are also subject to audit. The current spec covers complete runs; streaming is reserved for v0.2.
+4. **Background and scheduled runs.** When an agent run is initiated by cron rather than a user, the principal is a service account. The audit shape is the same, but tenant context construction needs a deterministic source for `correlationId`.
+5. **Multi-region tenancy.** Some SaaS products serve EU and US tenants from different regions for data-residency reasons. The architecture is silent on regionalisation; this is intentional for v0.1 — the patterns work per region.
 
 ## 11. Status and next steps
 
-This is **draft v0.1**, open for comment. The Orchestra AI engineering practice will refine it based on:
+This is **draft v0.1**, open for comment. Companion artefacts in this repository:
+
+- `docs/examples/mcp-server-pattern.md` — a worked example of exposing the agent service over MCP without changing anything in the service itself.
+- `docs/diagrams/` — D2 sources for the figures embedded above (`tenant-context-flow`, `agent-service-clients`, and the `agents-vs-automation-matrix` from the companion paper).
+
+The Orchestra AI engineering practice will refine the spec based on:
 
 - Lessons from the first 2–3 paid engagements (the patterns above are extracted from POC work; production engagements will surface gaps).
-- Feedback from the MCP working group (Anthropic) on whether parts of this spec should be proposed as MCP extensions.
+- Feedback from the MCP working group (Anthropic) on whether parts of this spec — particularly the auth-to-`TenantContext` resolution at the MCP boundary and per-tenant `tools/list` filtering — should be proposed as MCP conventions.
 - Adopter feedback once `@orchestra/multitenant` is published.
 
-A v0.2 is targeted for late 2026, addressing the open questions above and including reference adapters for at least two agent frameworks with working code.
+A v0.2 is targeted for late 2026, addressing the open questions above and including reference adapters for at least two agent frameworks plus the MCP and HTTP transports with working code.
 
 ---
 
