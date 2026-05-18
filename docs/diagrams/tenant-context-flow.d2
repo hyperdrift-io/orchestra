@@ -1,0 +1,107 @@
+# Tenant Context Flow — Multi-Tenant Agent Architecture
+# Renders for the multi-tenant whitepaper.
+
+direction: down
+
+classes: {
+  entry: {
+    style: {
+      fill: "#FF4A1C"
+      stroke: "#FF4A1C"
+      font-color: "#0c0c10"
+      bold: true
+      border-radius: 4
+    }
+  }
+  step: {
+    style: {
+      fill: "#14141c"
+      stroke: "#3a3a45"
+      stroke-width: 1
+      font-color: "#f0e9da"
+      border-radius: 4
+    }
+  }
+  axis: {
+    style: {
+      fill: "#161c22"
+      stroke: "#FF4A1C"
+      stroke-width: 1
+      stroke-dash: 3
+      font-color: "#FF4A1C"
+      bold: true
+      border-radius: 4
+    }
+  }
+  store: {
+    shape: cylinder
+    style: {
+      fill: "#11161a"
+      stroke: "#FF4A1C"
+      stroke-width: 1
+      font-color: "#f0e9da"
+    }
+  }
+  caption: {
+    shape: text
+    style: {
+      font-color: "#9a948a"
+      italic: true
+    }
+  }
+}
+
+http: "HTTP route handler\n(boundary into agent layer)" {
+  class: entry
+}
+
+ctx: |md
+  # TenantContext
+  tenantId · principalId · scope
+  budget · audit · features
+| {
+  class: axis
+}
+
+run: "Agent run\n(plan → tool use → recover)" {
+  class: step
+}
+
+tool_resolve: "Tool resolver\nresolve(ctx) → ToolBinding | null" {
+  class: step
+}
+
+authz: "Tool binding\nauthz check first" {
+  class: step
+}
+
+cost: "Budget enforcer\npre-step ceiling check" {
+  class: step
+}
+
+audit: "Audit sink\nappend-only, per-tenant" {
+  class: store
+}
+
+mem: "Memory store\npartitioned by tenantId" {
+  class: store
+}
+
+http -> ctx: "constructs"
+ctx -> run: "carried through every layer"
+run -> tool_resolve: "tool list"
+tool_resolve -> authz: "resolved binding"
+authz -> cost: "before each call"
+cost -> run: "ok / halt"
+run -> audit: "every decision"
+run <-> mem: "tenant-scoped"
+
+caption: "Tenancy travels with the work. Nothing inside the agent layer inspects global state for tenancy." {
+  class: caption
+}
+
+run -> caption: {
+  style: {
+    opacity: 0
+  }
+}

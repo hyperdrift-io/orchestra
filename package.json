@@ -9,7 +9,8 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:ci": "tsc --noEmit && vitest run"
+    "test:ci": "tsc --noEmit && vitest run",
+    "diagrams": "./scripts/render-diagrams.sh"
   },
   "dependencies": {
     "next": "^15.0.0",

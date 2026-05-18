@@ -31,6 +31,8 @@ The right question is: **for each step in the workflow, is the input determinist
 | **Deterministic input** | Pure automation (script, SQL, webhook, Zapier) | Rare — usually a sign the workflow is over-scoped |
 | **Ambiguous input** | Agent + tools (LLM picks one of N pre-defined actions) | Multi-agent orchestration (plan, route, recover) |
 
+![Agents vs Automation — decision matrix](/diagrams/agents-vs-automation-matrix.svg)
+
 Three of the four cells are normal production work. The fourth — open action space on ambiguous input — is where most teams either over-invest or fail. It is the only cell where "agent" carries its full weight; everywhere else, simpler patterns win.
 
 ## 3. Four pattern shapes

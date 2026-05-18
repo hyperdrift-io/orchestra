@@ -80,6 +80,8 @@ interface TenantContext {
 
 This object is constructed at the boundary where a request enters the agent layer (typically an HTTP route handler) and is passed through every subsequent call. **Nothing inside the agent layer is allowed to inspect global state for tenancy.** Tenancy travels with the work.
 
+![Tenant context flow through the agent layer](/diagrams/tenant-context-flow.svg)
+
 ## 5. Per-axis architecture
 
 ### 5.1 Memory isolation

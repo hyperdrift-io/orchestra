@@ -1,0 +1,121 @@
+# Agents vs Automation — Decision Matrix
+# Renders for the "Agents vs Automation" whitepaper.
+
+direction: right
+
+# === Orchestra palette ===
+# ink #0c0c10 | ink-elev #14141c | cream #f0e9da | vermillion #FF4A1C
+
+classes: {
+  cell: {
+    style: {
+      fill: "#14141c"
+      stroke: "#3a3a45"
+      stroke-width: 1
+      font-color: "#f0e9da"
+      border-radius: 4
+    }
+  }
+  signature: {
+    style: {
+      fill: "#FF4A1C"
+      stroke: "#FF4A1C"
+      font-color: "#0c0c10"
+      bold: true
+      border-radius: 4
+    }
+  }
+  axis: {
+    style: {
+      font-color: "#FF4A1C"
+      bold: true
+    }
+  }
+  caption: {
+    shape: text
+    style: {
+      font-color: "#9a948a"
+      italic: true
+    }
+  }
+  header: {
+    shape: text
+    style: {
+      font-color: "#f0e9da"
+      bold: true
+    }
+  }
+}
+
+grid: {
+  grid-rows: 3
+  grid-columns: 3
+  grid-gap: 24
+  style.fill: "#0c0c10"
+  style.stroke: "#0c0c10"
+
+  corner: "·" {
+    shape: text
+    style.font-color: "#0c0c10"
+  }
+
+  det_h: "Deterministic input" {
+    class: header
+  }
+
+  amb_h: "Ambiguous input" {
+    class: header
+  }
+
+  bound_h: "Bounded action space" {
+    class: header
+  }
+
+  c1: |md
+    ## Pure automation
+    Cron · SQL · webhook · Zapier.
+    No LLM. Theatre if added.
+  | {
+    class: cell
+  }
+
+  c3: |md
+    ## Agent + tools  ★
+    LLM interprets input;
+    deterministic tools execute.
+    **The dominant pattern.**
+  | {
+    class: signature
+  }
+
+  open_h: "Open action space" {
+    class: header
+  }
+
+  c2: |md
+    Rare — usually a sign
+    the workflow is over-scoped.
+  | {
+    class: cell
+    style.opacity: 0.5
+  }
+
+  c4: |md
+    ## Multi-agent orchestration
+    Plan · route · recover.
+    Highest leverage,
+    highest cost.
+  | {
+    class: cell
+  }
+}
+
+footnote: "Most teams reach for multi-agent prematurely. Most production AI workflows are pure automation or agent+tools." {
+  class: caption
+}
+
+grid -> footnote: {
+  style: {
+    opacity: 0
+  }
+}
