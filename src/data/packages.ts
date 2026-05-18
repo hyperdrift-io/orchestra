@@ -20,10 +20,10 @@ export const packages: Package[] = [
     ],
   },
   {
-    slug: 'ai-copilot',
-    name: 'AI Copilot',
+    slug: 'product-agent',
+    name: 'Product Agent',
     summary:
-      'Embedded chat copilot with tool use over your own product data. Multi-tenant, audit-ready, model-neutral.',
+      'An agent embedded inside your product with tool use over your own data. Multi-tenant, audit-ready, model-neutral.',
     timeline: 'Typical timeline: 3–4 weeks',
     highlights: [
       'Tool use scoped to tenant data',

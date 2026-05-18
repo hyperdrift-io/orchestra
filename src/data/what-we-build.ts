@@ -10,9 +10,9 @@ export const capabilities: Capability[] = [
       'Planning, routing, tool use and recovery across multiple specialised agents — designed for production load.',
   },
   {
-    title: 'AI copilots',
+    title: 'Embedded product agents',
     description:
-      'Embedded chat with scoped tool use over your tenant data, switchable models and audit-ready traces.',
+      'In-product agents with scoped tool use over your tenant data, switchable models and audit-ready traces.',
   },
   {
     title: 'Semantic search & retrieval',
