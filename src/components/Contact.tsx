@@ -10,10 +10,12 @@ export function Contact() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // Capture the element now: React nulls event.currentTarget after an await.
+    const formEl = event.currentTarget;
     setStatus('sending');
     setErrorMessage(null);
 
-    const form = new FormData(event.currentTarget);
+    const form = new FormData(formEl);
     const payload = {
       name: String(form.get('name') ?? ''),
       email: String(form.get('email') ?? ''),
@@ -32,7 +34,7 @@ export function Contact() {
         throw new Error(body.error ?? 'Submission failed');
       }
       setStatus('sent');
-      event.currentTarget.reset();
+      formEl.reset();
     } catch (err) {
       setStatus('error');
       setErrorMessage(err instanceof Error ? err.message : 'Something went wrong');
