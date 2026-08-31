@@ -39,6 +39,14 @@ export function Hero() {
         <a className="btn ghost" href="#case-studies">See case studies</a>
       </div>
 
+      <div className="reveal" data-stagger="4" style={{ marginBlockStart: 'var(--sp-xl)' }}>
+        <img
+          src="/hero-orchestra.webp"
+          alt="A conductor raising a baton over an orchestra of glowing automation pipelines"
+          style={{ width: '100%', display: 'block', border: '1px solid var(--line-hair)' }}
+        />
+      </div>
+
       <div
         className="reveal"
         data-stagger="4"

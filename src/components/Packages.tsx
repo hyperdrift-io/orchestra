@@ -69,6 +69,27 @@ export function Packages() {
           </article>
         ))}
       </div>
+
+      <article
+        className="card"
+        style={{ marginBlockStart: 'var(--sp-l)', borderColor: 'var(--vermillion)' }}
+      >
+        <p className="meta" style={{ color: 'var(--vermillion)' }}>The Traction Partnership</p>
+        <h3 style={{ marginBlockStart: 'var(--sp-s)' }}>
+          No budget? Then we <em>partner</em>.
+        </h3>
+        <p style={{ marginBlockStart: 'var(--sp-s)', maxWidth: '58ch' }}>
+          For a small number of products a quarter, we build the automation for
+          free and validate the partnership on traction alone: if the work moves
+          your numbers, the partnership stands and we share the upside; if it
+          does not, you owe nothing and keep everything we shipped. Orchestra is
+          the partner in the work — your team stays focused on profit while the
+          automation earns its place.
+        </p>
+        <p style={{ marginBlockStart: 'var(--sp-m)' }}>
+          <a className="btn primary" href="#contact">Apply to partner</a>
+        </p>
+      </article>
     </section>
   );
 }
