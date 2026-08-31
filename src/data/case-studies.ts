@@ -8,6 +8,7 @@ export interface CaseStudy {
   /** Live demo or source, when it is public. */
   link?: string;
   linkLabel?: string;
+  repo?: string;
   /** The article that documents the build, on the Hyperdrift blog. */
   article?: string;
 }
@@ -17,22 +18,14 @@ export const caseStudies: CaseStudy[] = [
     slug: 'helm',
     name: 'Helm',
     outcome:
-      'Google "All Things Agentic" hackathon entry: an agent crew commanding a live four-app fleet with scoped authority — the Commander decides, the Watch Officer reads, the Engineer acts only through allow-listed tools. Includes a self-healing drill against a deliberately broken, prompt-injected sandbox service.',
+      'Google "All Things Agentic" hackathon entry: an agent crew at the wheel of a live four-app fleet with scoped authority — the Commander decides, the Watch Officer reads push-based PostHog signals, the Engineer acts only through allow-listed tools. Includes a self-healing drill against a deliberately broken, prompt-injected sandbox service.',
     problem:
       'Handing one agent the production keyboard is how incidents happen; handing it nothing is how nothing ships.',
     capability: 'Fleet-scale orchestration with per-agent scoped authority.',
-    stack: ['Claude', 'MCP', 'PostHog signals', 'Cloud Run'],
-    article: 'https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals',
-  },
-  {
-    slug: 'fleet-signals',
-    name: 'The Fleet Commander',
-    outcome:
-      'A daily command cycle over four production apps that starts from push-based analytics: PostHog self-driving signals feed the morning read, so the platform speaks before anyone queries it.',
-    problem:
-      'Pull-based analytics only finds what you thought to ask; a fleet run by one founder cannot afford questions nobody asked.',
-    capability: 'Push-based product telemetry wired into agent decision loops.',
-    stack: ['PostHog', 'HogQL', 'Python', 'Claude'],
+    stack: ['Gemini 3.5', 'ADK', 'Fleet MCP', 'PostHog signals', 'Cloud Run'],
+    link: 'https://helm-294160018950.europe-west1.run.app',
+    linkLabel: 'Live demo',
+    repo: 'https://github.com/hyperdrift-io/helm',
     article: 'https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals',
   },
   {

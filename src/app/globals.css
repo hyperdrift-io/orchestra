@@ -572,3 +572,4 @@ footer > div:last-child {
   gap: var(--sp-s);
   flex-wrap: wrap;
 }
+#case-studies article header span { display: flex; gap: var(--sp-s); }

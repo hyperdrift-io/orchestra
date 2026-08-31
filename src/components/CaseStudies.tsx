@@ -22,11 +22,18 @@ export function CaseStudies() {
           <article key={cs.slug} className="card">
             <header>
               <p className="meta">Case Op. {String(i + 1).padStart(2, '0')}</p>
-              {cs.link && (
-                <a href={cs.link} target="_blank" rel="noreferrer" className="meta">
-                  {cs.linkLabel ?? 'Source'} ↗
-                </a>
-              )}
+              <span>
+                {cs.link && (
+                  <a href={cs.link} target="_blank" rel="noreferrer" className="meta">
+                    {cs.linkLabel ?? 'Source'} ↗
+                  </a>
+                )}
+                {cs.repo && (
+                  <a href={cs.repo} target="_blank" rel="noreferrer" className="meta">
+                    Source ↗
+                  </a>
+                )}
+              </span>
             </header>
 
             <h3>{cs.name}</h3>
