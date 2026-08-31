@@ -11,85 +11,50 @@ export function CaseStudies() {
         </h2>
       </div>
 
-      <p className="lead" style={{ marginBlockEnd: 'var(--sp-l)' }}>
-        Early proof from the Hyperdrift studio. Each demonstrates a pattern
-        we now ship into client engagements.
+      <p className="lead">
+        Proof from the Hyperdrift studio — live products, contest entries,
+        and the fleet Orchestra itself runs on. Each demonstrates a pattern
+        we ship into client engagements.
       </p>
 
-      <div
-        style={{
-          display: 'grid',
-          gap: 'var(--sp-m)',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-        }}
-      >
+      <div>
         {caseStudies.map((cs, i) => (
           <article key={cs.slug} className="card">
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                justifyContent: 'space-between',
-                gap: 'var(--sp-s)',
-                marginBlockEnd: 'var(--sp-s)',
-              }}
-            >
-              <p className="meta" style={{ color: 'var(--vermillion)' }}>
-                Case Op. {String(i + 1).padStart(2, '0')}
-              </p>
+            <header>
+              <p className="meta">Case Op. {String(i + 1).padStart(2, '0')}</p>
               {cs.link && (
-                <a
-                  href={cs.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="meta"
-                  style={{ color: 'var(--cream-2)', borderBottom: '1px solid var(--cream-4)' }}
-                >
-                  Source ↗
+                <a href={cs.link} target="_blank" rel="noreferrer" className="meta">
+                  {cs.linkLabel ?? 'Source'} ↗
                 </a>
               )}
-            </div>
+            </header>
 
             <h3>{cs.name}</h3>
 
-            <p
-              className="lead"
-              style={{
-                fontSize: 'var(--fs-body)',
-                color: 'var(--cream)',
-                marginBlockStart: 'var(--sp-s)',
-                maxWidth: '36ch',
-              }}
-            >
-              {cs.outcome}
-            </p>
+            <p className="lead">{cs.outcome}</p>
 
-            <hr className="hair" style={{ marginBlock: 'var(--sp-m)' }} />
+            <hr className="hair" />
 
-            <dl style={{ display: 'grid', gap: 'var(--sp-s)', margin: 0 }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '5rem 1fr', gap: 'var(--sp-s)' }}>
-                <dt className="meta" style={{ color: 'var(--cream-3)' }}>Problem</dt>
-                <dd style={{ margin: 0, color: 'var(--cream-2)' }}>{cs.problem}</dd>
+            <dl>
+              <div>
+                <dt className="meta">Problem</dt>
+                <dd>{cs.problem}</dd>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '5rem 1fr', gap: 'var(--sp-s)' }}>
-                <dt className="meta" style={{ color: 'var(--cream-3)' }}>Method</dt>
-                <dd style={{ margin: 0, color: 'var(--cream-2)' }}>{cs.capability}</dd>
+              <div>
+                <dt className="meta">Method</dt>
+                <dd>{cs.capability}</dd>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '5rem 1fr', gap: 'var(--sp-s)' }}>
-                <dt className="meta" style={{ color: 'var(--cream-3)' }}>Stack</dt>
-                <dd
-                  style={{
-                    margin: 0,
-                    color: 'var(--cream-3)',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 'var(--fs-mark)',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  {cs.stack.join(' · ')}
-                </dd>
+              <div>
+                <dt className="meta">Stack</dt>
+                <dd data-stack>{cs.stack.join(' · ')}</dd>
               </div>
             </dl>
+
+            {cs.article && (
+              <p>
+                <a href={cs.article}>Read the build on the Hyperdrift blog →</a>
+              </p>
+            )}
           </article>
         ))}
       </div>

@@ -40,7 +40,7 @@ export function Packages() {
         ))}
       </div>
 
-      <article className="card">
+      <article className="card" id="partnership">
         <p className="meta">The Traction Partnership</p>
         <h3>
           No budget? Then we <em>partner</em>.
