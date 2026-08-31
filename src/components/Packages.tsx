@@ -11,74 +11,41 @@ export function Packages() {
         </h2>
       </div>
 
-      <p className="lead" style={{ marginBlockEnd: 'var(--sp-l)' }}>
+      <p className="lead">
         Every product is different, so pricing is per engagement.
         Start a conversation and we will scope concretely.
       </p>
 
-      <div
-        style={{
-          display: 'grid',
-          gap: 'var(--sp-m)',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        }}
-      >
+      <div>
         {packages.map((p, i) => (
-          <article key={p.slug} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
-            <p className="meta" style={{ color: 'var(--vermillion)' }}>
-              Opus {String(i + 1).padStart(2, '0')}
-            </p>
-            <h3 style={{ marginBlockStart: 'var(--sp-s)' }}>{p.name}</h3>
-            <p style={{ marginBlockStart: 'var(--sp-s)' }}>{p.summary}</p>
+          <article key={p.slug} className="card">
+            <p className="meta">Opus {String(i + 1).padStart(2, '0')}</p>
+            <h3>{p.name}</h3>
+            <p>{p.summary}</p>
 
-            <hr className="hair" style={{ marginBlock: 'var(--sp-m)' }} />
+            <hr className="hair" />
 
-            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: 'var(--sp-2xs)' }}>
+            <ul>
               {p.highlights.map((h) => (
-                <li
-                  key={h}
-                  style={{
-                    color: 'var(--cream-2)',
-                    paddingInlineStart: '1.1rem',
-                    position: 'relative',
-                  }}
-                >
-                  <span
-                    aria-hidden
-                    style={{
-                      position: 'absolute',
-                      insetInlineStart: 0,
-                      top: '0.55em',
-                      width: '0.6rem',
-                      height: '1px',
-                      background: 'var(--vermillion)',
-                    }}
-                  />
-                  {h}
-                </li>
+                <li key={h}>{h}</li>
               ))}
             </ul>
 
-            <p className="meta" style={{ marginBlockStart: 'var(--sp-m)', color: 'var(--cream-3)' }}>
-              {p.timeline}
-            </p>
+            <p className="meta">{p.timeline}</p>
 
-            <p style={{ marginBlockStart: 'var(--sp-m)' }}>
+            <p>
               <a className="btn primary" href="#contact">Get a quote</a>
             </p>
           </article>
         ))}
       </div>
 
-      <article
-        className="card"
-        style={{ marginBlockStart: 'var(--sp-l)', borderColor: 'var(--vermillion)' }}
-      >
-        <p className="meta" style={{ color: 'var(--vermillion)' }}>The Traction Partnership</p>
-        <h3 style={{ marginBlockStart: 'var(--sp-s)' }}>
+      <article className="card">
+        <p className="meta">The Traction Partnership</p>
+        <h3>
           No budget? Then we <em>partner</em>.
         </h3>
-        <p style={{ marginBlockStart: 'var(--sp-s)', maxWidth: '58ch' }}>
+        <p>
           For a small number of products a quarter, we build the automation for
           free and validate the partnership on traction alone: if the work moves
           your numbers, the partnership stands and we share the upside; if it
@@ -86,9 +53,16 @@ export function Packages() {
           the partner in the work — your team stays focused on profit while the
           automation earns its place.
         </p>
-        <p style={{ marginBlockStart: 'var(--sp-m)' }}>
+        <p>
           <a className="btn primary" href="#contact">Apply to partner</a>
         </p>
+        <footer>
+          <p>
+            In partnership with <strong>Tecknuovo</strong> and{' '}
+            <strong>Vodafone3</strong> — contracted through Hyperdrift.
+            Sponsored by <strong>Databricks</strong>.
+          </p>
+        </footer>
       </article>
     </section>
   );

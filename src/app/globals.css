@@ -407,3 +407,65 @@ hr.hair {
 
 /* — Tabular numerals where they belong */
 .tnum { font-variant-numeric: tabular-nums; }
+
+/* — Movement VI · Packages: the cascade carries what inline styles used to */
+#packages > .lead { margin-block-end: var(--sp-l); }
+
+#packages .section-head ~ div {
+  display: grid;
+  gap: var(--sp-m);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+#packages article {
+  display: flex;
+  flex-direction: column;
+}
+#packages article > .meta:first-child { color: var(--vermillion); }
+#packages article h3 { margin-block-start: var(--sp-s); }
+#packages article > p { margin-block-start: var(--sp-s); }
+#packages article > p:last-of-type { margin-block-start: var(--sp-m); }
+#packages article .hair { margin-block: var(--sp-m); }
+
+#packages article ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--sp-2xs);
+}
+#packages article li {
+  color: var(--cream-2);
+  padding-inline-start: 1.1rem;
+  position: relative;
+}
+#packages article li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.55em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--vermillion);
+}
+#packages div article > .meta:last-of-type {
+  margin-block-start: var(--sp-m);
+  color: var(--cream-3);
+}
+
+/* The Traction Partnership stands apart from the opus grid */
+#packages > article {
+  margin-block-start: var(--sp-l);
+  border-color: var(--vermillion);
+}
+#packages > article > p { max-width: 58ch; }
+#packages > article footer {
+  margin-block-start: var(--sp-m);
+  border-block-start: 1px solid var(--hair, currentColor);
+  padding-block-start: var(--sp-s);
+}
+#packages > article footer p {
+  color: var(--cream-3);
+  font-size: 0.9em;
+}
+#packages > article footer strong { color: var(--cream-1, inherit); }
