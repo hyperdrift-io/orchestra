@@ -1,0 +1,725 @@
+{
+  "title": "B \u2014 expandable situations",
+  "summary": "Manually inspected final B layout imported after automated ScreenCraft inference failed validation. Founder selection pending; no application changes.",
+  "identity": [
+    "Preserve Concert Hall \u00d7 Lab Notebook identity.",
+    "Fraunces display, IBM Plex Sans and Mono.",
+    "Existing ink#0c0c10, cream#f0e9da, vermillion#ff4a1c and thin staff/hairline motifs.",
+    "Voice Covenant: clear, useful, strengths-first; no fabricated results or endorsements."
+  ],
+  "screens": [
+    {
+      "id": "desktop",
+      "bounds_px": [
+        40,
+        50,
+        675,
+        1440
+      ],
+      "viewport_css_px": [
+        1440,
+        3072
+      ]
+    },
+    {
+      "id": "mobile",
+      "bounds_px": [
+        745,
+        50,
+        239,
+        1440
+      ],
+      "viewport_css_px": [
+        390,
+        2350
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "masthead",
+      "name": "Existing identity and direct links",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.02962962962962963,
+            0.010416666666666666,
+            0.9407407407407408,
+            0.05694444444444444
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.010416666666666666,
+            0.899581589958159,
+            0.06180555555555556
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Small cream serif wordmark, Hyperdrift attribution, navigation and pinned anniversary.",
+        "Remove redundant generated mobile hamburger; retain visible direct links."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "header",
+        "component": null,
+        "selector": "header",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "introduction",
+      "name": "Visitor question",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.034074074074074076,
+            0.08611111111111111,
+            0.9333333333333333,
+            0.07569444444444444
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.08472222222222223,
+            0.899581589958159,
+            0.07430555555555556
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Fraunces cream question with vermillion italic AI next.",
+        "One short explanatory sentence."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "section",
+        "component": null,
+        "selector": "#introduction",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "stage-first",
+      "name": "Finding a useful first step",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.034074074074074076,
+            0.19583333333333333,
+            0.9333333333333333,
+            0.03819444444444445
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.1736111111111111,
+            0.899581589958159,
+            0.027777777777777776
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Closed first stage row."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "details",
+        "component": null,
+        "selector": "details[data-stage='explore']",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "stage-workflow",
+      "name": "Automating a workflow",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.034074074074074076,
+            0.23472222222222222,
+            0.9333333333333333,
+            0.22083333333333333
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.20208333333333334,
+            0.899581589958159,
+            0.36944444444444446
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Selected stage02 is open; its answer belongs inside the same details element."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "details",
+        "component": null,
+        "selector": "details[data-stage='workflow']",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "workflow-summary",
+      "name": "Selected situation control",
+      "parent": "stage-workflow",
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.034074074074074076,
+            0.23472222222222222,
+            0.9333333333333333,
+            0.03819444444444445
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.20208333333333334,
+            0.899581589958159,
+            0.027083333333333334
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Vermillion outlined02 and minus signal expanded state."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "summary",
+        "component": null,
+        "selector": "details[data-stage='workflow'] > summary",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "workflow-result",
+      "name": "Who and why with editable enquiry action",
+      "parent": "stage-workflow",
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.04,
+            0.29444444444444445,
+            0.3851851851851852,
+            0.09305555555555556
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.23819444444444443,
+            0.899581589958159,
+            0.07291666666666667
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Short response and Map my workflow CTA are immediately visible when opened."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "div",
+        "component": null,
+        "selector": "details[data-stage='workflow'] > div",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "workflow-evidence",
+      "name": "Working examples with public actions",
+      "parent": "stage-workflow",
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.4785185185185185,
+            0.29444444444444445,
+            0.4888888888888889,
+            0.1076388888888889
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.32916666666666666,
+            0.899581589958159,
+            0.18958333333333333
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Desktop Standup and Deputy beside the response; mobile stacked below it.",
+        "Standup AWS credit is participation; Deputy is a reference integration.",
+        "Every example has a public action."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "section",
+        "component": null,
+        "selector": "details[data-stage='workflow'] section",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "workflow-depth",
+      "name": "Collapsed method detail",
+      "parent": "stage-workflow",
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.034074074074074076,
+            0.41805555555555557,
+            0.9333333333333333,
+            0.0375
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.5277777777777778,
+            0.899581589958159,
+            0.04236111111111111
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Supporting explanation remains closed."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "details",
+        "component": null,
+        "selector": "details[data-stage='workflow'] details",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "stage-prototype",
+      "name": "Taking a prototype live",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.034074074074074076,
+            0.4777777777777778,
+            0.9333333333333333,
+            0.03819444444444445
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.5729166666666666,
+            0.899581589958159,
+            0.027083333333333334
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Closed third stage. Its generated red numeral is a defect: use neutral while closed."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "details",
+        "component": null,
+        "selector": "details[data-stage='prototype']",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "stage-live",
+      "name": "Improving a live product",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.034074074074074076,
+            0.5166666666666667,
+            0.9333333333333333,
+            0.03819444444444445
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.6013888888888889,
+            0.899581589958159,
+            0.02847222222222222
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Closed fourth stage."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "details",
+        "component": null,
+        "selector": "details[data-stage='live']",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "current-content",
+      "name": "Dated Intel and latest writing",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.035555555555555556,
+            0.5868055555555556,
+            0.9318518518518518,
+            0.09236111111111112
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.6472222222222223,
+            0.899581589958159,
+            0.12777777777777777
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Two compact columns desktop; stacked mobile.",
+        "Use actual publication dates and fallback links, not hardcoded latest claims."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "section",
+        "component": null,
+        "selector": "#current-content",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "partnership",
+      "name": "Visible invitation with closed terms",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.035555555555555556,
+            0.7069444444444445,
+            0.9318518518518518,
+            0.1284722222222222
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.7847222222222222,
+            0.899581589958159,
+            0.10902777777777778
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Invitation and Apply to partner visible; terms are closed."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "section",
+        "component": null,
+        "selector": "#partnership",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "supporting-depth",
+      "name": "Catalogue, delivery and FAQ",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.035555555555555556,
+            0.8520833333333333,
+            0.9318518518518518,
+            0.1076388888888889
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        },
+        {
+          "screen": "mobile",
+          "bounds": [
+            0.04602510460251046,
+            0.8944444444444445,
+            0.899581589958159,
+            0.08263888888888889
+          ],
+          "measurement": "Approximate visual measurement from inspected final B raster; not recovered CSS."
+        }
+      ],
+      "observations": [
+        "Three closed disclosures, not a long brochure.",
+        "Full catalogue includes all five project-backed contest entries."
+      ],
+      "inferences": [
+        "Responsive behaviour follows BRIEF.md; this still image shows selected stage 02."
+      ],
+      "implementation": {
+        "element": "section",
+        "component": null,
+        "selector": "#supporting-detail",
+        "css": [],
+        "asset": null
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "nodes": [
+        "workflow-summary",
+        "workflow-result",
+        "workflow-evidence",
+        "workflow-depth"
+      ],
+      "kind": "containment and order",
+      "evidence": "All selected content is inside02 before stage03 on both screens.",
+      "css_consequence": "Use native details container; desktop inner grid, mobile one column."
+    },
+    {
+      "nodes": [
+        "stage-first",
+        "stage-workflow",
+        "stage-prototype",
+        "stage-live"
+      ],
+      "kind": "vertical sequence",
+      "evidence": "Four typographic rows in order01\u201304.",
+      "css_consequence": "Document flow; no absolute positioning."
+    },
+    {
+      "nodes": [
+        "current-content",
+        "partnership",
+        "supporting-depth"
+      ],
+      "kind": "vertical sequence",
+      "evidence": "Current content and partnership precede closed supporting sections.",
+      "css_consequence": "Compact section rhythm, stable source order on mobile."
+    }
+  ],
+  "interactions": [
+    {
+      "id": "choose-situation",
+      "nodes": [
+        "stage-first",
+        "stage-workflow",
+        "stage-prototype",
+        "stage-live"
+      ],
+      "purpose": "Show guidance relevant to the visitor",
+      "trigger": "Activate a situation summary",
+      "before": "All situations closed on initial visit; image depicts selected02",
+      "after": "Selected situation reveals who/why, examples and enquiry action; can close again",
+      "primitive": "details/summary",
+      "timing": "Immediate; no decorative delay",
+      "keyboard": "Native keyboard semantics; visible focus",
+      "touch": "Minimum44px interactive targets at implementation size",
+      "reduced_motion": "No motion required; respect reduced-motion preference",
+      "fallback": "Native disclosures remain usable without client JavaScript",
+      "status": "specified"
+    },
+    {
+      "id": "enquire",
+      "nodes": [
+        "workflow-result"
+      ],
+      "purpose": "Start a relevant conversation",
+      "trigger": "Activate Map my workflow",
+      "before": "Visitor has selected workflow stage",
+      "after": "Existing enquiry opens with visible editable situation; previous text preserved",
+      "primitive": "Anchor and form controls",
+      "timing": "Immediate; no decorative delay",
+      "keyboard": "Native keyboard semantics; visible focus",
+      "touch": "Minimum44px interactive targets at implementation size",
+      "reduced_motion": "No motion required; respect reduced-motion preference",
+      "fallback": "Direct contact link; no automatic submission",
+      "status": "specified"
+    },
+    {
+      "id": "inspect-proof",
+      "nodes": [
+        "workflow-evidence"
+      ],
+      "purpose": "Inspect actual work before enquiring",
+      "trigger": "Activate demo, article or repository link",
+      "before": "Evidence visible inside selected situation",
+      "after": "Navigate to canonical public destination",
+      "primitive": "a[href]",
+      "timing": "Immediate; no decorative delay",
+      "keyboard": "Native keyboard semantics; visible focus",
+      "touch": "Minimum44px interactive targets at implementation size",
+      "reduced_motion": "No motion required; respect reduced-motion preference",
+      "fallback": "Ordinary links work without JavaScript",
+      "status": "specified"
+    },
+    {
+      "id": "read-current",
+      "nodes": [
+        "current-content"
+      ],
+      "purpose": "Follow current reporting and writing",
+      "trigger": "Activate Intel/article link",
+      "before": "Publication date and compact summary visible",
+      "after": "Open canonical publication",
+      "primitive": "a[href]",
+      "timing": "Immediate; no decorative delay",
+      "keyboard": "Native keyboard semantics; visible focus",
+      "touch": "Minimum44px interactive targets at implementation size",
+      "reduced_motion": "No motion required; respect reduced-motion preference",
+      "fallback": "Permanent Intel/blog links if feed fails",
+      "status": "specified"
+    },
+    {
+      "id": "open-depth",
+      "nodes": [
+        "workflow-depth",
+        "partnership",
+        "supporting-depth"
+      ],
+      "purpose": "Reveal detail only when requested",
+      "trigger": "Activate relevant summary",
+      "before": "Supporting explanation closed",
+      "after": "Relevant detail expands in place",
+      "primitive": "details/summary",
+      "timing": "Immediate; no decorative delay",
+      "keyboard": "Native keyboard semantics; visible focus",
+      "touch": "Minimum44px interactive targets at implementation size",
+      "reduced_motion": "No motion required; respect reduced-motion preference",
+      "fallback": "Native disclosures",
+      "status": "specified"
+    }
+  ],
+  "open_decisions": [
+    "Founder must select A/B/C before implementation.",
+    "Image shows02open; first visit startsallclosed.",
+    "Viewport CSS heights are inferred from board aspect ratio, not approved fixed heights.",
+    "Typography measurements and spacing to reconcile against existing CSS in live preview.",
+    "Use neutral stage03 numeral; remove redundant mobile menu; buttons retain existing solid fill."
+  ]
+}

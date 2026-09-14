@@ -18,46 +18,22 @@ const steps = [
 
 export function HowWeWork() {
   return (
-    <section aria-labelledby="how-title">
+    <section id="how" aria-labelledby="how-title">
       <div className="section-head">
-        <p className="numeral" aria-hidden>03</p>
-        <p className="eyebrow">Movement III · How we work</p>
+        <p className="numeral" aria-hidden>06</p>
+        <p className="eyebrow">Movement VI · How we work</p>
         <h2 id="how-title">
           Three steps. No <em>theatre</em>.
         </h2>
       </div>
 
-      <ol
-        style={{
-          display: 'grid',
-          gap: 'var(--sp-m)',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          listStyle: 'none',
-          padding: 0,
-          margin: 0,
-        }}
-      >
+      <ol>
         {steps.map((s) => (
-          <li
-            key={s.n}
-            className="card"
-            style={{ position: 'relative', overflow: 'hidden' }}
-          >
-            <p
-              aria-hidden
-              className="meta"
-              style={{
-                position: 'absolute',
-                top: 'var(--sp-m)',
-                right: 'var(--sp-m)',
-                color: 'var(--cream-4)',
-              }}
-            >
-              {s.n}
-            </p>
-            <p className="meta" style={{ color: 'var(--vermillion)' }}>Step {s.n}</p>
-            <h3 style={{ marginBlockStart: 'var(--sp-s)' }}>{s.title}</h3>
-            <p style={{ marginBlockStart: 'var(--sp-s)' }}>{s.body}</p>
+          <li key={s.n} className="card">
+            <p aria-hidden className="meta">{s.n}</p>
+            <p className="meta">Step {s.n}</p>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
           </li>
         ))}
       </ol>

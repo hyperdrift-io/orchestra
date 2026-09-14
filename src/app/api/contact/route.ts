@@ -24,7 +24,9 @@ export async function POST(req: Request) {
     );
   }
 
-  const { name, email, company, message } = parsed.data;
+  const { name, email, company, situation, message } = parsed.data;
+  // Context the visitor chose travels inside the message: the relay's contract stays name/email/message.
+  const context = [situation && `Where you are: ${situation}`, company && `Company: ${company}`].filter(Boolean);
   try {
     const relay = await fetch(RELAY_URL, {
       method: 'POST',
@@ -32,7 +34,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         name,
         email,
-        message: company ? `Company: ${company}\n\n${message}` : message,
+        message: context.length ? `${context.join('\n')}\n\n${message}` : message,
         source: 'orchestra_ai',
       }),
       signal: AbortSignal.timeout(10_000),

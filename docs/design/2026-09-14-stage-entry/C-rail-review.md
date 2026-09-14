@@ -1,0 +1,9 @@
+# C — Stage rail
+
+Final board: C-rail.png. One initial Recraft generation (`recraftv4_1_utility_pro`, seed 103, size 2:3) preserved as C-draft.png, with its original prompt and C-draft.json metadata. One corrective native imagegen edit, explicitly delegated by main after the first rendering failed the fidelity bar. Native output source: `/Users/yannvr/.codex/generated_images/01a09d4f-d100-76c2-b1fb-2da7bb076204/exec-18ce5891-e135-4395-9f78-2fb0eff1492b.png`. Final edit provenance is recorded in C-rail.json. No UI files edited.
+
+Final visual inspection: **suitable for comparing the interaction direction.** Small masthead, serif hero with vermillion italic, correct selected stage 02, four visible desktop options, native-style mobile selector, complete two-example evidence and links, correctly assigned Intel and writing, anniversary, partnership and closed bottom disclosures appear in both views. Fine rules and the outlined 02 respect the established identity. No invented metrics or endorsement claims.
+
+Strength: desktop keeps all four situations visible beside one response, with concrete examples and links immediately under the primary action. Current writing and partnership remain visible destinations; lengthy commercial copy is closed. The mobile selector communicates a reversible stage choice.
+
+Trade-off: the rail consumes desktop width and adds interface weight compared with the NextRole disclosure approach. Mobile hides the other stages inside a selector, reducing immediate comparison. Compact evidence text in the board needs proper readable body sizing in implementation. Minor image artefacts (button texture, container edge shading, a redundant mobile menu glyph) are rendering details, not design requirements; actual implementation should preserve existing solid button fill and surface treatment.

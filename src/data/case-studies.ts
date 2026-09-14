@@ -52,7 +52,7 @@ export const caseStudies: CaseStudy[] = [
     capability: 'Fleet-scale orchestration with per-agent scoped authority.',
     stack: ['Gemini 3.5', 'ADK', 'Fleet MCP', 'PostHog signals', 'Cloud Run'],
     link: 'https://helm-294160018950.europe-west1.run.app',
-    linkLabel: 'Live demo',
+    linkLabel: 'Try fleet diagnosis',
     repo: 'https://github.com/hyperdrift-io/helm',
     article: 'https://hyperdrift.io/blog/your-error-page-is-a-prompt',
     challenge: {
@@ -129,7 +129,7 @@ export const caseStudies: CaseStudy[] = [
     capability: 'Owned, minimal full-stack architecture.',
     stack: ['Waku RSC', 'TypeScript', 'Better Auth'],
     link: 'https://own-stack.hyperdrift.io',
-    linkLabel: 'Live',
+    linkLabel: 'Explore the stack',
     article: 'https://hyperdrift.io/blog/own-your-stack-server-rendered-react-without-nextjs',
   },
   {

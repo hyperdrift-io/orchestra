@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536">
+<title>ScreenCraft evidence overlay</title>
+<image href="source.png" width="1024" height="1536"/>
+<g><title>Existing identity and direct links</title>
+<rect x="60.00" y="65.00" width="635.00" height="82.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="63.00" y="76.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">masthead</text></g>
+<g><title>Existing identity and direct links</title>
+<rect x="756.00" y="65.00" width="215.00" height="89.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="759.00" y="76.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">masthead</text></g>
+<g><title>Visitor question</title>
+<rect x="63.00" y="174.00" width="630.00" height="109.00" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="66.00" y="185.00" font-family="sans-serif" font-size="11" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">introduction</text></g>
+<g><title>Visitor question</title>
+<rect x="756.00" y="172.00" width="215.00" height="107.00" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="759.00" y="183.00" font-family="sans-serif" font-size="11" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">introduction</text></g>
+<g><title>Finding a useful first step</title>
+<rect x="63.00" y="332.00" width="630.00" height="55.00" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="66.00" y="343.00" font-family="sans-serif" font-size="11" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">stage-first</text></g>
+<g><title>Finding a useful first step</title>
+<rect x="756.00" y="300.00" width="215.00" height="40.00" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="759.00" y="311.00" font-family="sans-serif" font-size="11" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">stage-first</text></g>
+<g><title>Automating a workflow</title>
+<rect x="63.00" y="388.00" width="630.00" height="318.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="66.00" y="399.00" font-family="sans-serif" font-size="11" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">stage-workflow</text></g>
+<g><title>Automating a workflow</title>
+<rect x="756.00" y="341.00" width="215.00" height="532.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="759.00" y="352.00" font-family="sans-serif" font-size="11" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">stage-workflow</text></g>
+<g><title>Selected situation control</title>
+<rect x="63.00" y="388.00" width="630.00" height="55.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="66.00" y="399.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">workflow-summary</text></g>
+<g><title>Selected situation control</title>
+<rect x="756.00" y="341.00" width="215.00" height="39.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="759.00" y="352.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">workflow-summary</text></g>
+<g><title>Who and why with editable enquiry action</title>
+<rect x="67.00" y="474.00" width="260.00" height="134.00" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="70.00" y="485.00" font-family="sans-serif" font-size="11" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">workflow-result</text></g>
+<g><title>Who and why with editable enquiry action</title>
+<rect x="756.00" y="393.00" width="215.00" height="105.00" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="759.00" y="404.00" font-family="sans-serif" font-size="11" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">workflow-result</text></g>
+<g><title>Working examples with public actions</title>
+<rect x="363.00" y="474.00" width="330.00" height="155.00" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="366.00" y="485.00" font-family="sans-serif" font-size="11" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">workflow-evidence</text></g>
+<g><title>Working examples with public actions</title>
+<rect x="756.00" y="524.00" width="215.00" height="273.00" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="759.00" y="535.00" font-family="sans-serif" font-size="11" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">workflow-evidence</text></g>
+<g><title>Collapsed method detail</title>
+<rect x="63.00" y="652.00" width="630.00" height="54.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="66.00" y="663.00" font-family="sans-serif" font-size="11" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">workflow-depth</text></g>
+<g><title>Collapsed method detail</title>
+<rect x="756.00" y="810.00" width="215.00" height="61.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="759.00" y="821.00" font-family="sans-serif" font-size="11" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">workflow-depth</text></g>
+<g><title>Taking a prototype live</title>
+<rect x="63.00" y="738.00" width="630.00" height="55.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="66.00" y="749.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">stage-prototype</text></g>
+<g><title>Taking a prototype live</title>
+<rect x="756.00" y="875.00" width="215.00" height="39.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="759.00" y="886.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">stage-prototype</text></g>
+<g><title>Improving a live product</title>
+<rect x="63.00" y="794.00" width="630.00" height="55.00" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="66.00" y="805.00" font-family="sans-serif" font-size="11" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">stage-live</text></g>
+<g><title>Improving a live product</title>
+<rect x="756.00" y="916.00" width="215.00" height="41.00" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="759.00" y="927.00" font-family="sans-serif" font-size="11" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">stage-live</text></g>
+<g><title>Dated Intel and latest writing</title>
+<rect x="64.00" y="895.00" width="629.00" height="133.00" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="67.00" y="906.00" font-family="sans-serif" font-size="11" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">current-content</text></g>
+<g><title>Dated Intel and latest writing</title>
+<rect x="756.00" y="982.00" width="215.00" height="184.00" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="759.00" y="993.00" font-family="sans-serif" font-size="11" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">current-content</text></g>
+<g><title>Visible invitation with closed terms</title>
+<rect x="64.00" y="1068.00" width="629.00" height="185.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="67.00" y="1079.00" font-family="sans-serif" font-size="11" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">partnership</text></g>
+<g><title>Visible invitation with closed terms</title>
+<rect x="756.00" y="1180.00" width="215.00" height="157.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="759.00" y="1191.00" font-family="sans-serif" font-size="11" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">partnership</text></g>
+<g><title>Catalogue, delivery and FAQ</title>
+<rect x="64.00" y="1277.00" width="629.00" height="155.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="67.00" y="1288.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">supporting-depth</text></g>
+<g><title>Catalogue, delivery and FAQ</title>
+<rect x="756.00" y="1338.00" width="215.00" height="119.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="759.00" y="1349.00" font-family="sans-serif" font-size="11" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">supporting-depth</text></g>
+</svg>

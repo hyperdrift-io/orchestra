@@ -1,8 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { enquiryChoices } from '@/data/situations';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
+
+function SituationSelect({ selected = '' }: { selected?: string }) {
+  return (
+    <label>
+      <span>Where you are</span>
+      {/* Keyed on the choice: a stage CTA swaps the selection without touching anything typed. */}
+      <select name="situation" key={selected} defaultValue={selected}>
+        <option value="">Choose one, or leave it open</option>
+        {enquiryChoices.map((c) => (
+          <option key={c.value} value={c.value}>
+            {c.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
+/** A stage CTA links to /?situation=<slug>#contact; this reads it. */
+function SituationFromQuery() {
+  const raw = useSearchParams().get('situation') ?? '';
+  const selected = enquiryChoices.some((c) => c.value === raw) ? raw : '';
+  return <SituationSelect selected={selected} />;
+}
 
 export function Contact() {
   const [status, setStatus] = useState<Status>('idle');
@@ -16,10 +42,12 @@ export function Contact() {
     setErrorMessage(null);
 
     const form = new FormData(formEl);
+    const situation = enquiryChoices.find((c) => c.value === form.get('situation'))?.label;
     const payload = {
       name: String(form.get('name') ?? ''),
       email: String(form.get('email') ?? ''),
       company: String(form.get('company') ?? '') || undefined,
+      situation,
       message: String(form.get('message') ?? ''),
     };
 
@@ -44,53 +72,42 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title">
       <div className="section-head">
-        <p className="numeral" aria-hidden>08</p>
-        <p className="eyebrow">Movement VIII · Contact</p>
+        <p className="numeral" aria-hidden>10</p>
+        <p className="eyebrow">Movement X · Contact</p>
         <h2 id="contact-title">
           Start a <em>project</em>.
         </h2>
       </div>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.2fr)',
-          gap: 'var(--sp-xl)',
-          alignItems: 'start',
-        }}
-      >
+      <div>
         <div>
           <p className="lead">
             Tell us a little about your product and what you want to ship.
             We reply within a working day.
           </p>
 
-          <hr className="hair" style={{ marginBlock: 'var(--sp-m)' }} />
+          <hr className="hair" />
 
-          <dl style={{ display: 'grid', gap: 'var(--sp-s)', margin: 0 }}>
+          <dl>
             <div>
-              <dt className="meta" style={{ color: 'var(--cream-3)' }}>Reply time</dt>
-              <dd style={{ margin: 0, color: 'var(--cream)' }}>One working day</dd>
+              <dt className="meta">Reply time</dt>
+              <dd>One working day</dd>
             </div>
             <div>
-              <dt className="meta" style={{ color: 'var(--cream-3)' }}>Engagements</dt>
-              <dd style={{ margin: 0, color: 'var(--cream)' }}>2 to 4 weeks, scoped concretely</dd>
+              <dt className="meta">Engagements</dt>
+              <dd>2 to 4 weeks, scoped concretely</dd>
             </div>
             <div>
-              <dt className="meta" style={{ color: 'var(--cream-3)' }}>Locale</dt>
-              <dd style={{ margin: 0, color: 'var(--cream)' }}>Remote · EU/UK hours</dd>
+              <dt className="meta">Locale</dt>
+              <dd>Remote · EU/UK hours</dd>
             </div>
           </dl>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            display: 'grid',
-            gap: 'var(--sp-m)',
-            maxWidth: '640px',
-          }}
-        >
+        <form onSubmit={handleSubmit}>
+          <Suspense fallback={<SituationSelect />}>
+            <SituationFromQuery />
+          </Suspense>
           <label>
             <span>Name</span>
             <input name="name" required maxLength={120} autoComplete="name" placeholder="Ada Lovelace" />
@@ -120,14 +137,10 @@ export function Contact() {
             </button>
           </div>
           {status === 'sent' && (
-            <p role="status" style={{ color: 'var(--vermillion)', fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-mark)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>
-              ✓ Received. We will reply within a working day.
-            </p>
+            <p role="status">✓ Received. We will reply within a working day.</p>
           )}
           {status === 'error' && (
-            <p role="alert" style={{ color: '#ff9c9c', fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-mark)' }}>
-              {errorMessage ?? 'Something went wrong.'}
-            </p>
+            <p role="alert">{errorMessage ?? 'Something went wrong.'}</p>
           )}
         </form>
       </div>

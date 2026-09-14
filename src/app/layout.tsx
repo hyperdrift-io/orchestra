@@ -46,6 +46,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <body>
+        <header className="page">
+          <p className="wordmark">
+            <a href="/">
+              Orchestra <em>AI</em>
+            </a>
+            <span className="meta">By Hyperdrift</span>
+          </p>
+          <nav aria-label="Site">
+            <a href="https://intel.hyperdrift.io/daily">Intel ↗</a>
+            <a href="https://hyperdrift.io/blog">Writing ↗</a>
+            <a href="#partnership">Partner with us</a>
+            <a href="#contact">Start a project</a>
+          </nav>
+          <p>
+            <a href="https://hyperdrift.io/blog/hyperdrift-turns-one">Hyperdrift turns one — read the story ↗</a>
+          </p>
+        </header>
         <main className="page">{children}</main>
       </body>
     </html>

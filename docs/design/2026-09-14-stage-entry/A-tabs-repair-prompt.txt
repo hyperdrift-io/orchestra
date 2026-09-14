@@ -1,0 +1,18 @@
+Repair the provided design board into a precise high-fidelity final website concept A. It must show desktop and mobile side by side, preserving ink #0c0c10, cream #f0e9da, vermillion #ff4a1c, Fraunces serif display and italic accent, Plex Sans body and Plex Mono small labels, delicate musical staff-line identity. Replace ALL gibberish with exact copy below. Make masthead SMALL, left aligned: Orchestra AI, BY HYPERDRIFT, nav Intel ↗ / Writing ↗ / Partner with us. Do not use huge rounded containers; use open editorial layout, subtle hairline rules, 4px maximum corner radius. Increase canvas resolution and height if needed so ALL content appears in BOTH desktop and mobile. Desktop width1440 and mobile390 proportions.
+
+Both views: slender anniversary link Hyperdrift turns one — read the story ↗. Hero Where are you taking AI next? with AI next in vermillion italic. Subtitle Choose where you are. See the work, then take your next step.
+
+CENTRAL INTERACTION A must be corrected exactly: four horizontal equal tabs on desktop, 2x2 choice grid mobile. Tab01 Finding a useful first step; Tab02 Automating a workflow; Tab03 Taking a prototype live; Tab04 Improving a live product. Highlight ONLY02 with vermillion underline and selected state. Every label different and fully readable. No duplicated choices. After tabs shared response eyebrow02 / AUTOMATING A WORKFLOW. Heading Give your team time back. Paragraph For teams with a working product or a repeatable task. Connect the tools you already use, with people in control. Primary button Map my workflow ↗.
+
+Two compact evidence items, side by side desktop, stacked mobile. Standup / A GitHub brief: who is waiting, and what to do first. / Built for Amazon Web Services · Agents for Humans / Try Standup ↗ / Read the build ↗.
+Deputy workforce MCP / Five read-only workflows over an existing workforce API. / Reference integration / Inspect the integration ↗.
+One CLOSED disclosure How we would approach your workflow +.
+
+MANDATORY current content in both views, NEVER omit mobile: INTEL / DAILY BRIEF, The latest AI briefing, Read Intel ↗. LATEST WRITING, You have one evening. Who is waiting on you?, Read the article ↗. Two columns desktop, stack on mobile.
+
+Partnership invitation: THE TRACTION PARTNERSHIP, Build together. Share the upside., Apply to partner ↗. Closed How the partnership works +.
+Three closed footer rows: More work & collaborations +; Services, delivery & pricing +; Common questions +.
+Small footer Orchestra AI / BY HYPERDRIFT.
+
+The desktop may be shorter than mobile; preserve natural responsive proportions instead of dropping mobile sections to match height. Make all text crisp with no overprinting or nonsense. Keep hero small enough that choices and selected response start early, focus on usable situations and evidence rather than branding.
+Voice Covenant — Hyperdrift meta/PHILOSOPHY.md §8 Speak to Enable: every word leaves users more capable, strengths first, no shame/fear, user work is source of truth. Use only provided text and no invented metrics/logos/endorsements.

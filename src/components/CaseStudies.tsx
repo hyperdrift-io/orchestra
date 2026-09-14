@@ -4,8 +4,8 @@ export function CaseStudies() {
   return (
     <section id="case-studies" aria-labelledby="case-studies-title">
       <div className="section-head">
-        <p className="numeral" aria-hidden>05</p>
-        <p className="eyebrow">Movement V · Case studies</p>
+        <p className="numeral" aria-hidden>07</p>
+        <p className="eyebrow">Movement VII · Case studies</p>
         <h2 id="case-studies-title">
           Applied AI, <em>in practice</em>.
         </h2>

@@ -1,16 +1,13 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const sendMock = vi.fn();
-
-vi.mock('@/lib/resend', () => ({
-  getResendClient: () => ({ emails: { send: sendMock } }),
-  getContactRoutes: () => ({ to: 'owner@example.com', from: 'contact@example.com' }),
-}));
+const fetchMock = vi.fn();
 
 beforeEach(() => {
-  sendMock.mockReset();
-  sendMock.mockResolvedValue({ data: { id: 'eml_123' }, error: null });
+  fetchMock.mockReset();
+  fetchMock.mockResolvedValue(new Response('{"ok":true}', { status: 200 }));
+  vi.stubGlobal('fetch', fetchMock);
 });
+afterEach(() => vi.unstubAllGlobals());
 
 async function callRoute(body: unknown) {
   const { POST } = await import('./route');
@@ -22,24 +19,44 @@ async function callRoute(body: unknown) {
   return POST(req);
 }
 
+function relayed() {
+  const [, init] = fetchMock.mock.calls[0]! as [string, RequestInit];
+  return JSON.parse(String(init.body)) as { name: string; email: string; message: string; source: string };
+}
+
 describe('POST /api/contact', () => {
-  it('returns 200 and sends an email for a valid submission', async () => {
+  it('relays a valid submission, folding situation and company into the message', async () => {
     const res = await callRoute({
       name: 'Ada',
       email: 'ada@example.com',
+      company: 'Analytical Engines',
+      situation: 'Automating a workflow',
       message: 'A reasonable length message about agents.',
     });
     expect(res.status).toBe(200);
-    expect(sendMock).toHaveBeenCalledOnce();
-    const call = sendMock.mock.calls[0]![0];
-    expect(call.to).toBe('owner@example.com');
-    expect(call.from).toBe('contact@example.com');
-    expect(call.subject).toContain('Ada');
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(relayed()).toEqual({
+      name: 'Ada',
+      email: 'ada@example.com',
+      message: 'Where you are: Automating a workflow\nCompany: Analytical Engines\n\nA reasonable length message about agents.',
+      source: 'orchestra_ai',
+    });
   });
 
-  it('returns 400 for invalid submission', async () => {
+  it('sends the message untouched when no context was given', async () => {
+    await callRoute({ name: 'Ada', email: 'ada@example.com', message: 'A reasonable length message.' });
+    expect(relayed().message).toBe('A reasonable length message.');
+  });
+
+  it('returns 400 for an invalid submission without calling the relay', async () => {
     const res = await callRoute({ name: '', email: 'nope', message: 'x' });
     expect(res.status).toBe(400);
-    expect(sendMock).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('returns 502 when the relay fails', async () => {
+    fetchMock.mockResolvedValue(new Response('nope', { status: 500 }));
+    const res = await callRoute({ name: 'Ada', email: 'ada@example.com', message: 'A reasonable length message.' });
+    expect(res.status).toBe(502);
   });
 });

@@ -1,0 +1,15 @@
+{
+  "direction": "B \u2014 Accordion rows",
+  "finalImage": "B-disclosures.png",
+  "operation": "image_gen edit repairing the original Recraft board",
+  "tool": "image_gen.imagegen",
+  "referenceImage": "B-draft.png",
+  "promptFile": "B-repair.prompt.txt",
+  "generatedSource": "/Users/yannvr/.codex/generated_images/01a09d4f-ba40-75a2-bf72-eb4a3e225522/exec-2a77e53f-6e6f-4e89-a09c-ff8728315d77.png",
+  "draftMetadata": "B-draft.json",
+  "draftModel": "recraftv4_1_utility_pro",
+  "draftSeed": 102,
+  "draftSize": "2:3",
+  "repairCount": 1,
+  "review": "B-disclosures.review.md"
+}

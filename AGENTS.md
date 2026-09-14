@@ -28,3 +28,12 @@ Each contest case must populate `challenge` in `src/data/case-studies.ts`: recog
 Keep contest participation distinct from a commissioned client engagement, endorsement, or award. For DEV's Generosity challenge, DEV is the organiser and Google AI is the entry category. For Bridge Voice, AssemblyAI and lablab.ai jointly run the event; show “In development” until a later phase is verified. Never expose a private repository as a public demo.
 
 Current coverage and primary sources: [Contest attribution](docs/decisions/2026-09-14-contest-attribution.md). Refresh this catalogue as part of each contest's post-build and post-result work, without duplicating the entry owner's submission tasks.
+
+## The front door — stage entry (14 September 2026)
+
+The homepage opens on four situations a visitor recognises themselves in (design round B, `docs/design/2026-09-14-stage-entry/`). Long material is folded, not removed.
+
+- `src/data/situations.ts` is the single source for the four rows: label, response, enquiry action, evidence, and the collapsed approach. Evidence references `src/data/case-studies.ts` by slug so facts and contest attribution live once; `src/lib/evidence.ts` resolves them. Public examples outside the catalogue carry an explicit `relation`.
+- Rows are native `<details name="situation">`: one open at a time, keyboard-native, no JS. Every CTA is a Next `Link` to `/?situation=<slug>#contact`; the contact form reads the query and prefills its editable "Where you are" select without touching typed text. The relay folds the label into the message, so the hyperdrift.io contact contract is unchanged.
+- "Now playing" reads two public feeds server-side (`src/lib/feeds.ts`, 15-minute revalidate): Intel's `/api/daily-intel/list` and hyperdrift.io `/api/blog/list` (added on hyper-drift branch `feat/blog-list-feed`; until it is deployed the slot shows the permanent "Read the Hyperdrift blog" link). Future-dated posts, DeFi tags and Intel are filtered; an unavailable feed renders a fallback link, never a stale "latest". The anniversary is pinned separately.
+- Movements are numbered in reading order: I Now playing, II Partnership, III Programme (folding IV–IX), X Contact. Every touched component is pure cascading CSS; `details`/`summary` are styled once as primitives.

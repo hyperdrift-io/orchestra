@@ -264,7 +264,7 @@ section + section { border-block-start: 1px solid var(--line-hair); }
 }
 
 /* — Inputs (editorial: rules, not boxes) */
-input, textarea {
+input, textarea, select {
   width: 100%;
   background: transparent;
   border: 0;
@@ -276,11 +276,23 @@ input, textarea {
   border-radius: 0;
   transition: border-color var(--d-fast) var(--ease);
 }
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
   border-block-end-color: var(--vermillion);
 }
 textarea { resize: vertical; min-block-size: 8rem; }
+select {
+  appearance: none;
+  cursor: pointer;
+  padding-inline-end: 1.5rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--cream-3) 50%),
+    linear-gradient(135deg, var(--cream-3) 50%, transparent 50%);
+  background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+select option { background: var(--ink-elev); color: var(--cream); }
 
 label > span {
   display: block;
@@ -408,97 +420,220 @@ hr.hair {
 /* — Tabular numerals where they belong */
 .tnum { font-variant-numeric: tabular-nums; }
 
-/* — Movement VI · Packages: the cascade carries what inline styles used to */
-#packages > .lead { margin-block-end: var(--sp-l); }
+/* — Disclosures: the fold the programme is built on. The row is the summary; + / − is the state. */
+details { border-block-end: 1px solid var(--line-hair); }
+details:first-of-type { border-block-start: 1px solid var(--line-hair); }
+details details { border-block-end: 0; }
+summary {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-s);
+  padding-block: var(--sp-s);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  transition: color var(--d-fast) var(--ease);
+}
+summary::-webkit-details-marker { display: none; }
+summary:hover { color: var(--vermillion); }
+summary:focus-visible { outline: 2px solid var(--vermillion); outline-offset: 4px; }
+summary > span[aria-hidden] {
+  flex: 0 0 3rem;
+  font-style: italic;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-size: 0.85em;
+  color: var(--cream-3);
+}
+summary::after {
+  content: '+';
+  margin-inline-start: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-body);
+  color: var(--cream-3);
+}
+details[open] > summary::after { content: '−'; color: var(--vermillion); }
+details[open] > summary > span[aria-hidden] { color: var(--vermillion); }
+details details > summary {
+  padding-block: var(--sp-xs);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: 0;
+}
 
-#packages .section-head ~ div {
+/* — Masthead */
+body > header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-xs) var(--sp-m);
+  padding-block-start: var(--sp-m);
+}
+body > header a { border-block-end: 0; }
+body > header nav { display: flex; flex-wrap: wrap; gap: var(--sp-xs) var(--sp-m); }
+body > header nav a, body > header > p:last-child a {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-2);
+}
+body > header > p:last-child { flex-basis: 100%; text-align: end; }
+body > header > p:last-child a { color: var(--vermillion); }
+.wordmark {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1;
+  letter-spacing: -0.018em;
+  color: var(--cream);
+}
+.wordmark em { color: var(--vermillion); font-style: italic; }
+.wordmark .meta { display: block; margin-block-start: 0.4rem; color: var(--cream-3); }
+
+/* — Hero: one question, one sentence, then the rows */
+section[aria-labelledby='hero-title'] { padding-block: var(--sp-xl) var(--sp-l); }
+section[aria-labelledby='hero-title'] > .staff { inset-block-start: var(--sp-s); opacity: 0.55; }
+section[aria-labelledby='hero-title'] .eyebrow .meta { color: var(--cream-3); }
+section[aria-labelledby='hero-title'] h1 { max-width: 14ch; margin-block-end: var(--sp-m); }
+section[aria-labelledby='hero-title'] > .lead { max-width: 38ch; }
+
+/* — Overture · the four situations. Native disclosures; one open at a time via name= */
+#situations { border-block-start: 0; padding-block-start: 0; }
+#situations > details > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: var(--sp-l);
+  padding-block: var(--sp-s) var(--sp-m);
+}
+#situations h2 { font-size: var(--fs-h3); max-width: 18ch; }
+#situations > details > div > div > p { margin-block-start: var(--sp-s); max-width: 40ch; }
+#situations > details > div > div > p:last-child { margin-block-start: var(--sp-m); }
+#situations ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-m);
+}
+#situations li { padding-inline-start: var(--sp-s); border-inline-start: 1px solid var(--line-hair); }
+#situations li h3 { font-family: var(--font-body); font-size: var(--fs-body); font-weight: 600; letter-spacing: 0; }
+#situations li p { margin-block-start: var(--sp-2xs); font-size: var(--fs-meta); }
+#situations li .meta { margin-block-start: var(--sp-xs); }
+#situations li p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2xs) var(--sp-s);
+  margin-block-start: var(--sp-xs);
+}
+#situations li a { color: var(--vermillion); border-block-end-color: var(--vermillion-line); }
+#situations details details ol {
+  margin: 0 0 var(--sp-m);
+  padding-inline-start: 1.25rem;
+  display: grid;
+  gap: var(--sp-2xs);
+  max-width: 60ch;
+  color: var(--cream-2);
+}
+#situations figure { margin: var(--sp-xl) 0 0; }
+#situations figure img {
+  display: block;
+  width: 100%;
+  max-block-size: 36vh;
+  object-fit: cover;
+  border: 1px solid var(--line-hair);
+}
+@media (max-width: 760px) {
+  #situations > details > div { grid-template-columns: 1fr; }
+}
+
+/* — Movement I · Now playing: dated, from the public feeds, honest fallback links */
+#now .section-head ~ div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--sp-l);
+}
+#now article + article { padding-inline-start: var(--sp-m); border-inline-start: 1px solid var(--line-hair); }
+#now h3 { margin-block-start: var(--sp-xs); max-width: 22ch; }
+#now time {
+  display: block;
+  margin-block-start: var(--sp-xs);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
+  letter-spacing: 0.12em;
+  color: var(--cream-3);
+}
+#now article > p:last-child { margin-block-start: var(--sp-s); }
+#now article > p:last-child a { color: var(--vermillion); border-block-end-color: var(--vermillion-line); }
+@media (max-width: 900px) {
+  #now article + article {
+    padding: var(--sp-m) 0 0;
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--line-hair);
+  }
+}
+
+/* — Movement II · Partnership: the invitation visible, the terms folded */
+#partnership > .lead { max-width: 44ch; margin-block-end: var(--sp-m); }
+#partnership > .lead + p { margin-block-end: var(--sp-l); }
+#partnership details p { max-width: 60ch; margin-block-end: var(--sp-s); }
+#partnership details p:last-child { margin-block-end: var(--sp-m); color: var(--cream-3); font-size: 0.9em; }
+#partnership details strong { color: var(--cream); }
+
+/* — Movement III · The full programme: every long movement stays folded until asked */
+#programme > details > section { padding-block: var(--sp-s) var(--sp-l); }
+#programme .section-head { margin-block-end: var(--sp-m); }
+#programme .section-head .numeral { font-size: clamp(3rem, 2rem + 3vw, 5rem); }
+
+/* — Movement IV · What we build */
+#build ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  border-inline-start: 1px solid var(--line-hair);
+  border-block-start: 1px solid var(--line-hair);
+}
+#build li {
+  padding: var(--sp-m);
+  border-inline-end: 1px solid var(--line-hair);
+  border-block-end: 1px solid var(--line-hair);
+}
+
+/* — Movements V & VI · Why Orchestra, how we work: score cards */
+#why .section-head + div {
+  display: grid;
+  gap: var(--sp-l);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 92ch;
+  margin-block-end: var(--sp-l);
+}
+#why .section-head + div > .lead { max-width: 38ch; }
+#why .section-head + div > p:not(.lead) { max-width: 40ch; }
+#why .section-head + div + div, #how ol {
   display: grid;
   gap: var(--sp-m);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
-
-#packages article {
-  display: flex;
-  flex-direction: column;
-}
-#packages article > .meta:first-child { color: var(--vermillion); }
-#packages article h3 { margin-block-start: var(--sp-s); }
-#packages article > p { margin-block-start: var(--sp-s); }
-#packages article > p:last-of-type { margin-block-start: var(--sp-m); }
-#packages article .hair { margin-block: var(--sp-m); }
-
-#packages article ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: var(--sp-2xs);
-}
-#packages article li {
-  color: var(--cream-2);
-  padding-inline-start: 1.1rem;
-  position: relative;
-}
-#packages article li::before {
-  content: "";
+#how ol { list-style: none; margin: 0; padding: 0; }
+#how li { overflow: hidden; }
+#how li > p[aria-hidden] {
   position: absolute;
-  inset-inline-start: 0;
-  top: 0.55em;
-  width: 0.6rem;
-  height: 1px;
-  background: var(--vermillion);
+  inset-block-start: var(--sp-m);
+  inset-inline-end: var(--sp-m);
+  color: var(--cream-4);
 }
-#packages div article > .meta:last-of-type {
-  margin-block-start: var(--sp-m);
-  color: var(--cream-3);
-}
+:is(#why, #how, #build) :is(article, li) > .meta:not([aria-hidden]) { color: var(--vermillion); }
+:is(#why, #how, #build) :is(article, li) > h3,
+:is(#why, #how, #build) :is(article, li) > h3 + p { margin-block-start: var(--sp-s); }
 
-/* The Traction Partnership stands apart from the opus grid */
-#packages > article {
-  margin-block-start: var(--sp-l);
-  border-color: var(--vermillion);
-}
-#packages > article > p { max-width: 58ch; }
-#packages > article footer {
-  margin-block-start: var(--sp-m);
-  border-block-start: 1px solid var(--hair, currentColor);
-  padding-block-start: var(--sp-s);
-}
-#packages > article footer p {
-  color: var(--cream-3);
-  font-size: 0.9em;
-}
-#packages > article footer strong { color: var(--cream-1, inherit); }
-
-/* — Hero: cascade replaces the inline layer */
-section[aria-labelledby='hero-title'] { padding-block: var(--sp-2xl) var(--sp-xl); }
-section[aria-labelledby='hero-title'] > .staff { inset-block-start: var(--sp-l); opacity: 0.55; }
-section[aria-labelledby='hero-title'] .eyebrow .meta { color: var(--cream-3); }
-section[aria-labelledby='hero-title'] h1 { max-width: 15ch; margin-block-end: var(--sp-l); }
-section[aria-labelledby='hero-title'] > .lead { max-width: 38ch; margin-block-end: var(--sp-l); }
-section[aria-labelledby='hero-title'] nav {
-  display: flex;
-  gap: var(--sp-s);
-  flex-wrap: wrap;
-  align-items: center;
-}
-section[aria-labelledby='hero-title'] figure { margin: var(--sp-xl) 0 0; }
-section[aria-labelledby='hero-title'] figure img {
-  width: 100%;
-  display: block;
-  border: 1px solid var(--line-hair);
-}
-section[aria-labelledby='hero-title'] dl {
-  margin: var(--sp-xl) 0 0;
-  padding-block-start: var(--sp-m);
-  border-block-start: 1px solid var(--line-hair);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--sp-m);
-}
-section[aria-labelledby='hero-title'] dd { margin: var(--sp-2xs) 0 0; color: var(--cream); }
-
-/* — Case studies */
+/* — Movement VII · Case studies */
 #case-studies > .lead { margin-block-end: var(--sp-l); }
 #case-studies .section-head ~ div {
   display: grid;
@@ -513,6 +648,7 @@ section[aria-labelledby='hero-title'] dd { margin: var(--sp-2xs) 0 0; color: var
   margin-block-end: var(--sp-s);
 }
 #case-studies article header .meta:first-child { color: var(--vermillion); }
+#case-studies article header span { display: flex; gap: var(--sp-s); }
 #case-studies article header a {
   color: var(--cream-2);
   border-block-end: 1px solid var(--cream-4);
@@ -540,8 +676,69 @@ section[aria-labelledby='hero-title'] dd { margin: var(--sp-2xs) 0 0; color: var
 }
 #case-studies article > p:last-child { margin-block-start: var(--sp-m); }
 
+/* — Movement VIII · Packages */
+#packages > .lead { margin-block-end: var(--sp-l); }
+#packages .section-head ~ div {
+  display: grid;
+  gap: var(--sp-m);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+#packages article { display: flex; flex-direction: column; }
+#packages article > .meta:first-child { color: var(--vermillion); }
+#packages article h3 { margin-block-start: var(--sp-s); }
+#packages article > p { margin-block-start: var(--sp-s); }
+#packages article > p:last-of-type { margin-block-start: var(--sp-m); }
+#packages article .hair { margin-block: var(--sp-m); }
+#packages article ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--sp-2xs);
+}
+#packages article li {
+  color: var(--cream-2);
+  padding-inline-start: 1.1rem;
+  position: relative;
+}
+#packages article li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.55em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--vermillion);
+}
+#packages article > .meta:last-of-type { margin-block-start: var(--sp-m); color: var(--cream-3); }
+
+/* — Movement IX · FAQ */
+#faq .section-head ~ div { max-width: 78ch; }
+#faq details > p { margin: 0 0 var(--sp-m) calc(3rem + var(--sp-s)); max-width: 60ch; }
+
+/* — Movement X · Contact */
+#contact .section-head ~ div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--sp-xl);
+  align-items: start;
+}
+#contact .hair { margin-block: var(--sp-m); }
+#contact dl { display: grid; gap: var(--sp-s); margin: 0; }
+#contact dd { margin: 0; color: var(--cream); }
+#contact form { display: grid; gap: var(--sp-m); max-width: 640px; }
+#contact form [role='status'], #contact form [role='alert'] {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mark);
+}
+#contact form [role='status'] { color: var(--vermillion); letter-spacing: 0.16em; text-transform: uppercase; }
+#contact form [role='alert'] { color: #ff9c9c; }
+@media (max-width: 760px) {
+  #contact .section-head ~ div { grid-template-columns: 1fr; }
+}
+
 /* — Footer */
-body > footer, footer {
+footer {
   position: relative;
   padding-block: var(--sp-l) var(--sp-m);
   border-block-start: 1px solid var(--line-hair);
@@ -553,13 +750,6 @@ footer > div:not(.staff) {
   gap: var(--sp-m);
   align-items: start;
 }
-footer .wordmark {
-  font-family: var(--font-display);
-  font-size: var(--fs-h3);
-  color: var(--cream);
-  letter-spacing: -0.018em;
-}
-footer .wordmark em { color: var(--vermillion); font-style: italic; }
 footer .meta { color: var(--cream-3); }
 footer .meta + p, footer .meta + ul { margin-block-start: var(--sp-2xs); }
 footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--sp-2xs); }
@@ -572,4 +762,3 @@ footer > div:last-child {
   gap: var(--sp-s);
   flex-wrap: wrap;
 }
-#case-studies article header span { display: flex; gap: var(--sp-s); }

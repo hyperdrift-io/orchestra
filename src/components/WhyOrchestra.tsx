@@ -23,27 +23,35 @@ const pillars = [
 
 export function WhyOrchestra() {
   return (
-    <section aria-labelledby="why-title">
+    <section id="why" aria-labelledby="why-title">
       <div className="section-head">
-        <p className="numeral" aria-hidden>02</p>
-        <p className="eyebrow">Movement II · Why Orchestra</p>
+        <p className="numeral" aria-hidden>05</p>
+        <p className="eyebrow">Movement V · Why Orchestra</p>
         <h2 id="why-title">
-          Depth where it <em>matters</em>.
+          Agents that work in dev <em>break</em> in production.
         </h2>
       </div>
 
-      <div
-        style={{
-          display: 'grid',
-          gap: 'var(--sp-m)',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        }}
-      >
+      <div>
+        <p className="lead">
+          Demos do not survive contact with real products. Multi-tenancy,
+          audit, cost spikes, tool failures, customer load — the gap between
+          an AI prototype and a feature your customers can rely on is exactly
+          where most teams stall.
+        </p>
+        <p>
+          Orchestra exists to close that gap. We bring 25+ years of production
+          engineering to the orchestration of agents inside live SaaS products.
+          Not another framework. Not another POC. Software that holds up.
+        </p>
+      </div>
+
+      <div>
         {pillars.map((p) => (
           <article key={p.key} className="card">
-            <p className="meta" style={{ color: 'var(--vermillion)' }}>{p.key.toUpperCase()}.</p>
-            <h3 style={{ marginBlockStart: 'var(--sp-s)' }}>{p.title}</h3>
-            <p style={{ marginBlockStart: 'var(--sp-s)' }}>{p.body}</p>
+            <p className="meta">{p.key.toUpperCase()}.</p>
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
           </article>
         ))}
       </div>

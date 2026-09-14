@@ -38,4 +38,14 @@ describe('contactSchema', () => {
     });
     expect(result.success).toBe(true);
   });
+
+  it('accepts an optional situation label', () => {
+    const result = contactSchema.safeParse({
+      name: 'Ada',
+      email: 'ada@example.com',
+      situation: 'Taking a prototype live',
+      message: 'A reasonable length message.',
+    });
+    expect(result.success).toBe(true);
+  });
 });
