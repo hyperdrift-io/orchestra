@@ -1,0 +1,21 @@
+/* ScreenCraft candidate CSS. Review inferred font/layout choices before app integration. */
+/* Source region IDs are comments, not a production class system. */
+
+/* art */
+section > img {
+  object-fit: cover;
+  object-position: 70% 50%;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* statement */
+#contact h2 {
+  font-size: clamp(2.2rem, 1.2rem + 3vw, 4.4rem);
+}
+
+/* form */
+#contact form {
+  background: rgb(12 12 16 / .6);
+  backdrop-filter: blur(8px);
+}

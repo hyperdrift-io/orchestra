@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1664" height="2560" viewBox="0 0 1664 2560">
+<title>ScreenCraft evidence overlay</title>
+<image href="source.png" width="1664" height="2560"/>
+<g><title>Text-free photograph</title>
+<rect x="0.00" y="0.00" width="1664.00" height="2560.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="3.00" y="14.00" font-family="sans-serif" font-size="14" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">art</text></g>
+<g><title>Giant walking and pointing</title>
+<rect x="432.64" y="678.40" width="973.44" height="1382.40" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="435.64" y="692.40" font-family="sans-serif" font-size="14" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">giant</text></g>
+<g><title>Founder on the shoulder</title>
+<rect x="940.16" y="768.00" width="58.24" height="115.20" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="943.16" y="782.00" font-family="sans-serif" font-size="14" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">founder</text></g>
+<g><title>River, bridge and city</title>
+<rect x="0.00" y="1088.00" width="1664.00" height="768.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="3.00" y="1102.00" font-family="sans-serif" font-size="14" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">landscape</text></g>
+<g><title>Footprints behind</title>
+<rect x="0.00" y="2035.20" width="422.66" height="396.80" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="3.00" y="2049.20" font-family="sans-serif" font-size="14" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">footprints</text></g>
+<g><title>Statement</title>
+<rect x="299.52" y="332.80" width="1064.96" height="166.40" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="302.52" y="346.80" font-family="sans-serif" font-size="14" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">statement</text></g>
+<g><title>Question</title>
+<rect x="479.23" y="2412.80" width="715.52" height="51.20" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="482.23" y="2426.80" font-family="sans-serif" font-size="14" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">question</text></g>
+<g><title>Choose where you are</title>
+<rect x="332.80" y="2201.60" width="998.40" height="128.00" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="335.80" y="2215.60" font-family="sans-serif" font-size="14" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">primary-action</text></g>
+</svg>

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "art",
+    "parent": null,
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [
+      {
+        "property": "object-fit",
+        "value": "cover"
+      },
+      {
+        "property": "object-position",
+        "value": "30% 50%"
+      },
+      {
+        "property": "inline-size",
+        "value": "100%"
+      },
+      {
+        "property": "block-size",
+        "value": "100%"
+      }
+    ],
+    "asset": "assets/shoulder/four-places.webp"
+  },
+  {
+    "id": "giant-head",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "founder",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "places",
+    "parent": null,
+    "text": null,
+    "element": "ol",
+    "component": null,
+    "selector": "#places ol",
+    "css": [
+      {
+        "property": "display",
+        "value": "grid"
+      },
+      {
+        "property": "grid-template-columns",
+        "value": "repeat(4, minmax(0, 1fr))"
+      }
+    ],
+    "asset": null
+  },
+  {
+    "id": "place-first-step",
+    "parent": "places",
+    "text": "Finding a useful first step",
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='explore']",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "place-workflow",
+    "parent": "places",
+    "text": "Automating a workflow",
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='workflow']",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "place-prototype",
+    "parent": "places",
+    "text": "Taking a prototype live",
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='prototype']",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "place-live",
+    "parent": "places",
+    "text": "Improving a live product",
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='live']",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "hill-light",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "channels",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "bridge",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "city",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "response",
+    "parent": null,
+    "text": null,
+    "element": "div",
+    "component": null,
+    "selector": "#places details[open] > div",
+    "css": [
+      {
+        "property": "background",
+        "value": "rgb(12 12 16 / .72)"
+      },
+      {
+        "property": "backdrop-filter",
+        "value": "blur(6px)"
+      }
+    ],
+    "asset": null
+  }
+]

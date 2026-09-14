@@ -1,0 +1,19 @@
+[
+  {
+    "id": "open-work",
+    "nodes": [
+      "works"
+    ],
+    "purpose": "Inspect the real work",
+    "trigger": "Activate a work's demo, source or article link",
+    "before": "Work named on its footprint",
+    "after": "Link opens its destination",
+    "primitive": "anchor links",
+    "timing": "Immediate",
+    "keyboard": "Tab through links in list order",
+    "touch": "44px targets",
+    "reduced_motion": "No motion",
+    "fallback": "List reads without the art",
+    "status": "specified"
+  }
+]

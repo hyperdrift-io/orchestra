@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "created_at": "2026-09-14T17:19:18.873775+00:00",
+  "approval": "not recorded",
+  "locked_nodes": [],
+  "brief": "# ScreenCraft brief — ai.hyperdrift.io, On the shoulder\n\nStatus: **approved by the founder on 14 September 2026** (SELECTION.md, round 6). This image is the visual contract for one screen. Analyse it to implement it; do not propose a different design.\n\nMission: Hyperdrift fits AI inside a founder's running SaaS business and drives it to prosperity. The visitor, a technical founder or CTO, should feel they stand on the shoulder of a giant who understands their business. The giant is Hyperdrift: immense, calm, attentive, going where the founder points. Prosperity is the lit country and the waking city. Voice Covenant, meta/PHILOSOPHY.md section 8, Speak to Enable: every word leaves the visitor more capable; no shame, fear, hype or invented metrics.\n\nThe image is one screen, full bleed photographic art with typography laid over it. It is not a device frame. Source dimensions are the raster; the CSS viewport is unknown, so leave viewport_css_px null. Separate artwork (the photograph) from live text: every word in the image becomes real HTML text over a text-free version of the art, never baked into an image. Existing app: Next.js 15, server components, pure cascading CSS (no Tailwind, no CSS-in-JS, class as last resort), data from src/data/situations.ts and src/data/case-studies.ts, enquiry via the existing contact form. Navigation is absent from the image by design; propose only a minimal masthead that does not compete with the art, marked as a proposal.\n\nRecord for the typography: a quiet high-contrast serif for statements, a clean sans for small lines; identify candidates, do not claim the exact font. Record focal relationships: the tiny founder on the giant's shoulder must stay visible at every width; text must never sit across the founder or the giant's face.\n\n## Screen: the proof\n\nFixed content:\n- H2: Where the giant has walked, things grow.\n- The footprints are the real work, each named with what it was built for: Standup (Built for Amazon Web Services · Agents for Humans), Helm (Google · All Things Agentic), uk.gov Radar (OpenAI · The WebMCP Challenge), unanswered (DEV Community · Generosity challenge, Google AI category), Bridge Voice (AssemblyAI · lablab.ai, In development). Participation credit, never an award or endorsement.\n- Now playing, dated from live feeds: the latest Intel edition, the latest article, and \"Hyperdrift turns one\".\n\nArtwork: aerial trail of footprints across the golden country holding an orchard, a workshop and a harbour; the giant's head and shoulder at the right with the founder on the shoulder.\n\nBehaviour: each work item links to its demo, source and article; mapping items onto footprints is a proposal and must fall back to a readable list at narrow widths.\n",
+  "source": {
+    "image_px": [
+      2688,
+      1536
+    ],
+    "sha256": "211c657c02afd6822876b1bd745cdf9283451b0936dff032cda303a91fb2d060",
+    "original_name": "6E-a.png",
+    "original_sha256": "6c26b9b9a0be719feb9ad1d7c27104aa09516d6775d55a5fa2e47b8777757c2a"
+  },
+  "run": {
+    "provider": "import",
+    "input_sha256": "1885cb2baefc4eeb6a7edeb3e3bbae81cf8daba15d95606f78d5c3e74b3d683f",
+    "seconds": 0
+  },
+  "design": {
+    "title": "The proof — where the giant has walked (6E-a)",
+    "summary": "Approved by the founder on 14 September 2026. The work as footprints across the country, the giant's head and the founder on its shoulder at the right.",
+    "identity": [
+      "On the shoulder: one weathered granite giant, golden dawn country, a waking city; the founder stands on the giant's shoulder and points, the giant goes where they point.",
+      "Full-bleed photographic art under live text; quiet high-contrast serif statements, clean sans small lines, warm cream text with a soft shadow for legibility.",
+      "The tiny founder on the shoulder is the focal point at every width; no text or panel crosses the founder or the giant's face.",
+      "Voice Covenant: enable, never diminish; no invented metrics, endorsements or awards."
+    ],
+    "screens": [
+      {
+        "id": "desktop",
+        "bounds_px": [
+          0,
+          0,
+          2688,
+          1536
+        ],
+        "viewport_css_px": null
+      }
+    ],
+    "nodes": [
+      {
+        "id": "art",
+        "name": "Text-free photograph",
+        "parent": null,
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Full-bleed photograph with typography laid over it in the approved image."
+        ],
+        "inferences": [
+          "Implementation uses a text-free derivative produced by masked erase of the typography only."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [
+            {
+              "property": "object-fit",
+              "value": "cover"
+            },
+            {
+              "property": "object-position",
+              "value": "40% 50%"
+            },
+            {
+              "property": "inline-size",
+              "value": "100%"
+            },
+            {
+              "property": "block-size",
+              "value": "100%"
+            }
+          ],
+          "asset": "assets/shoulder/proof.webp"
+        }
+      },
+      {
+        "id": "giant-head",
+        "name": "Giant's head and shoulder",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.495,
+              0.118,
+              0.28,
+              0.882
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Head in profile facing left, shoulder rising from the lower right."
+        ],
+        "inferences": [
+          "Anchors the right half; statement sits over its shoulder in the image."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "founder",
+        "name": "Founder on the shoulder",
+        "parent": "giant-head",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.7825,
+              0.551,
+              0.02,
+              0.07
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Small silhouette behind the neck, looking back along the trail."
+        ],
+        "inferences": [
+          "Focal; keep clear."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "trail",
+        "name": "Footprint trail",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.12,
+              0.41,
+              0.38,
+              0.474
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "A curve of footprints from the horizon to the foreground."
+        ],
+        "inferences": [
+          "The five works map to the five nearest footprints on desktop."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "footprint-harbour",
+        "name": "Harbour footprint",
+        "parent": "trail",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.265,
+              0.682,
+              0.2225,
+              0.2
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Nearest footprint: harbour with boats and a workshop."
+        ],
+        "inferences": [
+          "Anchor for the first work."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "footprint-orchard",
+        "name": "Orchard footprint",
+        "parent": "trail",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.13,
+              0.634,
+              0.15,
+              0.118
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Orchard trees."
+        ],
+        "inferences": [
+          "Anchor for the second work."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "footprint-workshop",
+        "name": "Workshop footprint",
+        "parent": "trail",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.1025,
+              0.56,
+              0.0825,
+              0.066
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Small lit building."
+        ],
+        "inferences": [
+          "Anchor for the third work."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "statement",
+        "name": "Statement",
+        "parent": null,
+        "kind": "text",
+        "text": "Where the giant has walked, things grow.",
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.5875,
+              0.835,
+              0.37,
+              0.035
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Spaced cream serif over the giant's shoulder."
+        ],
+        "inferences": [
+          "h2; moves off the shoulder stone into the field at the left if contrast needs it."
+        ],
+        "implementation": {
+          "element": "h2",
+          "component": null,
+          "selector": "#proof h2",
+          "css": [
+            {
+              "property": "letter-spacing",
+              "value": ".08em"
+            },
+            {
+              "property": "font-size",
+              "value": "clamp(1.3rem, 1rem + 1.2vw, 2.2rem)"
+            }
+          ],
+          "asset": null
+        }
+      },
+      {
+        "id": "works",
+        "name": "The work",
+        "parent": null,
+        "kind": "region",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.12,
+              0.41,
+              0.38,
+              0.474
+            ],
+            "measurement": "Proposal: not present in the approved image by design; placed where the art leaves room."
+          }
+        ],
+        "observations": [
+          "Proposal: not present in the approved image by design; placed where the art leaves room."
+        ],
+        "inferences": [
+          "Standup, Helm, uk.gov Radar, unanswered, Bridge Voice from src/data/case-studies.ts, each with Built for <organiser> and its links; a readable list at narrow widths."
+        ],
+        "implementation": {
+          "element": "ul",
+          "component": null,
+          "selector": "#proof ul",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "now-playing",
+        "name": "Now playing",
+        "parent": null,
+        "kind": "region",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.03,
+              0.05,
+              0.4,
+              0.2
+            ],
+            "measurement": "Proposal: not present in the approved image by design; placed where the art leaves room."
+          }
+        ],
+        "observations": [
+          "Proposal: not present in the approved image by design; placed where the art leaves room."
+        ],
+        "inferences": [
+          "Latest Intel edition and latest article from the live feeds, plus Hyperdrift turns one, in the sky at the upper left."
+        ],
+        "implementation": {
+          "element": "aside",
+          "component": null,
+          "selector": "#proof aside",
+          "css": [],
+          "asset": null
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "nodes": [
+          "works",
+          "trail"
+        ],
+        "kind": "annotation",
+        "evidence": "Footprints are the only repeated objects in the scene.",
+        "css_consequence": "Desktop: small labels positioned on the trail as a list with a custom layout; below 900px a plain list under the art."
+      },
+      {
+        "nodes": [
+          "founder",
+          "statement",
+          "now-playing"
+        ],
+        "kind": "exclusion",
+        "evidence": "Founder sits behind the neck at about 78% across.",
+        "css_consequence": "No text in the band x 74–84%, y 50–65% at desktop."
+      }
+    ],
+    "interactions": [
+      {
+        "id": "open-work",
+        "nodes": [
+          "works"
+        ],
+        "purpose": "Inspect the real work",
+        "trigger": "Activate a work's demo, source or article link",
+        "before": "Work named on its footprint",
+        "after": "Link opens its destination",
+        "primitive": "anchor links",
+        "timing": "Immediate",
+        "keyboard": "Tab through links in list order",
+        "touch": "44px targets",
+        "reduced_motion": "No motion",
+        "fallback": "List reads without the art",
+        "status": "specified"
+      }
+    ],
+    "open_decisions": [
+      "Seven footprints in the art versus five works: use the five nearest; confirm.",
+      "Now playing placement is a proposal.",
+      "Statement position over stone vs field decided by contrast in preview."
+    ]
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "created_at": "2026-09-14T17:19:19.581882+00:00",
+  "approval": "not recorded",
+  "locked_nodes": [],
+  "brief": "# ScreenCraft brief — ai.hyperdrift.io, On the shoulder\n\nStatus: **approved by the founder on 14 September 2026** (SELECTION.md, round 6). This image is the visual contract for one screen. Analyse it to implement it; do not propose a different design.\n\nMission: Hyperdrift fits AI inside a founder's running SaaS business and drives it to prosperity. The visitor, a technical founder or CTO, should feel they stand on the shoulder of a giant who understands their business. The giant is Hyperdrift: immense, calm, attentive, going where the founder points. Prosperity is the lit country and the waking city. Voice Covenant, meta/PHILOSOPHY.md section 8, Speak to Enable: every word leaves the visitor more capable; no shame, fear, hype or invented metrics.\n\nThe image is one screen, full bleed photographic art with typography laid over it. It is not a device frame. Source dimensions are the raster; the CSS viewport is unknown, so leave viewport_css_px null. Separate artwork (the photograph) from live text: every word in the image becomes real HTML text over a text-free version of the art, never baked into an image. Existing app: Next.js 15, server components, pure cascading CSS (no Tailwind, no CSS-in-JS, class as last resort), data from src/data/situations.ts and src/data/case-studies.ts, enquiry via the existing contact form. Navigation is absent from the image by design; propose only a minimal masthead that does not compete with the art, marked as a proposal.\n\nRecord for the typography: a quiet high-contrast serif for statements, a clean sans for small lines; identify candidates, do not claim the exact font. Record focal relationships: the tiny founder on the giant's shoulder must stay visible at every width; text must never sit across the founder or the giant's face.\n\n## Screen: the enquiry\n\nFixed content:\n- H2: You say where. We go.\n- The existing enquiry form: Where you are (select, prefilled by a chosen place), Name, Email, Company (optional), What do you want to ship?, button \"Send enquiry\".\n- The Traction Partnership invitation: Build together. Share the upside. Apply to partner (terms folded).\n- Footer with Hyperdrift attribution.\n\nArtwork: the giant's face lowered attentively toward its own shoulder, where the small founder stands pointing at the city across golden country.\n\nBehaviour: the form must never cover the founder or the giant's face; at narrow widths the art sits above the form. Native validation and focus states; the selected place stays editable; no auto-submit.\n",
+  "source": {
+    "image_px": [
+      2688,
+      1536
+    ],
+    "sha256": "b2dae283bbff2e10ae121f4ebb2def35d13fc59fb8d860b2cd4e010beeffd807",
+    "original_name": "6F-a.png",
+    "original_sha256": "f2d8ac0d08871b8c1e52b3f32ca0b4a7695f3ce07516831ab41b5f7ba2bd2d55"
+  },
+  "run": {
+    "provider": "import",
+    "input_sha256": "f60d94b623aa278b543f85149124b5278ada9ff8502bc0f8a394f13a17d8c438",
+    "seconds": 0
+  },
+  "design": {
+    "title": "The enquiry — You say where. We go. (6F-a)",
+    "summary": "Approved by the founder on 14 September 2026. The giant lowers its face toward the founder on its shoulder, who points at the city; the enquiry lives beside them.",
+    "identity": [
+      "On the shoulder: one weathered granite giant, golden dawn country, a waking city; the founder stands on the giant's shoulder and points, the giant goes where they point.",
+      "Full-bleed photographic art under live text; quiet high-contrast serif statements, clean sans small lines, warm cream text with a soft shadow for legibility.",
+      "The tiny founder on the shoulder is the focal point at every width; no text or panel crosses the founder or the giant's face.",
+      "Voice Covenant: enable, never diminish; no invented metrics, endorsements or awards."
+    ],
+    "screens": [
+      {
+        "id": "desktop",
+        "bounds_px": [
+          0,
+          0,
+          2688,
+          1536
+        ],
+        "viewport_css_px": null
+      }
+    ],
+    "nodes": [
+      {
+        "id": "art",
+        "name": "Text-free photograph",
+        "parent": null,
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Full-bleed photograph with typography laid over it in the approved image."
+        ],
+        "inferences": [
+          "Implementation uses a text-free derivative produced by masked erase of the typography only."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [
+            {
+              "property": "object-fit",
+              "value": "cover"
+            },
+            {
+              "property": "object-position",
+              "value": "70% 50%"
+            },
+            {
+              "property": "inline-size",
+              "value": "100%"
+            },
+            {
+              "property": "block-size",
+              "value": "100%"
+            }
+          ],
+          "asset": "assets/shoulder/enquiry.webp"
+        }
+      },
+      {
+        "id": "giant-face",
+        "name": "Giant's lowered face",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.245,
+              0,
+              0.755,
+              0.77
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Huge weathered face filling the upper right, looking down toward its shoulder."
+        ],
+        "inferences": [
+          "Never overlaid."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "founder",
+        "name": "Founder on the shoulder, pointing",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.64,
+              0.783,
+              0.04,
+              0.131
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Whole small figure on the mossy shoulder, arm toward the city."
+        ],
+        "inferences": [
+          "Focal; keep clear."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "city",
+        "name": "City in the distance",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.11,
+              0.564,
+              0.29,
+              0.066
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Skyline at the left beyond the fields."
+        ],
+        "inferences": [
+          "Where the founder points."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "statement",
+        "name": "Statement",
+        "parent": null,
+        "kind": "text",
+        "text": "You say where. We go.",
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.0625,
+              0.792,
+              0.5025,
+              0.083
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Large cream serif at the lower left over the fields."
+        ],
+        "inferences": [
+          "h2 of the enquiry section."
+        ],
+        "implementation": {
+          "element": "h2",
+          "component": null,
+          "selector": "#contact h2",
+          "css": [
+            {
+              "property": "font-size",
+              "value": "clamp(2.2rem, 1.2rem + 3vw, 4.4rem)"
+            }
+          ],
+          "asset": null
+        }
+      },
+      {
+        "id": "form",
+        "name": "Enquiry form",
+        "parent": null,
+        "kind": "control",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.04,
+              0.08,
+              0.3,
+              0.45
+            ],
+            "measurement": "Proposal: not present in the approved image by design; placed where the art leaves room."
+          }
+        ],
+        "observations": [
+          "Proposal: not present in the approved image by design; placed where the art leaves room."
+        ],
+        "inferences": [
+          "Existing form: Where you are, Name, Email, Company, What do you want to ship?, Send enquiry — in the open sky at the upper left on desktop; below the art on mobile."
+        ],
+        "implementation": {
+          "element": "form",
+          "component": null,
+          "selector": "#contact form",
+          "css": [
+            {
+              "property": "background",
+              "value": "rgb(12 12 16 / .6)"
+            },
+            {
+              "property": "backdrop-filter",
+              "value": "blur(8px)"
+            }
+          ],
+          "asset": null
+        }
+      },
+      {
+        "id": "partnership",
+        "name": "The Traction Partnership",
+        "parent": null,
+        "kind": "region",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "desktop",
+            "bounds": [
+              0.04,
+              0.9,
+              0.5,
+              0.08
+            ],
+            "measurement": "Proposal: not present in the approved image by design; placed where the art leaves room."
+          }
+        ],
+        "observations": [
+          "Proposal: not present in the approved image by design; placed where the art leaves room."
+        ],
+        "inferences": [
+          "Build together. Share the upside. Apply to partner, terms folded."
+        ],
+        "implementation": {
+          "element": "aside",
+          "component": null,
+          "selector": "#contact aside",
+          "css": [],
+          "asset": null
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "nodes": [
+          "form",
+          "giant-face",
+          "founder"
+        ],
+        "kind": "exclusion",
+        "evidence": "Sky at the upper left is the only large calm area.",
+        "css_consequence": "Form max 30% wide at the left on desktop; stacked under the art below 900px."
+      },
+      {
+        "nodes": [
+          "statement",
+          "city"
+        ],
+        "kind": "reading order",
+        "evidence": "Statement sits below the city on the left.",
+        "css_consequence": "Statement follows the art in source order and precedes the form on mobile."
+      }
+    ],
+    "interactions": [
+      {
+        "id": "send-enquiry",
+        "nodes": [
+          "form"
+        ],
+        "purpose": "Start a project with context carried from the chosen place",
+        "trigger": "Submit the form",
+        "before": "Where you are preselected when arriving from a place, editable",
+        "after": "Received confirmation; relay to hyperdrift.io unchanged",
+        "primitive": "native form with required fields",
+        "timing": "Immediate feedback; no auto-submit",
+        "keyboard": "Native form navigation and validation",
+        "touch": "44px fields and button",
+        "reduced_motion": "No motion",
+        "fallback": "Server route validates; form usable without enhancement beyond fetch",
+        "status": "specified"
+      }
+    ],
+    "open_decisions": [
+      "Form over sky vs below the art on desktop: confirm legibility in preview.",
+      "Partnership placement is a proposal."
+    ]
+  }
+}

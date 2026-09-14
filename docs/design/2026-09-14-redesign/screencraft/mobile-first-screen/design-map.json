@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "created_at": "2026-09-14T17:19:20.312892+00:00",
+  "approval": "Founder approved this screen as one of the five On-the-shoulder screens to build on 14 September 2026 (SELECTION.md, round 6). Map imported by hand: Codex vision capped until 19 Sep 2026.",
+  "locked_nodes": [],
+  "brief": "# ScreenCraft brief — ai.hyperdrift.io, On the shoulder\n\nStatus: **approved by the founder on 14 September 2026** (SELECTION.md, round 6). This image is the visual contract for one screen. Analyse it to implement it; do not propose a different design.\n\nMission: Hyperdrift fits AI inside a founder's running SaaS business and drives it to prosperity. The visitor, a technical founder or CTO, should feel they stand on the shoulder of a giant who understands their business. The giant is Hyperdrift: immense, calm, attentive, going where the founder points. Prosperity is the lit country and the waking city. Voice Covenant, meta/PHILOSOPHY.md section 8, Speak to Enable: every word leaves the visitor more capable; no shame, fear, hype or invented metrics.\n\nThe image is one screen, full bleed photographic art with typography laid over it. It is not a device frame. Source dimensions are the raster; the CSS viewport is unknown, so leave viewport_css_px null. Separate artwork (the photograph) from live text: every word in the image becomes real HTML text over a text-free version of the art, never baked into an image. Existing app: Next.js 15, server components, pure cascading CSS (no Tailwind, no CSS-in-JS, class as last resort), data from src/data/situations.ts and src/data/case-studies.ts, enquiry via the existing contact form. Navigation is absent from the image by design; propose only a minimal masthead that does not compete with the art, marked as a proposal.\n\nRecord for the typography: a quiet high-contrast serif for statements, a clean sans for small lines; identify candidates, do not claim the exact font. Record focal relationships: the tiny founder on the giant's shoulder must stay visible at every width; text must never sit across the founder or the giant's face.\n\n## Screen: first screen (mobile, portrait)\n\nFixed content, same as desktop:\n- H1: Stand on the shoulders of a giant who understands your business.\n- Sub line: Where are you taking AI next?\n\nArtwork: the giant walking up a hillside and pointing ahead, the founder on its shoulder, footprints behind, river, bridge and city in the mist beyond.\n\nBehaviour: this is the 390px first screen. The founder on the shoulder stays visible; the statement sits in the sky above the giant and the sub line in the grass below it; the primary action to the four places is thumb-reachable.\n",
+  "source": {
+    "image_px": [
+      1664,
+      2560
+    ],
+    "sha256": "3567c424fbc7cdf51545209fbbb6ceb0999eb3a6a51b37b7d95fd5471451299e",
+    "original_name": "6H-a.png",
+    "original_sha256": "319b0d8f2b0d55163da1a957286e99f91a3550a1830f139a60d9a91e65a25f93"
+  },
+  "run": {
+    "provider": "manual-patch",
+    "patch": {
+      "base_revision": 1,
+      "approval": "Founder approved this screen as one of the five On-the-shoulder screens to build on 14 September 2026 (SELECTION.md, round 6). Map imported by hand: Codex vision capped until 19 Sep 2026."
+    },
+    "seconds": 0
+  },
+  "design": {
+    "title": "Mobile first screen — two figures, one direction (6H-a)",
+    "summary": "Approved by the founder on 14 September 2026. Portrait first screen: the giant walks and points, the founder on its shoulder, statement in the sky, question in the grass.",
+    "identity": [
+      "On the shoulder: one weathered granite giant, golden dawn country, a waking city; the founder stands on the giant's shoulder and points, the giant goes where they point.",
+      "Full-bleed photographic art under live text; quiet high-contrast serif statements, clean sans small lines, warm cream text with a soft shadow for legibility.",
+      "The tiny founder on the shoulder is the focal point at every width; no text or panel crosses the founder or the giant's face.",
+      "Voice Covenant: enable, never diminish; no invented metrics, endorsements or awards."
+    ],
+    "screens": [
+      {
+        "id": "mobile",
+        "bounds_px": [
+          0,
+          0,
+          1664,
+          2560
+        ],
+        "viewport_css_px": null
+      }
+    ],
+    "nodes": [
+      {
+        "id": "art",
+        "name": "Text-free photograph",
+        "parent": null,
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Full-bleed photograph with typography laid over it in the approved image."
+        ],
+        "inferences": [
+          "Implementation uses a text-free derivative produced by masked erase of the typography only."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [
+            {
+              "property": "object-fit",
+              "value": "cover"
+            },
+            {
+              "property": "object-position",
+              "value": "50% 40%"
+            },
+            {
+              "property": "inline-size",
+              "value": "100%"
+            },
+            {
+              "property": "block-size",
+              "value": "100%"
+            }
+          ],
+          "asset": "assets/shoulder/mobile-first-screen.webp"
+        }
+      },
+      {
+        "id": "giant",
+        "name": "Giant walking and pointing",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0.26,
+              0.265,
+              0.585,
+              0.54
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Full-length granite giant striding up the hillside, right arm pointing ahead."
+        ],
+        "inferences": [
+          "Centre of the portrait crop."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "founder",
+        "name": "Founder on the shoulder",
+        "parent": "giant",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0.565,
+              0.3,
+              0.035,
+              0.045
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Small figure on the shoulder, arms open."
+        ],
+        "inferences": [
+          "Focal; keep clear of the statement."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "landscape",
+        "name": "River, bridge and city",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0,
+              0.425,
+              1,
+              0.3
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Mist, river with a bridge and a city beyond the giant."
+        ],
+        "inferences": [
+          "Background depth."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "footprints",
+        "name": "Footprints behind",
+        "parent": "art",
+        "kind": "artwork",
+        "text": null,
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0,
+              0.795,
+              0.254,
+              0.155
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Footprints climbing the grass at the lower left."
+        ],
+        "inferences": [
+          "The walk so far."
+        ],
+        "implementation": {
+          "element": "img",
+          "component": null,
+          "selector": "section > img",
+          "css": [],
+          "asset": null
+        }
+      },
+      {
+        "id": "statement",
+        "name": "Statement",
+        "parent": null,
+        "kind": "text",
+        "text": "Stand on the shoulders of a giant who understands your business.",
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0.18,
+              0.13,
+              0.64,
+              0.065
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Two-line centred cream serif in the sky."
+        ],
+        "inferences": [
+          "h1, centred, above the giant's head."
+        ],
+        "implementation": {
+          "element": "h1",
+          "component": null,
+          "selector": "section[aria-labelledby='hero-title'] h1",
+          "css": [
+            {
+              "property": "text-align",
+              "value": "center"
+            },
+            {
+              "property": "font-size",
+              "value": "clamp(1.7rem, 1.2rem + 2.4vw, 2.4rem)"
+            }
+          ],
+          "asset": null
+        }
+      },
+      {
+        "id": "question",
+        "name": "Question",
+        "parent": null,
+        "kind": "text",
+        "text": "Where are you taking AI next?",
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0.288,
+              0.9425,
+              0.43,
+              0.02
+            ],
+            "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+          }
+        ],
+        "observations": [
+          "Small centred serif in the grass at the bottom."
+        ],
+        "inferences": [
+          "Thumb zone; the primary action sits just above it."
+        ],
+        "implementation": {
+          "element": "p",
+          "component": null,
+          "selector": "section[aria-labelledby='hero-title'] h1 + p",
+          "css": [
+            {
+              "property": "text-align",
+              "value": "center"
+            }
+          ],
+          "asset": null
+        }
+      },
+      {
+        "id": "primary-action",
+        "name": "Choose where you are",
+        "parent": null,
+        "kind": "control",
+        "text": "Choose where you are",
+        "evidence": [
+          {
+            "screen": "mobile",
+            "bounds": [
+              0.2,
+              0.86,
+              0.6,
+              0.05
+            ],
+            "measurement": "Proposal: not present in the approved image by design; placed where the art leaves room."
+          }
+        ],
+        "observations": [
+          "Proposal: not present in the approved image by design; placed where the art leaves room."
+        ],
+        "inferences": [
+          "Thumb-reachable action to the four places."
+        ],
+        "implementation": {
+          "element": "a",
+          "component": null,
+          "selector": "section[aria-labelledby='hero-title'] a",
+          "css": [],
+          "asset": null
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "nodes": [
+          "statement",
+          "founder"
+        ],
+        "kind": "vertical separation",
+        "evidence": "Statement ends at about 20% height; the founder sits at about 30%.",
+        "css_consequence": "Statement block height capped so it never reaches the founder at 390px."
+      },
+      {
+        "nodes": [
+          "question",
+          "primary-action"
+        ],
+        "kind": "thumb zone",
+        "evidence": "Question sits at the bottom edge in the grass.",
+        "css_consequence": "Action and question anchored to the bottom of the first screen with safe-area padding."
+      }
+    ],
+    "interactions": [
+      {
+        "id": "go-to-places-mobile",
+        "nodes": [
+          "primary-action"
+        ],
+        "purpose": "Take the visitor to the four places",
+        "trigger": "Tap the action",
+        "before": "First screen",
+        "after": "Places list in view",
+        "primitive": "in-page anchor link",
+        "timing": "Immediate",
+        "keyboard": "Enter on link",
+        "touch": "44px target",
+        "reduced_motion": "Instant jump",
+        "fallback": "Plain anchor",
+        "status": "proposed"
+      }
+    ],
+    "open_decisions": [
+      "Portrait art is used from 390px until the desktop art takes over; breakpoint confirmed in preview.",
+      "Primary action is a proposal."
+    ]
+  },
+  "updated_at": "2026-09-14T17:19:59.193819+00:00"
+}

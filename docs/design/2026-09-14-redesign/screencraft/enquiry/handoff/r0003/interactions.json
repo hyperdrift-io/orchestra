@@ -1,0 +1,19 @@
+[
+  {
+    "id": "send-enquiry",
+    "nodes": [
+      "form"
+    ],
+    "purpose": "Start a project with context carried from the chosen place",
+    "trigger": "Submit the form",
+    "before": "Where you are preselected when arriving from a place, editable",
+    "after": "Received confirmation; relay to hyperdrift.io unchanged",
+    "primitive": "native form with required fields",
+    "timing": "Immediate feedback; no auto-submit",
+    "keyboard": "Native form navigation and validation",
+    "touch": "44px fields and button",
+    "reduced_motion": "No motion",
+    "fallback": "Server route validates; form usable without enhancement beyond fetch",
+    "status": "specified"
+  }
+]

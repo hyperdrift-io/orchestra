@@ -1,0 +1,140 @@
+[
+  {
+    "id": "art",
+    "parent": null,
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [
+      {
+        "property": "object-fit",
+        "value": "cover"
+      },
+      {
+        "property": "object-position",
+        "value": "50% 35%"
+      },
+      {
+        "property": "inline-size",
+        "value": "100%"
+      },
+      {
+        "property": "block-size",
+        "value": "100%"
+      }
+    ],
+    "asset": "assets/shoulder/first-screen.webp"
+  },
+  {
+    "id": "giant",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [
+      {
+        "property": "object-position",
+        "value": "50% 35%"
+      }
+    ],
+    "asset": null
+  },
+  {
+    "id": "founder",
+    "parent": "giant",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "footprint-villages",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "city",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "statement",
+    "parent": null,
+    "text": "Stand on the shoulders of a giant who understands your business.",
+    "element": "h1",
+    "component": null,
+    "selector": "section[aria-labelledby='hero-title'] h1",
+    "css": [
+      {
+        "property": "font-family",
+        "value": "a quiet high-contrast serif (candidate)"
+      },
+      {
+        "property": "font-size",
+        "value": "clamp(2.2rem, 1.2rem + 3.2vw, 4.6rem)"
+      },
+      {
+        "property": "max-inline-size",
+        "value": "16ch"
+      },
+      {
+        "property": "color",
+        "value": "var(--cream)"
+      },
+      {
+        "property": "text-shadow",
+        "value": "0 2px 24px rgb(0 0 0 / .45)"
+      }
+    ],
+    "asset": null
+  },
+  {
+    "id": "question",
+    "parent": null,
+    "text": "Where are you taking AI next?",
+    "element": "p",
+    "component": null,
+    "selector": "section[aria-labelledby='hero-title'] h1 + p",
+    "css": [
+      {
+        "property": "font-size",
+        "value": "clamp(1.1rem, .9rem + .8vw, 1.6rem)"
+      }
+    ],
+    "asset": null
+  },
+  {
+    "id": "primary-action",
+    "parent": null,
+    "text": "Choose where you are",
+    "element": "a",
+    "component": null,
+    "selector": "section[aria-labelledby='hero-title'] a",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "masthead",
+    "parent": null,
+    "text": null,
+    "element": "header",
+    "component": null,
+    "selector": "body > header",
+    "css": [],
+    "asset": null
+  }
+]

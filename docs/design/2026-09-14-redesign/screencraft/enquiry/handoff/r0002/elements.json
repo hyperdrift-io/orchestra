@@ -1,0 +1,103 @@
+[
+  {
+    "id": "art",
+    "parent": null,
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [
+      {
+        "property": "object-fit",
+        "value": "cover"
+      },
+      {
+        "property": "object-position",
+        "value": "70% 50%"
+      },
+      {
+        "property": "inline-size",
+        "value": "100%"
+      },
+      {
+        "property": "block-size",
+        "value": "100%"
+      }
+    ],
+    "asset": "assets/shoulder/enquiry.webp"
+  },
+  {
+    "id": "giant-face",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "founder",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "city",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "statement",
+    "parent": null,
+    "text": "You say where. We go.",
+    "element": "h2",
+    "component": null,
+    "selector": "#contact h2",
+    "css": [
+      {
+        "property": "font-size",
+        "value": "clamp(2.2rem, 1.2rem + 3vw, 4.4rem)"
+      }
+    ],
+    "asset": null
+  },
+  {
+    "id": "form",
+    "parent": null,
+    "text": null,
+    "element": "form",
+    "component": null,
+    "selector": "#contact form",
+    "css": [
+      {
+        "property": "background",
+        "value": "rgb(12 12 16 / .6)"
+      },
+      {
+        "property": "backdrop-filter",
+        "value": "blur(8px)"
+      }
+    ],
+    "asset": null
+  },
+  {
+    "id": "partnership",
+    "parent": null,
+    "text": null,
+    "element": "aside",
+    "component": null,
+    "selector": "#contact aside",
+    "css": [],
+    "asset": null
+  }
+]

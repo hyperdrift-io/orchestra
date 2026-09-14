@@ -1,0 +1,16 @@
+/* ScreenCraft candidate CSS. Review inferred font/layout choices before app integration. */
+/* Source region IDs are comments, not a production class system. */
+
+/* art */
+section > img {
+  object-fit: cover;
+  object-position: 40% 50%;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* statement */
+#proof h2 {
+  letter-spacing: .08em;
+  font-size: clamp(1.3rem, 1rem + 1.2vw, 2.2rem);
+}

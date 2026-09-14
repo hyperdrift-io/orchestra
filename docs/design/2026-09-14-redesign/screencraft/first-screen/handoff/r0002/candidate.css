@@ -1,0 +1,24 @@
+/* ScreenCraft candidate CSS. Review inferred font/layout choices before app integration. */
+/* Source region IDs are comments, not a production class system. */
+
+/* art, giant */
+section > img {
+  object-fit: cover;
+  object-position: 50% 35%;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* statement */
+section[aria-labelledby='hero-title'] h1 {
+  font-family: a quiet high-contrast serif (candidate);
+  font-size: clamp(2.2rem, 1.2rem + 3.2vw, 4.6rem);
+  max-inline-size: 16ch;
+  color: var(--cream);
+  text-shadow: 0 2px 24px rgb(0 0 0 / .45);
+}
+
+/* question */
+section[aria-labelledby='hero-title'] h1 + p {
+  font-size: clamp(1.1rem, .9rem + .8vw, 1.6rem);
+}

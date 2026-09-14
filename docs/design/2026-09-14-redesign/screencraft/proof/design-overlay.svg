@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2688" height="1536" viewBox="0 0 2688 1536">
+<title>ScreenCraft evidence overlay</title>
+<image href="source.png" width="2688" height="1536"/>
+<g><title>Text-free photograph</title>
+<rect x="0.00" y="0.00" width="2688.00" height="1536.00" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="3.00" y="23.00" font-family="sans-serif" font-size="23" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">art</text></g>
+<g><title>Giant&#x27;s head and shoulder</title>
+<rect x="1330.56" y="181.25" width="752.64" height="1354.75" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="1333.56" y="204.25" font-family="sans-serif" font-size="23" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">giant-head</text></g>
+<g><title>Founder on the shoulder</title>
+<rect x="2103.36" y="846.34" width="53.76" height="107.52" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="2106.36" y="869.34" font-family="sans-serif" font-size="23" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">founder</text></g>
+<g><title>Footprint trail</title>
+<rect x="322.56" y="629.76" width="1021.44" height="728.06" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="325.56" y="652.76" font-family="sans-serif" font-size="23" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">trail</text></g>
+<g><title>Harbour footprint</title>
+<rect x="712.32" y="1047.55" width="598.08" height="307.20" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="715.32" y="1070.55" font-family="sans-serif" font-size="23" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">footprint-harbour</text></g>
+<g><title>Orchard footprint</title>
+<rect x="349.44" y="973.82" width="403.20" height="181.25" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="352.44" y="996.82" font-family="sans-serif" font-size="23" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">footprint-orchard</text></g>
+<g><title>Workshop footprint</title>
+<rect x="275.52" y="860.16" width="221.76" height="101.38" fill="none" stroke="#07825c" stroke-width="2"/>
+<text x="278.52" y="883.16" font-family="sans-serif" font-size="23" fill="#07825c" stroke="white" stroke-width="3" paint-order="stroke">footprint-workshop</text></g>
+<g><title>Statement</title>
+<rect x="1579.20" y="1282.56" width="994.56" height="53.76" fill="none" stroke="#9333ea" stroke-width="2"/>
+<text x="1582.20" y="1305.56" font-family="sans-serif" font-size="23" fill="#9333ea" stroke="white" stroke-width="3" paint-order="stroke">statement</text></g>
+<g><title>The work</title>
+<rect x="322.56" y="629.76" width="1021.44" height="728.06" fill="none" stroke="#dc2626" stroke-width="2"/>
+<text x="325.56" y="652.76" font-family="sans-serif" font-size="23" fill="#dc2626" stroke="white" stroke-width="3" paint-order="stroke">works</text></g>
+<g><title>Now playing</title>
+<rect x="80.64" y="76.80" width="1075.20" height="307.20" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="83.64" y="99.80" font-family="sans-serif" font-size="23" fill="#2563eb" stroke="white" stroke-width="3" paint-order="stroke">now-playing</text></g>
+</svg>

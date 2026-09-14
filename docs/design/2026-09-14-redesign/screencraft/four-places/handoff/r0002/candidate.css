@@ -1,0 +1,22 @@
+/* ScreenCraft candidate CSS. Review inferred font/layout choices before app integration. */
+/* Source region IDs are comments, not a production class system. */
+
+/* art */
+section > img {
+  object-fit: cover;
+  object-position: 30% 50%;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* places */
+#places ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* response */
+#places details[open] > div {
+  background: rgb(12 12 16 / .72);
+  backdrop-filter: blur(6px);
+}

@@ -1,0 +1,555 @@
+{
+ "title": "The four places \u2014 stage entry (6D-b)",
+ "summary": "Approved by the founder on 14 September 2026. The four situations as four places on the horizon, seen past the giant's head with the founder pointing from its shoulder.",
+ "identity": [
+  "On the shoulder: one weathered granite giant, golden dawn country, a waking city; the founder stands on the giant's shoulder and points, the giant goes where they point.",
+  "Full-bleed photographic art under live text; quiet high-contrast serif statements, clean sans small lines, warm cream text with a soft shadow for legibility.",
+  "The tiny founder on the shoulder is the focal point at every width; no text or panel crosses the founder or the giant's face.",
+  "Voice Covenant: enable, never diminish; no invented metrics, endorsements or awards."
+ ],
+ "screens": [
+  {
+   "id": "desktop",
+   "bounds_px": [
+    0,
+    0,
+    2688,
+    1536
+   ],
+   "viewport_css_px": null
+  }
+ ],
+ "nodes": [
+  {
+   "id": "art",
+   "name": "Text-free photograph",
+   "parent": null,
+   "kind": "artwork",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0,
+      0,
+      1,
+      1
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Full-bleed photograph with typography laid over it in the approved image."
+   ],
+   "inferences": [
+    "Implementation uses a text-free derivative produced by masked erase of the typography only."
+   ],
+   "implementation": {
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [
+     {
+      "property": "object-fit",
+      "value": "cover"
+     },
+     {
+      "property": "object-position",
+      "value": "30% 50%"
+     },
+     {
+      "property": "inline-size",
+      "value": "100%"
+     },
+     {
+      "property": "block-size",
+      "value": "100%"
+     }
+    ],
+    "asset": "assets/shoulder/four-places.webp"
+   }
+  },
+  {
+   "id": "giant-head",
+   "name": "Giant's head in profile",
+   "parent": "art",
+   "kind": "artwork",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0,
+      0,
+      0.2,
+      0.665
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Weathered head at the left edge, facing right over the land."
+   ],
+   "inferences": [
+    "Anchors the left; nothing overlays it."
+   ],
+   "implementation": {
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "founder",
+   "name": "Founder on the shoulder",
+   "parent": "art",
+   "kind": "artwork",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.2475,
+      0.67,
+      0.035,
+      0.114
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Small figure on the shoulder rock, arm raised toward the places."
+   ],
+   "inferences": [
+    "Focal; the response panel must not cover it."
+   ],
+   "implementation": {
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "places",
+   "name": "The four places",
+   "parent": null,
+   "kind": "control",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.22,
+      0.468,
+      0.6525,
+      0.026
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Four serif labels in one row across the middle of the image."
+   ],
+   "inferences": [
+    "A native list of disclosures, one open at a time; on desktop the labels sit on the art over their places."
+   ],
+   "implementation": {
+    "element": "ol",
+    "component": null,
+    "selector": "#places ol",
+    "css": [
+     {
+      "property": "display",
+      "value": "grid"
+     },
+     {
+      "property": "grid-template-columns",
+      "value": "repeat(4, minmax(0, 1fr))"
+     }
+    ],
+    "asset": null
+   }
+  },
+  {
+   "id": "place-first-step",
+   "name": "Finding a useful first step",
+   "parent": "places",
+   "kind": "control",
+   "text": "Finding a useful first step",
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.22,
+      0.468,
+      0.13,
+      0.026
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Label above the hill with a single warm light."
+   ],
+   "inferences": [
+    "details name='place' / summary; the hill light is its visual."
+   ],
+   "implementation": {
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='explore']",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "place-workflow",
+   "name": "Automating a workflow",
+   "parent": "places",
+   "kind": "control",
+   "text": "Automating a workflow",
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.4,
+      0.468,
+      0.12,
+      0.026
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Label above the water channels running into fields."
+   ],
+   "inferences": [
+    "Same primitive; the channels are its visual."
+   ],
+   "implementation": {
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='workflow']",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "place-prototype",
+   "name": "Taking a prototype live",
+   "parent": "places",
+   "kind": "control",
+   "text": "Taking a prototype live",
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.57,
+      0.468,
+      0.1175,
+      0.026
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Label above the stone bridge."
+   ],
+   "inferences": [
+    "Same primitive; the bridge is its visual."
+   ],
+   "implementation": {
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='prototype']",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "place-live",
+   "name": "Improving a live product",
+   "parent": "places",
+   "kind": "control",
+   "text": "Improving a live product",
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.745,
+      0.468,
+      0.1275,
+      0.026
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Label above the city."
+   ],
+   "inferences": [
+    "Same primitive; the city is its visual."
+   ],
+   "implementation": {
+    "element": "details",
+    "component": null,
+    "selector": "#places details[data-place='live']",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "hill-light",
+   "name": "Light on the hill",
+   "parent": "art",
+   "kind": "artwork",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.19,
+      0.34,
+      0.26,
+      0.18
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "A hill with one warm point of light."
+   ],
+   "inferences": [
+    "Brightens when the first place is open."
+   ],
+   "implementation": {
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "channels",
+   "name": "Water channels",
+   "parent": "art",
+   "kind": "artwork",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.35,
+      0.54,
+      0.3,
+      0.36
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Rivers and channels winding through fields."
+   ],
+   "inferences": [
+    "Brightens when the workflow place is open."
+   ],
+   "implementation": {
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "bridge",
+   "name": "Stone bridge",
+   "parent": "art",
+   "kind": "artwork",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.46,
+      0.647,
+      0.24,
+      0.062
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "Arched bridge across the river."
+   ],
+   "inferences": [
+    "Brightens when the prototype place is open."
+   ],
+   "implementation": {
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "city",
+   "name": "City",
+   "parent": "art",
+   "kind": "artwork",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.515,
+      0.28,
+      0.485,
+      0.245
+     ],
+     "measurement": "Measured by eye from the approved raster (vision provider unavailable: Codex usage cap until 19 Sep 2026); approximate, not recovered CSS."
+    }
+   ],
+   "observations": [
+    "City in morning haze at the right."
+   ],
+   "inferences": [
+    "Brightens when the live place is open."
+   ],
+   "implementation": {
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+   }
+  },
+  {
+   "id": "response",
+   "name": "Open place response",
+   "parent": null,
+   "kind": "region",
+   "text": null,
+   "evidence": [
+    {
+     "screen": "desktop",
+     "bounds": [
+      0.55,
+      0.72,
+      0.42,
+      0.25
+     ],
+     "measurement": "Proposal: not present in the approved image by design; placed where the art leaves room."
+    }
+   ],
+   "observations": [
+    "Proposal: not present in the approved image by design; placed where the art leaves room."
+   ],
+   "inferences": [
+    "Heading, who it serves, one enquiry action, two examples with organiser credit, folded approach \u2014 from src/data/situations.ts."
+   ],
+   "implementation": {
+    "element": "div",
+    "component": null,
+    "selector": "#places details[open] > div",
+    "css": [
+     {
+      "property": "background",
+      "value": "rgb(12 12 16 / .72)"
+     },
+     {
+      "property": "backdrop-filter",
+      "value": "blur(6px)"
+     }
+    ],
+    "asset": null
+   }
+  }
+ ],
+ "relationships": [
+  {
+   "nodes": [
+    "place-first-step",
+    "place-workflow",
+    "place-prototype",
+    "place-live"
+   ],
+   "kind": "horizontal sequence over their places",
+   "evidence": "Four labels in reading order left to right, each above its place.",
+   "css_consequence": "Four-column grid on desktop; a stacked list under the art below 760px."
+  },
+  {
+   "nodes": [
+    "response",
+    "founder",
+    "giant-head"
+   ],
+   "kind": "exclusion",
+   "evidence": "Lower-right field and mist are the only calm area.",
+   "css_consequence": "Response panel anchored to the lower right on desktop; below the art on mobile."
+  },
+  {
+   "nodes": [
+    "places",
+    "hill-light",
+    "channels",
+    "bridge",
+    "city"
+   ],
+   "kind": "state to artwork",
+   "evidence": "Each label names one visible place.",
+   "css_consequence": ":has(details[data-place][open]) brightens that place with a positioned radial light layer; no JS."
+  }
+ ],
+ "interactions": [
+  {
+   "id": "choose-place",
+   "nodes": [
+    "place-first-step",
+    "place-workflow",
+    "place-prototype",
+    "place-live",
+    "response"
+   ],
+   "purpose": "Show help for where the visitor is",
+   "trigger": "Activate a place label",
+   "before": "All places closed",
+   "after": "The chosen place lights and its response opens; others close",
+   "primitive": "details/summary sharing name='place'",
+   "timing": "State immediate; light fades in 400ms",
+   "keyboard": "Native summary focus and Enter/Space; visible focus ring",
+   "touch": "44px minimum label targets",
+   "reduced_motion": "Light appears without fade",
+   "fallback": "Native details work without JS; exclusive open degrades to independent disclosures",
+   "status": "specified"
+  },
+  {
+   "id": "prefill-enquiry",
+   "nodes": [
+    "response"
+   ],
+   "purpose": "Carry the chosen place into the enquiry",
+   "trigger": "Activate the response's enquiry action",
+   "before": "Response open",
+   "after": "Enquiry form in view with Where you are preselected, editable",
+   "primitive": "link to /?situation=<slug>#contact",
+   "timing": "Immediate",
+   "keyboard": "Enter on link",
+   "touch": "44px target",
+   "reduced_motion": "Instant",
+   "fallback": "Form usable with no preselection",
+   "status": "specified"
+  }
+ ],
+ "open_decisions": [
+  "Mobile crop: art above, labels as a stacked list beneath; confirm on preview.",
+  "Response panel placement is a proposal.",
+  "Light-layer positions are approximate and tuned in the preview."
+ ]
+}

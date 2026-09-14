@@ -1,0 +1,128 @@
+[
+  {
+    "id": "art",
+    "parent": null,
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [
+      {
+        "property": "object-fit",
+        "value": "cover"
+      },
+      {
+        "property": "object-position",
+        "value": "40% 50%"
+      },
+      {
+        "property": "inline-size",
+        "value": "100%"
+      },
+      {
+        "property": "block-size",
+        "value": "100%"
+      }
+    ],
+    "asset": "assets/shoulder/proof.webp"
+  },
+  {
+    "id": "giant-head",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "founder",
+    "parent": "giant-head",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "trail",
+    "parent": "art",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "footprint-harbour",
+    "parent": "trail",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "footprint-orchard",
+    "parent": "trail",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "footprint-workshop",
+    "parent": "trail",
+    "text": null,
+    "element": "img",
+    "component": null,
+    "selector": "section > img",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "statement",
+    "parent": null,
+    "text": "Where the giant has walked, things grow.",
+    "element": "h2",
+    "component": null,
+    "selector": "#proof h2",
+    "css": [
+      {
+        "property": "letter-spacing",
+        "value": ".08em"
+      },
+      {
+        "property": "font-size",
+        "value": "clamp(1.3rem, 1rem + 1.2vw, 2.2rem)"
+      }
+    ],
+    "asset": null
+  },
+  {
+    "id": "works",
+    "parent": null,
+    "text": null,
+    "element": "ul",
+    "component": null,
+    "selector": "#proof ul",
+    "css": [],
+    "asset": null
+  },
+  {
+    "id": "now-playing",
+    "parent": null,
+    "text": null,
+    "element": "aside",
+    "component": null,
+    "selector": "#proof aside",
+    "css": [],
+    "asset": null
+  }
+]

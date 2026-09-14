@@ -1,0 +1,40 @@
+[
+  {
+    "id": "choose-place",
+    "nodes": [
+      "place-first-step",
+      "place-workflow",
+      "place-prototype",
+      "place-live",
+      "response"
+    ],
+    "purpose": "Show help for where the visitor is",
+    "trigger": "Activate a place label",
+    "before": "All places closed",
+    "after": "The chosen place lights and its response opens; others close",
+    "primitive": "details/summary sharing name='place'",
+    "timing": "State immediate; light fades in 400ms",
+    "keyboard": "Native summary focus and Enter/Space; visible focus ring",
+    "touch": "44px minimum label targets",
+    "reduced_motion": "Light appears without fade",
+    "fallback": "Native details work without JS; exclusive open degrades to independent disclosures",
+    "status": "specified"
+  },
+  {
+    "id": "prefill-enquiry",
+    "nodes": [
+      "response"
+    ],
+    "purpose": "Carry the chosen place into the enquiry",
+    "trigger": "Activate the response's enquiry action",
+    "before": "Response open",
+    "after": "Enquiry form in view with Where you are preselected, editable",
+    "primitive": "link to /?situation=<slug>#contact",
+    "timing": "Immediate",
+    "keyboard": "Enter on link",
+    "touch": "44px target",
+    "reduced_motion": "Instant",
+    "fallback": "Form usable with no preselection",
+    "status": "specified"
+  }
+]

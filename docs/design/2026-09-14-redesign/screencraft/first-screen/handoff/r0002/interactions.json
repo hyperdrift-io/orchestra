@@ -1,0 +1,19 @@
+[
+  {
+    "id": "go-to-places",
+    "nodes": [
+      "primary-action"
+    ],
+    "purpose": "Take the visitor to the four places",
+    "trigger": "Activate the primary action",
+    "before": "First screen",
+    "after": "Four places in view with focus on the first place",
+    "primitive": "in-page anchor link",
+    "timing": "Immediate; smooth scroll only without reduced motion",
+    "keyboard": "Enter on the link; focus moves to the places heading",
+    "touch": "44px target",
+    "reduced_motion": "Instant jump",
+    "fallback": "Plain anchor navigation",
+    "status": "proposed"
+  }
+]

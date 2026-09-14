@@ -1,0 +1,5 @@
+# Regenerable copies of the approved rasters in round6-repair/ (about 6 MB each, twice per packet).
+# Rebuild a packet with: hd screencraft analyze ../round6-repair/<image>.png --out <packet> --brief briefs/<packet>.md --from-json maps/<packet>.json
+*/source.png
+*/original.png
+*/design-overlay.png
