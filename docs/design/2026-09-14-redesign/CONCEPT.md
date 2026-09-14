@@ -104,3 +104,15 @@ No figure. Only altitude. The founder, small, stands at the edge of an immense w
 
 ### 4C — The lift: the giant as careful hands
 Colossal, gentle hands, real skin in cinematic light, raising a small glowing workshop with lit windows and a chimney still working, the founder's product, up into the morning above a field of ripe wheat. Understanding is the care in the hands; prosperity is the harvest below and the light above. Risk: hands are hard for image models and sentiment tips into greeting-card. Keep the light hard and the crop tight.
+
+---
+
+# Round 5 — On the shoulder, pushed across the site
+
+Founder picked 4A. The world is fixed: one weathered stone giant, golden country, a waking city, dawn. Every surface of the site becomes a moment in that walk. All images use `round4-giant/4A-screen.png` as the Recraft reference so the giant, the light and the land stay one world.
+
+- **The first screen, three candidates.** A: the chosen composition refined (the giant's head turned to follow the founder's pointing arm, the city waking where they point). B: over the founder's shoulder, from on the giant, looking out at the horizon. C: the giant's path behind it through the fields, gold growing in its footprints.
+- **The four situations as four places on the horizon.** A first light on a hill (finding a first step), water channels running into fields (automating a workflow), a bridge being completed across a river (taking a prototype live), the city at full light (improving a live product). The founder points to one; that is where the giant walks.
+- **The proof as what the giant has already carried.** Where the giant has walked, things grow: a trail of footprints across the country, each holding a small thriving settlement.
+- **The enquiry as the founder's hand.** The founder's pointing hand close-up against the horizon: you say where, the giant goes.
+- **The whole page, tall, two seeds:** all of the above as one continuous walk from dawn at the top to full morning at the bottom.

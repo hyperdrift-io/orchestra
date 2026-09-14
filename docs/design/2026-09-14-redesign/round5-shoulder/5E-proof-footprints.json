@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-14T16:54:57.497Z",
+  "endpoint": "/images/imageToImage",
+  "model": "recraftv4_1_pro",
+  "size": null,
+  "seed": 505,
+  "reference_image": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round4-giant/4A-screen.png",
+  "strength": 0.75,
+  "prompt": "Same world as the reference: one monumental calm weathered stone giant, sculpture and weather not fantasy, golden dawn country of fields and hills, a city waking in the distance, warm gold light and long shadows, cinematic, photographic real materials. Hyperdrift fits AI inside a founder's running business and drives it to prosperity; the founder stands on the giant's shoulder, and the giant understands and goes where they point. No navigation bars, no buttons, no forms, no logos, no user interface. Aerial view of the path the giant has walked across the country, a long curving trail of huge footprints pressed into the land; in each footprint something is now thriving: a lit workshop, an orchard, a small harbour with boats, a market square, a mill with turning water wheel. No people visible except tiny figures at work. Quiet serif typography reads only: \"Where the giant has walked, things grow.\"",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round5-shoulder/5E-proof-footprints.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round5-shoulder/5E-proof-footprints.png",
+  "format": "png",
+  "api": {
+    "image_id": "193ba7f9-15a4-448e-9829-b94f53c0a0c1"
+  }
+}

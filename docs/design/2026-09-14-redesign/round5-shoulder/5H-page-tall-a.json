@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-14T16:55:41.705Z",
+  "endpoint": "/images/generations/raster",
+  "model": "recraftv4_1_pro",
+  "size": "2:3",
+  "seed": 509,
+  "reference_image": null,
+  "strength": null,
+  "prompt": "Tall portrait concept art of an entire website as one continuous walk from dawn at the top to full morning at the bottom. One monumental calm weathered stone giant, carved like old bronze and granite, sculpture and weather not fantasy and not a robot, walking through golden dawn country of fields and hills toward a city waking in the distance, warm gold light, long shadows, cinematic, photographic real materials. Hyperdrift fits AI inside a founder's running business and drives it to prosperity; the small founder stands on the giant's shoulder and points, and the giant looks where they point. No navigation bars, no buttons, no forms, no logos, no user interface. Top: the giant with the founder pointing from its shoulder, large quiet serif line \"Stand on the shoulders of a giant who understands your business.\" Middle: the horizon holding four lit places, a warm light on a hill, water channels into fields, a bridge being completed over a river, a city in full light. Lower: the giant's trail of footprints across the land, each one now holding something thriving. Bottom: open bright sky above the fields with the smaller line \"Where are you taking AI next?\" Only those two lines of words.",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round5-shoulder/5H-page-tall-a.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round5-shoulder/5H-page-tall-a.png",
+  "format": "png",
+  "api": {
+    "image_id": "68c860b4-885f-4d4f-a423-14d57ce3ac5c"
+  }
+}
