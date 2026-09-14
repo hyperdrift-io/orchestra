@@ -1,5 +1,11 @@
 # Orchestra AI — Roadmap
 
+## Current priority — 14 September 2026
+
+Promote `ai.hyperdrift.io` as Hyperdrift's primary business destination. Preserve its existing design; feature the anniversary and current AI/MCP work here. The historical Phase 1 plan below to keep legacy products primary is superseded. Do not implement an AI-to-legacy redirect or another legacy homepage redesign.
+
+The current preview adds the anniversary to the hero actions, makes the Hyperdrift relationship explicit, adds Standup to the existing case-study format, and adds MCP integrations to the existing capability list. See [the current decision](docs/decisions/2026-09-14-primary-destination.md) for the release boundary and remaining work.
+
 > Phased plan for Orchestra AI, derived from the spec at `docs/superpowers/specs/2026-05-17-orchestra-ai-design.md` (in the parent Hyperdrift repo) and the implementation plan at `docs/superpowers/plans/2026-05-17-orchestra-ai-phase-1.md`.
 >
 > **North star:** [MISSION.md](./MISSION.md).

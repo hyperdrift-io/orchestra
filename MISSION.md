@@ -1,5 +1,11 @@
 # Orchestra AI — Mission
 
+## Current business role — 14 September 2026
+
+The AI site at `ai.hyperdrift.io` is now the primary destination for Hyperdrift's services, working examples, and client enquiries. Grow this surface using its established design. The legacy `hyperdrift.io` site retains published editorial and historical work during the transition; it is no longer the centre of the commercial homepage strategy.
+
+Hyperdrift remains the company identity. The existing Orchestra AI name remains in this preview. A new standalone brand or domain is not the objective of this phase.
+
 > **Agent orchestration for production AI workflows.**
 
 ## What we exist to do
@@ -30,7 +36,7 @@ We are *not* another agent framework. We are the engineering practice that takes
 - A small portfolio of vertical SaaS clients who shipped AI features that survived production load.
 - Two or three OSS libraries that fill real holes in the agent ecosystem — adopted because they solve problems nobody else does.
 - A reputation that travels: when a vertical SaaS CTO needs an AI feature in production, our name comes up unprompted.
-- Eventually, graduation from the Hyperdrift sub-brand to a standalone identity at the moment our own track record outweighs the studio's lineage.
+- A clear Hyperdrift identity across the AI offer, working examples, and published thinking.
 
 ## What we will not do
 

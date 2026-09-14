@@ -7,21 +7,23 @@ export function CaseStudies() {
         <p className="numeral" aria-hidden>05</p>
         <p className="eyebrow">Movement V · Case studies</p>
         <h2 id="case-studies-title">
-          Applied AI, <em>shipped</em>.
+          Applied AI, <em>in practice</em>.
         </h2>
       </div>
 
       <p className="lead">
-        Proof from the Hyperdrift studio — live products, contest entries,
-        and the fleet Orchestra itself runs on. Each demonstrates a pattern
-        we ship into client engagements.
+        Our challenge builds put each organiser’s technology to work on a real
+        problem. Explore the entries, their current stage, and the engineering
+        behind them, alongside other work from Hyperdrift.
       </p>
 
       <div>
         {caseStudies.map((cs, i) => (
           <article key={cs.slug} className="card">
             <header>
-              <p className="meta">Case Op. {String(i + 1).padStart(2, '0')}</p>
+              <p className="meta">
+                {cs.challenge?.organiser ?? `Case Op. ${String(i + 1).padStart(2, '0')}`}
+              </p>
               <span>
                 {cs.link && (
                   <a href={cs.link} target="_blank" rel="noreferrer" className="meta">
@@ -43,6 +45,18 @@ export function CaseStudies() {
             <hr className="hair" />
 
             <dl>
+              {cs.challenge && (
+                <>
+                  <div>
+                    <dt className="meta">Built for</dt>
+                    <dd><a href={cs.challenge.url}>{cs.challenge.name}</a></dd>
+                  </div>
+                  <div>
+                    <dt className="meta">Stage</dt>
+                    <dd>{cs.challenge.stage}</dd>
+                  </div>
+                </>
+              )}
               <div>
                 <dt className="meta">Problem</dt>
                 <dd>{cs.problem}</dd>
@@ -56,6 +70,10 @@ export function CaseStudies() {
                 <dd data-stack>{cs.stack.join(' · ')}</dd>
               </div>
             </dl>
+
+            {cs.challenge?.entryUrl && (
+              <p><a href={cs.challenge.entryUrl}>Read the challenge entry →</a></p>
+            )}
 
             {cs.article && (
               <p>

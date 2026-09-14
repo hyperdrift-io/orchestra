@@ -4,7 +4,7 @@ export function Hero() {
       <div className="staff" aria-hidden />
 
       <p className="eyebrow reveal" data-stagger="0">
-        Orchestra AI <span className="meta">Op. 01 · 2026</span>
+        Orchestra AI <span className="meta">By Hyperdrift · 2026</span>
       </p>
 
       <h1 id="hero-title" className="reveal" data-stagger="1">
@@ -24,7 +24,9 @@ export function Hero() {
           <span aria-hidden>↗</span>
         </a>
         <a className="btn ghost" href="#case-studies">See case studies</a>
-        <a className="btn ghost" href="#partnership">The Traction Partnership</a>
+        <a className="btn ghost" href="https://hyperdrift.io/blog/hyperdrift-turns-one">
+          Hyperdrift turns one <span aria-hidden>↗</span>
+        </a>
       </nav>
 
       <figure className="reveal" data-stagger="4">
@@ -37,7 +39,7 @@ export function Hero() {
       <dl className="reveal" data-stagger="4">
         <div>
           <dt className="meta">Practice</dt>
-          <dd>Agent orchestration</dd>
+          <dd>Agent orchestration · MCP integrations</dd>
         </div>
         <div>
           <dt className="meta">For</dt>
@@ -50,9 +52,9 @@ export function Hero() {
           </dd>
         </div>
         <div>
-          <dt className="meta">Studio</dt>
+          <dt className="meta">Partnership</dt>
           <dd>
-            <a href="https://hyperdrift.io">An offspring of Hyperdrift</a>
+            <a href="#partnership">Build with Hyperdrift</a>
           </dd>
         </div>
       </dl>

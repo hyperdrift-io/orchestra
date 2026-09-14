@@ -13,9 +13,9 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="meta">Studio</p>
+          <p className="meta">Our first year</p>
           <p>
-            <a href="https://hyperdrift.io">Hyperdrift</a>
+            <a href="https://hyperdrift.io/blog/hyperdrift-turns-one">The Hyperdrift story</a>
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export function Footer() {
       <hr className="hair" />
 
       <div>
-        <p className="meta">© {year} Orchestra AI · An offspring of Hyperdrift</p>
+        <p className="meta">© {year} Orchestra AI · AI engineering by Hyperdrift</p>
         <p className="meta">Op. 01 · MMXXVI</p>
       </div>
     </footer>

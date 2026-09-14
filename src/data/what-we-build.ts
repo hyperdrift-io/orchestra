@@ -5,6 +5,11 @@ export interface Capability {
 
 export const capabilities: Capability[] = [
   {
+    title: 'MCP integrations',
+    description:
+      'Connect AI assistants to your product through scoped tools over your existing API, with authentication, bounded access, and inspectable results.',
+  },
+  {
     title: 'Multi-agent orchestration',
     description:
       'Planning, routing, tool use and recovery across multiple specialised agents — designed for production load.',

@@ -11,22 +11,113 @@ export interface CaseStudy {
   repo?: string;
   /** The article that documents the build, on the Hyperdrift blog. */
   article?: string;
+  /** Event attribution describes participation, not a client or endorsement. */
+  challenge?: {
+    organiser: string;
+    name: string;
+    url: string;
+    stage: 'Submitted' | 'Built for the challenge' | 'In development';
+    entryUrl?: string;
+  };
 }
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: 'standup',
+    name: 'Standup',
+    outcome:
+      'A GitHub handle becomes a short brief: who is waiting, what to start with, and how long it may take. Each recommendation links to the evidence the agent read. Available on the web, in the terminal, and through MCP.',
+    problem:
+      'Returning to a project means reading across repositories and conversations before deciding where to help.',
+    capability: 'Read-only repository scouts, structured triage, and an inspectable audit trail.',
+    stack: ['Strands Agents SDK', 'Python', 'GitHub GraphQL', 'MCP'],
+    link: 'https://standup.hyperdrift.io',
+    linkLabel: 'Try the agent',
+    repo: 'https://github.com/hyperdrift-io/standup',
+    article: 'https://hyperdrift.io/blog/one-evening-who-is-waiting-on-you',
+    challenge: {
+      organiser: 'Amazon Web Services',
+      name: 'Agents for Humans Hackathon',
+      url: 'https://agentsforhumans.devpost.com/',
+      stage: 'Built for the challenge',
+    },
+  },
+  {
     slug: 'helm',
     name: 'Helm',
     outcome:
-      'Google "All Things Agentic" hackathon entry: an agent crew at the wheel of a live four-app fleet with scoped authority — the Commander decides, the Watch Officer reads push-based PostHog signals, the Engineer acts only through allow-listed tools. Includes a self-healing drill against a deliberately broken, prompt-injected sandbox service.',
+      'An agent crew at the wheel of a four-app fleet: the Commander decides, the Watch Officer reads signals, and the Engineer acts through allow-listed tools. A sandbox drill demonstrates diagnosis, prompt-injection isolation, recovery, and verification.',
     problem:
-      'Handing one agent the production keyboard is how incidents happen; handing it nothing is how nothing ships.',
+      'An operations agent needs enough access to help, with a clear boundary around every action.',
     capability: 'Fleet-scale orchestration with per-agent scoped authority.',
     stack: ['Gemini 3.5', 'ADK', 'Fleet MCP', 'PostHog signals', 'Cloud Run'],
     link: 'https://helm-294160018950.europe-west1.run.app',
     linkLabel: 'Live demo',
     repo: 'https://github.com/hyperdrift-io/helm',
-    article: 'https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals',
+    article: 'https://hyperdrift.io/blog/your-error-page-is-a-prompt',
+    challenge: {
+      organiser: 'Google',
+      name: 'All Things Agentic Hackathon',
+      url: 'https://allthingsagentichackathon.devpost.com/',
+      stage: 'Submitted',
+    },
+  },
+  {
+    slug: 'uk-gov-radar',
+    name: 'uk.gov Radar',
+    outcome:
+      'A founder and their browser agent explore government opportunities together. The agent proposes a profile and a shortlist; the founder keeps or drops each suggestion, with their reasons available to the agent.',
+    problem:
+      'A useful opportunity depends on a founder’s context. The page and the agent need to work from the same shortlist.',
+    capability: 'Seven WebMCP tools share the page’s controls and preserve the human’s final decision.',
+    stack: ['WebMCP', 'TypeScript', 'Shared browser state'],
+    link: 'https://radar.hyperdrift.io/explore',
+    linkLabel: 'Try with your agent',
+    repo: 'https://github.com/hyperdrift-io/uk-ai-radar',
+    article: 'https://hyperdrift.io/blog/the-agent-is-the-session',
+    challenge: {
+      organiser: 'OpenAI',
+      name: 'The WebMCP Challenge',
+      url: 'https://openai.com/webmcp-challenge/',
+      stage: 'Submitted',
+    },
+  },
+  {
+    slug: 'unanswered',
+    name: 'unanswered',
+    outcome:
+      'Tell it what you know. Gemini matches you with open-source maintainers asking for help, explains where you can contribute, and drafts an opening reply. You edit and send it yourself.',
+    problem:
+      'People willing to contribute need a practical way to find the maintainer whose request fits their skills.',
+    capability: 'Evidence-based GitHub discovery, Gemini matching, and a reply draft under human control.',
+    stack: ['Google Gemini', 'Vertex AI', 'GitHub API', 'Waku', 'MCP'],
+    link: 'https://unanswered.hyperdrift.io',
+    linkLabel: 'Find someone to help',
+    repo: 'https://github.com/hyperdrift-io/unanswered',
+    article: 'https://hyperdrift.io/blog/open-source-routing-problem-unanswered-asks',
+    challenge: {
+      organiser: 'DEV Community',
+      name: 'Weekend Challenge: Generosity Edition · Google AI category',
+      url: 'https://dev.to/challenges/weekend-2026-09-03',
+      stage: 'Submitted',
+      entryUrl: 'https://dev.to/yannvr/somebody-asked-for-help-nobody-came-5c7i',
+    },
+  },
+  {
+    slug: 'bridge-voice',
+    name: 'Bridge Voice',
+    outcome:
+      'A voice interface for discussing fleet priorities and confirming proposed actions. The prototype explores how a founder can work with the Bridge through a conversation.',
+    problem:
+      'Operators need to ask about their systems and act on the answer while keeping each consequential decision explicit.',
+    capability: 'AssemblyAI conversation and tool calling connected to the fleet’s existing controls.',
+    stack: ['AssemblyAI Voice Agent API', 'Fleet MCP', 'WebSocket'],
+    challenge: {
+      organiser: 'AssemblyAI · lablab.ai',
+      name: 'AssemblyAI Voice Agent Hackathon',
+      url: 'https://lablab.ai/ai-hackathons/assemblyai-voice-agent-hackathon',
+      stage: 'In development',
+    },
   },
   {
     slug: 'own-stack',
