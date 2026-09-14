@@ -30,11 +30,14 @@ Keep contest participation distinct from a commissioned client engagement, endor
 
 Current coverage and primary sources: [Contest attribution](docs/decisions/2026-09-14-contest-attribution.md). Refresh this catalogue as part of each contest's post-build and post-result work, without duplicating the entry owner's submission tasks.
 
-## The front door — stage entry (14 September 2026)
+## The front door — On the shoulder (14 September 2026)
 
-The homepage opens on four situations a visitor recognises themselves in (design round B, `docs/design/2026-09-14-stage-entry/`). Long material is folded, not removed.
+The homepage implements the five screens the founder approved (`docs/design/2026-09-14-redesign/SELECTION.md`, round 6). Each has a ScreenCraft packet in `docs/design/2026-09-14-redesign/screencraft/`; the packet's map, not taste, decides where text sits over the art.
 
-- `src/data/situations.ts` is the single source for the four rows: label, response, enquiry action, evidence, and the collapsed approach. Evidence references `src/data/case-studies.ts` by slug so facts and contest attribution live once; `src/lib/evidence.ts` resolves them. Public examples outside the catalogue carry an explicit `relation`.
-- Rows are native `<details name="situation">`: one open at a time, keyboard-native, no JS. Every CTA is a Next `Link` to `/?situation=<slug>#contact`; the contact form reads the query and prefills its editable "Where you are" select without touching typed text. The relay folds the label into the message, so the hyperdrift.io contact contract is unchanged.
-- "Now playing" reads two public feeds server-side (`src/lib/feeds.ts`, 15-minute revalidate): Intel's `/api/daily-intel/list` and hyperdrift.io `/api/blog/list` (added on hyper-drift branch `feat/blog-list-feed`; until it is deployed the slot shows the permanent "Read the Hyperdrift blog" link). Future-dated posts, DeFi tags and Intel are filtered; an unavailable feed renders a fallback link, never a stale "latest". The anniversary is pinned separately.
-- Movements are numbered in reading order: I Now playing, II Partnership, III Programme (folding IV–IX), X Contact. Every touched component is pure cascading CSS; `details`/`summary` are styled once as primitives.
+- **Art:** `public/shoulder/*.webp`, made from the text-free masters in `docs/design/2026-09-14-redesign/assets-textfree/` (words erased with Recraft eraseRegion and the masks in `text-masks/`). Every word on the page is live HTML over the art; never bake text into an image. Art bands are full bleed and 16:9, so positions use `--band` (`100vw * 9 / 16`) and viewport percentages taken from the maps.
+- **First screen** (`Hero`): statement and question in a left column clear of the giant; a portrait art source below 760px.
+- **The four places** (`Places`): native radios named `place` over the horizon, from `src/data/situations.ts`. `:has(input[value=…]:checked)` lights that place and opens its response below the art. No client JavaScript. Each response's action links to `/?situation=<slug>#contact`, which preselects the editable "Where you are" in `EnquiryForm`.
+- **The proof** (`Proof`): the contest-backed entries of `src/data/case-studies.ts`, numbered; the same numbers sit as markers on the footprints. "Built for" participation credit only.
+- **Now playing** (`CurrentContent`): Intel's `/api/daily-intel/list` and hyperdrift.io `/api/blog/list` server-side, 15-minute revalidate, honest fallback links. The blog feed lives on hyper-drift branch `feat/blog-list-feed` and is not deployed yet.
+- **The enquiry** (`Enquiry`): "You say where. We go." over the art; the form and the Traction Partnership below it. The relay to hyperdrift.io is unchanged.
+- The long material stays folded in `Programme`. Pure cascading CSS in `src/app/globals.css`; the folded movements still use the older `.card`/`.meta`/`.numeral` rules, rethemed to the gold palette.

@@ -1,26 +1,22 @@
 import Link from 'next/link';
 
+/** The Traction Partnership, beside the enquiry form: invitation visible, terms folded. */
 export function Partnership() {
   return (
-    <section id="partnership" aria-labelledby="partnership-title">
-      <div className="section-head">
-        <p className="numeral" aria-hidden>02</p>
-        <p className="eyebrow">Movement II · The Traction Partnership</p>
-        <h2 id="partnership-title">
-          Build together. <em>Share the upside.</em>
-        </h2>
-      </div>
-
-      <p className="lead">
+    <aside id="partnership" aria-labelledby="partnership-title">
+      <p className="meta">The Traction Partnership</p>
+      <h3 id="partnership-title">
+        Build together. <em>Share the upside.</em>
+      </h3>
+      <p>
         No budget for it yet? Then we partner: we build, traction decides, and
         you keep everything we ship either way.
       </p>
       <p>
-        <Link className="btn primary" href={{ pathname: '/', query: { situation: 'partnership' }, hash: '#contact' }}>
+        <Link className="btn" href={{ pathname: '/', query: { situation: 'partnership' }, hash: '#contact' }}>
           Apply to partner <span aria-hidden>↗</span>
         </Link>
       </p>
-
       <details>
         <summary>How the partnership works</summary>
         <p>
@@ -37,6 +33,6 @@ export function Partnership() {
           Sponsored by <strong>Databricks</strong>.
         </p>
       </details>
-    </section>
+    </aside>
   );
 }

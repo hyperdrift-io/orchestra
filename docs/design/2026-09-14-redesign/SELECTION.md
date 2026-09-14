@@ -10,4 +10,4 @@
 | 14 Sep 2026 | 5 (4A across the site) | **Approved the walk:** first screen 5C, four places 5D, proof 5E, enquiry 5F, mobile first screen 5H-a. Round 6 repairs the named flaws in images only. |
 | 14 Sep 2026 | 6 (repairs) | **Approved as the screens to build:** 6C-c1 first screen, 6D-b four places, 6E-a proof, 6F-a enquiry, 6H-a mobile first screen. |
 
-Status: **approved 14 September 2026.** ScreenCraft maps each approved screen one image at a time; implementation follows on a new branch. Words in the images become live text; nothing deploys without the founder's go. ScreenCraft stays out until the founder calls a round-5 (or later) image the screen to build.
+Status: **approved and implemented on branch `feat/ai-hd-shoulder` (14 September 2026).** ScreenCraft packets in `screencraft/`, text-free art in `assets-textfree/`, live page at the local preview (port 3108). Typecheck, 20 unit tests and `next build` pass; desktop 1440 and mobile 390 captured, no horizontal overflow. Not merged, not deployed: that needs the founder's go. ScreenCraft stays out until the founder calls a round-5 (or later) image the screen to build.

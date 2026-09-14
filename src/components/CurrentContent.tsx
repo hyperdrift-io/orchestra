@@ -30,14 +30,7 @@ export async function CurrentContent() {
 
   return (
     <section id="now" aria-labelledby="now-title">
-      <div className="section-head">
-        <p className="numeral" aria-hidden>01</p>
-        <p className="eyebrow">Movement I · Now playing</p>
-        <h2 id="now-title">
-          What we are <em>reading and writing</em>.
-        </h2>
-      </div>
-
+      <h2 id="now-title">Now playing</h2>
       <div>
         <Slot
           kicker="Intel · Daily brief"

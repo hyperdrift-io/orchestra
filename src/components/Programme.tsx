@@ -5,17 +5,13 @@ import { CaseStudies } from '@/components/CaseStudies';
 import { Packages } from '@/components/Packages';
 import { Faq } from '@/components/Faq';
 
-/** The long movements, folded. Nothing is removed; it waits to be asked for. */
+/** The long material, folded. Nothing is removed; it waits to be asked for. */
 export function Programme() {
   return (
     <section id="programme" aria-labelledby="programme-title">
-      <div className="section-head">
-        <p className="numeral" aria-hidden>03</p>
-        <p className="eyebrow">Movement III · The full programme</p>
-        <h2 id="programme-title">
-          Everything else, <em>when you want it</em>.
-        </h2>
-      </div>
+      <h2 id="programme-title">
+        Everything else, <em>when you want it</em>.
+      </h2>
 
       <details>
         <summary>What we build</summary>

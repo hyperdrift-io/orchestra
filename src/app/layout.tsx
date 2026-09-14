@@ -1,26 +1,28 @@
 import type { Metadata } from 'next';
-import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
-const fraunces = Fraunces({
+// Candidate faces for the approved concept: a quiet high-contrast serif for statements, a clean sans for reading.
+const display = Cormorant_Garamond({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-display',
-  axes: ['SOFT', 'WONK', 'opsz'],
+  weight: ['500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--nf-display',
 });
 
-const plexSans = IBM_Plex_Sans({
+const body = IBM_Plex_Sans({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-body',
+  weight: ['400', '500', '600'],
+  variable: '--nf-body',
 });
 
-const plexMono = IBM_Plex_Mono({
+const mono = IBM_Plex_Mono({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500'],
-  variable: '--font-mono',
+  variable: '--nf-mono',
 });
 
 export const metadata: Metadata = {
@@ -44,9 +46,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
-        <header className="page">
+        <header>
           <p className="wordmark">
             <a href="/">
               Orchestra <em>AI</em>
@@ -59,11 +61,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="#partnership">Partner with us</a>
             <a href="#contact">Start a project</a>
           </nav>
-          <p>
-            <a href="https://hyperdrift.io/blog/hyperdrift-turns-one">Hyperdrift turns one — read the story ↗</a>
-          </p>
         </header>
-        <main className="page">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );
