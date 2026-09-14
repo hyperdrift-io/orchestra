@@ -85,3 +85,22 @@ Each is a whole world, not a palette. Each names its signature, how the surfaces
 - Recraft was used as a UI renderer. It is a photographer. Its job is the world.
 - The "directions" were metaphors for a layout (a desk, a map, a console, a track, a ledger, a manifesto), not worlds with a signature that every surface obeys.
 - Nothing in either round said what the visitor feels at the moment the site works. That sentence now leads this document.
+
+---
+
+# Round 4 — the giant
+
+Founder, 14 September, after rejecting all three round-3 worlds: **"User should feel they will stand on the shoulder of a giant that will understand their business and drive it to prosperity."**
+
+That sentence is the concept. Everything below is three ways to make it a place. The giant is Hyperdrift: enormous capability, and attentive, the kind that bends down to understand before it lifts. The founder is small and safe and can see further than they ever could. Prosperity is a lit horizon, a harvest, a city waking up. Nothing menacing, nothing sci-fi, nothing corporate.
+
+Two sentences of copy in the images: "Stand on the shoulders of a giant who understands your business." and "Where are you taking AI next?"
+
+### 4A — On the shoulder: the giant made visible
+A monumental, calm figure, sculptural and human, walking at dawn through a golden landscape. A founder stands on its shoulder and points at the horizon; the giant looks where the founder points. That is "understands your business": it goes where you point. Prosperity is the sunlit valley ahead, fields and a city waking. Warm gold, long shadows, the founder tiny but the sharpest thing in the frame. Risk: fantasy-poster cliché; the giant must be sculpture and weather, not a character.
+
+### 4B — The view: the giant implied
+No figure. Only altitude. The founder, small, stands at the edge of an immense warm shoulder-shaped ridge of stone above the morning cloud, looking out. Far below and ahead, their own business: a small lit town spreading into a plain of gold fields and roads under sunrise. The elevation is the giant. Risk: could read as a landscape stock photo; the ridge must be unmistakably a shoulder, the town unmistakably theirs.
+
+### 4C — The lift: the giant as careful hands
+Colossal, gentle hands, real skin in cinematic light, raising a small glowing workshop with lit windows and a chimney still working, the founder's product, up into the morning above a field of ripe wheat. Understanding is the care in the hands; prosperity is the harvest below and the light above. Risk: hands are hard for image models and sentiment tips into greeting-card. Keep the light hard and the crop tight.

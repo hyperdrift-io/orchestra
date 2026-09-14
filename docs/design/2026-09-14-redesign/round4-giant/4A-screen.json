@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-14T06:56:50.253Z",
+  "endpoint": "/images/generations/raster",
+  "model": "recraftv4_1_pro",
+  "size": "16:9",
+  "seed": 402,
+  "reference_image": null,
+  "strength": null,
+  "prompt": "Wide first-screen concept. Cinematic concept art for the ideal website of Orchestra AI by Hyperdrift, an engineering practice that fits AI into a founder's running business and drives it to prosperity. The idea, uncompromised, not a wireframe: a monumental, calm, sculptural human giant, carved like weathered bronze and stone, walking slowly at dawn through a vast golden landscape of fields and a distant city waking up; on its shoulder stands a small real person, a founder, sharp and clearly lit, pointing toward the bright horizon, and the giant's head is turned to look exactly where the founder points. Warm gold and long shadows, immense scale, the founder tiny but the sharpest thing in the frame. Feeling: safe, lifted, seeing further, prosperity ahead. Not fantasy, not sci-fi, not a robot: sculpture and weather. Large, confident, quiet typography reads only two lines: \"Stand on the shoulders of a giant who understands your business.\" and, smaller, \"Where are you taking AI next?\" No other words, no navigation bars, no buttons, no forms, no logos, no user interface.",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "/Users/yannvr/dev/hyperdrift/apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round4-giant/4A-screen.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round4-giant/4A-screen.png",
+  "format": "png",
+  "api": {
+    "image_id": "d8001c5f-8573-4079-8af6-98dc91408140"
+  }
+}
