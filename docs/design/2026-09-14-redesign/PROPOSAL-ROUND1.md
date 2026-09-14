@@ -164,3 +164,6 @@ Portrait 2:3 design board on a plain neutral backdrop: left, a full desktop web 
 ## Verdict and next step
 
 Awaiting the founder pick. If B: round 2 repairs B-105's desktop station labels and closed lines on B-104's shell, one board each for desktop and mobile, then `hd screencraft analyze` on the chosen board (one screen at a time; see `../2026-09-14-stage-entry/SCREENCRAFT-NOTE.md`) → design map and CSS plan → implementation on a new branch from `stage-entry-b-2026-09-14`. Nothing in this round touched app files.
+
+
+Next: [Round 2 — soul, under the growth register](PROPOSAL-ROUND2.md).
