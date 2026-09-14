@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-14T17:04:14.226Z",
+  "endpoint": "/images/imageToImage",
+  "model": "recraftv4_1_pro",
+  "size": null,
+  "seed": 604,
+  "reference_image": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round5-shoulder/5D-horizon-four-places.png",
+  "strength": 0.65,
+  "prompt": "Same world and light as the reference: one monumental calm weathered stone giant, sculpture and weather not fantasy and not a robot, golden dawn country of fields and hills, a city waking in the distance, warm gold light and long shadows, cinematic, photographic real materials. Hyperdrift fits AI inside a founder's running business and drives it to prosperity; the small founder, a real person in plain clothes, stands on the giant's shoulder, and the giant understands and goes where they point. No navigation bars, no buttons, no forms, no logos, no real-world landmarks, no user interface. The view past the giant's stone head at the left edge of the frame, the founder standing on its shoulder with arm outstretched, pointing clearly and precisely at the SECOND place on the horizon, the clear water channels running out into new fields, where a soft beam of sunlight falls. The four places left to right: a single warm light on a small hill; the water channels into fields; a stone bridge across a wide river; a city in full morning light. Each small quiet serif label sits directly beneath its own place, and reads only: \"Finding a useful first step\", \"Automating a workflow\", \"Taking a prototype live\", \"Improving a live product\".",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6D-b.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6D-b.png",
+  "format": "png",
+  "api": {
+    "image_id": "dd8f9f3f-f1dd-47ab-b101-a0f82d250f44"
+  }
+}

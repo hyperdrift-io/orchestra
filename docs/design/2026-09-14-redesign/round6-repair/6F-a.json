@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-14T17:04:19.450Z",
+  "endpoint": "/images/imageToImage",
+  "model": "recraftv4_1_pro",
+  "size": null,
+  "seed": 607,
+  "reference_image": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round5-shoulder/5F-enquiry-hand.png",
+  "strength": 0.45,
+  "prompt": "Same world and light as the reference: one monumental calm weathered stone giant, sculpture and weather not fantasy and not a robot, golden dawn country of fields and hills, a city waking in the distance, warm gold light and long shadows, cinematic, photographic real materials. Hyperdrift fits AI inside a founder's running business and drives it to prosperity; the small founder, a real person in plain clothes, stands on the giant's shoulder, and the giant understands and goes where they point. No navigation bars, no buttons, no forms, no logos, no real-world landmarks, no user interface. Close on the giant's weathered stone face, lowered and turned attentively toward its own shoulder. On that shoulder stands the founder, a small whole human figure seen head to toe, clearly tiny beside the giant's face, arm raised and pointing calmly at the bright horizon, where the golden country and the waking city lie. The scale is unmistakable: a person the size of the giant's eye. Quiet serif typography reads only: \"You say where. We go.\"",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6F-a.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6F-a.png",
+  "format": "png",
+  "api": {
+    "image_id": "abd78581-cdcd-4140-8b6c-c858bfc49b7a"
+  }
+}

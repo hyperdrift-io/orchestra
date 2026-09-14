@@ -116,3 +116,15 @@ Founder picked 4A. The world is fixed: one weathered stone giant, golden country
 - **The proof as what the giant has already carried.** Where the giant has walked, things grow: a trail of footprints across the country, each holding a small thriving settlement.
 - **The enquiry as the founder's hand.** The founder's pointing hand close-up against the horizon: you say where, the giant goes.
 - **The whole page, tall, two seeds:** all of the above as one continuous walk from dawn at the top to full morning at the bottom.
+
+---
+
+# Round 6 — repairs to the approved walk
+
+Founder approved the round-5 sequence. Round 6 changes nothing but the named flaws, two candidates per screen, each guided by its own round-5 image (strength 0.45 stays close, 0.65 is freer to fix):
+
+- **6C first screen** (from 5C): the giant full-bodied in mid-stride, legs visible, instead of a torso cut at the waist.
+- **6D the four places** (from 5D): the founder points at the second place, the water channels; each label sits on its own place.
+- **6E the proof** (from 5E): the founder back on the giant's shoulder, not its head.
+- **6F the enquiry** (from 5F): the founder unmistakably a small person on the giant's shoulder, so the pointing arm cannot read as the giant's own.
+- **6H mobile first screen** (from 5H-a): the founder on the giant's shoulder rather than its outstretched arm, both still pointing the same way.

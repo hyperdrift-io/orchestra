@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-14T17:05:42.373Z",
+  "endpoint": "/images/imageToImage",
+  "model": "recraftv4_1_pro",
+  "size": null,
+  "seed": 611,
+  "reference_image": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6C-b.png",
+  "strength": 0.5,
+  "prompt": "Same world and light as the reference: golden dawn country of fields and hills, a city waking in the distance, warm gold light, long shadows, cinematic, photographic real materials. First screen of the website. A monumental giant carved from weathered granite like an ancient standing stone, blocky and monolithic, moss and lichen, no anatomical detail on its back, no hair, seen from behind and slightly above, its whole body in a clear mid-stride across the fields toward the waking city, one stone foot lifting. The small founder, a real person in plain clothes, stands on its right shoulder pointing ahead at the city. Behind the giant a long trail of huge footprints crosses the land, and in EVERY footprint a small thriving village has grown: lit windows, orchards, gold fields. Quiet confident serif typography, large, reads only: \"Stand on the shoulders of a giant who understands your business.\" and smaller: \"Where are you taking AI next?\" No navigation bars, no buttons, no forms, no logos, no real-world landmarks, no user interface.",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6C-c1.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6C-c1.png",
+  "format": "png",
+  "api": {
+    "image_id": "2fa42025-6006-4720-8d75-e116deabb8f1"
+  }
+}
