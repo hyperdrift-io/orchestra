@@ -10,7 +10,8 @@ See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
 `ai.hyperdrift.io` is Hyperdrift's primary business and marketing destination. Founder explicitly corrected the proposal to keep investing in the legacy HD homepage: move the focus to this AI site. The older site remains the location of existing articles and historical work during this transition.
 
-- Preserve this site's existing Concert Hall × Lab Notebook design, Fraunces/Plex typography, ink/cream/vermillion palette, imagery, movement numbering, and enquiry path.
+- **Identity under redesign (founder, 14 September, later that day):** the Concert Hall × Lab Notebook identity is retired for an open redesign. The chosen concept is "On the shoulder": a stone giant carrying the founder through golden country toward prosperity. Record and status: `docs/design/2026-09-14-redesign/SELECTION.md`. The live code still carries the old identity until a round-5 concept is approved and implemented; keep the enquiry path either way.
+- Design gate for this redesign: concept images first, founder review, then ScreenCraft implements the approved image (`meta/skills/design-crafter/SKILL.md` → The gate). Do not render a page skeleton through an image model.
 - Promote AI services, MCP integrations, working examples, and the anniversary here. Use existing components for content refinements.
 - Keep Hyperdrift's ownership clear. The existing Orchestra name is retained in this slice; a separate rename or new domain has not been approved.
 - Do not resume the rejected legacy-homepage redesign or redirect this site back to it.
