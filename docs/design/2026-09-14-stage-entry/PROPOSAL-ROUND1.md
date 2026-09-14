@@ -179,3 +179,6 @@ Repair this SAME responsive Orchestra AI website design board C, keeping desktop
 ```
 
 </details>
+
+
+Next: [open redesign, round 1](../2026-09-14-redesign/PROPOSAL-ROUND1.md) — the founder retired this identity on 14 September after tagging B.
