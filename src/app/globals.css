@@ -729,7 +729,7 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 #proof li:nth-child(2)::before { inset-inline-start: 20.5%; inset-block-start: calc(var(--band) * 0.69); }
 #proof li:nth-child(3)::before { inset-inline-start: 14.4%; inset-block-start: calc(var(--band) * 0.59); }
 #proof li:nth-child(4)::before { inset-inline-start: 15.2%; inset-block-start: calc(var(--band) * 0.515); }
-#proof li:nth-child(5)::before { inset-inline-start: 14.6%; inset-block-start: calc(var(--band) * 0.465); }
+#proof li:nth-child(5)::before { inset-inline-start: 14.6%; inset-block-start: calc(var(--band) * 0.455); }
 #proof h3::before { content: counter(work); margin-inline-end: 0.5rem; font: 600 0.62em var(--font-body); color: var(--gold); vertical-align: 0.2em; }
 #proof li p { margin-block-start: var(--sp-2xs); font-size: var(--fs-meta); }
 #proof li p:last-child { display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-s); margin-block-start: var(--sp-xs); }
@@ -830,6 +830,8 @@ main > footer > p { margin-block-start: var(--sp-l); }
 
   #proof > h2 { position: static; max-inline-size: none; padding: var(--sp-m) var(--edge) 0; }
   #proof li::before { inline-size: 1.5rem; block-size: 1.5rem; font-size: 0.75rem; box-shadow: 0 0 0 2px rgb(14 12 9 / 0.35); }
+  #proof li:nth-child(4)::before { inset-inline-start: 9.5%; }
+  #proof li:nth-child(5)::before { inset-inline-start: 20.5%; }
 
   #contact > h2 { position: static; max-inline-size: none; padding: var(--sp-m) var(--edge) 0; font-size: clamp(2.1rem, 1.4rem + 3vw, 2.7rem); }
   #contact > div { grid-template-columns: 1fr; gap: var(--sp-l); }
