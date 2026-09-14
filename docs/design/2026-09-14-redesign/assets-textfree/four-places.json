@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-09-14T17:22:37.239Z",
+  "endpoint": "/images/eraseRegion",
+  "model": "recraftv4_1",
+  "size": null,
+  "seed": null,
+  "reference_image": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6D-b.png",
+  "strength": null,
+  "mask": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/text-masks/four-places.png",
+  "prompt": "",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/assets-textfree/four-places.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/assets-textfree/four-places.png",
+  "format": "png",
+  "api": {
+    "image_id": "35867f7b-9dc4-4ef1-af37-ca25766b353d",
+    "url": "https://img.recraft.ai/XoEp1e72Gxnr2XfR9E4fRmW-Yb9T0B4lypGuMULsXpA/rs:fit:2688:1536:0/raw:1/plain/abs://external/images/35867f7b-9dc4-4ef1-af37-ca25766b353d"
+  }
+}

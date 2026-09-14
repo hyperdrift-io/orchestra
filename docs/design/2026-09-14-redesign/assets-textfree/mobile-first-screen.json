@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-09-14T17:22:45.578Z",
+  "endpoint": "/images/eraseRegion",
+  "model": "recraftv4_1",
+  "size": null,
+  "seed": null,
+  "reference_image": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/round6-repair/6H-a.png",
+  "strength": null,
+  "mask": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/text-masks/mobile-first-screen.png",
+  "prompt": "",
+  "enhanced_prompt": null,
+  "controls": null,
+  "requested_output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/assets-textfree/mobile-first-screen.png",
+  "output": "apps/.worktrees/poc/orchestra/feat-ai-hd-primary-destination/docs/design/2026-09-14-redesign/assets-textfree/mobile-first-screen.png",
+  "format": "png",
+  "api": {
+    "image_id": "dd364960-9a1f-453d-b152-1a0b44958071",
+    "url": "https://img.recraft.ai/TSgmsipT2W0iK5kxZOwN4Ez1QY0EmU1oTFQ2RQtbskA/rs:fit:1664:2560:0/raw:1/plain/abs://external/images/dd364960-9a1f-453d-b152-1a0b44958071"
+  }
+}
