@@ -32,6 +32,8 @@ Current coverage and primary sources: [Contest attribution](docs/decisions/2026-
 
 ## The front door — On the shoulder (14 September 2026)
 
+Versions, tags and what production serves: `docs/RELEASES.md`. Tag every reviewable state and add its row there.
+
 The homepage implements the five screens the founder approved (`docs/design/2026-09-14-redesign/SELECTION.md`, round 6). Each has a ScreenCraft packet in `docs/design/2026-09-14-redesign/screencraft/`; the packet's map, not taste, decides where text sits over the art.
 
 - **Art:** `public/shoulder/*.webp`, made from the text-free masters in `docs/design/2026-09-14-redesign/assets-textfree/` (words erased with Recraft eraseRegion and the masks in `text-masks/`). Every word on the page is live HTML over the art; never bake text into an image. Art bands are full bleed and 16:9, so positions use `--band` (`100vw * 9 / 16`) and viewport percentages taken from the maps.
