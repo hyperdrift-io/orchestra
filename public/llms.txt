@@ -1,0 +1,9 @@
+# Orchestra AI
+
+> Orchestra AI is the agent orchestration partner for vertical SaaS, a Hyperdrift practice. We make agents production-grade inside products that already serve customers: multi-tenant, audit-ready, cost-controlled, and neutral on model and framework.
+
+## Pages
+
+- [Orchestra AI](https://ai.hyperdrift.io): the problem, how an engagement runs, what we build, case studies with live demos and source, packages, FAQ and contact
+- [Agents vs automation](https://hyperdrift.io/blog/agents-vs-automation): when a workflow needs an agent and when plain automation does the job better
+- [The fleet watches itself](https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals): the Helm case study, an agent crew running a live four-app fleet with scoped authority
