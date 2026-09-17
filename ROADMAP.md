@@ -214,3 +214,7 @@ We will resist the temptation to wire full funnel analytics until there is a rea
 - Sub-vertical landing page without a matching case study.
 - OSS library released without lived engagement learnings behind it.
 - Engagements outside ICP because the budget is tempting.
+
+## Tech debt
+
+- **Orchestra runs on Next.js; the workspace rule for new apps is own-stack (Waku RSC + typed server functions + pure CSS + Better Auth).** Founder, 17 September 2026: keep Next for now to test the front-door graphs (`/` version A, `/system` version B), then migrate the site to own-stack once a version is chosen. The graph components (`OrgGraph`, `Day`, `PlugIn`, `SystemGraph`) are plain React and CSS and carry over; only the app shell, fonts and the contact route change.
