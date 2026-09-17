@@ -1,20 +1,18 @@
-import { Hero } from '@/components/Hero';
-import { Places } from '@/components/Places';
+import { Day } from '@/components/Day';
+import { PlugIn } from '@/components/PlugIn';
 import { Proof } from '@/components/Proof';
 import { CurrentContent } from '@/components/CurrentContent';
-import { Programme } from '@/components/Programme';
 import { Enquiry } from '@/components/Enquiry';
 import { Footer } from '@/components/Footer';
 
-/** On the shoulder: the approved walk, first screen to enquiry. docs/design/2026-09-14-redesign/SELECTION.md */
+/** The AI-native organisation: the graph first, then the work, then where you plug in. docs/design/2026-09-16-ai-native-org/PAGE.md */
 export default function Page() {
   return (
     <>
-      <Hero />
-      <Places />
+      <Day />
+      <PlugIn />
       <Proof />
       <CurrentContent />
-      <Programme />
       <Enquiry />
       <Footer />
     </>

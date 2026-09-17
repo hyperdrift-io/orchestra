@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
+import './org.css';
 
 // Candidate faces for the approved concept: a quiet high-contrast serif for statements, a clean sans for reading.
 const display = Cormorant_Garamond({
@@ -56,10 +57,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span className="meta">By Hyperdrift</span>
           </p>
           <nav aria-label="Site">
+            <a href="#proof">Work</a>
+            <a href="#plug">Where you plug in</a>
             <a href="https://intel.hyperdrift.io/daily">Intel ↗</a>
             <a href="https://hyperdrift.io/blog">Writing ↗</a>
-            <a href="#partnership">Partner with us</a>
-            <a href="#contact">Start a project</a>
+            <a href="#contact">Describe your workflow</a>
           </nav>
         </header>
         <main>{children}</main>

@@ -1,0 +1,168 @@
+/* ===================================================================
+   The AI-native organisation — the graph, the day, the lens.
+   Truth layer is SVG in the DOM; lighting is scroll-driven CSS, panels are :target,
+   the lens is a radio group. Spec: docs/design/2026-09-16-ai-native-org/GRAPH.md
+=================================================================== */
+
+/* — The graph: one drawing, styled by the cascade */
+svg[id^='graph'] {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  font-family: var(--font-body);
+  overflow: visible;
+}
+svg[id^='graph'] rect { fill: var(--ink-elev); stroke: var(--line-soft); stroke-width: 1; }
+svg[id^='graph'] rect.founder { fill: var(--ink-2); stroke: var(--gold-line); }
+svg[id^='graph'] rect.col { fill: var(--ink-soft); stroke: var(--gold-line); }
+svg[id^='graph'] rect.surface { fill: var(--ink-2); stroke: var(--line-hair); }
+svg[id^='graph'] text { fill: var(--cream); }
+svg[id^='graph'] text.title { font-family: var(--font-display); font-size: 28px; font-weight: 600; }
+svg[id^='graph'] text.name { font-size: 15px; font-weight: 500; }
+svg[id^='graph'] text.mark { font-family: var(--font-mono); font-size: 11px; fill: var(--cream-3); }
+svg[id^='graph'] :is(line, path) { fill: none; stroke: var(--gold-line); stroke-width: 1.25; }
+svg[id^='graph'] a { border: 0; outline-offset: 2px; }
+svg[id^='graph'] a:hover rect, svg[id^='graph'] a:focus-visible rect { stroke: var(--gold); fill: var(--ink-soft); }
+svg[id^='graph'] a:hover text.mark { fill: var(--gold-light); }
+svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
+
+/* — The day: the graph stays, the movements scroll past and light it */
+#day {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 30rem) minmax(0, 1fr);
+  column-gap: var(--sp-xl);
+  align-items: start;
+  padding: var(--sp-2xl) var(--edge) var(--sp-xl);
+  background: var(--ink);
+  timeline-scope: --m0, --m1, --m2, --m3, --m4, --m5, --m6;
+}
+#day > .stage {
+  position: sticky;
+  inset-block-start: clamp(4rem, 10vh, 7rem);
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+}
+#day > .stage > * { grid-area: 1 / 1; }
+#day > .stage canvas { inline-size: 100%; block-size: 100%; pointer-events: none; }
+#day > ol { grid-column: 1; grid-row: 1; list-style: none; margin: 0; padding: 0; }
+#day > ol > li {
+  display: grid;
+  align-content: center;
+  gap: var(--sp-s);
+  min-block-size: 72vh;
+  max-inline-size: 30rem;
+}
+#day > ol > li[data-m='0'] { min-block-size: calc(100dvh - var(--sp-2xl) - 4rem); }
+#day > ol > li h1 { font-size: var(--fs-h1); }
+#day > ol > li h2 { font-size: var(--fs-h2); max-inline-size: 16ch; }
+#day > ol > li > p:not(.eyebrow) { max-inline-size: 42ch; }
+#day > ol > li .fragment { display: none; }
+#day > ol > li[data-m='0'] > p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-s) var(--sp-m); margin-block-start: var(--sp-xs); }
+#day > ol > li[data-m='1'] { view-timeline-name: --m1; }
+#day > ol > li[data-m='2'] { view-timeline-name: --m2; }
+#day > ol > li[data-m='3'] { view-timeline-name: --m3; }
+#day > ol > li[data-m='4'] { view-timeline-name: --m4; }
+#day > ol > li[data-m='5'] { view-timeline-name: --m5; }
+#day > ol > li[data-m='6'] { view-timeline-name: --m6; }
+
+/* Lighting: dim until its movement arrives, lit from then on */
+#day svg [data-col] { opacity: 1; }
+@keyframes lit { from { opacity: 0.22; } to { opacity: 1; } }
+@keyframes glow { from { filter: none; } to { filter: drop-shadow(0 0 18px var(--gold-soft)) drop-shadow(0 0 2px var(--gold)); } }
+@supports (animation-timeline: view()) {
+  #day svg [data-col]:not([data-col='founder']) { opacity: 0.22; animation: lit linear both; animation-range: entry 10% entry 70%; }
+  #day svg [data-col='sense'] { animation-timeline: --m1; }
+  #day svg [data-col='read'] { animation-timeline: --m2; }
+  #day svg [data-col='work'] { animation-timeline: --m3; }
+  #day svg [data-col='ship'] { animation-timeline: --m4; }
+  #day svg [data-col='learn'] { animation-timeline: --m5; }
+  #day svg [data-col='surface'] { animation-timeline: --m6; }
+  #day svg [data-col='founder'] { animation: glow linear both; animation-timeline: --m6; animation-range: entry 10% entry 70%; }
+}
+
+/* Node panels: one link per job, opened by :target, closed by the link back to the graph */
+#day .panels article { display: none; }
+#day .panels article:target {
+  display: grid;
+  gap: var(--sp-xs);
+  position: fixed;
+  z-index: 6;
+  inset-inline-end: var(--edge);
+  inset-block-end: var(--sp-m);
+  inline-size: min(34rem, calc(100vw - 2 * var(--gutter)));
+  padding: var(--sp-m);
+  background: var(--ink-elev);
+  border: 1px solid var(--gold-line);
+  border-radius: var(--r-card);
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.55);
+  animation: rise var(--d-med) var(--ease) both;
+}
+@keyframes rise { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0; } }
+#day .panels article:target::before { content: ''; position: fixed; inset: 0; z-index: -1; background: rgb(0 0 0 / 0.45); }
+#day .panels article .meta:first-child { color: var(--gold); }
+#day .panels article h3 { font-size: var(--fs-h3); }
+#day .panels article > p:not(.meta) { max-inline-size: 48ch; }
+#day .panels article > p:last-child { display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-m); margin-block-start: var(--sp-xs); }
+#day .panels article > p:last-child a:first-child { color: var(--gold-light); border-block-end-color: var(--gold-line); }
+
+/* — The lens: same graph, your labels */
+#plug { padding: var(--sp-xl) var(--edge); background: var(--ink-2); border-block-start: 1px solid var(--line-hair); }
+#plug > h2 { max-inline-size: 18ch; }
+#plug > .lead { margin-block-start: var(--sp-s); max-inline-size: 44ch; }
+#plug fieldset { display: flex; flex-wrap: wrap; gap: var(--sp-xs); margin: var(--sp-m) 0 var(--sp-l); padding: 0; border: 0; }
+#plug label {
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-pill);
+  color: var(--cream-2);
+  cursor: pointer;
+  transition: color var(--d-fast) var(--ease), border-color var(--d-fast) var(--ease), background var(--d-fast) var(--ease);
+}
+#plug label:hover { color: var(--cream); border-color: var(--cream); }
+#plug label:has(input:checked) { color: var(--ink); background: var(--gold); border-color: var(--gold); }
+#plug label:has(input:focus-visible) { outline: 2px solid var(--gold); outline-offset: 3px; }
+#plug input[type='radio'] { position: absolute; opacity: 0; inline-size: 1px; block-size: 1px; }
+#plug > p[data-lens] { display: none; margin-block-start: var(--sp-m); max-inline-size: 52ch; font-size: var(--fs-lead); font-family: var(--font-display); color: var(--cream); }
+#plug:has(input[value='product']:checked) svg text[data-lens='base'],
+#plug:has(input[value='operations']:checked) svg text[data-lens='base'],
+#plug:has(input[value='consultancy']:checked) svg text[data-lens='base'] { display: none; }
+#plug:has(input[value='product']:checked) :is(svg text, p)[data-lens='product'],
+#plug:has(input[value='operations']:checked) :is(svg text, p)[data-lens='operations'],
+#plug:has(input[value='consultancy']:checked) :is(svg text, p)[data-lens='consultancy'] { display: initial; }
+#plug:has(input:checked) svg text[data-lens]:not([data-lens='base']) { fill: var(--gold-light); }
+#plug > div { margin-block-start: var(--sp-l); padding-block-start: var(--sp-m); border-block-start: 1px solid var(--line-hair); }
+#plug > div > p:first-child { max-inline-size: 48ch; font-size: var(--fs-lead); }
+#plug > div > p + p { margin-block-start: var(--sp-m); }
+
+/* — Narrow screens: the graph once, then the movements; everything lit, no field */
+@media (max-width: 900px) {
+  /* The header sits over the first screen; the day starts below it. The full graph is
+     unreadable at phone width, so each movement carries its column's jobs instead. */
+  #day { display: block; padding-block-start: 9rem; }
+  #day > .stage { display: none; }
+  #day > ol > li { min-block-size: 0; padding-block: var(--sp-m); max-inline-size: none; }
+  #day > ol > li[data-m='0'] { min-block-size: 0; }
+  #day > ol > li .fragment { display: grid; gap: var(--sp-2xs); margin: var(--sp-xs) 0 0; padding: 0; list-style: none; }
+  #day > ol > li .fragment a {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-s);
+    padding: var(--sp-xs) var(--sp-s);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-card);
+    background: var(--ink-elev);
+  }
+  #day > ol > li .fragment a:hover { border-color: var(--gold); }
+  #day > ol > li .fragment .meta { color: var(--cream-3); }
+  #day .panels article:target { inset-inline: var(--gutter); inline-size: auto; }
+  #plug svg[id^='graph'] text.title { font-size: 34px; }
+  #plug svg[id^='graph'] text.name { font-size: 18px; }
+  #plug svg[id^='graph'] text.mark { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #day svg [data-col] { opacity: 1; animation: none; }
+  #day .panels article:target { animation: none; }
+}
