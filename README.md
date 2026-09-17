@@ -8,12 +8,12 @@ Agent orchestration for production AI workflows. An offspring of Hyperdrift.
 ## Develop
 
 ```bash
-pnpm install
-pnpm dev          # http://localhost:3105
-pnpm test         # vitest (schema + API route)
-pnpm typecheck
-pnpm build
-pnpm start        # serves the production build on port 3005
+npm install
+npm run dev          # http://localhost:3105
+npm run test         # vitest (schema + API route)
+npm run typecheck
+npm run build
+npm run start        # serves the production build on port 3005
 ```
 
 ## Ports
@@ -35,7 +35,7 @@ Hyperdrift self-hosts on a Hostinger VPS. There is no Vercel / Netlify / managed
 
 - **Process manager**: PM2 (`ecosystem.config.cjs` in this repo mirrors the central `nginx-prod/ecosystem.config.js` entry on the server).
 - **Reverse proxy + TLS**: nginx on the VPS, terminating `ai.hyperdrift.io`.
-- **CI**: GitHub Actions (`.github/workflows/deploy.yml`) runs the test gate (`pnpm run test:ci`) and the production build on every push to `main`, then triggers the server-side deploy webhook.
+- **CI**: GitHub Actions (`.github/workflows/deploy.yml`) runs the test gate (`npm run test:ci`) and the production build on every push to `main`, then triggers the server-side deploy webhook.
 - **Server-side deploy**: managed by the `hyperdrift-infra` repo (ansible). The app entry lives in `infra/group_vars/apps.yml` under `deploy_apps[name=orchestra]` with port `3005`.
 - **DNS**: `ai.hyperdrift.io` resolves to the Hostinger VPS via an A record.
 

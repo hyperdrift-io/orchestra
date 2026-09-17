@@ -1,29 +1,27 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import * as THREE from 'three';
 import { anchors, beats, inputs, readCard } from '@/data/system-graph';
 
 /*
- * The Commander as a slowly turning globe of notes. Canvas 2D for everything organic
- * (mesh, links, particles, ripples); the DOM for chips, tag, cards, tooltip and
- * captions, positioned by CSS off `data-layout` and animated off `data-stage`.
- * Five beats cycle: Sense → Read → Work → Ship → Learn. Anchor notes on the front
- * hemisphere are hover targets. No dependency.
+ * The Commander as a slowly turning globe of notes, on three.js. The scene is an
+ * orthographic view of the stage in CSS pixels (x right, y up, z toward the viewer), so
+ * the DOM chips, tag, cards and tooltip line up with the 3D parts by the same
+ * fractions. Five beats cycle: Sense → Read → Work → Ship → Learn. Anchor notes on the
+ * front hemisphere are hover targets.
  *
- * Perf: seeded PRNG, DPR cap, 30 fps, paused off-viewport and in hidden tabs, a single
- * frame under reduced motion. Draws one frame synchronously so a hidden tab still shows
- * the globe.
+ * Perf: seeded PRNG, DPR cap, 30 fps, paused off-viewport and in hidden tabs, one frame
+ * under reduced motion, everything disposed on unmount. Renders one frame synchronously
+ * so a hidden tab still shows the globe.
  */
 
 type Vec = { x: number; y: number };
 interface Node {
-  x: number;
-  y: number;
-  z: number;
+  unit: THREE.Vector3;
   anchor?: (typeof anchors)[number];
   born: number;
-  sx: number;
-  sy: number;
+  world: THREE.Vector3;
   depth: number;
   r: number;
 }
@@ -33,22 +31,21 @@ interface Link {
   born: number;
 }
 interface Particle {
-  path: Vec[];
+  curve: THREE.QuadraticBezierCurve3[];
   t: number;
   v: number;
   out: boolean;
 }
 
-const CREAM = '246,238,225';
-const GOLD = '227,168,87';
 const BEAT_MS = 2600;
+const CREAM = new THREE.Color('#f6eee1');
+const GOLD = new THREE.Color('#e3a857');
 
 const rng = (seed: number) => () => {
   seed = (seed * 1664525 + 1013904223) % 4294967296;
   return seed / 4294967296;
 };
 
-/* Layouts as fractions of the stage. */
 interface Layout {
   chips: readonly Vec[];
   merge: Vec;
@@ -84,12 +81,20 @@ const LAYOUTS: Record<'wide' | 'tall', Layout> = {
   },
 };
 
-const bez = (p: Vec[], t: number): Vec => {
-  const u = 1 - t;
-  return {
-    x: u * u * p[0].x + 2 * u * t * p[1].x + t * t * p[2].x,
-    y: u * u * p[0].y + 2 * u * t * p[1].y + t * t * p[2].y,
-  };
+/** A soft radial sprite, drawn once. */
+const glowTexture = () => {
+  const c = document.createElement('canvas');
+  c.width = c.height = 128;
+  const g = c.getContext('2d')!;
+  const grad = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.35, 'rgba(255,255,255,0.45)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grad;
+  g.fillRect(0, 0, 128, 128);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
 };
 
 export function SystemGraph() {
@@ -104,33 +109,41 @@ export function SystemGraph() {
     const tipEl = tip.current;
     const popEl = pop.current;
     if (!stageEl || !canvas || !tipEl || !popEl) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
 
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
+    } catch {
+      stageEl.dataset.stage = '0';
+      return;
+    }
+    renderer.setClearColor(0x000000, 0);
     const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const R = rng(7);
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(0, 1, 1, 0, -4000, 4000);
+    camera.position.z = 1000;
+    const glow = glowTexture();
+    const disposables: { dispose: () => void }[] = [glow];
 
     /* — The mesh: a Fibonacci sphere, jittered, plus a few interior notes */
     const mesh: Node[] = [];
     const links: Link[] = [];
     const SHELL = 48;
+    const node = (v: THREE.Vector3, born = 0): Node => ({ unit: v, born, world: new THREE.Vector3(), depth: 0, r: 0 });
     for (let i = 0; i < SHELL; i++) {
       const y = 1 - (i / (SHELL - 1)) * 2;
       const rad = Math.sqrt(1 - y * y);
       const th = i * 2.399963;
       const j = 0.06;
-      mesh.push({ x: Math.cos(th) * rad + (R() - 0.5) * j, y: y + (R() - 0.5) * j, z: Math.sin(th) * rad + (R() - 0.5) * j, born: 0, sx: 0, sy: 0, depth: 0, r: 0 });
+      mesh.push(node(new THREE.Vector3(Math.cos(th) * rad + (R() - 0.5) * j, y + (R() - 0.5) * j, Math.sin(th) * rad + (R() - 0.5) * j)));
     }
     for (let i = 0; i < 14; i++) {
-      const v = { x: R() * 2 - 1, y: R() * 2 - 1, z: R() * 2 - 1 };
-      const l = Math.hypot(v.x, v.y, v.z) || 1;
-      const s = 0.35 + R() * 0.4;
-      mesh.push({ x: (v.x / l) * s, y: (v.y / l) * s, z: (v.z / l) * s, born: 0, sx: 0, sy: 0, depth: 0, r: 0 });
+      mesh.push(node(new THREE.Vector3(R() * 2 - 1, R() * 2 - 1, R() * 2 - 1).normalize().multiplyScalar(0.35 + R() * 0.4)));
     }
-    const dist = (a: Node, b: Node) => Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z);
     const nearest = (i: number, k: number) =>
       mesh
-        .map((n, j) => ({ j, d: dist(mesh[i], n) }))
+        .map((n, j) => ({ j, d: mesh[i].unit.distanceTo(n.unit) }))
         .filter((o) => o.j !== i)
         .sort((p, q) => p.d - q.d)
         .slice(0, k);
@@ -139,8 +152,6 @@ export function SystemGraph() {
       links.push({ a, b, born });
     };
     for (let i = 0; i < mesh.length; i++) nearest(i, 3).forEach((o) => R() < 0.9 && wire(i, o.j, 0));
-
-    /* Anchors: eight spread shell nodes, wired as the jobs hand off */
     const step = Math.floor(SHELL / anchors.length);
     const anchorIdx = anchors.map((a, i) => {
       const idx = i * step + 2;
@@ -149,80 +160,149 @@ export function SystemGraph() {
     });
     const idxOf = (slug: string) => anchorIdx[anchors.findIndex((a) => a.slug === slug)];
     anchors.forEach((a, i) => a.links.forEach((s) => wire(anchorIdx[i], idxOf(s), 0)));
+    const BASE = mesh.length;
+    const NODE_CAP = BASE + 16;
+    const LINK_CAP = 480;
 
-    /* — Layout and projection */
+    /* — Scene objects */
+    const globe = new THREE.Group();
+    scene.add(globe);
+
+    const sphere = new THREE.SphereGeometry(1, 10, 8);
+    const noteMat = new THREE.MeshBasicMaterial({ color: CREAM, transparent: true, opacity: 0.95 });
+    const notes = new THREE.InstancedMesh(sphere, noteMat, NODE_CAP);
+    notes.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    scene.add(notes);
+
+    const anchorMat = new THREE.MeshBasicMaterial({ color: GOLD, transparent: true, opacity: 1 });
+    const anchorNotes = new THREE.InstancedMesh(sphere, anchorMat, anchors.length);
+    anchorNotes.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    scene.add(anchorNotes);
+
+    const ringGeo = new THREE.RingGeometry(1, 1.16, 40);
+    const ringMat = new THREE.MeshBasicMaterial({ color: GOLD, transparent: true, opacity: 0.4, side: THREE.DoubleSide });
+    const rings = new THREE.InstancedMesh(ringGeo, ringMat, anchors.length);
+    rings.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    scene.add(rings);
+
+    const linkGeo = new THREE.BufferGeometry();
+    const linkPos = new Float32Array(LINK_CAP * 6);
+    const linkCol = new Float32Array(LINK_CAP * 6);
+    linkGeo.setAttribute('position', new THREE.BufferAttribute(linkPos, 3).setUsage(THREE.DynamicDrawUsage));
+    linkGeo.setAttribute('color', new THREE.BufferAttribute(linkCol, 3).setUsage(THREE.DynamicDrawUsage));
+    const linkMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
+    scene.add(new THREE.LineSegments(linkGeo, linkMat));
+
+    const guideMat = (color: THREE.Color) => new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.1, blending: THREE.AdditiveBlending, depthWrite: false });
+    const inMat = guideMat(CREAM);
+    const outMat = guideMat(GOLD);
+    const guides: THREE.Line[] = [];
+    for (let i = 0; i < inputs.length + 1; i++) {
+      const l = new THREE.Line(new THREE.BufferGeometry(), inMat);
+      guides.push(l);
+      scene.add(l);
+    }
+    const outGuide = new THREE.Line(new THREE.BufferGeometry(), outMat);
+    scene.add(outGuide);
+
+    const merge = new THREE.Mesh(new THREE.CircleGeometry(3, 18), new THREE.MeshBasicMaterial({ color: CREAM, transparent: true, opacity: 0.35 }));
+    scene.add(merge);
+
+    const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: glow, color: GOLD, transparent: true, opacity: 0.1, blending: THREE.AdditiveBlending, depthWrite: false }));
+    scene.add(halo);
+
+    const partGeo = (cap: number) => {
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(cap * 3), 3).setUsage(THREE.DynamicDrawUsage));
+      g.setDrawRange(0, 0);
+      return g;
+    };
+    const PART_CAP = 24;
+    const inParts = new THREE.Points(partGeo(PART_CAP), new THREE.PointsMaterial({ map: glow, color: CREAM, size: 9, sizeAttenuation: false, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+    const outParts = new THREE.Points(partGeo(PART_CAP), new THREE.PointsMaterial({ map: glow, color: GOLD, size: 12, sizeAttenuation: false, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+    scene.add(inParts, outParts);
+
+    const rippleGeo = new THREE.RingGeometry(0.93, 1, 56);
+    const ripplePool = Array.from({ length: 6 }, () => {
+      const m = new THREE.Mesh(rippleGeo, new THREE.MeshBasicMaterial({ color: GOLD, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
+      m.visible = false;
+      scene.add(m);
+      return m;
+    });
+    const ripples: { mesh: THREE.Mesh; t0: number }[] = [];
+
+    disposables.push(sphere, noteMat, anchorMat, ringGeo, ringMat, linkGeo, linkMat, inMat, outMat, merge.geometry, merge.material, halo.material, inParts.geometry, inParts.material, outParts.geometry, outParts.material, rippleGeo, ...ripplePool.map((m) => m.material), ...guides.map((g) => g.geometry), outGuide.geometry);
+
+    /* — Layout in CSS pixels; world y is up, so S() flips */
     let W = 0;
     let H = 0;
-    let dpr = 1;
+    let rad = 0;
     let L = LAYOUTS.wide;
-    const pt = (f: Vec): Vec => ({ x: f.x * W, y: f.y * H });
-    const chipAt = (i: number): Vec => pt(L.chips[i]);
+    const S = (f: Vec, z = 0) => new THREE.Vector3(f.x * W, H - f.y * H, z);
+    const chipAt = (i: number) => S(L.chips[i], -rad - 8);
+    const curve = (a: THREE.Vector3, b: THREE.Vector3, bend: THREE.Vector3) => new THREE.QuadraticBezierCurve3(a, bend, b);
+    const inCurves = (i: number) => {
+      const a = chipAt(i);
+      const m = S(L.merge, -rad - 8);
+      const c = S(L.core, -rad - 8);
+      return [curve(a, m, new THREE.Vector3((a.x + m.x) / 2, a.y, a.z)), curve(m, c, new THREE.Vector3((m.x + c.x) / 2, m.y, m.z))];
+    };
+    const outCurve = () => {
+      const c = S(L.core, rad + 8);
+      const o = S(L.out, rad + 8);
+      return curve(c, o, new THREE.Vector3((c.x + o.x) / 2, c.y + 20, c.z));
+    };
 
     const size = () => {
       const parentW = stageEl.parentElement?.clientWidth ?? stageEl.clientWidth;
       const tall = parentW < 640;
       L = tall ? LAYOUTS.tall : LAYOUTS.wide;
       stageEl.dataset.layout = tall ? 'tall' : 'wide';
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = stageEl.clientWidth;
       H = stageEl.clientHeight;
-      canvas.width = Math.round(W * dpr);
-      canvas.height = Math.round(H * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-
-    const project = (n: Node, t: number) => {
-      const spin = t * 0.00012;
-      const tilt = 0.32;
-      const cx = Math.cos(spin);
-      const sx = Math.sin(spin);
-      const x1 = n.x * cx - n.z * sx;
-      const z1 = n.x * sx + n.z * cx;
-      const y1 = n.y * Math.cos(tilt) - z1 * Math.sin(tilt);
-      const z2 = n.y * Math.sin(tilt) + z1 * Math.cos(tilt);
-      const rad = L.radius * H;
-      const f = 3.2;
-      const p = f / (f - z2);
-      const c = pt(L.core);
-      n.sx = c.x + x1 * rad * p;
-      n.sy = c.y + y1 * rad * p;
-      n.depth = z2; // 1 = nearest
-      n.r = (n.anchor ? 3.6 : 1.6) * (0.55 + 0.45 * (z2 + 1) / 2) * (L === LAYOUTS.tall ? 1.25 : 1);
+      rad = L.radius * H;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(W, H, false);
+      camera.right = W;
+      camera.top = H;
+      camera.updateProjectionMatrix();
+      globe.position.copy(S(L.core));
+      halo.position.copy(S(L.core, -rad - 30));
+      halo.scale.set(rad * 2.9, rad * 2.9, 1);
+      merge.position.copy(S(L.merge, -rad - 6));
+      for (let i = 0; i < inputs.length; i++) guides[i].geometry.setFromPoints(inCurves(i)[0].getPoints(24));
+      guides[inputs.length].geometry.setFromPoints(inCurves(0)[1].getPoints(24));
+      outGuide.geometry.setFromPoints(outCurve().getPoints(24));
     };
 
     /* — Runtime */
     let stage = 1;
     let stageAt = 0;
     const parts: Particle[] = [];
-    const ripples: { at: Vec; t0: number }[] = [];
     let lastFeed = 0;
     let lastShip = 0;
     let lastGrow = 0;
     let lastRip = 0;
     let hovered = -1;
-    const BASE = mesh.length;
+    const tmp = new THREE.Vector3();
+    const mat4 = new THREE.Matrix4();
+    const quat = new THREE.Quaternion();
+    const scl = new THREE.Vector3();
+    const col = new THREE.Color();
 
     const feed = (now: number) => {
-      const i = Math.floor(R() * inputs.length);
-      const a = chipAt(i);
-      const m = pt(L.merge);
-      const c = pt(L.core);
-      parts.push({ path: [a, { x: (a.x + m.x) / 2, y: a.y }, m, { x: (m.x + c.x) / 2, y: m.y }, c], t: 0, v: 0.55 + R() * 0.3, out: false });
+      parts.push({ curve: inCurves(Math.floor(R() * inputs.length)), t: 0, v: 0.55 + R() * 0.3, out: false });
       lastFeed = now;
     };
     const ship = (now: number) => {
-      const c = pt(L.core);
-      const o = pt(L.out);
-      parts.push({ path: [c, { x: (c.x + o.x) / 2, y: c.y - 20 }, o], t: 0, v: 0.6 + R() * 0.3, out: true });
+      parts.push({ curve: [outCurve()], t: 0, v: 0.6 + R() * 0.3, out: true });
       lastShip = now;
     };
     const grow = (now: number) => {
-      const v = { x: R() * 2 - 1, y: R() * 2 - 1, z: R() * 2 - 1 };
-      const l = Math.hypot(v.x, v.y, v.z) || 1;
-      mesh.push({ x: v.x / l, y: v.y / l, z: v.z / l, born: now, sx: 0, sy: 0, depth: 0, r: 0 });
+      mesh.push(node(new THREE.Vector3(R() * 2 - 1, R() * 2 - 1, R() * 2 - 1).normalize(), now));
       const idx = mesh.length - 1;
       nearest(idx, 3).forEach((o, k) => (k < 2 || R() < 0.5) && wire(idx, o.j, now));
-      if (mesh.length > BASE + 14) {
+      if (mesh.length > NODE_CAP - 1) {
         const gone = BASE;
         mesh.splice(gone, 1);
         for (let i = links.length - 1; i >= 0; i--) {
@@ -235,6 +315,13 @@ export function SystemGraph() {
         }
       }
       lastGrow = now;
+    };
+    const ripple = (at: THREE.Vector3, now: number) => {
+      const m = ripplePool.find((p) => !p.visible);
+      if (!m) return;
+      m.position.set(at.x, at.y, rad + 12);
+      m.visible = true;
+      ripples.push({ mesh: m, t0: now });
     };
     const arrive = () => {
       popEl.classList.remove('pop');
@@ -254,133 +341,134 @@ export function SystemGraph() {
         if (stage === 4 && parts.filter((p) => p.out).length < 3 && now - lastShip > 520) ship(now);
         if ((stage === 2 || stage === 5) && now - lastRip > 800) {
           const src = mesh[idxOf(stage === 2 ? 'read' : 'learn')];
-          if (src.depth > -0.2) ripples.push({ at: { x: src.sx, y: src.sy }, t0: now });
+          if (src.depth > -0.2) ripple(src.world, now);
           lastRip = now;
         }
       }
 
-      ctx.clearRect(0, 0, W, H);
-      const c = pt(L.core);
-      const m = pt(L.merge);
-      const o = pt(L.out);
+      inMat.opacity = stage === 1 ? 0.3 : 0.08;
+      outMat.opacity = stage === 4 ? 0.4 : 0.08;
+      (merge.material as THREE.MeshBasicMaterial).opacity = stage === 1 ? 0.8 : 0.35;
+      halo.material.opacity = (stage === 2 || stage === 3 ? 0.17 : 0.1) + Math.sin(now / 1200) * 0.02;
 
-      /* guide curves: chips converge on the merge point, one stream continues to the core, one leaves */
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = `rgba(${CREAM},${stage === 1 ? 0.28 : 0.08})`;
-      for (let i = 0; i < inputs.length; i++) {
-        const a = chipAt(i);
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.quadraticCurveTo((a.x + m.x) / 2, a.y, m.x, m.y);
-        ctx.stroke();
-      }
-      ctx.beginPath();
-      ctx.moveTo(m.x, m.y);
-      ctx.quadraticCurveTo((m.x + c.x) / 2, m.y, c.x, c.y);
-      ctx.stroke();
-      ctx.strokeStyle = `rgba(${GOLD},${stage === 4 ? 0.35 : 0.08})`;
-      ctx.beginPath();
-      ctx.moveTo(c.x, c.y);
-      ctx.quadraticCurveTo((c.x + o.x) / 2, c.y - 20, o.x, o.y);
-      ctx.stroke();
-      ctx.fillStyle = `rgba(${CREAM},${stage === 1 ? 0.8 : 0.35})`;
-      ctx.beginPath();
-      ctx.arc(m.x, m.y, 3, 0, Math.PI * 2);
-      ctx.fill();
-
-      /* globe glow and rim */
-      const rad = L.radius * H;
-      const ga = (stage === 2 || stage === 3 ? 0.16 : 0.1) + Math.sin(now / 1200) * 0.02;
-      const g = ctx.createRadialGradient(c.x, c.y, rad * 0.2, c.x, c.y, rad * 1.35);
-      g.addColorStop(0, `rgba(${GOLD},${ga})`);
-      g.addColorStop(1, `rgba(${GOLD},0)`);
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.arc(c.x, c.y, rad * 1.35, 0, Math.PI * 2);
-      ctx.fill();
-
-      mesh.forEach((n) => project(n, now));
-
-      /* links, depth-cued; the hovered anchor’s links turn gold */
-      for (const l of links) {
-        const a = mesh[l.a];
-        const b = mesh[l.b];
-        if (!a || !b) continue;
-        const d = (a.depth + b.depth) / 2;
-        const age = Math.min(1, (now - l.born) / 600);
-        const hot = hovered >= 0 && (l.a === hovered || l.b === hovered);
-        ctx.strokeStyle = hot ? `rgba(${GOLD},0.9)` : `rgba(${CREAM},${(0.06 + 0.22 * (d + 1) / 2) * age})`;
-        ctx.lineWidth = hot ? 1.4 : 0.8;
-        ctx.beginPath();
-        ctx.moveTo(a.sx, a.sy);
-        ctx.lineTo(b.sx, b.sy);
-        ctx.stroke();
+      /* project the mesh through the turning globe */
+      globe.rotation.set(0.32, now * 0.00012, 0);
+      globe.updateMatrixWorld(true);
+      for (const n of mesh) {
+        n.world.copy(n.unit).multiplyScalar(rad);
+        globe.localToWorld(n.world);
+        n.depth = (n.world.z - globe.position.z) / rad;
+        n.r = (n.anchor ? 3.6 : 1.6) * (0.55 + (0.45 * (n.depth + 1)) / 2) * (L === LAYOUTS.tall ? 1.25 : 1);
       }
 
-      /* nodes back to front */
-      const order = mesh.map((_, i) => i).sort((p, q) => mesh[p].depth - mesh[q].depth);
-      for (const i of order) {
+      let ni = 0;
+      let ai = 0;
+      for (let i = 0; i < mesh.length; i++) {
         const n = mesh[i];
         const age = Math.min(1, (now - n.born) / 500);
         const k = (n.depth + 1) / 2;
-        const isHot = i === hovered;
-        ctx.fillStyle = n.anchor ? `rgba(${GOLD},${(0.55 + 0.45 * k) * age})` : `rgba(${CREAM},${(0.25 + 0.6 * k) * age})`;
-        ctx.beginPath();
-        ctx.arc(n.sx, n.sy, n.r * age * (isHot ? 1.5 : 1), 0, Math.PI * 2);
-        ctx.fill();
-        if (n.anchor && n.depth > 0) {
-          ctx.strokeStyle = `rgba(${GOLD},${0.35 * k})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.arc(n.sx, n.sy, n.r + 3, 0, Math.PI * 2);
-          ctx.stroke();
+        if (n.anchor) {
+          const hot = i === hovered;
+          scl.setScalar(n.r * age * (hot ? 1.5 : 1));
+          anchorNotes.setMatrixAt(ai, mat4.compose(n.world, quat, scl));
+          anchorNotes.setColorAt(ai, col.copy(GOLD).multiplyScalar(0.5 + 0.5 * k));
+          scl.setScalar(n.depth > 0 ? n.r + 3 : 0.001);
+          rings.setMatrixAt(ai, mat4.compose(tmp.copy(n.world).setZ(n.world.z + 1), quat, scl));
+          ai++;
+        } else {
+          scl.setScalar(n.r * age);
+          notes.setMatrixAt(ni, mat4.compose(n.world, quat, scl));
+          notes.setColorAt(ni, col.copy(CREAM).multiplyScalar((0.25 + 0.75 * k) * age));
+          ni++;
         }
       }
+      notes.count = ni;
+      notes.instanceMatrix.needsUpdate = true;
+      if (notes.instanceColor) notes.instanceColor.needsUpdate = true;
+      anchorNotes.instanceMatrix.needsUpdate = true;
+      if (anchorNotes.instanceColor) anchorNotes.instanceColor.needsUpdate = true;
+      rings.instanceMatrix.needsUpdate = true;
+
+      /* links, depth-cued by brightness; the hovered anchor's links turn gold */
+      let li = 0;
+      for (const l of links) {
+        const a = mesh[l.a];
+        const b = mesh[l.b];
+        if (!a || !b || li >= LINK_CAP) continue;
+        const d = (a.depth + b.depth) / 2;
+        const age = Math.min(1, (now - l.born) / 600);
+        const hot = hovered >= 0 && (l.a === hovered || l.b === hovered);
+        col.copy(hot ? GOLD : CREAM).multiplyScalar(hot ? 0.95 : (0.05 + (0.24 * (d + 1)) / 2) * age);
+        const o = li * 6;
+        linkPos[o] = a.world.x;
+        linkPos[o + 1] = a.world.y;
+        linkPos[o + 2] = a.world.z;
+        linkPos[o + 3] = b.world.x;
+        linkPos[o + 4] = b.world.y;
+        linkPos[o + 5] = b.world.z;
+        linkCol[o] = linkCol[o + 3] = col.r;
+        linkCol[o + 1] = linkCol[o + 4] = col.g;
+        linkCol[o + 2] = linkCol[o + 5] = col.b;
+        li++;
+      }
+      linkGeo.setDrawRange(0, li * 2);
+      linkGeo.attributes.position.needsUpdate = true;
+      linkGeo.attributes.color.needsUpdate = true;
 
       /* ripples from a real anchor */
       for (let i = ripples.length - 1; i >= 0; i--) {
         const rp = ripples[i];
         const k = (now - rp.t0) / 1400;
         if (k >= 1) {
+          rp.mesh.visible = false;
           ripples.splice(i, 1);
           continue;
         }
-        ctx.strokeStyle = `rgba(${GOLD},${0.6 * (1 - k)})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(rp.at.x, rp.at.y, 6 + k * 46, 0, Math.PI * 2);
-        ctx.stroke();
+        rp.mesh.scale.setScalar(6 + k * 46);
+        (rp.mesh.material as THREE.MeshBasicMaterial).opacity = 0.6 * (1 - k);
       }
 
       /* particles: in along two curves (t 0..2), out along one (t 0..1) */
+      const inPos = inParts.geometry.attributes.position.array as Float32Array;
+      const outPos = outParts.geometry.attributes.position.array as Float32Array;
+      let pi = 0;
+      let po = 0;
       for (let i = parts.length - 1; i >= 0; i--) {
         const p = parts[i];
         p.t += p.v * 0.016;
-        const end = p.out ? 1 : 2;
-        if (p.t >= end) {
+        if (p.t >= p.curve.length) {
           if (p.out) arrive();
           parts.splice(i, 1);
           continue;
         }
-        const seg = p.out ? p.path : p.t < 1 ? p.path.slice(0, 3) : p.path.slice(2, 5);
-        const q = bez(seg, p.out ? p.t : p.t % 1);
-        ctx.fillStyle = p.out ? `rgba(${GOLD},0.95)` : `rgba(${CREAM},0.9)`;
-        ctx.beginPath();
-        ctx.arc(q.x, q.y, p.out ? 3 : 2.4, 0, Math.PI * 2);
-        ctx.fill();
+        const seg = p.curve[Math.min(p.curve.length - 1, Math.floor(p.t))];
+        seg.getPoint(p.t % 1, tmp);
+        if (p.out && po < PART_CAP) {
+          outPos.set([tmp.x, tmp.y, tmp.z], po * 3);
+          po++;
+        } else if (!p.out && pi < PART_CAP) {
+          inPos.set([tmp.x, tmp.y, tmp.z], pi * 3);
+          pi++;
+        }
       }
+      inParts.geometry.setDrawRange(0, pi);
+      inParts.geometry.attributes.position.needsUpdate = true;
+      outParts.geometry.setDrawRange(0, po);
+      outParts.geometry.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
     };
 
-    /* — Hover: nearest front-hemisphere anchor */
+    /* — Hover: nearest front-hemisphere anchor, in CSS pixels */
     const pick = (e: PointerEvent, maxD: number) => {
       const rect = canvas.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * W;
-      const y = ((e.clientY - rect.top) / rect.height) * H;
+      const y = H - ((e.clientY - rect.top) / rect.height) * H;
       let best = -1;
       let bd = maxD;
       mesh.forEach((n, i) => {
         if (!n.anchor || n.depth < 0) return;
-        const d = Math.hypot(n.sx - x, n.sy - y);
+        const d = Math.hypot(n.world.x - x, n.world.y - y);
         if (d < bd) {
           bd = d;
           best = i;
@@ -455,6 +543,8 @@ export function SystemGraph() {
       canvas.removeEventListener('pointermove', onMove);
       canvas.removeEventListener('pointerleave', onLeave);
       canvas.removeEventListener('pointerdown', onTap);
+      disposables.forEach((d) => d.dispose());
+      renderer.dispose();
     };
   }, []);
 
