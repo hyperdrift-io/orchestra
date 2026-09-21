@@ -228,7 +228,6 @@ main:has(#system) :is(ul,ol) { list-style: none; }
 [data-organisation-view] { margin: 2rem 0 1rem; overflow-x: auto; }
 [data-organisation-view] > div { position: relative; min-width: 900px; }
 [data-organisation-view][data-zoomed='true'] > div { min-width: 1500px; }
-[data-organisation-view] canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 [data-organisation-view] svg { overflow: visible; }
 [data-organisation-view] svg [data-col] { opacity: .65; transition: opacity 200ms cubic-bezier(.22,1,.36,1); }
 [data-organisation-view] svg [data-col='founder'], [data-organisation-view] svg [data-col='surface'], [data-organisation-view] svg [data-active='true'] { opacity: 1; }
@@ -247,3 +246,8 @@ main:has(#system) :is(ul,ol) { list-style: none; }
 #graph-lens [data-active='true'] > rect { stroke: #f4c47f; stroke-width: 1.8; fill: #3d2e1b; }
 #graph-lens [data-active='true'] { filter: drop-shadow(0 0 7px #dba45038); }
 [data-graph-surface] > button[data-facet][aria-pressed='true'] span { background: #f4c47f; color: #19140e; }
+/* Illuminate the diagram's real connectors, without moving particles or separate routes. */
+#graph-lens [data-connection] > path { stroke: #8f7955; stroke-width: 1.4; }
+#graph-lens [data-connection] > [data-highlight] { stroke: #ffda96; stroke-width: 2.2; opacity: 0; transition: opacity 180ms cubic-bezier(.22,1,.36,1); }
+#graph-lens [data-connection][data-lit='true'] > [data-highlight] { opacity: 1; }
+@media(prefers-reduced-motion:reduce){#graph-lens [data-connection] > [data-highlight]{transition:none;}}

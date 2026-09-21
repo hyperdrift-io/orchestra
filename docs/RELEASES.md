@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** Living business system | tag `living-business-system-2026-09-22` | 22 Sep 2026 | Founder-selected WebGL refinement and editorial imagery. Local preview only. |
+| **Current:** Subtle heartbeat and connected handoffs | tag `connected-handoffs-2026-09-22` | 22 Sep 2026 | Light-only heartbeat; smooth highlights on actual diagram connections. Local preview. |
+| **Previous:** Living business system | tag `living-business-system-2026-09-22` | 22 Sep 2026 | Founder-selected WebGL refinement and editorial imagery. Local preview only. |
 | **Previous:** Article media and graph comparison | tag `article-media-graph-review-2026-09-22` | 22 Sep 2026 | Local review only; broader landing direction awaiting selection. |
 | **Previous:** AI-native article series | tag `ai-native-articles-2026-09-21` | 21 Sep 2026 | Local preview on branch `feat/ai-native-articles`. Not merged, deployed or pushed. |
 | **Previous:** On the shoulder | tag `on-the-shoulder-2026-09-15` | 15 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
@@ -13,7 +14,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `living-business-system-2026-09-22`
+## Current: `connected-handoffs-2026-09-22`
+
+Heartbeat affects light only. The chart now lights its actual founder, step, job and outcome connections with 180ms fades; the sequence advances every 1.8 seconds. Independent particle overlay removed. Typecheck and browser inspection passed. No deployment.
+
+## Previous: `living-business-system-2026-09-22`
 
 Growth/profit mission, faster living WebGL mesh with camera entry into business facets, restored full organisation graph with animated signals, no giant, and six editorial illustrations. [Selection and verification](design/2026-09-21-landing-review/SELECTION.md). Typecheck and manual browser review passed. No deployment or push.
 

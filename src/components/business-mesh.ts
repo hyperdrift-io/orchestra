@@ -58,27 +58,28 @@ export function createBusinessMesh(o:Options):MeshEngine {
     const moving=!media.matches;
     if(running && moving) time+=dt;
     const beatPhase=(time%1.45)/1.45;
-    const heartbeat=Math.exp(-Math.pow((beatPhase-.14)/.055,2))*.06+Math.exp(-Math.pow((beatPhase-.3)/.065,2))*.035;
+    const heartbeat=Math.exp(-Math.pow((beatPhase-.14)/.09,2))*.018+Math.exp(-Math.pow((beatPhase-.3)/.1,2))*.009;
     if(moving && running && focused===null) {
       if(hoverTarget!==null) {const delta=shortest(targetAngle(hoverTarget)-angle);speed+=(2.5-speed)*Math.min(1,dt*5);angle+=delta*Math.min(1,dt*speed*3);}
       else {speed+=(.3-speed)*Math.min(1,dt*2);angle+=dt*speed;}
     }
     rotation.y=angle;quaternion.setFromEuler(rotation);
     unit.forEach((p,i)=>{
-      world[i].copy(p).multiplyScalar(1+heartbeat+Math.sin(time*1.4+i*.72)*.015).applyQuaternion(quaternion);
-      scale.setScalar((i<150?.019:.014)*(1+heartbeat*5));matrix.makeScale(scale.x,scale.y,scale.z);matrix.setPosition(world[i]);nodes.setMatrixAt(i,matrix);
-      color.copy(i%7===0?gold:ivory).multiplyScalar(.48+(world[i].z+2.2)/6+heartbeat*3);nodes.setColorAt(i,color);
+      world[i].copy(p).applyQuaternion(quaternion);
+      scale.setScalar(i<150?.019:.014);matrix.makeScale(scale.x,scale.y,scale.z);matrix.setPosition(world[i]);nodes.setMatrixAt(i,matrix);
+      color.copy(i%7===0?gold:ivory).multiplyScalar(.48+(world[i].z+2.2)/6+heartbeat*.5);nodes.setColorAt(i,color);
     });nodes.instanceMatrix.needsUpdate=true;if(nodes.instanceColor)nodes.instanceColor.needsUpdate=true;
-    anchorUnits.forEach((p,i)=>anchors[i].copy(p).multiplyScalar(1+heartbeat).applyQuaternion(quaternion));
+    anchorUnits.forEach((p,i)=>anchors[i].copy(p).applyQuaternion(quaternion));
     pairs.forEach(([a,b],i)=>{
       positions.set(world[a].toArray(),i*6);positions.set(world[b].toArray(),i*6+3);
       const wave=(Math.sin(time*2.6-i*.07)+1)/2;
-      color.copy(i%6===current?gold:ivory).multiplyScalar((focused===null?.18:.07)+wave*.21+heartbeat*1.4);
+      color.copy(i%6===current?gold:ivory).multiplyScalar((focused===null?.18:.07)+wave*.21+heartbeat*.4);
       colors.set([color.r,color.g,color.b,color.r,color.g,color.b],i*6);
     });lineGeo.attributes.position.needsUpdate=true;lineGeo.attributes.color.needsUpdate=true;
     for(let i=0;i<72;i++){const [a,b]=pairs[(i*13)%pairs.length],t=(time*(.45+(i%4)*.12)+i*.17)%1;temp.lerpVectors(world[a],world[b],t);matrix.makeScale(.021,.021,.021);matrix.setPosition(temp);signals.setMatrixAt(i,matrix);}signals.instanceMatrix.needsUpdate=true;
-    haloMat.opacity=(focused===null?.25:.08)+heartbeat*1.8;halo.scale.setScalar(4.3+heartbeat*10);core.rotation.set(time*.12,time*.24,0);core.scale.setScalar(1+heartbeat*3);
-    rings.forEach((ring,i)=>{ring.rotation.z=time*(i%2?-.08:.07)+i;ring.scale.setScalar(1+heartbeat*.4);});
+    // Heartbeat changes light only; geometry and camera targets remain steady.
+    haloMat.opacity=(focused===null?.25:.08)+heartbeat*.65;halo.scale.setScalar(4.3);core.rotation.set(time*.12,time*.24,0);coreMat.opacity=.5+heartbeat;
+    rings.forEach((ring,i)=>{ring.rotation.z=time*(i%2?-.08:.07)+i;});
     if(focused!==null)targetCenter.copy(anchors[focused]);else targetCenter.set(0,0,0);
     const targetDistance=focused!==null?3.1:fitDistance()/zoom;
     const ease=moving?1-Math.exp(-dt*5):1;

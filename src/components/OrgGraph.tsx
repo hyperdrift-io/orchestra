@@ -25,10 +25,17 @@ const SURF_Y = 490;
 
 const mid = (col: ColumnSlug) => COL_X[col] + COL_W / 2;
 
+/** Highlight uses the exact same SVG path as its underlying connection. */
+function Connection({d, lit, arrow}: {d: string; lit: boolean; arrow?: string}) {
+  return <g data-connection="" data-lit={lit} aria-hidden="true">
+    <path d={d} markerEnd={arrow} />
+    <path d={d} markerEnd={arrow} data-highlight="" />
+  </g>;
+}
+
 /**
  * The truth layer: the AI-native organisation as SVG in the DOM. Crawlable, keyboard-
- * reachable, works with JavaScript off. Lighting and lenses are pure CSS; the WebGL
- * field behind it is decoration. Spec: docs/design/2026-09-16-ai-native-org/GRAPH.md
+ * reachable, works with JavaScript off. Connections and their highlights share SVG geometry; lenses are pure CSS. Spec: docs/design/2026-09-16-ai-native-org/GRAPH.md
  */
 export function OrgGraph({ id, lens = false, linked = false, scenario, active, onSelect }: Props) {
   return (
@@ -61,8 +68,8 @@ export function OrgGraph({ id, lens = false, linked = false, scenario, active, o
       </g>
 
       {/* Read feeds the founder; the founder’s verdict feeds Work */}
-      <line x1={mid('read')} y1={COL_Y - 2} x2={mid('read')} y2="104" markerEnd={`url(#${id}-arrow)`} />
-      <line x1={mid('work')} y1="102" x2={mid('work')} y2={COL_Y - 4} markerEnd={`url(#${id}-arrow)`} />
+      <Connection d={`M${mid('read')} ${COL_Y} V100`} lit={active === 1} arrow={`url(#${id}-arrow)`} />
+      <Connection d={`M${mid('work')} 100 V${COL_Y}`} lit={active === 2} arrow={`url(#${id}-arrow)`} />
 
       {/* The loop */}
       {columns.map((c, i) => (
@@ -80,22 +87,22 @@ export function OrgGraph({ id, lens = false, linked = false, scenario, active, o
           <text x={mid(c.slug)} y={COL_Y + 52} textAnchor="middle">
             {scenario ? ['Spot the opportunity', 'Founder decides', 'Make useful progress', 'Reach the customer', 'Check the result'][i] : c.mark}
           </text>
-          {i < columns.length - 1 && (
-            <line
-              x1={COL_X[c.slug] + COL_W}
-              y1={COL_Y + COL_H / 2}
-              x2={COL_X[columns[i + 1].slug] - 3}
-              y2={COL_Y + COL_H / 2}
-              markerEnd={`url(#${id}-arrow)`}
-            />
-          )}
+
         </g>
       ))}
-      <path
+      {/* The actual handoffs, drawn once and lit in place. */}
+      {columns.slice(0, -1).map((c, i) => <Connection key={`handoff-${c.slug}`} d={`M${COL_X[c.slug] + COL_W} ${COL_Y + COL_H / 2} H${COL_X[columns[i + 1].slug]}`} lit={active === i || active === i + 1} arrow={`url(#${id}-arrow)`} />)}
+      <Connection d={`M${mid('learn')} ${COL_Y + COL_H} V245 H${mid('sense')} V${COL_Y + COL_H}`} lit={active === 4 || active === 0} arrow={`url(#${id}-arrow)`} />
 
-        d={`M${mid('learn')} ${COL_Y + COL_H} V245 H${mid('sense')} V${COL_Y + COL_H + 4}`}
-        markerEnd={`url(#${id}-arrow)`}
-      />
+      {scenario && columns.map((c, i) => <g key={`jobs-${c.slug}`}>
+        <Connection d={`M${mid(c.slug)} ${COL_Y + COL_H} V${NODE_Y0}`} lit={active === i} />
+        {[0, 1].map(j => <Connection key={j} d={`M${mid(c.slug)} ${NODE_Y0 + j * (NODE_H + NODE_GAP) + NODE_H} v${NODE_GAP}`} lit={active === i} />)}
+        <Connection d={`M${mid(c.slug)} ${NODE_Y0 + 2 * (NODE_H + NODE_GAP) + NODE_H} V465`} lit={active === i} />
+      </g>)}
+      {scenario && <>
+        <Connection d={`M${mid('sense')} 465 H${mid('learn')}`} lit={active !== undefined} />
+        {[186.5, 499.5, 812.5].map(x => <Connection key={x} d={`M${x} 465 V${SURF_Y}`} lit={active !== undefined} arrow={`url(#${id}-arrow)`} />)}
+      </>}
 
       {/* The jobs, three per column */}
       {columns.map((c, columnIndex) => (
