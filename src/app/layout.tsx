@@ -1,12 +1,10 @@
-import { Suspense } from 'react';
-import { PreviewControls } from '@/components/PreviewControls';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import './org.css';
 import './articles.css';
 import { SiteContactLink } from '@/components/SiteContactLink';
-import { visibleArticles, isArticlePreview } from '@/lib/article-catalogue';
+import { visibleArticles } from '@/lib/article-catalogue';
 
 // Candidate faces for the approved concept: a quiet high-contrast serif for statements, a clean sans for reading.
 const display = Cormorant_Garamond({
@@ -34,13 +32,13 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://ai.hyperdrift.io'),
   title: {
-    default: 'Orchestra AI by Hyperdrift — AI agents and MCP integrations',
+    default: 'Orchestra AI by Hyperdrift — AI for business growth',
     template: '%s — Orchestra AI',
   },
   description:
-    'Hyperdrift builds AI into your products and the way your business operates. Explore working examples, read the source, and discuss a workflow with Orchestra AI.',
+    'AI for founders who want to grow revenue, protect profit and reclaim time. Explore how customer signals become useful work, and discuss one opportunity in your business.',
   openGraph: {
-    title: 'Orchestra AI by Hyperdrift — AI agents and MCP integrations',
+    title: 'Orchestra AI by Hyperdrift — AI for business growth',
     description:
       'AI inside your products and the way your business operates. Working examples, inspectable code, and engineering by Hyperdrift.',
     url: 'https://ai.hyperdrift.io',
@@ -54,7 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
-        {isArticlePreview() && <Suspense fallback={null}><PreviewControls /></Suspense>}
         <header>
           <p>
             <a href="/">
@@ -64,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </p>
           <nav aria-label="Site">
             <a href="/#proof">Work</a>
-            <a href="/#plug">Where you plug in</a>
+            <a href="/#plug">Your business</a>
             <a href="https://intel.hyperdrift.io/daily">Intel ↗</a>
             {visibleArticles().length > 0 ? <a href="/articles">Articles</a> : <a href="https://hyperdrift.io/blog">Writing ↗</a>}
             <SiteContactLink />

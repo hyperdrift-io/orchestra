@@ -1,9 +1,4 @@
-/* ===================================================================
-   Orchestra AI by Hyperdrift — On the shoulder
-   One granite giant, golden country, a waking city. The founder stands on the
-   giant's shoulder and points; live text sits over the approved, text-free art.
-   Visual contract: docs/design/2026-09-14-redesign/screencraft/ (approved 14 Sep 2026).
-=================================================================== */
+/* Orchestra AI: warm ink, gold, living business systems and editorial imagery. */
 
 :root {
   /* — Surfaces: warm night under the dawn art */
@@ -15,7 +10,7 @@
   /* — Text */
   --cream: #f6eee1;
   --cream-2: rgba(246, 238, 225, 0.8);
-  --cream-3: rgba(246, 238, 225, 0.55);
+  --cream-3: #c8beae;
   --cream-4: rgba(246, 238, 225, 0.2);
 
   /* — Accent: the dawn light on the fields (actions, the lit place, markers) */
@@ -690,16 +685,7 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 
 /* — The proof: the footprints are the work (screencraft/proof) */
 #proof { background: var(--ink); counter-reset: work; }
-#proof > h2 {
-  position: absolute;
-  z-index: 2;
-  inset-block-start: calc(var(--band) * 0.82);
-  inset-inline-start: 58.75%;
-  max-inline-size: 38%;
-  font-size: clamp(1.3rem, 0.7rem + 1.6vw, 2.5rem);
-  letter-spacing: 0.03em;
-  text-shadow: var(--shadow-text);
-}
+#proof > h2 { padding: var(--sp-xl) var(--edge) 0; max-inline-size: 24ch; font-size: var(--fs-h2); }
 #proof > ol {
   list-style: none;
   margin: 0;
@@ -709,34 +695,13 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
   gap: var(--sp-m);
 }
 #proof li { counter-increment: work; padding: var(--sp-s) var(--sp-m) var(--sp-m); background: var(--ink-elev); border-block-start: 2px solid var(--gold); }
-/* The marker on the art; the list and the art share one containing block (the section). */
-#proof li::before {
-  content: counter(work) / '';
-  position: absolute;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  inline-size: 2.2rem;
-  block-size: 2.2rem;
-  border-radius: 50%;
-  background: var(--gold);
-  color: var(--ink);
-  font: 600 1rem/1 var(--font-body);
-  box-shadow: 0 0 0 4px rgb(14 12 9 / 0.35), 0 6px 18px rgb(0 0 0 / 0.45);
-  translate: -50% -50%;
-}
-#proof li:nth-child(1)::before { inset-inline-start: 37.6%; inset-block-start: calc(var(--band) * 0.78); }
-#proof li:nth-child(2)::before { inset-inline-start: 20.5%; inset-block-start: calc(var(--band) * 0.69); }
-#proof li:nth-child(3)::before { inset-inline-start: 14.4%; inset-block-start: calc(var(--band) * 0.59); }
-#proof li:nth-child(4)::before { inset-inline-start: 15.2%; inset-block-start: calc(var(--band) * 0.515); }
-#proof li:nth-child(5)::before { inset-inline-start: 14.6%; inset-block-start: calc(var(--band) * 0.455); }
 #proof h3::before { content: counter(work); margin-inline-end: 0.5rem; font: 600 0.62em var(--font-body); color: var(--gold); vertical-align: 0.2em; }
 #proof li p { margin-block-start: var(--sp-2xs); font-size: var(--fs-meta); }
 #proof li p:last-child { display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-s); margin-block-start: var(--sp-xs); }
 #proof li a { color: var(--gold-light); border-block-end-color: var(--gold-line); }
 
 /* Credit and stage lines inside the new cards: readable sans, sentence case */
-:is(#proof li, #places article li, #now article, #partnership) .meta {
+:is(#places article li, #now article, #partnership) .meta, #proof li > p:nth-of-type(2), #proof li > p:nth-of-type(3) {
   font-family: var(--font-body);
   font-size: var(--fs-meta);
   letter-spacing: 0.01em;
@@ -763,16 +728,7 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 
 /* — The enquiry: you say where, we go (screencraft/enquiry) */
 #contact { background: var(--ink); }
-#contact > h2 {
-  position: absolute;
-  z-index: 2;
-  inset-block-start: calc(var(--band) * 0.77);
-  inset-inline-start: 6.25%;
-  max-inline-size: 55%;
-  font-size: var(--fs-statement);
-  line-height: 1;
-  text-shadow: var(--shadow-text);
-}
+#contact > h2 { padding: var(--sp-xl) var(--edge) 0; max-inline-size: 24ch; font-size: var(--fs-h2); }
 #contact > div {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
@@ -829,9 +785,6 @@ main > footer > p { margin-block-start: var(--sp-l); }
   #places > article { grid-template-columns: 1fr; }
 
   #proof > h2 { position: static; max-inline-size: none; padding: var(--sp-m) var(--edge) 0; }
-  #proof li::before { inline-size: 1.5rem; block-size: 1.5rem; font-size: 0.75rem; box-shadow: 0 0 0 2px rgb(14 12 9 / 0.35); }
-  #proof li:nth-child(4)::before { inset-inline-start: 9.5%; }
-  #proof li:nth-child(5)::before { inset-inline-start: 20.5%; }
 
   #contact > h2 { position: static; max-inline-size: none; padding: var(--sp-m) var(--edge) 0; font-size: clamp(2.1rem, 1.4rem + 3vw, 2.7rem); }
   #contact > div { grid-template-columns: 1fr; gap: var(--sp-l); }

@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** Article media and graph comparison | tag `article-media-graph-review-2026-09-22` | 22 Sep 2026 | Local review only; broader landing direction awaiting selection. |
+| **Current:** Living business system | tag `living-business-system-2026-09-22` | 22 Sep 2026 | Founder-selected WebGL refinement and editorial imagery. Local preview only. |
+| **Previous:** Article media and graph comparison | tag `article-media-graph-review-2026-09-22` | 22 Sep 2026 | Local review only; broader landing direction awaiting selection. |
 | **Previous:** AI-native article series | tag `ai-native-articles-2026-09-21` | 21 Sep 2026 | Local preview on branch `feat/ai-native-articles`. Not merged, deployed or pushed. |
 | **Previous:** On the shoulder | tag `on-the-shoulder-2026-09-15` | 15 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
 | **Previous:** Stage entry, round B | tag `stage-entry-b-2026-09-14` (commit `bd692ac`) | 14 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
@@ -12,7 +13,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `article-media-graph-review-2026-09-22`
+## Current: `living-business-system-2026-09-22`
+
+Growth/profit mission, faster living WebGL mesh with camera entry into business facets, restored full organisation graph with animated signals, no giant, and six editorial illustrations. [Selection and verification](design/2026-09-21-landing-review/SELECTION.md). Typecheck and manual browser review passed. No deployment or push.
+
+## Previous: `article-media-graph-review-2026-09-22`
 
 Captioned opening images for all six articles, repaired SVG readability, controllable WebGL animation, and a local comparison bar with optional giant artwork. Typecheck and manual desktop/mobile review passed. [Review, research and proposed directions](design/2026-09-21-landing-review/REVIEW.md). No broader redesign, publication, push or deployment.
 

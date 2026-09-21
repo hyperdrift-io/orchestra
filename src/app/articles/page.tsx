@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { visibleArticles, isArticlePreview } from '@/lib/article-catalogue';
@@ -20,7 +21,7 @@ export default function ArticlesPage() {
     </header>
     <article>
       <div><p>01 / Begin here · {first.exampleStatus}</p><h2><a href={`/articles/${first.slug}`}>{first.title}</a></h2><p>{first.excerpt}</p><a href={`/articles/${first.slug}`}>Step onto the Bridge →</a></div>
-      <figure><a href={`/articles/${first.slug}`} tabIndex={-1} aria-hidden="true"><img src="/articles/bridge.png" alt="" /></a><figcaption>The Bridge, in a previously published view.</figcaption></figure>
+      <figure><a href={`/articles/${first.slug}`} tabIndex={-1} aria-hidden="true"><Image src={first.image.src} sizes="(max-width: 850px) 100vw, 600px" width={first.image.width} height={first.image.height} alt="" /></a><figcaption>From scattered signals to a clear direction.</figcaption></figure>
     </article>
     <ol start={2}>{rest.map((article) => <li key={article.slug}>
       <span>{String(article.order).padStart(2, '0')}</span><div><p>{article.topic} / {article.example}</p><h2><a href={`/articles/${article.slug}`}>{article.title}</a></h2><p>{article.excerpt}</p><small>{article.exampleStatus}</small></div><a href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`}>Read →</a>

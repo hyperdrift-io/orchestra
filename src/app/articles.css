@@ -128,19 +128,6 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
   #article-series ol { grid-template-columns: 1fr; }
 }
 
-/* Local-only review controls compare the existing versions; never a public experiment. */
-#preview-controls { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; flex-wrap: wrap; gap: .7rem 1.4rem; padding: .6rem var(--gutter); background: #242019; border-bottom: 1px solid var(--gold-line); font-size: .8rem; }
-#preview-controls strong { color: var(--gold); font-weight: 500; }
-#preview-controls nav { display: flex; gap: .4rem; flex-wrap: wrap; }
-#preview-controls a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem .8rem; border: 1px solid var(--line-soft); border-radius: 3px; }
-#preview-controls a[aria-current='page'] { color: var(--ink); background: var(--gold); border-color: var(--gold); }
-#preview-controls label { display: flex; gap: .6rem; align-items: center; min-height: 44px; cursor: pointer; }
-#preview-controls input { width: 18px; height: 18px; accent-color: var(--gold); }
-body:has(#preview-controls) > header { position: relative; padding-block: 1.4rem; }
-body:has(#preview-controls) :is(#day, #system) { padding-top: 2rem; }
-body:has(#preview-controls input:not(:checked)) :is(#proof, #contact) > figure { display: none; }
-body:has(#preview-controls input:not(:checked)) :is(#proof, #contact) > h2 { position: static; max-inline-size: 800px; padding: 3rem var(--edge) 0; font-size: var(--fs-h2); text-shadow: none; }
-body:has(#preview-controls input:not(:checked)) #proof li::before { display: none; }
 #article > header > figure { margin-top: 2.5rem; }
 #article > header > figure img { width: 100%; max-height: 500px; object-fit: contain; background: var(--ink-elev); border: 1px solid var(--line-soft); }
 #article > header > figure > a { display: block; border: 0; }

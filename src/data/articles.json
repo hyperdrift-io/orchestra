@@ -2,7 +2,7 @@
   {
     "slug": "the-bridge",
     "title": "The Bridge: start the day with decisions",
-    "excerpt": "A place to see what matters, inspect the evidence and direct the work. How Hyperdrift's Bridge connects an operator to a fleet of products\u2014and where the same pattern fits another business.",
+    "excerpt": "A place to see what matters, inspect the evidence and direct the work. How Hyperdrift's Bridge connects an operator to a fleet of products—and where the same pattern fits another business.",
     "shareLine": "The useful morning brief ends with a decision you can make.",
     "order": 1,
     "topic": "Operations",
@@ -20,14 +20,19 @@
       "url": "https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals",
       "label": "Read the technical account"
     },
-    "media": null,
+    "media": {
+      "kind": "image",
+      "src": "/articles/bridge.png",
+      "alt": "A historical published view of the Hyperdrift Bridge.",
+      "caption": "The internal Bridge in a previously published view; this is not current fleet data."
+    },
     "publishedAt": null,
     "image": {
-      "src": "/articles/bridge.png",
-      "alt": "A previously published view of the Hyperdrift Bridge.",
-      "caption": "The Bridge: a historical view of the operating interface, not current fleet results.",
-      "width": 1600,
-      "height": 882
+      "src": "/articles/editorial/bridge.png",
+      "alt": "Fine gold threads form a bridge between dark stone platforms.",
+      "caption": "Editorial illustration · From scattered signals to a clear direction.",
+      "width": 1672,
+      "height": 941
     }
   },
   {
@@ -59,11 +64,11 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/anniversary.jpg",
-      "alt": "The published Hyperdrift anniversary film.",
-      "caption": "Our publishing workflow in practice: the anniversary article and film.",
-      "width": 1920,
-      "height": 1080
+      "src": "/articles/editorial/expertise.png",
+      "alt": "A luminous glass book shares its patterns with a golden constellation.",
+      "caption": "Editorial illustration · Expertise that travels with the work.",
+      "width": 1672,
+      "height": 941
     }
   },
   {
@@ -94,11 +99,11 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/delegation-with-boundaries/opengraph-image",
-      "alt": "Four steps in agent delegation: route, inspect, act within scope, verify.",
-      "caption": "The delegation pattern explained below. Watch the actual Helm drill in the working example.",
-      "width": 1200,
-      "height": 630
+      "src": "/articles/editorial/delegation.png",
+      "alt": "Three illuminated structures move within precise gold boundaries.",
+      "caption": "Editorial illustration · Room to act. Clear boundaries.",
+      "width": 1672,
+      "height": 941
     }
   },
   {
@@ -130,11 +135,11 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/standup.jpg",
-      "alt": "The title frame of the recorded Standup demonstration.",
-      "caption": "Standup: watch the recorded demonstration in the working example below.",
-      "width": 1920,
-      "height": 1080
+      "src": "/articles/editorial/priorities.png",
+      "alt": "A warm beam reveals one golden compass amid a field of distant signals.",
+      "caption": "Editorial illustration · Give the next useful signal your attention.",
+      "width": 1672,
+      "height": 941
     }
   },
   {
@@ -165,11 +170,11 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/video-mesh.jpg",
-      "alt": "The recorded HyperVideoMesh editing demonstration.",
-      "caption": "HyperVideoMesh illustrates visible agent edits. The First Officer voice prototype discussed here still needs a current recording.",
-      "width": 1280,
-      "height": 1240
+      "src": "/articles/editorial/conversation.png",
+      "alt": "Two fine gold sound waves meet above one shared obsidian lens.",
+      "caption": "Editorial illustration · A shared view makes the conversation useful.",
+      "width": 1672,
+      "height": 941
     }
   },
   {
@@ -200,11 +205,11 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/radar.png",
-      "alt": "A published view of uk.gov Radar and its shared agent interface.",
-      "caption": "uk.gov Radar: a published view of a person and an agent working with the same page.",
-      "width": 1344,
-      "height": 768
+      "src": "/articles/editorial/integration.png",
+      "alt": "A continuous gold filament connects three islands of useful work.",
+      "caption": "Editorial illustration · Build on the work already in motion.",
+      "width": 1672,
+      "height": 941
     }
   }
 ]

@@ -1,3 +1,4 @@
+import type { BusinessScenario } from '@/data/business-scenarios';
 import { columns, lenses, nodes, surface, type ColumnSlug } from '@/data/org-graph';
 
 interface Props {
@@ -7,6 +8,9 @@ interface Props {
   lens?: boolean;
   /** Nodes link to their panels. */
   linked?: boolean;
+  scenario?: BusinessScenario;
+  active?: number;
+  onSelect?: (index: number) => void;
 }
 
 /* Geometry in viewBox units. Columns: 5 × 168 wide, 20 apart, from x=40. */
@@ -26,9 +30,9 @@ const mid = (col: ColumnSlug) => COL_X[col] + COL_W / 2;
  * reachable, works with JavaScript off. Lighting and lenses are pure CSS; the WebGL
  * field behind it is decoration. Spec: docs/design/2026-09-16-ai-native-org/GRAPH.md
  */
-export function OrgGraph({ id, lens = false, linked = false }: Props) {
+export function OrgGraph({ id, lens = false, linked = false, scenario, active, onSelect }: Props) {
   return (
-    <svg id={id} viewBox="0 0 1000 580" aria-label="How the Hyperdrift organisation works" aria-describedby={`${id}-description`} role="group">
+    <svg id={id} viewBox="0 0 1000 580" aria-label={scenario ? "Your organisation: the path from signals to growth, profit and founder time" : "How the Hyperdrift organisation works"} aria-describedby={`${id}-description`} role="group">
       <desc id={`${id}-description`}>
         One day at Hyperdrift: the founder on top, a loop of Sense, Read, Work, Ship and Learn, and the jobs agents hold
         in each.
@@ -52,7 +56,7 @@ export function OrgGraph({ id, lens = false, linked = false }: Props) {
             </text>
           ))}
         <text x="500" y="84" textAnchor="middle">
-          One email a day. Holds the verdicts.
+          {scenario ? 'Growth · profit · time to lead' : 'One email a day. Holds the verdicts.'}
         </text>
       </g>
 
@@ -62,10 +66,10 @@ export function OrgGraph({ id, lens = false, linked = false }: Props) {
 
       {/* The loop */}
       {columns.map((c, i) => (
-        <g key={c.slug} data-col={c.slug}>
+        <g key={c.slug} data-col={c.slug} data-active={active === i} role={onSelect ? 'button' : undefined} tabIndex={onSelect ? 0 : undefined} aria-label={scenario ? `Explore ${scenario.steps[i].name}` : undefined} aria-pressed={onSelect ? active === i : undefined} onClick={() => onSelect?.(i)} onKeyDown={e => { if(onSelect && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); onSelect(i); } }}>
           <rect x={COL_X[c.slug]} y={COL_Y} width={COL_W} height={COL_H} rx="6" />
           <text x={mid(c.slug)} y={COL_Y + 30} textAnchor="middle" data-lens="base">
-            {c.name}
+            {scenario ? scenario.steps[i].name : c.name}
           </text>
           {lens &&
             lenses.map((l) => (
@@ -74,7 +78,7 @@ export function OrgGraph({ id, lens = false, linked = false }: Props) {
               </text>
             ))}
           <text x={mid(c.slug)} y={COL_Y + 52} textAnchor="middle">
-            {c.mark}
+            {scenario ? ['Spot the opportunity', 'Founder decides', 'Make useful progress', 'Reach the customer', 'Check the result'][i] : c.mark}
           </text>
           {i < columns.length - 1 && (
             <line
@@ -94,8 +98,8 @@ export function OrgGraph({ id, lens = false, linked = false }: Props) {
       />
 
       {/* The jobs, three per column */}
-      {columns.map((c) => (
-        <g key={`${c.slug}-nodes`} data-col={c.slug}>
+      {columns.map((c, columnIndex) => (
+        <g key={`${c.slug}-nodes`} data-col={c.slug} data-active={active === columnIndex}>
           {nodes
             .filter((n) => n.column === c.slug)
             .map((n, j) => {
@@ -104,19 +108,19 @@ export function OrgGraph({ id, lens = false, linked = false }: Props) {
                 <>
                   <rect x={COL_X[c.slug]} y={y} width={COL_W} height={NODE_H} rx="4" />
                   <text x={COL_X[c.slug] + 14} y={y + 21}>
-                    {n.name}
+                    {scenario ? [['Customer needs','Customer feedback','Work in progress'],['Opportunity brief','Founder judgement','Clear boundaries'],['Prepare the work','Review the quality','Handle exceptions'],['Deliver the change','Watch the response','Resolve the issues'],['Revenue & retention','Cost & margin','Next opportunity']][columnIndex][j] : n.name}
                   </text>
                   <text x={COL_X[c.slug] + 14} y={y + 38}>
-                    {n.mark}
+                    {scenario ? [['Demand','Context','Capacity'],['Value','Priority','Scope'],['Action','Confidence','Care'],['Value delivered','Evidence','Reliability'],['Growth','Profit','Learning']][columnIndex][j] : n.mark}
                   </text>
                 </>
               );
               return linked ? (
-                <a key={n.slug} href={`#n-${n.slug}`} aria-label={`${n.name}: ${n.job}`}>
+                <a key={n.slug} href={`#n-${n.slug}`} aria-label={`${scenario ? [['Customer needs','Customer feedback','Work in progress'],['Opportunity brief','Founder judgement','Clear boundaries'],['Prepare the work','Review the quality','Handle exceptions'],['Deliver the change','Watch the response','Resolve the issues'],['Revenue & retention','Cost & margin','Next opportunity']][columnIndex][j] : n.name}: ${n.job}`}>
                   {body}
                 </a>
               ) : (
-                <g key={n.slug}>{body}</g>
+                <g key={n.slug} role={onSelect ? 'button' : undefined} tabIndex={onSelect ? 0 : undefined} aria-label={scenario ? `${scenario.steps[columnIndex].name}: explore action and impact` : undefined} onClick={()=>onSelect?.(columnIndex)} onKeyDown={e=>{if(onSelect&&(e.key==='Enter'||e.key===' ')){e.preventDefault();onSelect(columnIndex);}}}>{body}</g>
               );
             })}
         </g>
@@ -127,13 +131,13 @@ export function OrgGraph({ id, lens = false, linked = false }: Props) {
         {surface.map((s, i) => {
           const x = 40 + i * 313;
           return (
-            <a key={s.name} href={s.href}>
+            <a key={scenario ? ['Revenue growth', 'Healthy profit', 'Time to lead'][i] : s.name} href={scenario ? '#contact' : s.href}>
               <rect x={x} y={SURF_Y} width="293" height="64" rx="6" />
               <text x={x + 146} y={SURF_Y + 27} textAnchor="middle">
-                {s.name}
+                {scenario ? ['Revenue growth', 'Healthy profit', 'Time to lead'][i] : s.name}
               </text>
               <text x={x + 146} y={SURF_Y + 47} textAnchor="middle">
-                {s.detail}
+                {scenario ? ['Win and retain customers', 'Measure value against costs', 'Founder owns the direction'][i] : s.detail}
               </text>
             </a>
           );

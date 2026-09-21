@@ -1,5 +1,7 @@
 # Landing and article review — 21 September 2026
 
+**Superseded by the founder-selected [WebGL refinement](SELECTION.md) on 22 September.** The findings below record the initial comparison. The giant is now removed and the former comparison controls are retired.
+
 ## Findings
 
 1. The offer competes with an internal organisation story. The current day sequence needs several viewports before proof and repeats the organisation graph in the audience section. Hypothesis: an outcome-led opening followed by one concrete example improves qualified enquiry rate by reducing the effort required to understand the service.
