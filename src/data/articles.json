@@ -1,0 +1,168 @@
+[
+  {
+    "slug": "the-bridge",
+    "title": "The Bridge: start the day with decisions",
+    "excerpt": "A place to see what matters, inspect the evidence and direct the work. How Hyperdrift's Bridge connects an operator to a fleet of products—and where the same pattern fits another business.",
+    "shareLine": "The useful morning brief ends with a decision you can make.",
+    "order": 1,
+    "topic": "Operations",
+    "example": "Hyperdrift Bridge",
+    "exampleStatus": "Internal operating system",
+    "ctaLabel": "Discuss your operating workflow",
+    "steps": [
+      "Read the evidence",
+      "Make the decision",
+      "Scope the work",
+      "Check the result"
+    ],
+    "proof": {
+      "description": "Our internal Bridge connects product signals, decisions and recorded work.",
+      "url": "https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals",
+      "label": "Read the technical account"
+    },
+    "media": null,
+    "publishedAt": null
+  },
+  {
+    "slug": "expertise-agents-can-use",
+    "title": "Give your agents the knowledge your best work depends on",
+    "excerpt": "A useful agent needs your standards, examples and stopping points. Our publishing workflow shows how specialist knowledge becomes instructions people can inspect and improve.",
+    "shareLine": "Write down what good work requires before asking an agent to do it.",
+    "order": 2,
+    "topic": "Expertise",
+    "example": "Hyperdrift publishing skill",
+    "exampleStatus": "Working practice",
+    "ctaLabel": "Discuss a specialist workflow",
+    "steps": [
+      "Shared context",
+      "Accepted example",
+      "Quality checks",
+      "Human sign-off"
+    ],
+    "proof": {
+      "description": "The anniversary article brings the writing, film and source ledger together.",
+      "url": "https://hyperdrift.io/blog/hyperdrift-turns-one",
+      "label": "Explore the published example"
+    },
+    "media": {
+      "kind": "image",
+      "src": "/articles/anniversary.jpg",
+      "alt": "The title frame of the Hyperdrift anniversary film.",
+      "caption": "The published anniversary film: one artefact supported by our editorial practice."
+    },
+    "publishedAt": null
+  },
+  {
+    "slug": "delegation-with-boundaries",
+    "title": "Give an agent enough authority to finish its job",
+    "excerpt": "Helm separates diagnosis from action and confines disruptive operations to drill services. The demonstration makes agent authority visible, inspectable and worth discussing before deployment.",
+    "shareLine": "Useful delegation gives an agent a job, a boundary and a way to prove completion.",
+    "order": 3,
+    "topic": "Delegation",
+    "example": "Helm",
+    "exampleStatus": "Recorded demonstration",
+    "ctaLabel": "Discuss an agent workflow",
+    "steps": [
+      "Route the task",
+      "Inspect the evidence",
+      "Act within scope",
+      "Verify the result"
+    ],
+    "proof": {
+      "description": "Helm makes agent roles and restricted actions visible in a recorded sandbox drill.",
+      "url": "https://youtu.be/JB2O3WSwH90",
+      "label": "Watch the Helm demonstration"
+    },
+    "media": {
+      "kind": "youtube",
+      "id": "JB2O3WSwH90",
+      "caption": "Helm: recorded demonstration of agent roles and sandbox recovery."
+    },
+    "publishedAt": null
+  },
+  {
+    "slug": "evidence-that-starts-work",
+    "title": "A useful brief tells you who needs you next",
+    "excerpt": "Standup reads public GitHub activity and returns a short, evidenced set of priorities. Its ordering rule shows what makes an AI brief useful enough to act on.",
+    "shareLine": "A brief earns its place when you can act on it and check why.",
+    "order": 4,
+    "topic": "Priorities",
+    "example": "Standup",
+    "exampleStatus": "Public project",
+    "ctaLabel": "Discuss your team's daily brief",
+    "steps": [
+      "Who is waiting?",
+      "What is the evidence?",
+      "What helps next?",
+      "What did we read?"
+    ],
+    "proof": {
+      "description": "Standup turns public GitHub activity into a brief with evidence beside each recommendation.",
+      "url": "https://standup.hyperdrift.io",
+      "label": "Try Standup"
+    },
+    "media": {
+      "kind": "image",
+      "src": "/articles/standup.jpg",
+      "alt": "The opening frame of the recorded Standup demonstration.",
+      "caption": "Standup is a public project. Its historical example output is linked in the article."
+    },
+    "publishedAt": null
+  },
+  {
+    "slug": "conversation-with-a-shared-view",
+    "title": "Talk through the decision. Keep the evidence in view.",
+    "excerpt": "Our First Officer prototype explores a conversation that moves the Bridge to the subject being discussed. HyperVideoMesh shows a related principle: the agent's work should remain visible and editable.",
+    "shareLine": "A conversation becomes useful when both sides can point to the same thing.",
+    "order": 5,
+    "topic": "Conversation",
+    "example": "First Officer",
+    "exampleStatus": "Prototype in development",
+    "ctaLabel": "Discuss a conversational workflow",
+    "steps": [
+      "Name the item",
+      "Show the evidence",
+      "Discuss the proposal",
+      "Record the decision"
+    ],
+    "proof": {
+      "description": "First Officer explores conversation over the Bridge. HyperVideoMesh provides a recorded example of inspectable agent edits.",
+      "url": "https://hyperdrift.io/videos/hyper-video-mesh-demo.mp4",
+      "label": "Watch the editing example"
+    },
+    "media": {
+      "kind": "video",
+      "src": "https://hyperdrift.io/videos/hyper-video-mesh-demo.mp4",
+      "caption": "HyperVideoMesh: a recorded creative-tool prototype. This is supporting evidence, not a First Officer recording."
+    },
+    "publishedAt": null
+  },
+  {
+    "slug": "connect-agents-to-existing-work",
+    "title": "Give your agent access to the work already on screen",
+    "excerpt": "uk.gov Radar lets a browser agent work with the same shortlist its user sees. A concrete example of integrating AI into an existing workflow while keeping decisions visible.",
+    "shareLine": "The agent and the person should work from the same state.",
+    "order": 6,
+    "topic": "Integration",
+    "example": "uk.gov Radar",
+    "exampleStatus": "Recorded demonstration",
+    "ctaLabel": "Discuss an integration",
+    "steps": [
+      "Shared context",
+      "Visible proposal",
+      "Human decision",
+      "Shared result"
+    ],
+    "proof": {
+      "description": "Radar lets a person and their browser agent work from the same shortlist.",
+      "url": "https://youtu.be/z4B0gtwbjB4",
+      "label": "Watch the Radar demonstration"
+    },
+    "media": {
+      "kind": "youtube",
+      "id": "z4B0gtwbjB4",
+      "caption": "uk.gov Radar: recorded interaction in a compatible browser environment."
+    },
+    "publishedAt": null
+  }
+]

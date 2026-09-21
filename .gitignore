@@ -1,5 +1,6 @@
 node_modules
 .next
+.next-check
 out
 .env
 .env.local
@@ -7,4 +8,5 @@ out
 .DS_Store
 .vercel
 tsconfig.tsbuildinfo
+/data/
 .claude/

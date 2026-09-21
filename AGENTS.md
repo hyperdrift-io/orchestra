@@ -6,6 +6,10 @@
 
 See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
+## AI-native editorial series — approved 21 September 2026
+
+New AI-native proposition articles belong at `ai.hyperdrift.io/articles` and lead to a relevant sales enquiry. Use the strongest real Hyperdrift example for each argument, explicitly distinguishing internal operations, public demonstrations, prototypes and client outcomes. Source of record: [editorial decision](docs/decisions/2026-09-21-ai-native-articles.md); drafts and proof ledger: [series review](docs/editorial/ai-native-series/README.md). Existing published articles keep their URLs initially. All copy inherits `meta/PHILOSOPHY.md` §8, Speak to Enable. The founder instructed implementation on 21 September; the article pages extend the existing approved gold/ink/serif identity. Runtime source is `content/articles/*.md` plus `src/data/articles.json`; original drafts remain in the review directory. Article context is editable in the form, validated and retained in the lead record and relay message. Final words/media and production publication still need review. Drafts are visible only in development or an explicit preview build and stay out of the sitemap. Never count preview submissions as leads. See the series README for local delivery, attribution and release details.
+
 ## Current direction — 14 September 2026
 
 `ai.hyperdrift.io` is Hyperdrift's primary business and marketing destination. Founder explicitly corrected the proposal to keep investing in the legacy HD homepage: move the focus to this AI site. The older site remains the location of existing articles and historical work during this transition.

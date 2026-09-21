@@ -4,6 +4,7 @@ import { Proof } from '@/components/Proof';
 import { CurrentContent } from '@/components/CurrentContent';
 import { Enquiry } from '@/components/Enquiry';
 import { Footer } from '@/components/Footer';
+import { ArticleSeries } from '@/components/ArticleSeries';
 
 /** The AI-native organisation: the graph first, then the work, then where you plug in. docs/design/2026-09-16-ai-native-org/PAGE.md */
 export default function Page() {
@@ -12,6 +13,7 @@ export default function Page() {
       <Day />
       <PlugIn />
       <Proof />
+      <ArticleSeries />
       <CurrentContent />
       <Enquiry />
       <Footer />

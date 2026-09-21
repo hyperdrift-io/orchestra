@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/contact-schema';
+import { articleBySlug, articleUrl } from '@/lib/article-catalogue';
+import { saveEnquiry, recordArticleEvent } from '@/lib/enquiry-storage';
 
 export const runtime = 'nodejs';
 
@@ -24,9 +26,20 @@ export async function POST(req: Request) {
     );
   }
 
-  const { name, email, company, situation, message } = parsed.data;
+  const { name, email, company, situation, message, article, session } = parsed.data;
+  const id = crypto.randomUUID();
+  const preview = process.env.CONTACT_DELIVERY === 'preview';
+  if (preview && process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'Contact delivery is not configured' }, { status: 503 });
+  }
+  try { await saveEnquiry(id, parsed.data, preview ? 'preview' : 'pending'); }
+  catch { return NextResponse.json({ error: 'We could not save your enquiry. Please try again.' }, { status: 503 }); }
+  if (preview) {
+    if (article) await recordArticleEvent({ event: 'enquiry_preview_saved', article, session: session || '', enquiryId: id }).catch(() => {});
+    return NextResponse.json({ ok: true, preview: true, id });
+  }
   // Context the visitor chose travels inside the message: the relay's contract stays name/email/message.
-  const context = [situation && `Where you are: ${situation}`, company && `Company: ${company}`].filter(Boolean);
+  const context = [article && `Article: ${articleBySlug(article)!.title}\n${articleUrl(article)}`, situation && `Where you are: ${situation}`, company && `Company: ${company}`].filter(Boolean);
   try {
     const relay = await fetch(RELAY_URL, {
       method: 'POST',
@@ -40,11 +53,16 @@ export async function POST(req: Request) {
       signal: AbortSignal.timeout(10_000),
     });
     if (!relay.ok) {
+      await saveEnquiry(id, parsed.data, 'failed');
       return NextResponse.json({ error: 'Failed to send' }, { status: 502 });
     }
   } catch {
+    await saveEnquiry(id, parsed.data, 'failed').catch(() => {});
     return NextResponse.json({ error: 'Failed to send' }, { status: 502 });
   }
 
-  return NextResponse.json({ ok: true });
+  // Email acceptance is the success boundary; follow-up must not cause a duplicate retry.
+  await saveEnquiry(id, parsed.data, 'sent').catch(() => console.error('Could not update enquiry delivery', id));
+  if (article) await recordArticleEvent({ event: 'enquiry_submitted', article, session: session || '', enquiryId: id }).catch(() => console.error('Could not record enquiry attribution', id));
+  return NextResponse.json({ ok: true, id });
 }

@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import './org.css';
+import './articles.css';
+import { SiteContactLink } from '@/components/SiteContactLink';
+import { visibleArticles } from '@/lib/article-catalogue';
 
 // Candidate faces for the approved concept: a quiet high-contrast serif for statements, a clean sans for reading.
 const display = Cormorant_Garamond({
@@ -33,11 +36,11 @@ export const metadata: Metadata = {
     template: '%s — Orchestra AI',
   },
   description:
-    'Hyperdrift builds AI agents and MCP integrations for existing SaaS products. Explore the work, read the source, and start a project with Orchestra AI.',
+    'Hyperdrift builds AI into your products and the way your business operates. Explore working examples, read the source, and discuss a workflow with Orchestra AI.',
   openGraph: {
     title: 'Orchestra AI by Hyperdrift — AI agents and MCP integrations',
     description:
-      'AI agents and MCP integrations for existing SaaS products. Working examples, inspectable code, and engineering by Hyperdrift.',
+      'AI inside your products and the way your business operates. Working examples, inspectable code, and engineering by Hyperdrift.',
     url: 'https://ai.hyperdrift.io',
     siteName: 'Orchestra AI',
     type: 'website',
@@ -50,18 +53,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <header>
-          <p className="wordmark">
+          <p>
             <a href="/">
               Orchestra <em>AI</em>
             </a>
-            <span className="meta">By Hyperdrift</span>
+            <span>By Hyperdrift</span>
           </p>
           <nav aria-label="Site">
-            <a href="#proof">Work</a>
-            <a href="#plug">Where you plug in</a>
+            <a href="/#proof">Work</a>
+            <a href="/#plug">Where you plug in</a>
             <a href="https://intel.hyperdrift.io/daily">Intel ↗</a>
-            <a href="https://hyperdrift.io/blog">Writing ↗</a>
-            <a href="#contact">Describe your workflow</a>
+            {visibleArticles().length > 0 ? <a href="/articles">Articles</a> : <a href="https://hyperdrift.io/blog">Writing ↗</a>}
+            <SiteContactLink />
           </nav>
         </header>
         <main>{children}</main>

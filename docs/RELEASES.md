@@ -4,13 +4,20 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** On the shoulder | tag `on-the-shoulder-2026-09-15` | 15 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
+| **Current:** AI-native article series | tag `ai-native-articles-2026-09-21` | 21 Sep 2026 | Local preview on branch `feat/ai-native-articles`. Not merged, deployed or pushed. |
+| **Previous:** On the shoulder | tag `on-the-shoulder-2026-09-15` | 15 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
 | **Previous:** Stage entry, round B | tag `stage-entry-b-2026-09-14` (commit `bd692ac`) | 14 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
 | **Live production:** Concert Hall original | `origin/main` at `011cf42`, untagged | 31 Aug 2026 | Served at https://ai.hyperdrift.io (verified 15 Sep 2026: title "Agent orchestration for production AI workflows"). |
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `on-the-shoulder-2026-09-15`
+## Current: `ai-native-articles-2026-09-21`
+
+Six AI-native proposition articles with real Hyperdrift examples, share cards, editable enquiry attribution and durable local lead storage. Extends the approved visual identity on the unpublished AI-native organisation branch. All articles remain drafts. Review: http://127.0.0.1:3112/articles. Delivery and verification record: [series README](editorial/ai-native-series/README.md).
+
+Build/type checks and local browser/relay checks passed. Existing dependency audit and infra npm/analytics gaps remain publication follow-ups. No production email was sent by verification.
+
+## Previous: `on-the-shoulder-2026-09-15`
 
 **What it is.** The founder's approved redesign: a stone giant carrying the founder through golden country toward prosperity. Five screens approved on 14 September: first screen, the four places, the proof, the enquiry, and a phone first screen. Every word is live HTML over text-free art.
 
