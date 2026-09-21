@@ -33,6 +33,7 @@ export default async function ArticlePage({ params }: Props) {
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}
       <p>{article.topic} / {article.example}</p><h1>{article.title}</h1><p>{article.excerpt}</p>
       <div><span>By Yann VR · {article.minutes} min read</span><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></div>
+      <figure><a href="#article-proof" aria-label="See the working example"><img src={article.image.src} alt={article.image.alt} width={article.image.width} height={article.image.height} fetchPriority="high" /></a><figcaption>{article.image.caption}</figcaption></figure>
     </header>
     <div>
       <aside aria-label="In this article"><p>In this article</p><ol>{article.blocks.filter((block) => block.kind === 'heading').map((block) => 'text' in block && <li key={block.id}><a href={`#${block.id}`}>{block.text}</a></li>)}</ol><a href="#article-proof">See the working example ↓</a></aside>

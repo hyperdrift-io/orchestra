@@ -4,6 +4,7 @@ import { PlugIn } from '@/components/PlugIn';
 import { Proof } from '@/components/Proof';
 import { CurrentContent } from '@/components/CurrentContent';
 import { Enquiry } from '@/components/Enquiry';
+import { ArticleSeries } from '@/components/ArticleSeries';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function SystemPage() {
       <System />
       <PlugIn />
       <Proof />
+      <ArticleSeries />
       <CurrentContent />
       <Enquiry />
       <Footer />

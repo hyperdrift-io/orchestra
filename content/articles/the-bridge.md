@@ -14,10 +14,6 @@ An early review reported no visitors and no signups across the fleet. Investigat
 
 The practical lesson became part of the operating process: establish whether the data can support the decision before recommending a change.
 
-![A published view of the Hyperdrift Bridge, showing a product's condition and its daily review.](/articles/bridge.png)
-
-*A previously published Bridge screenshot. It illustrates the interface; its figures are historical, not today's results.*
-
 ## Follow the decision through
 
 Consider a product whose signup activity has stopped appearing. This is an illustrative walkthrough of the operating pattern: inspect the tracking evidence, decide whether the next job is repairing measurement or investigating the signup journey, then give that job a defined scope.

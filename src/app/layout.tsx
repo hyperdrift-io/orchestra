@@ -1,10 +1,12 @@
+import { Suspense } from 'react';
+import { PreviewControls } from '@/components/PreviewControls';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import './org.css';
 import './articles.css';
 import { SiteContactLink } from '@/components/SiteContactLink';
-import { visibleArticles } from '@/lib/article-catalogue';
+import { visibleArticles, isArticlePreview } from '@/lib/article-catalogue';
 
 // Candidate faces for the approved concept: a quiet high-contrast serif for statements, a clean sans for reading.
 const display = Cormorant_Garamond({
@@ -52,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
+        {isArticlePreview() && <Suspense fallback={null}><PreviewControls /></Suspense>}
         <header>
           <p>
             <a href="/">

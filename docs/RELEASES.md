@@ -4,14 +4,19 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** AI-native article series | tag `ai-native-articles-2026-09-21` | 21 Sep 2026 | Local preview on branch `feat/ai-native-articles`. Not merged, deployed or pushed. |
+| **Current:** Article media and graph comparison | tag `article-media-graph-review-2026-09-22` | 22 Sep 2026 | Local review only; broader landing direction awaiting selection. |
+| **Previous:** AI-native article series | tag `ai-native-articles-2026-09-21` | 21 Sep 2026 | Local preview on branch `feat/ai-native-articles`. Not merged, deployed or pushed. |
 | **Previous:** On the shoulder | tag `on-the-shoulder-2026-09-15` | 15 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
 | **Previous:** Stage entry, round B | tag `stage-entry-b-2026-09-14` (commit `bd692ac`) | 14 Sep 2026 | Local preview. Not merged, not deployed, not pushed. |
 | **Live production:** Concert Hall original | `origin/main` at `011cf42`, untagged | 31 Aug 2026 | Served at https://ai.hyperdrift.io (verified 15 Sep 2026: title "Agent orchestration for production AI workflows"). |
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `ai-native-articles-2026-09-21`
+## Current: `article-media-graph-review-2026-09-22`
+
+Captioned opening images for all six articles, repaired SVG readability, controllable WebGL animation, and a local comparison bar with optional giant artwork. Typecheck and manual desktop/mobile review passed. [Review, research and proposed directions](design/2026-09-21-landing-review/REVIEW.md). No broader redesign, publication, push or deployment.
+
+## Previous: `ai-native-articles-2026-09-21`
 
 Six AI-native proposition articles with real Hyperdrift examples, share cards, editable enquiry attribution and durable local lead storage. Extends the approved visual identity on the unpublished AI-native organisation branch. All articles remain drafts. Review: http://127.0.0.1:3112/articles. Delivery and verification record: [series README](editorial/ai-native-series/README.md).
 

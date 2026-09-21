@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { anchors, beats, inputs, readCard } from '@/data/system-graph';
 
@@ -98,6 +98,13 @@ const glowTexture = () => {
 };
 
 export function SystemGraph() {
+  const [activeStep, setActiveStep] = useState(1);
+  const [reduced, setReduced] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [available, setAvailable] = useState(true);
+  const pausedRef = useRef(false);
+  const runRef = useRef<() => void>(() => {});
+  const stepRef = useRef<(step: number) => void>(() => {});
   const wrap = useRef<HTMLDivElement>(null);
   const cv = useRef<HTMLCanvasElement>(null);
   const tip = useRef<HTMLDivElement>(null);
@@ -112,13 +119,18 @@ export function SystemGraph() {
 
     let renderer: THREE.WebGLRenderer;
     try {
-      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
+      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power', preserveDrawingBuffer: true });
     } catch {
       stageEl.dataset.stage = '0';
+      setAvailable(false);
       return;
     }
     renderer.setClearColor(0x000000, 0);
-    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let still = preference.matches;
+    setReduced(still);
+    pausedRef.current = still;
+    setPaused(still);
     const R = rng(7);
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(0, 1, 1, 0, -4000, 4000);
@@ -324,17 +336,18 @@ export function SystemGraph() {
       ripples.push({ mesh: m, t0: now });
     };
     const arrive = () => {
-      popEl.classList.remove('pop');
+      popEl.removeAttribute('data-arrived');
       void popEl.offsetWidth;
-      popEl.classList.add('pop');
+      popEl.setAttribute('data-arrived', 'true');
     };
 
     const draw = (now: number) => {
-      if (!still) {
+      if (!still && !pausedRef.current) {
         if (now - stageAt > BEAT_MS) {
           stage = (stage % beats.length) + 1;
           stageAt = now;
           stageEl.dataset.stage = String(stage);
+          setActiveStep(stage);
         }
         if (stage === 1 && parts.length < 4 && now - lastFeed > 420) feed(now);
         if (stage === 3 && now - lastGrow > 520) grow(now);
@@ -478,7 +491,7 @@ export function SystemGraph() {
     };
     const select = (i: number) => {
       hovered = i;
-      stageEl.classList.toggle('is-hover', i >= 0);
+      stageEl.dataset.hover = String(i >= 0);
       if (i < 0) {
         tipEl.hidden = true;
         return;
@@ -489,9 +502,9 @@ export function SystemGraph() {
       (tipEl.firstChild as HTMLElement).textContent = a.name;
       (tipEl.lastChild as HTMLElement).textContent = `hands off to ${named.join(' · ')}`;
       tipEl.hidden = false;
-      tipEl.classList.remove('swap');
+      tipEl.removeAttribute('data-changed');
       void tipEl.offsetWidth;
-      tipEl.classList.add('swap');
+      tipEl.setAttribute('data-changed', 'true');
       if (still) draw(performance.now());
     };
     const onMove = (e: PointerEvent) => select(pick(e, 26));
@@ -525,8 +538,25 @@ export function SystemGraph() {
     };
     const run = () => {
       cancelAnimationFrame(raf);
-      if (!still && visible && !document.hidden) raf = requestAnimationFrame(frame);
+      if (!still && !pausedRef.current && visible && !document.hidden) raf = requestAnimationFrame(frame);
     };
+    runRef.current = run;
+    stepRef.current = (selected) => {
+      pausedRef.current = true;
+      setPaused(true);
+      stage = selected;
+      setActiveStep(stage);
+      stageEl.dataset.stage = String(stage);
+      draw(performance.now());
+      run();
+    };
+    const onPreference = () => {
+      still = preference.matches;
+      setReduced(still);
+      if (still) { pausedRef.current = true; setPaused(true); }
+      run();
+    };
+    preference.addEventListener('change', onPreference);
     const io = new IntersectionObserver((entries) => {
       visible = entries.some((en) => en.isIntersecting);
       run();
@@ -537,6 +567,9 @@ export function SystemGraph() {
 
     return () => {
       cancelAnimationFrame(raf);
+      runRef.current = () => {};
+      stepRef.current = () => {};
+      preference.removeEventListener('change', onPreference);
       io.disconnect();
       ro.disconnect();
       document.removeEventListener('visibilitychange', run);
@@ -549,38 +582,43 @@ export function SystemGraph() {
   }, []);
 
   return (
-    <div className="xstage" ref={wrap} data-stage="1" data-layout="wide">
+    <div id="system-graph" ref={wrap} data-stage="1" data-layout="wide">
       <canvas ref={cv} aria-hidden="true" />
       {inputs.map((c, i) => (
-        <div key={c.key} className="chip" data-chip={i + 1}>
+        <div key={c.key} data-chip={i + 1}>
           <em aria-hidden="true" />
           <b>{c.name}</b>
           <small>{c.tool}</small>
         </div>
       ))}
-      <div className="tag">
+      <div data-system="identity">
         <b>The Commander</b>
         <small>reads · decides · learns</small>
       </div>
-      <div className="read">
+      <div data-system="read">
         <span aria-hidden="true" />
-        {readCard}
+        Example brief: {readCard}
       </div>
-      <div className="out">
+      <div data-system="output">
         <i ref={pop} aria-hidden="true">
-          +1 shipped
+          Example output
         </i>
         <b>One email</b>
         <span>Verdict · call · opportunity</span>
         <small>every morning, before the day</small>
       </div>
-      <div className="tip" ref={tip} hidden />
-      <p className="hint" aria-hidden="true">
+      <div data-system="tooltip" ref={tip} hidden />
+      <p data-system="hint" aria-hidden="true">
         Hover or tap a <i>gold note</i> to see its handoffs
       </p>
-      <p className="caps" aria-live="polite">
+      {!available && <p role="status" data-system="fallback">The animated view is unavailable in this browser. The five steps and the organisation diagram remain available.</p>}
+      <nav aria-label="Explore the system" data-system="controls">
+        <button type="button" disabled={!available || reduced} onClick={() => { pausedRef.current = !pausedRef.current; setPaused(pausedRef.current); runRef.current(); }}>{reduced ? 'Reduced motion' : paused ? 'Play animation' : 'Pause animation'}</button>
+        {beats.map((beat) => <button type="button" key={beat.stage} aria-pressed={activeStep === beat.stage} disabled={!available} onClick={() => stepRef.current(beat.stage)}>{beat.name}</button>)}
+      </nav>
+      <p data-system="captions">
         {beats.map((b) => (
-          <span key={b.stage}>
+          <span key={b.stage} aria-hidden={activeStep !== b.stage}>
             <b>{b.name}.</b> {b.caption}
           </span>
         ))}

@@ -1,4 +1,3 @@
-import { Field } from '@/components/Field';
 import { OrgGraph } from '@/components/OrgGraph';
 import { columns, movements, nodes, type ColumnSlug } from '@/data/org-graph';
 
@@ -16,20 +15,20 @@ export function Day() {
 
   return (
     <section id="day" aria-labelledby="day-title">
-      <div className="stage">
-        <Field />
+      <div>
         <OrgGraph id="graph" linked />
+        <a href="#plug">View the full diagram ↓</a>
       </div>
 
       <ol>
         <li data-m={first.n}>
-          <p className="eyebrow">{first.eyebrow}, the run starts</p>
+          <p>{first.eyebrow}, the run starts</p>
           <h1 id="day-title">{first.title}</h1>
           {first.lines.map((line) => (
             <p key={line}>{line}</p>
           ))}
           <p>
-            <a className="btn primary" href="#contact">
+            <a href="#contact">
               Describe your workflow
             </a>
             <a href="#proof">See the work</a>
@@ -39,7 +38,7 @@ export function Day() {
           const col = columnOf[m.n];
           return (
             <li key={m.n} data-m={m.n}>
-              <p className="eyebrow">
+              <p>
                 {String(m.n).padStart(2, '0')} · {m.eyebrow}
               </p>
               <h2>{m.title}</h2>
@@ -47,13 +46,13 @@ export function Day() {
                 <p key={line}>{line}</p>
               ))}
               {col && (
-                <ul className="fragment" aria-label={`Jobs in ${columnName(col)}`}>
+                <ul aria-label={`Jobs in ${columnName(col)}`}>
                   {nodes
                     .filter((n) => n.column === col)
                     .map((n) => (
                       <li key={n.slug}>
                         <a href={`#n-${n.slug}`}>
-                          {n.name} <span className="meta">{n.mark}</span>
+                          {n.name} <small>{n.mark}</small>
                         </a>
                       </li>
                     ))}
@@ -64,14 +63,14 @@ export function Day() {
         })}
       </ol>
 
-      <div className="panels">
+      <div>
         {nodes.map((n) => (
           <article key={n.slug} id={`n-${n.slug}`} aria-labelledby={`n-${n.slug}-title`}>
-            <p className="meta">{columnName(n.column)}</p>
+            <p>{columnName(n.column)}</p>
             <h3 id={`n-${n.slug}-title`}>{n.name}</h3>
             <p>{n.job}</p>
             <p>{n.runs}</p>
-            <p className="meta">{n.tools.join(' · ')}</p>
+            <p>{n.tools.join(' · ')}</p>
             <p>
               <a href={n.artefact.href} target="_blank" rel="noreferrer">
                 {n.artefact.label} ↗

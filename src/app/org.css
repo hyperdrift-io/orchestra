@@ -13,17 +13,17 @@ svg[id^='graph'] {
   overflow: visible;
 }
 svg[id^='graph'] rect { fill: var(--ink-elev); stroke: var(--line-soft); stroke-width: 1; }
-svg[id^='graph'] rect.founder { fill: var(--ink-2); stroke: var(--gold-line); }
-svg[id^='graph'] rect.col { fill: var(--ink-soft); stroke: var(--gold-line); }
-svg[id^='graph'] rect.surface { fill: var(--ink-2); stroke: var(--line-hair); }
+svg[id^='graph'] [data-col='founder'] > rect { fill: var(--ink-2); stroke: var(--gold-line); }
+svg[id^='graph'] [data-col]:not([data-col='founder']) > rect { fill: var(--ink-soft); stroke: var(--gold-line); }
+svg[id^='graph'] [data-col='surface'] rect { fill: var(--ink-2); stroke: var(--line-hair); }
 svg[id^='graph'] text { fill: var(--cream); }
-svg[id^='graph'] text.title { font-family: var(--font-display); font-size: 28px; font-weight: 600; }
-svg[id^='graph'] text.name { font-size: 15px; font-weight: 500; }
-svg[id^='graph'] text.mark { font-family: var(--font-mono); font-size: 11px; fill: var(--cream-3); }
+svg[id^='graph'] [data-col='founder'] text[data-lens] { font-family: var(--font-display); font-size: 28px; font-weight: 600; }
+svg[id^='graph'] text { font-size: 15px; font-weight: 500; }
+svg[id^='graph'] text:not([data-lens]):last-of-type { font-family: var(--font-mono); font-size: 11px; fill: var(--cream-3); }
 svg[id^='graph'] :is(line, path) { fill: none; stroke: var(--gold-line); stroke-width: 1.25; }
 svg[id^='graph'] a { border: 0; outline-offset: 2px; }
 svg[id^='graph'] a:hover rect, svg[id^='graph'] a:focus-visible rect { stroke: var(--gold); fill: var(--ink-soft); }
-svg[id^='graph'] a:hover text.mark { fill: var(--gold-light); }
+svg[id^='graph'] a:hover text:not([data-lens]):last-of-type { fill: var(--gold-light); }
 svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
 
 /* — The day: the graph stays, the movements scroll past and light it */
@@ -37,15 +37,16 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
   background: var(--ink);
   timeline-scope: --m0, --m1, --m2, --m3, --m4, --m5, --m6;
 }
-#day > .stage {
+#day > div:first-child {
   position: sticky;
   inset-block-start: clamp(4rem, 10vh, 7rem);
   grid-column: 2;
   grid-row: 1;
   display: grid;
 }
-#day > .stage > * { grid-area: 1 / 1; }
-#day > .stage canvas { inline-size: 100%; block-size: 100%; pointer-events: none; }
+#day > div:first-child > svg { grid-area: 1 / 1; }
+#day > div:first-child > a { justify-self: start; margin-top: 1rem; font-size: .8rem; color: var(--gold-light); }
+#day > div:first-child canvas { inline-size: 100%; block-size: 100%; pointer-events: none; }
 #day > ol { grid-column: 1; grid-row: 1; list-style: none; margin: 0; padding: 0; }
 #day > ol > li {
   display: grid;
@@ -57,8 +58,8 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
 #day > ol > li[data-m='0'] { min-block-size: calc(100dvh - var(--sp-2xl) - 4rem); }
 #day > ol > li h1 { font-size: var(--fs-h1); }
 #day > ol > li h2 { font-size: var(--fs-h2); max-inline-size: 16ch; }
-#day > ol > li > p:not(.eyebrow) { max-inline-size: 42ch; }
-#day > ol > li .fragment { display: none; }
+#day > ol > li > p:not(:first-child) { max-inline-size: 42ch; }
+#day > ol > li > ul { display: none; }
 #day > ol > li[data-m='0'] > p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-s) var(--sp-m); margin-block-start: var(--sp-xs); }
 #day > ol > li[data-m='1'] { view-timeline-name: --m1; }
 #day > ol > li[data-m='2'] { view-timeline-name: --m2; }
@@ -69,10 +70,10 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
 
 /* Lighting: dim until its movement arrives, lit from then on */
 #day svg [data-col] { opacity: 1; }
-@keyframes lit { from { opacity: 0.22; } to { opacity: 1; } }
+@keyframes lit { from { opacity: 0.72; } to { opacity: 1; } }
 @keyframes glow { from { filter: none; } to { filter: drop-shadow(0 0 18px var(--gold-soft)) drop-shadow(0 0 2px var(--gold)); } }
 @supports (animation-timeline: view()) {
-  #day svg [data-col]:not([data-col='founder']) { opacity: 0.22; animation: lit linear both; animation-range: entry 10% entry 70%; }
+  #day svg [data-col]:not([data-col='founder']) { opacity: 1; animation: lit linear both; animation-range: entry 10% entry 70%; }
   #day svg [data-col='sense'] { animation-timeline: --m1; }
   #day svg [data-col='read'] { animation-timeline: --m2; }
   #day svg [data-col='work'] { animation-timeline: --m3; }
@@ -83,8 +84,8 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
 }
 
 /* Node panels: one link per job, opened by :target, closed by the link back to the graph */
-#day .panels article { display: none; }
-#day .panels article:target {
+#day > div:last-child article { display: none; }
+#day > div:last-child article:target {
   display: grid;
   gap: var(--sp-xs);
   position: fixed;
@@ -100,17 +101,17 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
   animation: rise var(--d-med) var(--ease) both;
 }
 @keyframes rise { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0; } }
-#day .panels article:target::before { content: ''; position: fixed; inset: 0; z-index: -1; background: rgb(0 0 0 / 0.45); }
-#day .panels article .meta:first-child { color: var(--gold); }
-#day .panels article h3 { font-size: var(--fs-h3); }
-#day .panels article > p:not(.meta) { max-inline-size: 48ch; }
-#day .panels article > p:last-child { display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-m); margin-block-start: var(--sp-xs); }
-#day .panels article > p:last-child a:first-child { color: var(--gold-light); border-block-end-color: var(--gold-line); }
+#day > div:last-child article:target::before { content: ''; position: fixed; inset: 0; z-index: -1; background: rgb(0 0 0 / 0.45); }
+#day > div:last-child article > p:first-child { color: var(--gold); }
+#day > div:last-child article h3 { font-size: var(--fs-h3); }
+#day > div:last-child article > p { max-inline-size: 48ch; }
+#day > div:last-child article > p:last-child { display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-m); margin-block-start: var(--sp-xs); }
+#day > div:last-child article > p:last-child a:first-child { color: var(--gold-light); border-block-end-color: var(--gold-line); }
 
 /* — The lens: same graph, your labels */
 #plug { padding: var(--sp-xl) var(--edge); background: var(--ink-2); border-block-start: 1px solid var(--line-hair); }
 #plug > h2 { max-inline-size: 18ch; }
-#plug > .lead { margin-block-start: var(--sp-s); max-inline-size: 44ch; }
+#plug > h2 + p { margin-block-start: var(--sp-s); max-inline-size: 44ch; }
 #plug fieldset { display: flex; flex-wrap: wrap; gap: var(--sp-xs); margin: var(--sp-m) 0 var(--sp-l); padding: 0; border: 0; }
 #plug label {
   padding: 0.6rem 1.1rem;
@@ -141,11 +142,11 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
   /* The header sits over the first screen; the day starts below it. The full graph is
      unreadable at phone width, so each movement carries its column's jobs instead. */
   #day { display: block; padding-block-start: 9rem; }
-  #day > .stage { display: none; }
+  #day > div:first-child { display: none; }
   #day > ol > li { min-block-size: 0; padding-block: var(--sp-m); max-inline-size: none; }
   #day > ol > li[data-m='0'] { min-block-size: 0; }
-  #day > ol > li .fragment { display: grid; gap: var(--sp-2xs); margin: var(--sp-xs) 0 0; padding: 0; list-style: none; }
-  #day > ol > li .fragment a {
+  #day > ol > li > ul { display: grid; gap: var(--sp-2xs); margin: var(--sp-xs) 0 0; padding: 0; list-style: none; }
+  #day > ol > li > ul a {
     display: flex;
     justify-content: space-between;
     gap: var(--sp-s);
@@ -154,17 +155,17 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
     border-radius: var(--r-card);
     background: var(--ink-elev);
   }
-  #day > ol > li .fragment a:hover { border-color: var(--gold); }
-  #day > ol > li .fragment .meta { color: var(--cream-3); }
-  #day .panels article:target { inset-inline: var(--gutter); inline-size: auto; }
-  #plug svg[id^='graph'] text.title { font-size: 34px; }
-  #plug svg[id^='graph'] text.name { font-size: 18px; }
-  #plug svg[id^='graph'] text.mark { font-size: 13px; }
+  #day > ol > li > ul a:hover { border-color: var(--gold); }
+  #day > ol > li > ul small { color: var(--cream-3); }
+  #day > div:last-child article:target { inset-inline: var(--gutter); inline-size: auto; }
+  #plug svg[id^='graph'] [data-col='founder'] text[data-lens] { font-size: 34px; }
+  #plug svg[id^='graph'] text { font-size: 18px; }
+  #plug svg[id^='graph'] text:not([data-lens]):last-of-type { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   #day svg [data-col] { opacity: 1; animation: none; }
-  #day .panels article:target { animation: none; }
+  #day > div:last-child article:target { animation: none; }
 }
 
 /* ===================================================================
@@ -188,12 +189,12 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
 #system > details li { margin-block-end: var(--sp-2xs); color: var(--cream-2); font-size: var(--fs-meta); break-inside: avoid; }
 #system > details li b { color: var(--cream); font-weight: 500; }
 
-#system .xstage { position: relative; inline-size: min(760px, 100%); margin-inline: auto; aspect-ratio: 16 / 9; }
-#system .xstage[data-layout='tall'] { aspect-ratio: 2 / 3; }
-#system .xstage canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; touch-action: pan-y; }
+#system #system-graph { position: relative; inline-size: min(760px, 100%); margin-inline: auto; aspect-ratio: 16 / 9; }
+#system #system-graph[data-layout='tall'] { aspect-ratio: 2 / 3; }
+#system #system-graph canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; touch-action: pan-y; }
 
 /* DOM parts share one look: small ink cards on the stage */
-#system .xstage :is(.chip, .tag, .read, .out, .tip) {
+#system #system-graph :is([data-chip], [data-system="identity"], [data-system="read"], [data-system="output"], [data-system="tooltip"]) {
   position: absolute;
   left: var(--x);
   top: var(--y);
@@ -208,64 +209,88 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
   transition: border-color var(--d-med) var(--ease), box-shadow var(--d-med) var(--ease), opacity var(--d-med) var(--ease), scale var(--d-med) var(--ease);
   pointer-events: none;
 }
-#system .xstage b { display: block; color: var(--cream); font-weight: 500; font-size: var(--fs-meta); }
-#system .xstage small { display: block; font-family: var(--font-mono); color: var(--cream-3); }
-#system .chip { inline-size: 9.5rem; }
-#system .chip em { position: absolute; inset-inline-start: -4px; inset-block-start: 50%; translate: 0 -50%; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--cream-4); transition: background var(--d-med) var(--ease); }
-#system [data-layout='wide'] .chip[data-chip='1'] { --x: 11%; --y: 20%; }
-#system [data-layout='wide'] .chip[data-chip='2'] { --x: 11%; --y: 40%; }
-#system [data-layout='wide'] .chip[data-chip='3'] { --x: 11%; --y: 60%; }
-#system [data-layout='wide'] .chip[data-chip='4'] { --x: 11%; --y: 80%; }
-#system [data-layout='wide'] .tag { --x: 56%; --y: 90%; }
-#system [data-layout='wide'] .read { --x: 76%; --y: 17%; }
-#system [data-layout='wide'] .out { --x: 88%; --y: 50%; }
-#system [data-layout='wide'] .tip, #system [data-layout='wide'] .hint { --x: 50%; --y: 4%; }
-#system [data-layout='tall'] .chip { inline-size: 8.4rem; }
-#system [data-layout='tall'] .chip[data-chip='1'] { --x: 28%; --y: 7%; }
-#system [data-layout='tall'] .chip[data-chip='2'] { --x: 72%; --y: 7%; }
-#system [data-layout='tall'] .chip[data-chip='3'] { --x: 28%; --y: 17%; }
-#system [data-layout='tall'] .chip[data-chip='4'] { --x: 72%; --y: 17%; }
-#system [data-layout='tall'] .tag { --x: 50%; --y: 79%; }
-#system [data-layout='tall'] .read { --x: 50%; --y: 30%; }
-#system [data-layout='tall'] .out { --x: 50%; --y: 93%; inline-size: 13rem; }
-#system [data-layout='tall'] .tip { --x: 50%; --y: 24%; }
-#system [data-layout='tall'] .hint { display: none; }
+#system #system-graph b { display: block; color: var(--cream); font-weight: 500; font-size: var(--fs-meta); }
+#system #system-graph small { display: block; font-family: var(--font-mono); color: var(--cream-3); }
+#system [data-chip] { inline-size: 9.5rem; }
+#system [data-chip] em { position: absolute; inset-inline-start: -4px; inset-block-start: 50%; translate: 0 -50%; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--cream-4); transition: background var(--d-med) var(--ease); }
+#system [data-layout='wide'] [data-chip][data-chip='1'] { --x: 11%; --y: 20%; }
+#system [data-layout='wide'] [data-chip][data-chip='2'] { --x: 11%; --y: 40%; }
+#system [data-layout='wide'] [data-chip][data-chip='3'] { --x: 11%; --y: 60%; }
+#system [data-layout='wide'] [data-chip][data-chip='4'] { --x: 11%; --y: 80%; }
+#system [data-layout='wide'] [data-system="identity"] { --x: 56%; --y: 90%; }
+#system [data-layout='wide'] [data-system="read"] { --x: 76%; --y: 17%; }
+#system [data-layout='wide'] [data-system="output"] { --x: 88%; --y: 50%; }
+#system [data-layout='wide'] [data-system="tooltip"], #system [data-layout='wide'] [data-system="hint"] { --x: 50%; --y: 4%; }
+#system [data-layout='tall'] [data-chip] { inline-size: 8.4rem; }
+#system [data-layout='tall'] [data-chip][data-chip='1'] { --x: 28%; --y: 7%; }
+#system [data-layout='tall'] [data-chip][data-chip='2'] { --x: 72%; --y: 7%; }
+#system [data-layout='tall'] [data-chip][data-chip='3'] { --x: 28%; --y: 17%; }
+#system [data-layout='tall'] [data-chip][data-chip='4'] { --x: 72%; --y: 17%; }
+#system [data-layout='tall'] [data-system="identity"] { --x: 50%; --y: 79%; }
+#system [data-layout='tall'] [data-system="read"] { --x: 50%; --y: 30%; }
+#system [data-layout='tall'] [data-system="output"] { --x: 50%; --y: 93%; inline-size: 13rem; }
+#system [data-layout='tall'] [data-system="tooltip"] { --x: 50%; --y: 24%; }
+#system [data-layout='tall'] [data-system="hint"] { display: none; }
 
-#system [data-stage='1'] .chip { border-color: var(--gold-line); color: var(--cream); }
-#system [data-stage='1'] .chip em { background: var(--gold); }
-#system [data-stage='1'] .chip[data-chip='2'] { transition-delay: 0.18s; }
-#system [data-stage='1'] .chip[data-chip='3'] { transition-delay: 0.36s; }
-#system [data-stage='1'] .chip[data-chip='4'] { transition-delay: 0.54s; }
-#system .tag { text-align: center; }
-#system [data-stage='2'] .tag, #system [data-stage='5'] .tag { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
-#system .read { display: flex; align-items: center; gap: 0.5rem; max-inline-size: 15rem; opacity: 0; scale: 0.92; }
-#system .read span { flex: none; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--gold); }
-#system [data-stage='2'] .read { opacity: 1; scale: 1; }
-#system .out { inline-size: 9.5rem; }
-#system .out i { position: absolute; inset-inline-end: 0.5rem; inset-block-start: -0.9rem; font: 500 var(--fs-mark) var(--font-mono); font-style: normal; color: var(--gold-light); opacity: 0; }
-#system .out i.pop { animation: sys-pop 1.1s var(--ease) both; }
+#system [data-stage='1'] [data-chip] { border-color: var(--gold-line); color: var(--cream); }
+#system [data-stage='1'] [data-chip] em { background: var(--gold); }
+#system [data-stage='1'] [data-chip][data-chip='2'] { transition-delay: 0.18s; }
+#system [data-stage='1'] [data-chip][data-chip='3'] { transition-delay: 0.36s; }
+#system [data-stage='1'] [data-chip][data-chip='4'] { transition-delay: 0.54s; }
+#system [data-system="identity"] { text-align: center; }
+#system [data-stage='2'] [data-system="identity"], #system [data-stage='5'] [data-system="identity"] { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
+#system [data-system="read"] { display: flex; align-items: center; gap: 0.5rem; max-inline-size: 15rem; opacity: 0; scale: 0.92; }
+#system [data-system="read"] span { flex: none; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--gold); }
+#system [data-stage='2'] [data-system="read"] { opacity: 1; scale: 1; }
+#system [data-system="output"] { inline-size: 9.5rem; }
+#system [data-system="output"] i { position: absolute; inset-inline-end: 0.5rem; inset-block-start: -0.9rem; font: 500 var(--fs-mark) var(--font-mono); font-style: normal; color: var(--gold-light); opacity: 0; }
+#system [data-system="output"] i[data-arrived] { animation: sys-pop 1.1s var(--ease) both; }
 @keyframes sys-pop { 0% { opacity: 0; translate: 0 6px; } 20% { opacity: 1; translate: 0; } 100% { opacity: 0; translate: 0 -10px; } }
-#system [data-stage='4'] .out { border-color: var(--gold); }
-#system .tip { z-index: 2; white-space: nowrap; }
-#system .tip[hidden] { display: none; }
-#system .tip.swap { animation: sys-swap 0.28s var(--ease); }
+#system [data-stage='4'] [data-system="output"] { border-color: var(--gold); }
+#system [data-system="tooltip"] { z-index: 2; white-space: nowrap; }
+#system [data-system="tooltip"][hidden] { display: none; }
+#system [data-system="tooltip"][data-changed] { animation: sys-swap 0.28s var(--ease); }
 @keyframes sys-swap { from { opacity: 0; translate: -50% -40%; } to { opacity: 1; translate: -50% -50%; } }
-#system .hint { position: absolute; left: var(--x); top: var(--y); translate: -50% -50%; margin: 0; font-size: var(--fs-mark); color: var(--cream-3); white-space: nowrap; transition: opacity var(--d-med) var(--ease); }
-#system .hint i { font-style: normal; color: var(--gold-light); }
-#system .xstage.is-hover .hint { opacity: 0; }
-#system .caps { position: absolute; inset-inline: 0; inset-block-start: 100%; margin: var(--sp-s) 0 0; min-block-size: 3em; text-align: center; font-size: var(--fs-meta); color: var(--cream-2); }
-#system .caps span { position: absolute; inset-inline: 0; opacity: 0; transition: opacity var(--d-med) var(--ease); }
-#system .caps b { display: inline; color: var(--gold-light); font-weight: 500; font-size: inherit; }
-#system [data-stage='1'] .caps span:nth-child(1), #system [data-stage='2'] .caps span:nth-child(2), #system [data-stage='3'] .caps span:nth-child(3),
-#system [data-stage='4'] .caps span:nth-child(4), #system [data-stage='5'] .caps span:nth-child(5) { opacity: 1; }
+#system [data-system="hint"] { position: absolute; left: var(--x); top: var(--y); translate: -50% -50%; margin: 0; font-size: var(--fs-mark); color: var(--cream-3); white-space: nowrap; transition: opacity var(--d-med) var(--ease); }
+#system [data-system="hint"] i { font-style: normal; color: var(--gold-light); }
+#system #system-graph[data-hover="true"] [data-system="hint"] { opacity: 0; }
+#system [data-system="captions"] { position: absolute; inset-inline: 0; inset-block-start: 100%; margin: var(--sp-s) 0 0; min-block-size: 3em; text-align: center; font-size: var(--fs-meta); color: var(--cream-2); }
+#system [data-system="captions"] span { position: absolute; inset-inline: 0; opacity: 0; transition: opacity var(--d-med) var(--ease); }
+#system [data-system="captions"] b { display: inline; color: var(--gold-light); font-weight: 500; font-size: inherit; }
+#system [data-stage='1'] [data-system="captions"] span:nth-child(1), #system [data-stage='2'] [data-system="captions"] span:nth-child(2), #system [data-stage='3'] [data-system="captions"] span:nth-child(3),
+#system [data-stage='4'] [data-system="captions"] span:nth-child(4), #system [data-stage='5'] [data-system="captions"] span:nth-child(5) { opacity: 1; }
 
 @media (max-width: 900px) {
   #system { display: block; padding-block-start: 9rem; min-block-size: 0; }
   #system > div:first-child { margin-block-end: var(--sp-l); }
-  #system .xstage { margin-block-end: 4rem; }
+  #system #system-graph { margin-block-end: 4rem; }
   #system > details ul { columns: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  #system .xstage :is(.chip, .tag, .read, .out, .tip, .caps span, .hint) { transition: none; }
-  #system .out i.pop, #system .tip.swap { animation: none; }
+  #system #system-graph :is([data-chip], [data-system="identity"], [data-system="read"], [data-system="output"], [data-system="tooltip"], [data-system="captions"] span, [data-system="hint"]) { transition: none; }
+  #system [data-system="output"] i[data-arrived], #system [data-system="tooltip"][data-changed] { animation: none; }
 }
+
+/* Manual steps make the animation inspectable by keyboard and touch. */
+#system [data-system='controls'] { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; position: absolute; top: calc(100% + 4.5rem); left: 0; right: 0; }
+#system [data-system='controls'] button { min-height: 44px; padding: .45rem .6rem; font-size: .75rem; color: var(--cream-2); background: var(--ink-elev); border: 1px solid var(--line-soft); border-radius: 3px; cursor: pointer; }
+#system [data-system='controls'] button:hover { color: var(--gold-light); border-color: var(--gold); }
+#system [data-system='controls'] button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+#system #system-graph { margin-bottom: 9rem; }
+#system [data-system='fallback'] { position: absolute; top: 35%; left: 30%; right: 10%; background: var(--ink-elev); padding: 1rem; font-size: .85rem; }
+@media (max-width: 640px) {
+  #system #system-graph { margin-bottom: 12rem; }
+  #system [data-system='controls'] { top: calc(100% + 6rem); }
+}
+#day > ol > li > p:first-child { color: var(--gold); text-transform: uppercase; letter-spacing: .13em; font: .75rem var(--font-mono); }
+:is(#day > ol, #plug) a[href='#contact'] { display: inline-flex; min-height: 48px; align-items: center; padding: .85rem 1.2rem; color: var(--ink); background: var(--gold); border: 1px solid var(--gold); border-radius: 3px; font-size: .85rem; font-weight: 600; }
+:is(#day > ol, #plug) a[href='#contact']:hover { background: var(--gold-light); }
+/* The diagram must remain readable before a scroll timeline becomes active. */
+#day svg [data-col] { opacity: 1; animation: none; }
+
+#system [data-system='controls'] button[aria-pressed='true'] { border-color: var(--gold); color: var(--gold-light); }
+#system [data-system='controls'] button:disabled { opacity: .6; cursor: default; }
+
+#plug > figure { margin: 0; overflow-x: auto; overscroll-behavior-inline: contain; }
+#plug > figure svg { min-inline-size: 800px; }
+#plug > figure:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }

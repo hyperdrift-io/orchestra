@@ -24,7 +24,7 @@ Each article stands alone. The Bridge opens the series; First Officer retains ex
 
 - `/articles` and six article pages, linked from the homepage and main navigation.
 - Responsive reading layout, table of contents, related reading and contextual enquiry invitations.
-- Real published screenshots/posters, linked demonstrations and explicitly labelled prototype evidence.
+- A captioned opening visual on every article, followed by linked demonstrations and explicitly labelled prototype evidence. Published screenshots/posters are reused; the delegation article opens with its explanatory share diagram.
 - Six semantic four-step diagrams and downloadable 1200 × 630 share cards, also used as article social images.
 - Canonical URLs, Article structured data and sitemap entries for published articles. Drafts show a preview label, carry noindex and stay out of the sitemap.
 - Editable article context in the enquiry form, validated against known slugs, retained separately from the visitor's message in the saved lead and included in the email relay message.

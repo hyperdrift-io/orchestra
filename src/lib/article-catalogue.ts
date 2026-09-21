@@ -13,6 +13,7 @@ export interface ArticleSummary {
   steps: string[];
   proof: { description: string; url: string; label: string };
   media: { kind: 'image' | 'youtube' | 'video'; src?: string; id?: string; alt?: string; caption: string } | null;
+  image: { src: string; alt: string; caption: string; width: number; height: number };
   publishedAt: string | null;
 }
 

@@ -9,7 +9,7 @@ export function PlugIn() {
   return (
     <section id="plug" aria-labelledby="plug-title">
       <h2 id="plug-title">Same shape. Your organisation.</h2>
-      <p className="lead">
+      <p>
         Every job on the map has a twin where you work. Choose who you are and the graph renames itself.
       </p>
 
@@ -22,7 +22,9 @@ export function PlugIn() {
         ))}
       </fieldset>
 
-      <OrgGraph id="graph-lens" lens />
+      <figure tabIndex={0} aria-label="Full organisation diagram. Scroll horizontally on smaller screens.">
+        <OrgGraph id="graph-lens" lens />
+      </figure>
 
       {lenses.map((l) => (
         <p key={l.slug} data-lens={l.slug}>
@@ -36,7 +38,7 @@ export function PlugIn() {
           everything else handled. That is what the map above is: the hours that came back.
         </p>
         <p>
-          <a className="btn primary" href="#contact">
+          <a href="#contact">
             Describe your workflow
           </a>
         </p>

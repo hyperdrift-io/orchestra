@@ -2,7 +2,7 @@
   {
     "slug": "the-bridge",
     "title": "The Bridge: start the day with decisions",
-    "excerpt": "A place to see what matters, inspect the evidence and direct the work. How Hyperdrift's Bridge connects an operator to a fleet of products—and where the same pattern fits another business.",
+    "excerpt": "A place to see what matters, inspect the evidence and direct the work. How Hyperdrift's Bridge connects an operator to a fleet of products\u2014and where the same pattern fits another business.",
     "shareLine": "The useful morning brief ends with a decision you can make.",
     "order": 1,
     "topic": "Operations",
@@ -21,7 +21,14 @@
       "label": "Read the technical account"
     },
     "media": null,
-    "publishedAt": null
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/bridge.png",
+      "alt": "A previously published view of the Hyperdrift Bridge.",
+      "caption": "The Bridge: a historical view of the operating interface, not current fleet results.",
+      "width": 1600,
+      "height": 882
+    }
   },
   {
     "slug": "expertise-agents-can-use",
@@ -50,7 +57,14 @@
       "alt": "The title frame of the Hyperdrift anniversary film.",
       "caption": "The published anniversary film: one artefact supported by our editorial practice."
     },
-    "publishedAt": null
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/anniversary.jpg",
+      "alt": "The published Hyperdrift anniversary film.",
+      "caption": "Our publishing workflow in practice: the anniversary article and film.",
+      "width": 1920,
+      "height": 1080
+    }
   },
   {
     "slug": "delegation-with-boundaries",
@@ -78,7 +92,14 @@
       "id": "JB2O3WSwH90",
       "caption": "Helm: recorded demonstration of agent roles and sandbox recovery."
     },
-    "publishedAt": null
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/delegation-with-boundaries/opengraph-image",
+      "alt": "Four steps in agent delegation: route, inspect, act within scope, verify.",
+      "caption": "The delegation pattern explained below. Watch the actual Helm drill in the working example.",
+      "width": 1200,
+      "height": 630
+    }
   },
   {
     "slug": "evidence-that-starts-work",
@@ -107,7 +128,14 @@
       "alt": "The opening frame of the recorded Standup demonstration.",
       "caption": "Standup is a public project. Its historical example output is linked in the article."
     },
-    "publishedAt": null
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/standup.jpg",
+      "alt": "The title frame of the recorded Standup demonstration.",
+      "caption": "Standup: watch the recorded demonstration in the working example below.",
+      "width": 1920,
+      "height": 1080
+    }
   },
   {
     "slug": "conversation-with-a-shared-view",
@@ -135,7 +163,14 @@
       "src": "https://hyperdrift.io/videos/hyper-video-mesh-demo.mp4",
       "caption": "HyperVideoMesh: a recorded creative-tool prototype. This is supporting evidence, not a First Officer recording."
     },
-    "publishedAt": null
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/video-mesh.jpg",
+      "alt": "The recorded HyperVideoMesh editing demonstration.",
+      "caption": "HyperVideoMesh illustrates visible agent edits. The First Officer voice prototype discussed here still needs a current recording.",
+      "width": 1280,
+      "height": 1240
+    }
   },
   {
     "slug": "connect-agents-to-existing-work",
@@ -163,6 +198,13 @@
       "id": "z4B0gtwbjB4",
       "caption": "uk.gov Radar: recorded interaction in a compatible browser environment."
     },
-    "publishedAt": null
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/radar.png",
+      "alt": "A published view of uk.gov Radar and its shared agent interface.",
+      "caption": "uk.gov Radar: a published view of a person and an agent working with the same page.",
+      "width": 1344,
+      "height": 768
+    }
   }
 ]
