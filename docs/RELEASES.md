@@ -14,7 +14,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `coloured-business-domains-2026-09-22`
+## Current: `living-constellation-a-2026-09-22`
+
+Founder-selected A implemented at `/how-it-works`: five coloured spheres, branching signals, domain camera entry, business facets, three illustrative iterations with persistent memory rings and click-out/Escape return. Homepage reduced to promise, mesh, three featured builds and enquiry. Full catalogue at `/work`, partnership terms at `/partnership`, reading and news linked to their own destinations. Canonicals/sitemap updated; draft-article gating retained. Typecheck and desktop/phone browser review passed. [Selection and verification](design/2026-09-22-business-flow/SELECTION.md). Local preview only; no deployment or push.
+
+## Previous: `coloured-business-domains-2026-09-22`
 
 Five coloured domain spheres with procedural membranes, branching interior signals, distinct facet assets and click-out/Escape return. Heartbeat stays light-only. Proof copy and inline Helm/Radar recordings; first-CTA reply expectation; unsupported partnership assertions removed. [Homepage conversion review](reviews/2026-09-22-homepage-conversion.md) and [three organisation concepts](design/2026-09-22-business-flow/README.md). Concepts await selection; homepage sections have not moved. Typecheck and manual desktop/phone browser inspection passed. Local preview only; no deployment or push.
 

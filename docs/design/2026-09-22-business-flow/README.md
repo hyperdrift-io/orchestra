@@ -1,10 +1,10 @@
 # Business flow — three organisation directions
 
-Status: **awaiting founder selection**. The existing organisation graph remains in the local preview. These are concept images for a dedicated exploration; they are not implemented pages.
+Status: **A selected by the founder and implemented in local preview** at `/how-it-works`. The images below preserve the three original candidates. [Selection, implementation and verification](SELECTION.md).
 
 Shared mission: make branching business signals and retained improvements tangible for a founder seeking growth, profit and time to lead. Same ink/ivory/gold identity, five coloured domains, same copy and 1536 × 1024 viewport. Exactly one generated image per direction, independently explored and visually inspected. Built-in image generation used because Recraft credits were exhausted. None is represented as product or client evidence.
 
-## A — Living constellation (recommended)
+## A — Living constellation (selected)
 
 ![Living constellation](ecosystem.png)
 

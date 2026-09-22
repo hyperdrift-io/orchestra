@@ -1,0 +1,382 @@
+{
+  "title": "Living constellation \u2014 approved A",
+  "summary": "Founder selected A on 22 September 2026. Five coloured domains connect through branching gold light; cycles retain learning.",
+  "identity": [
+    "Near-black ink with ivory serif text",
+    "Jade, blue, gold, coral and violet spherical domains",
+    "Fine filaments converge and branch around a luminous central memory"
+  ],
+  "screens": [
+    {
+      "id": "desktop",
+      "bounds_px": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "viewport_css_px": [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "experience",
+      "name": "Living constellation",
+      "parent": null,
+      "kind": "region",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "section",
+        "component": "Organisation",
+        "selector": "#organisation",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "headline",
+      "name": "Promise",
+      "parent": "experience",
+      "kind": "text",
+      "text": "Every useful signal can become progress.",
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.2,
+            0.04,
+            0.6,
+            0.06
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "h1",
+        "component": "Organisation",
+        "selector": "#organisation h1",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "subtitle",
+      "name": "Retained learning",
+      "parent": "experience",
+      "kind": "text",
+      "text": "Learn. Improve. Build on what works.",
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.335,
+            0.115,
+            0.33,
+            0.035
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "div",
+        "component": "Organisation",
+        "selector": "#organisation header p",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "constellation",
+      "name": "Branching network",
+      "parent": "experience",
+      "kind": "artwork",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0,
+            0.145,
+            1,
+            0.8
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "canvas",
+        "component": "Organisation",
+        "selector": "[data-constellation-surface]",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "notice",
+      "name": "Jade sphere",
+      "parent": "constellation",
+      "kind": "artwork",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.64,
+            0.148,
+            0.168,
+            0.3
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "button",
+        "component": "Organisation",
+        "selector": "[data-domain-label]",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "choose",
+      "name": "Blue sphere",
+      "parent": "constellation",
+      "kind": "artwork",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.8,
+            0.31,
+            0.185,
+            0.32
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "button",
+        "component": "Organisation",
+        "selector": "[data-domain-label]",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "improve",
+      "name": "Gold sphere",
+      "parent": "constellation",
+      "kind": "artwork",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.23,
+            0.17,
+            0.19,
+            0.3
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "button",
+        "component": "Organisation",
+        "selector": "[data-domain-label]",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "release",
+      "name": "Coral sphere",
+      "parent": "constellation",
+      "kind": "artwork",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.674,
+            0.563,
+            0.187,
+            0.27
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "button",
+        "component": "Organisation",
+        "selector": "[data-domain-label]",
+        "css": [],
+        "asset": null
+      }
+    },
+    {
+      "id": "learn",
+      "name": "Violet sphere",
+      "parent": "constellation",
+      "kind": "artwork",
+      "text": null,
+      "evidence": [
+        {
+          "screen": "desktop",
+          "bounds": [
+            0.166,
+            0.53,
+            0.22,
+            0.33
+          ],
+          "measurement": "Manually measured from the approved 1536 \u00d7 1024 concept."
+        }
+      ],
+      "observations": [
+        "Ink background, luminous fine detail and generous dark negative space."
+      ],
+      "inferences": [
+        "Live semantic text and procedural WebGL preserve the visual hierarchy."
+      ],
+      "implementation": {
+        "element": "button",
+        "component": "Organisation",
+        "selector": "[data-domain-label]",
+        "css": [],
+        "asset": null
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "nodes": [
+        "headline",
+        "subtitle",
+        "constellation"
+      ],
+      "kind": "vertical hierarchy",
+      "evidence": "Centred title above a field of five spheres, without boxed diagram panels.",
+      "css_consequence": "Centred live header above full-width WebGL field; controls and details below."
+    },
+    {
+      "nodes": [
+        "notice",
+        "choose",
+        "improve",
+        "release",
+        "learn"
+      ],
+      "kind": "asymmetric constellation",
+      "evidence": "Two upper, one right and two lower spheres surround a branching centre.",
+      "css_consequence": "Map fixed world coordinates; preserve relative silhouette at wide sizes. Portrait view compacts the horizontal spread."
+    }
+  ],
+  "interactions": [
+    {
+      "id": "enter-domain",
+      "nodes": [
+        "notice",
+        "choose",
+        "improve",
+        "release",
+        "learn"
+      ],
+      "purpose": "Connect each domain to its signal, action, impact and measure.",
+      "trigger": "Select the sphere or its labelled button.",
+      "before": "Full connected organisation.",
+      "after": "Camera enters the selected colour and shows four facets with relevant business detail.",
+      "primitive": "Native buttons over a Three.js canvas.",
+      "timing": "Interruptible exponential camera interpolation; no heartbeat scale.",
+      "keyboard": "Tab and Enter; Escape returns focus to the selected sphere.",
+      "touch": "44px minimum target; tap surrounding space to return.",
+      "reduced_motion": "Static scene and instantaneous navigation.",
+      "fallback": "All business stages and details stay available as HTML.",
+      "status": "specified"
+    },
+    {
+      "id": "retain-learning",
+      "nodes": [
+        "constellation"
+      ],
+      "purpose": "Show a useful cycle contributing retained knowledge and a validated improvement.",
+      "trigger": "Play the illustrative sequence or choose Next iteration.",
+      "before": "The selected cycle receives connected business signals.",
+      "after": "Signals fan through related domains and return evidence; a successful cycle leaves an illuminated memory ring.",
+      "primitive": "Canvas plus native playback and iteration buttons.",
+      "timing": "A 10 second cycle with concurrent branch activation, paused offscreen.",
+      "keyboard": "All controls available as buttons.",
+      "touch": "Same controls and sphere tap targets.",
+      "reduced_motion": "Step through completed static cycles manually.",
+      "fallback": "Three named iterations and their business measures are visible in HTML.",
+      "status": "specified"
+    }
+  ],
+  "open_decisions": [
+    "Only desktop art supplied; portrait adaptation is inferred without changing the metaphor.",
+    "No quantified client results: illustrated successful cycles accumulate capability; actual growth is measured separately."
+  ]
+}

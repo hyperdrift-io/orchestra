@@ -6,17 +6,29 @@
 
 See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
+## Current approved experience — Living constellation A, 22 September 2026
+
+The founder selected **A — Living constellation**. [Selection and implementation](docs/design/2026-09-22-business-flow/SELECTION.md). This supersedes earlier instructions to keep the full organisation diagram on the homepage and all giant artwork directions.
+
+- Home: commercial promise, one interactive mesh, three inspectable builds, enquiry. No organisation diagram, article grid, news feed or partnership sales block in the main homepage flow.
+- `/how-it-works`: the selected five-sphere constellation. Signals branch along shared curves, each domain opens into signal/action/impact/measurement, click-out and Escape return to the overview. The founder keeps consequential decisions.
+- Three **illustrative successful iterations** per business scenario retain illuminated memory rings. After the third, existing signals keep circulating without inventing further improvements. Growth/profit are measured objectives, never guaranteed results. Heartbeat changes light only.
+- `/work`: complete catalogue and correct contest attribution. `/partnership`: existing partnership offer with scoped terms and contextual enquiry link. Articles stay at `/articles`; publication gating is preserved in navigation and secondary links.
+- All routes have canonical metadata and sitemap coverage. Local preview only; no deployment or public sitemap submission authorized.
+
+Prototype verification: typecheck, manual browser review at desktop and 390px phone widths, domain/facet interaction, click-out, Escape focus restoration, scenario/iteration state, full catalogue and partnership enquiry context. No test suite or new dependency added.
+
 ## AI-native editorial series — approved 21 September 2026
 
 New AI-native proposition articles belong at `ai.hyperdrift.io/articles` and lead to a relevant sales enquiry. Use the strongest real Hyperdrift example for each argument, explicitly distinguishing internal operations, public demonstrations, prototypes and client outcomes. Source of record: [editorial decision](docs/decisions/2026-09-21-ai-native-articles.md); drafts and proof ledger: [series review](docs/editorial/ai-native-series/README.md). Existing published articles keep their URLs initially. All copy inherits `meta/PHILOSOPHY.md` §8, Speak to Enable. The founder instructed implementation on 21 September; the article pages extend the existing approved gold/ink/serif identity. Runtime source is `content/articles/*.md` plus `src/data/articles.json`; original drafts remain in the review directory. Article context is editable in the form, validated and retained in the lead record and relay message. Final words/media and production publication still need review. Drafts are visible only in development or an explicit preview build and stay out of the sitemap. Never count preview submissions as leads. See the series README for local delivery, attribution and release details.
 
 ## Founder-selected WebGL refinement — 22 September 2026
 
-The founder chose the existing WebGL view, removed the giant and asked for business growth/profit positioning. The home page now uses a living mesh with node camera entry and business facets, followed by the full animated organisation graph. Preserve the full graph; the founder explicitly rejected its replacement with a simplified five-node sequence. Article openings use six ink/gold editorial illustrations while real evidence remains in proof sections. [Selected refinement and verification](docs/design/2026-09-21-landing-review/SELECTION.md). The prior A/B/C landing concepts were not selected. `MISSION.md` now leads with founder revenue, profit and time. These changes remain local preview only.
+The founder chose the existing WebGL view, removed the giant and asked for business growth/profit positioning. At that review, the home page used a living mesh followed by the full graph. The later selection of constellation A supersedes that arrangement; do not restore the diagram to the homepage. Article openings use six ink/gold editorial illustrations while real evidence remains in proof sections. [Selected refinement and verification](docs/design/2026-09-21-landing-review/SELECTION.md). The prior A/B/C landing concepts were not selected. `MISSION.md` now leads with founder revenue, profit and time. These changes remain local preview only.
 
 ## Coloured domains and conversion review — 22 September 2026
 
-The latest founder request permits moving the organisation experience to another page and exploring alternatives to the graph. This supersedes the earlier requirement to keep it on the homepage, but no replacement direction has been selected yet. The complete graph stays during review. Three comparable concepts and their status: [business flow](docs/design/2026-09-22-business-flow/README.md). Homepage hierarchy and page-move recommendations: [conversion review](docs/reviews/2026-09-22-homepage-conversion.md).
+The latest founder request permits moving the organisation experience to another page and exploring alternatives to the graph. This supersedes the earlier requirement to keep it on the homepage, and the founder subsequently selected A. The constellation now replaces that graph in the public exploration. Three comparable concepts and their status: [business flow](docs/design/2026-09-22-business-flow/README.md). Homepage hierarchy and page-move recommendations: [conversion review](docs/reviews/2026-09-22-homepage-conversion.md).
 
 The approved homepage mesh now has five coloured domain spheres, original procedural signal/action/impact/measurement assets, click-out and Escape navigation, and keyboard focus restoration. Heartbeat is light-only. Keep the business context readable without WebGL. The proof section offers existing Helm and Radar recordings inline. Unsupported sponsorship/partnership assertions were removed from the partnership terms; do not restore them without evidence specific to this offer. No production deployment or outbound communication.
 

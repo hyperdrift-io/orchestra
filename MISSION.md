@@ -22,7 +22,7 @@ The operating pattern is notice → choose → improve → release → learn. Th
 
 The landing page connects actions to business outcomes through interactive scenarios. It avoids framework lists and technical catalogues. The article series provides that depth, supported by real Hyperdrift work. Public examples, prototypes, internal systems and client results remain clearly distinguished. Illustrative scenarios never masquerade as measured client outcomes.
 
-The founder selected WebGL, removed the giant and requested a living interactive mesh on 22 September 2026. The mesh now opens into five coloured domains. The latest direction permits the complete organisation exploration to move to another page and asks for branching signals and visible retained learning; three visual concepts await selection. Preserve the existing ink, cream and gold identity. Article illustrations support the idea; real evidence remains in the proof sections. All copy follows `meta/PHILOSOPHY.md` §8, Speak to Enable.
+The founder selected WebGL, removed the giant and requested a living interactive mesh on 22 September 2026. The mesh now opens into five coloured domains. The founder selected Living constellation A for the organisation exploration at `/how-it-works`: branching signals and retained learning across illustrative successful iterations. The homepage is now the promise, one interactive example, three real builds and an enquiry; deeper work, reading and partnership terms have their own destinations. Preserve the existing ink, cream and gold identity. Article illustrations support the idea; real evidence remains in the proof sections. All copy follows `meta/PHILOSOPHY.md` §8, Speak to Enable.
 
 ## What success looks like
 

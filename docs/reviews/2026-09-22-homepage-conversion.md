@@ -2,7 +2,7 @@
 
 ## Decision to make
 
-Keep the homepage focused on a qualified founder enquiry: a clear commercial promise, one compelling interactive example, three inspectable builds, and a concrete first conversation. Move the complete organisation exploration to `/how-it-works`, the full case catalogue to `/work`, and the article grid to the existing `/articles` destination. The route names are proposed, not implemented. Preserve useful links between these surfaces.
+Keep the homepage focused on a qualified founder enquiry: a clear commercial promise, one compelling interactive example, three inspectable builds, and a concrete first conversation. Move the complete organisation exploration to `/how-it-works`, the full case catalogue to `/work`, and the article grid to the existing `/articles` destination. Implemented after the founder selected A: the route names below are now available in local preview. Preserve useful links between these surfaces.
 
 This is a qualitative review of the local preview, not an observed conversion result. The production PostHog project remains unconfigured. Current article events and durable enquiry records provide part of the attribution plumbing, but they do not establish a homepage conversion baseline.
 
@@ -65,7 +65,7 @@ Three art directions are ready in [the concept review](../design/2026-09-22-busi
 - Reply expectation beside the first enquiry CTA.
 - Removed unsupported partnership/sponsorship assertions from the partnership terms. This does not dispute any historical client work; it avoids implying those companies back this offer.
 
-The homepage sections have not yet moved. The new organisation art direction needs founder selection before its page is implemented. The existing complete graph remains available during review.
+Update: the founder selected A. The homepage now contains the promise, mesh, three featured builds and enquiry. The constellation is at `/how-it-works`, the complete case catalogue at `/work`, and the partnership terms at `/partnership`. The six-article grid remains on `/articles`; news and historical writing remain linked through the footer. [Implementation record](../design/2026-09-22-business-flow/SELECTION.md).
 
 ## Measurement for the proposed simplification
 
