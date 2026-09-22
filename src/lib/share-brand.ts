@@ -2,8 +2,8 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 /** Share images use the approved vector master, keeping its negative space intact. */
-export async function apertureImage() {
-  const svg = await readFile(join(process.cwd(), 'public/brand/orchestra-aperture.svg'));
+export async function meshLogoImage(compact = false) {
+  const svg = await readFile(join(process.cwd(), 'public/brand', compact ? 'orchestra-mesh-compact.svg' : 'orchestra-mesh.svg'));
   return `data:image/svg+xml;base64,${svg.toString('base64')}`;
 }
 

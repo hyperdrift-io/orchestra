@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <title>Orchestra AI — Mesh Aperture</title>
+  <g stroke="#dca958" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="256" cy="256" r="208"/>
+    <path d="M256 48L138 88 M256 48L374 88 M256 48L256 112 M138 88L256 112 M374 88L256 112 M138 88L61 186 M374 88L451 186 M61 186L128 247 M451 186L384 247 M128 247L256 112 M384 247L256 112 M256 112L148 338 M256 112L364 338 M61 186L61 326 M451 186L451 326 M61 326L148 338 M451 326L364 338 M148 338L104 404 M364 338L408 404 M104 404L186 388 M408 404L326 388 M186 388L256 423 M326 388L256 423 M256 423L256 464 M256 222L186 388 M256 222L326 388 M256 222L256 290 M256 290L186 388 M256 290L326 388"/>
+  </g>
+  <g fill="#dca958">
+    <circle cx="256" cy="48" r="10"/>
+    <circle cx="138" cy="88" r="10"/>
+    <circle cx="374" cy="88" r="10"/>
+    <circle cx="61" cy="186" r="10"/>
+    <circle cx="451" cy="186" r="10"/>
+    <circle cx="61" cy="326" r="10"/>
+    <circle cx="451" cy="326" r="10"/>
+    <circle cx="104" cy="404" r="10"/>
+    <circle cx="408" cy="404" r="10"/>
+    <circle cx="256" cy="464" r="10"/>
+    <circle cx="256" cy="112" r="10"/>
+    <circle cx="128" cy="247" r="10"/>
+    <circle cx="384" cy="247" r="10"/>
+    <circle cx="148" cy="338" r="10"/>
+    <circle cx="364" cy="338" r="10"/>
+    <circle cx="186" cy="388" r="10"/>
+    <circle cx="326" cy="388" r="10"/>
+    <circle cx="256" cy="423" r="10"/>
+    <circle cx="256" cy="290" r="13"/>
+  </g>
+</svg>

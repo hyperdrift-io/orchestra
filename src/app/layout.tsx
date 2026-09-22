@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header>
           <p>
             <a href="/" aria-label="Orchestra AI — home">
-              <img src="/brand/orchestra-aperture.svg" width="44" height="44" alt="" />
+              <img src="/brand/orchestra-mesh-compact.svg" width="44" height="44" alt="" />
               <span>Orchestra <em>AI</em><small>By Hyperdrift</small></span>
             </a>
           </p>

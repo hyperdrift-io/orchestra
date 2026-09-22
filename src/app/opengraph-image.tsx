@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og';
-import { apertureImage, shareFonts } from '@/lib/share-brand';
+import { meshLogoImage, shareFonts } from '@/lib/share-brand';
 import { brandShareImage } from '@/lib/share-metadata';
 
 export const alt = brandShareImage.alt;
@@ -8,7 +8,7 @@ export const contentType = 'image/png';
 export const dynamic = 'force-static';
 
 export default async function Image() {
-  const [logo, fonts] = await Promise.all([apertureImage(), shareFonts()]);
+  const [logo, fonts] = await Promise.all([meshLogoImage(), shareFonts()]);
   // ImageResponse requires styles in its image document; the website keeps its CSS cascade.
   return new ImageResponse(
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', padding: '64px 76px 48px', background: '#13110b', color: '#eee5d6', fontFamily: 'Plex' }}>

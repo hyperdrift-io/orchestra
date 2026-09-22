@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254">
+  <image href="b-mesh-aperture.png" width="1254" height="1254"/>
+  <g fill="none" stroke="#77d4c2" stroke-width="2">
+    <rect x="291" y="142" width="669" height="694"/>
+    <path d="M625.5 110V855" stroke-dasharray="8 8"/>
+  </g>
+  <text x="291" y="124" fill="#77d4c2" font-size="18" font-family="sans-serif">1 — Mesh silhouette; retain open A and central vertex</text>
+</svg>

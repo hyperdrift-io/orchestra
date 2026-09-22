@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { visibleArticles } from '@/lib/article-catalogue';
-import { apertureImage } from '@/lib/share-brand';
+import { meshLogoImage } from '@/lib/share-brand';
 
 export const alt = 'The AI-native organisation — an idea from Hyperdrift';
 export const size = { width: 1200, height: 630 };
@@ -10,7 +10,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const slug = (await params).slug;
   const entry = visibleArticles().find((item) => item.slug === slug);
   if (!entry) return new Response('Not found', { status: 404 });
-  const logo = await apertureImage();
+  const logo = await meshLogoImage(true);
   return new ImageResponse(
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', padding: 55, background: '#181510', color: '#f6eee1' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 18, color: '#e3a857', letterSpacing: 2 }}><div style={{ display: 'flex', alignItems: 'center', gap: 16 }}><img src={logo} width={48} height={48} alt="" /><span>THE AI-NATIVE ORGANISATION</span></div><span>0{entry.order} / HYPERDRIFT</span></div>
