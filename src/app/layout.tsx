@@ -3,6 +3,7 @@ import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/goog
 import './globals.css';
 import './org.css';
 import './articles.css';
+import './constellation.css';
 import { SiteContactLink } from '@/components/SiteContactLink';
 import { visibleArticles } from '@/lib/article-catalogue';
 
@@ -60,9 +61,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span>By Hyperdrift</span>
           </p>
           <nav aria-label="Site">
-            <a href="/#proof">Work</a>
-            <a href="/#plug">Your business</a>
-            <a href="https://intel.hyperdrift.io/daily">Intel ↗</a>
+            <a href="/work">Work</a>
+            <a href="/how-it-works">How it works</a>
             {visibleArticles().length > 0 ? <a href="/articles">Articles</a> : <a href="https://hyperdrift.io/blog">Writing ↗</a>}
             <SiteContactLink />
           </nav>

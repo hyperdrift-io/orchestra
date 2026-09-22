@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
+    ...['how-it-works','work','partnership'].map(path=>({url:`https://ai.hyperdrift.io/${path}`,changeFrequency:'monthly' as const,priority:path==='how-it-works'?.9:.8})),
     ...(published.length ? [{ url: 'https://ai.hyperdrift.io/articles', changeFrequency: 'weekly' as const, priority: 0.8 }] : []),
     ...published.map((article) => ({ url: articleUrl(article.slug), lastModified: new Date(article.publishedAt!), changeFrequency: 'monthly' as const, priority: 0.7 })),
   ];

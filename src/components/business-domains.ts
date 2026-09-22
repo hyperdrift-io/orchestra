@@ -6,7 +6,7 @@ export const domainRadius = .88;
 const facetOffsets = [[-.49, .36, .3], [.49, .36, .3], [-.49, -.36, .3], [.49, -.36, .3]];
 
 /** Original procedural assets: luminous membranes, branching signals and four business facets. */
-export function createBusinessDomains(scene: THREE.Scene) {
+export function createBusinessDomains(scene: THREE.Scene, scaleFactor = 1) {
   const geometries: THREE.BufferGeometry[] = [];
   const materials: THREE.Material[] = [];
   const geometry = <T extends THREE.BufferGeometry>(value: T) => { geometries.push(value); return value; };
@@ -48,12 +48,14 @@ export function createBusinessDomains(scene: THREE.Scene) {
   })));
   const groups = shellMaterials.map(shellMaterial => {
     const group = new THREE.Group();
+    group.scale.setScalar(scaleFactor);
     group.add(new THREE.Mesh(shellGeometry, shellMaterial));
     scene.add(group);
     return group;
   });
 
   const interior = new THREE.Group();
+  interior.scale.setScalar(scaleFactor);
   scene.add(interior);
   const facetPoints = facetOffsets.map(offset => new THREE.Vector3(...offset));
   const curves = facetPoints.map((end, i) => new THREE.CubicBezierCurve3(
@@ -125,6 +127,7 @@ export function createBusinessDomains(scene: THREE.Scene) {
 
   return {
     facetPoints: facetOffsets.map(() => new THREE.Vector3()),
+    scale(value:number) { scaleFactor=value;groups.forEach(group=>group.scale.setScalar(value));interior.scale.setScalar(value); },
     facet(index: number | null) { selectedFacet = index; },
     update(anchors: THREE.Vector3[], focused: number | null, time: number, heartbeat: number) {
       groups.forEach((group, i) => {
@@ -150,7 +153,7 @@ export function createBusinessDomains(scene: THREE.Scene) {
           signalPositions.set(point.toArray(), (branch * 18 + i) * 3);
         }
         // Labels sit underneath the asset so the visual remains inspectable.
-        this.facetPoints[branch].copy(anchors[focused]).add(facetPoints[branch]).add(new THREE.Vector3(0, -.23, .05));
+        this.facetPoints[branch].copy(facetPoints[branch]).add(new THREE.Vector3(0, -.23, .05)).multiplyScalar(scaleFactor).add(anchors[focused]);
       });
       signalGeometry.attributes.position.needsUpdate = true;
       signalRings.forEach((ring, i) => { ring.rotation.z = time * (.25 + i * .15); });

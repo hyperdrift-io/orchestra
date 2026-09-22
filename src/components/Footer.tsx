@@ -1,44 +1,8 @@
+import { visibleArticles } from '@/lib/article-catalogue';
 export function Footer() {
-  const year = new Date().getFullYear();
-  return (
-    <footer>
-      <div>
-        <p className="wordmark">
-          Orchestra <em>AI</em>
-          <span className="meta">By Hyperdrift</span>
-        </p>
-
-        <div>
-          <p className="meta">Our first year</p>
-          <p>
-            <a href="https://hyperdrift.io/blog/hyperdrift-turns-one">The Hyperdrift story</a>
-          </p>
-        </div>
-
-        <div>
-          <p className="meta">Doctrine</p>
-          <ul>
-            <li>
-              <a href="https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals">The Fleet Watches Itself</a>
-            </li>
-            <li>
-              <a href="https://hyperdrift.io/blog/agents-vs-automation">Agents vs Automation</a>
-            </li>
-            <li>
-              <a href="https://hyperdrift.io/blog/the-cdn-you-already-own">Our 60-Line Trade Secret</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <p className="meta">Contact</p>
-          <p>
-            <a href="#contact">Start a project</a>
-          </p>
-        </div>
-      </div>
-
-      <p className="meta">© {year} Orchestra AI · AI engineering by Hyperdrift</p>
-    </footer>
-  );
+  const articlesAvailable=visibleArticles().length>0;
+  return <footer data-site-footer>
+    <div><p>Orchestra <em>AI</em><small>By Hyperdrift</small></p><nav aria-label="Explore"><a href="/how-it-works">How it works</a><a href="/work">Our work</a><a href={articlesAvailable?'/articles':'https://hyperdrift.io/blog'}>{articlesAvailable?'Articles':'Writing'}</a><a href="/partnership">Traction Partnership</a></nav><nav aria-label="More from Hyperdrift"><a href="https://intel.hyperdrift.io/daily">Daily intelligence ↗</a><a href="https://hyperdrift.io/blog/hyperdrift-turns-one">The Hyperdrift story ↗</a><a href="https://hyperdrift.io/blog">Engineering notes ↗</a><a href="/#contact">Start a conversation →</a></nav></div>
+    <p>© {new Date().getFullYear()} Orchestra AI · AI engineering by Hyperdrift</p>
+  </footer>;
 }

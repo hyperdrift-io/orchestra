@@ -1,4 +1,3 @@
-import { Partnership } from '@/components/Partnership';
 import { EnquiryForm } from '@/components/EnquiryForm';
 
 /** Real examples and a clear next step for the founder. */
@@ -24,7 +23,8 @@ export function Enquiry() {
               <dd>Remote · EU/UK hours</dd>
             </div>
           </dl>
-          <Partnership />
+          <p>We start with one workflow, agree the scope, build an improvement you can inspect, and measure its effect.</p>
+          <p><a href="/partnership">Explore a Traction Partnership →</a></p>
         </div>
         <EnquiryForm />
       </div>
