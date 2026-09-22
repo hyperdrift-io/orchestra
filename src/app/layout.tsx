@@ -55,10 +55,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header>
           <p>
-            <a href="/">
-              Orchestra <em>AI</em>
+            <a href="/" aria-label="Orchestra AI — home">
+              <img src="/brand/orchestra-aperture.svg" width="44" height="44" alt="" />
+              <span>Orchestra <em>AI</em><small>By Hyperdrift</small></span>
             </a>
-            <span>By Hyperdrift</span>
           </p>
           <nav aria-label="Site">
             <a href="/work">Work</a>

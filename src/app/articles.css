@@ -1,7 +1,9 @@
 /* Article pages inherit the approved stone, ink and gold identity. */
 body > header > p { font: 600 1.6rem/1 var(--font-display); }
+body > header > p > a { display: inline-flex; align-items: center; gap: .7rem; }
+body > header > p img { display: block; width: 44px; height: 44px; flex: 0 0 auto; }
 body > header > p em { color: var(--gold-light); }
-body > header > p > span { display: block; margin-top: .5rem; font: .7rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+body > header > p small { display: block; margin-top: .5rem; font: .7rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
 body:has(#articles, #article) > header { position: relative; border-bottom: 1px solid var(--line-hair); padding-block: 1.6rem; }
 body:has(#articles, #article) { background: radial-gradient(ellipse at 80% 0, #342819 0, transparent 45%), var(--ink); }
 body > header nav a[data-enquiry] { color: var(--gold-light); }

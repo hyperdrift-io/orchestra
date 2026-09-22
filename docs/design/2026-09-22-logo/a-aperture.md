@@ -1,6 +1,6 @@
 # A — Aperture
 
-Status: concept for founder selection. Existing ink, ivory and gold identity is retained; this new mark is not approved for implementation.
+Status: selected by the founder on 22 September 2026: “A is good.” Vector refinement and application are approved. Existing ink, ivory and gold identity is retained.
 
 ## Concept
 

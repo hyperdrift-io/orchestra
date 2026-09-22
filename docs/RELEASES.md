@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** Immersive business mesh | tag `immersive-business-mesh-2026-09-22` | 22 Sep 2026 | Semantic wireframes, shared rotation, coloured contributions and business reinforcement; scenario-first homepage with stable domain links and traction-led proposition. Local preview only. |
+| **Current:** Aperture identity | tag `aperture-identity-2026-09-22` | 22 Sep 2026 | Founder-selected negative-space O/A mark in the masthead, footer and favicon. Local preview only. |
+| **Previous:** Immersive business mesh | tag `immersive-business-mesh-2026-09-22` | 22 Sep 2026 | Semantic wireframes, shared rotation, coloured contributions and business reinforcement; scenario-first homepage with stable domain links and traction-led proposition. Local preview only. |
 | **Previous:** Subtle heartbeat and connected handoffs | tag `connected-handoffs-2026-09-22` | 22 Sep 2026 | Light-only heartbeat; smooth highlights on actual diagram connections. Local preview. |
 | **Previous:** Living business system | tag `living-business-system-2026-09-22` | 22 Sep 2026 | Founder-selected WebGL refinement and editorial imagery. Local preview only. |
 | **Previous:** Article media and graph comparison | tag `article-media-graph-review-2026-09-22` | 22 Sep 2026 | Local review only; broader landing direction awaiting selection. |
@@ -15,7 +16,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `immersive-business-mesh-2026-09-22`
+## Current: `aperture-identity-2026-09-22`
+
+Founder selected A — Aperture. The approved concept is now a flat scalable SVG with genuine transparent cutouts, a monochrome master and a matching favicon. Header and footer pair the mark with live brand text and one accessible home-link name. [Selection](design/2026-09-22-logo/README.md). Local preview only.
+
+## Previous: `immersive-business-mesh-2026-09-22`
 
 A scenario-first opening with fixed accessible domain links and the commercial proposition immediately below. Recognisable domains and internal action meshes, uniform proportions, full-viewport outer sphere, continuous camera flight, direct navigation and coloured contributions that reinforce the business core. Fixed heading widths, restored prominent Traction Partnership positioning for founders with traction, and added Unanswered’s existing recorded walkthrough as a captioned local video. [Refinement and verification](design/2026-09-22-business-flow/WIREFRAME-REFINEMENT.md). Local preview only; no deployment or push.
 

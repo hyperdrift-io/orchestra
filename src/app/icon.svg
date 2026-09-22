@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <title>Orchestra AI — Aperture</title>
+  <rect width="512" height="512" rx="104" fill="#13110b"/>
+  <mask id="aperture" x="0" y="0" width="512" height="512" maskUnits="userSpaceOnUse">
+    <circle cx="256" cy="256" r="224" fill="white"/>
+    <path d="M256 84 111 425C115 367 141 316 195 263Q200 258 207 258H305Q312 258 317 263C371 316 397 367 401 425Z M206 302H306Q313 302 317 310C349 365 328 433 280 478V512H232V478C184 433 163 365 195 310Q199 302 206 302Z" fill="black"/>
+  </mask>
+  <path fill="#dca958" mask="url(#aperture)" d="M0 0h512v512H0z"/>
+</svg>
