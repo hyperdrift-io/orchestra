@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** Aperture identity | tag `aperture-identity-2026-09-22` | 22 Sep 2026 | Founder-selected negative-space O/A mark in the masthead, footer and favicon. Local preview only. |
+| **Current:** Aperture Open Graph | tag `aperture-opengraph-2026-09-22` | 22 Sep 2026 | Branded 1200 × 630 growth/profit share card, secondary-page metadata and article marks. Local preview only. |
+| **Previous:** Aperture identity | tag `aperture-identity-2026-09-22` | 22 Sep 2026 | Founder-selected negative-space O/A mark in the masthead, footer and favicon. Local preview only. |
 | **Previous:** Immersive business mesh | tag `immersive-business-mesh-2026-09-22` | 22 Sep 2026 | Semantic wireframes, shared rotation, coloured contributions and business reinforcement; scenario-first homepage with stable domain links and traction-led proposition. Local preview only. |
 | **Previous:** Subtle heartbeat and connected handoffs | tag `connected-handoffs-2026-09-22` | 22 Sep 2026 | Light-only heartbeat; smooth highlights on actual diagram connections. Local preview. |
 | **Previous:** Living business system | tag `living-business-system-2026-09-22` | 22 Sep 2026 | Founder-selected WebGL refinement and editorial imagery. Local preview only. |
@@ -16,7 +17,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `aperture-identity-2026-09-22`
+## Current: `aperture-opengraph-2026-09-22`
+
+Default Open Graph card with the approved Aperture mark, ink/gold identity and “Grow your business. Keep more of the upside.” Large-image Twitter metadata and explicit image inheritance for secondary pages. Article cards retain individual content and now carry the mark. Typecheck, production build, local crawler-metadata checks and PNG visual review passed. [Preview and verification](design/2026-09-22-logo/README.md#open-graph-application). Local preview only.
+
+## Previous: `aperture-identity-2026-09-22`
 
 Founder selected A — Aperture. The approved concept is now a flat scalable SVG with genuine transparent cutouts, a monochrome master and a matching favicon. Header and footer pair the mark with live brand text and one accessible home-link name. [Selection](design/2026-09-22-logo/README.md). Local preview only.
 

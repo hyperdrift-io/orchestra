@@ -20,7 +20,7 @@ Latest refinement: the founder rejected atomic/molecular motifs, reused abstract
 
 Prototype verification: typecheck, manual browser review at desktop and 390px phone widths, domain/facet interaction, click-out, Escape focus restoration, scenario/iteration state, full catalogue and partnership enquiry context. No test suite or new dependency added.
 
-The founder selected **A — Aperture** for the negative-space O/A logo. Use the flat SVG master in `public/brand/` for the masthead/footer and `src/app/icon.svg` for the favicon. Keep the cutouts transparent, proportions square and wordmark as live text. [Selection and assets](docs/design/2026-09-22-logo/README.md).
+The founder selected **A — Aperture** for the negative-space O/A logo. Use the flat SVG master in `public/brand/` for the masthead/footer and `src/app/icon.svg` for the favicon. Keep the cutouts transparent, proportions square and wordmark as live text. The default 1200 × 630 Open Graph image at `/opengraph-image` uses this master and the growth/profit proposition. Child pages with Open Graph objects must include `brandShareImage` from `src/lib/share-metadata.ts`; article details retain their own branded cards. [Selection and assets](docs/design/2026-09-22-logo/README.md).
 
 ## AI-native editorial series — approved 21 September 2026
 
