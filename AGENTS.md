@@ -14,6 +14,16 @@ New AI-native proposition articles belong at `ai.hyperdrift.io/articles` and lea
 
 The founder chose the existing WebGL view, removed the giant and asked for business growth/profit positioning. The home page now uses a living mesh with node camera entry and business facets, followed by the full animated organisation graph. Preserve the full graph; the founder explicitly rejected its replacement with a simplified five-node sequence. Article openings use six ink/gold editorial illustrations while real evidence remains in proof sections. [Selected refinement and verification](docs/design/2026-09-21-landing-review/SELECTION.md). The prior A/B/C landing concepts were not selected. `MISSION.md` now leads with founder revenue, profit and time. These changes remain local preview only.
 
+## Coloured domains and conversion review — 22 September 2026
+
+The latest founder request permits moving the organisation experience to another page and exploring alternatives to the graph. This supersedes the earlier requirement to keep it on the homepage, but no replacement direction has been selected yet. The complete graph stays during review. Three comparable concepts and their status: [business flow](docs/design/2026-09-22-business-flow/README.md). Homepage hierarchy and page-move recommendations: [conversion review](docs/reviews/2026-09-22-homepage-conversion.md).
+
+The approved homepage mesh now has five coloured domain spheres, original procedural signal/action/impact/measurement assets, click-out and Escape navigation, and keyboard focus restoration. Heartbeat is light-only. Keep the business context readable without WebGL. The proof section offers existing Helm and Radar recordings inline. Unsupported sponsorship/partnership assertions were removed from the partnership terms; do not restore them without evidence specific to this offer. No production deployment or outbound communication.
+
+### Domain references
+
+Reviewed community [Three.js materials](https://playbooks.com/skills/cloudai-x/threejs-skills/threejs-materials) and [animation](https://playbooks.com/skills/cloudai-x/threejs-skills/threejs-animation), plus [official shader documentation](https://threejs.org/docs/pages/ShaderMaterial.html). Apply shared GPU resources, explicit disposal, time-based procedural motion and stationary geometry for the heartbeat. Existing Three.js is sufficient; no new dependency or stock-asset pipeline.
+
 ## Current direction — 14 September 2026
 
 `ai.hyperdrift.io` is Hyperdrift's primary business and marketing destination. Founder explicitly corrected the proposal to keep investing in the legacy HD homepage: move the focus to this AI site. The older site remains the location of existing articles and historical work during this transition.

@@ -14,7 +14,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `connected-handoffs-2026-09-22`
+## Current: `coloured-business-domains-2026-09-22`
+
+Five coloured domain spheres with procedural membranes, branching interior signals, distinct facet assets and click-out/Escape return. Heartbeat stays light-only. Proof copy and inline Helm/Radar recordings; first-CTA reply expectation; unsupported partnership assertions removed. [Homepage conversion review](reviews/2026-09-22-homepage-conversion.md) and [three organisation concepts](design/2026-09-22-business-flow/README.md). Concepts await selection; homepage sections have not moved. Typecheck and manual desktop/phone browser inspection passed. Local preview only; no deployment or push.
+
+## Previous: `connected-handoffs-2026-09-22`
 
 Heartbeat affects light only. The chart now lights its actual founder, step, job and outcome connections with 180ms fades; the sequence advances every 1.8 seconds. Independent particle overlay removed. Typecheck and browser inspection passed. No deployment.
 
