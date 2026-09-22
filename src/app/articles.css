@@ -51,11 +51,23 @@ body > header nav a[data-enquiry] { color: var(--gold-light); }
 #article > div > aside ol { margin: 1.2rem 0 2rem; padding: 0; list-style: none; display: grid; gap: 1rem; }
 #article > div > aside a { border: 0; color: var(--cream-3); }
 #article > div > aside a:hover { color: var(--gold-light); }
+/* The rail keeps the two asks one click away at any depth; the header carries them on small screens. */
+#article > div > aside > nav { display: grid; gap: .6rem; margin-top: .6rem; padding-top: 1rem; border-top: 1px solid var(--line-hair); }
+#article > div > aside > nav a { color: var(--gold-light); }
 #article-body > p { margin: 0 0 1.6rem; font-size: 1.08rem; line-height: 1.85; }
 #article-body > p:first-child { font-size: 1.3rem; color: var(--cream); }
 #article-body > h2 { font-size: clamp(2rem, 3vw, 2.7rem); line-height: 1.12; margin: 3rem 0 1.25rem; }
 #article-body blockquote { margin: 2.6rem 0; padding: 1.5rem 0 1.5rem 1.8rem; border-left: 2px solid var(--gold); }
 #article-body blockquote p { font: 500 clamp(1.9rem, 3vw, 2.5rem)/1.15 var(--font-display); color: var(--gold-light); }
+/* The share line: the quote readers forward, with its own one-tap share beneath it. */
+#article-body figure:has(> blockquote) { margin: 1.3rem 0; }
+#article-body figure:has(> blockquote) > blockquote { margin: 0; }
+#article-body figure:has(> blockquote) > figcaption { margin: .4rem 0 0 calc(1.2rem + 2px); }
+#article-body figcaption button { min-height: 44px; padding: 0; border: 0; border-bottom: 1px solid var(--gold-line); background: transparent; color: var(--gold-light); font: .85rem/1.4 var(--font-body); cursor: pointer; }
+#article-body figcaption button:hover { border-color: var(--gold-light); }
+#article-body figcaption button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+/* Read to the end: the end-cap's ask lights up. */
+#article[data-read='done'] #article-share > p:first-child { color: var(--gold-light); }
 #article-body code { font: .9em var(--font-mono); overflow-wrap: anywhere; }
 #article-body img { border: 1px solid var(--line-soft); }
 #article-end { display: block; height: 1px; }
@@ -111,6 +123,7 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
   #article > div { display: block; }
   #article > div > aside { position: static; border-block: 1px solid var(--line-hair); padding: 1.2rem 0; margin-bottom: 2rem; }
   #article > div > aside ol { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 1rem 0; }
+  #article > div > aside > nav { display: none; }
   #articles > article { grid-template-columns: 1fr; gap: 2rem; }
   #article-series ol { grid-template-columns: 1fr 1fr; }
   #enquire { grid-template-columns: 1fr; gap: 2rem; }

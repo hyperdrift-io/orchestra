@@ -41,8 +41,8 @@ export default async function ArticlePage({ params }: Props) {
       <figure><a href="#article-proof" aria-label="See the working example"><Image src={article.image.src} sizes="(max-width: 850px) 100vw, 1000px" alt={article.image.alt} width={article.image.width} height={article.image.height} priority /></a><figcaption>{article.image.caption}</figcaption></figure>
     </header>
     <div>
-      <aside aria-label="In this article"><p>In this article</p><ol>{article.blocks.filter((block) => block.kind === 'heading').map((block) => 'text' in block && <li key={block.id}><a href={`#${block.id}`}>{block.text}</a></li>)}</ol><a href="#article-proof">See the working example ↓</a></aside>
-      <ArticleBody blocks={article.blocks} />
+      <aside aria-label="In this article"><p>In this article</p><ol>{article.blocks.filter((block) => block.kind === 'heading').map((block) => 'text' in block && <li key={block.id}><a href={`#${block.id}`}>{block.text}</a></li>)}</ol><a href="#article-proof">See the working example ↓</a><nav aria-label="Share or enquire"><a href="#article-share">Share article ↓</a><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></nav></aside>
+      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} />
     </div>
     <figure id="article-diagram"><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol><ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
     <ArticleProof article={article} />

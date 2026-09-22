@@ -24,6 +24,7 @@ export function observeArticle(slug: string) {
   const observer = new IntersectionObserver((entries) => {
     if (!engaged && entries.some((entry) => entry.isIntersecting)) {
       engaged = true; trackArticle(slug, 'article_engaged');
+      document.getElementById('article')?.setAttribute('data-read', 'done');
     }
   });
   const end = document.getElementById('article-end');
@@ -31,6 +32,7 @@ export function observeArticle(slug: string) {
   const onClick = (event: MouseEvent) => {
     if (!(event.target instanceof Element)) return;
     if (event.target.closest('a[data-enquiry]')) trackArticle(slug, 'article_cta_clicked');
+    if (event.target.closest('#article-share nav :is(a, button), [data-share-line]')) trackArticle(slug, 'article_shared');
     if (event.target.closest('[data-proof-link], #article-proof summary')) trackArticle(slug, 'article_proof_opened');
   };
   document.addEventListener('click', onClick);
