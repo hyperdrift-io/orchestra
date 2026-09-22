@@ -1,170 +1,74 @@
 import * as THREE from 'three';
+import {createDomainSymbol,domainSymbols,actorSymbols} from './domain-symbols';
 
-// Each domain keeps its colour from the whole business into its own interior.
-export const domainColours = ['#78dcca', '#9dbdff', '#e6b46c', '#f19c9a', '#c3a6f5'];
-export const domainRadius = .88;
-const facetOffsets = [[-.49, .36, .3], [.49, .36, .3], [-.49, -.36, .3], [.49, -.36, .3]];
+export const domainColours=['#78dcca','#9dbdff','#e6b46c','#f19c9a','#c3a6f5'];
+export const domainRadius=.88;
+const facetOffsets=[[-.47,.36,.58],[.47,.36,.58],[-.47,-.30,.58],[.47,-.30,.58]];
 
-/** Original procedural assets: luminous membranes, branching signals and four business facets. */
-export function createBusinessDomains(scene: THREE.Scene, scaleFactor = 1) {
-  const geometries: THREE.BufferGeometry[] = [];
-  const materials: THREE.Material[] = [];
-  const geometry = <T extends THREE.BufferGeometry>(value: T) => { geometries.push(value); return value; };
-  const material = <T extends THREE.Material>(value: T) => { materials.push(value); return value; };
-  const shellGeometry = geometry(new THREE.SphereGeometry(domainRadius, 48, 32));
-  const shellVertex = `
-    varying vec3 vNormal;
-    varying vec3 vView;
-    varying vec3 vPosition;
-    void main() {
-      vec4 view = modelViewMatrix * vec4(position, 1.0);
-      vNormal = normalize(normalMatrix * normal);
-      vView = -view.xyz;
-      vPosition = position;
-      gl_Position = projectionMatrix * view;
-    }
-  `;
-  const shellFragment = `
-    uniform vec3 uColour;
-    uniform float uTime;
-    uniform float uStrength;
-    varying vec3 vNormal;
-    varying vec3 vView;
-    varying vec3 vPosition;
-    void main() {
-      float rim = pow(1.0 - max(dot(normalize(vNormal), normalize(vView)), 0.0), 2.4);
-      vec3 p = vPosition * 7.0;
-      float flow = sin(p.x + sin(p.z * 1.8 + uTime * .22))
-                 * sin(p.y * 1.3 - uTime * .17 + cos(p.z));
-      float filament = pow(1.0 - abs(flow), 12.0);
-      float light = .025 + rim * .68 + filament * .12;
-      gl_FragColor = vec4(uColour * (1.0 + rim * .55), light * uStrength);
-    }
-  `;
-  const shellMaterials = domainColours.map(colour => material(new THREE.ShaderMaterial({
-    uniforms: { uColour: { value: new THREE.Color(colour) }, uTime: { value: 0 }, uStrength: { value: .8 } },
-    vertexShader: shellVertex, fragmentShader: shellFragment,
-    transparent: true, blending: THREE.AdditiveBlending, depthWrite: false,
-  })));
-  const groups = shellMaterials.map(shellMaterial => {
-    const group = new THREE.Group();
-    group.scale.setScalar(scaleFactor);
-    group.add(new THREE.Mesh(shellGeometry, shellMaterial));
-    scene.add(group);
-    return group;
+/** Recognisable wireframe domains and actors coexist throughout the camera journey. */
+export function createBusinessDomains(scene:THREE.Scene,scaleFactor=1) {
+  const geometries:THREE.BufferGeometry[]=[],materials:THREE.Material[]=[];
+  const geometry=<T extends THREE.BufferGeometry>(g:T)=>{geometries.push(g);return g;};
+  const material=<T extends THREE.Material>(m:T)=>{materials.push(m);return m;};
+  const facetPoints=facetOffsets.map(()=>new THREE.Vector3());
+  const actorPoints=facetOffsets.map(()=>new THREE.Vector3());
+  const point=new THREE.Vector3();let selectedFacet:number|null=null;
+  const worlds=domainColours.map((colour,domain)=>{
+    const group=new THREE.Group();group.scale.setScalar(scaleFactor);scene.add(group);
+    const bodyMaterial=material(new THREE.LineBasicMaterial({color:colour,transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false}));
+    const vertexMaterial=material(new THREE.PointsMaterial({color:colour,size:.014,transparent:true,opacity:.85,depthWrite:false}));
+    const sculpture=createDomainSymbol(domainSymbols[domain],bodyMaterial,vertexMaterial,geometry);group.add(sculpture);
+    const actorMaterials=facetOffsets.map(()=>material(new THREE.LineBasicMaterial({color:colour,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false})));
+    const actorVertices=facetOffsets.map(()=>material(new THREE.PointsMaterial({color:colour,size:.009,transparent:true,opacity:0,depthWrite:false})));
+    const actors=facetOffsets.map((offset,i)=>{
+      const actor=createDomainSymbol(actorSymbols[domain][i],actorMaterials[i],actorVertices[i],geometry);
+      actor.scale.setScalar(.32);actor.position.set(...offset as [number,number,number]);group.add(actor);return actor;
+    });
+    const paths=facetOffsets.map(offset=>new THREE.CubicBezierCurve3(new THREE.Vector3(0,0,.15),new THREE.Vector3(offset[0]*.2,offset[1]*1.3,.65),new THREE.Vector3(offset[0]*1.1,offset[1]*.5,.7),new THREE.Vector3(...offset)));
+    const lineMaterial=material(new THREE.LineBasicMaterial({color:colour,transparent:true,opacity:.05,blending:THREE.AdditiveBlending,depthWrite:false}));
+    paths.forEach(path=>group.add(new THREE.Line(geometry(new THREE.BufferGeometry().setFromPoints(path.getPoints(48))),lineMaterial)));
+    const specks=new Float32Array(4*14*3),sparkGeometry=geometry(new THREE.BufferGeometry());
+    sparkGeometry.setAttribute('position',new THREE.BufferAttribute(specks,3));
+    const sparkMaterial=material(new THREE.ShaderMaterial({
+      uniforms:{uColour:{value:new THREE.Color(colour)},uOpacity:{value:0},uTime:{value:0}},
+      vertexShader:`varying float seed;void main(){seed=position.x*17.+position.y*29.;vec4 p=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*p;gl_PointSize=clamp(27./-p.z,2.,10.);}`,
+      fragmentShader:`uniform vec3 uColour;uniform float uOpacity;uniform float uTime;varying float seed;void main(){vec2 p=abs(gl_PointCoord-.5)*2.;float d=length(p);float cross=pow(max(0.,1.-min(p.x,p.y)),18.)*pow(max(0.,1.-max(p.x,p.y)),2.);float light=pow(max(0.,1.-d),4.)+cross*.55;gl_FragColor=vec4(mix(uColour,vec3(1.),.65),light*uOpacity*(.65+.35*sin(seed+uTime*6.)));}`,
+      transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,
+    }));
+    const sparks=new THREE.Points(sparkGeometry,sparkMaterial);sparks.frustumCulled=false;group.add(sparks);
+    return {group,sculpture,bodyMaterial,vertexMaterial,actors,actorMaterials,actorVertices,paths,lineMaterial,specks,sparkGeometry,sparkMaterial,focus:0,visibility:1,hover:0,turn:domain*.3};
   });
-
-  const interior = new THREE.Group();
-  interior.scale.setScalar(scaleFactor);
-  scene.add(interior);
-  const facetPoints = facetOffsets.map(offset => new THREE.Vector3(...offset));
-  const curves = facetPoints.map((end, i) => new THREE.CubicBezierCurve3(
-    new THREE.Vector3(0, 0, .1),
-    new THREE.Vector3(end.x * .15, end.y * 1.2, .54),
-    new THREE.Vector3(end.x * 1.25, end.y * .3, .42), end,
-  ));
-  const filamentMaterial = material(new THREE.LineBasicMaterial({ color: domainColours[0], transparent: true, opacity: .36, blending: THREE.AdditiveBlending, depthWrite: false }));
-  curves.forEach(curve => interior.add(new THREE.Line(geometry(new THREE.BufferGeometry().setFromPoints(curve.getPoints(48))), filamentMaterial)));
-
-  // The branch routes are static; light travels along the exact same curves.
-  const signalPositions = new Float32Array(4 * 18 * 3);
-  const signalGeometry = geometry(new THREE.BufferGeometry());
-  signalGeometry.setAttribute('position', new THREE.BufferAttribute(signalPositions, 3));
-  const signalMaterial = material(new THREE.ShaderMaterial({
-    uniforms: { uColour: { value: new THREE.Color(domainColours[0]) }, uOpacity: { value: 1 } },
-    vertexShader: `
-      void main() {
-        vec4 view = modelViewMatrix * vec4(position, 1.0);
-        gl_Position = projectionMatrix * view;
-        gl_PointSize = clamp(12.0 / -view.z, 2.0, 9.0);
-      }
-    `,
-    fragmentShader: `
-      uniform vec3 uColour;
-      uniform float uOpacity;
-      void main() {
-        float radius = length(gl_PointCoord - .5) * 2.0;
-        if (radius > 1.0) discard;
-        gl_FragColor = vec4(mix(uColour, vec3(1.0), .35), pow(1.0 - radius, 2.0) * uOpacity);
-      }
-    `,
-    transparent: true, blending: THREE.AdditiveBlending, depthWrite: false,
-  }));
-  const signalPoints = new THREE.Points(signalGeometry, signalMaterial);
-  signalPoints.frustumCulled = false;
-  interior.add(signalPoints);
-
-  const assetMaterials = facetPoints.map(() => material(new THREE.MeshBasicMaterial({ color: domainColours[0], transparent: true, opacity: .85, blending: THREE.AdditiveBlending, depthWrite: false })));
-  const assets = facetPoints.map(point => { const group = new THREE.Group(); group.position.copy(point); interior.add(group); return group; });
-  const ringGeometry = geometry(new THREE.TorusGeometry(.115, .004, 5, 64));
-  const signalRings = Array.from({ length: 3 }, (_, i) => {
-    const ring = new THREE.Mesh(ringGeometry, assetMaterials[0]);
-    ring.rotation.set(i * .55, i * .8, .3); assets[0].add(ring); return ring;
-  });
-  const actionGeometry = geometry(new THREE.OctahedronGeometry(.125, 0));
-  const action = new THREE.Mesh(actionGeometry, assetMaterials[1]);
-  const actionFrame = new THREE.Mesh(geometry(new THREE.IcosahedronGeometry(.19, 0)), material(new THREE.MeshBasicMaterial({ color: '#fff0d7', transparent: true, opacity: .35, wireframe: true })));
-  assets[1].add(action, actionFrame);
-  const impactPetals = Array.from({ length: 7 }, (_, i) => {
-    const petal = new THREE.Mesh(ringGeometry, assetMaterials[2]);
-    const angle = i / 7 * Math.PI * 2;
-    petal.position.set(Math.cos(angle) * .07, Math.sin(angle) * .07, 0);
-    petal.rotation.set(.6, .9, angle); assets[2].add(petal); return petal;
-  });
-  const measure = new THREE.Mesh(ringGeometry, assetMaterials[3]);
-  assets[3].add(measure);
-  const tickGeometry = geometry(new THREE.BoxGeometry(.007, .035, .007));
-  for (let i = 0; i < 16; i++) {
-    const tick = new THREE.Mesh(tickGeometry, assetMaterials[3]), angle = i / 16 * Math.PI * 2;
-    tick.position.set(Math.sin(angle) * .155, Math.cos(angle) * .155, 0); tick.rotation.z = -angle; assets[3].add(tick);
-  }
-  const needle = new THREE.Mesh(geometry(new THREE.ConeGeometry(.014, .09, 5)), assetMaterials[3]);
-  needle.position.y = .045; assets[3].add(needle);
-  const core = new THREE.Mesh(geometry(new THREE.IcosahedronGeometry(.065, 1)), assetMaterials[1]);
-  interior.add(core);
-  const point = new THREE.Vector3();
-  let selectedFacet: number | null = null;
-
   return {
-    facetPoints: facetOffsets.map(() => new THREE.Vector3()),
-    scale(value:number) { scaleFactor=value;groups.forEach(group=>group.scale.setScalar(value));interior.scale.setScalar(value); },
-    facet(index: number | null) { selectedFacet = index; },
-    update(anchors: THREE.Vector3[], focused: number | null, time: number, heartbeat: number) {
-      groups.forEach((group, i) => {
-        group.position.copy(anchors[i]);
-        group.visible = focused === null || focused === i;
-        shellMaterials[i].uniforms.uTime.value = time + i * 3;
-        shellMaterials[i].uniforms.uStrength.value = (focused === i ? 1.15 : .65) + heartbeat;
+    facetPoints,actorPoints,
+    scale(value:number){scaleFactor=value;worlds.forEach(w=>w.group.scale.setScalar(value));},
+    facet(index:number|null){selectedFacet=index;},
+    update(anchors:THREE.Vector3[],focused:number|null,time:number,heartbeat:number,dt=.016,hover:number|null=null,reduced=false,depth=false){
+      const ease=reduced?1:1-Math.exp(-dt*6);
+      worlds.forEach((w,i)=>{
+        w.focus+=((focused===i?1:0)-w.focus)*ease;
+        const depthOpacity=depth?THREE.MathUtils.clamp((anchors[i].z+2.65)/4.1,.2,1):1;
+        w.visibility+=((focused===null?depthOpacity:focused===i?1:.015)-w.visibility)*ease;
+        w.hover+=((hover===i?1:0)-w.hover)*ease;
+        w.group.position.copy(anchors[i]);
+        if(reduced)w.turn=0;else if(hover===i||focused===i)w.turn+=Math.atan2(Math.sin(-w.turn),Math.cos(-w.turn))*(1-Math.exp(-dt*4));else w.turn+=(Math.sin(time*.3+i)*.42-w.turn)*(1-Math.exp(-dt*2));
+        w.sculpture.rotation.set(.1*(1-w.hover),w.turn,0);
+        w.bodyMaterial.opacity=w.visibility*(.75+w.hover*.2)*(1-w.focus*.98);
+        w.vertexMaterial.opacity=w.bodyMaterial.opacity*(1+heartbeat);
+        w.lineMaterial.opacity=(.025+w.focus*.36)*w.visibility;
+        w.actors.forEach((actor,j)=>{
+          actor.rotation.set(Math.sin(time*.25+j)*.07,Math.sin(time*.22+j)*.18,0);
+          w.actorMaterials[j].opacity=w.focus*w.visibility*(selectedFacet===null||selectedFacet===j?1:.24);
+          w.actorVertices[j].opacity=w.actorMaterials[j].opacity;
+          if(focused===i){
+            actorPoints[j].set(...facetOffsets[j] as [number,number,number]).multiplyScalar(scaleFactor).add(anchors[i]);
+            facetPoints[j].copy(actorPoints[j]).add(new THREE.Vector3(0,-.25,.05).multiplyScalar(scaleFactor));
+          }
+          for(let k=0;k<14;k++){w.paths[j].getPoint(1-(time*(i===3?.6:.3)+k*.011+j*.23)%1,point);w.specks.set(point.toArray(),(j*14+k)*3);}
+        });
+        w.sparkMaterial.uniforms.uOpacity.value=(w.focus*.65+w.hover*.85)*w.visibility;
+        w.sparkMaterial.uniforms.uTime.value=time;w.sparkGeometry.attributes.position.needsUpdate=true;
       });
-      interior.visible = focused !== null;
-      if (focused === null) return;
-      interior.position.copy(anchors[focused]);
-      const colour = domainColours[focused];
-      filamentMaterial.color.set(colour);
-      signalMaterial.uniforms.uColour.value.set(colour);
-      assetMaterials.forEach((mat, i) => {
-        mat.color.set(colour);
-        mat.opacity = selectedFacet === null || selectedFacet === i ? .95 : .32;
-      });
-      curves.forEach((curve, branch) => {
-        for (let i = 0; i < 18; i++) {
-          const progress = (time * .42 + i * .008 + branch * .23) % 1;
-          curve.getPoint(progress, point);
-          signalPositions.set(point.toArray(), (branch * 18 + i) * 3);
-        }
-        // Labels sit underneath the asset so the visual remains inspectable.
-        this.facetPoints[branch].copy(facetPoints[branch]).add(new THREE.Vector3(0, -.23, .05)).multiplyScalar(scaleFactor).add(anchors[focused]);
-      });
-      signalGeometry.attributes.position.needsUpdate = true;
-      signalRings.forEach((ring, i) => { ring.rotation.z = time * (.25 + i * .15); });
-      action.rotation.set(time * .45, time * .65, .4); actionFrame.rotation.y = -time * .24;
-      impactPetals.forEach((petal, i) => { petal.rotation.z = i / 7 * Math.PI * 2 + time * .18; });
-      assets[3].rotation.z = Math.sin(time * .35) * .18;
-      core.rotation.set(time * .15, time * .28, 0);
     },
-    dispose() {
-      groups.forEach(group => scene.remove(group)); scene.remove(interior);
-      geometries.forEach(value => value.dispose()); materials.forEach(value => value.dispose());
-    },
+    dispose(){worlds.forEach(w=>scene.remove(w.group));geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());},
   };
 }

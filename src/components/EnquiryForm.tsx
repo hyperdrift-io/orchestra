@@ -24,7 +24,7 @@ export function EnquiryForm({ articleSlug }: { articleSlug?: string }) {
       <label><span>Name</span><input name="name" required maxLength={120} autoComplete="name" /></label>
       <label><span>Email</span><input name="email" type="email" required maxLength={254} autoComplete="email" /></label>
       <label><span>Company <small>Optional</small></span><input name="company" maxLength={200} autoComplete="organization" /></label>
-      <label><span>What would you like to make easier?</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder="Tell us about the workflow, the tools involved, and what a useful result would look like." /></label>
+      <label><span>What’s working, and what’s next?</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder="Tell us about your product or business, the demand you’re seeing, and the next result you want to achieve." /></label>
       <p>We’ll use these details to reply to your enquiry.</p>
       <button type="submit">{status === 'sending' ? 'Sending…' : 'Start the conversation →'}</button>
     </fieldset>

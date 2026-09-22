@@ -1,7 +1,7 @@
 /* Living constellation — approved direction A, 22 September 2026. */
 body:has(#organisation, #partnership, #proof[data-catalogue='true']) > header { position: relative; padding-block: 1.5rem; }
 #system > [data-explore-link] { margin: 1.5rem auto 0; max-width: 1320px; font-size: .9rem; }
-#proof > :is(h1,h2) { padding: var(--sp-xl) var(--edge) 0; max-inline-size: 28ch; font-size: clamp(2.6rem,4.3vw,4.6rem); }
+#proof > :is(h1,h2) { margin-inline: var(--edge); padding: var(--sp-xl) 0 0; max-inline-size: 28ch; font-size: clamp(2.6rem,4.3vw,4.6rem); }
 #proof[data-catalogue='true'] > h1 { font-size: clamp(3.2rem,6vw,6rem); }
 #proof li { padding: 1.7rem; border-top: 1px solid var(--gold-line); scroll-margin-top: 2rem; }
 #proof h3 { font-size: clamp(1.8rem,2.4vw,2.5rem); line-height: 1.15; margin-block: .8rem 1rem; }
@@ -9,7 +9,7 @@ body:has(#organisation, #partnership, #proof[data-catalogue='true']) > header { 
 #proof li > p[data-project-name] { color: var(--gold-light); font: .75rem var(--font-mono); }
 #proof li > p { color: var(--cream-2); font-size: .95rem; line-height: 1.65; }
 #proof li figure { margin: 1.5rem 0; }
-#proof li :is(img,iframe) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line-soft); }
+#proof li :is(img,iframe,video) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line-soft); }
 #proof li iframe { margin: 0; }
 #proof li figcaption { margin-top: .7rem; font-size: .75rem; color: var(--cream-3); }
 #proof > footer { padding: 0 var(--edge) 3rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .9rem; }
@@ -51,6 +51,7 @@ body:has(#organisation, #partnership, #proof[data-catalogue='true']) > header { 
 [data-constellation-surface] > [data-domain-label='4'] { color: #ffc2bf; }
 [data-constellation-surface] > [data-domain-label='5'] { color: #ddc9ff; }
 [data-constellation-surface] > [data-domain-facet][aria-pressed='true'] { color: #17140e; background: var(--domain-colour); }
+[data-constellation-surface] > [data-domain-facet] { opacity: 0; font-size: .74rem; }
 [data-constellation-surface] > p { position: absolute; bottom: .7rem; inset-inline: 1.2rem; text-align: center; color: var(--cream-3); font-size: .8rem; pointer-events: none; }
 [data-constellation-surface] > p[role='status'] { bottom: 8rem; }
 [data-constellation-controls] { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; align-items: center; padding: .8rem var(--edge) 3.2rem; }
@@ -130,4 +131,15 @@ body:has(#organisation, #partnership, #proof[data-catalogue='true']) > header { 
 [data-live-cycle] > strong { font-weight: 500; color: var(--cream); }
 [data-constellation-surface] > button[data-domain-label] { border: 0; border-bottom: 1px solid transparent; background: #100f0cb8; border-radius: 0; font-size: .95rem; text-shadow: 0 1px 8px #000; }
 [data-constellation-surface] > button[data-domain-label][aria-pressed='true'] { border-color: var(--domain-colour); }
-@media(max-width:640px){#organisation[data-focused='true'] [data-constellation-surface]{height:420px;}}
+/* The camera moves inside one stable viewport; entering a domain never resizes it. */
+
+#traction-partnership { margin: 0 var(--edge); padding: clamp(2.5rem,5vw,5rem) 0; border-block: 1px solid var(--gold-line); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 3rem 5rem; }
+#traction-partnership header > p { font: .75rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.3rem; }
+#traction-partnership h2 { font-size: clamp(2.6rem,4.5vw,4.5rem); max-width: 19ch; }
+#traction-partnership > div > p { max-width: 60ch; line-height: 1.8; margin: 0 0 1.2rem; }
+#traction-partnership p:has(a) { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; padding-top: .7rem; }
+#traction-partnership a:first-child { background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; padding: .9rem 1.2rem; font-weight: 600; }
+#traction-partnership small { display: block; color: var(--cream-3); max-width: 58ch; line-height: 1.7; }
+@media(max-width:900px){#traction-partnership{grid-template-columns:1fr;gap:1.5rem;} #traction-partnership h2{max-width:22ch;}}
+
+[data-domain-story] small { display: block; margin-top: 1rem; }

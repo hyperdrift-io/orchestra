@@ -10,7 +10,7 @@ Growth and profit are objectives to measure, not guaranteed consequences of addi
 
 ## Who we serve
 
-Founders and leadership teams building product, service and consultancy businesses. Our strongest technical experience remains production AI in SaaS and operational workflows. We use that experience to solve a defined commercial problem; the landing page should be understandable without knowledge of agents, frameworks or infrastructure.
+Founders and leadership teams with a promising product, service or consultancy business already showing traction: customers, active users, repeat work or another credible signal of demand. We serve founders committed to understanding their customers, making decisions and following through. Our role is to help that existing momentum become sustainable growth and profit. Our strongest technical experience remains production AI in SaaS and operational workflows. We use that experience to solve a defined commercial problem; the landing page should be understandable without knowledge of agents, frameworks or infrastructure.
 
 ## What we do
 
@@ -22,7 +22,7 @@ The operating pattern is notice → choose → improve → release → learn. Th
 
 The landing page connects actions to business outcomes through interactive scenarios. It avoids framework lists and technical catalogues. The article series provides that depth, supported by real Hyperdrift work. Public examples, prototypes, internal systems and client results remain clearly distinguished. Illustrative scenarios never masquerade as measured client outcomes.
 
-The founder selected WebGL, removed the giant and requested a living interactive mesh on 22 September 2026. The mesh now opens into five coloured domains. The founder selected Living constellation A for the organisation exploration at `/how-it-works`: branching signals and retained learning across illustrative successful iterations. The homepage is now the promise, one interactive example, three real builds and an enquiry; deeper work, reading and partnership terms have their own destinations. Preserve the existing ink, cream and gold identity. Article illustrations support the idea; real evidence remains in the proof sections. All copy follows `meta/PHILOSOPHY.md` §8, Speak to Enable.
+The founder selected WebGL, removed the giant and requested a living interactive mesh on 22 September 2026. The mesh now opens into five coloured domains. The founder selected Living constellation A for the organisation exploration at `/how-it-works`: branching signals and retained learning across illustrative successful iterations. The homepage is now the promise, one interactive example, three real builds, a prominent Traction Partnership invitation and an enquiry; deeper work, reading and partnership terms have their own destinations. The partnership invitation and hero link are explicitly requested in the latest refinement. Preserve the existing ink, cream and gold identity. Article illustrations support the idea; real evidence remains in the proof sections. All copy follows `meta/PHILOSOPHY.md` §8, Speak to Enable.
 
 ## What success looks like
 

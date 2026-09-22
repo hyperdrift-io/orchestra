@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: '%s — Orchestra AI',
   },
   description:
-    'AI for founders who want to grow revenue, protect profit and reclaim time. Explore how customer signals become useful work, and discuss one opportunity in your business.',
+    'AI engineering for founders with customers, active users or clear demand. Build on your traction, grow revenue, protect profit and explore a shared-upside partnership.',
   openGraph: {
     title: 'Orchestra AI by Hyperdrift — AI for business growth',
     description:

@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** Subtle heartbeat and connected handoffs | tag `connected-handoffs-2026-09-22` | 22 Sep 2026 | Light-only heartbeat; smooth highlights on actual diagram connections. Local preview. |
+| **Current:** Immersive business mesh | tag `immersive-business-mesh-2026-09-22` | 22 Sep 2026 | Semantic wireframes, shared rotation, coloured contributions and business reinforcement; scenario-first homepage with stable domain links and traction-led proposition. Local preview only. |
+| **Previous:** Subtle heartbeat and connected handoffs | tag `connected-handoffs-2026-09-22` | 22 Sep 2026 | Light-only heartbeat; smooth highlights on actual diagram connections. Local preview. |
 | **Previous:** Living business system | tag `living-business-system-2026-09-22` | 22 Sep 2026 | Founder-selected WebGL refinement and editorial imagery. Local preview only. |
 | **Previous:** Article media and graph comparison | tag `article-media-graph-review-2026-09-22` | 22 Sep 2026 | Local review only; broader landing direction awaiting selection. |
 | **Previous:** AI-native article series | tag `ai-native-articles-2026-09-21` | 21 Sep 2026 | Local preview on branch `feat/ai-native-articles`. Not merged, deployed or pushed. |
@@ -14,7 +15,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `living-constellation-a-2026-09-22`
+## Current: `immersive-business-mesh-2026-09-22`
+
+A scenario-first opening with fixed accessible domain links and the commercial proposition immediately below. Recognisable domains and internal action meshes, uniform proportions, full-viewport outer sphere, continuous camera flight, direct navigation and coloured contributions that reinforce the business core. Fixed heading widths, restored prominent Traction Partnership positioning for founders with traction, and added Unanswered’s existing recorded walkthrough as a captioned local video. [Refinement and verification](design/2026-09-22-business-flow/WIREFRAME-REFINEMENT.md). Local preview only; no deployment or push.
+
+## Previous: `living-constellation-a-2026-09-22`
 
 Founder-selected A implemented at `/how-it-works`: five coloured spheres, branching signals, domain camera entry, business facets, three illustrative iterations with persistent memory rings and click-out/Escape return. Homepage reduced to promise, mesh, three featured builds and enquiry. Full catalogue at `/work`, partnership terms at `/partnership`, reading and news linked to their own destinations. Canonicals/sitemap updated; draft-article gating retained. Typecheck and desktop/phone browser review passed. [Selection and verification](design/2026-09-22-business-flow/SELECTION.md). Local preview only; no deployment or push.
 

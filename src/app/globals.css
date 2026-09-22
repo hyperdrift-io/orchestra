@@ -685,7 +685,7 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 
 /* — The proof: the footprints are the work (screencraft/proof) */
 #proof { background: var(--ink); counter-reset: work; }
-#proof > h2 { padding: var(--sp-xl) var(--edge) 0; max-inline-size: 24ch; font-size: var(--fs-h2); }
+#proof > h2 { margin-inline: var(--edge); padding-block-start: var(--sp-xl); max-inline-size: 24ch; font-size: var(--fs-h2); }
 #proof > p { margin: 1.5rem var(--edge) 0; max-inline-size: 62ch; color: var(--cream-2); line-height: 1.7; }
 #proof > ol {
   list-style: none;
@@ -732,7 +732,7 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 
 /* — The enquiry: you say where, we go (screencraft/enquiry) */
 #contact { background: var(--ink); }
-#contact > h2 { padding: var(--sp-xl) var(--edge) 0; max-inline-size: 24ch; font-size: var(--fs-h2); }
+#contact > h2 { margin-inline: var(--edge); padding-block-start: var(--sp-xl); max-inline-size: 24ch; font-size: var(--fs-h2); }
 #contact > div {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
@@ -788,9 +788,9 @@ main > footer > p { margin-block-start: var(--sp-l); }
   #places label:has(input:checked) { border-block-end: 2px solid var(--gold); }
   #places > article { grid-template-columns: 1fr; }
 
-  #proof > h2 { position: static; max-inline-size: none; padding: var(--sp-m) var(--edge) 0; }
+  #proof > h2 { position: static; max-inline-size: none; padding-block-start: var(--sp-m); }
 
-  #contact > h2 { position: static; max-inline-size: none; padding: var(--sp-m) var(--edge) 0; font-size: clamp(2.1rem, 1.4rem + 3vw, 2.7rem); }
+  #contact > h2 { position: static; max-inline-size: none; padding-block-start: var(--sp-m); font-size: clamp(2.1rem, 1.4rem + 3vw, 2.7rem); }
   #contact > div { grid-template-columns: 1fr; gap: var(--sp-l); }
 }
 

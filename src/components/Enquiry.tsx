@@ -8,7 +8,7 @@ export function Enquiry() {
 
       <div>
         <div>
-          <p>Tell us where you want the business to grow, what takes too much time, or where margin could improve. We’ll reply within a working day to explore a useful first scope.</p>
+          <p>Tell us what’s gaining traction, where you want the business to grow, and what would help you get there. We’ll reply within a working day to explore a useful first scope.</p>
           <dl>
             <div>
               <dt>Reply time</dt>
