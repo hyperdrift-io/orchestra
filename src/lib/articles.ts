@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cache } from 'react';
 import { visibleArticles } from './article-catalogue';
+import { articleShareImage } from './share-metadata';
 
 export type ArticleBlock = { kind: 'heading' | 'paragraph' | 'quote'; text: string; id?: string } |
   { kind: 'image'; src: string; alt: string };
@@ -35,7 +36,7 @@ export function articleJsonLd(article: NonNullable<ReturnType<typeof getArticle>
     description: article.excerpt, author: { '@type': 'Person', name: 'Yann VR', url: 'https://hyperdrift.io' },
     publisher: { '@type': 'Organization', name: 'Orchestra AI by Hyperdrift', url: 'https://ai.hyperdrift.io' },
     mainEntityOfPage: `https://ai.hyperdrift.io/articles/${article.slug}`,
-    image: `https://ai.hyperdrift.io/articles/${article.slug}/opengraph-image`,
+    image: articleShareImage(article).url,
     ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
     isPartOf: { '@type': 'CreativeWorkSeries', name: 'The AI-native organisation' },
   }).replace(/</g, '\\u003c');

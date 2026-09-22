@@ -1,11 +1,11 @@
-import { brandShareImage } from '@/lib/share-metadata';
+import { websiteOpenGraph } from '@/lib/share-metadata';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { visibleArticles, isArticlePreview } from '@/lib/article-catalogue';
 
 export function generateMetadata(): Metadata {
-  return { title: 'The AI-native organisation', description: 'Explore the Bridge, specialist skills, agent authority and integrations through working examples built by Hyperdrift.', alternates: { canonical: '/articles' }, openGraph: { title: 'The AI-native organisation', description: 'Working examples of the Bridge, skills, agent authority and integrations built by Hyperdrift.', url: 'https://ai.hyperdrift.io/articles', type: 'website', images: [brandShareImage] }, robots: isArticlePreview() ? { index: false, follow: false } : undefined };
+  return { title: 'The AI-native organisation', description: 'Explore the Bridge, specialist skills, agent authority and integrations through working examples built by Hyperdrift.', alternates: { canonical: '/articles' }, openGraph: { ...websiteOpenGraph, title: 'The AI-native organisation', description: 'Working examples of the Bridge, skills, agent authority and integrations built by Hyperdrift.', url: 'https://ai.hyperdrift.io/articles' }, robots: isArticlePreview() ? { index: false, follow: false } : undefined };
 }
 
 export default function ArticlesPage() {

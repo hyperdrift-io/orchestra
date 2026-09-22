@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** Mesh Aperture identity | tag `mesh-aperture-2026-09-22` | 22 Sep 2026 | Founder-selected B: spherical wireframe O/A, compact header/footer mark, simplified favicon and updated share cards. Local preview only. |
+| **Current:** Article sharing | tag `article-sharing-2026-09-22` | 22 Sep 2026 | Canonical sharing controls, versioned Mesh Aperture images and complete OG/Twitter metadata. Local preview only. |
+| **Previous:** Mesh Aperture identity | tag `mesh-aperture-2026-09-22` | 22 Sep 2026 | Founder-selected B: spherical wireframe O/A, compact header/footer mark, simplified favicon and updated share cards. Local preview only. |
 | **Previous:** Aperture Open Graph | tag `aperture-opengraph-2026-09-22` | 22 Sep 2026 | Branded 1200 × 630 growth/profit share card, secondary-page metadata and article marks. Local preview only. |
 | **Previous:** Aperture identity | tag `aperture-identity-2026-09-22` | 22 Sep 2026 | Founder-selected negative-space O/A mark in the masthead, footer and favicon. Local preview only. |
 | **Previous:** Immersive business mesh | tag `immersive-business-mesh-2026-09-22` | 22 Sep 2026 | Semantic wireframes, shared rotation, coloured contributions and business reinforcement; scenario-first homepage with stable domain links and traction-led proposition. Local preview only. |
@@ -18,7 +19,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `mesh-aperture-2026-09-22`
+## Current: `article-sharing-2026-09-22`
+
+All articles gain copy-link, LinkedIn, email, native sharing and share-card download controls with a byline shortcut. Metadata includes branded, versioned PNGs, descriptive image text, article context and consistent website defaults. Typecheck, build, all eight image/metadata checks and responsive browser review passed; native system-sheet and clipboard-content inspection remain limited by the preview host. Drafts stay unpublished. [Implementation and verification](reviews/2026-09-22-sharing.md). Local preview only.
+
+## Previous: `mesh-aperture-2026-09-22`
 
 Founder selected B — Mesh Aperture. A precise gold SVG replaces the filled mark, with a compact variant for small site placements and a simplified favicon. The homepage Open Graph card uses the full mesh; article cards use the compact mark. Live wordmarks, accessible link names and square proportions are preserved. Typecheck, desktop/phone browser inspection, image endpoint checks and rendered PNG review passed. [Selection and implementation](design/2026-09-22-mesh-logo/README.md). Local preview only.
 

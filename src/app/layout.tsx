@@ -6,7 +6,7 @@ import './articles.css';
 import './constellation.css';
 import { SiteContactLink } from '@/components/SiteContactLink';
 import { visibleArticles } from '@/lib/article-catalogue';
-import { brandShareImage } from '@/lib/share-metadata';
+import { brandShareImage, homepageOpenGraph } from '@/lib/share-metadata';
 
 // Candidate faces for the approved concept: a quiet high-contrast serif for statements, a clean sans for reading.
 const display = Cormorant_Garamond({
@@ -39,15 +39,7 @@ export const metadata: Metadata = {
   },
   description:
     'AI engineering for founders with customers, active users or clear demand. Build on your traction, grow revenue, protect profit and explore a shared-upside partnership.',
-  openGraph: {
-    title: 'Orchestra AI by Hyperdrift — AI for business growth',
-    description:
-      'Grow your business. Keep more of the upside. AI engineering for founders with customers, active users or clear demand.',
-    url: 'https://ai.hyperdrift.io',
-    siteName: 'Orchestra AI',
-    type: 'website',
-    images: [brandShareImage],
-  },
+  openGraph: homepageOpenGraph,
   twitter: { card: 'summary_large_image', images: [brandShareImage] },
 };
 
