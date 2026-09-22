@@ -27,11 +27,6 @@ export function Partnership() {
           the partner in the work. Your team stays focused on profit while the
           automation earns its place.
         </p>
-        <p>
-          In partnership with <strong>Tecknuovo</strong> and{' '}
-          <strong>Vodafone3</strong>, contracted through Hyperdrift.
-          Sponsored by <strong>Databricks</strong>.
-        </p>
       </details>
     </aside>
   );

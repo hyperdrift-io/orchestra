@@ -686,6 +686,7 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 /* — The proof: the footprints are the work (screencraft/proof) */
 #proof { background: var(--ink); counter-reset: work; }
 #proof > h2 { padding: var(--sp-xl) var(--edge) 0; max-inline-size: 24ch; font-size: var(--fs-h2); }
+#proof > p { margin: 1.5rem var(--edge) 0; max-inline-size: 62ch; color: var(--cream-2); line-height: 1.7; }
 #proof > ol {
   list-style: none;
   margin: 0;
@@ -699,6 +700,9 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 #proof li p { margin-block-start: var(--sp-2xs); font-size: var(--fs-meta); }
 #proof li p:last-child { display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-s); margin-block-start: var(--sp-xs); }
 #proof li a { color: var(--gold-light); border-block-end-color: var(--gold-line); }
+#proof li details { margin-block: 1rem; }
+#proof li summary { color: var(--gold-light); font-size: .9rem; }
+#proof li iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; margin-top: 1rem; }
 
 /* Credit and stage lines inside the new cards: readable sans, sentence case */
 :is(#places article li, #now article, #partnership) .meta, #proof li > p:nth-of-type(2), #proof li > p:nth-of-type(3) {

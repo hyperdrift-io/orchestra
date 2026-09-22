@@ -148,7 +148,8 @@ body:has(#system) > header { position: relative; padding-block: 1.5rem; }
 #system > div:first-child > p:first-child { font: .75rem var(--font-mono); text-transform: uppercase; letter-spacing: .14em; color: var(--gold-light); }
 #system h1 { max-width: 18ch; margin-block: 1rem 1.5rem; font-size: clamp(3.1rem,6.2vw,6.7rem); }
 #system > div:first-child > p:nth-of-type(2) { max-width: 60ch; font-size: 1.12rem; line-height: 1.75; }
-#system > div:first-child > p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2rem; }
+#system > div:first-child > p:has(a) { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2rem; }
+#system > div:first-child > small { display: block; margin-top: 1rem; color: var(--cream-3); font-size: .8rem; }
 :is(#system, #plug) a[href='#contact'] { display: inline-flex; min-height: 48px; align-items: center; padding: .9rem 1.3rem; border-radius: 3px; background: var(--gold); color: var(--ink); font-weight: 600; font-size: .9rem; border: 1px solid var(--gold); }
 :is(#system, #plug) a[href='#contact']:hover { background: var(--gold-light); }
 #plug { padding: 5rem var(--edge); background: var(--ink-2); border-top: 1px solid var(--line-hair); }
@@ -222,7 +223,22 @@ main:has(#system) :is(ul,ol) { list-style: none; }
 [data-graph-surface] > button[hidden] { display: none; }
 [data-graph-surface] > button[data-facet] { width: 100px; }
 [data-graph-surface] > button[data-facet] span { width: auto; height: 38px; border-radius: 3px; padding: .55rem .9rem; font: 500 .85rem var(--font-body); background: #21190ef2; }
-[data-business-graph][data-focused='true'] [data-graph-surface] { background: radial-gradient(ellipse at center,#463019 0%,transparent 70%); }
+[data-business-graph='globe'] { --domain-colour: #78dcca; }
+[data-business-graph][data-domain='2'] { --domain-colour: #9dbdff; }
+[data-business-graph][data-domain='3'] { --domain-colour: #e6b46c; }
+[data-business-graph][data-domain='4'] { --domain-colour: #f19c9a; }
+[data-business-graph][data-domain='5'] { --domain-colour: #c3a6f5; }
+[data-business-graph][data-focused='true'] [data-graph-surface] { background: radial-gradient(ellipse at center, color-mix(in srgb,var(--domain-colour) 10%,transparent),transparent 70%); }
+[data-business-graph='globe'] [data-node='1'] { --node-colour: #78dcca; }
+[data-business-graph='globe'] [data-node='2'] { --node-colour: #9dbdff; }
+[data-business-graph='globe'] [data-node='3'] { --node-colour: #e6b46c; }
+[data-business-graph='globe'] [data-node='4'] { --node-colour: #f19c9a; }
+[data-business-graph='globe'] [data-node='5'] { --node-colour: #c3a6f5; }
+[data-graph-surface] > button[data-node] span { border-color: var(--node-colour); color: var(--node-colour); background: #171610; }
+[data-graph-surface] > button[data-node][aria-pressed='true'] span { background: var(--node-colour); color: #171610; box-shadow: 0 0 20px color-mix(in srgb,var(--node-colour) 25%,transparent); }
+[data-graph-surface] > button[data-facet] span { border-color: var(--domain-colour); background: #171610ed; }
+[data-business-graph='globe'] > nav button[aria-pressed='true'] { border-color: var(--domain-colour); }
+[data-business-graph='globe'] [data-action-detail] header > p:first-child { color: var(--domain-colour); }
 #plug > header > p { color: var(--gold-light); font: .75rem var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
 #plug > header h3 { margin-top: .8rem; }
 [data-organisation-view] { margin: 2rem 0 1rem; overflow-x: auto; }
@@ -245,7 +261,7 @@ main:has(#system) :is(ul,ol) { list-style: none; }
 @media(prefers-reduced-motion:reduce){[data-organisation-view] svg [data-col]{transition:none;}}
 #graph-lens [data-active='true'] > rect { stroke: #f4c47f; stroke-width: 1.8; fill: #3d2e1b; }
 #graph-lens [data-active='true'] { filter: drop-shadow(0 0 7px #dba45038); }
-[data-graph-surface] > button[data-facet][aria-pressed='true'] span { background: #f4c47f; color: #19140e; }
+[data-graph-surface] > button[data-facet][aria-pressed='true'] span { background: var(--domain-colour); color: #19140e; }
 /* Illuminate the diagram's real connectors, without moving particles or separate routes. */
 #graph-lens [data-connection] > path { stroke: #8f7955; stroke-width: 1.4; }
 #graph-lens [data-connection] > [data-highlight] { stroke: #ffda96; stroke-width: 2.2; opacity: 0; transition: opacity 180ms cubic-bezier(.22,1,.36,1); }
