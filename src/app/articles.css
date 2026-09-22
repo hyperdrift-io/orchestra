@@ -68,6 +68,16 @@ body > header nav a[data-enquiry] { color: var(--gold-light); }
 #article-body figcaption button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 /* Read to the end: the end-cap's ask lights up. */
 #article[data-read='done'] #article-share > p:first-child { color: var(--gold-light); }
+/* The nudge: one quiet bar, shown once a third of the body is read, gone when the share block is in view or on Hide. */
+#article > aside[data-nudge] { position: fixed; inset: auto 0 0 0; z-index: 40; display: flex; align-items: center; gap: 1rem; padding: .55rem var(--gutter) calc(.55rem + env(safe-area-inset-bottom)); border-top: 1px solid var(--gold-line); background: color-mix(in srgb, var(--ink) 88%, transparent); backdrop-filter: blur(18px); transform: translateY(100%); visibility: hidden; transition: transform .35s ease, visibility 0s .35s; }
+#article[data-read='engaged'] > aside[data-nudge] { transform: none; visibility: visible; transition: transform .35s ease; }
+#article > aside[data-nudge] > p { flex: 1; min-width: 0; margin: 0; font: 500 1.05rem/1.3 var(--font-display); color: var(--gold-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#article > aside[data-nudge] nav { display: flex; align-items: center; gap: .6rem; margin-left: auto; }
+#article > aside[data-nudge] nav :is(a, button) { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: .5rem .9rem; border: 1px solid var(--gold-line); border-radius: 2px; background: transparent; color: var(--gold-light); font: .85rem/1.4 var(--font-body); text-decoration: none; white-space: nowrap; cursor: pointer; }
+#article > aside[data-nudge] nav :is(a, button):hover { border-color: var(--gold-light); }
+#article > aside[data-nudge] nav > button:first-child { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+#article > aside[data-nudge] nav > button:last-child { min-width: 40px; padding: 0; border: 0; color: var(--cream-3); font-size: 1.2rem; }
+#article > aside[data-nudge] nav :is(a, button):focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 #article-body code { font: .9em var(--font-mono); overflow-wrap: anywhere; }
 #article-body img { border: 1px solid var(--line-soft); }
 #article-end { display: block; height: 1px; }
@@ -124,6 +134,9 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
   #article > div > aside { position: static; border-block: 1px solid var(--line-hair); padding: 1.2rem 0; margin-bottom: 2rem; }
   #article > div > aside ol { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 1rem 0; }
   #article > div > aside > nav { display: none; }
+  #article > aside[data-nudge] > p { display: none; }
+  #article > aside[data-nudge] nav { width: 100%; }
+  #article > aside[data-nudge] nav > button:first-child { flex: 1; }
   #articles > article { grid-template-columns: 1fr; gap: 2rem; }
   #article-series ol { grid-template-columns: 1fr 1fr; }
   #enquire { grid-template-columns: 1fr; gap: 2rem; }

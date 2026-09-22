@@ -18,13 +18,29 @@ export function trackArticle(article: string, event: ArticleEvent['event']) {
   void fetch('/api/article-events', { method: 'POST', body: payload, headers: { 'content-type': 'application/json' }, keepalive: true }).catch(() => {});
 }
 
+/** The share of the body that has scrolled past before a reader counts as committed. */
+const COMMITTED_AT = 0.3;
+
 export function observeArticle(slug: string) {
   trackArticle(slug, 'article_viewed');
+  const article = document.getElementById('article');
+  const body = document.getElementById('article-body');
+  let committed = false;
+  const onScroll = () => {
+    if (committed || !body) return;
+    const rect = body.getBoundingClientRect();
+    if ((window.innerHeight - rect.top) / rect.height < COMMITTED_AT) return;
+    committed = true; trackArticle(slug, 'article_committed');
+    if (article && !article.dataset.read) article.dataset.read = 'engaged';
+    window.removeEventListener('scroll', onScroll);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
   let engaged = false;
   const observer = new IntersectionObserver((entries) => {
     if (!engaged && entries.some((entry) => entry.isIntersecting)) {
       engaged = true; trackArticle(slug, 'article_engaged');
-      document.getElementById('article')?.setAttribute('data-read', 'done');
+      article?.setAttribute('data-read', 'done');
     }
   });
   const end = document.getElementById('article-end');
@@ -36,5 +52,5 @@ export function observeArticle(slug: string) {
     if (event.target.closest('[data-proof-link], #article-proof summary')) trackArticle(slug, 'article_proof_opened');
   };
   document.addEventListener('click', onClick);
-  return () => { observer.disconnect(); document.removeEventListener('click', onClick); };
+  return () => { observer.disconnect(); document.removeEventListener('click', onClick); window.removeEventListener('scroll', onScroll); };
 }

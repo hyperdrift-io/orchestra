@@ -8,6 +8,7 @@ import { ArticleProof } from '@/components/ArticleProof';
 import { EnquiryForm } from '@/components/EnquiryForm';
 import { ArticleTracker } from '@/components/ArticleTracker';
 import { ArticleShare } from '@/components/ArticleShare';
+import { ReadNudge } from '@/components/ReadNudge';
 import { articleShareImage } from '@/lib/share-metadata';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -47,6 +48,7 @@ export default async function ArticlePage({ params }: Props) {
     <figure id="article-diagram"><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol><ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
     <ArticleProof article={article} />
     <section id="enquire" aria-labelledby="enquire-heading"><header><p>Put the idea to work</p><h2 id="enquire-heading">What would this look<br /><em>like for you?</em></h2><p>Tell us about one workflow and the tools involved. We’ll discuss where agents could help and which decisions should stay with your team.</p><small>A personal reply within one working day.</small></header><EnquiryForm articleSlug={article.slug} /></section>
+    <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} ctaLabel={article.ctaLabel} />
     <footer><a href="/articles">← All field notes</a>{next && <a href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong></a>}</footer>
   </article>;
 }
