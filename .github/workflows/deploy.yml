@@ -1,4 +1,4 @@
-name: Deploy to Hyperdrift Server
+name: Verify production release
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 jobs:
   test:
@@ -31,16 +30,14 @@ jobs:
       - name: Build
         run: npm run build
 
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main'
-    runs-on: [self-hosted, hyperdrift, deploy]
-    concurrency:
-      group: orchestra-production
-      cancel-in-progress: false
-    steps:
-      - name: Deploy through Hyperdrift infrastructure
+      - name: Record the production deployment handoff
         run: |
-          cd ~/dev/hyperdrift-infra
-          git pull --ff-only
-          PATH=$PATH:~/.local/bin make deploy-local app=orchestra
+          cat >> "$GITHUB_STEP_SUMMARY" <<'NOTE'
+          ## Verification passed; deployment is separate
+          This workflow has not deployed the site. The former webhook has no
+          configured credentials, and the existing organisation runner has not
+          accepted jobs from this public repository. Do not broaden runner access
+          as a workaround. Deploy an approved revision through the Hyperdrift
+          infrastructure repository with `make deploy app=orchestra`, then verify
+          the live revision and launch readiness. See `docs/RELEASES.md`.
+          NOTE
