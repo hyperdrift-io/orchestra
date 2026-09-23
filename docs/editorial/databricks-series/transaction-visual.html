@@ -1,4 +1,6 @@
-/* Article pages inherit the approved stone, ink and gold identity. */
+<!doctype html><meta charset="utf-8"><title>Lakebase vs document databases: start with the transaction</title><style>
+:root{--ink:#14120e;--cream:#f6eee1;--cream-2:#e2d8c8;--cream-3:#c8beae;--gold:#e3a857;--gold-light:#f4cd92;--gold-soft:#e3a85716;--gold-line:#e3a85766;--line-hair:#c8beae33;--line-soft:#c8beae44;--font-display:Georgia,serif;--font-body:Arial,sans-serif;--font-mono:Menlo,monospace;}
+*{box-sizing:border-box}body{margin:0;padding:24px;background:#14120e;color:#f6eee1;font:16px/1.5 Arial,sans-serif}p{margin:0} /* Article pages inherit the approved stone, ink and gold identity. */
 body > header > p { font: 600 1.6rem/1 var(--font-display); }
 body > header > p > a { display: inline-flex; align-items: center; gap: .7rem; }
 body > header > p img { display: block; width: 44px; height: 44px; flex: 0 0 auto; }
@@ -24,7 +26,7 @@ body > header nav a[data-enquiry] { color: var(--gold-light); }
 #articles > article p:first-child { font: .75rem var(--font-mono); color: var(--gold); }
 #articles > article h2 { font-size: clamp(2.5rem, 4vw, 4rem); margin: 1rem 0; }
 #articles > article div > a { display: inline-block; margin-top: 1.5rem; color: var(--gold-light); }
-#articles > article figure { margin: 0; }
+#articles > article figure { margin: 0; transform: rotate(-1deg); }
 #articles > article img { border: 1px solid var(--line-soft); box-shadow: 0 20px 60px #0006; }
 #articles > ol { list-style: none; margin: 0; padding: 0; }
 #articles > ol > li { display: grid; grid-template-columns: 4rem minmax(0, 1fr) 5rem; gap: 2rem; align-items: start; padding: 3rem 0; border-bottom: 1px solid var(--line-hair); }
@@ -43,41 +45,19 @@ body > header nav a[data-enquiry] { color: var(--gold-light); }
 #article > header > p:first-of-type { margin-top: 1rem; font: .75rem var(--font-mono); text-transform: uppercase; letter-spacing: .13em; color: var(--gold); }
 #article h1 { margin: .65rem 0 .8rem; max-width: 29ch; font-size: clamp(2.2rem, 4.2vw, 3.8rem); line-height: 1.04; text-wrap: balance; }
 #article > header > p:last-of-type { max-width: 80ch; font-size: 1.05rem; line-height: 1.55; }
-#article > header > [data-article-meta] { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.2rem; margin-top: 1rem; padding-top: .65rem; border-top: 1px solid var(--line-hair); font-size: .8rem; color: var(--cream-3); }
+#article > header > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.2rem; margin-top: 1rem; padding-top: .65rem; border-top: 1px solid var(--line-hair); font-size: .8rem; color: var(--cream-3); }
 #article a[data-enquiry] { color: var(--gold-light); }
 #article > div { display: grid; grid-template-columns: 180px minmax(0, 760px); gap: clamp(1.5rem, 3vw, 3rem); justify-content: center; }
 #article > div > aside { position: sticky; top: 2rem; align-self: start; font-size: .8rem; padding-top: .3rem; }
-#article > div > aside nav > p { padding-block: .65rem; font: .7rem var(--font-mono); text-transform: uppercase; color: var(--gold); }
-#article > div > aside ol { margin: .6rem 0 1rem; padding: 0; list-style: none; display: grid; gap: .15rem; }
+#article > div > aside summary { min-height: 44px; padding-block: .65rem; cursor: pointer; font: .7rem var(--font-mono); text-transform: uppercase; color: var(--gold); }
+#article > div > aside ol { margin: .6rem 0 1rem; padding: 0; list-style: none; display: grid; gap: 1rem; }
 #article > div > aside a { border: 0; color: var(--cream-3); }
 #article > div > aside a:hover { color: var(--gold-light); }
-/* The rail keeps the two asks one click away at any depth; the header carries them on small screens. */
-#article > div > aside > nav[aria-label="Share or enquire"] { display: grid; gap: .6rem; margin-top: .6rem; padding-top: 1rem; border-top: 1px solid var(--line-hair); }
-#article > div > aside > nav[aria-label="Share or enquire"] a { color: var(--gold-light); }
 #article-body > p { margin: 0 0 1rem; font-size: 1.04rem; line-height: 1.65; }
 #article-body > p:first-child { font-size: 1.12rem; color: var(--cream); }
 #article-body > h2 { font-size: clamp(1.8rem, 2.5vw, 2.2rem); line-height: 1.12; margin: 1.8rem 0 .8rem; }
 #article-body blockquote { margin: 1.3rem 0; padding: .4rem 0 .4rem 1.2rem; border-left: 2px solid var(--gold); }
 #article-body blockquote p { font: 500 clamp(1.6rem, 2.5vw, 2rem)/1.15 var(--font-display); color: var(--gold-light); }
-/* The share line: the quote readers forward, with its own one-tap share beneath it. */
-#article-body figure:has(> blockquote) { margin: 1.3rem 0; }
-#article-body figure:has(> blockquote) > blockquote { margin: 0; }
-#article-body figure:has(> blockquote) > figcaption { margin: .4rem 0 0 calc(1.2rem + 2px); }
-#article-body figcaption button { min-height: 44px; padding: 0; border: 0; border-bottom: 1px solid var(--gold-line); background: transparent; color: var(--gold-light); font: .85rem/1.4 var(--font-body); cursor: pointer; }
-#article-body figcaption button:hover { border-color: var(--gold-light); }
-#article-body figcaption button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-/* Read to the end: the end-cap's ask lights up. */
-#article[data-read='done'] #article-share > p:first-child { color: var(--gold-light); }
-/* The nudge: one quiet bar, shown once a third of the body is read, gone when the share block is in view or on Hide. */
-#article > aside[data-nudge] { position: fixed; inset: auto 0 0 0; z-index: 40; display: flex; align-items: center; gap: 1rem; padding: .55rem var(--gutter) calc(.55rem + env(safe-area-inset-bottom)); border-top: 1px solid var(--gold-line); background: color-mix(in srgb, var(--ink) 88%, transparent); backdrop-filter: blur(18px); transform: translateY(100%); visibility: hidden; transition: transform .35s ease, visibility 0s .35s; }
-#article[data-read='engaged'] > aside[data-nudge] { transform: none; visibility: visible; transition: transform .35s ease; }
-#article > aside[data-nudge] > p { flex: 1; min-width: 0; margin: 0; font: 500 1.05rem/1.3 var(--font-display); color: var(--gold-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#article > aside[data-nudge] nav { display: flex; align-items: center; gap: .6rem; margin-left: auto; }
-#article > aside[data-nudge] nav :is(a, button) { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: .5rem .9rem; border: 1px solid var(--gold-line); border-radius: 2px; background: transparent; color: var(--gold-light); font: .85rem/1.4 var(--font-body); text-decoration: none; white-space: nowrap; cursor: pointer; }
-#article > aside[data-nudge] nav :is(a, button):hover { border-color: var(--gold-light); }
-#article > aside[data-nudge] nav > button:first-child { background: var(--gold); border-color: var(--gold); color: var(--ink); }
-#article > aside[data-nudge] nav > button:last-child { min-width: 40px; padding: 0; border: 0; color: var(--cream-3); font-size: 1.2rem; }
-#article > aside[data-nudge] nav :is(a, button):focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 #article-body code { font: .9em var(--font-mono); overflow-wrap: anywhere; }
 #article-body img { border: 1px solid var(--line-soft); }
 #article-end { display: block; height: 1px; }
@@ -132,11 +112,7 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
 @media (max-width: 850px) {
   #article > div { display: block; }
   #article > div > aside { position: static; border-block: 1px solid var(--line-hair); padding: 0; margin-bottom: 1.2rem; }
-  #article > div > aside ol { grid-template-columns: 1fr 1fr; gap: .1rem .5rem; margin: .3rem 0 .7rem; }
-  #article > div > aside > nav[aria-label="Share or enquire"] { display: none; }
-  #article > aside[data-nudge] > p { display: none; }
-  #article > aside[data-nudge] nav { width: 100%; }
-  #article > aside[data-nudge] nav > button:first-child { flex: 1; }
+  #article > div > aside ol { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 1rem 0; }
   #articles > article { grid-template-columns: 1fr; gap: 2rem; }
   #article-series ol { grid-template-columns: 1fr 1fr; }
   #enquire { grid-template-columns: 1fr; gap: 2rem; }
@@ -156,16 +132,9 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
   #article-series ol { grid-template-columns: 1fr; }
 }
 
-/* The expertise globe shares the title row, with no extra hero height. */
-#article [data-article-heading] { display: grid; grid-template-columns: minmax(0, 1fr) clamp(160px, 20vw, 240px); gap: 1.2rem; align-items: stretch; }
-#article [data-article-heading] h1 { min-width: 0; }
-#article [data-article-orb] { position: relative; min-width: 0; }
-#article [data-article-orb] [data-mesh-artwork] { position: absolute; inset: 0; width: 100%; height: 100%; }
-#article [data-article-orb] [data-mesh-motion] { position: absolute; right: -.5rem; bottom: -.3rem; }
-@media (max-width: 850px) {
-  #article [data-article-heading] { display: block; }
-  #article [data-article-orb] { display: none; }
-}
+#article > header > figure { margin: 1rem 0 0; }
+#article > header > figure img { width: 100%; height: 112px; object-fit: cover; background: var(--ink-elev); border: 1px solid var(--line-soft); }
+#article > header > figure > a { display: block; border: 0; }
 
 /* One shared end-cap, with native fallbacks and touch-sized text controls. */
 #article-share { padding: 1.5rem 0 0; border-top: 1px solid var(--gold-line); }
@@ -182,14 +151,13 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
 
 /* The opening is a shallow editorial strip; evidence belongs inside the story. */
 #article > header > small { margin-top: .7rem; padding: .15rem .4rem; font-size: .7rem; }
-#article > header > [data-article-meta] a { display: inline-flex; align-items: center; min-height: 36px; }
-#article > div > aside a { display: flex; align-items: center; min-height: 44px; padding: .45rem .6rem; border-left: 2px solid transparent; line-height: 1.45; }
-#article > div > aside a[aria-current="location"] { color: var(--gold-light); border-left-color: var(--gold); background: var(--gold-soft); }
-#article-body, #article-proof { scroll-margin-top: 2rem; }
+#article > header > div a { display: inline-flex; align-items: center; min-height: 36px; }
+#article > div > aside a { display: inline-block; padding-block: .35rem; }
 #article-diagram[data-has-visualization] { padding: 0; border: 0; background: transparent; max-width: 1040px; margin-inline: auto; }
 @media (max-width: 650px) {
-  #article > header > [data-article-meta] { gap: .15rem 1rem; }
-  #article > header > [data-article-meta] a { min-height: 44px; }
+  #article > header > figure img { height: 80px; }
+  #article > header > div { gap: .15rem 1rem; }
+  #article > header > div a { min-height: 44px; }
   #article > header > p:first-of-type { font-size: .65rem; letter-spacing: .08em; }
   #article > header > p:last-of-type { font-size: 1rem; }
   #article-body > p { font-size: 1rem; }
@@ -332,3 +300,6 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
   [data-ready=true][data-model-view=relational] [data-model=document],
   [data-ready=true][data-model-view=document] [data-model=relational] { display: none; }
 }
+
+#article-proof[data-article-visual]{margin:0;max-width:none}body>p{font:12px Arial;color:#c8beae;margin-top:14px;line-height:1.5} [data-visual] button{pointer-events:none}
+</style><figure id="article-proof" data-article-visual><section data-visual="transaction" data-model-view="relational" data-ready="false" data-retry="false" aria-label="Refund transaction boundaries"><header><p>THE CONSISTENCY BOUNDARY</p><h3>What has to change <em>together?</em></h3><p>One refund. Two ways to organise the same work.</p></header><div data-refund=""><strong>£40<span>refund</span></strong><div><span>BUSINESS OPERATION</span><code>refund_1042</code><small>One identity across every retry</small></div><button type="button" aria-pressed="false">↻ Try a duplicate request</button></div><nav data-model-picker="" aria-label="Compare data models"><button type="button" aria-pressed="true">Related records</button><button type="button" aria-pressed="false">Case document</button></nav><div data-models=""><section data-model="relational"><header><span>01 / RELATED RECORDS</span><h4>Postgres <i>/ Lakebase</i></h4></header><div data-boundary="transaction"><span data-boundary-label="">ONE TRANSACTION</span><ol><li><span data-record="customer">C</span><div><strong>Customer</strong><code>balance</code></div><span data-record-value="">updated</span></li><li><span data-record="refund">R</span><div><strong>Refund</strong><code>operation_id</code></div><span data-record-value="">1042</span></li><li><span data-record="approval">A</span><div><strong>Approval</strong><code>decision</code></div><span data-record-value="">allowed</span></li></ol><p><span aria-hidden="true">✓</span> Commit the related changes together</p></div><p>Separate records. Shared business rules.</p></section><section data-model="document"><header><span>02 / ONE AGGREGATE</span><h4>A support-case document</h4></header><div data-boundary="document"><span data-boundary-label="">CASE / 1042</span><div data-document-fields=""><span aria-hidden="true">{</span><div><p><code>messages</code><span>conversation</span></p><p><code>proposal</code><span>£40 refund</span></p><p><code>review</code><span>approved</span></p></div><span aria-hidden="true">}</span></div><p>Read and update the case as a unit</p></div><div data-separate=""><span aria-hidden="true">↳</span><div><strong>Customer balance</strong><span>Separate record → define its transaction boundary</span></div></div></section></div><div data-payment=""><span data-payment-mark="" aria-hidden="true">£</span><div><span>BEYOND EITHER DATABASE</span><strong>The payment provider</strong></div><p>Use provider idempotency<br/>and a recoverable workflow.</p></div><p data-outcome="" role="status"><strong>Choose around the boundary, not the JSON.</strong> Both models can transact. MongoDB supports multi-document transactions; Cosmos DB document batches share a logical partition key.</p><footer>Illustrative design · No benchmark or executed refund</footer></section></figure><p>Both models can transact. External payments need a recoverable workflow.<br>Orchestra AI · ai.hyperdrift.io/articles · Primary sources and interactive version in the article</p>

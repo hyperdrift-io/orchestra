@@ -22,14 +22,17 @@ function Inline({ text }: { text: string }): ReactNode {
   });
 }
 
-export function ArticleBody({ blocks, share }: { blocks: ArticleBlock[]; share?: Share }) {
+export function ArticleBody({ blocks, share, visualization }: { blocks: ArticleBlock[]; share?: Share; visualization?: ReactNode }) {
+  const insertAt = blocks.findIndex((block) => block.kind === 'quote');
   return <div id="article-body">{blocks.map((block, index) => {
     if (block.kind === 'heading') return <h2 key={index} id={block.id}>{block.text}</h2>;
     if (block.kind === 'quote') {
       const quote = <blockquote><p><Inline text={block.text} /></p></blockquote>;
-      // The share line is the quote readers forward, so it carries its own one-tap share.
-      if (share && plain(block.text) === plain(share.text)) return <figure key={index}>{quote}<figcaption><ShareLineButton {...share} /></figcaption></figure>;
-      return <Fragment key={index}>{quote}</Fragment>;
+      // The share line keeps its own action; the explanatory visual follows the opening quote.
+      const content = share && plain(block.text) === plain(share.text)
+        ? <figure>{quote}<figcaption><ShareLineButton {...share} /></figcaption></figure>
+        : quote;
+      return <Fragment key={index}>{content}{index === insertAt && visualization}</Fragment>;
     }
     if (block.kind === 'image') return <figure key={index}><img src={block.src} alt={block.alt} loading="lazy" /></figure>;
     return <p key={index}><Inline text={block.text} /></p>;

@@ -28,11 +28,17 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/editorial/bridge.png",
-      "alt": "Fine gold threads form a bridge between dark stone platforms.",
-      "caption": "Editorial illustration · From scattered signals to a clear direction.",
-      "width": 1672,
-      "height": 941
+      "src": "/articles/mesh/the-bridge.svg",
+      "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/the-bridge.svg",
+      "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
     }
   },
   {
@@ -64,11 +70,17 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/editorial/expertise.png",
-      "alt": "A luminous glass book shares its patterns with a golden constellation.",
-      "caption": "Editorial illustration · Expertise that travels with the work.",
-      "width": 1672,
-      "height": 941
+      "src": "/articles/mesh/expertise-agents-can-use.svg",
+      "alt": "Connected wireframe book, library, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/expertise-agents-can-use.svg",
+      "alt": "Connected wireframe book, library, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
     }
   },
   {
@@ -99,11 +111,17 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/editorial/delegation.png",
-      "alt": "Three illuminated structures move within precise gold boundaries.",
-      "caption": "Editorial illustration · Room to act. Clear boundaries.",
-      "width": 1672,
-      "height": 941
+      "src": "/articles/mesh/delegation-with-boundaries.svg",
+      "alt": "Connected wireframe flag, shield, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/delegation-with-boundaries.svg",
+      "alt": "Connected wireframe flag, shield, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
     }
   },
   {
@@ -135,11 +153,17 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/editorial/priorities.png",
-      "alt": "A warm beam reveals one golden compass amid a field of distant signals.",
-      "caption": "Editorial illustration · Give the next useful signal your attention.",
-      "width": 1672,
-      "height": 941
+      "src": "/articles/mesh/evidence-that-starts-work.svg",
+      "alt": "Connected wireframe magnifier, signpost, target forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/evidence-that-starts-work.svg",
+      "alt": "Connected wireframe magnifier, signpost, target forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
     }
   },
   {
@@ -170,11 +194,17 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/editorial/conversation.png",
-      "alt": "Two fine gold sound waves meet above one shared obsidian lens.",
-      "caption": "Editorial illustration · A shared view makes the conversation useful.",
-      "width": 1672,
-      "height": 941
+      "src": "/articles/mesh/conversation-with-a-shared-view.svg",
+      "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/conversation-with-a-shared-view.svg",
+      "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
     }
   },
   {
@@ -205,11 +235,139 @@
     },
     "publishedAt": null,
     "image": {
-      "src": "/articles/editorial/integration.png",
-      "alt": "A continuous gold filament connects three islands of useful work.",
-      "caption": "Editorial illustration · Build on the work already in motion.",
-      "width": 1672,
-      "height": 941
+      "src": "/articles/mesh/connect-agents-to-existing-work.svg",
+      "alt": "Connected wireframe gate, conversation, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/connect-agents-to-existing-work.svg",
+      "alt": "Connected wireframe gate, conversation, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
+  },
+  {
+    "slug": "lakebase-vs-document-databases",
+    "title": "Lakebase vs document databases: start with the transaction",
+    "excerpt": "A refund example makes the SQL-versus-document decision concrete. Where Lakebase, MongoDB and Cosmos DB fit—and which boundaries to check before choosing.",
+    "shareLine": "Choose the database around the promises your application must keep.",
+    "order": 7,
+    "topic": "AI engineering",
+    "example": "Databases and agent state",
+    "exampleStatus": "Illustrative decision guide",
+    "ctaLabel": "Discuss your agent data model",
+    "steps": [
+      "Map the operation",
+      "Draw its boundaries",
+      "Test the retry",
+      "Compare the workload"
+    ],
+    "proof": {
+      "description": "This original decision graphic uses an illustrative refund workflow. It is an architecture guide informed by vendor documentation, not a benchmark, deployed Lakebase integration or client outcome. Sources are linked in the article.",
+      "url": "/articles/databricks/transaction-visual.png",
+      "label": "Save the visual",
+      "heading": "Explore the decision guide"
+    },
+    "media": null,
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/mesh/lakebase-vs-document-databases.svg",
+      "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/lakebase-vs-document-databases.svg",
+      "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "visualization": {
+      "takeaway": "Both models can transact. External payments need a recoverable workflow.",
+      "description": "Related customer, refund and approval records can commit together in a Postgres transaction. A support-case document groups messages, proposal and review state; a separately stored balance requires an explicit cross-document transaction design. Both database models can transact. MongoDB supports multi-document transactions; Cosmos DB document API batches share a logical partition key. A provider payment sits beyond either database transaction, requiring provider idempotency and a recoverable workflow. The duplicate-request control illustrates looking up a recorded operation rather than starting a new payment.",
+      "sources": [
+        {
+          "label": "Databricks Lakebase",
+          "url": "https://docs.databricks.com/aws/en/oltp/projects"
+        },
+        {
+          "label": "PostgreSQL JSON types",
+          "url": "https://www.postgresql.org/docs/current/datatype-json.html"
+        },
+        {
+          "label": "MongoDB transactions",
+          "url": "https://www.mongodb.com/docs/manual/core/transactions/"
+        },
+        {
+          "label": "Cosmos DB transactional batches",
+          "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/transactional-batch"
+        }
+      ],
+      "kind": "transaction"
+    }
+  },
+  {
+    "slug": "langchain-databricks-appkit-sse",
+    "title": "LangChain and Databricks AppKit: make streaming useful",
+    "excerpt": "Agent events, application rules and SSE transport solve different problems. A simple approval workflow shows how to choose the runtime and design the stream.",
+    "shareLine": "A useful stream tells the user what changed and what happens next.",
+    "order": 8,
+    "topic": "AI engineering",
+    "example": "Streaming and event contracts",
+    "exampleStatus": "Illustrative architecture guide",
+    "ctaLabel": "Discuss your agent streaming workflow",
+    "steps": [
+      "Produce the event",
+      "Check access",
+      "Deliver progress",
+      "Recover the run"
+    ],
+    "proof": {
+      "description": "This original architecture graphic separates runtime events, application policy and SSE delivery. Its example event names describe a proposed application contract, not a tested SDK integration. Current primary sources and the AppKit agents plugin beta status are linked in the article.",
+      "url": "/articles/databricks/streaming-visual.png",
+      "label": "Save the visual",
+      "heading": "Explore the architecture guide"
+    },
+    "media": null,
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/mesh/langchain-databricks-appkit-sse.svg",
+      "alt": "Connected wireframe response, shield, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/langchain-databricks-appkit-sse.svg",
+      "alt": "Connected wireframe response, shield, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "visualization": {
+      "takeaway": "Progress travels over SSE. Recovery depends on stored run state.",
+      "description": "Read the lanes from agent to application to browser. The application checks access and records run state. Approval is a separate authenticated request. The disconnect example assumes that completion was recorded before the SSE connection dropped. Recovery reads the recorded run without blindly repeating the refund. These are illustrative application event names, not LangChain or AppKit API names. LangChain supplies agent events; AppKit also includes an app server and agent hosting, with the agents plugin in beta. Persistence and recovery must be implemented by the application.",
+      "sources": [
+        {
+          "label": "LangChain streaming",
+          "url": "https://docs.langchain.com/oss/python/langchain/streaming"
+        },
+        {
+          "label": "Databricks AppKit architecture",
+          "url": "https://developers.databricks.com/docs/appkit/v0/architecture"
+        },
+        {
+          "label": "AppKit agents plugin (beta)",
+          "url": "https://developers.databricks.com/docs/appkit/v0/plugins/agents"
+        },
+        {
+          "label": "MDN server-sent events",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
+        }
+      ],
+      "kind": "streaming"
     }
   }
 ]

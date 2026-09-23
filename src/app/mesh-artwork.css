@@ -1,0 +1,17 @@
+/* Transparent vectors and GPU geometry share the page background. */
+[data-mesh-artwork] { position: relative; display: block; overflow: hidden; flex: 0 0 auto; }
+[data-mesh-artwork='article'] { width: 100%; height: 112px; }
+[data-mesh-artwork] > canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; opacity: 0; transition: opacity .5s ease; }
+body [data-mesh-artwork] > [data-mesh-fallback] { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; border: 0; box-shadow: none; opacity: 1; transition: opacity .5s ease; }
+[data-mesh-artwork][data-renderer='webgl'] > canvas { opacity: 1; }
+body [data-mesh-artwork][data-renderer='webgl'] > [data-mesh-fallback] { opacity: 0; }
+[data-mesh-motion] { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: none; color: var(--cream-3); opacity: .55; cursor: pointer; font: .75rem var(--font-body); }
+[data-mesh-motion]:is(:hover, :focus-visible) { opacity: 1; color: var(--gold-light); }
+[data-mesh-motion]:focus-visible { outline: 1px solid var(--gold); outline-offset: -5px; }
+@media (prefers-reduced-motion: reduce) { [data-mesh-artwork] > canvas, body [data-mesh-artwork] > [data-mesh-fallback] { transition: none; } }
+@media print { [data-mesh-artwork] > canvas, [data-mesh-motion] { display: none; } body [data-mesh-artwork][data-renderer] > [data-mesh-fallback] { opacity: 1; } }
+
+[data-mesh-fallback] > svg { display: block; width: 100%; height: 100%; }
+/* Return immediately to the server vector after GPU loss; never fade up from blank. */
+body [data-mesh-artwork][data-renderer='fallback'] > [data-mesh-fallback] { opacity: 1; transition: none; }
+[data-mesh-artwork][data-renderer='fallback'] > canvas { opacity: 0; transition: none; }

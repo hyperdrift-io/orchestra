@@ -32,7 +32,7 @@ Each article stands alone. The Bridge opens the series; First Officer retains ex
 
 ## Editorial contract
 
-All copy inherits `meta/PHILOSOPHY.md` §8, Speak to Enable, and `apps/hyper-drift/TONE.md`. One useful claim, one primary example and one relevant enquiry per article. Working builds do not establish customer demand, enterprise readiness, awards or client outcomes. Possible applications are labelled as applications; historical evidence and prototype status remain visible.
+All copy inherits `meta/PHILOSOPHY.md` §8, Speak to Enable. New articles follow the AI site's [ARTICLE-STANDARD.md](../ARTICLE-STANDARD.md), including short explanations, a simple example, required images/infographics and qualified-enquiry goals; this takes precedence over the legacy `apps/hyper-drift/TONE.md` audience and format rules. One useful claim, one primary example and one relevant enquiry per article. Working builds do not establish customer demand, enterprise readiness, awards or client outcomes. Possible applications are labelled as applications; historical evidence and prototype status remain visible. The [Databricks / AI engineering series](../databricks-series/README.md) adds two unpublished decision guides.
 
 Hyperdrift is the organisation. The fleet is the products being operated. The Bridge is the operator experience for reading evidence and directing work. First Officer is its conversational role. The Crew is a separately named service. Skills carry specialist guidance; they do not enforce system permissions. The existing Orchestra name remains pending a separate brand decision.
 

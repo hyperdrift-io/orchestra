@@ -1,9 +1,12 @@
-import Image from 'next/image';
+import { meshFallbackSvg } from '@/lib/mesh-fallback';
+import { MeshArtwork } from '@/components/MeshArtwork';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getArticle, articleJsonLd } from '@/lib/articles';
 import { visibleArticles, articleUrl } from '@/lib/article-catalogue';
+import { ArticleContents } from '@/components/ArticleContents';
 import { ArticleBody } from '@/components/ArticleBody';
+import { ArticleVisualization } from '@/components/ArticleVisualization';
 import { ArticleProof } from '@/components/ArticleProof';
 import { EnquiryForm } from '@/components/EnquiryForm';
 import { ArticleTracker } from '@/components/ArticleTracker';
@@ -30,6 +33,10 @@ export default async function ArticlePage({ params }: Props) {
   const article = getArticle((await params).slug);
   if (!article) notFound();
   const image = new URL(articleShareImage(article).url);
+  const headerImage = article.headerImage ?? article.image;
+  const headings = article.blocks.flatMap((block) => block.kind === 'heading' && block.id ? [{ id: block.id, title: block.text }] : []);
+  const visualLink = { id: 'article-proof', title: article.proof.heading ?? 'See the working example' };
+  const sections = [{ id: 'article-body', title: 'Overview' }, ...(article.visualization ? [visualLink, ...headings] : [...headings, visualLink])];
   const next = visibleArticles().find((entry) => entry.order === article.order + 1);
   return <article id="article">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd(article) }} />
@@ -37,16 +44,19 @@ export default async function ArticlePage({ params }: Props) {
     <header>
       <nav aria-label="Breadcrumb"><a href="/articles">The AI-native organisation</a><span>/ {String(article.order).padStart(2, '0')}</span></nav>
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}
-      <p>{article.topic} / {article.example}</p><h1>{article.title}</h1><p>{article.excerpt}</p>
-      <div><span>By Yann VR · {article.minutes} min read</span><a href="#article-share">Share article ↓</a><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></div>
-      <figure><a href="#article-proof" aria-label="See the working example"><Image src={article.image.src} sizes="(max-width: 850px) 100vw, 1000px" alt={article.image.alt} width={article.image.width} height={article.image.height} priority /></a><figcaption>{article.image.caption}</figcaption></figure>
+      <p>{article.topic} / {article.example}</p>
+      <div data-article-heading=""><h1>{article.title}</h1>
+        <div data-article-orb=""><MeshArtwork key={article.slug} kind="article" fallbackSvg={meshFallbackSvg('article', article.slug)} slug={article.slug} fallback={headerImage.src} layout="title" animated /></div>
+      </div>
+      <p>{article.excerpt}</p>
+      <div data-article-meta=""><span>By Yann VR · {article.minutes} min read</span><a href="#article-share">Share article ↓</a><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></div>
     </header>
     <div>
-      <aside aria-label="In this article"><p>In this article</p><ol>{article.blocks.filter((block) => block.kind === 'heading').map((block) => 'text' in block && <li key={block.id}><a href={`#${block.id}`}>{block.text}</a></li>)}</ol><a href="#article-proof">See the working example ↓</a><nav aria-label="Share or enquire"><a href="#article-share">Share article ↓</a><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></nav></aside>
-      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} />
+      <ArticleContents entries={sections} ctaLabel={article.ctaLabel} />
+      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} />} />
     </div>
-    <figure id="article-diagram"><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol><ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
-    <ArticleProof article={article} />
+    <figure id="article-diagram" data-has-visualization={article.visualization ? "true" : undefined}>{!article.visualization && <><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol></>}<ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
+    {(!article.visualization || article.media) && <ArticleProof article={article} />}
     <section id="enquire" aria-labelledby="enquire-heading"><header><p>Put the idea to work</p><h2 id="enquire-heading">What would this look<br /><em>like for you?</em></h2><p>Tell us about one workflow and the tools involved. We’ll discuss where agents could help and which decisions should stay with your team.</p><small>A personal reply within one working day.</small></header><EnquiryForm articleSlug={article.slug} /></section>
     <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} ctaLabel={article.ctaLabel} />
     <footer><a href="/articles">← All field notes</a>{next && <a href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong></a>}</footer>

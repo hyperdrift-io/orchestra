@@ -1,6 +1,9 @@
+import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
+import './mesh-artwork.css';
+import { MeshArtwork } from '@/components/MeshArtwork';
 import './org.css';
 import './articles.css';
 import './constellation.css';
@@ -50,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header>
           <p>
             <a href="/" aria-label="Orchestra AI — home">
-              <img src="/brand/orchestra-mesh-compact.svg" width="44" height="44" alt="" />
+              <MeshArtwork kind="logo" fallbackSvg={meshFallbackSvg('logo')} fallback="/brand/orchestra-mesh-compact.svg" size={44} />
               <span>Orchestra <em>AI</em><small>By Hyperdrift</small></span>
             </a>
           </p>

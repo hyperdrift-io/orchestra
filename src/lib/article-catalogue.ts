@@ -11,9 +11,11 @@ export interface ArticleSummary {
   exampleStatus: string;
   ctaLabel: string;
   steps: string[];
-  proof: { description: string; url: string; label: string };
+  proof: { description: string; url: string; label: string; heading?: string };
   media: { kind: 'image' | 'youtube' | 'video'; src?: string; id?: string; alt?: string; caption: string } | null;
   image: { src: string; alt: string; caption: string; width: number; height: number };
+  headerImage?: { src: string; alt: string; width: number; height: number };
+  visualization?: { kind: 'transaction' | 'streaming'; takeaway: string; description: string; sources: { label: string; url: string }[] };
   publishedAt: string | null;
 }
 
