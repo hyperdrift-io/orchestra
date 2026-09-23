@@ -3,6 +3,7 @@ import { useEffect,useId,useRef,useState } from 'react';
 import { businessScenarios,type BusinessScenario } from '@/data/business-scenarios';
 import { createBusinessMesh,type MeshEngine } from '@/components/business-mesh';
 import { BusinessDetail } from '@/components/BusinessDetail';
+import { trackEvent } from '@/lib/analytics';
 import { domainStories } from './domain-stories';
 
 export function SystemGraph({scenario=businessScenarios[0]}:{scenario?:BusinessScenario}) {
@@ -13,12 +14,12 @@ export function SystemGraph({scenario=businessScenarios[0]}:{scenario?:BusinessS
   const [contribution,setContribution]=useState<number|null>(null);
   const [focused,setFocused]=useState(false),[facet,setFacet]=useState<number|null>(null),[announcement,setAnnouncement]=useState('');
   useEffect(()=>{
-    try {engine.current=createBusinessMesh({canvas:canvas.current!,host:surface.current!,coreLabel:()=>coreLabel.current,onContribution:setContribution,nodes:()=>buttons.current,facets:()=>facets.current,onStep:setStep,onFacet:setFacet,onFocus:(index)=>{setStep(index);setFocused(true);setFacet(null);setAnnouncement(`Inside ${scenario.steps[index].name}. Explore signal, action, impact and measurement. Click outside the domain or press Escape to return.`);},onReset:(index)=>{setFocused(false);setFacet(null);setAnnouncement('Back to the whole business.');requestAnimationFrame(()=>links.current[index]?.focus({preventScroll:true}));},onMotion:(value)=>{setReduced(value);if(value)setPlaying(false);}});setAvailable(true);}
+    try {engine.current=createBusinessMesh({canvas:canvas.current!,host:surface.current!,coreLabel:()=>coreLabel.current,onContribution:setContribution,nodes:()=>buttons.current,facets:()=>facets.current,onStep:setStep,onFacet:setFacet,onFocus:(index)=>{trackEvent('domain_explored',{domain:scenario.steps[index].name});setStep(index);setFocused(true);setFacet(null);setAnnouncement(`Inside ${scenario.steps[index].name}. Explore signal, action, impact and measurement. Click outside the domain or press Escape to return.`);},onReset:(index)=>{setFocused(false);setFacet(null);setAnnouncement('Back to the whole business.');requestAnimationFrame(()=>links.current[index]?.focus({preventScroll:true}));},onMotion:(value)=>{setReduced(value);if(value)setPlaying(false);}});setAvailable(true);}
     catch{setAvailable(false);setPlaying(false);}
     return()=>{engine.current?.dispose();engine.current=null;};
   },[scenario]);
   useEffect(()=>{if(focused)facets.current[0]?.focus({preventScroll:true});},[focused]);
-  const select=(index:number)=>{setStep(index);setFacet(null);if(available)engine.current?.select(index);else setFocused(true);};
+  const select=(index:number)=>{setStep(index);setFacet(null);if(available)engine.current?.select(index);else {setFocused(true);trackEvent('domain_explored',{domain:scenario.steps[index].name});}};
   const reset=()=>{engine.current?.reset();setFocused(false);setFacet(null);};
   return <div data-business-graph="globe" data-focused={focused} data-domain={step+1} onKeyDown={event=>{if(event.key==='Escape'&&focused){event.preventDefault();reset();}}}>
     <header><p>AI engineering for founders · Illustrative scenario</p><h1 id="system-title">{scenario.title}</h1><p>Follow one opportunity from the first customer signal to a better business. Explore how every part contributes to growth.</p></header>

@@ -5,6 +5,7 @@ growth_stage: activation
 primary_channel: linkedin
 posthog:
   region: eu
+  project_id: 206943
   north_star: enquiry_submitted
   primary_funnel:
     - $pageview
@@ -48,11 +49,11 @@ The [service launch kit](docs/campaigns/2026-09-service-launch/README.md) coordi
 
 ## Measurement contract
 
-**Release status:** this is the target funnel. PostHog installation approval is pending; these campaign events and persistent UTM-to-enquiry attribution are not active yet. Existing first-party article events and article-to-enquiry attribution remain available. Do not run this YAML funnel as if the new events already exist.
+**Release status:** the founder approved PostHog on 23 September 2026. The SDK, explicit interaction events, session-scoped first-touch attribution and server accepted-relay conversion are implemented. Production ingestion must be verified after deployment before reporting a baseline. Existing durable article events remain available.
 
-Once approved, use the existing Hyperdrift company PostHog project, with `app = orchestra` and hostname `ai.hyperdrift.io` on every report. Project-wide totals also include the legacy company site and must never be described as Orchestra traffic. The first baseline begins when verified production capture starts; there is no defensible historical conversion baseline for the new experience.
+Use the existing Hyperdrift company PostHog project, with `app = orchestra` and hostname `ai.hyperdrift.io` on every report. Project-wide totals also include the legacy company site and must never be described as Orchestra traffic. The first baseline begins when verified production capture starts; there is no defensible historical conversion baseline for the new experience.
 
-UTMs identify the source, medium, campaign and creative. Use `utm_campaign=one_opportunity_2026`; retain first-touch attribution through internal navigation and attach it to the saved enquiry. Never send names, email addresses, company names or free-text messages to analytics. Exclude local previews, QA-labelled events, bots and internal visits when assessing the campaign. Share-control clicks are intent, not confirmed social publication.
+UTMs identify the source, medium, campaign and creative. Use `utm_campaign=one_opportunity_2026`; retain first-touch attribution through internal navigation and attach it to the saved enquiry. Never send names, email addresses, company names or free-text messages to analytics. Exclude local previews, events with `validation_run`, bots and internal visits when assessing the campaign. Share-control clicks are intent, not confirmed social publication.
 
 The server's accepted contact relay is the enquiry success boundary. Human review of the durable lead record establishes qualification: evidence of demand, a concrete opportunity, and access to someone able to make a decision. Track qualified conversations, agreed scopes and won work privately; do not infer them from browser events.
 
@@ -70,3 +71,9 @@ Review daily during active distribution, then after each material signal. Time s
 ## Public voice
 
 All campaign work inherits `meta/PHILOSOPHY.md` §8, Speak to Enable: strengths first, concrete evidence, useful next move. The founder supplies and signs the personal/public launch words. The launch kit provides verified material and editing structure; unpublished text is not a scheduled post. No manufactured scarcity, invented uplift, borrowed sponsor credibility or automated outreach.
+
+### Event boundaries
+
+`$pageview` follows route changes. `cta_clicked` records enquiry, partnership and work links; `domain_explored` records deliberate domain entry. Article reading and share-control events retain their existing semantics. `enquiry_started` records the first form focus per mounted form; `enquiry_submitted` is emitted by the server only after the contact relay accepts the message, and `enquiry_failed` records storage or relay failure. Analytics failures never change delivery status. No replay or automatic form capture is enabled.
+
+Campaign attribution is first touch within a browser tab, not cross-device identity. Anonymous session IDs join the browser funnel to the accepted enquiry; submission counts still require human qualification. URL queries and fragments are removed from SDK URL properties. Campaign values are bounded tags, never free text.

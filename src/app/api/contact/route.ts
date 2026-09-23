@@ -3,6 +3,8 @@ import { contactSchema } from '@/lib/contact-schema';
 import { articleBySlug, articleUrl } from '@/lib/article-catalogue';
 import { saveEnquiry, recordArticleEvent } from '@/lib/enquiry-storage';
 
+import { trackEnquiry } from '@/lib/analytics-server';
+
 export const runtime = 'nodejs';
 
 // Enquiries relay through the flagship's contact endpoint: one mail transport
@@ -33,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Contact delivery is not configured' }, { status: 503 });
   }
   try { await saveEnquiry(id, parsed.data, preview ? 'preview' : 'pending'); }
-  catch { return NextResponse.json({ error: 'We could not save your enquiry. Please try again.' }, { status: 503 }); }
+  catch { await trackEnquiry('enquiry_failed', parsed.data, id, 'storage'); return NextResponse.json({ error: 'We could not save your enquiry. Please try again.' }, { status: 503 }); }
   if (preview) {
     if (article) await recordArticleEvent({ event: 'enquiry_preview_saved', article, session: session || '', enquiryId: id }).catch(() => {});
     return NextResponse.json({ ok: true, preview: true, id });
@@ -53,16 +55,19 @@ export async function POST(req: Request) {
       signal: AbortSignal.timeout(10_000),
     });
     if (!relay.ok) {
-      await saveEnquiry(id, parsed.data, 'failed');
+      await saveEnquiry(id, parsed.data, 'failed').catch(() => {});
+      await trackEnquiry('enquiry_failed', parsed.data, id, 'relay');
       return NextResponse.json({ error: 'Failed to send' }, { status: 502 });
     }
   } catch {
     await saveEnquiry(id, parsed.data, 'failed').catch(() => {});
+    await trackEnquiry('enquiry_failed', parsed.data, id, 'relay');
     return NextResponse.json({ error: 'Failed to send' }, { status: 502 });
   }
 
   // Email acceptance is the success boundary; follow-up must not cause a duplicate retry.
   await saveEnquiry(id, parsed.data, 'sent').catch(() => console.error('Could not update enquiry delivery', id));
   if (article) await recordArticleEvent({ event: 'enquiry_submitted', article, session: session || '', enquiryId: id }).catch(() => console.error('Could not record enquiry attribution', id));
+  await trackEnquiry('enquiry_submitted', parsed.data, id, 'relay_accepted');
   return NextResponse.json({ ok: true, id });
 }

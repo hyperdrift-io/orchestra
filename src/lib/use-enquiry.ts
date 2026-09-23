@@ -3,6 +3,9 @@ import { useRef, useState, type FormEvent, type FocusEvent } from 'react';
 import { enquiryChoices } from '@/data/situations';
 import { articleSession, trackArticle } from './article-tracking';
 
+import { campaignAttribution } from './campaign';
+import { trackEvent } from './analytics';
+
 export function useEnquiry() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'preview' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -11,6 +14,7 @@ export function useEnquiry() {
     if (started.current) return;
     started.current = true;
     const article = String(new FormData(event.currentTarget).get('article') || '');
+    trackEvent('enquiry_started', { article: article || undefined });
     if (article) trackArticle(article, 'enquiry_started');
   };
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -27,7 +31,7 @@ export function useEnquiry() {
           name: String(form.get('name') || ''), email: String(form.get('email') || ''),
           company: String(form.get('company') || '') || undefined,
           situation: enquiryChoices.find((choice) => choice.value === form.get('situation'))?.label,
-          message: String(form.get('message') || ''), article, session: article ? articleSession() : undefined,
+          message: String(form.get('message') || ''), article, session: articleSession(), campaign: campaignAttribution(),
         }),
       });
       const body = await response.json();

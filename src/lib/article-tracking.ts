@@ -1,17 +1,11 @@
 import type { ArticleEvent } from './article-events';
 
-let memorySession: string | undefined;
-export function articleSession() {
-  if (memorySession) return memorySession;
-  try {
-    const saved = sessionStorage.getItem('ai-article-session');
-    memorySession = saved && /^[0-9a-f-]{36}$/i.test(saved) ? saved : crypto.randomUUID();
-    sessionStorage.setItem('ai-article-session', memorySession);
-  } catch { memorySession = crypto.randomUUID(); }
-  return memorySession;
-}
+import { visitorSession } from './campaign';
+import { trackEvent } from './analytics';
+export const articleSession = visitorSession;
 
 export function trackArticle(article: string, event: ArticleEvent['event']) {
+  if (event !== 'enquiry_started') trackEvent(event, { article });
   const payload = JSON.stringify({ article, event, session: articleSession() });
   const blob = new Blob([payload], { type: 'application/json' });
   if (navigator.sendBeacon?.('/api/article-events', blob)) return;

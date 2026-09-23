@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { campaignSchema } from './campaign';
 import { articleSlugSchema } from './article-events';
 
 export const contactSchema = z.object({
@@ -9,6 +10,7 @@ export const contactSchema = z.object({
   situation: z.string().trim().max(80).optional(),
   article: articleSlugSchema.optional(),
   session: z.string().uuid().optional(),
+  campaign: campaignSchema.optional(),
   message: z.string().trim().min(10, 'Tell us a bit more').max(5000),
 });
 

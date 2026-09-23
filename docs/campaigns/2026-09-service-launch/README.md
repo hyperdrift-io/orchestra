@@ -2,7 +2,7 @@
 
 Campaign working direction · 23 September 2026 · Orchestra AI by Hyperdrift
 
-**Current delivery:** site and six original articles live at 5972f4d. Seven share cards and ten tracked links are ready. The film is a shot list, not a finished new recording. No social posts are scheduled. Campaign analytics awaits dependency approval.
+**Current delivery:** site and six original articles live at 5972f4d. Seven share cards and ten tracked links are ready. The film is a shot list, not a finished new recording. No social posts are scheduled. Campaign analytics is approved and implemented; verify production ingestion before starting its baseline. The founder is exploring a distinct new service identity, so hold new branded campaign exports and publication until that direction is selected.
 
 ## The idea
 
