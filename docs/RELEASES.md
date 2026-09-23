@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Live production:** Service site and articles | tag `service-launch-2026-09-23` | 23 Sep 2026 | Live at 5972f4d via infra f080c57; six articles public, two Databricks drafts excluded. All 11 sitemap pages and share images verified. Analytics still pending. |
+| **Live production:** Campaign measurement | tag `posthog-campaign-2026-09-23` (`2b23dce`) | 23 Sep 2026 | Approved PostHog capture deployed through infra `7f221c0`; project 206943 EU. Real marked browser events and first-touch attribution verified. |
+| **Previous production:** Service site and articles | tag `service-launch-2026-09-23` | 23 Sep 2026 | Live at 5972f4d via infra f080c57; six articles public, two Databricks drafts excluded. All 11 sitemap pages and share images verified. Analytics still pending. |
 | **Previous:** Article sharing | tag `article-sharing-2026-09-22` | 22 Sep 2026 | Canonical sharing controls, versioned Mesh Aperture images and complete OG/Twitter metadata. Local preview only. |
 | **Previous:** Mesh Aperture identity | tag `mesh-aperture-2026-09-22` | 22 Sep 2026 | Founder-selected B: spherical wireframe O/A, compact header/footer mark, simplified favicon and updated share cards. Local preview only. |
 | **Previous:** Aperture Open Graph | tag `aperture-opengraph-2026-09-22` | 22 Sep 2026 | Branded 1200 × 630 growth/profit share card, secondary-page metadata and article marks. Local preview only. |
@@ -20,7 +21,15 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Service release — 23 September 2026
+## Campaign measurement — 23 September 2026
+
+Founder approved PostHog. App `2b23dce64ad40951e05a36264e29ad6277a98566` passed [CI](https://github.com/hyperdrift-io/orchestra/actions/runs/35922691315), local typecheck and production build, then deployed through isolated infra `7f221c0`. PM2 is online with zero restarts. Launch readiness: 10 passed, zero failed, one informational GSC-field warning; the domain property is already verified and submitted.
+
+A real production browser visit marked `validation_run=orchestra-release-20260923` confirmed page views, deliberate Notice exploration, navigation to Articles and the Bridge, and enquiry form focus. First-touch source/medium/campaign/content remained attached across navigation. Captured URLs contain origin and path only. Exclude validation events from campaign reports. Local preview delivery also retained campaign attribution and the anonymous session in its durable record without sending email. No synthetic live enquiry was submitted: the accepted-relay server event is implemented, but a real successful contact delivery has not been exercised in this verification.
+
+No existing Hyperdrift portal content or runtime was changed. The founder wants a distinct new service identity and content; naming is still exploratory and no rebrand has shipped.
+
+## Previous service release — 23 September 2026
 
 Founder authorized production deployment. Production build and typecheck passed with ARTICLE_PREVIEW unset; the six reviewed AI-native articles are included, the newer Databricks drafts are excluded. The approved living mesh, Mesh Aperture identity, article sharing and Traction Partnership are carried forward. GitHub Actions and infra now use npm consistently. PostHog capture remains a campaign-readiness gap pending dependency approval. See the [coordinated campaign kit](campaigns/2026-09-service-launch/README.md). Live verification: infra make deploy exited successfully; all 11 sitemap URLs returned 200, canonical/indexing metadata and six article sharing sections passed, and all OG images returned 1200 × 630 PNGs. Readiness: 6 passed, 2 failed (PostHog project registration and capture), 2 warnings (GSC field and missing optional app vault). Contact relay configuration and invalid-input handling were checked; no synthetic enquiry email was sent. The webhook workflow lacked credentials. A trial of the existing org runner remained queued for this public repository while private-repo jobs were accepted; it was cancelled without changing access policy. GitHub Actions now clearly verifies only. Deploy approved releases through infra after green CI. Automatic deployment needs an approved public-repository route. One Google Fonts build fetch failed transiently and passed on retry; the approved typography was preserved. Google accepted the sitemap under the already-verified sc-domain:hyperdrift.io property, so the empty per-app GSC field is not a missing verification.
 

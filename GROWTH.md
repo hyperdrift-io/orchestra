@@ -49,7 +49,7 @@ The [service launch kit](docs/campaigns/2026-09-service-launch/README.md) coordi
 
 ## Measurement contract
 
-**Release status:** the founder approved PostHog on 23 September 2026. The SDK, explicit interaction events, session-scoped first-touch attribution and server accepted-relay conversion are implemented. Production ingestion must be verified after deployment before reporting a baseline. Existing durable article events remain available.
+**Release status:** the founder approved PostHog on 23 September 2026. The SDK, explicit interaction events, session-scoped first-touch attribution and server accepted-relay conversion are implemented. Production ingestion was verified on 23 September with marked real browser interactions, including route views, domain exploration and enquiry starts; exclude those verification events from the first baseline. The server accepted-relay event has not been exercised by sending a synthetic live enquiry. Existing durable article events remain available.
 
 Use the existing Hyperdrift company PostHog project, with `app = orchestra` and hostname `ai.hyperdrift.io` on every report. Project-wide totals also include the legacy company site and must never be described as Orchestra traffic. The first baseline begins when verified production capture starts; there is no defensible historical conversion baseline for the new experience.
 

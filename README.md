@@ -9,25 +9,25 @@ Agent orchestration for production AI workflows. An offspring of Hyperdrift.
 
 ```bash
 npm install
-npm run dev          # http://localhost:3105
+npm run dev          # http://localhost:3108
 npm run test         # vitest (schema + API route)
 npm run typecheck
 npm run build
-npm run start        # serves the production build on port 3005
+npm run start        # serves the production build on port 3008
 ```
 
 ## Ports
 
 | Environment | Port | URL |
 |---|---|---|
-| Production | 3005 | https://ai.hyperdrift.io |
-| Development | 3105 | http://localhost:3105 |
+| Production | 3008 | https://ai.hyperdrift.io |
+| Development | 3108 | http://localhost:3108 |
 
 Convention: `prod_port + 100 = dev_port` (see `infra/PORTS.md`).
 
 ## Required env
 
-See [`.env.example`](./.env.example). The contact form needs `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`. No analytics wiring in the MVP — we add measurement when there is something signal-shaped to measure.
+See [`.env.example`](./.env.example). The contact form uses the existing Hyperdrift contact relay; local preview delivery is documented in the env example. Approved PostHog capture uses `NEXT_PUBLIC_POSTHOG_KEY` and `NEXT_PUBLIC_POSTHOG_HOST` from the production vault at build time. Events are scoped to `app=orchestra` in company project 206943 (EU); see [GROWTH.md](./GROWTH.md) for the funnel, attribution and privacy boundaries.
 
 ## Deployment
 
@@ -35,8 +35,8 @@ Hyperdrift self-hosts on a Hostinger VPS. There is no Vercel / Netlify / managed
 
 - **Process manager**: PM2 (`ecosystem.config.cjs` in this repo mirrors the central `nginx-prod/ecosystem.config.js` entry on the server).
 - **Reverse proxy + TLS**: nginx on the VPS, terminating `ai.hyperdrift.io`.
-- **CI**: GitHub Actions (`.github/workflows/deploy.yml`) runs the test gate (`npm run test:ci`) and the production build on every push to `main`, then triggers the server-side deploy webhook.
-- **Server-side deploy**: managed by the `hyperdrift-infra` repo (ansible). The app entry lives in `infra/group_vars/apps.yml` under `deploy_apps[name=orchestra]` with port `3005`.
+- **CI**: GitHub Actions (`.github/workflows/deploy.yml`) runs the test gate (`npm run test:ci`) and the production build on every push to `main`. It verifies only; deploy the approved revision separately through infra after CI passes.
+- **Server-side deploy**: managed by the `hyperdrift-infra` repo (ansible). The app entry lives in `infra/group_vars/apps.yml` under `deploy_apps[name=orchestra]` with port `3008`.
 - **DNS**: `ai.hyperdrift.io` resolves to the Hostinger VPS via an A record.
 
 To register a new env var or change port behaviour, edit `infra/group_vars/apps.yml` in the `hyperdrift-infra` repo and run the deploy from there.
