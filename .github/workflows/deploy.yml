@@ -33,14 +33,14 @@ jobs:
 
   deploy:
     needs: test
-    runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, hyperdrift, deploy]
+    concurrency:
+      group: orchestra-production
+      cancel-in-progress: false
     steps:
-      - name: Trigger server-side deploy
+      - name: Deploy through Hyperdrift infrastructure
         run: |
-          curl -fsSL \
-            -X POST \
-            -H "Authorization: Bearer ${{ secrets.DEPLOY_WEBHOOK_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{"app":"orchestra","ref":"${{ github.sha }}"}' \
-            "${{ secrets.DEPLOY_WEBHOOK_URL }}"
+          cd ~/dev/hyperdrift-infra
+          git pull --ff-only
+          PATH=$PATH:~/.local/bin make deploy-local app=orchestra
