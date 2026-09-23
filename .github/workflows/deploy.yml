@@ -16,25 +16,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v5
-        with:
-          version: 9
-
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: "22"
-          cache: "pnpm"
+          cache: "npm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: CI test gate (type-check + tests)
-        run: pnpm run test:ci
+        run: npm run test:ci
 
       - name: Build
-        run: pnpm run build
+        run: npm run build
 
   deploy:
     needs: test
