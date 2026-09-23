@@ -2,6 +2,8 @@
 
 Campaign working direction · 23 September 2026 · Orchestra AI by Hyperdrift
 
+**Current delivery:** site and six original articles live at 5972f4d. Seven share cards and ten tracked links are ready. The film is a shot list, not a finished new recording. No social posts are scheduled. Campaign analytics awaits dependency approval.
+
 ## The idea
 
 Let a founder watch a business opportunity become work they can inspect. The distinctive asset is the living mesh: attention flows into a decision, becomes an improvement, then returns as learning. Every piece points to the same business question: what would be worth improving in the business you already have?
@@ -69,6 +71,14 @@ Use Bluesky/Mastodon as secondary distribution only after account access and fin
 The film approach is informed by LinkedIn's [B2B video guidance](https://www.linkedin.com/business/marketing/blog/content-marketing/13-top-tips-for-compelling-b2b-video-content-on-linkedin); the decision to connect thoughtful explanation to inspectable work is consistent with the [Edelman–LinkedIn thought-leadership research](https://www.edelman.com/expertise/Business-Marketing/2025-b2b-thought-leadership-report). Neither source establishes that this campaign will perform. Measure it.
 
 No paid promotion, unsolicited messages, engagement queues or social publishing has been initiated. Prepare the evidence and assets now; the remaining founder inputs are the launch words and publishing time.
+
+## Production effort and ownership
+
+Yann owns the motivation, final public words, publishing time and any live discussion. Engineering owns the live destination, accurate evidence, caption exports, link checks and measurement. The first useful package is already small: seven share cards, the captioned Unanswered source clip and ten tracked entrances. The film shot list is a production brief, not a finished video.
+
+Capture one complete 45-second sequence, then derive the short teaser and proof clips from it. Budget one focused recording/editing session plus a founder review; add a separate voice validation session only if voice is in the reveal. Do not commission seven unrelated videos. The existing scenario and approved visual system supply consistency. There is no paid-media commitment.
+
+An optional follow-on format is an **Opportunity Session**: with a willing founder and explicit permission for the material shown, take one real workflow from evidence to an agreed next step on screen. Let them correct the interpretation. Publish only the portion they approve, then return to what actually changed after measurement. This is a proposal for the founder to host, not an announced event or a promise to deliver free work. It would turn future campaign proof into the service itself, with the customer's voice intact.
 
 ## Measurement and operating sequence
 
