@@ -6,6 +6,10 @@
 
 See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
+## Production instruction — 23 September 2026
+
+The founder explicitly requested “Push live and work an innovative and coordinated campaign”. This authorizes deployment of the reviewed experience and the six original AI-native articles, superseding historical local-preview-only statements below. The two newer Databricks drafts retain their separate review gate. Deployment now uses npm in GitHub Actions and infra. The [campaign kit](docs/campaigns/2026-09-service-launch/README.md) contains approved-brand exports, tracked distribution links and founder briefing material; it does not represent scheduled social posts. PostHog dependency approval is pending; keep campaign activation separate from the approved site deployment.
+
 ## Article standard — founder direction, 22 September 2026
 
 For all new AI-site articles, read [ARTICLE-STANDARD.md](docs/editorial/ARTICLE-STANDARD.md). Prioritise qualified enquiries, concise 500–800-word explanations, one simple example, a WebGL expertise globe to the right of the title with a matching SVG fallback and a striking explanatory visual within the explanation (choose diagrams for flows and architecture; reserve data-visualisation skills for data). Compare concepts fairly and cite current primary sources. This site-specific standard supersedes the legacy blog's audience and format rules. The [Databricks series](docs/editorial/databricks-series/README.md) starts with database modelling and streaming contracts; drafts remain unpublished until final copy/media review and production approval.

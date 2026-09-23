@@ -26,7 +26,7 @@
       "alt": "A historical published view of the Hyperdrift Bridge.",
       "caption": "The internal Bridge in a previously published view; this is not current fleet data."
     },
-    "publishedAt": null,
+    "publishedAt": "2026-09-23T00:00:00Z",
     "image": {
       "src": "/articles/mesh/the-bridge.svg",
       "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
@@ -68,7 +68,7 @@
       "alt": "The title frame of the Hyperdrift anniversary film.",
       "caption": "The published anniversary film: one artefact supported by our editorial practice."
     },
-    "publishedAt": null,
+    "publishedAt": "2026-09-23T00:00:00Z",
     "image": {
       "src": "/articles/mesh/expertise-agents-can-use.svg",
       "alt": "Connected wireframe book, library, decision forms in Orchestra's mesh style.",
@@ -109,7 +109,7 @@
       "id": "JB2O3WSwH90",
       "caption": "Helm: recorded demonstration of agent roles and sandbox recovery."
     },
-    "publishedAt": null,
+    "publishedAt": "2026-09-23T00:00:00Z",
     "image": {
       "src": "/articles/mesh/delegation-with-boundaries.svg",
       "alt": "Connected wireframe flag, shield, checklist forms in Orchestra's mesh style.",
@@ -151,7 +151,7 @@
       "alt": "The opening frame of the recorded Standup demonstration.",
       "caption": "Standup is a public project. Its historical example output is linked in the article."
     },
-    "publishedAt": null,
+    "publishedAt": "2026-09-23T00:00:00Z",
     "image": {
       "src": "/articles/mesh/evidence-that-starts-work.svg",
       "alt": "Connected wireframe magnifier, signpost, target forms in Orchestra's mesh style.",
@@ -192,7 +192,7 @@
       "src": "https://hyperdrift.io/videos/hyper-video-mesh-demo.mp4",
       "caption": "HyperVideoMesh: a recorded creative-tool prototype. This is supporting evidence, not a First Officer recording."
     },
-    "publishedAt": null,
+    "publishedAt": "2026-09-23T00:00:00Z",
     "image": {
       "src": "/articles/mesh/conversation-with-a-shared-view.svg",
       "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
@@ -233,7 +233,7 @@
       "id": "z4B0gtwbjB4",
       "caption": "uk.gov Radar: recorded interaction in a compatible browser environment."
     },
-    "publishedAt": null,
+    "publishedAt": "2026-09-23T00:00:00Z",
     "image": {
       "src": "/articles/mesh/connect-agents-to-existing-work.svg",
       "alt": "Connected wireframe gate, conversation, checklist forms in Orchestra's mesh style.",

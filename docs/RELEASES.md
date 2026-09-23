@@ -4,7 +4,8 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
-| **Current:** Article sharing | tag `article-sharing-2026-09-22` | 22 Sep 2026 | Canonical sharing controls, versioned Mesh Aperture images and complete OG/Twitter metadata. Local preview only. |
+| **Release candidate:** Service site and articles | tag `service-launch-2026-09-23` | 23 Sep 2026 | Explicit production approval; npm deployment corrected, six reviewed articles public, two Databricks drafts excluded. Deployment verification pending. |
+| **Previous:** Article sharing | tag `article-sharing-2026-09-22` | 22 Sep 2026 | Canonical sharing controls, versioned Mesh Aperture images and complete OG/Twitter metadata. Local preview only. |
 | **Previous:** Mesh Aperture identity | tag `mesh-aperture-2026-09-22` | 22 Sep 2026 | Founder-selected B: spherical wireframe O/A, compact header/footer mark, simplified favicon and updated share cards. Local preview only. |
 | **Previous:** Aperture Open Graph | tag `aperture-opengraph-2026-09-22` | 22 Sep 2026 | Branded 1200 × 630 growth/profit share card, secondary-page metadata and article marks. Local preview only. |
 | **Previous:** Aperture identity | tag `aperture-identity-2026-09-22` | 22 Sep 2026 | Founder-selected negative-space O/A mark in the masthead, footer and favicon. Local preview only. |
@@ -19,7 +20,11 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 Production deploys from `main`. A tag only marks a reviewable state; merging and deploying need the founder's go.
 
-## Current: `article-sharing-2026-09-22`
+## Service release — 23 September 2026
+
+Founder authorized production deployment. Production build and typecheck passed with ARTICLE_PREVIEW unset; the six reviewed AI-native articles are included, the newer Databricks drafts are excluded. The approved living mesh, Mesh Aperture identity, article sharing and Traction Partnership are carried forward. GitHub Actions and infra now use npm consistently. PostHog capture remains a campaign-readiness gap pending dependency approval. See the [coordinated campaign kit](campaigns/2026-09-service-launch/README.md). Live verification will be recorded after deployment.
+
+## Previous: `article-sharing-2026-09-22`
 
 All articles gain copy-link, LinkedIn, email, native sharing and share-card download controls with a byline shortcut. Metadata includes branded, versioned PNGs, descriptive image text, article context and consistent website defaults. Typecheck, build, all eight image/metadata checks and responsive browser review passed; native system-sheet and clipboard-content inspection remain limited by the preview host. Drafts stay unpublished. [Implementation and verification](reviews/2026-09-22-sharing.md). Local preview only.
 

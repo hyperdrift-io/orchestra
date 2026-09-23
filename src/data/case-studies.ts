@@ -123,11 +123,11 @@ export const caseStudies: CaseStudy[] = [
     slug: 'own-stack',
     name: 'own-stack',
     outcome:
-      'Server-rendered React with five production dependencies: typed server functions across the wire, no API routes, pure cascading CSS. The reference stack every new Hyperdrift app inherits.',
+      'Server-rendered React with owned passkey authentication, typed server functions and pure cascading CSS. The reference stack every new Hyperdrift app inherits.',
     problem:
       'Framework lock-in taxes every feature after the first; most of the dependency tree serves the framework, not the product.',
     capability: 'Owned, minimal full-stack architecture.',
-    stack: ['Waku RSC', 'TypeScript', 'Better Auth'],
+    stack: ['Waku RSC', 'TypeScript', 'Owned passkeys'],
     link: 'https://own-stack.hyperdrift.io',
     linkLabel: 'Explore the stack',
     article: 'https://hyperdrift.io/blog/own-your-stack-server-rendered-react-without-nextjs',
