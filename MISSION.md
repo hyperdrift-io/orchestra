@@ -32,6 +32,6 @@ For this site: qualified conversations with founders who have a concrete workflo
 
 ## Identity and delivery
 
-`ai.hyperdrift.io` is Hyperdrift’s primary commercial destination. Hyperdrift is the company; Orchestra AI is the current site name. Existing articles and historical work retain their URLs on `hyperdrift.io`. No new brand, domain or framework is the objective.
+`ai.hyperdrift.io` is Hyperdrift’s primary commercial destination. Hyperdrift is the company; Orchestra AI is the current site name. Existing articles and historical work retain their URLs on `hyperdrift.io`. Founder update, 23 September 2026: select a distinct new service name before branding. Retain the fresh AI-service content and leave the existing Hyperdrift portal unchanged. The naming direction must carry the fearless innovation, entrepreneurial empowerment and direct voice of the Hyperdrift philosophy and manifesto; no replacement name has been approved.
 
 Working examples and inspectable code support the offer. Production deployments go through Hyperdrift infra after founder approval. This mission revision authorises no deployment or outbound communication.

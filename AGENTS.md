@@ -12,7 +12,9 @@ The founder explicitly requested “Push live and work an innovative and coordin
 
 ## Brand exploration — 23 September 2026
 
-The founder explicitly keeps the existing Hyperdrift portal unchanged and wants a distinct new identity and content for this service. Explore naming and positioning around a success partnership, customer experience, growth and profit. Hyperdrift can supply provenance; it is not the selected new service name. No replacement name or public rebrand has been approved. Do not infer design failure from the legacy portal bringing no customers.
+The founder explicitly keeps the existing Hyperdrift portal unchanged. The AI service already has fresh content: retain it and choose the new service name before branding work. No replacement name or public rebrand has been approved. Hyperdrift can supply provenance; it is not the selected new service name. Do not infer design failure from the legacy portal bringing no customers.
+
+Founder correction: Gainkind, Furtherkind and Withward were rejected as too soft and generic. Naming must embody meta/PHILOSOPHY.md §§3, 8 and 9 and meta/MANIFESTO.md: fearless innovation, challenging established patterns, empowering entrepreneurs to build better alternatives, and taking a clear stance. Customer experience means respecting and increasing customer capability; it must not be translated into timid language. Growth and profit remain commercial outcomes, alongside the ambition to create new capability. Evaluate brand fit before domain availability. Keep claims grounded and the tone enabling; no hype, founder shaming or fabricated results.
 
 ## Article standard — founder direction, 22 September 2026
 
