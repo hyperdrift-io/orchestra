@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="t d">
+  <title id="t">One turn of the First Officer</title>
+  <desc id="d">The captain speaks. The speech platform hears the words and decides the turn has ended. The fleet's control plane decides the line and moves the screen. The platform speaks the line. About one and a half seconds pass between the captain's last word and the officer's first.</desc>
+  <style>
+    text{font-family:"Avenir Next","Helvetica Neue",system-ui,sans-serif;fill:#1c1a17}
+    .lane{stroke:#c9bfae;stroke-width:1.5;stroke-dasharray:4 6}
+    .box{fill:#fbf8f2;stroke:#b8a888;stroke-width:1.5}
+    .gold{fill:#b8860b}.t{font-size:22px;font-weight:600}.s{font-size:17px;fill:#5a544b}
+    .arrow{stroke:#1c1a17;stroke-width:2;fill:none;marker-end:url(#m)}
+    .time{font-size:15px;fill:#8a7f6a}
+  </style>
+  <defs><marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1c1a17"/></marker></defs>
+  <g class="t" text-anchor="middle">
+    <rect class="box" x="60" y="30" width="220" height="56" rx="10"/><text x="170" y="65">The captain</text>
+    <rect class="box" x="490" y="30" width="220" height="56" rx="10"/><text x="600" y="65">Speech platform</text>
+    <rect class="box" x="920" y="30" width="220" height="56" rx="10"/><text x="1030" y="65">The fleet</text>
+  </g>
+  <g class="s" text-anchor="middle"><text x="600" y="108">hears, ends the turn, speaks</text><text x="1030" y="108">agenda, evidence, decisions, screen</text></g>
+  <line class="lane" x1="170" y1="120" x2="170" y2="490"/><line class="lane" x1="600" y1="120" x2="600" y2="490"/><line class="lane" x1="1030" y1="120" x2="1030" y2="490"/>
+  <g class="s">
+    <path class="arrow" d="M180 160 H590"/><text x="385" y="150" text-anchor="middle">"Why?"</text>
+    <path class="arrow" d="M610 220 H1020"/><text x="815" y="210" text-anchor="middle">the words, once the turn has ended</text>
+    <path class="arrow" d="M1020 300 H610"/><text x="815" y="290" text-anchor="middle">the exact line to say · the screen moves</text>
+    <path class="arrow" d="M590 380 H180"/><text x="385" y="370" text-anchor="middle">"The last verdict, on 8 July, was inconclusive. Want more, or shall we decide?"</text>
+  </g>
+  <g class="time" text-anchor="end"><text x="160" y="164">0.0 s</text><text x="160" y="384">≈1.5 s</text></g>
+  <g class="s"><text x="60" y="460">The platform never decides what to say. The fleet never handles audio.</text><text class="gold" x="60" y="486">ai.hyperdrift.io/articles · measured on the Hyperdrift fleet, September 2026</text></g>
+</svg>

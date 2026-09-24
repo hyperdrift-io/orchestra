@@ -369,5 +369,47 @@
       ],
       "kind": "streaming"
     }
+  },
+  {
+    "slug": "the-first-officer",
+    "title": "The First Officer: when a voice earns its place in operations",
+    "excerpt": "A voice that reports to you, asks for the decision and moves the screen to what you are discussing. What had to be true underneath for it to feel like a colleague, and where the same pattern fits another business.",
+    "shareLine": "A voice earns its place when the thinking behind it is already trustworthy.",
+    "order": 9,
+    "topic": "Conversation",
+    "example": "Hyperdrift First Officer",
+    "exampleStatus": "Prototype on the internal Bridge",
+    "ctaLabel": "Discuss your operating workflow",
+    "steps": [
+      "Hear the agenda",
+      "Ask why",
+      "Decide out loud",
+      "See it recorded"
+    ],
+    "proof": {
+      "description": "The voice layer and its agenda contract are open source; measurements are in the repository's notes.",
+      "url": "https://github.com/hyperdrift-io/bridge-voice",
+      "label": "Read the code and the measurements"
+    },
+    "media": {
+      "kind": "image",
+      "src": "/articles/editorial/first-officer-turn.svg",
+      "alt": "Sequence of one turn: the captain speaks, the speech platform hears and speaks, the fleet decides the line and moves the screen.",
+      "caption": "One turn, about one and a half seconds from the captain's last word to the officer's first. The demo video replaces this image once it is cut."
+    },
+    "publishedAt": null,
+    "image": {
+      "src": "/articles/mesh/the-first-officer.svg",
+      "alt": "Connected wireframe conversation, signpost, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/the-first-officer.svg",
+      "alt": "Connected wireframe conversation, signpost, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
   }
 ]

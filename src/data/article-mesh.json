@@ -38,5 +38,10 @@
     "response",
     "shield",
     "checklist"
+  ],
+  "the-first-officer": [
+    "conversation",
+    "signpost",
+    "decision"
   ]
 }
