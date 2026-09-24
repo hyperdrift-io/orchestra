@@ -4,6 +4,7 @@ One row per tagged version of ai.hyperdrift.io, plus what production actually se
 
 | Version | Git ref | Date | Status |
 |---|---|---|---|
+| **Live production:** Databricks decision guides | `854d0bec` | 24 Sep 2026 | Lakebase/document database and LangChain/AppKit/SSE guides published at their canonical `/articles/` URLs. Exact-SHA CI passed; infra deploy and readiness passed (10 checks, 0 failures, one existing GSC-field warning). Both pages, sitemap entries and OG images verified. Social distribution remains pending account access and read-back verification. |
 | **Live production:** Campaign measurement | tag `posthog-campaign-2026-09-23` (`2b23dce`) | 23 Sep 2026 | Approved PostHog capture deployed through infra `7f221c0`; project 206943 EU. Real marked browser events and first-touch attribution verified. |
 | **Previous production:** Service site and articles | tag `service-launch-2026-09-23` | 23 Sep 2026 | Live at 5972f4d via infra f080c57; six articles public, two Databricks drafts excluded. All 11 sitemap pages and share images verified. Analytics still pending. |
 | **Previous:** Article sharing | tag `article-sharing-2026-09-22` | 22 Sep 2026 | Canonical sharing controls, versioned Mesh Aperture images and complete OG/Twitter metadata. Local preview only. |

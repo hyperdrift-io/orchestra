@@ -1,13 +1,13 @@
 # Databricks and practical AI engineering
 
-Research and drafts prepared 22 September 2026 for `ai.hyperdrift.io/articles`. Primary goal: qualified conversations about real AI workflows. Apply the [article standard](../ARTICLE-STANDARD.md). Both opening articles are implemented as unpublished previews, around 600 words each, with original source-backed decision graphics. No Databricks partnership, client result or executed SDK experiment is implied.
+Research prepared 22 September 2026 for `ai.hyperdrift.io/articles`; both opening articles went live on 24 September 2026. Primary goal: qualified conversations about real AI workflows. Apply the [article standard](../ARTICLE-STANDARD.md). Both articles are around 600 words, with original source-backed decision graphics. No Databricks partnership, client result or executed SDK experiment is implied.
 
 ## Start with two decisions
 
 | Priority | Article / decision | Simple example | Contact invitation | Status |
 |---|---|---|---|---|
-| 1 | Lakebase vs document databases: start with the transaction | A refund spanning balance, record and approval | Discuss your agent data model | Draft + infographic |
-| 2 | LangChain and Databricks AppKit: make streaming useful | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Draft + infographic |
+| 1 | [Lakebase vs document databases: start with the transaction](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund spanning balance, record and approval | Discuss your agent data model | Live; social distribution pending |
+| 2 | [LangChain and Databricks AppKit: make streaming useful](https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse) | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Live; social distribution pending |
 | 3 | Keep agent memory separate from business truth | A conversation summary versus a confirmed refund | Discuss your agent state boundaries | Brief only; research before writing |
 | 4 | Give an agent the permissions of the job | Two tenants asking the same question over different records | Discuss your access model | Brief only; research before writing |
 | 5 | Make a failed tool call safe to retry | A payment accepted before its response is lost | Discuss workflow reliability | Brief only; research before writing |
@@ -47,20 +47,22 @@ No benchmark, cost saving, client outcome or SDK compatibility claim was tested.
 
 ## Assets and review
 
-Current visuals: purpose-built transaction-boundary and streaming-sequence components, with optional interaction and downloadable PNG snapshots. The founder requested format-led visualisation without the infographic skill for these flow/architecture subjects. See [VISUAL-DIRECTION.md](VISUAL-DIRECTION.md) for source, export and review details. Shallow topic headers and concise page layout remain. All content remains an unpublished preview.
+Current visuals: purpose-built transaction-boundary and streaming-sequence components, with optional interaction and downloadable PNG snapshots. The founder requested format-led visualisation without the infographic skill for these flow/architecture subjects. See [VISUAL-DIRECTION.md](VISUAL-DIRECTION.md) for source, export and review details. Shallow topic headers and concise page layout remain.
 
-Runtime copy is in `content/articles/lakebase-vs-document-databases.md` and `content/articles/langchain-databricks-appkit-sse.md`; catalogue entries remain `publishedAt: null`. Review on the existing local server:
+Runtime copy is in `content/articles/lakebase-vs-document-databases.md` and `content/articles/langchain-databricks-appkit-sse.md`; catalogue entries have the verified 24 September publication timestamp. Local preview routes:
 
 - http://127.0.0.1:3112/articles/lakebase-vs-document-databases
 - http://127.0.0.1:3112/articles/langchain-databricks-appkit-sse
 
-## Distribution kit — prepared, not posted
+## Distribution kit — live articles, social posts pending
 
 For each approved article, reuse its opening PNG, share line and canonical URL. A short founder post should teach the decision even without the click; the article adds the worked example and sources. Email reuse is for an explicitly authorised send. Do not place links in unrelated conversations.
 
-**Database post:** “Your agent returns JSON. That does not settle its database. Trace one refund: which records change together, what prevents a duplicate, and where does the external payment happen? We put Lakebase, MongoDB and Cosmos DB into a one-page decision guide.” Follow with the approved article URL and its diagram.
+**Database post:** “Your agent returns JSON. That does not settle its database. Trace one refund: which records change together, what prevents a duplicate, and where does the external payment happen? We put Lakebase, MongoDB and Cosmos DB into a one-page decision guide.” Link to https://ai.hyperdrift.io/articles/lakebase-vs-document-databases and attach `public/articles/databricks/transaction-visual.png`.
 
-**Streaming post:** “The best progress message says what changed. Separate the runtime event, the application's access rules and the SSE connection. Then disconnect halfway through a tool call. Can the interface recover without starting the job twice?” Follow with the approved article URL and its diagram.
+**Streaming post:** “The best progress message says what changed. Separate the runtime event, the application's access rules and the SSE connection. Then disconnect halfway through a tool call. Can the interface recover without starting the job twice?” Link to https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse and attach `public/articles/databricks/streaming-visual.png`.
+
+Release order: verify the production article and image URLs, publish on the Hyperdrift company LinkedIn Page, then use HyperPost for configured Bluesky/Mastodon accounts. Record each platform's returned post URL and read the public post back before marking it sent. Avoid duplicate retries after an uncertain response. On 24 September the local HyperPost build worked, but no accounts or cron were configured and `schedule-list` was empty; Composio's existing LinkedIn grant could read the personal profile but returned 403 for organization ACLs. See the AI-portal section of `apps/hyper-drift/CONTENT_RELEASE.md` for the actual posting gate. These posts have **not** been sent or scheduled.
 
 **Email introduction, databases:** “This short guide uses a refund to clarify when relational or document modelling fits. The diagram may help with your current architecture discussion.”
 
@@ -74,7 +76,7 @@ Existing first-party events and durable lead records preserve article context. `
 
 Use qualified conversations per production hour as an early efficiency measure. Financial ROI is (attributable gross profit minus total content cost) / total content cost, with a declared attribution method and time horizon; no ROI number is available yet. Include research, writing, design, distribution and maintenance in cost. Track attributed and assisted conversations separately to avoid counting the same lead multiple times.
 
-Final words and graphics need founder review before publication. Do not set publication timestamps, merge for release, deploy, submit a sitemap or post the distribution kit during this drafting task. No infrastructure change is necessary to preview content through existing routes.
+The founder requested the two reviewed articles go live on 24 September; the release was deployed and verified. Social copy remains prepared and unsent until its destination can be tested and the public post read back. Do not infer a published social post from a scheduled row or an API success alone.
 
 ## Verification — 22 September 2026
 
