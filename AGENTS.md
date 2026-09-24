@@ -97,3 +97,9 @@ The homepage implements the five screens the founder approved (`docs/design/2026
 - **Now playing** (`CurrentContent`): Intel's `/api/daily-intel/list` and hyperdrift.io `/api/blog/list` server-side, 15-minute revalidate, honest fallback links. The blog feed lives on hyper-drift branch `feat/blog-list-feed` and is not deployed yet.
 - **The enquiry** (`Enquiry`): "You say where. We go." over the art; the form and the Traction Partnership below it. The relay to hyperdrift.io is unchanged.
 - The long material stays folded in `Programme`. Pure cascading CSS in `src/app/globals.css`; the folded movements still use the older `.card`/`.meta`/`.numeral` rules, rethemed to the gold palette.
+
+## Release (2026-09-23)
+
+- Public repository: the org deploy runner refuses it (GitHub's default for public repos, kept on purpose). CI runs on GitHub-hosted runners; production deploys by hand from infra with `make deploy app=orchestra` until a public-repo route is approved. Never widen runner access to fix a missing webhook secret: add the secret to the vault and redeploy.
+- Package manager: app code is npm; `.github/workflows/deploy.yml` and the `apps.yml` entry (`package_manager: "pnpm"`, `build_cmd: "pnpm build"`) are still pnpm. Migrate all three together before the next dependency change (root `AGENTS.md → Package manager and language`).
+- Public is not launched: `posthog_project_id` is empty in `infra/group_vars/apps.yml`. Wire PostHog and pass `make check-launch-readiness app=orchestra` before any post, ad or contest entry points here.
