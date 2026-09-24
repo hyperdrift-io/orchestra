@@ -271,7 +271,7 @@
       "heading": "Explore the decision guide"
     },
     "media": null,
-    "publishedAt": null,
+    "publishedAt": "2026-09-24T20:10:00Z",
     "image": {
       "src": "/articles/mesh/lakebase-vs-document-databases.svg",
       "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
@@ -332,7 +332,7 @@
       "heading": "Explore the architecture guide"
     },
     "media": null,
-    "publishedAt": null,
+    "publishedAt": "2026-09-24T20:10:00Z",
     "image": {
       "src": "/articles/mesh/langchain-databricks-appkit-sse.svg",
       "alt": "Connected wireframe response, shield, checklist forms in Orchestra's mesh style.",
