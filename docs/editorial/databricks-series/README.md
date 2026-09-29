@@ -1,12 +1,12 @@
 # Databricks and practical AI engineering
 
-Research prepared 22 September 2026 for `ai.hyperdrift.io/articles`; both opening articles went live on 24 September 2026. Primary goal: qualified conversations about real AI workflows. Apply the [article standard](../ARTICLE-STANDARD.md). Both articles are around 600 words, with original source-backed decision graphics. No Databricks partnership, client result or executed SDK experiment is implied.
+Research prepared 22 September 2026 for `ai.hyperdrift.io/articles`; both opening articles went live on 24 September 2026. Primary goal: qualified conversations about real AI workflows. Apply the [article standard](../ARTICLE-STANDARD.md). Both articles are under 800 words, with original source-backed decision graphics. No Databricks partnership, client result or executed SDK experiment is implied.
 
 ## Start with two decisions
 
 | Priority | Article / decision | Simple example | Contact invitation | Status |
 |---|---|---|---|---|
-| 1 | [Refunds: Postgres or a document database?](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund spanning balance, record and approval | Discuss your agent data model | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) verified |
+| 1 | [Refunds: Postgres or a document database?](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund versus an independent support case | Discuss your agent data model | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) verified |
 | 2 | [LangChain and Databricks AppKit: make streaming useful](https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse) | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Live; company LinkedIn share queued for the next weekly slot |
 | 3 | Keep agent memory separate from business truth | A conversation summary versus a confirmed refund | Discuss your agent state boundaries | Brief only; research before writing |
 | 4 | Give an agent the permissions of the job | Two tenants asking the same question over different records | Discuss your access model | Brief only; research before writing |
