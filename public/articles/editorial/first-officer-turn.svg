@@ -4,11 +4,12 @@
   <style>
     text{font-family:"Avenir Next","Helvetica Neue",system-ui,sans-serif;fill:#1c1a17}
     .lane{stroke:#c9bfae;stroke-width:1.5;stroke-dasharray:4 6}
-    .box{fill:#fbf8f2;stroke:#b8a888;stroke-width:1.5}
+    .box{fill:#fffdf8;stroke:#b8a888;stroke-width:1.5}
     .gold{fill:#b8860b}.t{font-size:22px;font-weight:600}.s{font-size:17px;fill:#5a544b}
     .arrow{stroke:#1c1a17;stroke-width:2;fill:none;marker-end:url(#m)}
     .time{font-size:15px;fill:#8a7f6a}
   </style>
+  <rect width="1200" height="520" rx="18" fill="#f6f1e7"/>
   <defs><marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1c1a17"/></marker></defs>
   <g class="t" text-anchor="middle">
     <rect class="box" x="60" y="30" width="220" height="56" rx="10"/><text x="170" y="65">The captain</text>
