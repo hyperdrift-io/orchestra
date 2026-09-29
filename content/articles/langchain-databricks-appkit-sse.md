@@ -1,6 +1,6 @@
-An assistant feels useful before its final answer arrives when it shows what has actually happened: records found, a check completed, a decision waiting for approval. To build that experience, distinguish the agent's events from the connection carrying them to the browser.
+**LangChain exposes agent progress, model messages and custom updates; Databricks AppKit provides an integrated app server with HTTP/SSE interfaces and an agents plugin.** Choose LangChain when its orchestration and integrations fit the workflow; evaluate AppKit when the application belongs in Databricks. Either choice still needs an authenticated event contract and recoverable run state.
 
-LangChain and Databricks AppKit overlap, but “which one does SSE?” is too narrow a choice. Start with the runtime your workflow needs, then define the progress contract your interface can trust.
+Server-sent events (SSE) are the browser delivery mechanism, not the agent runtime. The useful comparison is who produces the updates, who serves them and what happens after a disconnect. The AppKit agents plugin discussed here is beta; check the installed version.
 
 > A useful stream tells the user what changed and what happens next.
 

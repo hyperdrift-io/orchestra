@@ -1,6 +1,4 @@
-Imagine opening your business in the morning and finding the decisions that need you, each with the evidence behind it. You can challenge a recommendation, change its direction or let the work proceed. You can also see what happened after yesterday's decision.
-
-That is the job we built the Bridge to do at Hyperdrift.
+An AI operations dashboard should connect each recommendation to its evidence, the decision a person can make and the result of the work that follows. Start with one recurring decision, check whether the data is trustworthy and retain the approval and outcome. Hyperdrift’s internal Bridge illustrates this operating pattern.
 
 We run a collection of products: our fleet. The Bridge is where we review their condition and direct the work. The agents have different jobs underneath it. The person operating it needs a clear picture and a useful next move.
 

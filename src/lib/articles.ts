@@ -30,6 +30,16 @@ export const getArticle = cache((slug: string) => {
   return { ...summary, blocks, minutes: Math.max(1, Math.ceil(source.split(/\s+/).length / 220)) };
 });
 
+export function articleSections(article: NonNullable<ReturnType<typeof getArticle>>) {
+  const visual = { id: 'article-proof', title: article.proof.heading ?? 'See the working example' };
+  const visualIndex = article.blocks.findIndex((block) => block.kind === 'quote');
+  const body = article.blocks.flatMap((block, index) => {
+    if (block.kind === 'heading' && block.id) return [{ id: block.id, title: block.text }];
+    return article.visualization && index === visualIndex ? [visual] : [];
+  });
+  return [{ id: 'article-body', title: 'Overview' }, ...body, ...(!article.visualization ? [visual] : [])];
+}
+
 export function articleJsonLd(article: NonNullable<ReturnType<typeof getArticle>>) {
   const url = `https://ai.hyperdrift.io/articles/${article.slug}`;
   return JSON.stringify({

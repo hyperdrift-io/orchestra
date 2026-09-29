@@ -1,4 +1,4 @@
-An operations agent becomes useful when it can carry a task through. Read an incident, investigate, take an allowed action, check the result. The engineering question is how much authority that particular job needs.
+Give an AI agent the permissions needed for its assigned job, enforce those limits in its tools and require evidence of the result before reporting completion. Separate diagnosis from actions that change systems, with explicit approval or escalation where needed. Helm demonstrates this approach with restricted roles and sandbox operations.
 
 We explored that question in [Helm](https://github.com/hyperdrift-io/helm), a demonstration built for Google's All Things Agentic Hackathon. It gives different agents different responsibilities over a product fleet, with disruptive drill actions confined to designated sandbox services.
 

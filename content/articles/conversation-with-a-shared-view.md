@@ -1,4 +1,4 @@
-“Why is that first?” is an ordinary question when a colleague brings you a recommendation. You expect them to point to the evidence, explain their judgement and hear your correction.
+A conversational AI interface should connect each spoken or typed instruction to a visible object: a case, decision or edit. Keep its evidence and proposed changes on screen so the person can inspect, correct and confirm them. First Officer and HyperVideoMesh explore this pattern in operations and video editing.
 
 Our First Officer prototype explores that interaction over the Hyperdrift Bridge. The officer discusses fleet priorities while the screen moves to the subject of the conversation. The aim is to let an operator reason through the work with a shared view of it.
 

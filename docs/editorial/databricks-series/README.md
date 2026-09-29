@@ -4,10 +4,12 @@ Research prepared 22 September 2026 for `ai.hyperdrift.io/articles`; both openin
 
 ## Start with two decisions
 
+The database article answers “How does Lakebase compare with MongoDB and Cosmos DB, and when should I choose each?” Refund and support-case examples explain that comparison; they are not its topic. All articles follow the AEO contract in [ARTICLE-STANDARD.md](../ARTICLE-STANDARD.md); query and evidence coverage is recorded in [AEO-REVIEW.md](../AEO-REVIEW.md).
+
 | Priority | Article / decision | Simple example | Contact invitation | Status |
 |---|---|---|---|---|
-| 1 | [Refunds: Postgres or a document database?](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund versus an independent support case | Discuss your agent data model | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) verified |
-| 2 | [LangChain and Databricks AppKit: make streaming useful](https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse) | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Live; company LinkedIn share queued for the next weekly slot |
+| 1 | [Lakebase vs MongoDB and Cosmos DB: which approach fits?](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund versus an independent support case | Discuss your agent data model | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) verified |
+| 2 | [LangChain vs Databricks AppKit for agent streaming](https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse) | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Live; company LinkedIn share queued for the next weekly slot |
 | 3 | Keep agent memory separate from business truth | A conversation summary versus a confirmed refund | Discuss your agent state boundaries | Brief only; research before writing |
 | 4 | Give an agent the permissions of the job | Two tenants asking the same question over different records | Discuss your access model | Brief only; research before writing |
 | 5 | Make a failed tool call safe to retry | A payment accepted before its response is lost | Discuss workflow reliability | Brief only; research before writing |

@@ -9,7 +9,7 @@ function TransactionMap() {
   const [interactive, setInteractive] = useState(false);
   useEffect(() => setInteractive(true), []);
   return <section data-visual="transaction" data-model-view={model} data-ready={interactive} data-retry={retry} aria-label="Refund transaction boundaries">
-    <header><p>THE CONSISTENCY BOUNDARY</p><h3>What has to change <em>together?</em></h3><p>For this refund, start with Postgres. The case document answers a different need.</p></header>
+    <header><p>WORKED EXAMPLE / REFUND</p><h3>What has to change <em>together?</em></h3><p>For this refund, start with Postgres. The case document answers a different need.</p></header>
     <div data-refund=""><strong>£40<span>refund</span></strong><div><span>BUSINESS OPERATION</span><code>refund_1042</code><small>{retry ? 'Existing operation → read its result' : 'One identity across every retry'}</small></div><button type="button" aria-pressed={retry} onClick={() => setRetry(!retry)}>{retry ? '↺ Reset example' : '↻ Try a duplicate request'}</button></div>
     <nav data-model-picker="" aria-label="Compare data models"><button type="button" aria-pressed={model === 'relational'} onClick={() => setModel('relational')}>Related records</button><button type="button" aria-pressed={model === 'document'} onClick={() => setModel('document')}>Case document</button></nav>
     <div data-models="">

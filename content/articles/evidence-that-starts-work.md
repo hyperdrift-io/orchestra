@@ -1,4 +1,4 @@
-You have an evening for your projects. Someone has opened a pull request. Someone else asked a question. The useful starting point is knowing who is waiting and what you can do for them.
+A useful AI daily brief ranks the next actions using an agreed priority rule and shows the source record behind each recommendation. It should distinguish people waiting for help from routine activity and let the reader correct its judgement. Standup demonstrates this with public GitHub issues and pull requests.
 
 That is the question behind [Standup](https://standup.hyperdrift.io). Give it a GitHub handle and it reads public repository activity, then prepares a short set of recommended next actions with the evidence it used.
 

@@ -2,7 +2,7 @@ import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import { MeshArtwork } from '@/components/MeshArtwork';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getArticle, articleJsonLd } from '@/lib/articles';
+import { getArticle, articleJsonLd, articleSections } from '@/lib/articles';
 import { visibleArticles, articleUrl } from '@/lib/article-catalogue';
 import { ArticleContents } from '@/components/ArticleContents';
 import { ArticleBody } from '@/components/ArticleBody';
@@ -34,9 +34,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
   const image = new URL(articleShareImage(article).url);
   const headerImage = article.headerImage ?? article.image;
-  const headings = article.blocks.flatMap((block) => block.kind === 'heading' && block.id ? [{ id: block.id, title: block.text }] : []);
-  const visualLink = { id: 'article-proof', title: article.proof.heading ?? 'See the working example' };
-  const sections = [{ id: 'article-body', title: 'Overview' }, ...(article.visualization ? [visualLink, ...headings] : [...headings, visualLink])];
+  const sections = articleSections(article);
   const next = visibleArticles().find((entry) => entry.order === article.order + 1);
   return <article id="article">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd(article) }} />

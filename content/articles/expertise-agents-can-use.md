@@ -1,4 +1,4 @@
-Your best work carries knowledge that a new colleague would need time to learn: which evidence matters, what a good result looks like, when to ask for help. An agent needs access to that knowledge too.
+An AI agent skill makes specialist practice reusable by recording the sources to trust, examples of accepted work, quality checks and stopping points for a particular job. Start with a task your team knows well and can review. Written guidance helps the agent follow that practice; tool permissions still enforce what it may do.
 
 At Hyperdrift, we put recurring instructions into skills: written guidance an agent loads for a particular job. The useful part is the judgement recorded inside them.
 

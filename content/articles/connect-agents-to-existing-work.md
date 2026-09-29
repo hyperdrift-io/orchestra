@@ -1,4 +1,4 @@
-Suppose you are comparing opportunities for your business. Your agent knows the context. The website holds the opportunities. A useful integration lets both contribute while you work through one shared shortlist.
+Use WebMCP when a compatible browser agent and a person need to work through the same web page; use a server-side MCP integration when the task needs tools outside that shared page. In either approach, define the allowed operations, check the caller’s access and make the result inspectable. Radar and Standup illustrate these different entry points.
 
 We built that interaction into [uk.gov Radar](https://radar.hyperdrift.io/explore). Its Explore page gives a compatible browser agent tools for proposing a profile, finding relevant items and helping prepare a brief. The suggestions appear in the page, where the person can keep them, drop them and explain why.
 
