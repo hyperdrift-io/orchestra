@@ -7,7 +7,7 @@ Research prepared 22 September 2026 for `ai.hyperdrift.io/articles`; both openin
 | Priority | Article / decision | Simple example | Contact invitation | Status |
 |---|---|---|---|---|
 | 1 | [Lakebase vs document databases: start with the transaction](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund spanning balance, record and approval | Discuss your agent data model | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) verified |
-| 2 | [LangChain and Databricks AppKit: make streaming useful](https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse) | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805258793746433/) verified |
+| 2 | [LangChain and Databricks AppKit: make streaming useful](https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse) | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Live; company LinkedIn share queued for the next weekly slot |
 | 3 | Keep agent memory separate from business truth | A conversation summary versus a confirmed refund | Discuss your agent state boundaries | Brief only; research before writing |
 | 4 | Give an agent the permissions of the job | Two tenants asking the same question over different records | Discuss your access model | Brief only; research before writing |
 | 5 | Make a failed tool call safe to retry | A payment accepted before its response is lost | Discuss workflow reliability | Brief only; research before writing |
@@ -54,7 +54,7 @@ Runtime copy is in `content/articles/lakebase-vs-document-databases.md` and `con
 - http://127.0.0.1:3112/articles/lakebase-vs-document-databases
 - http://127.0.0.1:3112/articles/langchain-databricks-appkit-sse
 
-## Distribution kit — company posts live; HyperPost channels pending
+## Distribution kit — weekly company release; HyperPost channels pending
 
 For each approved article, reuse its opening PNG, share line and canonical URL. A short founder post should teach the decision even without the click; the article adds the worked example and sources. Email reuse is for an explicitly authorised send. Do not place links in unrelated conversations.
 
@@ -62,7 +62,11 @@ For each approved article, reuse its opening PNG, share line and canonical URL. 
 
 **Streaming post:** “The best progress message says what changed. Separate the runtime event, the application's access rules and the SSE connection. Then disconnect halfway through a tool call. Can the interface recover without starting the job twice?” Link to https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse and attach `public/articles/databricks/streaming-visual.png`.
 
-On 29 September, the founder approved the LinkedIn sign-in for a new Composio connection with organization read and publishing scopes. `LINKEDIN_GET_COMPANY_INFO` resolved the HyperDrift Page (`urn:li:organization:112937919`). Both prepared posts above were published with their respective PNGs and external links tagged `utm_source=linkedin`, `utm_medium=social`, `utm_campaign=one_opportunity_2026`. The [database post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) and [streaming post](https://www.linkedin.com/feed/update/urn:li:share:7510805258793746433/) each returned a share URN; `LINKEDIN_GET_POST_CONTENT` read back the intended text, company author, image asset, `PUBLISHED` state and `PUBLIC` visibility. Their public pages also showed the post text and image. The streaming read-back briefly returned 404 immediately after creation, then succeeded after propagation; it was not retried as a new post.
+On 29 September, the founder approved the LinkedIn sign-in for a new Composio connection with organization read and publishing scopes. `LINKEDIN_GET_COMPANY_INFO` resolved the HyperDrift Page (`urn:li:organization:112937919`). The [database post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) was published with its PNG and a link tagged `utm_source=linkedin`, `utm_medium=social`, `utm_campaign=one_opportunity_2026`; `LINKEDIN_GET_POST_CONTENT` and the public page verified the text, company author, image, `PUBLISHED` state and `PUBLIC` visibility. A streaming share was also sent minutes later in error. The founder asked to remove it and use a weekly cadence. `LINKEDIN_DELETE_POST` returned `deleted: true` for `urn:li:share:7510805258793746433`; a subsequent read-back returned 404, while the database post remained public. The streaming article itself remains live and its prepared company share is queued for the next weekly slot.
+
+**Company cadence:** release at most one AI article share per weekly slot, starting with the streaming share after the database post of 29 September. A weekly check is a delivery rhythm, not permission to publish unfinished copy. Before sending, inspect this queue and the company Page for duplicates, confirm the canonical article and graphic still resolve, and use the founder-approved text and media. After sending, read back the post and update this record with its URL and result. If copy or media changes materially, or the next article has not passed final review, prepare a preview and request that review instead of posting. Never batch a backlog to catch up.
+
+The active Codex heartbeat `weekly-hyperdrift-ai-article-announcement` runs on Tuesday mornings. Its first queued announcement is the approved streaming share; later runs prepare new copy and visuals for review when no approved item is ready. The site articles can stay public independently of this LinkedIn cadence.
 
 HyperPost channels remain pending: on 29 September `schedule-list` was empty, no Bluesky/Mastodon credentials were configured and no Mac or production-server cron runner was present. Do not infer a published post from a scheduled row or API success alone. Before any future send, verify the production article URL; afterwards record the platform URL and read back the public post. Check `apps/hyper-drift/CONTENT_RELEASE.md` for the release gate.
 
@@ -78,7 +82,7 @@ Existing first-party events and durable lead records preserve article context. `
 
 Use qualified conversations per production hour as an early efficiency measure. Financial ROI is (attributable gross profit minus total content cost) / total content cost, with a declared attribution method and time horizon; no ROI number is available yet. Include research, writing, design, distribution and maintenance in cost. Track attributed and assisted conversations separately to avoid counting the same lead multiple times.
 
-The founder requested the two reviewed articles go live on 24 September; the release was deployed and verified. Company LinkedIn posts followed on 29 September and were read back. HyperPost distribution has not been sent or scheduled.
+The founder requested the two reviewed articles go live on 24 September; the release was deployed and verified. The database company share remains live from 29 September. The streaming company share was removed the same day to restore a weekly release rhythm. HyperPost distribution has not been sent or scheduled.
 
 ## Verification — 22 September 2026
 
