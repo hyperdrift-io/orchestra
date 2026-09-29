@@ -262,10 +262,10 @@
   },
   {
     "slug": "lakebase-vs-document-databases",
-    "title": "Lakebase vs document databases: start with the transaction",
-    "seoTitle": "Lakebase vs document databases",
-    "excerpt": "A refund example makes the SQL-versus-document decision concrete. Where Lakebase, MongoDB and Cosmos DB fit—and which boundaries to check before choosing.",
-    "shareLine": "Choose the database around the promises your application must keep.",
+    "title": "Refunds: Postgres or a document database?",
+    "seoTitle": "Postgres vs document databases for refunds | Lakebase",
+    "excerpt": "For a refund spanning balance, approval and retry state, start with Postgres. Lakebase is a managed option for Databricks teams; document models need a different boundary.",
+    "shareLine": "For this refund, start with Postgres; keep the external payment safe to retry.",
     "order": 7,
     "topic": "AI engineering",
     "example": "Databases and agent state",
@@ -285,7 +285,7 @@
     },
     "media": null,
     "publishedAt": "2026-09-24T20:10:00Z",
-    "updatedAt": "2026-09-29T21:13:16Z",
+    "updatedAt": "2026-09-29T21:23:00Z",
     "image": {
       "src": "/articles/mesh/lakebase-vs-document-databases.svg",
       "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
@@ -300,12 +300,16 @@
       "height": 160
     },
     "visualization": {
-      "takeaway": "Both models can transact. External payments need a recoverable workflow.",
-      "description": "Related customer, refund and approval records can commit together in a Postgres transaction. A support-case document groups messages, proposal and review state; a separately stored balance requires an explicit cross-document transaction design. Both database models can transact. MongoDB supports multi-document transactions; Cosmos DB document API batches share a logical partition key. A provider payment sits beyond either database transaction, requiring provider idempotency and a recoverable workflow. The duplicate-request control illustrates looking up a recorded operation rather than starting a new payment.",
+      "takeaway": "For this refund, start with Postgres; the payment provider needs its own retry protection.",
+      "description": "For the illustrated refund, start with Postgres: related customer balance, refund and approval records can commit in one transaction. Lakebase is a managed Postgres choice when Databricks integration matters. A support-case document groups messages, proposal and review state, but a separately stored balance needs an explicit cross-document design. MongoDB supports multi-document transactions; Cosmos DB document API batches share one logical partition key. A provider payment sits beyond either database transaction, requiring provider idempotency and a recoverable workflow. The duplicate-request control illustrates looking up a recorded operation rather than starting a new payment.",
       "sources": [
         {
           "label": "Databricks Lakebase",
-          "url": "https://docs.databricks.com/aws/en/oltp/projects"
+          "url": "https://docs.databricks.com/aws/en/oltp/projects/databricks-apps"
+        },
+        {
+          "label": "PostgreSQL transactions",
+          "url": "https://www.postgresql.org/docs/current/tutorial-transactions.html"
         },
         {
           "label": "PostgreSQL JSON types",

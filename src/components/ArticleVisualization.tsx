@@ -9,11 +9,11 @@ function TransactionMap() {
   const [interactive, setInteractive] = useState(false);
   useEffect(() => setInteractive(true), []);
   return <section data-visual="transaction" data-model-view={model} data-ready={interactive} data-retry={retry} aria-label="Refund transaction boundaries">
-    <header><p>THE CONSISTENCY BOUNDARY</p><h3>What has to change <em>together?</em></h3><p>One refund. Two ways to organise the same work.</p></header>
+    <header><p>THE CONSISTENCY BOUNDARY</p><h3>What has to change <em>together?</em></h3><p>For this refund, start with Postgres. The case document answers a different need.</p></header>
     <div data-refund=""><strong>£40<span>refund</span></strong><div><span>BUSINESS OPERATION</span><code>refund_1042</code><small>{retry ? 'Existing operation → read its result' : 'One identity across every retry'}</small></div><button type="button" aria-pressed={retry} onClick={() => setRetry(!retry)}>{retry ? '↺ Reset example' : '↻ Try a duplicate request'}</button></div>
     <nav data-model-picker="" aria-label="Compare data models"><button type="button" aria-pressed={model === 'relational'} onClick={() => setModel('relational')}>Related records</button><button type="button" aria-pressed={model === 'document'} onClick={() => setModel('document')}>Case document</button></nav>
     <div data-models="">
-      <section data-model="relational"><header><span>01 / RELATED RECORDS</span><h4>Postgres <i>/ Lakebase</i></h4></header>
+      <section data-model="relational"><header><span>01 / FIRST CHOICE FOR THIS REFUND</span><h4>Postgres <i>/ Lakebase</i></h4></header>
         <div data-boundary="transaction"><span data-boundary-label="">ONE TRANSACTION</span><ol>
           <li><span data-record="customer">C</span><div><strong>Customer</strong><code>balance</code></div><span data-record-value="">updated</span></li>
           <li><span data-record="refund">R</span><div><strong>Refund</strong><code>operation_id</code></div><span data-record-value="">{retry ? '1042 ✓' : '1042'}</span></li>
@@ -21,13 +21,13 @@ function TransactionMap() {
         </ol><p><span aria-hidden="true">✓</span> Commit the related changes together</p></div>
         <p>Separate records. Shared business rules.</p>
       </section>
-      <section data-model="document"><header><span>02 / ONE AGGREGATE</span><h4>A support-case document</h4></header>
+      <section data-model="document"><header><span>02 / CASE-FIRST ALTERNATIVE</span><h4>A support-case document</h4></header>
         <div data-boundary="document"><span data-boundary-label="">CASE / 1042</span><div data-document-fields=""><span aria-hidden="true">{`{`}</span><div><p><code>messages</code><span>conversation</span></p><p><code>proposal</code><span>£40 refund</span></p><p><code>review</code><span>approved</span></p></div><span aria-hidden="true">{`}`}</span></div><p>Read and update the case as a unit</p></div>
         <div data-separate=""><span aria-hidden="true">↳</span><div><strong>Customer balance</strong><span>Separate record → define its transaction boundary</span></div></div>
       </section>
     </div>
     <div data-payment=""><span data-payment-mark="" aria-hidden="true">£</span><div><span>BEYOND EITHER DATABASE</span><strong>The payment provider</strong></div><p>Use provider idempotency<br />and a recoverable workflow.</p></div>
-    <p data-outcome="" role="status">{retry ? <><strong>Same operation. Look up the recorded result.</strong> A unique operation ID can guard the database write; the payment provider needs its own idempotency check.</> : <><strong>Choose around the boundary, not the JSON.</strong> Both models can transact. MongoDB supports multi-document transactions; Cosmos DB document batches share a logical partition key.</>}</p>
+    <p data-outcome="" role="status">{retry ? <><strong>Same operation. Look up the recorded result.</strong> A unique operation ID can guard the database write; the payment provider needs its own idempotency check.</> : <><strong>For this refund, start with Postgres.</strong> Balance, refund and approval can commit together. MongoDB can transact across documents; Cosmos DB document batches need one logical partition key.</>}</p>
     <footer>Illustrative design · No benchmark or executed refund</footer>
   </section>;
 }

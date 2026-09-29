@@ -6,7 +6,7 @@ Research prepared 22 September 2026 for `ai.hyperdrift.io/articles`; both openin
 
 | Priority | Article / decision | Simple example | Contact invitation | Status |
 |---|---|---|---|---|
-| 1 | [Lakebase vs document databases: start with the transaction](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund spanning balance, record and approval | Discuss your agent data model | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) verified |
+| 1 | [Refunds: Postgres or a document database?](https://ai.hyperdrift.io/articles/lakebase-vs-document-databases) | A refund spanning balance, record and approval | Discuss your agent data model | Live; [company LinkedIn post](https://www.linkedin.com/feed/update/urn:li:share:7510805182981648385/) verified |
 | 2 | [LangChain and Databricks AppKit: make streaming useful](https://ai.hyperdrift.io/articles/langchain-databricks-appkit-sse) | Show progress, request approval, recover after disconnect | Discuss your agent streaming workflow | Live; company LinkedIn share queued for the next weekly slot |
 | 3 | Keep agent memory separate from business truth | A conversation summary versus a confirmed refund | Discuss your agent state boundaries | Brief only; research before writing |
 | 4 | Give an agent the permissions of the job | Two tenants asking the same question over different records | Discuss your access model | Brief only; research before writing |
@@ -34,6 +34,7 @@ Sources inspected on 22 September 2026. Recommendations and refund examples are 
 | Source | Supports | Boundary to preserve |
 |---|---|---|
 | [Lakebase Postgres](https://docs.databricks.com/aws/en/oltp/projects) | Managed Postgres integrated with Databricks; transactional applications and agent state | AWS documentation; do not generalise regional features or preview capabilities to every cloud |
+| [Postgres transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html) | Related refund records can be written in one transaction | The recommendation for this illustrative refund is an architectural judgement, not a benchmark |
 | [Postgres JSON types](https://www.postgresql.org/docs/current/datatype-json.html) | Relational designs can include JSON and JSON indexing | JSON output does not force a document database; this is a modelling recommendation |
 | [MongoDB data modelling](https://www.mongodb.com/docs/manual/data-modeling/) | Flexible document shape; model around access patterns | Flexibility still needs schema and boundary design |
 | [MongoDB transactions](https://www.mongodb.com/docs/manual/core/transactions/) | Multi-document transactions exist | Do not claim NoSQL lacks transactions; deployment details matter |
