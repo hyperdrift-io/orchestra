@@ -22,7 +22,7 @@
     <path class="arrow" d="M180 160 H590"/><text x="385" y="150" text-anchor="middle">"Why?"</text>
     <path class="arrow" d="M610 220 H1020"/><text x="815" y="210" text-anchor="middle">the words, once the turn has ended</text>
     <path class="arrow" d="M1020 300 H610"/><text x="815" y="290" text-anchor="middle">the exact line to say · the screen moves</text>
-    <path class="arrow" d="M590 380 H180"/><text x="385" y="370" text-anchor="middle">"The last verdict, on 8 July, was inconclusive. Want more, or shall we decide?"</text>
+    <path class="arrow" d="M590 380 H180"/><text x="385" y="370" text-anchor="middle">"The last verdict was inconclusive. Want more?"</text>
   </g>
   <g class="time" text-anchor="end"><text x="160" y="164">0.0 s</text><text x="160" y="384">≈1.5 s</text></g>
   <g class="s"><text x="60" y="460">The platform never decides what to say. The fleet never handles audio.</text><text class="gold" x="60" y="486">ai.hyperdrift.io/articles · measured on the Hyperdrift fleet, September 2026</text></g>
