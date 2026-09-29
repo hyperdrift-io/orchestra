@@ -30,7 +30,7 @@ Neither document flexibility nor SQL removes the need for tenant isolation, vali
 
 Draw the refund on one page. Mark every record it changes, where authorisation is checked and what happens after a duplicate request. If a payment provider is involved, a database transaction alone cannot make that external payment atomic: use the provider's idempotency mechanism and a recoverable workflow.
 
-Then test the awkward case: the refund was accepted, but the response never reached the assistant. Can a retry discover the result safely? That experiment teaches more than an abstract SQL-versus-NoSQL scorecard.
+Then test the awkward case: the refund was accepted, but the response never reached the assistant. Can a retry discover the result safely? That experiment teaches more than an abstract SQL-versus-NoSQL scorecard. The [streaming and recovery guide](/articles/langchain-databricks-appkit-sse) follows this same refund through a disconnected browser.
 
 Send the decision graphic to the person choosing your agent's data store. If you have a workflow to ship, bring its current database and the operation that must stay consistent. We can discuss a data model your team can operate.
 

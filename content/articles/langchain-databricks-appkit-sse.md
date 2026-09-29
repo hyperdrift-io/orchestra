@@ -32,7 +32,7 @@ They can coexist across an intentional service boundary, but a shared transport 
 
 [SSE defines a text event stream](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events), not durable execution. Browser EventSource reconnects, but the server must implement retention and replay for that reconnect to recover missed work. EventSource's native interface uses GET; a streaming POST endpoint needs a compatible SDK or a fetch-based streaming client.
 
-Disconnect the browser halfway through the refund. Reconnect and ask for the recorded run state. The screen should discover whether work is waiting, finished or failed without blindly starting another refund. Also verify that the deployed proxy delivers chunks promptly rather than buffering the entire response.
+Disconnect the browser halfway through the refund. Reconnect and ask for the recorded run state. The screen should discover whether work is waiting, finished or failed without blindly starting another refund. The [database decision guide](/articles/lakebase-vs-document-databases) explains where to store the refund and its retry boundary. Also verify that the deployed proxy delivers chunks promptly rather than buffering the entire response.
 
 That is the useful comparison: which approach lets your team implement and operate this contract clearly? Measure time to the first meaningful update and recovery behaviour on the same workflow before making speed claims.
 

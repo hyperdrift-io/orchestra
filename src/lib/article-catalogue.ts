@@ -3,6 +3,7 @@ import catalogue from '@/data/articles.json';
 export interface ArticleSummary {
   slug: string;
   title: string;
+  seoTitle: string;
   excerpt: string;
   shareLine: string;
   order: number;
@@ -17,6 +18,7 @@ export interface ArticleSummary {
   headerImage?: { src: string; alt: string; width: number; height: number };
   visualization?: { kind: 'transaction' | 'streaming'; takeaway: string; description: string; sources: { label: string; url: string }[] };
   publishedAt: string | null;
+  updatedAt?: string;
 }
 
 export const articles = catalogue as ArticleSummary[];

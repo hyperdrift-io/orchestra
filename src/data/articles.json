@@ -2,6 +2,7 @@
   {
     "slug": "the-bridge",
     "title": "The Bridge: start the day with decisions",
+    "seoTitle": "AI operations dashboard for real decisions",
     "excerpt": "A place to see what matters, inspect the evidence and direct the work. How Hyperdrift's Bridge connects an operator to a fleet of products—and where the same pattern fits another business.",
     "shareLine": "The useful morning brief ends with a decision you can make.",
     "order": 1,
@@ -27,6 +28,7 @@
       "caption": "The internal Bridge in a previously published view; this is not current fleet data."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/the-bridge.svg",
       "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
@@ -44,6 +46,7 @@
   {
     "slug": "expertise-agents-can-use",
     "title": "Give your agents the knowledge your best work depends on",
+    "seoTitle": "AI agent skills for specialist work",
     "excerpt": "A useful agent needs your standards, examples and stopping points. Our publishing workflow shows how specialist knowledge becomes instructions people can inspect and improve.",
     "shareLine": "Write down what good work requires before asking an agent to do it.",
     "order": 2,
@@ -69,6 +72,7 @@
       "caption": "The published anniversary film: one artefact supported by our editorial practice."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/expertise-agents-can-use.svg",
       "alt": "Connected wireframe book, library, decision forms in Orchestra's mesh style.",
@@ -86,6 +90,7 @@
   {
     "slug": "delegation-with-boundaries",
     "title": "Give an agent enough authority to finish its job",
+    "seoTitle": "AI agent permissions and human oversight",
     "excerpt": "Helm separates diagnosis from action and confines disruptive operations to drill services. The demonstration makes agent authority visible, inspectable and worth discussing before deployment.",
     "shareLine": "Useful delegation gives an agent a job, a boundary and a way to prove completion.",
     "order": 3,
@@ -110,6 +115,7 @@
       "caption": "Helm: recorded demonstration of agent roles and sandbox recovery."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/delegation-with-boundaries.svg",
       "alt": "Connected wireframe flag, shield, checklist forms in Orchestra's mesh style.",
@@ -127,6 +133,7 @@
   {
     "slug": "evidence-that-starts-work",
     "title": "A useful brief tells you who needs you next",
+    "seoTitle": "AI daily brief: evidence before priorities",
     "excerpt": "Standup reads public GitHub activity and returns a short, evidenced set of priorities. Its ordering rule shows what makes an AI brief useful enough to act on.",
     "shareLine": "A brief earns its place when you can act on it and check why.",
     "order": 4,
@@ -152,6 +159,7 @@
       "caption": "Standup is a public project. Its historical example output is linked in the article."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/evidence-that-starts-work.svg",
       "alt": "Connected wireframe magnifier, signpost, target forms in Orchestra's mesh style.",
@@ -169,6 +177,7 @@
   {
     "slug": "conversation-with-a-shared-view",
     "title": "Talk through the decision. Keep the evidence in view.",
+    "seoTitle": "Conversational AI with evidence in view",
     "excerpt": "Our First Officer prototype explores a conversation that moves the Bridge to the subject being discussed. HyperVideoMesh shows a related principle: the agent's work should remain visible and editable.",
     "shareLine": "A conversation becomes useful when both sides can point to the same thing.",
     "order": 5,
@@ -193,6 +202,7 @@
       "caption": "HyperVideoMesh: a recorded creative-tool prototype. This is supporting evidence, not a First Officer recording."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/conversation-with-a-shared-view.svg",
       "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
@@ -210,6 +220,7 @@
   {
     "slug": "connect-agents-to-existing-work",
     "title": "Give your agent access to the work already on screen",
+    "seoTitle": "Browser agents for existing workflows",
     "excerpt": "uk.gov Radar lets a browser agent work with the same shortlist its user sees. A concrete example of integrating AI into an existing workflow while keeping decisions visible.",
     "shareLine": "The agent and the person should work from the same state.",
     "order": 6,
@@ -234,6 +245,7 @@
       "caption": "uk.gov Radar: recorded interaction in a compatible browser environment."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/connect-agents-to-existing-work.svg",
       "alt": "Connected wireframe gate, conversation, checklist forms in Orchestra's mesh style.",
@@ -251,6 +263,7 @@
   {
     "slug": "lakebase-vs-document-databases",
     "title": "Lakebase vs document databases: start with the transaction",
+    "seoTitle": "Lakebase vs document databases",
     "excerpt": "A refund example makes the SQL-versus-document decision concrete. Where Lakebase, MongoDB and Cosmos DB fit—and which boundaries to check before choosing.",
     "shareLine": "Choose the database around the promises your application must keep.",
     "order": 7,
@@ -272,6 +285,7 @@
     },
     "media": null,
     "publishedAt": "2026-09-24T20:10:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/lakebase-vs-document-databases.svg",
       "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
@@ -312,6 +326,7 @@
   {
     "slug": "langchain-databricks-appkit-sse",
     "title": "LangChain and Databricks AppKit: make streaming useful",
+    "seoTitle": "LangChain, Databricks AppKit and SSE",
     "excerpt": "Agent events, application rules and SSE transport solve different problems. A simple approval workflow shows how to choose the runtime and design the stream.",
     "shareLine": "A useful stream tells the user what changed and what happens next.",
     "order": 8,
@@ -333,6 +348,7 @@
     },
     "media": null,
     "publishedAt": "2026-09-24T20:10:00Z",
+    "updatedAt": "2026-09-29T21:13:16Z",
     "image": {
       "src": "/articles/mesh/langchain-databricks-appkit-sse.svg",
       "alt": "Connected wireframe response, shield, checklist forms in Orchestra's mesh style.",

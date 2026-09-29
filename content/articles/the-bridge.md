@@ -32,7 +32,7 @@ These are possible applications, not claimed Hyperdrift client deployments. Each
 
 **What to watch:** as software exposes tools to agents, the quality of the handover becomes more important. Can the next person see the reason, the authority and the result of an action? Choose one recurring decision and trace those three things through your current process.
 
-If someone on your team assembles the morning picture by hand, send them this article. The [earlier technical account](https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals) shows one part of the Bridge in more detail.
+If someone on your team assembles the morning picture by hand, send them this article. The [earlier technical account](https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals) shows one part of the Bridge in more detail. [Standup's evidence-led brief](/articles/evidence-that-starts-work) shows a narrower version of the same decision pattern.
 
 **What needs your attention before work can move forward?** Tell us about the recurring decision and the tools involved. We can discuss what a first useful operating workflow would look like, including what stays with your team.
 

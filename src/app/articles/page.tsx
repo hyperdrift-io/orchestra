@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 import { visibleArticles, isArticlePreview } from '@/lib/article-catalogue';
 
 export function generateMetadata(): Metadata {
-  return { title: 'The AI-native organisation', description: 'Explore the Bridge, specialist skills, agent authority and integrations through working examples built by Hyperdrift.', alternates: { canonical: '/articles' }, openGraph: { ...websiteOpenGraph, title: 'The AI-native organisation', description: 'Working examples of the Bridge, skills, agent authority and integrations built by Hyperdrift.', url: 'https://ai.hyperdrift.io/articles' }, robots: isArticlePreview() ? { index: false, follow: false } : undefined };
+  return { title: 'AI engineering articles and practical guides', description: 'Practical AI engineering guides from Hyperdrift: agent skills, permissions, connected workflows, Lakebase, document databases and streaming interfaces.', alternates: { canonical: '/articles' }, openGraph: { ...websiteOpenGraph, title: 'The AI-native organisation', description: 'Working examples of the Bridge, skills, agent authority and integrations built by Hyperdrift.', url: 'https://ai.hyperdrift.io/articles' }, robots: isArticlePreview() ? { index: false, follow: false } : undefined };
 }
 
 export default function ArticlesPage() {

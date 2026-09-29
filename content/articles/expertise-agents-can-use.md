@@ -30,7 +30,7 @@ A strong first candidate has examples of accepted work, a recognisable input and
 
 Those are potential client applications. The initial work is to learn your team's actual practice: which sources it trusts, what it checks and where responsibility changes hands. A generic prompt cannot supply that knowledge.
 
-Written instructions also cannot grant or enforce system permissions. If an agent must not send a message or change a record, that boundary belongs in its tools and approval flow as well.
+Written instructions also cannot grant or enforce system permissions. If an agent must not send a message or change a record, that boundary belongs in its tools and approval flow as well. [Agent permissions and human oversight](/articles/delegation-with-boundaries) need their own design.
 
 **What to watch:** as agents move between tasks and tools, portable instructions can keep specialist practice accessible. Take one accepted piece of work and annotate the decisions that made it good. That is a useful starting point for a skill.
 

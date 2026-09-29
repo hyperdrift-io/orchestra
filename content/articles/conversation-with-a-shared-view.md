@@ -28,7 +28,7 @@ Both examples make a useful design question tangible: after speaking to an agent
 
 ## Where to begin
 
-A planning tool, case-management product or specialist editor could benefit from this pattern. Start with one task that naturally invites discussion, and keep its evidence and proposed changes visible. Add voice where it helps the actual working situation; typed interaction may be the better first step.
+A planning tool, case-management product or specialist editor could benefit from this pattern. Start with one task that naturally invites discussion, and keep its evidence and proposed changes visible. [The Bridge's decision view](/articles/the-bridge) shows why that shared evidence matters. Add voice where it helps the actual working situation; typed interaction may be the better first step.
 
 **What to watch:** voice makes an instruction easy to give. The work is making its meaning, authority and outcome equally easy to check. Demonstrate a correction or interruption as well as the happy path.
 

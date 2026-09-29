@@ -31,13 +31,25 @@ export const getArticle = cache((slug: string) => {
 });
 
 export function articleJsonLd(article: NonNullable<ReturnType<typeof getArticle>>) {
+  const url = `https://ai.hyperdrift.io/articles/${article.slug}`;
   return JSON.stringify({
-    '@context': 'https://schema.org', '@type': 'Article', headline: article.title,
-    description: article.excerpt, author: { '@type': 'Person', name: 'Yann VR', url: 'https://hyperdrift.io' },
-    publisher: { '@type': 'Organization', name: 'Orchestra AI by Hyperdrift', url: 'https://ai.hyperdrift.io' },
-    mainEntityOfPage: `https://ai.hyperdrift.io/articles/${article.slug}`,
-    image: articleShareImage(article).url,
-    ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
-    isPartOf: { '@type': 'CreativeWorkSeries', name: 'The AI-native organisation' },
+    '@context': 'https://schema.org', '@graph': [
+      {
+        '@type': 'Article', headline: article.title,
+        description: article.excerpt, author: { '@type': 'Person', name: 'Yann VR', url: 'https://hyperdrift.io' },
+        publisher: { '@type': 'Organization', name: 'Orchestra AI by Hyperdrift', url: 'https://ai.hyperdrift.io' },
+        mainEntityOfPage: url,
+        image: articleShareImage(article).url,
+        ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+        ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
+        isPartOf: { '@type': 'CreativeWorkSeries', name: 'The AI-native organisation' },
+      },
+      {
+        '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Articles', item: 'https://ai.hyperdrift.io/articles' },
+          { '@type': 'ListItem', position: 2, name: article.title, item: url },
+        ],
+      },
+    ],
   }).replace(/</g, '\\u003c');
 }

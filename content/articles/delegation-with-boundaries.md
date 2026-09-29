@@ -28,7 +28,7 @@ An API accepting a request is the beginning of an operation. Helm checks the res
 
 In another business, the equivalent could be reading a saved record back, checking whether a scheduled job finished, or confirming that a change affected the intended account. The exact check belongs to the task. The operator should be able to inspect it.
 
-This is how we would scope a first engagement: one job, the data it may read, the changes it may make, its escalation conditions and the evidence required at the end. Broader autonomy follows demonstrated need and verified behaviour.
+This is how we would scope a first engagement: one job, the data it may read, the changes it may make, its escalation conditions and the evidence required at the end. Broader autonomy follows demonstrated need and verified behaviour. [Browser agents in existing workflows](/articles/connect-agents-to-existing-work) bring that boundary into a user-facing product.
 
 **What to watch:** an agent connected to real tools can affect real operations. Ask to see one allowed action, one refused action and one failed action handled honestly. A convincing success path alone leaves important questions unanswered.
 

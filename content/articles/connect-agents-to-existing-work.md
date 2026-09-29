@@ -24,7 +24,7 @@ An MCP connection does not, on its own, settle permissions, tenant boundaries or
 
 For an established product, the first step is to identify a task users already perform and the operations it requires. Which records can this person see? What can they change? Which operations need confirmation? How will the result appear in the product?
 
-For an internal team, the same questions apply across its business tools. An agent helping prepare a handover should retain the source records and respect the access of the people involved.
+For an internal team, the same questions apply across its business tools. An agent helping prepare a handover should retain the source records and respect the access of the people involved. [Setting an agent's authority](/articles/delegation-with-boundaries) is the next design step once the interface exists.
 
 These are possible applications of the demonstrated pattern. A delivery engagement would need to verify them against your systems, data and operating constraints. A public demo cannot substitute for that work.
 
