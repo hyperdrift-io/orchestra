@@ -372,30 +372,29 @@
   },
   {
     "slug": "the-first-officer",
-    "title": "The First Officer: when a voice earns its place in operations",
-    "excerpt": "A voice that reports to you, asks for the decision and moves the screen to what you are discussing. What had to be true underneath for it to feel like a colleague, and where the same pattern fits another business.",
-    "shareLine": "A voice earns its place when the thinking behind it is already trustworthy.",
+    "title": "Your dashboard should report to you",
+    "excerpt": "A chief of staff walks in and says: three things need you today. We built that for a one-founder fleet. You talk, it answers in under a second, an agent acts, and it reports back.",
+    "shareLine": "Dashboards wait to be read. A first officer reports.",
     "order": 9,
     "topic": "Conversation",
     "example": "Hyperdrift First Officer",
-    "exampleStatus": "Prototype on the internal Bridge",
+    "exampleStatus": "Live, and open source",
     "ctaLabel": "Discuss your operating workflow",
     "steps": [
-      "Hear the agenda",
-      "Ask why",
-      "Decide out loud",
-      "See it recorded"
+      "It speaks first",
+      "You cut in",
+      "An agent acts",
+      "It reports back"
     ],
     "proof": {
-      "description": "The voice layer and its agenda contract are open source; measurements are in the repository's notes.",
-      "url": "https://github.com/hyperdrift-io/bridge-voice",
-      "label": "Read the code and the measurements"
+      "description": "The officer is live and its code is open. Talk to it in Chrome with a microphone; Cargo is a sandbox ship you can really switch.",
+      "url": "https://bridge-voice-294160018950.europe-west1.run.app",
+      "label": "Talk to the officer"
     },
     "media": {
-      "kind": "image",
-      "src": "/articles/editorial/first-officer-turn.svg",
-      "alt": "Sequence of one turn: the captain speaks, the speech platform hears and speaks, the fleet decides the line and moves the screen.",
-      "caption": "One turn, about one and a half seconds from the captain's last word to the officer's first. The demo video replaces this image once it is cut."
+      "kind": "video",
+      "src": "/articles/video/the-first-officer.mp4",
+      "caption": "One take, recorded 29 September 2026. The officer's answers are live; the captain's voice is generated."
     },
     "publishedAt": null,
     "image": {
