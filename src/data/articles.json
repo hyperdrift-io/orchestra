@@ -407,8 +407,8 @@
       "It reports back"
     ],
     "proof": {
-      "description": "The officer is live and its code is open. Talk to it in Chrome with a microphone; Cargo is a sandbox ship you can really switch.",
-      "url": "https://bridge-voice-294160018950.europe-west1.run.app",
+      "description": "The officer is live and its code is open. Talk to it in Chrome with a microphone; Cargo is a sandbox ship you can really switch. The watch opens by invitation: this link carries it.",
+      "url": "https://bridge-voice-294160018950.europe-west1.run.app/?watch=VZSq5WB10SSQ",
       "label": "Talk to the officer"
     },
     "media": {
@@ -416,7 +416,7 @@
       "src": "/articles/video/the-first-officer.mp4",
       "caption": "One take, recorded 29 September 2026. The officer's answers are live; the captain's voice is generated."
     },
-    "publishedAt": null,
+    "publishedAt": "2026-09-30T00:00:00Z",
     "image": {
       "src": "/articles/mesh/the-first-officer.svg",
       "alt": "Connected wireframe conversation, signpost, decision forms in Orchestra's mesh style.",

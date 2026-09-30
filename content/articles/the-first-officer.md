@@ -34,7 +34,7 @@ A voice is not the door for everyone. If you cannot hear, or cannot speak, or wo
 
 The next step is the same idea with less in the way: dictate straight to the tools your apps expose to agents, and let the screen be optional.
 
-Send this to whoever builds your Monday report by hand. Then [talk to the officer](https://bridge-voice-294160018950.europe-west1.run.app); the [code is open](https://github.com/hyperdrift-io/bridge-voice).
+Send this to whoever builds your Monday report by hand. Then [talk to the officer](https://bridge-voice-294160018950.europe-west1.run.app/?watch=VZSq5WB10SSQ); the [code is open](https://github.com/hyperdrift-io/bridge-voice).
 
 **Which decision would you rather say than click?**
 
