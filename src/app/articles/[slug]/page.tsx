@@ -3,7 +3,7 @@ import { MeshArtwork } from '@/components/MeshArtwork';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getArticle, articleJsonLd, articleSections } from '@/lib/articles';
-import { visibleArticles, articleUrl } from '@/lib/article-catalogue';
+import { visibleArticles, articleUrl, articleDateLabel } from '@/lib/article-catalogue';
 import { ArticleContents } from '@/components/ArticleContents';
 import { ArticleBody } from '@/components/ArticleBody';
 import { ArticleVisualization } from '@/components/ArticleVisualization';
@@ -40,7 +40,7 @@ export default async function ArticlePage({ params }: Props) {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd(article) }} />
     <ArticleTracker slug={article.slug} />
     <header>
-      <nav aria-label="Breadcrumb"><a href="/articles">The AI-native organisation</a><span>/ {String(article.order).padStart(2, '0')}</span></nav>
+      <nav aria-label="Breadcrumb"><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? 'The future of UI and accessibility' : 'The AI-native organisation'}</a><span>/ {String(article.seriesOrder ?? article.order).padStart(2, '0')}</span></nav>
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}
       <p>{article.topic} / {article.example}</p>
       <div data-article-heading=""><h1>{article.title}</h1>
@@ -48,15 +48,16 @@ export default async function ArticlePage({ params }: Props) {
       </div>
       <p>{article.excerpt}</p>
       <div data-article-meta=""><span>By Yann VR · {article.minutes} min read</span><a href="#article-share">Share article ↓</a><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></div>
+      {article.reviewedAt && <small data-reviewed="">Evidence reviewed {articleDateLabel(article.reviewedAt)} · <a href="/articles/ui-accessibility#method">Method and maintenance</a></small>}
     </header>
     <div>
       <ArticleContents entries={sections} ctaLabel={article.ctaLabel} />
-      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} />} />
+      <ArticleBody blocks={article.blocks} sourceNotes={article.series === 'ui-accessibility'} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} />} />
     </div>
     <figure id="article-diagram" data-has-visualization={article.visualization ? "true" : undefined}>{!article.visualization && <><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol></>}<ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
     {(!article.visualization || article.media) && <ArticleProof article={article} />}
     <section id="enquire" aria-labelledby="enquire-heading"><header><p>Put the idea to work</p><h2 id="enquire-heading">What would this look<br /><em>like for you?</em></h2><p>Tell us about one workflow and the tools involved. We’ll discuss where agents could help and which decisions should stay with your team.</p><small>A personal reply within one working day.</small></header><EnquiryForm articleSlug={article.slug} /></section>
     <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} ctaLabel={article.ctaLabel} />
-    <footer><a href="/articles">← All field notes</a>{next && <a href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong></a>}</footer>
+    <footer><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? '← The complete series' : '← All field notes'}</a>{next && <a href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong></a>}</footer>
   </article>;
 }

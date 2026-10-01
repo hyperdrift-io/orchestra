@@ -1,0 +1,32 @@
+{
+  "is-ui-holding-us-back": {
+    "asset": "route-controls",
+    "title": "Who does the work?",
+    "description": "Conceptual routes to the same outcome. Direct controls leave navigation with the person; API/CLI calls specify operations; WebMCP exposes page actions; voice supplies an instruction. Voice through MCP is our proposed next experiment. The routes coexist and are not a ranking of speed or accessibility."
+  },
+  "web-accessibility-can-people-finish": {
+    "asset": "accessibility",
+    "title": "The scan is only the beginning",
+    "description": "WebAIM found detected WCAG failures on 95.9% of the one million home pages evaluated in February 2026. Each cell represents one percentage point; one is 90% filled. The remaining 4.1% had no detected failures, which does not establish accessibility. The scan does not measure independent task completion."
+  },
+  "webmcp-actions-on-the-page": {
+    "asset": "boundaries",
+    "title": "Choose where the work belongs",
+    "description": "The page boundary contains the person, the controls, browser-agent tool calls and shared app actions. A separate service path connects an assistant through an MCP server to an API. These are different scopes; neither guarantees accessibility or replaces authorisation."
+  },
+  "hands-free-app-control": {
+    "asset": "cargo",
+    "title": "A result earns its reply",
+    "description": "In the documented Cargo workflow, a spoken request initiates recovery. The officer checks the sandbox service until it answers twice before reporting recovery. This depicts the recorded implementation, not a new run, participant study or general performance result."
+  },
+  "voice-through-mcp": {
+    "asset": "mcp",
+    "title": "One request, separate permissions",
+    "description": "An illustrative request to prepare a release note reaches an assistant. It could read blockers through one MCP server and create a draft through another. Each service checks its own scope. Sending is a separate decision. This cross-app path has not been executed for the series."
+  },
+  "future-ui-keep-your-place": {
+    "asset": "continuity",
+    "title": "Change the input, keep the work",
+    "description": "The shortlist, its evidence and the person’s decisions remain at the centre. Speech, keyboard, screen-reader output and direct controls can provide routes into the same task. This is a design goal that requires implementation and evaluation, not an observed cross-modal result."
+  }
+}

@@ -20,8 +20,10 @@ function load(file) {
 }
 const { articleArtwork } = load('src/components/mesh-artwork-scene.ts');
 const definitions = require('../../../src/data/article-mesh.json');
+const selected = new Set(process.argv.slice(2));
 fs.mkdirSync('public/articles/mesh', { recursive: true });
 for (const [slug, symbols] of Object.entries(definitions)) {
+  if (selected.size && !selected.has(slug)) continue;
   const artwork = articleArtwork(slug);
   artwork.group.updateMatrixWorld(true);
   let drawing = '';
@@ -51,6 +53,7 @@ for (const [slug, symbols] of Object.entries(definitions)) {
 const catalogueFile = 'src/data/articles.json';
 const catalogue = JSON.parse(fs.readFileSync(catalogueFile, 'utf8'));
 for (const article of catalogue) {
+  if (selected.size && !selected.has(article.slug)) continue;
   const symbols = definitions[article.slug];
   if (!symbols) continue;
   article.headerImage = { src: `/articles/mesh/${article.slug}.svg`, alt: `Connected wireframe ${symbols.join(', ')} forms in Orchestra's mesh style.`, width: 1200, height: 160 };

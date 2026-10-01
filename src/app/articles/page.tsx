@@ -20,6 +20,7 @@ export default function ArticlesPage() {
       <h1 id="articles-title">The AI-native<br /><em>organisation.</em></h1>
       <p>See what happens when agents become part of the work. Accounts of the systems we built, the decisions we kept, and what your business could do with the same ideas.</p>
       <a href="/#contact">Discuss your workflow →</a>
+      {articles.some((article) => article.series === 'ui-accessibility') && <p><a href="/articles/ui-accessibility">Explore the future of UI and accessibility →</a></p>}
     </header>
     <article>
       <div><p>01 / Begin here · {first.exampleStatus}</p><h2><a href={`/articles/${first.slug}`}>{first.title}</a></h2><p>{first.excerpt}</p><a href={`/articles/${first.slug}`}>Step onto the Bridge →</a></div>

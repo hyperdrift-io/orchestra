@@ -43,5 +43,35 @@
     "conversation",
     "signpost",
     "decision"
+  ],
+  "is-ui-holding-us-back": [
+    "eye",
+    "signpost",
+    "checklist"
+  ],
+  "web-accessibility-can-people-finish": [
+    "gate",
+    "eye",
+    "checklist"
+  ],
+  "webmcp-actions-on-the-page": [
+    "gate",
+    "conversation",
+    "shield"
+  ],
+  "hands-free-app-control": [
+    "conversation",
+    "eye",
+    "response"
+  ],
+  "voice-through-mcp": [
+    "conversation",
+    "shield",
+    "signpost"
+  ],
+  "future-ui-keep-your-place": [
+    "book",
+    "eye",
+    "decision"
   ]
 }

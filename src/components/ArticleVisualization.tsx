@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { ArticleSummary } from '@/lib/article-catalogue';
+import { InterfaceFigure } from '@/components/InterfaceFigure';
 
 function TransactionMap() {
   const [retry, setRetry] = useState(false);
@@ -64,6 +65,7 @@ function StreamingSequence() {
 export function ArticleVisualization({ article }: { article: ArticleSummary }) {
   const visual = article.visualization;
   if (!visual) return null;
+  if (visual.kind === 'ui-accessibility') return <InterfaceFigure article={article} />;
   return <figure id="article-proof" data-article-visual="" aria-label={article.proof.heading}>
     {visual.kind === 'transaction' ? <TransactionMap /> : <StreamingSequence />}
     <figcaption>{visual.takeaway} <a href={article.proof.url} download>Save the visual ↓</a></figcaption>

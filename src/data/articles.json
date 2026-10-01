@@ -430,5 +430,367 @@
       "width": 1200,
       "height": 160
     }
+  },
+  {
+    "slug": "is-ui-holding-us-back",
+    "title": "Is UI holding us back?",
+    "seoTitle": "The future of UI: is the interface holding users back?",
+    "excerpt": "New interfaces can remove work or move it into checking and correction. A historical argument for judging the whole task.",
+    "shareLine": "Count the effort it takes to finish.",
+    "order": 10,
+    "topic": "History and human capability",
+    "example": "UI and accessibility",
+    "exampleStatus": "Historical synthesis",
+    "ctaLabel": "Discuss a task your users need to complete independently",
+    "steps": [],
+    "proof": {
+      "heading": "Who does the work?",
+      "description": "Conceptual routes to the same outcome. Direct controls leave navigation with the person; API/CLI calls specify operations; WebMCP exposes page actions; voice supplies an instruction. Voice through MCP is our proposed next experiment. The routes coexist and are not a ranking of speed or accessibility.",
+      "url": "/articles/ui-accessibility/route-controls.svg",
+      "label": "Download the editable figure"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/is-ui-holding-us-back.svg",
+      "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/is-ui-holding-us-back.svg",
+      "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "publishedAt": null,
+    "series": "ui-accessibility",
+    "seriesOrder": 1,
+    "reviewedAt": "2026-10-01",
+    "visualization": {
+      "kind": "ui-accessibility",
+      "takeaway": "Count the effort it takes to finish.",
+      "description": "Conceptual routes to the same outcome. Direct controls leave navigation with the person; API/CLI calls specify operations; WebMCP exposes page actions; voice supplies an instruction. Voice through MCP is our proposed next experiment. The routes coexist and are not a ranking of speed or accessibility.",
+      "sources": [
+        {
+          "label": "Licklider, 1960",
+          "url": "https://www.cl.cam.ac.uk/~pr10/iui/licklider60.pdf"
+        },
+        {
+          "label": "Xerox Star, 1983",
+          "url": "https://www.ece.uvic.ca/~aalbu/CENG%20412%202009/bewley83.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "web-accessibility-can-people-finish",
+    "title": "Web accessibility: can people finish the job?",
+    "seoTitle": "Web accessibility in 2026: barriers, voice and independent completion",
+    "excerpt": "An accessible button is useful. An accessible way to finish is the point. What the current evidence tells us about agents and access.",
+    "shareLine": "Access has to last until the task is done.",
+    "order": 11,
+    "topic": "Accessibility today",
+    "example": "UI and accessibility",
+    "exampleStatus": "Research and proposed evaluation",
+    "ctaLabel": "Discuss an accessibility barrier in your workflow",
+    "steps": [],
+    "proof": {
+      "heading": "The scan is only the beginning",
+      "description": "WebAIM found detected WCAG failures on 95.9% of the one million home pages evaluated in February 2026. Each cell represents one percentage point; one is 90% filled. The remaining 4.1% had no detected failures, which does not establish accessibility. The scan does not measure independent task completion.",
+      "url": "/articles/ui-accessibility/accessibility.svg",
+      "label": "Download the editable figure"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/web-accessibility-can-people-finish.svg",
+      "alt": "Connected wireframe gate, eye, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/web-accessibility-can-people-finish.svg",
+      "alt": "Connected wireframe gate, eye, checklist forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "publishedAt": null,
+    "series": "ui-accessibility",
+    "seriesOrder": 2,
+    "reviewedAt": "2026-10-01",
+    "visualization": {
+      "kind": "ui-accessibility",
+      "takeaway": "Access has to last until the task is done.",
+      "description": "WebAIM found detected WCAG failures on 95.9% of the one million home pages evaluated in February 2026. Each cell represents one percentage point; one is 90% filled. The remaining 4.1% had no detected failures, which does not establish accessibility. The scan does not measure independent task completion.",
+      "sources": [
+        {
+          "label": "WebAIM Million 2026",
+          "url": "https://webaim.org/projects/million/"
+        },
+        {
+          "label": "WCAG complete processes",
+          "url": "https://www.w3.org/TR/WCAG22/#cc3"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "webmcp-actions-on-the-page",
+    "title": "Stop making agents hunt for buttons",
+    "seoTitle": "WebMCP vs MCP, APIs and CLI: actions on the page",
+    "excerpt": "WebMCP lets a page expose actions to a browser agent. Radar shows how that can keep the person and agent working in the same place.",
+    "shareLine": "The page can explain what it does before an agent starts guessing.",
+    "order": 12,
+    "topic": "WebMCP and shared state",
+    "example": "UI and accessibility",
+    "exampleStatus": "Radar implementation and draft specification",
+    "ctaLabel": "Discuss an app your users should be able to direct",
+    "steps": [],
+    "proof": {
+      "heading": "Choose where the work belongs",
+      "description": "The page boundary contains the person, the controls, browser-agent tool calls and shared app actions. A separate service path connects an assistant through an MCP server to an API. These are different scopes; neither guarantees accessibility or replaces authorisation.",
+      "url": "/articles/ui-accessibility/boundaries.svg",
+      "label": "Download the editable figure"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/webmcp-actions-on-the-page.svg",
+      "alt": "Connected wireframe gate, conversation, shield forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/webmcp-actions-on-the-page.svg",
+      "alt": "Connected wireframe gate, conversation, shield forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "publishedAt": null,
+    "series": "ui-accessibility",
+    "seriesOrder": 3,
+    "reviewedAt": "2026-10-01",
+    "visualization": {
+      "kind": "ui-accessibility",
+      "takeaway": "The page can explain what it does before an agent starts guessing.",
+      "description": "The page boundary contains the person, the controls, browser-agent tool calls and shared app actions. A separate service path connects an assistant through an MCP server to an API. These are different scopes; neither guarantees accessibility or replaces authorisation.",
+      "sources": [
+        {
+          "label": "WebMCP draft",
+          "url": "https://webmachinelearning.github.io/webmcp/"
+        },
+        {
+          "label": "Radar implementation",
+          "url": "https://github.com/hyperdrift-io/uk-ai-radar/blob/main/WEBMCP.md"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "hands-free-app-control",
+    "title": "A spoken promise is not a completed action",
+    "seoTitle": "Hands-free app control: what Commander and First Officer demonstrate",
+    "excerpt": "A Cargo recovery request becomes an action, a checked result and a spoken report. What this bounded demonstration can teach app designers.",
+    "shareLine": "A spoken promise is not a completed action.",
+    "order": 13,
+    "topic": "Commander / First Officer",
+    "example": "UI and accessibility",
+    "exampleStatus": "Recorded sandbox demonstration",
+    "ctaLabel": "Discuss a workflow you would like to direct hands-free",
+    "steps": [],
+    "proof": {
+      "heading": "Watch the Cargo demonstration",
+      "description": "In the documented Cargo workflow, a spoken request initiates recovery. The officer checks the sandbox service until it answers twice before reporting recovery. This depicts the recorded implementation, not a new run, participant study or general performance result.",
+      "url": "https://github.com/hyperdrift-io/bridge-voice",
+      "label": "Inspect the implementation"
+    },
+    "media": {
+      "kind": "video",
+      "src": "/articles/video/the-first-officer.mp4",
+      "caption": "Previously recorded Cargo sandbox demonstration. The take uses prerecorded captain audio; it is not a participant accessibility study. On-screen dialogue appears in the recording.",
+      "transcript": {
+        "intro": "The captain interrupts the opening fleet briefing to select Cargo. The cockpit follows the conversation and highlights the service under discussion. Cargo moves from unavailable to recovery in progress, then answers the verification probes. The dialogue below starts at that interruption. Spoken figures belong to the saved briefing in this recording, not current analytics. The captain audio was prerecorded.",
+        "turns": [
+          {
+            "speaker": "Captain",
+            "text": "Cargo."
+          },
+          {
+            "speaker": "First Officer",
+            "text": "Cargo stopped answering 1 minute ago. Bring it online, park it, or hear why?"
+          },
+          {
+            "speaker": "Captain",
+            "text": "Bring it back."
+          },
+          {
+            "speaker": "First Officer",
+            "text": "On it. Helm is bringing Cargo back online."
+          },
+          {
+            "speaker": "First Officer",
+            "text": "Captain, Cargo answers again. Checked twice, 75 milliseconds. Five left. Next: agents outnumber people on NextRole. Shall we?"
+          },
+          {
+            "speaker": "Captain",
+            "text": "Yes."
+          },
+          {
+            "speaker": "First Officer",
+            "text": "In thirty days, agents called NextRole's tools 848 times. 71 people visited the site. Hand it to an agent, park it, or hear why?"
+          },
+          {
+            "speaker": "Captain",
+            "text": "Why?"
+          },
+          {
+            "speaker": "First Officer",
+            "text": "Calls peaked at 159 on 22 September, then fell to one on 28 September. Want more, or shall we decide?"
+          },
+          {
+            "speaker": "Captain",
+            "text": "Hand it over."
+          },
+          {
+            "speaker": "First Officer",
+            "text": "Handed over. On the live fleet an agent takes it from here. Four left. Next: intel is counting us as visitors. Shall we?"
+          },
+          {
+            "speaker": "Captain",
+            "text": "That's all for today."
+          },
+          {
+            "speaker": "First Officer",
+            "text": "Watch closed. Two decisions logged. Fair winds, Captain."
+          }
+        ]
+      },
+      "poster": "/articles/ui-accessibility/cargo-recording-poster.png"
+    },
+    "image": {
+      "src": "/articles/mesh/hands-free-app-control.svg",
+      "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/hands-free-app-control.svg",
+      "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "publishedAt": null,
+    "series": "ui-accessibility",
+    "seriesOrder": 4,
+    "reviewedAt": "2026-10-01",
+    "visualization": {
+      "kind": "ui-accessibility",
+      "takeaway": "A spoken promise is not a completed action.",
+      "description": "In the documented Cargo workflow, a spoken request initiates recovery. The officer checks the sandbox service until it answers twice before reporting recovery. This depicts the recorded implementation, not a new run, participant study or general performance result.",
+      "sources": [
+        {
+          "label": "First Officer code and notes",
+          "url": "https://github.com/hyperdrift-io/bridge-voice"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "voice-through-mcp",
+    "title": "Say the job once. Keep control of the result.",
+    "seoTitle": "Voice through MCP: directing work across apps",
+    "excerpt": "Dictating to an assistant can become a way to direct connected tools. Our proposed experiment starts with a scoped read and a draft.",
+    "shareLine": "Your sentence can cross apps. Your permission should not grow on the way.",
+    "order": 14,
+    "topic": "Voice through MCP",
+    "example": "UI and accessibility",
+    "exampleStatus": "Proposed experiment",
+    "ctaLabel": "Discuss a task that crosses your apps",
+    "steps": [],
+    "proof": {
+      "heading": "One request, separate permissions",
+      "description": "An illustrative request to prepare a release note reaches an assistant. It could read blockers through one MCP server and create a draft through another. Each service checks its own scope. Sending is a separate decision. This cross-app path has not been executed for the series.",
+      "url": "/articles/ui-accessibility/mcp.svg",
+      "label": "Download the editable figure"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/voice-through-mcp.svg",
+      "alt": "Connected wireframe conversation, shield, signpost forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/voice-through-mcp.svg",
+      "alt": "Connected wireframe conversation, shield, signpost forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "publishedAt": null,
+    "series": "ui-accessibility",
+    "seriesOrder": 5,
+    "reviewedAt": "2026-10-01",
+    "visualization": {
+      "kind": "ui-accessibility",
+      "takeaway": "Your sentence can cross apps. Your permission should not grow on the way.",
+      "description": "An illustrative request to prepare a release note reaches an assistant. It could read blockers through one MCP server and create a draft through another. Each service checks its own scope. Sending is a separate decision. This cross-app path has not been executed for the series.",
+      "sources": [
+        {
+          "label": "MCP architecture",
+          "url": "https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "future-ui-keep-your-place",
+    "title": "Your work should survive a change of interface",
+    "seoTitle": "The future of UI and accessibility: keep the task, change the interface",
+    "excerpt": "Speak, inspect, correct and continue. A future interface should preserve the task when the person changes how they interact.",
+    "shareLine": "Changing how you work should not mean starting again.",
+    "order": 15,
+    "topic": "The future of UI",
+    "example": "UI and accessibility",
+    "exampleStatus": "Design position and research agenda",
+    "ctaLabel": "Discuss where your users lose their place",
+    "steps": [],
+    "proof": {
+      "heading": "Change the input, keep the work",
+      "description": "The shortlist, its evidence and the person’s decisions remain at the centre. Speech, keyboard, screen-reader output and direct controls can provide routes into the same task. This is a design goal that requires implementation and evaluation, not an observed cross-modal result.",
+      "url": "/articles/ui-accessibility/continuity.svg",
+      "label": "Download the editable figure"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/future-ui-keep-your-place.svg",
+      "alt": "Connected wireframe book, eye, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/future-ui-keep-your-place.svg",
+      "alt": "Connected wireframe book, eye, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "publishedAt": null,
+    "series": "ui-accessibility",
+    "seriesOrder": 6,
+    "reviewedAt": "2026-10-01",
+    "visualization": {
+      "kind": "ui-accessibility",
+      "takeaway": "Changing how you work should not mean starting again.",
+      "description": "The shortlist, its evidence and the person’s decisions remain at the centre. Speech, keyboard, screen-reader output and direct controls can provide routes into the same task. This is a design goal that requires implementation and evaluation, not an observed cross-modal result.",
+      "sources": [
+        {
+          "label": "W3C natural-language accessibility requirements (draft)",
+          "url": "https://www.w3.org/TR/naur/"
+        }
+      ]
+    }
   }
 ]

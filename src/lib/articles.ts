@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { cache } from 'react';
 import { visibleArticles } from './article-catalogue';
 import { articleShareImage } from './share-metadata';
+import { interfaceFigure } from './ui-accessibility-figures';
 
 export type ArticleBlock = { kind: 'heading' | 'paragraph' | 'quote'; text: string; id?: string } |
   { kind: 'image'; src: string; alt: string };
@@ -31,13 +32,13 @@ export const getArticle = cache((slug: string) => {
 });
 
 export function articleSections(article: NonNullable<ReturnType<typeof getArticle>>) {
-  const visual = { id: 'article-proof', title: article.proof.heading ?? 'See the working example' };
+  const visual = { id: 'article-proof', title: (article.series && interfaceFigure(article.slug)?.title) || article.proof.heading || 'See the working example' };
   const visualIndex = article.blocks.findIndex((block) => block.kind === 'quote');
   const body = article.blocks.flatMap((block, index) => {
     if (block.kind === 'heading' && block.id) return [{ id: block.id, title: block.text }];
     return article.visualization && index === visualIndex ? [visual] : [];
   });
-  return [{ id: 'article-body', title: 'Overview' }, ...body, ...(!article.visualization ? [visual] : [])];
+  return [{ id: 'article-body', title: 'Overview' }, ...body, ...(!article.visualization ? [visual] : []), ...(article.visualization && article.media ? [{ id: 'article-recording', title: 'Recorded demonstration' }] : [])];
 }
 
 export function articleJsonLd(article: NonNullable<ReturnType<typeof getArticle>>) {
@@ -52,7 +53,7 @@ export function articleJsonLd(article: NonNullable<ReturnType<typeof getArticle>
         image: articleShareImage(article).url,
         ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
         ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
-        isPartOf: { '@type': 'CreativeWorkSeries', name: 'The AI-native organisation' },
+        isPartOf: { '@type': 'CreativeWorkSeries', name: article.series ? 'The future of UI and accessibility' : 'The AI-native organisation', ...(article.series ? { url: 'https://ai.hyperdrift.io/articles/ui-accessibility' } : {}) },
       },
       {
         '@type': 'BreadcrumbList', itemListElement: [
