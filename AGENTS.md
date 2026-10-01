@@ -157,3 +157,7 @@ The homepage implements the five screens the founder approved (`docs/design/2026
 ## Shared communication feed — 10 October 2026
 
 `/feed.json` and `/feed.xml` use the same published article catalogue. JSON Feed supplies Hyperdrift’s field notes and existing newsletter, with canonical URLs and published excerpts/share lines. Never include drafts, scheduled articles before their publication instant, lead data or private Traction records.
+
+## Article reading
+
+For article authoring or reading UI changes, load `~/dev/hyperdrift/meta/skills/article-experience/SKILL.md`. `src/lib/article-experience/` is generated from the workspace’s `packages/article-experience/`; follow the skill’s sync and verification workflow while keeping app styling and renderer here.

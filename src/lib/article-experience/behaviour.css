@@ -1,0 +1,30 @@
+/* Behaviour only. Palette, typography and placement belong to each app. */
+[data-article-body] :is(h1,h2,h3,h4,p)[id] { scroll-margin-top: 6rem; }
+[data-article-body] :is(h1,h2,h3,h4,p)[id]:target { outline: 1px solid currentColor; outline-offset: .4rem; }
+[data-article-contents] ol { list-style: none; padding: 0; }
+[data-article-contents] li[data-depth='3'] { padding-inline-start: 1rem; }
+[data-article-contents] a[aria-current='location'] { font-weight: 700; text-decoration: underline; text-underline-offset: .25em; }
+[data-article-contents] a { display: inline-flex; align-items: center; min-height: 44px; }
+[data-article-permalink] { display: inline; white-space: normal; font-size: .8rem; font-weight: normal; }
+[data-article-permalink] > a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; text-decoration: none; }
+[data-article-permalink] [role='status']:empty { display: none; }
+[data-article-permalink] input { display: block; width: 100%; max-width: 100%; font: inherit; }
+[data-article-citation] > button { display: none; }
+[data-article-source][popover] { display: none; }
+@supports selector(:popover-open) {
+  [data-article-citation] > button { display: inline-flex; align-items: center; min-height: 44px; }
+  [data-article-source][popover]:popover-open { display: block; }
+}
+[data-article-source] { position: fixed; inset: auto 1rem 1rem auto; width: min(28rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto; overscroll-behavior: contain; box-sizing: border-box; }
+[data-article-source] > :is(span,strong,small) { display: block; }
+[data-article-source] [data-source-actions] { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+[data-source-actions] :is(a,button) { display: inline-flex; align-items: center; min-height: 44px; }
+:is([data-article-source],[data-article-citation],[data-article-contents],[data-article-permalink]) :is(a,button,input):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  [data-article-permalink] > a { opacity: .25; }
+  :is(p,h1,h2,h3,h4):hover > [data-article-permalink] > a,
+  [data-article-permalink]:focus-within > a { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has([data-article-body]) { scroll-behavior: auto; }
+}

@@ -1,3 +1,5 @@
+import { ArticlePermalink } from '@/lib/article-experience/components';
+import { articleLabels } from '@/lib/article-reading';
 import { Fragment, type ReactNode } from 'react';
 import type { ArticleBlock } from '@/lib/articles';
 import { ShareLineButton } from '@/components/ShareLineButton';
@@ -8,7 +10,7 @@ type Share = { title: string; text: string; url: string };
 const plain = (text: string) => text.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim();
 
 /** A small, escaped renderer for this series' controlled Markdown subset. */
-function Inline({ text, sourceNotes = false }: { text: string; sourceNotes?: boolean }): ReactNode {
+function Inline({ text, sourceNotes = true }: { text: string; sourceNotes?: boolean }): ReactNode {
   const parts = text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)/g);
   return parts.map((part, index) => {
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
@@ -26,10 +28,10 @@ function Inline({ text, sourceNotes = false }: { text: string; sourceNotes?: boo
   });
 }
 
-export function ArticleBody({ blocks, share, visualization, sourceNotes = false }: { blocks: ArticleBlock[]; share?: Share; visualization?: ReactNode; sourceNotes?: boolean }) {
+export function ArticleBody({ blocks, share, visualization, sourceNotes = true }: { blocks: ArticleBlock[]; share?: Share; visualization?: ReactNode; sourceNotes?: boolean }) {
   const insertAt = blocks.findIndex((block) => block.kind === 'quote');
-  return <div id="article-body">{blocks.map((block, index) => {
-    if (block.kind === 'heading') return <h2 key={index} id={block.id}>{block.text}</h2>;
+  return <div id="article-body" data-article-body="">{blocks.map((block, index) => {
+    if (block.kind === 'heading') return <h2 key={index} id={block.id} tabIndex={-1}>{block.text}{share && block.id && <ArticlePermalink canonical={share.url} anchor={block.id} label={articleLabels.sectionLink} labels={articleLabels} />}</h2>;
     if (block.kind === 'quote') {
       const quote = <blockquote><p><Inline text={block.text} /></p></blockquote>;
       // The share line keeps its own action; the explanatory visual follows the opening quote.
@@ -39,6 +41,6 @@ export function ArticleBody({ blocks, share, visualization, sourceNotes = false 
       return <Fragment key={index}>{content}{index === insertAt && visualization}</Fragment>;
     }
     if (block.kind === 'image') return <figure key={index}><img src={block.src} alt={block.alt} loading="lazy" /></figure>;
-    return <p key={index}><Inline text={block.text} sourceNotes={sourceNotes} /></p>;
+    return <p key={index} id={block.id} tabIndex={-1}><Inline text={block.text} sourceNotes={sourceNotes} />{share && block.id && <ArticlePermalink canonical={share.url} anchor={block.id} label={articleLabels.paragraphLink} labels={articleLabels} />}</p>;
   })}<span id="article-end" aria-hidden="true" /></div>;
 }

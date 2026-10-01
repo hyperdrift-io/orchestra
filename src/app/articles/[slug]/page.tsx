@@ -1,3 +1,5 @@
+import { ArticleExperienceTracker } from '@/components/ArticleExperienceTracker';
+import '@/lib/article-experience/behaviour.css';
 import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import { MeshArtwork } from '@/components/MeshArtwork';
 import type { Metadata } from 'next';
@@ -42,6 +44,7 @@ export default async function ArticlePage({ params }: Props) {
   return <article id="article">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd(article) }} />
     <ArticleTracker slug={article.slug} />
+    <ArticleExperienceTracker slug={article.slug} />
     <header>
       <nav aria-label="Breadcrumb"><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? 'The future of UI and accessibility' : 'The AI-native organisation'}</a><span>/ {String(article.seriesOrder ?? article.order).padStart(2, '0')}</span></nav>
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}

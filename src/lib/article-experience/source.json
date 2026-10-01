@@ -1,0 +1,12 @@
+{
+  "source": "hyperdrift/packages/article-experience",
+  "version": 1,
+  "sha256": "d5544ecf3c1f44e82dd4b724d840761b75142a05f4505529655b937fe49561af",
+  "files": [
+    "behaviour.css",
+    "browser.ts",
+    "components.tsx",
+    "hooks.ts",
+    "model.ts"
+  ]
+}

@@ -1,3 +1,5 @@
+import { createAnchorIds, plainText as anchorText, type AnchorOverrides } from './article-experience/model';
+import anchorRegistry from '@/data/article-anchors.json';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cache } from 'react';
@@ -11,16 +13,17 @@ export type ArticleBlock = { kind: 'heading' | 'paragraph' | 'quote'; text: stri
   { kind: 'image'; src: string; alt: string };
 
 /** Our editorial source uses only headings, paragraphs, quotations and images. No raw HTML is executed. */
-function parseBody(source: string): ArticleBlock[] {
+function parseBody(source: string, overrides: AnchorOverrides): ArticleBlock[] {
+  const idFor = createAnchorIds(overrides);
   return source.trim().split(/\n\s*\n/).map((text) => {
     const image = text.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (image) return { kind: 'image', src: image[2], alt: image[1] };
     if (text.startsWith('## ')) {
       const title = text.slice(3);
-      return { kind: 'heading', text: title, id: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') };
+      return { kind: 'heading', text: title, id: idFor(title, 'heading', overrides[anchorText(title)] || title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')) };
     }
     if (text.startsWith('> ')) return { kind: 'quote', text: text.slice(2) };
-    return { kind: 'paragraph', text: text.replace(/\n/g, ' ') };
+    return { kind: 'paragraph', text: text.replace(/\n/g, ' '), id: idFor(text, 'paragraph') };
   });
 }
 
@@ -29,7 +32,7 @@ export const getArticle = cache((slug: string) => {
   if (!summary) return null;
   // Only catalogue slugs reach the filesystem.
   const source = readFileSync(join(process.cwd(), 'content', 'articles', `${summary.slug}.md`), 'utf8');
-  const blocks = parseBody(source);
+  const blocks = parseBody(source, (anchorRegistry as Record<string, AnchorOverrides>)[slug] || {});
   return { ...summary, blocks, minutes: Math.max(1, Math.ceil(source.split(/\s+/).length / 220)) };
 });
 
