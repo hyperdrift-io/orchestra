@@ -14,18 +14,32 @@ export function useAnchorCopy(canonical: string, anchor: string) {
   const url = articleLink(canonical, anchor);
   useEffect(() => () => clearTimeout(timer.current), []);
   useEffect(() => { if (status === 'manual') { field.current?.focus({ preventScroll: true }); field.current?.select(); } }, [status]);
-  async function copy(event: React.MouseEvent<HTMLAnchorElement>) {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
+  async function copy(event?: React.MouseEvent<HTMLElement>) {
+    if (event && (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) return;
+    event?.preventDefault();
     clearTimeout(timer.current);
     try {
       await navigator.clipboard.writeText(url);
       setStatus('copied');
-      emitArticleInteraction({ action: 'article_anchor_copied', anchor });
+      emitArticleInteraction({ action: anchor ? 'article_anchor_copied' : 'article_link_copied', anchor: anchor || undefined });
       timer.current = setTimeout(() => setStatus('idle'), 2500);
     } catch { setStatus('manual'); }
   }
   return { copy, status, field, url };
+}
+export function useArticleShare(canonical: string, title: string) {
+  const link = useAnchorCopy(canonical, '');
+  const [canShare, setCanShare] = useState(false);
+  useEffect(() => setCanShare(typeof navigator.share === 'function'), []);
+  const share = async () => {
+    try {
+      emitArticleInteraction({ action: 'article_native_share_requested' });
+      await navigator.share({ title, url: link.url });
+    } catch (error) {
+      if ((error as { name?: string })?.name !== 'AbortError') await link.copy();
+    }
+  };
+  return { ...link, canShare, share, email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(link.url)}` };
 }
 export function useSourcePreview(source: string) {
   const panel = useRef<HTMLSpanElement>(null);

@@ -17,7 +17,8 @@ export function observeArticle(bodyId: string, entries: ArticleEntry[], onActive
   let resumePending = false;
   const update = () => {
     frame = 0;
-    const line = Math.min(120, window.innerHeight * .2);
+    const anchorOffset = sections.reduce((offset, section) => Math.max(offset, parseFloat(getComputedStyle(section.element).scrollMarginTop) || 0), 0);
+    const line = Math.max(Math.min(120, window.innerHeight * .2), anchorOffset + 2);
     const current = sections.filter(section => section.element.getBoundingClientRect().top <= line).at(-1);
     onActive(current?.id || null);
     clearTimeout(timer);

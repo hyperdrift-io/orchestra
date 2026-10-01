@@ -23,8 +23,8 @@ function textHash(text: string): string {
   return (hash >>> 0).toString(36);
 }
 /** Explicit overrides preserve published links when their own wording changes. */
-export function createAnchorIds(overrides: AnchorOverrides = {}) {
-  const used = new Map<string, number>();
+export function createAnchorIds(overrides: AnchorOverrides = {}, reservedIds: string[] = []) {
+  const used = new Map(reservedIds.map(id => [id, 1]));
   return (text: string, kind: 'heading' | 'paragraph', existing?: string): string => {
     const base = existing || overrides[plainText(text)] || (kind === 'heading' ? headingId(text) : `p-${textHash(text)}`);
     const count = (used.get(base) || 0) + 1;
@@ -36,9 +36,9 @@ function nodeText(node: MarkdownNode): string {
   return node.value ?? node.alt ?? node.children?.map(nodeText).join('') ?? '';
 }
 /** Remark plugin: native, server-rendered fragment targets, including without JavaScript. */
-export function remarkArticleAnchors({ overrides = {} }: { overrides?: AnchorOverrides } = {}) {
+export function remarkArticleAnchors({ overrides = {}, reservedIds = [] }: { overrides?: AnchorOverrides; reservedIds?: string[] } = {}) {
   return (tree: MarkdownNode) => {
-    const idFor = createAnchorIds(overrides);
+    const idFor = createAnchorIds(overrides, reservedIds);
     const walk = (node: MarkdownNode, parent?: MarkdownNode) => {
       if (node.type === 'heading' || (node.type === 'paragraph' && parent?.type === 'root')) {
         const text = nodeText(node);
@@ -56,8 +56,8 @@ export function remarkArticleAnchors({ overrides = {} }: { overrides?: AnchorOve
   };
 }
 /** ATX/setext headings in the supported editorial Markdown; fenced examples are excluded. */
-export function articleOutline(markdown: string, overrides: AnchorOverrides = {}): ArticleEntry[] {
-  const idFor = createAnchorIds(overrides);
+export function articleOutline(markdown: string, overrides: AnchorOverrides = {}, reservedIds: string[] = []): ArticleEntry[] {
+  const idFor = createAnchorIds(overrides, reservedIds);
   const entries: ArticleEntry[] = [];
   let fence = '';
   const lines = markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '').split(/\r?\n/);
