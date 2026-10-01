@@ -161,3 +161,5 @@ The homepage implements the five screens the founder approved (`docs/design/2026
 ## Article reading
 
 For article authoring or reading UI changes, load `~/dev/hyperdrift/meta/skills/article-experience/SKILL.md`. `src/lib/article-experience/` is generated from the workspace’s `packages/article-experience/`; follow the skill’s sync and verification workflow while keeping app styling and renderer here.
+
+On 2 October 2026 the founder approved one labelled Share trigger at each existing article entry point. Use the shared panel and `src/lib/article-sharing.ts` for app choices: LinkedIn and the existing downloadable card where available. Keep the preview notice and canonical URL, remove static platform rows, and never count a native-sheet resolution as a published post.

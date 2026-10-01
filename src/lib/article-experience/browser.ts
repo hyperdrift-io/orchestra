@@ -1,6 +1,6 @@
 /** Canonical source: Hyperdrift packages/article-experience. */
 import type { ArticleEntry } from './model';
-export interface ArticleInteraction { action: string; anchor?: string; source?: string }
+export interface ArticleInteraction { action: string; anchor?: string; source?: string; placement?: string }
 export function emitArticleInteraction(detail: ArticleInteraction) {
   document.dispatchEvent(new CustomEvent<ArticleInteraction>('article:interaction', { detail }));
 }

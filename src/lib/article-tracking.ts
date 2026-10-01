@@ -42,9 +42,14 @@ export function observeArticle(slug: string) {
   const onClick = (event: MouseEvent) => {
     if (!(event.target instanceof Element)) return;
     if (event.target.closest('a[data-enquiry]')) trackArticle(slug, 'article_cta_clicked');
-    if (event.target.closest('#article-share nav :is(a, button), [data-share-line]')) trackArticle(slug, 'article_shared');
     if (event.target.closest('[data-proof-link], #article-proof summary')) trackArticle(slug, 'article_proof_opened');
   };
+  // Preserve the existing funnel signal for an explicit share action, never opening its panel.
+  const onShare = (event: Event) => {
+    const action = (event as CustomEvent<{ action: string }>).detail.action;
+    if (['article_link_copied', 'article_share_destination_opened', 'article_native_share_requested', 'article_share_asset_requested'].includes(action)) trackArticle(slug, 'article_shared');
+  };
+  document.addEventListener('article:interaction', onShare);
   document.addEventListener('click', onClick);
-  return () => { observer.disconnect(); document.removeEventListener('click', onClick); window.removeEventListener('scroll', onScroll); };
+  return () => { document.removeEventListener('article:interaction', onShare); observer.disconnect(); document.removeEventListener('click', onClick); window.removeEventListener('scroll', onScroll); };
 }

@@ -15,7 +15,7 @@ export function ReadNudge({ slug, title, text, url, ctaLabel }: Props) {
   return <aside data-nudge="" aria-label="Pass it on">
     <p>{text}</p>
     <nav aria-label="Share or enquire">
-      <ShareLineButton title={title} text={text} url={url} />
+      <ShareLineButton title={title} text={text} url={url} placement="nudge" />
       <a href="#enquire" data-enquiry="">{ctaLabel} →</a>
       <button type="button" aria-label="Hide" onClick={dismiss}>×</button>
     </nav>
