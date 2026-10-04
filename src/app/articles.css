@@ -366,11 +366,6 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
 /* UI and accessibility series — source inspection stays beside the reading. */
 #article [data-reviewed] { border: 0; padding: 0; margin-top: .8rem; }
 [data-interface-figure] :is(button,a):focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
-[data-link-preview-panel] { padding: 1.5rem; border: 1px solid var(--gold); border-radius: 4px; background: var(--ink); color: var(--cream); box-shadow: 0 18px 70px #0009; font: 1rem/1.6 var(--font-body); }
-[data-link-preview-panel] strong { margin-block: .7rem; font: 500 1.6rem/1.2 var(--font-display); }
-[data-link-preview-panel] > small { margin-top: 1rem; color: var(--cream-3); }
-[data-link-preview-panel] [data-link-preview-actions] { margin-top: 1.25rem; }
-[data-link-preview-panel] :is(a,button) { color: var(--gold-light); font: inherit; background: transparent; border: 0; cursor: pointer; }
 #article [data-article-permalink] > a { font-family: var(--font-body); color: var(--gold-light); }
 [data-article-permalink] input { color: var(--cream); background: var(--ink); padding: .5rem; border: 1px solid var(--gold); }
 #article-body [data-interface-figure] { margin: 2rem 0; border-block: 1px solid var(--gold-line); padding-top: 1rem; }
@@ -428,5 +423,10 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
   #article > aside[data-nudge] nav > button { flex-shrink: 0; }
 }
 
-[data-link-preview-trigger] { color: var(--gold-light); }
-[data-link-preview-trigger]:hover { outline: 1px solid currentColor; }
+[data-link-preview-panel] { padding: 0; background: var(--ink); color: var(--cream); border: 1px solid var(--gold); border-radius: .4rem; box-shadow: 0 1rem 4rem #0006; font: 1rem/1.6 var(--font-body); }
+[data-link-preview-header] { border-color: var(--gold); }
+[data-link-preview-header] strong { font-size: 1.1rem; line-height: 1.35; }
+[data-link-preview-header] small { font-size: .75rem; opacity: .8; }
+[data-link-preview-panel] [data-link-preview-actions] :is(a,button) { font: inherit; font-size: .85rem; background: transparent; color: var(--gold-light); border: 0; cursor: pointer; }
+[data-link-preview-touch], [data-link-preview-document] a { color: var(--gold-light); }
+[data-link-preview-document] { line-height: 1.8; }

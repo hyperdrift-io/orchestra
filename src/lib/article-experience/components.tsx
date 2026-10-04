@@ -46,11 +46,11 @@ export function ArticleShare({ canonical, title, text, labels, actions = [], id,
     </div>
   </div>;
 }
-interface SourceProps { href: string; children: ReactNode; note?: SourceNote; labels: ArticleLabels }
-export function ArticleSourceLink({ href, children, note, labels }: SourceProps) {
+interface SourceProps { href: string; children: ReactNode; note?: SourceNote; body?: ReactNode; labels: ArticleLabels }
+export function ArticleSourceLink({ href, children, note, body, labels }: SourceProps) {
   return <LinkPreview href={href} labels={labels} content={note && {
-    title: note.title, publisher: note.by, summary: note.summary,
-    provenance: note.editorial ? 'editorial' : 'publisher', reviewedAt: note.reviewedAt,
+    title: note.title, publisher: note.by,
+    view: body ? { kind: 'content', body } : note.preview === 'unavailable' ? { kind: 'unavailable' } : { kind: note.preview === 'pdf' ? 'pdf' : 'page', src: href },
   }} onPreviewEvent={({ action }) => emitArticleInteraction({
     action: action === 'opened' ? 'article_source_preview_opened' : action === 'closed' ? 'article_source_preview_closed' : 'article_source_opened', source: href,
   })}>{children}</LinkPreview>;

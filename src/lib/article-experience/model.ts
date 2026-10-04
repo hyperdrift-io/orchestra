@@ -1,9 +1,9 @@
 /** Canonical source: Hyperdrift packages/article-experience. Sync; do not edit app copies. */
 export interface ArticleEntry { id: string; title: string; depth?: number }
-export interface SourceNote { title: string; by: string; summary: string; reviewedAt?: string; editorial?: boolean }
+export interface SourceNote { title: string; by: string; preview?: 'page' | 'pdf' | 'unavailable'; content?: string }
 export interface ArticleLabels {
   contents: string; preview: string; close: string; openOriginal: string;
-  editorialSummary: string; publisherExcerpt: string; reviewed: string; paragraphLink: string; sectionLink: string;
+  unavailable: string; frameHint: string; paragraphLink: string; sectionLink: string;
   copied: string; manualCopy: string; linkField: string;
 }
 export type AnchorOverrides = Record<string, string>;
