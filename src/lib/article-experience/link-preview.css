@@ -17,7 +17,7 @@
 [data-link-preview-document] :is(h1,h2,h3) { line-height: 1.2; }
 [data-link-preview-document] img { max-width: 100%; height: auto; }
 [data-link-preview-document] pre { overflow: auto; }
-[data-link-preview-hint], [data-link-preview-unavailable] { margin: 0; padding: .65rem 1.25rem; font-size: .8rem; }
+[data-link-preview-hint] { margin: 0; padding: .65rem 1.25rem; font-size: .8rem; }
 :is([data-link-preview],[data-link-preview-panel]) :is(a,button,[data-link-preview-title]):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 @media (hover: none), (pointer: coarse) { [data-link-preview-touch] { display: inline-flex; } }
 @media (max-width: 640px) {

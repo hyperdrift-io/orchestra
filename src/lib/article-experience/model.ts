@@ -3,7 +3,7 @@ export interface ArticleEntry { id: string; title: string; depth?: number }
 export interface SourceNote { title: string; by: string; preview?: 'page' | 'pdf' | 'unavailable'; content?: string }
 export interface ArticleLabels {
   contents: string; preview: string; close: string; openOriginal: string;
-  unavailable: string; frameHint: string; paragraphLink: string; sectionLink: string;
+  frameHint: string; paragraphLink: string; sectionLink: string;
   copied: string; manualCopy: string; linkField: string;
 }
 export type AnchorOverrides = Record<string, string>;

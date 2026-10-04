@@ -8,11 +8,11 @@ export interface LinkPreviewContent {
   publisher: string;
   view: LinkPreviewView;
 }
+export type PreviewableLinkContent = LinkPreviewContent & { view: Exclude<LinkPreviewView, { kind: 'unavailable' }> };
 export interface LinkPreviewLabels {
   preview: string;
   close: string;
   openOriginal: string;
-  unavailable: string;
   frameHint: string;
 }
 export interface LinkPreviewEvent {
@@ -27,8 +27,8 @@ export function isPreviewUrl(href: string): boolean {
   } catch { return false; }
 }
 /** Only app-supplied documents or real destination pages; a summary is not a preview. */
-export function canPreviewLink(href: string, content?: LinkPreviewContent): content is LinkPreviewContent {
+export function canPreviewLink(href: string, content?: LinkPreviewContent): content is PreviewableLinkContent {
   if (!isPreviewUrl(href) || !content?.title.trim() || !content.publisher.trim() || !content.view) return false;
   return content.view.kind === 'content' ? Boolean(content.view.body)
-    : content.view.kind === 'unavailable' || isPreviewUrl(content.view.src);
+    : content.view.kind !== 'unavailable' && isPreviewUrl(content.view.src);
 }

@@ -1,7 +1,7 @@
 'use client';
 import { useId, type AnchorHTMLAttributes, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { canPreviewLink, type LinkPreviewContent, type LinkPreviewEvent, type LinkPreviewLabels } from './link-preview-model';
+import { canPreviewLink, type LinkPreviewContent, type PreviewableLinkContent, type LinkPreviewEvent, type LinkPreviewLabels } from './link-preview-model';
 import { useLinkPreview } from './use-link-preview';
 export type { LinkPreviewContent, LinkPreviewEvent, LinkPreviewLabels } from './link-preview-model';
 export interface LinkPreviewProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'children' | 'content'> {
@@ -16,7 +16,7 @@ export function LinkPreview({ intent = 'preview', content, labels, onPreviewEven
   if (intent === 'navigate' || (anchor.download !== undefined && anchor.download !== false) || !canPreviewLink(anchor.href, content)) return <a {...anchor} />;
   return <PreviewLink {...anchor} content={content} labels={labels} onPreviewEvent={onPreviewEvent} />;
 }
-function PreviewLink({ content, labels, onPreviewEvent, onClick, onPointerEnter, onPointerLeave, children, ...anchor }: Omit<LinkPreviewProps, 'intent' | 'content'> & { content: LinkPreviewContent }) {
+function PreviewLink({ content, labels, onPreviewEvent, onClick, onPointerEnter, onPointerLeave, children, ...anchor }: Omit<LinkPreviewProps, 'intent' | 'content'> & { content: PreviewableLinkContent }) {
   const id = useId();
   const { panel, trigger, ready, expanded, prepared, activate, hover, cancelHover, open, close, openOriginal } = useLinkPreview(anchor.href, onPreviewEvent);
   return <span data-link-preview="">
@@ -34,7 +34,6 @@ function PreviewLink({ content, labels, onPreviewEvent, onClick, onPointerEnter,
       </header>
       {(expanded || prepared) && <div data-link-preview-viewport="" data-testid="link-preview-viewport">
         {content.view.kind === 'content' ? <div data-link-preview-document="">{content.view.body}</div>
-          : content.view.kind === 'unavailable' ? <p data-link-preview-unavailable="">{labels.unavailable}</p>
           : <><iframe loading="eager" data-testid="link-preview-frame" title={content.title} src={content.view.src} referrerPolicy="no-referrer" sandbox={content.view.kind === 'pdf' ? undefined : 'allow-scripts'} /><p data-link-preview-hint="">{labels.frameHint}</p></>}
       </div>}
     </div>, document.body)}

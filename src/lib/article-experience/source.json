@@ -2,7 +2,7 @@
   "source": "hyperdrift/packages/article-experience",
   "version": 2,
   "profile": "article",
-  "sha256": "1aa73b71ae2a360b2584f961d2ae779497badd14baa5b26bb0634d49f235c50b",
+  "sha256": "3a58dc82fbd19bb478454d220e2207891c97848168676645c9e2283cd79981cf",
   "files": [
     "behaviour.css",
     "browser.ts",
