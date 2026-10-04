@@ -366,7 +366,7 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
 /* UI and accessibility series — source inspection stays beside the reading. */
 #article [data-reviewed] { border: 0; padding: 0; margin-top: .8rem; }
 [data-interface-figure] :is(button,a):focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
-#article [data-article-permalink] > a { font-family: var(--font-body); color: var(--gold-light); }
+#article [data-article-permalink] > a { padding: 0; border: 0; text-decoration: none; font-family: var(--font-body); color: var(--gold-light); }
 [data-article-permalink] input { color: var(--cream); background: var(--ink); padding: .5rem; border: 1px solid var(--gold); }
 #article-body [data-interface-figure] { margin: 2rem 0; border-block: 1px solid var(--gold-line); padding-top: 1rem; }
 [data-figure-art] svg { display: block; width: 100%; height: auto; }
