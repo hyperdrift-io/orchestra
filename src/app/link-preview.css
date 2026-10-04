@@ -1,0 +1,9 @@
+@import "../lib/article-experience/link-preview.css";
+
+[data-link-preview-panel] { padding: 0; background: var(--ink); color: var(--cream); border: 1px solid var(--gold); border-radius: .4rem; box-shadow: 0 1rem 4rem #0006; font: 1rem/1.6 var(--nf-body), sans-serif; }
+[data-link-preview-header] { border-color: var(--gold); }
+[data-link-preview-header] strong { font-size: 1.1rem; line-height: 1.35; }
+[data-link-preview-header] small { font-size: .75rem; opacity: .8; }
+[data-link-preview-panel] [data-link-preview-actions] :is(a,button) { font: inherit; font-size: .85rem; background: transparent; color: var(--gold-light); border: 0; cursor: pointer; }
+[data-link-preview-touch], [data-link-preview-document] a { color: var(--gold-light); }
+[data-link-preview-document] { line-height: 1.8; }

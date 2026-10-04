@@ -1,7 +1,7 @@
 'use client';
 import { useId, type ReactNode } from 'react';
 import type { ArticleEntry, ArticleLabels, SourceNote } from './model';
-import { LinkPreview } from './link-preview';
+import { LinkPreview, type LinkPreviewProps } from './link-preview';
 import { emitArticleInteraction } from './browser';
 import { useAnchorCopy, useArticlePosition, useArticleShare } from './hooks';
 interface ContentsProps { entries: ArticleEntry[]; bodyId: string; label: string; children?: ReactNode }
@@ -46,9 +46,9 @@ export function ArticleShare({ canonical, title, text, labels, actions = [], id,
     </div>
   </div>;
 }
-interface SourceProps { href: string; children: ReactNode; note?: SourceNote; body?: ReactNode; labels: ArticleLabels }
-export function ArticleSourceLink({ href, children, note, body, labels }: SourceProps) {
-  return <LinkPreview href={href} labels={labels} content={note && {
+interface SourceProps extends Omit<LinkPreviewProps, 'content' | 'onPreviewEvent'> { note?: SourceNote; body?: ReactNode; labels: ArticleLabels }
+export function ArticleSourceLink({ href, children, note, body, labels, ...anchor }: SourceProps) {
+  return <LinkPreview {...anchor} href={href} labels={labels} content={note && {
     title: note.title, publisher: note.by,
     view: body ? { kind: 'content', body } : note.preview === 'unavailable' ? { kind: 'unavailable' } : { kind: note.preview === 'pdf' ? 'pdf' : 'page', src: href },
   }} onPreviewEvent={({ action }) => emitArticleInteraction({

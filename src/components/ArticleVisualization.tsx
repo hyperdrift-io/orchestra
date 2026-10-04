@@ -1,5 +1,8 @@
 'use client';
 
+import { LinkPreview } from '@/components/LinkPreview';
+
+
 import { useEffect, useState } from 'react';
 import type { ArticleSummary } from '@/lib/article-catalogue';
 import { InterfaceFigure } from '@/components/InterfaceFigure';
@@ -70,6 +73,6 @@ export function ArticleVisualization({ article, figureSvg }: { article: ArticleS
   return <figure id="article-proof" data-article-visual="" aria-label={article.proof.heading}>
     {visual.kind === 'transaction' ? <TransactionMap /> : <StreamingSequence />}
     <figcaption>{visual.takeaway} <a href={article.proof.url} download>Save the visual ↓</a></figcaption>
-    <details><summary>Explanation and primary sources</summary><p>{visual.description}</p><ul>{visual.sources.map((source) => <li key={source.url}><a href={source.url}>{source.label} ↗</a></li>)}</ul><small>Reviewed 22 September 2026 · Illustrative design, not a client result.</small></details>
+    <details><summary>Explanation and primary sources</summary><p>{visual.description}</p><ul>{visual.sources.map((source) => <li key={source.url}><LinkPreview href={source.url}>{source.label} ↗</LinkPreview></li>)}</ul><small>Reviewed 22 September 2026 · Illustrative design, not a client result.</small></details>
   </figure>;
 }

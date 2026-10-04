@@ -1,3 +1,4 @@
+import { LinkPreview } from '@/components/LinkPreview';
 import Image from 'next/image';
 import type { ReactElement } from 'react';
 import { visibleArticles } from '@/lib/article-catalogue';
@@ -21,12 +22,12 @@ export function Proof({ catalogue = false }: ProofProps): ReactElement {
       {cs.walkthrough && <figure><video controls playsInline preload="none" poster={cs.walkthrough.poster} aria-label={cs.walkthrough.label}><source src={cs.walkthrough.src} type="video/mp4" /><track kind="captions" src={cs.walkthrough.captions} srcLang="en" label="English" /><a href={cs.walkthrough.src}>Watch the recorded walkthrough</a></video><figcaption>{cs.walkthrough.caption}</figcaption><details><summary>Read the walkthrough</summary><p>{cs.walkthrough.text}</p></details></figure>}
       {catalogue ? <>
         <p>{cs.outcome}</p>
-        {cs.challenge && <><p>Built for {cs.challenge.organiser} · <a href={cs.challenge.url}>{cs.challenge.name}</a></p><p>{cs.challenge.stage}</p></>}
+        {cs.challenge && <><p>Built for {cs.challenge.organiser} · <LinkPreview href={cs.challenge.url}>{cs.challenge.name}</LinkPreview></p><p>{cs.challenge.stage}</p></>}
         <p>
-          {cs.link && (cs.link.startsWith('/') ? <a href={cs.link}>{cs.linkLabel ?? 'Open'} →</a> : <a href={cs.link} data-offer={cs.slug === 'nextrole' ? 'mcp' : undefined} target="_blank" rel="noreferrer">{cs.linkLabel ?? 'Open'} ↗</a>)}
-          {cs.repo && <a href={cs.repo} target="_blank" rel="noreferrer">Source ↗</a>}
-          {cs.article && <a href={cs.article}>Read the build ↗</a>}
-          {cs.challenge?.entryUrl && <a href={cs.challenge.entryUrl}>Challenge entry ↗</a>}
+          {cs.link && (cs.link.startsWith('/') ? <a href={cs.link}>{cs.linkLabel ?? 'Open'} →</a> : <LinkPreview intent="navigate" href={cs.link} data-offer={cs.slug === 'nextrole' ? 'mcp' : undefined} target="_blank" rel="noreferrer">{cs.linkLabel ?? 'Open'} ↗</LinkPreview>)}
+          {cs.repo && <LinkPreview intent="navigate" href={cs.repo} target="_blank" rel="noreferrer">Source ↗</LinkPreview>}
+          {cs.article && <LinkPreview href={cs.article}>Read the build ↗</LinkPreview>}
+          {cs.challenge?.entryUrl && <LinkPreview href={cs.challenge.entryUrl}>Challenge entry ↗</LinkPreview>}
         </p>
       </> : <p><a href={`/work#work-${cs.slug}`} data-offer={cs.slug === 'nextrole' ? 'mcp' : undefined}>Explore {cs.name} →</a>{cs.slug === 'nextrole' && <a href={mcpEnquiryHref} data-offer="mcp">Discuss your product →</a>}</p>}
     </li>)}</ol>

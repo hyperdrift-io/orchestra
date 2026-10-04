@@ -2,6 +2,7 @@ import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
+import "./link-preview.css";
 import './mesh-artwork.css';
 import { MeshArtwork } from '@/components/MeshArtwork';
 import './org.css';

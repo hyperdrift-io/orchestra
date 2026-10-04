@@ -3,7 +3,7 @@ import { articleLabels } from '@/lib/article-reading';
 import { Fragment, type ReactNode } from 'react';
 import type { ArticleBlock } from '@/lib/articles';
 import { ShareLineButton } from '@/components/ShareLineButton';
-import { ArticleSourceLink } from '@/components/ArticleSourceLink';
+import { ArticleSourceLink } from '@/lib/article-experience/components';
 import { articleSourceNote } from '@/lib/article-source-notes';
 
 type Share = { title: string; text: string; url: string };
@@ -17,9 +17,7 @@ function Inline({ text, sourceNotes = true }: { text: string; sourceNotes?: bool
     if (link) {
       const href = link[2].startsWith('https://orchestra.hyperdrift.io/?article=') ? '#enquire' : link[2];
       if (!/^(https:\/\/|\/(?!\/)|#)/.test(href)) return <Fragment key={index}>{link[1]}</Fragment>;
-      const note = sourceNotes && articleSourceNote(href);
-      if (note) return <ArticleSourceLink key={index} href={href} label={link[1]} note={note} />;
-      return <a key={index} href={href} data-enquiry={href === '#enquire' ? '' : undefined}>{link[1]}</a>;
+      return <ArticleSourceLink key={index} href={href} note={sourceNotes ? articleSourceNote(href.split('#')[0]) : undefined} labels={articleLabels} intent={sourceNotes ? 'preview' : 'navigate'} data-enquiry={href === '#enquire' ? '' : undefined}>{link[1]}</ArticleSourceLink>;
     }
     if (part.startsWith('**')) return <strong key={index}>{part.slice(2, -2)}</strong>;
     if (part.startsWith('*')) return <em key={index}>{part.slice(1, -1)}</em>;
