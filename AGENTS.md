@@ -8,7 +8,7 @@ See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
 ## Owned MCP offering — 4 October 2026
 
-The founder selected NextRole as the owned MCP driver and asked to integrate the offering here. [Direction, evidence and review state](docs/decisions/2026-10-04-nextrole-mcp-offering.md). Extend the approved proof/catalogue design: NextRole leads the homepage examples, its own product path stays distinct from Orchestra’s scoped integration enquiry, and Deputy remains a separate commercial lead. Keep live tool evidence separate from adoption and client outcomes. This slice is a local content preview; final copy and production release remain to be reviewed.
+The founder selected NextRole as the owned MCP driver and asked to integrate the offering here. [Direction, evidence and review state](docs/decisions/2026-10-04-nextrole-mcp-offering.md). Extend the approved proof/catalogue design: NextRole leads the homepage examples, its own product path stays distinct from Orchestra’s scoped integration enquiry, and Deputy remains a separate commercial lead. Keep live tool evidence separate from adoption and client outcomes. The founder’s subsequent “continue” carries this reviewed content slice through verification and release. The score-scale and unsupported outcome-copy corrections are live on NextRole; the linked decision records the exact evidence and Orchestra release state.
 
 ## Production instruction — 23 September 2026
 

@@ -9,8 +9,8 @@ export function NextRoleProof({ catalogue }: NextRoleProofProps): ReactElement {
       <p>Someone asks their assistant</p>
       <blockquote>“Check this CV against the role.”</blockquote>
       <p>NextRole’s score_cv tool returned</p>
-      <samp>“The 12s to 3s PostgreSQL query bullet is a concrete, relevant result that evidences query optimisation.”</samp>
-      <figcaption>Response excerpt · live MCP check, 4 October 2026 · fictional CV and job. <a href="/proof/nextrole-mcp-2026-10-04.json">Inspect the inputs and result ↗</a></figcaption>
+      <samp>“The query optimisation bullet is quantified (12s to 3s) and covers the required SQL query optimisation skill.”</samp>
+      <figcaption>Response excerpt · live MCP check, 4 October 2026 · fictional CV and job. <a href="/proof/nextrole-mcp-corrected-2026-10-04.json">Inspect the inputs and result ↗</a></figcaption>
     </figure>
     {catalogue && <div data-mcp-offer>
       <p>For your product</p>
@@ -26,7 +26,7 @@ export function NextRoleProof({ catalogue }: NextRoleProofProps): ReactElement {
         <p>No NextRole API key is required. Start with a synthetic CV and ask the assistant to use <code>ats_lint</code>. Availability and usage limits apply. The assistant’s connection support and its own permissions still apply.</p>
         <p><a href="https://github.com/hyperdrift-io/nextrole-mcp#connect">Connection guide and tool reference ↗</a></p>
         <p>This is our own commercial product, not a commissioned client result. Tool availability does not establish repeat use, revenue or an employment outcome.</p>
-        <p>The live check covered CV linting and role scoring; the other three tools were listed but not exercised. The scoring response currently labels its 1–10 result as /100 in text. The excerpt above uses the written feedback only; the full record preserves that issue.</p>
+        <p>Live checks covered CV linting and role scoring; the other three tools were listed but not exercised. The latest scoring check returned 5.9/10, with matching text and structured results. This is model-assessed fit for the fictional example, not a probability of being hired.</p>
       </details>
     </div>}
   </>;

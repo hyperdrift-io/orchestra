@@ -1,0 +1,256 @@
+{
+  "created_at_utc": "2026-10-04T21:28:51.833941+00:00",
+  "completed_at_utc": "2026-10-04T21:29:02.259227+00:00",
+  "purpose": "One post-release operational check with wholly synthetic input; not evidence of independent adoption, real-user completion, interview callbacks, hires, or validated predictive scoring.",
+  "endpoint": "https://nextrole.site/api/mcp",
+  "authentication": "No authentication or API key supplied to the MCP endpoint.",
+  "deployed_sha": "68ed1edef91ee773c7065c842f4d94bbd19831ce",
+  "deployed_sha_after_probe": "68ed1edef91ee773c7065c842f4d94bbd19831ce",
+  "client": {
+    "sdk": "Python MCP",
+    "version": "1.30.0",
+    "transport": "streamable HTTP",
+    "declared_client_name": "hyperdrift-synthetic-qa"
+  },
+  "inputs": {
+    "cv_markdown": "# Demo Candidate\n\nSynthetic CV for an operational QA probe. All names, organisations and achievements below are fictional; this is not a real application.\n\n## Summary\nBackend engineer with three years of Python and PostgreSQL experience building internal reporting services.\n\n## Experience\n### Backend Engineer | Sample Systems (fictional) | 2023\u20132026\n- Built Python APIs for an internal reporting service used by 40 colleagues.\n- Reduced a PostgreSQL report query from 12 seconds to 3 seconds by adding indexes and reviewing the query plan.\n- Added pytest coverage for data validation and documented incident recovery steps.\n- Worked with product colleagues to clarify reporting requirements.\n\n## Skills\nPython, PostgreSQL, REST APIs, Git, pytest, Docker\n\n## Education\nBSc Computer Science, Example University (fictional), 2023\n",
+    "job_spec": "Synthetic job description for QA only, not a real vacancy.\nBackend Engineer \u2014 Example Employer (fictional)\nBuild and maintain Python APIs for reporting services. Work with PostgreSQL, write automated tests, review code, and collaborate with product colleagues. Required: Python, SQL query optimisation, REST API design, Git, clear technical communication, and production troubleshooting. Desirable: Kubernetes, AWS, and mentoring junior engineers. Do not assume a candidate has skills or achievements absent from their CV."
+  },
+  "protocol": {
+    "initialize": {
+      "elapsed_seconds": 0.044,
+      "response": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "nextrole",
+          "version": "1.0.0"
+        },
+        "instructions": "NextRole helps you review and tailor your CV for a role. ats_lint runs a free, deterministic ATS check on a CV. tailor_cv_to_role rewrites a CV for a specific job spec. Results link back to nextrole.site to save, track, and refine."
+      }
+    },
+    "tools_list": {
+      "elapsed_seconds": 0.138,
+      "response": {
+        "tools": [
+          {
+            "name": "ats_lint",
+            "title": "ATS lint a CV",
+            "description": "Free, deterministic ATS check: flags banned symbols, first-person voice, non-standard headers, and unquantified bullets. Returns findings + a pass/fail verdict.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "cv_markdown": {
+                  "type": "string",
+                  "description": "The CV in Markdown."
+                }
+              },
+              "required": [
+                "cv_markdown"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "tailor_cv_to_role",
+            "title": "Tailor a CV to a job",
+            "description": "Rewrites a CV for a specific job spec using NextRole's multi-pass tailor\u2192critic engine. Free anonymous allowance; on exhaustion returns a link to continue on the web app.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "cv_markdown": {
+                  "type": "string",
+                  "description": "The CV in Markdown."
+                },
+                "job_spec": {
+                  "type": "string",
+                  "description": "The target job description."
+                }
+              },
+              "required": [
+                "cv_markdown",
+                "job_spec"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": false,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "score_cv",
+            "title": "Score a CV against a job",
+            "description": "The free first read: scores a CV against a job spec using NextRole's critic engine \u2014 overall match and per-dimension scores on a 1\u201310 scale, strengths, gaps, and the single top priority to fix. Scores describe CV-to-role fit; hiring outcomes depend on the employer.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "cv_markdown": {
+                  "type": "string",
+                  "description": "The CV in Markdown."
+                },
+                "job_spec": {
+                  "type": "string",
+                  "description": "The target job description."
+                }
+              },
+              "required": [
+                "cv_markdown",
+                "job_spec"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "find_roles",
+            "title": "Find live roles",
+            "description": "Searches live job listings for a role query (e.g. \"frontend engineer London\"). Cheap, no LLM \u2014 returns a short list of matching roles with company and link.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string",
+                  "description": "A role query, e.g. \"frontend engineer London\"."
+                }
+              },
+              "required": [
+                "query"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "fetch_job_spec",
+            "title": "Fetch a job spec from a URL",
+            "description": "Fetches and extracts the job description text from a public job-posting URL, ready to feed into score_cv or tailor_cv_to_role. Cheap, no LLM.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "A public https:// job posting URL."
+                }
+              },
+              "required": [
+                "url"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          }
+        ]
+      }
+    },
+    "score_cv": {
+      "elapsed_seconds": 8.741,
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Match score: 5.9/10.\nTop priority: Rewrite the incident-recovery bullet to show production troubleshooting with a concrete outcome, using the exact JD phrase, and add a metric to the pytest bullet, only where the candidate's real experience supports it.\n\nTailor this CV to the role, then save and track at https://nextrole.site/?utm_source=mcp&utm_medium=mcp_server&utm_campaign=score_cv"
+          }
+        ],
+        "structuredContent": {
+          "overall_score": 5.9,
+          "scores": {
+            "keywordMatch": 6,
+            "relevance": 7,
+            "impact": 5,
+            "toneMatch": 6,
+            "atsReadiness": 8
+          },
+          "strengths": [
+            "Top-third summary names Python and PostgreSQL, which are the core stack in the JD, and the role title matches.",
+            "The query optimisation bullet is quantified (12s to 3s) and covers the required SQL query optimisation skill.",
+            "Pytest coverage and collaboration with product colleagues map directly to the JD's automated testing and product collaboration duties."
+          ],
+          "gaps": [
+            "Production troubleshooting is only implied by 'documented incident recovery steps'. Rewrite that bullet in the Experience section to state what was diagnosed and fixed, using the exact phrase 'production troubleshooting', only if it is true.",
+            "'REST API design' is not an exact match. The CV has 'REST APIs' in Skills and 'Python APIs' in Experience. Use 'REST API design' wording if the candidate actually did design work.",
+            "Only 2 of 4 bullets are quantified (about 50%). Add real metrics to the testing bullet (such as coverage %) and to the incident bullet (such as recovery time), but only where the figures exist.",
+            "There is no evidence of code review or mentoring. Add them only if they actually happened. Kubernetes and AWS are absent and should not be invented.",
+            "The summary is generic. Add 'clear technical communication' and 'SQL query optimisation' to the summary so the top third echoes the JD's required terms, if they are supported by the candidate's experience."
+          ],
+          "top_priority": "Rewrite the incident-recovery bullet to show production troubleshooting with a concrete outcome, using the exact JD phrase, and add a metric to the pytest bullet, only where the candidate's real experience supports it."
+        },
+        "isError": false
+      }
+    }
+  },
+  "metadata_checks": {
+    "unsupported_callback_claim_absent": true,
+    "initialize_describes_review_and_tailoring": true,
+    "score_description_states_1_to_10": true,
+    "score_description_limits_hiring_claim": true,
+    "tools_advertised": [
+      "ats_lint",
+      "tailor_cv_to_role",
+      "score_cv",
+      "find_roles",
+      "fetch_job_spec"
+    ],
+    "output_schema_advertised": {
+      "ats_lint": false,
+      "tailor_cv_to_role": false,
+      "score_cv": false,
+      "find_roles": false,
+      "fetch_job_spec": false
+    }
+  },
+  "assessment": {
+    "is_error": false,
+    "quota_exhausted": false,
+    "structured_overall_score": 5.9,
+    "text_score": 5.9,
+    "text_denominator": 10,
+    "text_matches_structured_score": true,
+    "text_uses_10_not_100": true,
+    "structured_score_in_1_to_10_range": true,
+    "evidence_class": "synthetic_operational_verification",
+    "real_user_completion_verified": false,
+    "deployed_sha_stable_during_probe": true
+  },
+  "known_limits": [
+    "One synthetic score_cv invocation only; model output can vary between calls.",
+    "No quota exhaustion, independent user completion, host installation, retention, payment, or hiring outcome was tested.",
+    "No calls to tailor_cv_to_role, find_roles, fetch_job_spec, or ats_lint in this corrected probe.",
+    "Rate-limit enforcement is not verified by this probe; source-documented limits are separate from observed enforcement.",
+    "Tool scores describe model-assessed CV-to-role fit, not validated hiring probabilities.",
+    "tools/list still advertises no outputSchema, although score_cv returns native structuredContent."
+  ],
+  "previous_probe": "/proof/nextrole-mcp-2026-10-04.json"
+}
