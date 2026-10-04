@@ -6,6 +6,10 @@
 
 See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
+## Owned MCP offering — 4 October 2026
+
+The founder selected NextRole as the owned MCP driver and asked to integrate the offering here. [Direction, evidence and review state](docs/decisions/2026-10-04-nextrole-mcp-offering.md). Extend the approved proof/catalogue design: NextRole leads the homepage examples, its own product path stays distinct from Orchestra’s scoped integration enquiry, and Deputy remains a separate commercial lead. Keep live tool evidence separate from adoption and client outcomes. This slice is a local content preview; final copy and production release remain to be reviewed.
+
 ## Production instruction — 23 September 2026
 
 The founder explicitly requested “Push live and work an innovative and coordinated campaign”. This authorizes deployment of the reviewed experience and the six original AI-native articles, superseding historical local-preview-only statements below. The two newer Databricks drafts retain their separate review gate. Verification and deployment now use npm consistently. GitHub Actions verifies only: the old webhook has no credentials and the existing org runner did not accept this public repository. Production deploys through infra (`make deploy app=orchestra`) after the approved revision passes CI; do not expand public-repo runner access without explicit approval. The [campaign kit](docs/campaigns/2026-09-service-launch/README.md) contains approved-brand exports, tracked distribution links and founder briefing material; it does not represent scheduled social posts. The founder approved PostHog on 23 September. Browser and accepted-relay events use the existing company project 206943 (EU), always filtered by app=orchestra and hostname=ai.hyperdrift.io. No replay, form autocapture, contact text or person profiles. Session-only first-touch campaign tags accompany the durable enquiry; local previews do not send analytics.

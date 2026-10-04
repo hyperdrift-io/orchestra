@@ -5,6 +5,8 @@ export interface CaseStudy {
   problem: string;
   capability: string;
   stack: string[];
+  /** Our own product, distinct from a client result or contest entry. */
+  relation?: string;
   /** Live demo or source, when it is public. */
   link?: string;
   linkLabel?: string;
@@ -23,10 +25,21 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: 'nextrole',
+    name: 'NextRole',
+    relation: 'Hyperdrift commercial product',
+    outcome: 'NextRole’s remote MCP server exposes five career tools: CV checks, role matching, job search, job-description retrieval and CV tailoring. People can use those capabilities through a compatible assistant, with the website available for the wider product journey.',
+    problem: 'People working with an assistant should be able to use a specialist product without starting their task again elsewhere.',
+    capability: 'A live career product with a remote MCP interface and structured tool results.',
+    stack: ['MCP', 'Streamable HTTP', 'Structured tool results'],
+    link: 'https://nextrole.site/?utm_source=orchestra&utm_medium=referral&utm_campaign=nextrole_mcp&utm_content=work',
+    linkLabel: 'Try NextRole',
+  },
+  {
     slug: 'standup',
     name: 'Standup',
     outcome:
-      'A GitHub handle becomes a short brief: who is waiting, what to start with, and how long it may take. Each recommendation links to the evidence the agent read. Available on the web, in the terminal, and through MCP.',
+      'A GitHub handle becomes a proposed contribution brief, available on the web, in the terminal and through an MCP preview. Live checks found unsupported claims about waiting time and CI coverage; recommendations still need checking against the linked source.',
     problem:
       'Returning to a project means reading across repositories and conversations before deciding where to help.',
     capability: 'Read-only repository scouts, structured triage, and an inspectable audit trail.',

@@ -1,0 +1,375 @@
+{
+  "created_at_utc": "2026-10-04T20:31:31.176512+00:00",
+  "purpose": "Bounded operational verification with wholly synthetic data; not adoption, interview, job success, or validated predictive scoring evidence.",
+  "endpoint": "https://nextrole.site/api/mcp",
+  "authentication": "No authentication or API key supplied",
+  "source_revision": "f0a5bedf9df6ad2072b921a830446e148eaade26",
+  "inputs": {
+    "cv_markdown": "# Demo Candidate\n\nSynthetic CV for an operational QA probe. All names, organisations and achievements below are fictional; this is not a real application.\n\n## Summary\nBackend engineer with three years of Python and PostgreSQL experience building internal reporting services.\n\n## Experience\n### Backend Engineer | Sample Systems (fictional) | 2023–2026\n- Built Python APIs for an internal reporting service used by 40 colleagues.\n- Reduced a PostgreSQL report query from 12 seconds to 3 seconds by adding indexes and reviewing the query plan.\n- Added pytest coverage for data validation and documented incident recovery steps.\n- Worked with product colleagues to clarify reporting requirements.\n\n## Skills\nPython, PostgreSQL, REST APIs, Git, pytest, Docker\n\n## Education\nBSc Computer Science, Example University (fictional), 2023\n",
+    "job_spec": "Synthetic job description for QA only, not a real vacancy.\nBackend Engineer — Example Employer (fictional)\nBuild and maintain Python APIs for reporting services. Work with PostgreSQL, write automated tests, review code, and collaborate with product colleagues. Required: Python, SQL query optimisation, REST API design, Git, clear technical communication, and production troubleshooting. Desirable: Kubernetes, AWS, and mentoring junior engineers. Do not assume a candidate has skills or achievements absent from their CV."
+  },
+  "protocol": {
+    "initialize": {
+      "elapsed_seconds": 0.044,
+      "response": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "nextrole",
+          "version": "1.0.0"
+        },
+        "instructions": "NextRole turns a CV into interview callbacks. ats_lint runs a free, deterministic ATS check on a CV. tailor_cv_to_role rewrites a CV for a specific job spec. Results link back to nextrole.site to save, track, and refine."
+      }
+    },
+    "tools_list": {
+      "elapsed_seconds": 0.23,
+      "response": {
+        "tools": [
+          {
+            "name": "ats_lint",
+            "title": "ATS lint a CV",
+            "description": "Free, deterministic ATS check: flags banned symbols, first-person voice, non-standard headers, and unquantified bullets. Returns findings + a pass/fail verdict.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "cv_markdown": {
+                  "type": "string",
+                  "description": "The CV in Markdown."
+                }
+              },
+              "required": [
+                "cv_markdown"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "tailor_cv_to_role",
+            "title": "Tailor a CV to a job",
+            "description": "Rewrites a CV for a specific job spec using NextRole's multi-pass tailor→critic engine. Free anonymous allowance; on exhaustion returns a link to continue on the web app.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "cv_markdown": {
+                  "type": "string",
+                  "description": "The CV in Markdown."
+                },
+                "job_spec": {
+                  "type": "string",
+                  "description": "The target job description."
+                }
+              },
+              "required": [
+                "cv_markdown",
+                "job_spec"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": false,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "score_cv",
+            "title": "Score a CV against a job",
+            "description": "The free first read: scores a CV against a job spec using NextRole's critic engine — overall match, per-dimension scores, strengths, gaps, and the single top priority to fix.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "cv_markdown": {
+                  "type": "string",
+                  "description": "The CV in Markdown."
+                },
+                "job_spec": {
+                  "type": "string",
+                  "description": "The target job description."
+                }
+              },
+              "required": [
+                "cv_markdown",
+                "job_spec"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "find_roles",
+            "title": "Find live roles",
+            "description": "Searches live job listings for a role query (e.g. \"frontend engineer London\"). Cheap, no LLM — returns a short list of matching roles with company and link.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string",
+                  "description": "A role query, e.g. \"frontend engineer London\"."
+                }
+              },
+              "required": [
+                "query"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "fetch_job_spec",
+            "title": "Fetch a job spec from a URL",
+            "description": "Fetches and extracts the job description text from a public job-posting URL, ready to feed into score_cv or tailor_cv_to_role. Cheap, no LLM.",
+            "inputSchema": {
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "A public https:// job posting URL."
+                }
+              },
+              "required": [
+                "url"
+              ]
+            },
+            "annotations": {
+              "readOnlyHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          }
+        ]
+      }
+    },
+    "ats_lint": {
+      "elapsed_seconds": 0.14,
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ATS check found 1 blocking issue(s).\n• First-person or passive phrasing on line 13. Start bullets with a strong action verb (Led, Built, Delivered, Reduced, Grew…).\n\nFull ATS view + one-click fixes: https://nextrole.site/?utm_source=mcp&utm_medium=mcp_server&utm_campaign=ats_lint"
+          }
+        ],
+        "structuredContent": {
+          "findings": [
+            {
+              "rule": "first-person-bullet",
+              "severity": "error",
+              "line": 13,
+              "message": "First-person or passive phrasing on line 13. Start bullets with a strong action verb (Led, Built, Delivered, Reduced, Grew…)."
+            }
+          ],
+          "summary": [
+            "First-person or passive phrasing on line 13. Start bullets with a strong action verb (Led, Built, Delivered, Reduced, Grew…)."
+          ],
+          "passed": false
+        },
+        "isError": false
+      }
+    },
+    "score_cv": {
+      "elapsed_seconds": 14.269,
+      "response": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Match score: 5.3/100.\nTop priority: Rework the summary and the query-optimisation, troubleshooting and API bullets so they use the JD's exact required terms ('SQL query optimisation', 'REST API design', 'production troubleshooting') wherever the master CV honestly supports them.\n\nTailor this CV to the role, then save and track at https://nextrole.site/?utm_source=mcp&utm_medium=mcp_server&utm_campaign=score_cv"
+          }
+        ],
+        "structuredContent": {
+          "overall_score": 5.3,
+          "scores": {
+            "keywordMatch": 5,
+            "relevance": 6,
+            "impact": 5,
+            "toneMatch": 6,
+            "atsReadiness": 8
+          },
+          "strengths": [
+            "Python, PostgreSQL, Git and pytest all appear verbatim, matching the JD's core stack and its automated-testing requirement.",
+            "The 12s to 3s PostgreSQL query bullet is a concrete, relevant result that evidences query optimisation.",
+            "The reporting-service context matches the JD's 'Python APIs for reporting services' focus, and the product collaboration bullet matches the JD's collaboration line."
+          ],
+          "gaps": [
+            "Summary: rewrite it to use the JD's exact phrases, such as 'Python APIs for reporting services', 'SQL query optimisation' and 'REST API design', rather than the generic 'backend engineer' wording.",
+            "Experience bullet 2: add the exact term 'SQL query optimisation' (for example 'SQL query optimisation: cut a PostgreSQL report query from 12s to 3s'). Only state what the CV already shows.",
+            "Experience bullet 3: the incident recovery documentation is the only evidence for 'production troubleshooting'. If the master CV supports it, reword it with that phrase and add scope, such as the number of incidents or recovery time.",
+            "Skills: 'REST APIs' is listed but 'REST API design' is not claimed. Reword the first bullet to show API design (endpoints designed, consumers served) only if the master CV supports it.",
+            "Bullets 1, 3 and 4: bullets 3 and 4 have no metrics, and bullet 1 gives only the user count. Add figures such as test coverage %, endpoints built or incidents resolved, but only if they exist in the master CV.",
+            "Desirable items (Kubernetes, AWS, mentoring, code review) are absent. Do not invent them. Surface them only if the master CV genuinely contains them; otherwise accept the gap."
+          ],
+          "top_priority": "Rework the summary and the query-optimisation, troubleshooting and API bullets so they use the JD's exact required terms ('SQL query optimisation', 'REST API design', 'production troubleshooting') wherever the master CV honestly supports them."
+        },
+        "isError": false
+      }
+    }
+  },
+  "public_pages": [
+    {
+      "requested_url": "https://nextrole.site/",
+      "final_url": "https://nextrole.site/",
+      "status": 200,
+      "elapsed_seconds": 0.18,
+      "content_type": "text/html; charset=utf-8",
+      "title": "Next Role — Job Search Companion for Stronger Applications",
+      "body_sha256": "6a6cf38df263bcae30e22b68b74a02bd47aae2767b74821c400045beb8929558",
+      "mcp_related_links": []
+    },
+    {
+      "requested_url": "https://nextrole.site/llms.txt",
+      "final_url": "https://nextrole.site/llms.txt",
+      "status": 200,
+      "elapsed_seconds": 0.021,
+      "content_type": "text/plain; charset=utf-8",
+      "title": null,
+      "body_sha256": "eca70282be855520e5357814545115a023bb5a0d7e3cb3f8f3d67df0a937da6b",
+      "body": "# Next Role — nextrole.site\n\n> Next Role is a job-search companion for people applying to jobs. Paste a job\n> description and your CV at nextrole.site and get a tailored, scored application\n> in the browser — it reshapes your real experience for each role (translation,\n> not keyword stuffing). It is a consumer web app anyone can use — not a developer tool\n> and not an ATS keyword checker. Free to try, no account needed.\n\n## Key pages\n- Home: https://nextrole.site/\n- How it works: https://nextrole.site/how-it-works\n- FAQ: https://nextrole.site/faq\n- About: https://nextrole.site/about\n\n## Guides\n- Returning to Work After a Career Break — Reframing Your Story: https://nextrole.site/blog/returning-to-work-after-a-career-break\n- How to Pivot Careers Without Starting From Scratch: https://nextrole.site/blog/how-to-pivot-careers-with-existing-experience\n- How to Choose the Right Role to Apply For: https://nextrole.site/blog/how-to-choose-the-right-role-to-apply-for\n- How to Keep Momentum in a Tough Job Market: https://nextrole.site/blog/how-to-keep-momentum-in-a-tough-job-market\n- Why Your CV Isn't Getting Callbacks — and How to Fix It: https://nextrole.site/blog/why-cv-not-getting-callbacks\n- How to Match Your CV to a Job Description: https://nextrole.site/blog/how-to-match-cv-to-job-description\n- What Recruiters Look for in the First 7 Seconds: https://nextrole.site/blog/what-recruiters-look-for-in-a-cv\n- How to Maximise Your Chances for a Specific Job Application: https://nextrole.site/blog/maximise-job-application-success\n- The Difference Between a Generic CV and a Tailored Application: https://nextrole.site/blog/tailored-cv-vs-generic-cv\n- CV Scoring Explained: What Your Match Score Actually Measures: https://nextrole.site/blog/cv-match-score-explained\n- Iterate Until Your Application Is Ready To Send: https://nextrole.site/blog/iterate-until-your-application-is-ready-to-send\n- Your Experience Is Real. Your Application Should Show It.: https://nextrole.site/blog/your-experience-is-real-your-application-should-show-it\n\n## For AI assistants (a secondary access channel)\nNext Role is also available as an MCP server so assistants can tailor and score a\nCV directly. This is a secondary access channel — the main product is the website.\n- MCP endpoint: https://nextrole.site/api/mcp\n"
+    },
+    {
+      "requested_url": "https://nextrole.site/sitemap.xml",
+      "final_url": "https://nextrole.site/sitemap.xml",
+      "status": 200,
+      "elapsed_seconds": 0.03,
+      "content_type": "application/xml",
+      "title": null,
+      "body_sha256": "068b8dadc4994bb829a8c7fa4c25b422c56653009ec1dbec7a4641564e322015",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://nextrole.site</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://nextrole.site/about</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://nextrole.site/faq</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/returning-to-work-after-a-career-break</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/how-to-pivot-careers-with-existing-experience</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/how-to-choose-the-right-role-to-apply-for</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/how-to-keep-momentum-in-a-tough-job-market</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/why-cv-not-getting-callbacks</loc>\n<lastmod>2026-05-13T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/how-to-match-cv-to-job-description</loc>\n<lastmod>2026-05-13T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/what-recruiters-look-for-in-a-cv</loc>\n<lastmod>2026-05-13T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/maximise-job-application-success</loc>\n<lastmod>2026-05-13T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/tailored-cv-vs-generic-cv</loc>\n<lastmod>2026-05-13T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/cv-match-score-explained</loc>\n<lastmod>2026-05-13T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/iterate-until-your-application-is-ready-to-send</loc>\n<lastmod>2026-05-08T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/blog/your-experience-is-real-your-application-should-show-it</loc>\n<lastmod>2026-05-06T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.85</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse</loc>\n<lastmod>2026-09-28T07:00:12.401Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-09-28</loc>\n<lastmod>2026-09-28T07:00:12.401Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-09-21</loc>\n<lastmod>2026-09-21T07:00:08.173Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-09-14</loc>\n<lastmod>2026-09-14T07:00:09.483Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-09-07</loc>\n<lastmod>2026-09-07T07:00:29.592Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-08-31</loc>\n<lastmod>2026-08-31T07:00:56.190Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-08-24</loc>\n<lastmod>2026-08-24T07:00:46.153Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-08-17</loc>\n<lastmod>2026-08-17T07:00:38.133Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-08-10</loc>\n<lastmod>2026-08-10T07:00:45.296Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-08-03</loc>\n<lastmod>2026-08-03T07:00:37.165Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-07-27</loc>\n<lastmod>2026-07-27T07:01:03.291Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-07-20</loc>\n<lastmod>2026-07-26T22:09:32.438Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-07-13</loc>\n<lastmod>2026-07-13T07:00:52.627Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/pulse/2026-07-06</loc>\n<lastmod>2026-07-06T07:00:43.122Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/accountant/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/accountant/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/accountant/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/accountant/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/accountant/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/business-analyst/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/business-analyst/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/business-analyst/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/business-analyst/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/business-analyst/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/customer-service-advisor/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/customer-service-advisor/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/customer-service-advisor/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/customer-service-advisor/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/customer-service-advisor/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/data-analyst/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/data-analyst/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/data-analyst/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/data-analyst/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/data-analyst/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/devops-engineer/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/devops-engineer/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/devops-engineer/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/devops-engineer/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/devops-engineer/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/marketing-manager/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/marketing-manager/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/marketing-manager/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/marketing-manager/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/marketing-manager/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/product-manager/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/product-manager/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/product-manager/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/product-manager/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/product-manager/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/project-manager/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/project-manager/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/project-manager/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/project-manager/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/project-manager/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/sales-executive/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/sales-executive/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/sales-executive/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/sales-executive/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/sales-executive/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/software-engineer/birmingham</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/software-engineer/bristol</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/software-engineer/leeds</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/software-engineer/london</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/roles/software-engineer/manchester</loc>\n<lastmod>2026-09-28T07:00:12.515Z</lastmod>\n<changefreq>weekly</changefreq>\n<priority>0.75</priority>\n</url>\n<url>\n<loc>https://nextrole.site/plans</loc>\n<lastmod>2026-05-18T00:00:00.000Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n</urlset>\n"
+    },
+    {
+      "requested_url": "https://github.com/hyperdrift-io/nextrole-mcp",
+      "guide_destination": "https://github.com/hyperdrift-io/nextrole-mcp#connect",
+      "final_url": "https://github.com/hyperdrift-io/nextrole-mcp",
+      "status": 200,
+      "authentication": "No authentication supplied",
+      "elapsed_seconds": 0.444,
+      "body_sha256": "2a2797a76ebd639075f238c64be4decae9fd638a786df67b93383acd0696d45e",
+      "connect_heading_present": true,
+      "expected_endpoint_present": true,
+      "readme_source_commit": "efc93e60012a43213277e71353211b126bfe0e99"
+    }
+  ],
+  "completed_at_utc": "2026-10-04T20:31:46.118077+00:00",
+  "source_defined_limits": {
+    "source_revision": "f0a5bedf9df6ad2072b921a830446e148eaade26",
+    "basis": "Read-only local source review; deployment revision and live quota enforcement not verified. No exhaustion testing performed.",
+    "metered_tools": {
+      "score_cv": {
+        "requests": 3,
+        "window": "1 hour sliding window",
+        "identity": "IP",
+        "scope": "mcp-score"
+      },
+      "tailor_cv_to_role": {
+        "requests": 3,
+        "window": "1 hour sliding window",
+        "identity": "IP",
+        "scope": "mcp-tailor"
+      },
+      "find_roles": {
+        "requests": 3,
+        "window": "1 hour sliding window",
+        "identity": "IP",
+        "scope": "mcp-discover"
+      },
+      "fetch_job_spec": {
+        "requests": 3,
+        "window": "1 hour sliding window",
+        "identity": "IP",
+        "scope": "mcp-fetch-job"
+      }
+    },
+    "ats_lint": "No application-level rate-limit check in MCP handler; deterministic.",
+    "independent_counters": true,
+    "input_max_characters": {
+      "cv_markdown": 20000,
+      "job_spec": 15000
+    },
+    "enforcement_caveat": "If Upstash Redis URL/token is absent or invalid, checkRateLimit returns allowed true.",
+    "references": [
+      "src/lib/ratelimit.ts:19-32,51-54,62-77",
+      "src/lib/mcp/server.ts:44-45,66,90,111,132",
+      "src/lib/mcp/types.ts:34-39",
+      "src/app/api/mcp/route.ts:9-14"
+    ]
+  },
+  "assessment": {
+    "protocol_operational": true,
+    "tools_advertised": [
+      "ats_lint",
+      "tailor_cv_to_role",
+      "score_cv",
+      "find_roles",
+      "fetch_job_spec"
+    ],
+    "tools_called": [
+      "ats_lint",
+      "score_cv"
+    ],
+    "not_called": [
+      "tailor_cv_to_role",
+      "find_roles",
+      "fetch_job_spec"
+    ],
+    "ats_lint": {
+      "returned_structured_result": true,
+      "passed": false,
+      "finding": "The deterministic rule flagged the synthetic Worked with bullet at line 13; this is a product lint rule, not a measured ATS rejection."
+    },
+    "score_cv": {
+      "returned_structured_result": true,
+      "overall_score_raw": 5.3,
+      "source_scale": "1–10; core normalizes each dimension to [1, 10], then takes a weighted average.",
+      "text_scale_bug": "Returned text renders 5.3/100 because score-cv.ts:48 appends /100; do not quote this as a percentage.",
+      "job_success_or_interview_result_claims_in_tool_result": false,
+      "grounding": "References supplied Python/PostgreSQL/reporting experience; missing AWS/Kubernetes/mentoring remain gaps; suggestions repeatedly require evidence in original CV. One synthetic result is not a broad factuality evaluation.",
+      "source_references": [
+        "src/lib/mcp/tools/score-cv.ts:48",
+        "src/lib/pipeline.ts:147-168"
+      ]
+    },
+    "capability_limit": "No verified interview callbacks, hires, ATS performance, adoption, retention or commercial outcomes.",
+    "server_copy_limitation": "Initialize instructions claim NextRole turns a CV into interview callbacks; this probe does not substantiate that outcome claim.",
+    "output_schema": "tools/list advertises inputSchema and annotations but no outputSchema, despite native structuredContent in tool results.",
+    "public_guide": "Public GitHub repository Connect section is reachable without auth and gives the remote HTTP endpoint; no standalone MCP guide route found in app guide source or public sitemap."
+  },
+  "client": {
+    "sdk": "Python MCP",
+    "version": "1.30.0",
+    "transport": "streamable HTTP",
+    "declared_client_name": "hyperdrift-synthetic-qa"
+  },
+  "scope_compliance": {
+    "real_personal_data_used": false,
+    "credentials_loaded": false,
+    "outreach_or_application_sent": false,
+    "nextrole_source_changes": false,
+    "quota_exhaustion_attempts": false,
+    "score_model_calls": 1
+  }
+}

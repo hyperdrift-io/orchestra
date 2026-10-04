@@ -128,10 +128,8 @@ export const situations: Situation[] = [
         summary: 'An agent crew diagnoses a live fleet and acts only through allow-listed tools.',
       },
       {
-        name: 'NextRole',
-        summary: 'A career tool that asks where you are before it asks for anything. The pattern behind this page.',
-        relation: 'Hyperdrift product',
-        actions: [{ label: 'Try the entry flow', href: 'https://nextrole.site' }],
+        caseStudy: 'nextrole',
+        summary: 'A career product whose CV and job tools are also available through an assistant.',
       },
     ],
     approach: [
@@ -145,5 +143,6 @@ export const situations: Situation[] = [
 /** Choices offered in the enquiry form. Partnership shares the same honest route. */
 export const enquiryChoices: { value: string; label: string }[] = [
   ...situations.map((s) => ({ value: s.slug, label: s.label })),
+  { value: 'mcp', label: 'Making my product usable by agents' },
   { value: 'partnership', label: 'The Traction Partnership' },
 ];

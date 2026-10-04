@@ -12,6 +12,22 @@ body:has(#organisation, #partnership, #proof[data-catalogue='true']) > header { 
 #proof li :is(img,iframe,video) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--line-soft); }
 #proof li iframe { margin: 0; }
 #proof li figcaption { margin-top: .7rem; font-size: .75rem; color: var(--cream-3); }
+#proof figure[data-mcp-proof] { padding: 1.4rem; border: 1px solid var(--gold-line); }
+#proof figure[data-mcp-proof] > p { font: .7rem var(--font-mono); color: var(--cream-3); }
+#proof figure[data-mcp-proof] blockquote { margin: .8rem 0 1.5rem; font: 1.4rem/1.4 var(--font-display); color: var(--cream); }
+#proof figure[data-mcp-proof] > samp { display: block; margin-block: .7rem 1rem; font: .9rem/1.7 var(--font-body); color: var(--gold-light); overflow-wrap: anywhere; }
+#proof [data-mcp-offer] { border-block: 1px solid var(--gold-line); margin-block: 1.5rem; padding-block: 1.5rem; }
+#proof [data-mcp-offer] > p:first-child { font: .75rem var(--font-mono); color: var(--gold-light); }
+#proof [data-mcp-offer] h4 { margin-block: .8rem 1rem; font: 1.8rem/1.2 var(--font-display); }
+#proof [data-mcp-offer] p { line-height: 1.7; margin-block: 1rem; }
+#proof [data-mcp-offer] > a { display: inline-block; margin-block: .7rem; padding: .9rem 1rem; color: var(--ink); background: var(--gold); border: 0; font-weight: 600; }
+#proof [data-mcp-offer] pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .85rem; }
+#proof[data-catalogue='true'] #work-nextrole { grid-column: 1 / -1; }
+@media (min-width: 850px) {
+  #proof[data-catalogue='true'] #work-nextrole { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(2rem, 5vw, 5rem); }
+  #proof[data-catalogue='true'] #work-nextrole > :is(h3, p, figure) { grid-column: 1; }
+  #proof[data-catalogue='true'] #work-nextrole > [data-mcp-offer] { grid-column: 2; grid-row: 1 / 7; margin: 0; border-block: 0; border-inline-start: 1px solid var(--gold-line); padding: 0 0 0 clamp(2rem, 5vw, 5rem); }
+}
 #proof > footer { padding: 0 var(--edge) 3rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .9rem; }
 #contact > div > div > p { margin-bottom: 1.4rem; }
 #partnership { margin: 0; padding: 4rem var(--edge) 6rem; background: var(--ink); border: 0; }

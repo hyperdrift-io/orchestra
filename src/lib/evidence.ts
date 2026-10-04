@@ -14,7 +14,7 @@ function actionsFor(cs: CaseStudy): Action[] {
 
 /** Participation credit only. Never reads as an endorsement or award. */
 function relationFor(cs: CaseStudy): string | undefined {
-  return cs.challenge ? `Built for ${cs.challenge.organiser} · ${cs.challenge.name}` : undefined;
+  return cs.challenge ? `Built for ${cs.challenge.organiser} · ${cs.challenge.name}` : cs.relation;
 }
 
 export function resolveEvidence(item: Evidence, catalogue: CaseStudy[] = caseStudies): ResolvedEvidence {

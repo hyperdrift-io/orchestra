@@ -13,8 +13,10 @@ export function useEnquiry() {
   const onFocus = (event: FocusEvent<HTMLFormElement>) => {
     if (started.current) return;
     started.current = true;
-    const article = String(new FormData(event.currentTarget).get('article') || '');
-    trackEvent('enquiry_started', { article: article || undefined });
+    const form = new FormData(event.currentTarget);
+    const article = String(form.get('article') || '');
+    const situation = enquiryChoices.find((choice) => choice.value === form.get('situation'))?.value;
+    trackEvent('enquiry_started', { article: article || undefined, situation });
     if (article) trackArticle(article, 'enquiry_started');
   };
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
