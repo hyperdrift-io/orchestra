@@ -1,0 +1,212 @@
+{
+  "checked_at_utc": "2026-10-04T21:40:30.876703+00:00",
+  "orchestra": {
+    "expected_revision": "d6dfa5205ad9342978fa2084d5cde09c84f7f5dc",
+    "infra_revision": "0680dc6b15be2f947a28c84cf72c67ac1a5139c5",
+    "ci": {
+      "run_id": 37236733713,
+      "url": "https://github.com/hyperdrift-io/orchestra/actions/runs/37236733713",
+      "head_sha": "d6dfa5205ad9342978fa2084d5cde09c84f7f5dc",
+      "conclusion": "success"
+    },
+    "public_checks": {
+      "/": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/",
+        "elapsed_seconds": 0.063,
+        "content_type": "text/html; charset=utf-8",
+        "canonical": "https://ai.hyperdrift.io",
+        "og_title": "Orchestra AI by Hyperdrift \u2014 AI for business growth",
+        "og_image": "https://ai.hyperdrift.io/opengraph-image?v=5ec52adbf5de",
+        "contact_id_present": true,
+        "nextrole_text_present": true,
+        "nextrole_work_anchor_present": true,
+        "mcp_enquiry_link_present": true,
+        "corrected_proof_link_present": true
+      },
+      "/work": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/work",
+        "elapsed_seconds": 0.022,
+        "content_type": "text/html; charset=utf-8",
+        "canonical": "https://ai.hyperdrift.io/work",
+        "og_title": "Real work. Open to inspection.",
+        "og_image": "https://ai.hyperdrift.io/opengraph-image?v=5ec52adbf5de",
+        "contact_id_present": false,
+        "nextrole_text_present": true,
+        "nextrole_work_anchor_present": true,
+        "mcp_enquiry_link_present": true,
+        "corrected_proof_link_present": true,
+        "scoped_offer_present": true,
+        "corrected_score_disclosure_present": true,
+        "actual_response_excerpt_present": true,
+        "connection_guide_present": true
+      },
+      "/proof/nextrole-mcp-corrected-2026-10-04.json": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/proof/nextrole-mcp-corrected-2026-10-04.json",
+        "elapsed_seconds": 0.015,
+        "content_type": "application/json; charset=UTF-8",
+        "sha256": "970a1e4429c618e808fa80b44d5d99ec756ad129b0caf166e209a60172ee9991",
+        "matches_reviewed_file_bytes": true,
+        "mcp_deployed_sha": "68ed1edef91ee773c7065c842f4d94bbd19831ce",
+        "score_text": "Match score: 5.9/10.\nTop priority: Rewrite the incident-recovery bullet to show production troubleshooting with a concrete outcome, using the exact JD phrase, and add a metric to the pytest bullet, only where the candidate's real experience supports it.\n\nTailor this CV to the role, then save and track at https://nextrole.site/?utm_source=mcp&utm_medium=mcp_server&utm_campaign=score_cv",
+        "structured_overall_score": 5.9,
+        "initialize_instructions": "NextRole helps you review and tailor your CV for a role. ats_lint runs a free, deterministic ATS check on a CV. tailor_cv_to_role rewrites a CV for a specific job spec. Results link back to nextrole.site to save, track, and refine.",
+        "contains_synthetic_limits": true,
+        "structured_score_metadata": {}
+      },
+      "/llms.txt": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/llms.txt",
+        "elapsed_seconds": 0.021,
+        "content_type": "text/plain; charset=utf-8",
+        "offering_link_present": true,
+        "proof_link_present": true,
+        "enquiry_link_present": true,
+        "limits_present": true
+      },
+      "/sitemap.xml": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/sitemap.xml",
+        "elapsed_seconds": 0.016,
+        "content_type": "application/xml",
+        "work_destination_present": true
+      },
+      "/robots.txt": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/robots.txt",
+        "elapsed_seconds": 0.015,
+        "content_type": "text/plain",
+        "sitemap_present": true
+      },
+      "/api/health": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/api/health",
+        "elapsed_seconds": 0.021,
+        "content_type": "application/json",
+        "body": {
+          "status": "ok"
+        }
+      },
+      "/?situation=mcp": {
+        "status": 200,
+        "final_url": "https://ai.hyperdrift.io/?situation=mcp",
+        "elapsed_seconds": 0.02,
+        "content_type": "text/html; charset=utf-8",
+        "canonical": "https://ai.hyperdrift.io",
+        "og_title": "Orchestra AI by Hyperdrift \u2014 AI for business growth",
+        "og_image": "https://ai.hyperdrift.io/opengraph-image?v=5ec52adbf5de",
+        "contact_id_present": true,
+        "nextrole_text_present": true,
+        "nextrole_work_anchor_present": true,
+        "mcp_enquiry_link_present": true,
+        "corrected_proof_link_present": true
+      }
+    },
+    "og_asset": {
+      "url": "https://ai.hyperdrift.io/opengraph-image?v=5ec52adbf5de",
+      "status": 200,
+      "content_type": "image/png"
+    },
+    "preview": {
+      "url": "http://127.0.0.1:3118/work",
+      "status": 200,
+      "process_interrupted": false
+    }
+  },
+  "readiness": {
+    "command": "make check-launch-readiness app=orchestra",
+    "exit_code": 0,
+    "passed": 10,
+    "failed": 0,
+    "warnings": [
+      "gsc_verification unset"
+    ]
+  },
+  "nextrole": {
+    "deployed_revision": "68ed1edef91ee773c7065c842f4d94bbd19831ce",
+    "ci": "https://github.com/hyperdrift-io/hyper-cv/actions/runs/37235814818",
+    "readiness": {
+      "passed": 11,
+      "failed": 0,
+      "warnings": 0
+    },
+    "live_proof": "https://ai.hyperdrift.io/proof/nextrole-mcp-corrected-2026-10-04.json"
+  },
+  "analytics": {
+    "project_id": 206943,
+    "host": "https://eu.posthog.com",
+    "validation_run": "orchestra-nextrole-20261004",
+    "columns": [
+      "event",
+      "destination",
+      "offer",
+      "situation",
+      "total",
+      "last_seen"
+    ],
+    "results": [
+      [
+        "$pageleave",
+        null,
+        null,
+        null,
+        2,
+        "2026-10-04T21:40:08.975000Z"
+      ],
+      [
+        "$pageview",
+        null,
+        null,
+        null,
+        3,
+        "2026-10-04T21:40:09.005000Z"
+      ],
+      [
+        "cta_clicked",
+        "nextrole",
+        "mcp",
+        null,
+        1,
+        "2026-10-04T21:40:16.870000Z"
+      ],
+      [
+        "cta_clicked",
+        "enquiry",
+        "mcp",
+        null,
+        1,
+        "2026-10-04T21:39:19.011000Z"
+      ],
+      [
+        "enquiry_started",
+        null,
+        null,
+        "mcp",
+        1,
+        "2026-10-04T21:39:23.195000Z"
+      ]
+    ],
+    "observed_at": "2026-10-04T21:40:34.306178Z",
+    "cached": false,
+    "scope": "Marked browser pageviews, enquiry and product CTA clicks, and enquiry form focus only. No form contents or submitted enquiry."
+  },
+  "public_guide": {
+    "commit": "05ab96e189d96ef8495b8ed62d388cee3d3f6807",
+    "url": "https://github.com/hyperdrift-io/nextrole-mcp/blob/master/README.md"
+  },
+  "indexing": {
+    "command": "hd growth sitemap orchestra",
+    "result": "accepted",
+    "sitemap": "https://ai.hyperdrift.io/sitemap.xml",
+    "property": "sc-domain:hyperdrift.io",
+    "last_google_fetch": "2026-09-30",
+    "limit": "Submission accepted; new indexing or agent citation not established."
+  },
+  "limits": [
+    "Synthetic operational probe and marked release analytics are not customer adoption.",
+    "No production enquiry submitted; accepted relay event and real delivery remain unverified in this release.",
+    "NextRole anonymous MCP telemetry cannot establish unique users or retention."
+  ]
+}
