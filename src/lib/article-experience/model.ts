@@ -3,7 +3,7 @@ export interface ArticleEntry { id: string; title: string; depth?: number }
 export interface SourceNote { title: string; by: string; summary: string; reviewedAt?: string; editorial?: boolean }
 export interface ArticleLabels {
   contents: string; preview: string; close: string; openOriginal: string;
-  editorialSummary: string; reviewed: string; paragraphLink: string; sectionLink: string;
+  editorialSummary: string; publisherExcerpt: string; reviewed: string; paragraphLink: string; sectionLink: string;
   copied: string; manualCopy: string; linkField: string;
 }
 export type AnchorOverrides = Record<string, string>;

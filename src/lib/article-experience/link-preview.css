@@ -1,0 +1,28 @@
+/* Structure and behaviour only; apps own the palette and typography. */
+[data-link-preview-trigger] { display: none; align-items: center; justify-content: center; vertical-align: middle; min-width: 28px; min-height: 28px; margin-inline-start: .2em; padding: .15rem; border: 0; border-radius: .25rem; background: transparent; color: inherit; cursor: pointer; }
+[data-link-preview-trigger] svg { width: 1rem; height: 1rem; pointer-events: none; }
+[data-link-preview-panel][popover] { display: none; }
+@supports selector(:popover-open) {
+  [data-link-preview-trigger] { display: inline-flex; }
+  [data-link-preview-panel][popover]:popover-open { display: block; }
+}
+[data-link-preview-panel] { position: fixed; inset: auto 1rem 1rem auto; margin: 0; width: min(28rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto; overscroll-behavior: contain; box-sizing: border-box; text-align: left; overflow-wrap: anywhere; }
+[data-link-preview-panel] > :is(span,strong,small) { display: block; }
+[data-link-preview-panel] [data-link-preview-actions] { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
+[data-link-preview-actions] :is(a,button) { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; }
+:is([data-link-preview],[data-link-preview-panel]) :is(a,button,[data-link-preview-title]):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@supports (position-area: block-end span-inline-end) {
+  @media (min-width: 641px) {
+    [data-link-preview-panel] { inset: auto; position-area: block-end span-inline-end; position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline; margin-block: .5rem; }
+  }
+}
+@media (pointer: coarse) {
+  [data-link-preview-trigger] { min-width: 44px; min-height: 44px; }
+}
+@media (max-width: 640px) {
+  [data-link-preview-trigger] { min-width: 44px; min-height: 44px; }
+  [data-link-preview-panel] { inset: auto 1rem 1rem; width: auto; padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+}
+@media print {
+  [data-link-preview-trigger], [data-link-preview-panel][popover]:popover-open { display: none; }
+}

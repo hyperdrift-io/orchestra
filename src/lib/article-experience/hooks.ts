@@ -77,22 +77,6 @@ export function useArticleShare(canonical: string, title: string, text?: string,
   };
   return { ...link, ready, canShare, share, busy, panel, trigger, close, expanded, chosen };
 }
-export function useSourcePreview(source: string) {
-  const panel = useRef<HTMLSpanElement>(null);
-  const trigger = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    const element = panel.current;
-    if (!element) return;
-    const onToggle = (event: Event) => {
-      const opened = (event as Event & { newState: string }).newState === 'open';
-      emitArticleInteraction({ action: opened ? 'article_source_preview_opened' : 'article_source_preview_closed', source });
-    };
-    element.addEventListener('toggle', onToggle);
-    return () => element.removeEventListener('toggle', onToggle);
-  }, [source]);
-  const close = () => { panel.current?.hidePopover(); trigger.current?.focus({ preventScroll: true }); };
-  return { panel, trigger, close };
-}
 export function useArticleEvents(track: (detail: ArticleInteraction) => void) {
   useEffect(() => {
     const listener = (event: Event) => track((event as CustomEvent<ArticleInteraction>).detail);

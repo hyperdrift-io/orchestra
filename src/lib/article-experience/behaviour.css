@@ -1,3 +1,4 @@
+@import './link-preview.css';
 /* Behaviour only. Palette, typography and placement belong to each app. */
 [data-article-body] :is(h1,h2,h3,h4,p)[id] { scroll-margin-top: 6rem; }
 [data-article-body] :is(h1,h2,h3,h4,p)[id]:target { outline: 1px solid currentColor; outline-offset: .4rem; }
@@ -34,17 +35,7 @@
 }
 [data-article-permalink] [role='status']:empty { display: none; }
 [data-article-permalink] input { display: block; width: 100%; max-width: 100%; font: inherit; }
-[data-article-citation] > button { display: none; }
-[data-article-source][popover] { display: none; }
-@supports selector(:popover-open) {
-  [data-article-citation] > button { display: inline-flex; align-items: center; min-height: 44px; }
-  [data-article-source][popover]:popover-open { display: block; }
-}
-[data-article-source] { position: fixed; inset: auto 1rem 1rem auto; width: min(28rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); overflow: auto; overscroll-behavior: contain; box-sizing: border-box; }
-[data-article-source] > :is(span,strong,small) { display: block; }
-[data-article-source] [data-source-actions] { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-[data-source-actions] :is(a,button) { display: inline-flex; align-items: center; min-height: 44px; }
-:is([data-article-source],[data-article-citation],[data-article-contents],[data-article-permalink],[data-article-share],[data-article-share-panel]) :is(a,button,input):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+:is([data-article-contents],[data-article-permalink],[data-article-share],[data-article-share-panel]) :is(a,button,input):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   html:has([data-article-body]) { scroll-behavior: auto; }
 }

@@ -1,12 +1,17 @@
 {
   "source": "hyperdrift/packages/article-experience",
-  "version": 1,
-  "sha256": "04ebed5afb2701539d4d13df49a2db4a81c454ca50a904b92a316d4c59debc35",
+  "version": 2,
+  "profile": "article",
+  "sha256": "3944e149ce6790fb9a0ceb0fc9419b14b4fb119103b34f9d1203fad253d1afca",
   "files": [
     "behaviour.css",
     "browser.ts",
     "components.tsx",
     "hooks.ts",
-    "model.ts"
+    "link-preview-model.ts",
+    "link-preview.css",
+    "link-preview.tsx",
+    "model.ts",
+    "use-link-preview.ts"
   ]
 }

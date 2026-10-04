@@ -1,8 +1,9 @@
 'use client';
 import { useId, type ReactNode } from 'react';
 import type { ArticleEntry, ArticleLabels, SourceNote } from './model';
+import { LinkPreview } from './link-preview';
 import { emitArticleInteraction } from './browser';
-import { useAnchorCopy, useArticlePosition, useArticleShare, useSourcePreview } from './hooks';
+import { useAnchorCopy, useArticlePosition, useArticleShare } from './hooks';
 interface ContentsProps { entries: ArticleEntry[]; bodyId: string; label: string; children?: ReactNode }
 export function ArticleContents({ entries, bodyId, label, children }: ContentsProps) {
   const active = useArticlePosition(bodyId, entries);
@@ -47,7 +48,10 @@ export function ArticleShare({ canonical, title, text, labels, actions = [], id,
 }
 interface SourceProps { href: string; children: ReactNode; note?: SourceNote; labels: ArticleLabels }
 export function ArticleSourceLink({ href, children, note, labels }: SourceProps) {
-  const id = useId();
-  const { panel, trigger, close } = useSourcePreview(href);
-  return <span data-article-citation=""><a href={href}>{children}</a>{note && <><button ref={trigger} type="button" popoverTarget={id} aria-label={`${labels.preview}: ${note.title}`}>{labels.preview}</button><span ref={panel} id={id} popover="auto" data-article-source="" role="region" aria-label={note.title}><span>{note.by}</span><strong>{note.title}</strong><span>{note.summary}</span>{note.editorial && <small>{labels.editorialSummary}{note.reviewedAt && <> · {labels.reviewed} {note.reviewedAt}</>}</small>}<span data-source-actions=""><a href={href} target="_blank" rel="noopener noreferrer" onClick={() => emitArticleInteraction({ action: 'article_source_opened', source: href })}>{labels.openOriginal} ↗</a><button type="button" popoverTarget={id} popoverTargetAction="hide" onClick={close}>{labels.close}</button></span></span></>}</span>;
+  return <LinkPreview href={href} labels={labels} content={note && {
+    title: note.title, publisher: note.by, summary: note.summary,
+    provenance: note.editorial ? 'editorial' : 'publisher', reviewedAt: note.reviewedAt,
+  }} onPreviewEvent={({ action }) => emitArticleInteraction({
+    action: action === 'opened' ? 'article_source_preview_opened' : action === 'closed' ? 'article_source_preview_closed' : 'article_source_opened', source: href,
+  })}>{children}</LinkPreview>;
 }
