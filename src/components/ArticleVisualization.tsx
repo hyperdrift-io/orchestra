@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { ArticleSummary } from '@/lib/article-catalogue';
 import { InterfaceFigure } from '@/components/InterfaceFigure';
+import type { FigureSvg } from '@/lib/ui-accessibility-figure-svg';
 
 function TransactionMap() {
   const [retry, setRetry] = useState(false);
@@ -62,10 +63,10 @@ function StreamingSequence() {
   </section>;
 }
 
-export function ArticleVisualization({ article }: { article: ArticleSummary }) {
+export function ArticleVisualization({ article, figureSvg }: { article: ArticleSummary; figureSvg?: FigureSvg }) {
   const visual = article.visualization;
   if (!visual) return null;
-  if (visual.kind === 'ui-accessibility') return <InterfaceFigure article={article} />;
+  if (visual.kind === 'ui-accessibility') return <InterfaceFigure article={article} svg={figureSvg} />;
   return <figure id="article-proof" data-article-visual="" aria-label={article.proof.heading}>
     {visual.kind === 'transaction' ? <TransactionMap /> : <StreamingSequence />}
     <figcaption>{visual.takeaway} <a href={article.proof.url} download>Save the visual ↓</a></figcaption>

@@ -1,32 +1,32 @@
 {
   "is-ui-holding-us-back": {
-    "asset": "route-controls",
+    "asset": "routes",
     "title": "Who does the work?",
-    "description": "Conceptual routes to the same outcome. Direct controls leave navigation with the person; API/CLI calls specify operations; WebMCP exposes page actions; voice supplies an instruction. Voice through MCP is our proposed next experiment. The routes coexist and are not a ranking of speed or accessibility."
+    "description": "One job in five stages — want, find, do, check, fix — across five ways to direct an app. With direct controls the person carries every stage. With an API or CLI a program runs the steps the person defines. With WebMCP, voice over an app and the proposed voice through MCP, the app or agent finds and does the steps; checking happens in a view the person shares, and fixing stays with the person. Voice through MCP forks across two apps. Conceptual: who carries each stage, not how fast. The routes coexist."
   },
   "web-accessibility-can-people-finish": {
     "asset": "accessibility",
-    "title": "The scan is only the beginning",
-    "description": "WebAIM found detected WCAG failures on 95.9% of the one million home pages evaluated in February 2026. Each cell represents one percentage point; one is 90% filled. The remaining 4.1% had no detected failures, which does not establish accessibility. The scan does not measure independent task completion."
+    "title": "The scan checks the front door",
+    "description": "WebAIM detected WCAG failures on 95.9% of one million home pages in February 2026, with 56.1 detected errors per page on average. Each square is one percentage point; the 96th is 90% filled. The remaining 4.1% had no detected failures, which is unknown rather than accessible. A home-page scan covers the first stop of an illustrative booking journey; finding a date, comparing places, checking an access need, fixing details and saving the booking are not measured by it."
   },
   "webmcp-actions-on-the-page": {
-    "asset": "boundaries",
-    "title": "Choose where the work belongs",
-    "description": "The page boundary contains the person, the controls, browser-agent tool calls and shared app actions. A separate service path connects an assistant through an MCP server to an API. These are different scopes; neither guarantees accessibility or replaces authorisation."
+    "asset": "webmcp",
+    "title": "Stop making agents hunt for buttons",
+    "description": "Inside the Radar Explore page, a founder clicks Keep while a browser agent calls a tool the page declares through WebMCP: search_items, read_item, propose_founder_profile, suggest_item, set_aside_items, read_workspace or draft_brief. Without declared tools, an agent wanders across the screen guessing which button does what. The button and the tool reach the same shared workspace functions and change the same shortlist. Outside the page, an assistant reaches a service through an MCP server: no open page, a different scope with its own checks."
   },
   "hands-free-app-control": {
     "asset": "cargo",
-    "title": "A result earns its reply",
-    "description": "In the documented Cargo workflow, a spoken request initiates recovery. The officer checks the sandbox service until it answers twice before reporting recovery. This depicts the recorded implementation, not a new run, participant study or general performance result."
+    "title": "A spoken promise is not a completed action",
+    "description": "From the recorded Cargo sandbox take. The captain says “Cargo.” The First Officer reports it stopped answering a minute ago and offers options. The captain says “Bring it back.” The officer accepts the order while the service is still recovering, probes Cargo from outside, and only after it answers twice replies: “Captain, Cargo answers again. Checked twice, 75 milliseconds.” Sequence, not to scale."
   },
   "voice-through-mcp": {
     "asset": "mcp",
-    "title": "One request, separate permissions",
-    "description": "An illustrative request to prepare a release note reaches an assistant. It could read blockers through one MCP server and create a draft through another. Each service checks its own scope. Sending is a separate decision. This cross-app path has not been executed for the series."
+    "title": "One sentence, two scopes, no send",
+    "description": "Illustrative request: “Find the release blockers and prepare a note for the team.” An assistant interprets it and keeps every source. The first part goes to a project tracker MCP server with a read-blockers scope; the second to a writing workspace with a create-draft scope. Each server checks its own permission. Sending to the team was not asked for and stays closed: delivery is the person’s decision. A correction, “use the mobile release, not the web release”, must replace the selection and revise the same draft. Proposed experiment, not yet run."
   },
   "future-ui-keep-your-place": {
     "asset": "continuity",
     "title": "Change the input, keep the work",
-    "description": "The shortlist, its evidence and the person’s decisions remain at the centre. Speech, keyboard, screen-reader output and direct controls can provide routes into the same task. This is a design goal that requires implementation and evaluation, not an observed cross-modal result."
+    "description": "A proposed scenario: a person speaks criteria and gets three grants with evidence, drops one by keyboard, hears the comparison through a screen reader, loses the voice session, then returns later. When the work lives in the conversation, each switch can mean starting again. When it lives in the task, the two remaining grants, the decision and the evidence survive every switch. A design goal, not an observed result."
   }
 }
