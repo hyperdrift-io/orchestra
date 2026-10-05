@@ -463,10 +463,10 @@
       "width": 1200,
       "height": 160
     },
-    "publishedAt": null,
+    "publishedAt": "2026-10-06T00:00:00Z",
     "series": "ui-accessibility",
     "seriesOrder": 1,
-    "reviewedAt": "2026-10-01",
+    "reviewedAt": "2026-10-05",
     "visualization": {
       "kind": "ui-accessibility",
       "takeaway": "Count the effort it takes to finish.",
@@ -515,10 +515,10 @@
       "width": 1200,
       "height": 160
     },
-    "publishedAt": null,
+    "publishedAt": "2026-10-06T00:00:00Z",
     "series": "ui-accessibility",
     "seriesOrder": 2,
-    "reviewedAt": "2026-10-01",
+    "reviewedAt": "2026-10-05",
     "visualization": {
       "kind": "ui-accessibility",
       "takeaway": "Access has to last until the task is done.",
@@ -567,10 +567,10 @@
       "width": 1200,
       "height": 160
     },
-    "publishedAt": null,
+    "publishedAt": "2026-10-06T00:00:00Z",
     "series": "ui-accessibility",
     "seriesOrder": 3,
-    "reviewedAt": "2026-10-01",
+    "reviewedAt": "2026-10-05",
     "visualization": {
       "kind": "ui-accessibility",
       "takeaway": "The page can explain what it does before an agent starts guessing.",
@@ -681,10 +681,10 @@
       "width": 1200,
       "height": 160
     },
-    "publishedAt": null,
+    "publishedAt": "2026-10-06T00:00:00Z",
     "series": "ui-accessibility",
     "seriesOrder": 4,
-    "reviewedAt": "2026-10-01",
+    "reviewedAt": "2026-10-05",
     "visualization": {
       "kind": "ui-accessibility",
       "takeaway": "A spoken promise is not a completed action.",
@@ -729,10 +729,10 @@
       "width": 1200,
       "height": 160
     },
-    "publishedAt": null,
+    "publishedAt": "2026-10-06T00:00:00Z",
     "series": "ui-accessibility",
     "seriesOrder": 5,
-    "reviewedAt": "2026-10-01",
+    "reviewedAt": "2026-10-05",
     "visualization": {
       "kind": "ui-accessibility",
       "takeaway": "Your sentence can cross apps. Your permission should not grow on the way.",
@@ -777,10 +777,10 @@
       "width": 1200,
       "height": 160
     },
-    "publishedAt": null,
+    "publishedAt": "2026-10-06T00:00:00Z",
     "series": "ui-accessibility",
     "seriesOrder": 6,
-    "reviewedAt": "2026-10-01",
+    "reviewedAt": "2026-10-05",
     "visualization": {
       "kind": "ui-accessibility",
       "takeaway": "Changing how you work should not mean starting again.",
