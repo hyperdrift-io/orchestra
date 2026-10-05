@@ -16,6 +16,8 @@ The distinction becomes visible when something fails. If the voice session disco
 
 Our [Radar example](/articles/webmcp-actions-on-the-page) offers a narrower building block: the person and browser agent work on a shared page state. It does not establish that the whole scenario above works across clients or access methods.
 
+Even changing pages can break a tool's work. A [2 October WebMCP proposal](https://github.com/webmachinelearning/webmcp/blob/6891d0e857a0b35d8478aa8a01958565fb5466cd/continuations-explainer.md) explores continuing a call across pages or frames on the same origin. It is a proposal, with limits on where and when it can resume. Keeping a call alive would address one interruption. Preserving the person's decisions, corrections and access remains work for the app.
+
 ## More ways in, the same authority
 
 Direct controls can be excellent for exploration and comparison. Speech can suit a request that would take several navigation steps. A command line can suit repeated operations with precise parameters. An assistant can help compose a task from available actions.
@@ -36,7 +38,7 @@ There are costs to investigate. An agent may add delay, require a paid service o
 
 ## Build a future you can check
 
-The series leaves us with work to do. [Commander](/articles/hands-free-app-control) supplies a bounded voice example. [Voice through MCP](/articles/voice-through-mcp) proposes a cross-app experiment. Neither settles the question of broader accessibility.
+The series leaves us with work to do. [First Officer](/articles/hands-free-app-control) supplies a bounded voice example. [Voice through MCP](/articles/voice-through-mcp) proposes a cross-app experiment. Neither settles the question of broader accessibility.
 
 The next evidence should show a task moving between inputs without losing its state, including a correction and a failure. Compare it with the current route. Record where help was needed. Let people with relevant access needs shape the task and judge the experience.
 

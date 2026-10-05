@@ -1,6 +1,6 @@
 A voice interface can sound convincing before anything has happened. For app control, that is a serious design problem. The answer needs to be tied to the result.
 
-Our Commander work includes First Officer, a voice prototype for operating a fleet of apps. In its recorded Cargo demonstration, the person names the affected service and asks for recovery. The cockpit follows the conversation. The system carries out the order and checks whether the service answers before reporting success.
+First Officer is our voice prototype for operating a fleet of apps. In its recorded Cargo demonstration, the person names the affected service and asks for recovery. The cockpit follows the conversation. The system carries out the order and checks whether the service answers before reporting success.
 
 This companion to [The First Officer](/articles/the-first-officer) examines that interaction. Cargo is a sandbox service. The demonstration does not establish production-wide control, universal accessibility or a reliable completion time for other tasks.
 
@@ -35,6 +35,8 @@ It also leaves questions open. Can a person understand the result without hearin
 ## The next step crosses app boundaries
 
 First Officer currently uses its own voice integration. Fleet Commander MCP is not in that runtime path. The next experiment is to dictate a request to an assistant that uses MCP tools across authorised apps.
+
+Commander is now being developed as an operating board for each app's customer work. Its scoped reads give us a starting point for the next experiment; the Cargo recording does not demonstrate that integration.
 
 That could turn several separate operations into one directed task. It also creates more places where the request can lose its meaning. The shared result, correction path and permission boundaries have to survive the journey.
 

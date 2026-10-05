@@ -24,7 +24,7 @@ A graphical interface exposes controls. People choose them; events trigger the a
 
 The choice depends on where the work belongs. A person reviewing a shortlist benefits from seeing changes beside their sources. A background job may need a server connection without an open page. Neither arrangement is automatically more accessible or more appropriate.
 
-[Chrome's early-preview explanation](https://developer.chrome.com/blog/webmcp-epp) describes both form-based declarations and actions defined in JavaScript. Support remains something to verify against the browser and agent used for a particular implementation. An announcement is not a compatibility test.
+[Chrome's current guide](https://developer.chrome.com/docs/ai/webmcp) documents a WebMCP origin trial from Chrome 149 and a flag for local development. It covers actions defined through JavaScript and annotated forms. That is a route to testing an integration. Support still needs checking in the browser and agent people will actually use; the trial does not establish support everywhere.
 
 ## Context still has to cross a boundary
 
