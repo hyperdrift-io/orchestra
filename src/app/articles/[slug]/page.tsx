@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {};
   const image = articleShareImage(article);
   return {
-    title: article.seoTitle, description: article.excerpt, alternates: { canonical: articleUrl(article.slug) },
+    title: article.seoTitle ?? article.title, description: article.excerpt, alternates: { canonical: articleUrl(article.slug) },
     robots: article.publishedAt && Date.parse(article.publishedAt) <= Date.now() ? undefined : { index: false, follow: false },
     openGraph: { title: article.title, description: article.excerpt, type: 'article', url: articleUrl(article.slug), siteName: 'Orchestra AI by Hyperdrift', locale: 'en_GB', authors: ['Yann VR'], ...(article.publishedAt ? { publishedTime: article.publishedAt } : {}), ...(article.updatedAt ? { modifiedTime: article.updatedAt } : {}), images: [image] },
     twitter: { card: 'summary_large_image', title: article.title, description: article.excerpt, images: [image] },

@@ -3,7 +3,8 @@ import catalogue from '@/data/articles.json';
 export interface ArticleSummary {
   slug: string;
   title: string;
-  seoTitle: string;
+  /** The search-intent title; the published headline stands in until one is recorded. */
+  seoTitle?: string;
   excerpt: string;
   shareLine: string;
   order: number;
