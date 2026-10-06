@@ -44,7 +44,7 @@ export function Traction() {
       <h2 id="contact-title">Ask for a first read.</h2>
       <div>
         <div>
-          <p>Bring your live app. We read what it already knows and come back with one strength, one constraint and the next customer move.</p>
+          <p>Bring your live app. We read what it already shows and come back with one strength, one constraint and the next customer move.</p>
           <dl>
             <div><dt>Reply time</dt><dd>One working day</dd></div>
             <div><dt>For</dt><dd>Founders with a live app</dd></div>
