@@ -36,6 +36,17 @@ export const caseStudies: CaseStudy[] = [
     linkLabel: 'Try NextRole',
   },
   {
+    slug: 'traction',
+    name: 'Traction',
+    relation: 'Hyperdrift product · private pilot',
+    outcome: 'Traction runs a private pilot with two partner apps and is launching itself on its own board, in public. Other founders start with a first read of their live app.',
+    problem: 'A founder’s customers, promises and results live in different places, so the next customer move gets decided from memory.',
+    capability: 'One board for an app’s evidence, commitments and next move: an AI operator prepares the work and a person signs it.',
+    stack: ['Waku', 'Owned passkeys', 'WebMCP', 'PostHog'],
+    link: '/traction/first-read',
+    linkLabel: 'Read a sample first read',
+  },
+  {
     slug: 'standup',
     name: 'Standup',
     outcome:

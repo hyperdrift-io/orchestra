@@ -23,6 +23,12 @@ body:has(#organisation, #partnership, #traction, #proof[data-catalogue='true']) 
 #proof [data-mcp-offer] > a { display: inline-block; margin-block: .7rem; padding: .9rem 1rem; color: var(--ink); background: var(--gold); border: 0; font-weight: 600; }
 #proof [data-mcp-offer] pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .85rem; }
 #proof[data-catalogue='true'] #work-nextrole { grid-column: 1 / -1; }
+#proof[data-catalogue='true'] #work-traction { grid-column: 1 / -1; }
+@media (min-width: 850px) {
+  #proof[data-catalogue='true'] #work-traction { display: grid; grid-template-columns: minmax(0,2fr) minmax(0,3fr); column-gap: clamp(2rem, 5vw, 5rem); align-content: start; }
+  #proof[data-catalogue='true'] #work-traction > :not(figure) { grid-column: 1; }
+  #proof[data-catalogue='true'] #work-traction > figure { grid-column: 2; grid-row: 1 / 8; margin: 0; }
+}
 @media (min-width: 850px) {
   #proof[data-catalogue='true'] #work-nextrole { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(2rem, 5vw, 5rem); }
   #proof[data-catalogue='true'] #work-nextrole > :is(h3, p, figure) { grid-column: 1; }
@@ -39,6 +45,49 @@ body:has(#organisation, #partnership, #traction, #proof[data-catalogue='true']) 
 #partnership h2 { margin-bottom: 1.2rem; }
 #partnership > div p { margin: 0 0 1.5rem; line-height: 1.8; }
 #partnership > div > a { display: inline-flex; padding: 1rem 1.3rem; margin-block: .5rem 1.5rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
+#partnership > ol[data-offer-steps] { max-width: 720px; margin-top: 1rem; }
+#partnership > div > p:has(a) { display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+
+/* — Traction offer, 6 October 2026: three steps, each earning the next; one shared list */
+ol[data-offer-steps] { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+ol[data-offer-steps] > li { counter-increment: step; display: grid; grid-template-columns: 3rem minmax(0,1fr); padding-block: 1.5rem; border-top: 1px solid var(--line-hair); }
+ol[data-offer-steps] > li::before { content: counter(step, decimal-leading-zero); grid-row: 1 / span 4; padding-top: .7rem; font: .75rem var(--font-mono); letter-spacing: .13em; color: var(--gold-light); }
+ol[data-offer-steps] > li > * { grid-column: 2; }
+ol[data-offer-steps] h3 { margin: 0 0 .7rem; font-size: clamp(1.6rem,2.2vw,2.1rem); }
+ol[data-offer-steps] p { margin: 0 0 .8rem; max-width: 58ch; line-height: 1.75; }
+ol[data-offer-steps] p + p { font-size: var(--fs-meta); color: var(--cream-3); }
+ol[data-offer-steps] a { justify-self: start; margin-top: .2rem; font-size: .9rem; }
+
+/* — The sample first read: the partnership page's grammar, findings set like a signed record */
+body:has(#first-read) > header { position: relative; padding-block: 1.5rem; }
+#first-read { padding: 4rem var(--edge) 6rem; background: var(--ink); }
+#first-read > * { max-width: 900px; }
+#first-read header > p:first-child { font: .75rem var(--font-mono); color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; }
+#first-read h1 { font-size: clamp(3.5rem,7vw,7rem); margin-block: 1.5rem 2rem; }
+#first-read header > p:nth-of-type(2) { font-size: 1.2rem; max-width: 52ch; }
+#first-read header dl { display: flex; flex-wrap: wrap; gap: 1.2rem 3rem; margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--gold-line); }
+#first-read header dt { font: .7rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); }
+#first-read header dd { margin: .4rem 0 0; color: var(--cream); }
+#first-read > ol { list-style: none; margin: 4rem 0 0; padding: 0; }
+#first-read > ol > li { padding-block: 2.2rem; border-top: 1px solid var(--gold-line); }
+#first-read > ol > li > h2 { margin: 0 0 1rem; font: .78rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
+#first-read > ol > li > p { margin: 0; font: clamp(1.7rem,2.6vw,2.4rem)/1.3 var(--font-display); color: var(--cream); max-width: 30ch; }
+#first-read > ol > li > p + p { margin-top: 1.1rem; max-width: 64ch; font: 1.05rem/1.8 var(--font-body); color: var(--cream-2); }
+#first-read > ol details { margin-top: 1.4rem; border-bottom: 0; }
+#first-read > ol summary { font: .85rem var(--font-body); color: var(--cream-2); padding-block: .9rem; }
+#first-read > ol details ul { margin: 0 0 .5rem; padding-left: 1.1rem; }
+#first-read > ol details li { margin-block: .55rem; color: var(--cream-2); line-height: 1.7; overflow-wrap: anywhere; }
+#first-read > section { margin-top: 3rem; padding: 3rem 0 0; border-top: 1px solid var(--line-hair); }
+#first-read > section > h2 { margin-bottom: 1.2rem; font-size: var(--fs-h3); }
+#first-read > section > p { max-width: 64ch; line-height: 1.8; }
+#first-read > section[aria-labelledby='unseen-title'] > p + p { margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--line-hair); font-size: var(--fs-meta); color: var(--cream-3); }
+#first-read > section > ol:not([data-offer-steps]) { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.6rem 3rem; }
+#first-read > section > ol:not([data-offer-steps]) h3 { margin: 0 0 .4rem; font-size: 1.25rem; }
+#first-read > section > ol:not([data-offer-steps]) p { margin: 0; font-size: .95rem; line-height: 1.7; color: var(--cream-2); }
+#first-read > section > ol[data-offer-steps] { margin-top: 1.5rem; }
+#first-read > section > a { display: inline-flex; margin-top: 2rem; padding: 1rem 1.3rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
+#first-read > section > a:hover { background: var(--gold-light); color: var(--ink); }
+@media (max-width: 760px) { #first-read > section > ol:not([data-offer-steps]) { grid-template-columns: 1fr; } }
 [data-site-footer] > div { grid-template-columns: 1.2fr 1fr 1fr; }
 [data-site-footer] > div > p { font: 600 1.8rem var(--font-display); }
 [data-site-footer] > div > p > a { display: inline-flex; align-items: center; gap: .8rem; border: 0; color: var(--cream); }
@@ -151,14 +200,21 @@ body:has(#organisation, #partnership, #traction, #proof[data-catalogue='true']) 
 [data-constellation-surface] > button[data-domain-label][aria-pressed='true'] { border-color: var(--domain-colour); }
 /* The camera moves inside one stable viewport; entering a domain never resizes it. */
 
-#traction-partnership { margin: 0 var(--edge); padding: clamp(2.5rem,5vw,5rem) 0; border-block: 1px solid var(--gold-line); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 3rem 5rem; }
-#traction-partnership header > p { font: .75rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.3rem; }
+#traction-partnership { margin: 0 var(--edge); padding: clamp(2.5rem,5vw,5rem) 0; border-block: 1px solid var(--gold-line); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: start; gap: 3rem 5rem; }
+#traction-partnership > header > p:first-child { font: .75rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.3rem; }
 #traction-partnership h2 { font-size: clamp(2.6rem,4.5vw,4.5rem); max-width: 19ch; }
-#traction-partnership > div > p { max-width: 60ch; line-height: 1.8; margin: 0 0 1.2rem; }
-#traction-partnership p:has(a) { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; padding-top: .7rem; }
-#traction-partnership a:first-child { background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; padding: .9rem 1.2rem; font-weight: 600; }
-#traction-partnership small { display: block; color: var(--cream-3); max-width: 58ch; line-height: 1.7; }
-@media(max-width:900px){#traction-partnership{grid-template-columns:1fr;gap:1.5rem;} #traction-partnership h2{max-width:22ch;}}
+#traction-partnership > header > p:nth-of-type(2) { margin: 1.8rem 0 0; max-width: 42ch; font-size: 1.1rem; line-height: 1.75; }
+@media(min-width:901px){#traction-partnership > header { position: sticky; top: 2rem; }}
+#traction-partnership > header a { display: inline-flex; margin-top: 2rem; padding: .9rem 1.2rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
+#traction-partnership > header a:hover { background: var(--gold-light); color: var(--ink); }
+#traction-partnership > ol > li:first-child { border-top: 0; padding-top: 0; }
+#traction-partnership > figure { grid-column: 1 / -1; }
+figure[data-read-excerpt] { margin: 0; padding: clamp(1.5rem,3vw,2.5rem); border: 1px solid var(--gold-line); background: var(--ink-2); }
+figure[data-read-excerpt] > figcaption { font: .72rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+figure[data-read-excerpt] dl { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem 3rem; margin: 1.6rem 0 1.8rem; }
+figure[data-read-excerpt] dt { margin-bottom: .7rem; font: .72rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
+figure[data-read-excerpt] dd { margin: 0; font: 1.3rem/1.45 var(--font-display); color: var(--cream); }
+@media(max-width:900px){#traction-partnership{grid-template-columns:1fr;gap:1.5rem;} #traction-partnership h2{max-width:22ch;} #traction-partnership > ol > li:first-child { border-top: 1px solid var(--line-hair); padding-top: 1.5rem; } figure[data-read-excerpt] dl { grid-template-columns: 1fr; }}
 
 [data-domain-story] small { display: block; margin-top: 1rem; }
 
