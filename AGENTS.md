@@ -6,6 +6,10 @@
 
 See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
+## Traction offer — 6 October 2026
+
+The founder approved the Traction offer and every customer-facing word in its review list (`.growth/content/reviews/2026-10-06-traction-offer-review.md` in the HD workspace; private offer definition, capacity and trade-offs in `.growth/strategist/orchestra/2026-10-06-traction-offer.md`). Traction is the board; the Traction Partnership is the work done with a founder on it. Three steps, each earning the next: a first read (public surface only, prepared by the AI operator, read and signed by Yann VR), the founder's board, then the partnership when the board shows demand. One list in `src/data/traction-offer.ts` feeds home, /partnership and /traction/first-read; edit it there. `/traction/first-read` publishes a real first read of this site, with its evidence and the disclosure that the operator knew the launch it was reading for; keep both. No prices or terms on any of these pages: the former /partnership fee/owe-nothing paragraph was removed for that reason. The /work Traction recording shows Traction's own launch board only; never re-record with partner app data in frame. The read's own advice (move the first exchange into the first screen) waits on its evidence gate: 3 of the first 10 founders who receive a read ask for a next step.
+
 ## Owned MCP offering — 4 October 2026
 
 The founder selected NextRole as the owned MCP driver and asked to integrate the offering here. [Direction, evidence and review state](docs/decisions/2026-10-04-nextrole-mcp-offering.md). Extend the approved proof/catalogue design: NextRole leads the homepage examples, its own product path stays distinct from Orchestra’s scoped integration enquiry, and Deputy remains a separate commercial lead. Keep live tool evidence separate from adoption and client outcomes. The founder’s subsequent “continue” carries this reviewed content slice through verification and release. The score-scale and unsupported outcome-copy corrections are live on NextRole; the linked decision records the exact evidence and Orchestra release state.
