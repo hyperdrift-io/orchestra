@@ -31,13 +31,12 @@ export function Traction() {
         </table>
       </div>
       <figure>
-        <video controls playsInline preload="none" poster="/traction/board-poster.jpg" aria-label="Traction’s own board, 15 seconds, silent, with captions">
-          <source src="/traction/board.mp4" type="video/mp4" />
-          <track kind="captions" src="/traction/board.en.vtt" srcLang="en" label="English" default />
-          <a href="/traction/board.mp4">Watch the board walkthrough</a>
+        <video controls playsInline preload="none" poster="/traction/walkthrough-poster.jpg" aria-label="What a first read gives you, shown on Traction’s own board: 45 seconds, narrated, captions on screen">
+          <source src="/traction/walkthrough.mp4" type="video/mp4" />
+          <a href="/traction/walkthrough.mp4">Watch the walkthrough</a>
         </video>
-        <figcaption>15-second recorded walkthrough · the plan, the misses and the count. Records shown are from the recording, 6 Oct.</figcaption>
-        <details><summary>Read the walkthrough</summary><p>This is Traction’s own board, the one this launch runs on. Each move has an owner and a due time. What slipped stays on the record as missed; what was kept carries its result. The count at the bottom is the one this page shows. An AI operator keeps the records; Yann signs every public word.</p></details>
+        <figcaption>The walkthrough · 45 s · a first read, your board, the partnership, on Traction’s own board. Voice and score made with ElevenLabs.</figcaption>
+        <details><summary>Read the walkthrough</summary><p>You’ve got a live app. Here’s what a first read gives you. We read what it already shows, and come back with one strength, one constraint, and your next customer move. Prepared by an AI. Signed by a human.</p><p>Then the move goes on a board. Like this one. Every move has an owner, and a time. What slips stays on the record. What lands carries its result. And the count moves only on evidence.</p><p>When your board shows demand, we build the next step with you. That’s the Traction Partnership. This launch runs on it. From zero. In public. Ask for a first read.</p></details>
       </figure>
     </section>
     <section id="contact" aria-labelledby="contact-title">
