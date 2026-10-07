@@ -16,7 +16,7 @@ export const offerSteps: OfferStep[] = [
     name: 'Your board',
     gets: 'If the read is useful, your app goes on Traction and the read becomes its first record. Customers, promises and results sit on one board, and it proposes the next move from the evidence.',
     who: 'You own the customer work. We set up the board, connect your evidence and keep the record honest, misses included.',
-    link: { href: '/work#work-traction', label: 'Watch the board' },
+    link: { href: '/traction#value', label: 'Watch the board at work' },
   },
   {
     name: 'The partnership',
@@ -87,3 +87,29 @@ export const readMethod: { name: string; question: string }[] = [
   { name: 'Measurement', question: 'Whether the next move could be measured with what the app already collects.' },
   { name: 'Reliability', question: 'Errors, broken links, slow media and phone layouts that stop someone halfway.' },
 ];
+
+/** The board film: the product doing the work, on Traction's own launch records. */
+export const boardFilm = {
+  src: '/recordings/traction-board.mp4',
+  poster: '/recordings/traction-board-poster.jpg',
+  captions: '/recordings/traction-board.vtt',
+  label: 'Traction’s board, 47 seconds, narrated, captions on screen: evidence, the next move, a kept promise, the count',
+  caption: 'The board at work · 47 s · Traction’s own launch board, real records. Voice and score made with ElevenLabs.',
+  text: 'Your app is live. Your customers are real. Here’s how it grows from here. One board holds your evidence, names the one thing in the way, and proposes your next customer move. You decide. It becomes a promise, with an owner and a time. Kept promises carry their result. A missed promise stays in view until it’s recovered. Nothing waits on memory. Gates open on evidence. Never on a date. That’s what moves the count: one kept move at a time. An AI operator prepares every move. You sign it. We run our own launch on this board. From zero. In public. Yours starts with a first read. Ask for one.',
+};
+
+/** What a founder gets from the board, in three lines. */
+export const boardValue: { name: string; text: string }[] = [
+  { name: 'Your next customer move, from evidence', text: 'The board holds your evidence, names the one thing in the way and proposes the move. You decide.' },
+  { name: 'Every promise in view', text: 'Each move gets an owner and a time. A kept move carries its result; a missed one stays visible until it’s recovered.' },
+  { name: 'A count that only moves on evidence', text: 'Gates open on evidence, never on a date. You always know where the business stands, and what would move it.' },
+];
+
+/** What Orchestra offers, Traction first. One list for the home. */
+export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean }[] }
+export const services: Service[] = [
+  { slug: 'traction', eyebrow: 'Traction · launching now', name: 'A growth board wired to your live app.', text: 'Your customers, promises and results on one board, with the next move proposed from the evidence. A first read, your board, then the Traction Partnership when the board shows demand.', links: [{ href: '/traction#contact', label: 'Ask for a first read', primary: true }, { href: '/traction', label: 'See Traction' }] },
+  { slug: 'mcp', eyebrow: 'Product integration', name: 'Meet customers in their assistant.', text: 'One useful workflow from your product, usable from a compatible assistant through MCP. NextRole runs it live today.', links: [{ href: '/work#work-nextrole', label: 'Inspect NextRole’s integration' }, { href: '/?situation=mcp#contact', label: 'Discuss your product' }] },
+  { slug: 'engineering', eyebrow: 'AI engineering', name: 'One measurable opportunity, built.', text: 'Pick the next stage with the most upside, scope it concretely, build an improvement you can inspect and measure its effect. Two to four weeks.', links: [{ href: '/#contact', label: 'Discuss your next stage' }] },
+];
+

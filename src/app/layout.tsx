@@ -64,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav aria-label="Site">
             <a href="/work">Work</a>
             <a href="/how-it-works">How it works</a>
+            <a href="/traction">Traction</a>
             {visibleArticles().length > 0 ? <a href="/articles">Articles</a> : <a href="https://hyperdrift.io/blog">Writing ↗</a>}
             <SiteContactLink />
           </nav>

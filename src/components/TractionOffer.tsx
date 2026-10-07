@@ -1,4 +1,4 @@
-import { offerSteps, sampleRead, readMethod, firstReadHref } from '@/data/traction-offer';
+import { offerSteps, sampleRead, readMethod, firstReadHref, boardFilm, boardValue } from '@/data/traction-offer';
 
 /** The three steps of the offer, each with the proof a founder can inspect before taking it. `here` drops the link to the current page. */
 export function OfferSteps({ here }: { here?: string }) {
@@ -6,7 +6,7 @@ export function OfferSteps({ here }: { here?: string }) {
     <h3>{step.name}</h3>
     <p>{step.gets}</p>
     <p>{step.who}</p>
-    {step.link.href !== here && <a href={step.link.href}>{step.link.label} →</a>}
+    {step.link.href.split('#')[0] !== here && <a href={step.link.href}>{step.link.label} →</a>}
   </li>)}</ol>;
 }
 
@@ -56,3 +56,18 @@ export function FirstRead() {
     </section>
   </article>;
 }
+
+/** The board doing the work: the film, with its words readable. */
+export function BoardFilm() {
+  return <figure data-board-film>
+    <video controls playsInline preload="none" poster={boardFilm.poster} aria-label={boardFilm.label}><source src={boardFilm.src} type="video/mp4" /><track kind="captions" src={boardFilm.captions} srcLang="en" label="English" /><a href={boardFilm.src}>Watch the film</a></video>
+    <figcaption>{boardFilm.caption}</figcaption>
+    <details><summary>Read the film</summary><p>{boardFilm.text}</p></details>
+  </figure>;
+}
+
+/** What a founder gets, in three lines. */
+export function BoardValue() {
+  return <dl data-board-value>{boardValue.map((item) => <div key={item.name}><dt>{item.name}</dt><dd>{item.text}</dd></div>)}</dl>;
+}
+

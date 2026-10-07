@@ -1,14 +1,6 @@
 import Link from 'next/link';
-import { OfferSteps, ReadExcerpt } from '@/components/TractionOffer';
+import { OfferSteps } from '@/components/TractionOffer';
 import { firstReadHref } from '@/data/traction-offer';
-
-export function PartnershipInvitation() {
-  return <section id="traction-partnership" aria-labelledby="traction-title">
-    <header><p>The Traction Partnership</p><h2 id="traction-title">You’ve found momentum.<br/><em>Let’s build on it.</em></h2><p>Traction is the board. The partnership is the work we do with you on it. Both start with a read of the app you already have.</p><p><a href={firstReadHref}>Ask for a first read →</a></p></header>
-    <OfferSteps />
-    <ReadExcerpt />
-  </section>;
-}
 
 export function Partnership() {
   return <section id="partnership" aria-labelledby="partnership-title">
