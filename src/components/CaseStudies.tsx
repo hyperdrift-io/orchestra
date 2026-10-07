@@ -1,4 +1,4 @@
-import { caseStudies } from '@/data/case-studies';
+import { caseStudies, readingHref } from '@/data/case-studies';
 
 export function CaseStudies() {
   return (
@@ -71,13 +71,9 @@ export function CaseStudies() {
               </div>
             </dl>
 
-            {cs.challenge?.entryUrl && (
-              <p><a href={cs.challenge.entryUrl}>Read the challenge entry →</a></p>
-            )}
-
-            {cs.article && (
+            {cs.reading?.[0] && (
               <p>
-                <a href={cs.article}>Read the build on the Hyperdrift blog →</a>
+                <a href={readingHref(cs.reading[0])}>Read the build →</a>
               </p>
             )}
           </article>

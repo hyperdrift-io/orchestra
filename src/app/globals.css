@@ -703,6 +703,14 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 #proof li details { margin-block: 1rem; }
 #proof li summary { color: var(--gold-light); font-size: .9rem; }
 #proof li iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; margin-top: 1rem; }
+#proof li video { display: block; width: 100%; aspect-ratio: 16 / 9; margin-top: 1rem; background: var(--ink); }
+#proof li [data-reading] { margin-block-start: var(--sp-s); padding-block-start: var(--sp-s); border-block-start: 1px solid var(--line-hair); }
+#proof li [data-reading] > p { margin: 0; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+#proof li [data-reading] > a { display: block; margin-block-start: 0.4rem; font-family: var(--font-display); font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.6rem); line-height: 1.2; color: var(--cream); border: 0; text-decoration: underline; text-decoration-color: var(--gold-line); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+#proof li [data-reading] > a:hover, #proof li [data-reading] > a:focus-visible { text-decoration-color: var(--gold); }
+#proof li [data-reading] ul { list-style: none; margin: var(--sp-2xs) 0 0; padding: 0; display: grid; gap: 0.35rem; font-size: var(--fs-meta); }
+#proof li [data-reading] li { counter-increment: none; padding: 0; background: none; border: 0; }
+#proof li [data-reading] li a { border-block-end: 0; }
 
 /* Credit and stage lines inside the new cards: readable sans, sentence case */
 :is(#places article li, #now article, #partnership) .meta, #proof li > p:nth-of-type(2), #proof li > p:nth-of-type(3) {

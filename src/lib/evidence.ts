@@ -1,4 +1,4 @@
-import { caseStudies, type CaseStudy } from '@/data/case-studies';
+import { caseStudies, readingHref, type CaseStudy } from '@/data/case-studies';
 import type { Action, Evidence, LinkedEvidence } from '@/data/situations';
 
 /** What the situation row renders for one example: name, one line, its relation to us, public actions. */
@@ -7,7 +7,7 @@ export type ResolvedEvidence = Omit<LinkedEvidence, 'relation'> & { relation?: s
 function actionsFor(cs: CaseStudy): Action[] {
   const actions: Action[] = [];
   if (cs.link) actions.push({ label: cs.linkLabel ?? 'Open', href: cs.link });
-  if (cs.article) actions.push({ label: 'Read the build', href: cs.article });
+  if (cs.reading?.[0]) actions.push({ label: 'Read the build', href: readingHref(cs.reading[0]) });
   else if (cs.repo) actions.push({ label: 'Source', href: cs.repo });
   return actions;
 }

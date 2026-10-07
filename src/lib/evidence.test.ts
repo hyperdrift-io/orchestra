@@ -13,7 +13,7 @@ const catalogue: CaseStudy[] = [
     stack: [],
     link: 'https://demo.example',
     linkLabel: 'Try it',
-    article: 'https://hyperdrift.io/blog/demo',
+    reading: [{ title: 'Demo build', href: 'https://hyperdrift.io/blog/demo' }],
     challenge: { organiser: 'Google', name: 'An Event', url: 'https://event.example', stage: 'Submitted' },
   },
   { slug: 'quiet', name: 'Quiet', outcome: '', problem: '', capability: '', stack: [], repo: 'https://github.com/x/y' },
