@@ -30,6 +30,7 @@ ${articles}
 - [How it works](https://ai.hyperdrift.io/how-it-works): The operating model behind the work.
 - [Work](https://ai.hyperdrift.io/work): Public builds and demonstrations.
 - [Traction](https://ai.hyperdrift.io/traction): A growth board wired to a live app, launching itself in public; ask for a first read.
+- [A sample first read](https://ai.hyperdrift.io/traction/first-read): A real first read of this site from its public pages: one strength, one constraint and the next customer move, with the evidence.
 - [Discuss a workflow](https://ai.hyperdrift.io/#contact): Bring a concrete opportunity and the tools involved.
 `;
 

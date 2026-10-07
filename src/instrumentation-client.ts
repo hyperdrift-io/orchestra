@@ -37,7 +37,7 @@ if (analyticsEnabled()) {
     const link = event.target.closest<HTMLAnchorElement>('a[href]');
     if (!link) return;
     const destination = link.origin === window.location.origin
-      ? link.hash === '#contact' ? 'enquiry' : link.pathname === '/partnership' ? 'partnership' : link.pathname === '/work' ? 'work' : link.pathname === '/traction' ? 'traction' : null
+      ? link.hash === '#contact' ? 'enquiry' : link.pathname === '/partnership' ? 'partnership' : link.pathname === '/work' ? 'work' : link.pathname === '/traction' ? 'traction' : link.pathname === '/traction/first-read' ? 'first_read' : null
       : link.hostname === 'nextrole.site' ? 'nextrole' : null;
     if (destination) trackEvent('cta_clicked', { destination, offer: link.dataset.offer === 'mcp' ? 'mcp' : undefined, placement: link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : 'body' });
   });
