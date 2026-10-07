@@ -1,5 +1,5 @@
 /* Living constellation — approved direction A, 22 September 2026. */
-body:has(#organisation, #partnership, #traction, #proof[data-catalogue='true']) > header { position: relative; padding-block: 1.5rem; }
+body:has(#organisation, #partnership, #traction, #launch, #proof[data-catalogue='true']) > header { position: relative; padding-block: 1.5rem; }
 #system > [data-explore-link] { margin: 1.5rem auto 0; max-width: 1320px; font-size: .9rem; }
 #proof > :is(h1,h2) { margin-inline: var(--edge); padding: var(--sp-xl) 0 0; max-inline-size: 28ch; font-size: clamp(2.6rem,4.3vw,4.6rem); }
 #proof[data-catalogue='true'] > h1 { font-size: clamp(3.2rem,6vw,6rem); }
@@ -239,7 +239,7 @@ body:has(#first-read) > header { position: relative; padding-block: 1.5rem; }
 :is(#value, #steps, #launch) { padding: 4rem var(--edge) 5rem; background: var(--ink); }
 :is(#value, #steps, #launch) > header { max-width: 900px; }
 :is(#value, #steps, #launch) > header > p:first-child { font: .75rem var(--font-mono); color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; margin-bottom: 1.2rem; }
-:is(#value, #steps, #launch) h2 { font-size: clamp(2.6rem,4.5vw,4.5rem); max-width: 20ch; }
+:is(#value, #steps) h2, #launch h1 { font-size: clamp(2.6rem,4.5vw,4.5rem); max-width: 20ch; }
 :is(#value, #steps, #launch) > header > p:last-child:not(:first-child) { margin-top: 1.5rem; font-size: 1.1rem; max-width: 58ch; line-height: 1.75; }
 #value > figure, #launch > figure { margin: 3rem 0 0; max-width: 1000px; }
 :is(#value, #launch) video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #080807; }
@@ -260,7 +260,10 @@ figure[data-read-excerpt] dt { margin-bottom: .7rem; font: .72rem var(--font-mon
 figure[data-read-excerpt] dd { margin: 0; font: 1.3rem/1.45 var(--font-display); color: var(--cream); }
 @media(max-width:900px){ figure[data-read-excerpt] dl { grid-template-columns: 1fr; } }
 #launch > div { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); gap: 3rem 5rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--gold-line); }
-#launch h3 { display: grid; gap: .6rem; font-size: var(--fs-h3); }
+#launch > div h2 { display: grid; gap: .6rem; font-size: var(--fs-h3); max-width: none; }
+#launch > header > p:has(a) { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .6rem 1rem; font-size: .95rem; }
+#launch > div + figure { margin-top: 4rem; }
+#launch > footer { margin-top: 3rem; font-size: .9rem; }
 #launch ol { list-style: none; margin: 2.2rem 0 0; padding: 0; }
 #launch li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding-block: .9rem; border-top: 1px solid var(--line-hair); color: var(--cream-2); }
 #launch li span { font: .72rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); padding-top: .25rem; }
