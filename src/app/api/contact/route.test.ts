@@ -1,13 +1,24 @@
+import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const fetchMock = vi.fn();
+let enquiryDir: string;
 
-beforeEach(() => {
+beforeEach(async () => {
+  // The route saves every enquiry; keep test records out of the real store under ~/.local/share.
+  enquiryDir = await mkdtemp(join(tmpdir(), 'orchestra-enquiries-'));
+  vi.stubEnv('ENQUIRY_DATA_DIR', enquiryDir);
   fetchMock.mockReset();
   fetchMock.mockResolvedValue(new Response('{"ok":true}', { status: 200 }));
   vi.stubGlobal('fetch', fetchMock);
 });
-afterEach(() => vi.unstubAllGlobals());
+afterEach(async () => {
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+  await rm(enquiryDir, { recursive: true, force: true });
+});
 
 async function callRoute(body: unknown) {
   const { POST } = await import('./route');
@@ -41,6 +52,8 @@ describe('POST /api/contact', () => {
       message: 'Where you are: Automating a workflow\nCompany: Analytical Engines\n\nA reasonable length message about agents.',
       source: 'orchestra_ai',
     });
+    const [file] = await readdir(enquiryDir);
+    expect(JSON.parse(await readFile(join(enquiryDir, file!), 'utf8'))).toMatchObject({ email: 'ada@example.com', delivery: 'sent' });
   });
 
   it('sends the message untouched when no context was given', async () => {
