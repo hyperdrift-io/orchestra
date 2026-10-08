@@ -21,6 +21,8 @@ Orchestra integrates one useful workflow from an existing product through MCP: a
 
 ## Articles
 
+Newest first, with publication dates: [RSS feed](https://ai.hyperdrift.io/feed.xml).
+
 ${articles}
 
 ## More

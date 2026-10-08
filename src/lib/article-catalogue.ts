@@ -33,8 +33,13 @@ export function isArticlePreview() {
   return process.env.NODE_ENV === 'development' || process.env.ARTICLE_PREVIEW === 'true';
 }
 
+/** Articles whose publication date has arrived. Drafts (no date) and scheduled pieces never qualify, preview build or not. */
+export function publishedArticles(list = articles, now = Date.now()) {
+  return list.filter((article) => article.publishedAt && Date.parse(article.publishedAt) <= now);
+}
+
 export function visibleArticles() {
-  return articles.filter((article) => isArticlePreview() || (article.publishedAt && Date.parse(article.publishedAt) <= Date.now()));
+  return isArticlePreview() ? articles : publishedArticles();
 }
 
 export function articleDateLabel(value: string) {

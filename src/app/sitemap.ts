@@ -1,8 +1,8 @@
 import type { MetadataRoute } from 'next';
-import { visibleArticles, articleUrl } from '@/lib/article-catalogue';
+import { publishedArticles, articleUrl } from '@/lib/article-catalogue';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const published = visibleArticles().filter((article) => article.publishedAt && Date.parse(article.publishedAt) <= Date.now());
+  const published = publishedArticles();
   return [
     {
       url: 'https://ai.hyperdrift.io',

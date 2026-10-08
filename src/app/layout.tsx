@@ -49,6 +49,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+      <head>
+        {/* In the layout, not metadata.alternates: every page sets its own canonical, which replaces that whole object. */}
+        <link rel="alternate" type="application/rss+xml" title="Orchestra AI by Hyperdrift" href="/feed.xml" />
+      </head>
       <body>
         <header>
           <p>
