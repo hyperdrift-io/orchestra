@@ -12,8 +12,10 @@ import { ArticleProof } from '@/components/ArticleProof';
 import { EnquiryForm } from '@/components/EnquiryForm';
 import { ArticleTracker } from '@/components/ArticleTracker';
 import { ArticleShare } from '@/components/ArticleShare';
+import { ArticleTags } from '@/components/ArticleTags';
 import { ReadNudge } from '@/components/ReadNudge';
 import { articleShareImage } from '@/lib/share-metadata';
+import { tagsOf } from '@/lib/article-tags';
 
 type Props = { params: Promise<{ slug: string }> };
 export const generateStaticParams = () => visibleArticles().map(({ slug }) => ({ slug }));
@@ -49,6 +51,7 @@ export default async function ArticlePage({ params }: Props) {
       </div>
       <p>{article.excerpt}</p>
       <div data-article-meta=""><span>By Yann VR · {article.minutes} min read</span><a href="#article-share">Share article ↓</a><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></div>
+      <ArticleTags tags={tagsOf(article)} />
       {article.reviewedAt && <small data-reviewed="">Evidence reviewed {articleDateLabel(article.reviewedAt)} · <a href="/articles/ui-accessibility#method">Method and maintenance</a></small>}
     </header>
     <div>

@@ -10,6 +10,8 @@ export interface ArticleSummary {
   order: number;
   topic: string;
   example: string;
+  /** Slugs from `src/data/article-tags.json`; the vocabulary stays small so every tag page has company. */
+  tags: string[];
   exampleStatus: string;
   ctaLabel: string;
   steps: string[];

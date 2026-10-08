@@ -1,0 +1,50 @@
+{
+  "agents": {
+    "label": "AI agents",
+    "description": "What an agent should be allowed to do, how it proves the work is done and where it fits in work your team already runs."
+  },
+  "mcp": {
+    "label": "MCP",
+    "description": "Connecting assistants to products and services through the Model Context Protocol: scoped tools, checked access and results you can inspect."
+  },
+  "webmcp": {
+    "label": "WebMCP",
+    "description": "Actions a web page exposes to a browser agent, so the person and the agent work from the same state."
+  },
+  "voice": {
+    "label": "Voice",
+    "description": "Spoken instructions that end in a result you can inspect, from a dashboard that reports back to directing work across apps."
+  },
+  "accessibility": {
+    "label": "Accessibility",
+    "description": "Whether people can finish the job, whichever way they reach the interface, and how to measure the whole journey."
+  },
+  "ui": {
+    "label": "UI",
+    "description": "How interfaces decide what people must learn, and what changes when an agent can act on the page."
+  },
+  "operations": {
+    "label": "Operations",
+    "description": "Daily briefs, dashboards and the decisions they feed: evidence first, then a person decides."
+  },
+  "permissions": {
+    "label": "Permissions",
+    "description": "Authority, boundaries and read-back for delegated work: the place in the code that enforces what an agent may do."
+  },
+  "skills": {
+    "label": "Agent skills",
+    "description": "Specialist knowledge recorded so an agent can use it again: sources, accepted examples, checks and stopping points."
+  },
+  "databricks": {
+    "label": "Databricks",
+    "description": "Lakebase, AppKit and portable AI engineering choices on the Databricks platform."
+  },
+  "databases": {
+    "label": "Databases",
+    "description": "Modelling agent state: managed Postgres against document stores, and the transactions each one supports."
+  },
+  "streaming": {
+    "label": "Streaming",
+    "description": "Server-sent events and the contracts between the agent runtime, the application and the browser."
+  }
+}

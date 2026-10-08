@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cache } from 'react';
-import { visibleArticles } from './article-catalogue';
+import { articleUrl, visibleArticles, type ArticleSummary } from './article-catalogue';
+import { normalise, type SearchEntry } from './article-search';
+import { tagsOf } from './article-tags';
 import { articleShareImage } from './share-metadata';
 import { interfaceFigure } from './ui-accessibility-figures';
 
@@ -31,6 +33,23 @@ export const getArticle = cache((slug: string) => {
   return { ...summary, blocks, minutes: Math.max(1, Math.ceil(source.split(/\s+/).length / 220)) };
 });
 
+/** The finder's index: catalogue text, tag labels and section headings, normalised once here so the browser only filters. */
+export const articleSearchEntries = cache((): SearchEntry[] => visibleArticles().map((article) => {
+  const source = readFileSync(join(process.cwd(), 'content', 'articles', `${article.slug}.md`), 'utf8');
+  const headings = source.split('\n').filter((line) => line.startsWith('## ')).map((line) => line.slice(3));
+  const tags = tagsOf(article);
+  const { slug, title, excerpt, topic, example, exampleStatus, order } = article;
+  return { slug, title, excerpt, topic, example, exampleStatus, order, tags, haystack: normalise([title, article.seoTitle ?? '', excerpt, article.shareLine, topic, example, ...tags.map((tag) => tag.label), ...headings].join(' ')) };
+}));
+
+export function collectionJsonLd(name: string, description: string, url: string, list: ArticleSummary[]) {
+  return JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'CollectionPage', name, description, url,
+    isPartOf: { '@type': 'WebSite', name: 'Orchestra AI by Hyperdrift', url: 'https://ai.hyperdrift.io' },
+    mainEntity: { '@type': 'ItemList', itemListElement: list.map((article, index) => ({ '@type': 'ListItem', position: index + 1, name: article.title, url: articleUrl(article.slug) })) },
+  }).replace(/</g, '\\u003c');
+}
+
 export function articleSections(article: NonNullable<ReturnType<typeof getArticle>>) {
   const visual = { id: 'article-proof', title: (article.series && interfaceFigure(article.slug)?.title) || article.proof.heading || 'See the working example' };
   const visualIndex = article.blocks.findIndex((block) => block.kind === 'quote');
@@ -50,6 +69,7 @@ export function articleJsonLd(article: NonNullable<ReturnType<typeof getArticle>
         description: article.excerpt, author: { '@type': 'Person', name: 'Yann VR', url: 'https://hyperdrift.io' },
         publisher: { '@type': 'Organization', name: 'Orchestra AI by Hyperdrift', url: 'https://ai.hyperdrift.io' },
         mainEntityOfPage: url,
+        keywords: tagsOf(article).map((tag) => tag.label).join(', '),
         image: articleShareImage(article).url,
         ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
         ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),

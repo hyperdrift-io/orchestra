@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { ArticleTags } from '@/components/ArticleTags';
 import { visibleArticles, isArticlePreview } from '@/lib/article-catalogue';
+import { tagsOf } from '@/lib/article-tags';
 import { websiteOpenGraph } from '@/lib/share-metadata';
 
 export const metadata: Metadata = {
@@ -16,7 +18,7 @@ export default function UiAccessibilitySeries() {
   if (!articles.length) notFound();
   return <section id="articles" data-ui-series="" aria-labelledby="articles-title">
     <header><p>Orchestra / The future of UI and accessibility</p>{isArticlePreview() && <small>Complete editorial preview · publication pending</small>}<h1 id="articles-title">More ways<br /><em>to finish.</em></h1><p>Interfaces have changed what people need to learn. Agents could change what they need to operate. These six articles ask who benefits, what remains difficult and how to tell whether the work actually got easier.</p><a href={`/articles/${articles[0].slug}`}>Start with the argument →</a></header>
-    <ol>{articles.map((article) => <li key={article.slug}><span>{String(article.seriesOrder).padStart(2, '0')}</span><div><p>{article.topic}</p><h2><a href={`/articles/${article.slug}`}>{article.title}</a></h2><p>{article.excerpt}</p><small>{article.exampleStatus}</small></div><a href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`}>Read →</a></li>)}</ol>
+    <ol>{articles.map((article) => <li key={article.slug}><span>{String(article.seriesOrder).padStart(2, '0')}</span><div><p>{article.topic}</p><h2><a href={`/articles/${article.slug}`}>{article.title}</a></h2><p>{article.excerpt}</p><ArticleTags tags={tagsOf(article)} /><small>{article.exampleStatus}</small></div><a href={`/articles/${article.slug}`} aria-label={`Read ${article.title}`}>Read →</a></li>)}</ol>
     <section id="reference" aria-labelledby="reference-title"><p>Living reference</p><h2 id="reference-title">Different routes. Different responsibilities.</h2><p>These approaches coexist. Voice is an input method; WebMCP and MCP provide different tool connections. This is a map of responsibilities, not a chronology or performance ranking.</p><dl>
       <div><dt>Event-driven controls</dt><dd>A person chooses controls; events trigger app actions. The person directs the sequence.</dd></div>
       <div><dt>API / CLI</dt><dd>A person or program specifies operations. Suitable for repeatable work when the operations can be defined.</dd></div>

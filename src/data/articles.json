@@ -8,6 +8,10 @@
     "order": 1,
     "topic": "Operations",
     "example": "Hyperdrift Bridge",
+    "tags": [
+      "operations",
+      "agents"
+    ],
     "exampleStatus": "Internal operating system",
     "ctaLabel": "Discuss your operating workflow",
     "steps": [
@@ -52,6 +56,10 @@
     "order": 2,
     "topic": "Expertise",
     "example": "Hyperdrift publishing skill",
+    "tags": [
+      "agents",
+      "skills"
+    ],
     "exampleStatus": "Working practice",
     "ctaLabel": "Discuss a specialist workflow",
     "steps": [
@@ -96,6 +104,10 @@
     "order": 3,
     "topic": "Delegation",
     "example": "Helm",
+    "tags": [
+      "agents",
+      "permissions"
+    ],
     "exampleStatus": "Recorded demonstration",
     "ctaLabel": "Discuss an agent workflow",
     "steps": [
@@ -139,6 +151,10 @@
     "order": 4,
     "topic": "Priorities",
     "example": "Standup",
+    "tags": [
+      "operations",
+      "agents"
+    ],
     "exampleStatus": "Public project",
     "ctaLabel": "Discuss your team's daily brief",
     "steps": [
@@ -183,6 +199,10 @@
     "order": 5,
     "topic": "Conversation",
     "example": "First Officer",
+    "tags": [
+      "voice",
+      "ui"
+    ],
     "exampleStatus": "Prototype in development",
     "ctaLabel": "Discuss a conversational workflow",
     "steps": [
@@ -226,6 +246,11 @@
     "order": 6,
     "topic": "Integration",
     "example": "uk.gov Radar",
+    "tags": [
+      "mcp",
+      "webmcp",
+      "permissions"
+    ],
     "exampleStatus": "Recorded demonstration",
     "ctaLabel": "Discuss an integration",
     "steps": [
@@ -269,6 +294,10 @@
     "order": 7,
     "topic": "AI engineering",
     "example": "Databases and agent state",
+    "tags": [
+      "databricks",
+      "databases"
+    ],
     "exampleStatus": "Illustrative decision guide",
     "ctaLabel": "Discuss your agent data model",
     "steps": [
@@ -336,6 +365,10 @@
     "order": 8,
     "topic": "AI engineering",
     "example": "Streaming and event contracts",
+    "tags": [
+      "databricks",
+      "streaming"
+    ],
     "exampleStatus": "Illustrative architecture guide",
     "ctaLabel": "Discuss your agent streaming workflow",
     "steps": [
@@ -398,6 +431,11 @@
     "order": 9,
     "topic": "Conversation",
     "example": "Hyperdrift First Officer",
+    "tags": [
+      "voice",
+      "operations",
+      "ui"
+    ],
     "exampleStatus": "Live, and open source",
     "ctaLabel": "Discuss your operating workflow",
     "steps": [
@@ -440,6 +478,11 @@
     "order": 10,
     "topic": "History and human capability",
     "example": "UI and accessibility",
+    "tags": [
+      "ui",
+      "accessibility",
+      "agents"
+    ],
     "exampleStatus": "Historical synthesis",
     "ctaLabel": "Discuss a task your users need to complete independently",
     "steps": [],
@@ -492,6 +535,10 @@
     "order": 11,
     "topic": "Accessibility today",
     "example": "UI and accessibility",
+    "tags": [
+      "accessibility",
+      "voice"
+    ],
     "exampleStatus": "Research and proposed evaluation",
     "ctaLabel": "Discuss an accessibility barrier in your workflow",
     "steps": [],
@@ -544,6 +591,11 @@
     "order": 12,
     "topic": "WebMCP and shared state",
     "example": "UI and accessibility",
+    "tags": [
+      "webmcp",
+      "mcp",
+      "ui"
+    ],
     "exampleStatus": "Radar implementation and draft specification",
     "ctaLabel": "Discuss an app your users should be able to direct",
     "steps": [],
@@ -596,6 +648,11 @@
     "order": 13,
     "topic": "Commander / First Officer",
     "example": "UI and accessibility",
+    "tags": [
+      "voice",
+      "accessibility",
+      "ui"
+    ],
     "exampleStatus": "Recorded sandbox demonstration",
     "ctaLabel": "Discuss a workflow you would like to direct hands-free",
     "steps": [],
@@ -706,6 +763,11 @@
     "order": 14,
     "topic": "Voice through MCP",
     "example": "UI and accessibility",
+    "tags": [
+      "voice",
+      "mcp",
+      "permissions"
+    ],
     "exampleStatus": "Proposed experiment",
     "ctaLabel": "Discuss a task that crosses your apps",
     "steps": [],
@@ -754,6 +816,11 @@
     "order": 15,
     "topic": "The future of UI",
     "example": "UI and accessibility",
+    "tags": [
+      "ui",
+      "accessibility",
+      "agents"
+    ],
     "exampleStatus": "Design position and research agenda",
     "ctaLabel": "Discuss where your users lose their place",
     "steps": [],

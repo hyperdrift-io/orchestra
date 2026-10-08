@@ -1,7 +1,9 @@
 import { articleUrl, publishedArticles, type ArticleSummary } from './article-catalogue';
+import { tagsOf } from './article-tags';
 import { articleShareImage } from './share-metadata';
 
 const BASE_URL = 'https://ai.hyperdrift.io';
+const tagUrlOf = (slug: string) => `${BASE_URL}/articles/tag/${slug}`;
 
 const escapeXml = (text: string): string =>
   text
@@ -26,6 +28,7 @@ export function buildRssXml(catalogue: ArticleSummary[], now = Date.now()): stri
       <pubDate>${date.toUTCString()}</pubDate>
       <description>${escapeXml(article.excerpt)}</description>
       <category>${escapeXml(article.topic)}</category>
+${tagsOf(article).map((tag) => `      <category domain="${tagUrlOf(tag.slug)}">${escapeXml(tag.label)}</category>`).join('\n')}
       <enclosure url="${escapeXml(image.url)}" type="${image.type}" length="0" />
     </item>`;
   });

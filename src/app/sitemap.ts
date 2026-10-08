@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { publishedArticles, articleUrl } from '@/lib/article-catalogue';
+import { indexableTags, tagUrl } from '@/lib/article-tags';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const published = publishedArticles();
@@ -14,5 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(published.length ? [{ url: 'https://ai.hyperdrift.io/articles', changeFrequency: 'weekly' as const, priority: 0.8 }] : []),
     ...(published.some((article) => article.series === 'ui-accessibility') ? [{ url: 'https://ai.hyperdrift.io/articles/ui-accessibility', changeFrequency: 'monthly' as const, priority: 0.8 }] : []),
     ...published.map((article) => ({ url: articleUrl(article.slug), lastModified: new Date(article.updatedAt ?? article.publishedAt!), changeFrequency: 'monthly' as const, priority: 0.7 })),
+    ...indexableTags(published).map((tag) => ({ url: tagUrl(tag.slug), changeFrequency: 'weekly' as const, priority: 0.6 })),
   ];
 }

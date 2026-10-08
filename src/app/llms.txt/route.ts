@@ -1,10 +1,15 @@
 import { articleUrl, visibleArticles } from '@/lib/article-catalogue';
+import { indexableTags, tagUrl } from '@/lib/article-tags';
 
 export const dynamic = 'force-static';
 
 export function GET() {
-  const articles = visibleArticles()
+  const visible = visibleArticles();
+  const articles = visible
     .map((article) => `- [${article.title}](${articleUrl(article.slug)}): ${article.excerpt}`)
+    .join('\n');
+  const topics = indexableTags(visible)
+    .map((tag) => `- [${tag.label}](${tagUrl(tag.slug)}): ${tag.description}`)
     .join('\n');
 
   const body = `# Orchestra AI by Hyperdrift
@@ -24,6 +29,12 @@ Orchestra integrates one useful workflow from an existing product through MCP: a
 Newest first, with publication dates: [RSS feed](https://ai.hyperdrift.io/feed.xml).
 
 ${articles}
+
+## Topics
+
+Each topic page lists the articles that carry it, with a one-line answer to what the topic covers.
+
+${topics}
 
 ## More
 
