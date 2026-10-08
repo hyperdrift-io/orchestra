@@ -31,6 +31,7 @@ ${articles}
 - [Work](https://ai.hyperdrift.io/work): Public builds and demonstrations.
 - [Traction](https://ai.hyperdrift.io/traction): A growth board wired to a live app: a first read, your board, then the Traction Partnership when the board shows demand.
 - [Traction's launch log](https://ai.hyperdrift.io/articles/traction-from-zero): Traction launching itself from zero, in public: the count of founders on the board, the evidence gates and every day on the record.
+- [Traction's board, in public](https://ai.hyperdrift.io/boards/traction): Traction's own evidence gates, the count of founders who pay and every day on the record, read live from its board.
 - [A sample first read](https://ai.hyperdrift.io/traction/first-read): A real first read of this site from its public pages: one strength, one constraint and the next customer move, with the evidence.
 - [Discuss a workflow](https://ai.hyperdrift.io/#contact): Bring a concrete opportunity and the tools involved.
 `;
