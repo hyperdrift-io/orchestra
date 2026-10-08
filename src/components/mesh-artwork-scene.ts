@@ -21,7 +21,7 @@ export function articleArtwork(slug: string) {
   sphere.dispose();
   rotor.add(new THREE.LineSegments(wire, material(new THREE.LineBasicMaterial({ color: '#e3a857', transparent: true, opacity: .42 }))));
   rotor.add(new THREE.Points(nodeGeometry, material(new THREE.PointsMaterial({ color: '#f4cd92', size: 2, sizeAttenuation: false, transparent: true, opacity: .8 }))));
-  const symbols = definitions[slug as keyof typeof definitions] ?? definitions['the-bridge'];
+  const symbols = definitions[slug as keyof typeof definitions] ?? definitions['the-first-officer'];
   const objects = symbols.map((kind, index) => {
     const colour = ['#90c5b8', '#e3a857', '#c8beae'][index];
     const object = createDomainSymbol(kind as DomainSymbol,

@@ -2,7 +2,7 @@ Dictation usually changes how words get into an app. The next step is to let tho
 
 Voice through MCP means speaking to an assistant that can call tools through the Model Context Protocol. Speech recognition supplies the request. The assistant interprets it. Connected services perform the authorised operations. MCP provides a connection between the assistant and those services; it does not supply the microphone, judgement or permission to act.
 
-For our Commander work, this is the proposed next experiment. [First Officer's current voice integration](/articles/hands-free-app-control) follows a different path. The cross-app journey below is a design to test, not a result we have already demonstrated.
+For our Traction work, this is the proposed next experiment. [First Officer's current voice integration](/articles/hands-free-app-control) follows a different path. The cross-app journey below is a design to test, not a result we have already demonstrated.
 
 > Your sentence can cross apps. Your permission should not grow on the way.
 
@@ -34,7 +34,7 @@ This is an application design responsibility. Connecting tools does not automati
 
 ## Begin where an error is easy to inspect
 
-Our first proposed POC is a spoken read through Commander's existing MCP tools. Compare the returned evidence with the app's own read for the same scope. Retain the request, tool calls and result so a mismatch can be traced.
+Our first proposed POC is a spoken read through Traction's existing MCP tools. Compare the returned evidence with the app's own read for the same scope. Retain the request, tool calls and result so a mismatch can be traced.
 
 Then add the draft in a controlled environment. Try an ambiguous project name, a denied read and a correction after the first response. Compare the effort of checking the output with completing the task directly. Include people who use the input methods being evaluated before making accessibility claims.
 

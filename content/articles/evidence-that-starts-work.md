@@ -26,7 +26,7 @@ The Bridge applies a related idea to our fleet: collect evidence, identify the n
 
 These examples suggest a practical starting point for a client workflow. Pick a recurring question that already has an owner: which support cases need intervention, which handovers are incomplete, or which delivery exceptions deserve attention? These are possible applications, not claimed deployments.
 
-Then agree the ordering rule with that owner. Read the permitted sources. Show the supporting record beside each recommendation. Give people a way to correct the conclusion before adding authority to act on it. [The Bridge](/articles/the-bridge) connects this kind of brief to the decision and the work that follows.
+Then agree the ordering rule with that owner. Read the permitted sources. Show the supporting record beside each recommendation. Give people a way to correct the conclusion before adding authority to act on it. [The First Officer](/articles/the-first-officer) turns this kind of brief into a conversation that ends in a decision.
 
 **What to watch:** generating a summary is increasingly easy. A useful service still needs a clear definition of what deserves attention. Compare one proposed brief with the decisions your team actually makes; disagreements show where the context or ordering needs work.
 

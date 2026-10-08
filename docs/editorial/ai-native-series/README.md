@@ -2,7 +2,7 @@
 
 Six articles for ai.hyperdrift.io, prepared 21 September 2026 on `feat/ai-native-articles`, based on the unpublished `feat/ai-native-org` work. The founder approved the series and instructed implementation. The pages extend the existing approved ink, gold and serif identity. No production deployment or outbound promotion has occurred.
 
-**Review:** http://127.0.0.1:3112/articles · [Begin with the Bridge](http://127.0.0.1:3112/articles/the-bridge)
+**Review:** http://127.0.0.1:3112/articles · [Begin with the daily brief](http://127.0.0.1:3112/articles/evidence-that-starts-work)
 
 ## Article sources
 
@@ -17,7 +17,7 @@ The editable runtime sources are `content/articles/<slug>.md` and `src/data/arti
 | 6 | [Give your agent access to the work already on screen](06-connect-agents-to-existing-work.md) | Radar's recorded shared-page interaction; Standup's interfaces | Discuss an integration |
 
 
-Each article stands alone. The Bridge opens the series. The former fifth piece, a conversational-interface draft, was retired on 8 October 2026 as a duplicate of [The dashboard that speaks first](../../../content/articles/the-first-officer.md); its URL redirects there. The source and media distinctions are recorded in [PROOF-AND-MEDIA.md](PROOF-AND-MEDIA.md).
+Each article stands alone. Articles 1, 2 and 6 were retired on 8 October 2026 (no explanatory visual, template endings, internal-only proof); their URLs redirect. Standup's brief opens what remains of the series. The former fifth piece, a conversational-interface draft, was retired on 8 October 2026 as a duplicate of [The dashboard that speaks first](../../../content/articles/the-first-officer.md); its URL redirects there. The source and media distinctions are recorded in [PROOF-AND-MEDIA.md](PROOF-AND-MEDIA.md).
 
 ## What is implemented
 

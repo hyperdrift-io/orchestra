@@ -1,16 +1,15 @@
 # Article answer coverage
 
+Retired 8 October 2026 (founder direction: quality over quantity, no filler): `the-bridge` (redirects to `evidence-that-starts-work`), `expertise-agents-can-use` (redirects to `/articles`), `connect-agents-to-existing-work` (duplicate of `webmcp-actions-on-the-page`, redirects there). The weekly `hd articles review` routine reports the catalogue against the standard.
+
 Reviewed 29 September 2026 following the founder’s direction: every article is optimised to answer its reader’s question. Apply [ARTICLE-STANDARD.md](ARTICLE-STANDARD.md) and the workspace `meta/skills/search-indexing/references/aeo.md` contract. These are editorial intent hypotheses, not measured query-volume claims.
 
 | Canonical article slug | Primary reader question | Answer and evidence to preserve |
 |---|---|---|
 | `lakebase-vs-document-databases` | How does Lakebase compare with MongoDB and Cosmos DB, and when should I choose each? | Define managed Postgres versus document modelling; compare relationships and transaction scope. Refund and support case demonstrate differing fits. Primary Databricks, PostgreSQL, MongoDB and Microsoft docs support capabilities; our fit recommendations remain labelled judgement. |
 | `langchain-databricks-appkit-sse` | Should I use LangChain or Databricks AppKit to stream agent updates with SSE? | Distinguish runtime updates, the application contract and browser transport; choose by runtime/platform fit. LangChain, AppKit and MDN sources; approval/disconnect example is illustrative, AppKit agents plugin is beta. |
-| `the-bridge` | How should an AI operations dashboard turn signals into decisions? | Connect trustworthy evidence, human decisions, scoped work and checked outcomes. Bridge is an internal operating example, not a packaged client deployment. |
-| `expertise-agents-can-use` | How do AI agent skills make specialist knowledge reusable? | Record trusted sources, accepted examples, checks and stopping points; enforce permissions separately. Publishing workflow and public anniversary article supply inspectable evidence. |
 | `delegation-with-boundaries` | How much authority should an AI agent have, and how is it enforced? | Scope the job, restrict tools, separate observation/action and verify completion. Helm source and recorded sandbox demonstration; no universal security guarantee. |
 | `evidence-that-starts-work` | What makes an AI daily brief useful for prioritising work? | Agree an ordering rule, retain supporting records and let people correct recommendations. Standup public source and recorded output; estimates are not measured completion times. |
-| `connect-agents-to-existing-work` | When should an existing app use WebMCP or a server-side MCP integration? | Shared browser work versus server tools; explicit operations, permissions and inspectable state. Radar and Standup public implementations; browser compatibility remains a limit. |
 
 ## Follow-up coverage
 
@@ -22,7 +21,7 @@ The other articles retain practical sections covering implementation boundaries,
 
 ## Verification and measurement
 
-All eight articles have a topic-naming H1/search title and an opening answer that names its scope before the worked example. Canonical slugs remain stable. The database visual is labelled as an example and appears after the general comparison and transaction explanation. Essential conclusions remain in HTML.
+All published articles have a topic-naming H1/search title and an opening answer that names its scope before the worked example. Canonical slugs remain stable. The database visual is labelled as an example and appears after the general comparison and transaction explanation. Essential conclusions remain in HTML.
 
 At release, verify the generated page, Article/Breadcrumb JSON-LD, social image, sitemap and `llms.txt`; record actual production verification separately. Publication dates remain original and modification dates reflect these content edits.
 

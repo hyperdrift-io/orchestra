@@ -34,9 +34,9 @@ It also leaves questions open. Can a person understand the result without hearin
 
 ## The next step crosses app boundaries
 
-First Officer currently uses its own voice integration. Fleet Commander MCP is not in that runtime path. The next experiment is to dictate a request to an assistant that uses MCP tools across authorised apps.
+First Officer currently uses its own voice integration. Traction's MCP tools are not in that runtime path. The next experiment is to dictate a request to an assistant that uses MCP tools across authorised apps.
 
-Commander is now being developed as an operating board for each app's customer work. Its scoped reads give us a starting point for the next experiment; the Cargo recording does not demonstrate that integration.
+Traction is the operating board for each app's customer work. Its scoped reads give us a starting point for the next experiment; the Cargo recording does not demonstrate that integration.
 
 That could turn several separate operations into one directed task. It also creates more places where the request can lose its meaning. The shared result, correction path and permission boundaries have to survive the journey.
 

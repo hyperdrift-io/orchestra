@@ -1,107 +1,11 @@
 [
   {
-    "slug": "the-bridge",
-    "title": "AI operations dashboards: turn signals into decisions",
-    "seoTitle": "AI operations dashboards: evidence and decisions",
-    "excerpt": "A place to see what matters, inspect the evidence and direct the work. How Hyperdrift's Bridge connects an operator to a fleet of products—and where the same pattern fits another business.",
-    "shareLine": "The useful morning brief ends with a decision you can make.",
-    "order": 1,
-    "topic": "Operations",
-    "example": "Hyperdrift Bridge",
-    "tags": [
-      "operations",
-      "agents"
-    ],
-    "exampleStatus": "Internal operating system",
-    "ctaLabel": "Discuss your operating workflow",
-    "steps": [
-      "Read the evidence",
-      "Make the decision",
-      "Scope the work",
-      "Check the result"
-    ],
-    "proof": {
-      "description": "Our internal Bridge connects product signals, decisions and recorded work.",
-      "url": "https://hyperdrift.io/blog/the-fleet-watches-itself-posthog-signals",
-      "label": "Read the technical account"
-    },
-    "media": {
-      "kind": "image",
-      "src": "/articles/bridge.png",
-      "alt": "A historical published view of the Hyperdrift Bridge.",
-      "caption": "The internal Bridge in a previously published view; this is not current fleet data."
-    },
-    "publishedAt": "2026-09-23T00:00:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
-    "image": {
-      "src": "/articles/mesh/the-bridge.svg",
-      "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "headerImage": {
-      "src": "/articles/mesh/the-bridge.svg",
-      "alt": "Connected wireframe eye, signpost, checklist forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    }
-  },
-  {
-    "slug": "expertise-agents-can-use",
-    "title": "AI agent skills: make specialist knowledge reusable",
-    "seoTitle": "AI agent skills: reusable specialist knowledge",
-    "excerpt": "A useful agent needs your standards, examples and stopping points. Our publishing workflow shows how specialist knowledge becomes instructions people can inspect and improve.",
-    "shareLine": "Write down what good work requires before asking an agent to do it.",
-    "order": 2,
-    "topic": "Expertise",
-    "example": "Hyperdrift publishing skill",
-    "tags": [
-      "agents",
-      "skills"
-    ],
-    "exampleStatus": "Working practice",
-    "ctaLabel": "Discuss a specialist workflow",
-    "steps": [
-      "Shared context",
-      "Accepted example",
-      "Quality checks",
-      "Human sign-off"
-    ],
-    "proof": {
-      "description": "The anniversary article brings the writing, film and source ledger together.",
-      "url": "https://hyperdrift.io/blog/hyperdrift-turns-one",
-      "label": "Explore the published example"
-    },
-    "media": {
-      "kind": "image",
-      "src": "/articles/anniversary.jpg",
-      "alt": "The title frame of the Hyperdrift anniversary film.",
-      "caption": "The published anniversary film: one artefact supported by our editorial practice."
-    },
-    "publishedAt": "2026-09-23T00:00:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
-    "image": {
-      "src": "/articles/mesh/expertise-agents-can-use.svg",
-      "alt": "Connected wireframe book, library, decision forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "headerImage": {
-      "src": "/articles/mesh/expertise-agents-can-use.svg",
-      "alt": "Connected wireframe book, library, decision forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    }
-  },
-  {
     "slug": "delegation-with-boundaries",
     "title": "AI agent permissions: how much authority should you delegate?",
     "seoTitle": "AI agent permissions and human oversight",
     "excerpt": "Helm separates diagnosis from action and confines disruptive operations to drill services. The demonstration makes agent authority visible, inspectable and worth discussing before deployment.",
     "shareLine": "Useful delegation gives an agent a job, a boundary and a way to prove completion.",
-    "order": 3,
+    "order": 1,
     "topic": "Delegation",
     "example": "Helm",
     "tags": [
@@ -148,7 +52,7 @@
     "seoTitle": "AI daily briefs: evidence and priorities",
     "excerpt": "Standup reads public GitHub activity and returns a short, evidenced set of priorities. Its ordering rule shows what makes an AI brief useful enough to act on.",
     "shareLine": "A brief earns its place when you can act on it and check why.",
-    "order": 4,
+    "order": 2,
     "topic": "Priorities",
     "example": "Standup",
     "tags": [
@@ -191,60 +95,12 @@
     }
   },
   {
-    "slug": "connect-agents-to-existing-work",
-    "title": "WebMCP and MCP: connect agents to existing workflows",
-    "seoTitle": "WebMCP vs MCP for existing workflows",
-    "excerpt": "uk.gov Radar lets a browser agent work with the same shortlist its user sees. A concrete example of integrating AI into an existing workflow while keeping decisions visible.",
-    "shareLine": "The agent and the person should work from the same state.",
-    "order": 5,
-    "topic": "Integration",
-    "example": "uk.gov Radar",
-    "tags": [
-      "mcp",
-      "webmcp",
-      "permissions"
-    ],
-    "exampleStatus": "Recorded demonstration",
-    "ctaLabel": "Discuss an integration",
-    "steps": [
-      "Shared context",
-      "Visible proposal",
-      "Human decision",
-      "Shared result"
-    ],
-    "proof": {
-      "description": "Radar lets a person and their browser agent work from the same shortlist.",
-      "url": "https://youtu.be/z4B0gtwbjB4",
-      "label": "Watch the Radar demonstration"
-    },
-    "media": {
-      "kind": "youtube",
-      "id": "z4B0gtwbjB4",
-      "caption": "uk.gov Radar: recorded interaction in a compatible browser environment."
-    },
-    "publishedAt": "2026-09-23T00:00:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
-    "image": {
-      "src": "/articles/mesh/connect-agents-to-existing-work.svg",
-      "alt": "Connected wireframe gate, conversation, checklist forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "headerImage": {
-      "src": "/articles/mesh/connect-agents-to-existing-work.svg",
-      "alt": "Connected wireframe gate, conversation, checklist forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    }
-  },
-  {
     "slug": "lakebase-vs-document-databases",
     "title": "Lakebase vs MongoDB and Cosmos DB: which approach fits?",
     "seoTitle": "Lakebase vs MongoDB and Cosmos DB: key differences",
     "excerpt": "Compare Lakebase’s Postgres approach with MongoDB and Cosmos DB document models: relationships, transactions, use cases and when Databricks integration matters.",
     "shareLine": "Choose around relationships and write boundaries; JSON alone does not choose your database.",
-    "order": 6,
+    "order": 3,
     "topic": "AI engineering",
     "example": "Databases and agent state",
     "tags": [
@@ -315,7 +171,7 @@
     "seoTitle": "LangChain vs Databricks AppKit: streaming and SSE",
     "excerpt": "LangChain supplies agent updates; Databricks AppKit adds an integrated app server and agent host. Compare streaming, SSE, approval and recovery responsibilities.",
     "shareLine": "A useful stream tells the user what changed and what happens next.",
-    "order": 7,
+    "order": 4,
     "topic": "AI engineering",
     "example": "Streaming and event contracts",
     "tags": [
@@ -382,7 +238,7 @@
     "seoTitle": "Voice-first operations: a first officer that reports to you",
     "excerpt": "A chief of staff walks in and says: three things need you today. We built that for a one-founder fleet. You talk, it answers in under a second, an agent acts, and it reports back.",
     "shareLine": "Dashboards wait to be read. A first officer reports.",
-    "order": 8,
+    "order": 5,
     "topic": "Conversation",
     "example": "Hyperdrift First Officer",
     "tags": [
@@ -429,7 +285,7 @@
     "seoTitle": "The future of UI: is the interface holding users back?",
     "excerpt": "New interfaces can remove work or move it into checking and correction. A historical argument for judging the whole task.",
     "shareLine": "Count the effort it takes to finish.",
-    "order": 9,
+    "order": 6,
     "topic": "History and human capability",
     "example": "UI and accessibility",
     "tags": [
@@ -486,7 +342,7 @@
     "seoTitle": "Web accessibility in 2026: barriers, voice and independent completion",
     "excerpt": "An accessible button is useful. An accessible way to finish is the point. What the current evidence tells us about agents and access.",
     "shareLine": "Access has to last until the task is done.",
-    "order": 10,
+    "order": 7,
     "topic": "Accessibility today",
     "example": "UI and accessibility",
     "tags": [
@@ -542,7 +398,7 @@
     "seoTitle": "WebMCP vs MCP, APIs and CLI: actions on the page",
     "excerpt": "WebMCP lets a page expose actions to a browser agent. Radar shows how that can keep the person and agent working in the same place.",
     "shareLine": "The page can explain what it does before an agent starts guessing.",
-    "order": 11,
+    "order": 8,
     "topic": "WebMCP and shared state",
     "example": "UI and accessibility",
     "tags": [
@@ -596,11 +452,11 @@
   {
     "slug": "hands-free-app-control",
     "title": "A spoken promise is not a completed action",
-    "seoTitle": "Hands-free app control: what Commander and First Officer demonstrate",
+    "seoTitle": "Hands-free app control: what Traction and First Officer demonstrate",
     "excerpt": "A Cargo recovery request becomes an action, a checked result and a spoken report. What this bounded demonstration can teach app designers.",
     "shareLine": "A spoken promise is not a completed action.",
-    "order": 12,
-    "topic": "Commander / First Officer",
+    "order": 9,
+    "topic": "Traction / First Officer",
     "example": "UI and accessibility",
     "tags": [
       "voice",
@@ -714,7 +570,7 @@
     "seoTitle": "Voice through MCP: directing work across apps",
     "excerpt": "Dictating to an assistant can become a way to direct connected tools. Our proposed experiment starts with a scoped read and a draft.",
     "shareLine": "Your sentence can cross apps. Your permission should not grow on the way.",
-    "order": 13,
+    "order": 10,
     "topic": "Voice through MCP",
     "example": "UI and accessibility",
     "tags": [
@@ -767,7 +623,7 @@
     "seoTitle": "The future of UI and accessibility: keep the task, change the interface",
     "excerpt": "Speak, inspect, correct and continue. A future interface should preserve the task when the person changes how they interact.",
     "shareLine": "Changing how you work should not mean starting again.",
-    "order": 14,
+    "order": 11,
     "topic": "The future of UI",
     "example": "UI and accessibility",
     "tags": [

@@ -1,14 +1,4 @@
 {
-  "the-bridge": [
-    "eye",
-    "signpost",
-    "checklist"
-  ],
-  "expertise-agents-can-use": [
-    "book",
-    "library",
-    "decision"
-  ],
   "delegation-with-boundaries": [
     "flag",
     "shield",
@@ -18,11 +8,6 @@
     "magnifier",
     "signpost",
     "target"
-  ],
-  "connect-agents-to-existing-work": [
-    "gate",
-    "conversation",
-    "checklist"
   ],
   "lakebase-vs-document-databases": [
     "library",

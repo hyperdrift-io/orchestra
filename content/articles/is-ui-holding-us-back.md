@@ -36,7 +36,7 @@ An agent that has to find every button inherits some of the same navigation work
 
 The draft [WebMCP proposal](https://webmachinelearning.github.io/webmcp/) lets a web page declare structured tools for compatible browser agents. This gives the agent an explicit way to act on the page. Our [WebMCP explanation](/articles/webmcp-actions-on-the-page) explores that approach through uk.gov Radar.
 
-Voice is another way to give an instruction. Our Commander work includes [First Officer](/articles/hands-free-app-control), a voice prototype for fleet operations. Its public Cargo sandbox supports a spoken recovery request, a checked result and a cockpit that follows the conversation. The public write is limited to that demo service.
+Voice is another way to give an instruction. Our Traction work includes [First Officer](/articles/hands-free-app-control), a voice prototype for fleet operations. Its public Cargo sandbox supports a spoken recovery request, a checked result and a cockpit that follows the conversation. The public write is limited to that demo service.
 
 Next, we want to dictate requests to an assistant using [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture). It would call authorised tools across apps. First Officer currently uses its own voice integration; voice through MCP remains our next experiment.
 

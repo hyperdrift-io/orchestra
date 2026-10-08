@@ -7,20 +7,6 @@
     "status": "Export of approved site share card; refresh if copy or mark changes"
   },
   {
-    "file": "the-bridge.png",
-    "source": "https://ai.hyperdrift.io/articles/the-bridge/opengraph-image",
-    "bytes": 48583,
-    "sha256": "64d0ab871dff5613a58e7399df26bd32194b17d2f3357eb4eb78bf9a0bd25ba8",
-    "status": "Export of approved site share card; refresh if copy or mark changes"
-  },
-  {
-    "file": "expertise-agents-can-use.png",
-    "source": "https://ai.hyperdrift.io/articles/expertise-agents-can-use/opengraph-image",
-    "bytes": 50756,
-    "sha256": "4bbec7e1909e6e2e2900bbb81a4fe546e2356cc82d0655fa5c165cd76a82024b",
-    "status": "Export of approved site share card; refresh if copy or mark changes"
-  },
-  {
     "file": "delegation-with-boundaries.png",
     "source": "https://ai.hyperdrift.io/articles/delegation-with-boundaries/opengraph-image",
     "bytes": 54975,
@@ -32,13 +18,6 @@
     "source": "https://ai.hyperdrift.io/articles/evidence-that-starts-work/opengraph-image",
     "bytes": 46340,
     "sha256": "30237510b2a1727c14b948a89f5ceeb62506e1621b9642a91172917ac4c4887e",
-    "status": "Export of approved site share card; refresh if copy or mark changes"
-  },
-  {
-    "file": "connect-agents-to-existing-work.png",
-    "source": "https://ai.hyperdrift.io/articles/connect-agents-to-existing-work/opengraph-image",
-    "bytes": 45744,
-    "sha256": "7676f37e319a0ec387b922c4ca5d8ed607f1fa0b6d629e99ecb8926430e1f3a0",
     "status": "Export of approved site share card; refresh if copy or mark changes"
   }
 ]

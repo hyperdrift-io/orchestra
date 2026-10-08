@@ -18,18 +18,18 @@ const signal = () => new AbortController().signal;
 describe('mesh artwork GPU lifecycle', () => {
   it('rejects unavailable WebGL so the existing SVG stays visible', async () => {
     gpu.fail = true;
-    await expect(createMeshArtwork(canvas, 'article', 'the-bridge', '', signal())).rejects.toThrow('WebGL unavailable');
+    await expect(createMeshArtwork(canvas, 'article', 'the-first-officer', '', signal())).rejects.toThrow('WebGL unavailable');
     expect(gpu.instances).toHaveLength(0);
   });
   it('does not allocate a context for a cancelled mount or missing logo source', async () => {
     const controller = new AbortController(); controller.abort();
-    await expect(createMeshArtwork(canvas, 'article', 'the-bridge', '', controller.signal)).rejects.toThrow();
+    await expect(createMeshArtwork(canvas, 'article', 'the-first-officer', '', controller.signal)).rejects.toThrow();
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false }));
     await expect(createMeshArtwork(canvas, 'logo', '', '/missing.svg', signal())).rejects.toThrow('Logo geometry unavailable');
     expect(gpu.instances).toHaveLength(0);
   });
   it('animates geometry without clearing the canvas by resizing it on every frame', async () => {
-    const engine = await createMeshArtwork(canvas, 'article', 'the-bridge', '', signal());
+    const engine = await createMeshArtwork(canvas, 'article', 'the-first-officer', '', signal());
     const renderer = gpu.instances[0];
     engine.render(1040, 120, 0, 0);
     const [scene] = renderer.render.mock.calls[0];
@@ -45,7 +45,7 @@ describe('mesh artwork GPU lifecycle', () => {
     engine.dispose();
   });
   it('rotates the expertise globe continuously and applies both cursor axes independently', async () => {
-    const engine = await createMeshArtwork(canvas, 'article', 'the-bridge', '', signal(), 'stripe');
+    const engine = await createMeshArtwork(canvas, 'article', 'the-first-officer', '', signal(), 'stripe');
     const renderer = gpu.instances[0];
     engine.render(1040, 64, 0, 0, 0);
     const [scene] = renderer.render.mock.calls[0];
