@@ -6,6 +6,10 @@ Founder direction, 22 September 2026. Applies to every article created or revise
 
 Help a founder, CTO or engineering lead make one consequential decision, then invite a relevant conversation about their own workflow. Qualified enquiries are the business outcome. Views, reading completion, shares and CTA clicks diagnose the path; they are not ROI by themselves. Databricks is a concrete platform through which to teach portable AI engineering concepts, not a mandatory answer or an implied partnership.
 
+## Tell a story that people will remember
+
+Canonical rule: `meta/PHILOSOPHY.md` §8 (founder direction, 8 October 2026). A decision guide is still a story: a person with a choice, the tension that makes it hard, the turn, and what the right call makes possible. The reader should retell it a week later. A piece that reads like a product comparison table in prose, a template with a different noun, or a vendor explainer has no story and does not ship. `hd articles review` flags machine-sounding pieces weekly; each is rewritten in Orchestra's voice or retired. The weakest article on the site sets how the rest are judged.
+
 ## The publication contract
 
 Choose the visual format from the explanation. Use a sequence or state diagram for flows, a boundary map for architecture, and a data visualisation for measured comparisons. Founder correction, 22 September: do not use the `infographic` skill for these architecture/flow articles; it is appropriate to data visualisation. Design purpose-built visuals directly in the portal’s identity. Essential labels must remain readable on a phone; recompose or simplify a dense graphic instead of shrinking the desktop export. Use actual current CSS tokens rather than inheriting the legacy HD blog palette.
