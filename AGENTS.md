@@ -92,7 +92,7 @@ Current coverage and primary sources: [Contest attribution](docs/decisions/2026-
 
 ## The front door — On the shoulder (14 September 2026)
 
-History. Constellation A replaced this front door. Its components (`Hero`, `Places`, `CurrentContent`, `Programme` and the folded movements) had no importer and were removed on 8 October 2026; recover them from git history if a design brings them back.
+History. Constellation A replaced this front door. Its components (`Hero`, `Places`, `CurrentContent`, `Programme` and the folded movements) had no importer and were removed on 8 October 2026; recover them from git history if a design brings them back. The four-places art and the CSS for the places and folded movements went with them. `src/data/situations.ts` now holds only `enquiryChoices`, so `/?situation=<slug>#contact` still preselects "Where you are" in `EnquiryForm`.
 
 Versions, tags and what production serves: `docs/RELEASES.md`. Tag every reviewable state and add its row there.
 
