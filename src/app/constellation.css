@@ -269,6 +269,9 @@ figure[data-read-excerpt] dd { margin: 0; font: 1.3rem/1.45 var(--font-display);
 #launch li span { font: .72rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); padding-top: .25rem; }
 #launch li[aria-current] { color: var(--cream); }
 #launch li[aria-current] span { color: var(--gold-light); }
+#launch li small { grid-column: 2; font: .72rem var(--font-mono); letter-spacing: .06em; color: var(--cream-3); }
+#launch li[data-passed] span { color: var(--cream-2); }
+#launch li[data-passed] span::after { content: ' ✓'; }
 #launch ol + p { margin-top: 1.2rem; font-size: var(--fs-meta); color: var(--cream-3); }
 #launch > div > div > a { display: inline-flex; margin-top: 1.8rem; padding: .9rem 1.2rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
 #launch > div > div > a:hover { background: var(--gold-light); color: var(--ink); }

@@ -1,10 +1,12 @@
 import { EnquiryForm } from '@/components/EnquiryForm';
 import { OfferSteps, ReadExcerpt, BoardFilm, BoardValue } from '@/components/TractionOffer';
-import { count, launched } from '@/data/traction';
+import { launched } from '@/data/traction';
+import { tractionBoard } from '@/lib/board';
 import { launchLogHref } from '@/components/LaunchLog';
 
 /** Traction, the service: what it is and what you get, how it starts, then a first read. The launch lives in its log. */
-export function Traction() {
+export async function Traction() {
+  const { count } = await tractionBoard();
   return <>
     <section id="traction" aria-labelledby="traction-title">
       <header>

@@ -1,9 +1,11 @@
-import { count, gates, launched, record, updated } from '@/data/traction';
+import { launched, updated } from '@/data/traction';
+import { stamp, tractionBoard } from '@/lib/board';
 
 export const launchLogHref = '/articles/traction-from-zero';
 
 /** The launch log: Traction launching itself in public, with the trailer, the count, the gates and the record. */
-export function LaunchLog() {
+export async function LaunchLog() {
+  const { count, gates, record, live, readAt } = await tractionBoard();
   return <section id="launch" aria-labelledby="launch-title">
     <header>
       <p>Traction · launched {launched}</p>
@@ -22,12 +24,12 @@ export function LaunchLog() {
     <div>
       <div>
         <h2><span className="numeral">{count.founders}/{count.of}</span> founders on the board</h2>
-        <ol>{gates.map((gate) => <li key={gate.label} aria-current={gate.current ? 'step' : undefined}><span>{gate.label}</span>{gate.text}</li>)}</ol>
+        <ol>{gates.map((gate) => <li key={gate.label} aria-current={gate.current ? 'step' : undefined} data-passed={gate.passed || undefined}><span>{gate.label}</span>{gate.text}{gate.progress && <small>{gate.progress}</small>}</li>)}</ol>
         <p>Each gate opens on evidence, never on a date.</p>
         <a href="/traction#contact">Be one of the three founders →</a>
       </div>
       <table>
-        <caption>Every day goes on the record. Misses too.<small>Updated {updated} · copied by hand from Traction’s own board</small></caption>
+        <caption>Every day goes on the record. Misses too.<small>{live && readAt ? <>Read from Traction’s own board · {stamp(readAt)}</> : <>Updated {updated} · copied by hand from Traction’s own board</>}</small></caption>
         <tbody>{record.map((row) => <tr key={`${row.date}-${row.entry}`}><td>{row.date}</td><td>{row.entry}</td><td data-status={row.status}>{row.status}</td></tr>)}</tbody>
       </table>
     </div>

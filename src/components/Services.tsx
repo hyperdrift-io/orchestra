@@ -1,8 +1,10 @@
 import { services } from '@/data/traction-offer';
-import { count, launched } from '@/data/traction';
+import { launched } from '@/data/traction';
+import { tractionBoard } from '@/lib/board';
 
 /** What Orchestra offers, Traction first with its launch running in public. */
-export function Services() {
+export async function Services() {
+  const { count } = await tractionBoard();
   return <section id="services" aria-labelledby="services-title">
     <header><p>What we offer</p><h2 id="services-title">Three ways to work with us.</h2></header>
     <ul>{services.map((service) => <li key={service.slug} data-service={service.slug}>
