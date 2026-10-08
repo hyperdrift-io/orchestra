@@ -25,9 +25,11 @@ export default function ArticlesPage() {
       {isArticlePreview() && <small>Editorial preview · not yet published</small>}
       <h1 id="articles-title">The AI-native<br /><em>organisation.</em></h1>
       <p>See what happens when agents become part of the work. Accounts of the systems we built, the decisions we kept, and what your business could do with the same ideas.</p>
-      <a href="/#contact">Discuss your workflow →</a>
-      {articles.some((article) => article.series === 'ui-accessibility') && <p><a href="/articles/ui-accessibility">Explore the future of UI and accessibility →</a></p>}
-      <p><a href="/articles/traction-from-zero">Follow Traction launching itself, from zero, in public →</a></p>
+      <nav aria-label="Also on this site">
+        {articles.some((article) => article.series === 'ui-accessibility') && <a href="/articles/ui-accessibility">The future of UI and accessibility →</a>}
+        <a href="/articles/traction-from-zero">Traction launching itself, in public →</a>
+        <a href="/#contact">Discuss your workflow →</a>
+      </nav>
     </header>
     <ArticleFinder entries={articleSearchEntries()} tags={tagsIn(articles)}>
       <article>

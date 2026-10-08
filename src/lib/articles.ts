@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { cache } from 'react';
 import { articleUrl, visibleArticles, type ArticleSummary } from './article-catalogue';
-import { normalise, type SearchEntry } from './article-search';
+import { plainText, type SearchEntry } from './article-search';
 import { tagsOf } from './article-tags';
 import { articleShareImage } from './share-metadata';
 import { interfaceFigure } from './ui-accessibility-figures';
@@ -33,13 +33,11 @@ export const getArticle = cache((slug: string) => {
   return { ...summary, blocks, minutes: Math.max(1, Math.ceil(source.split(/\s+/).length / 220)) };
 });
 
-/** The finder's index: catalogue text, tag labels and section headings, normalised once here so the browser only filters. */
+/** The finder's index: every visible article as plain prose, read at build time, so a new article is searchable on the next deploy with no extra step. */
 export const articleSearchEntries = cache((): SearchEntry[] => visibleArticles().map((article) => {
   const source = readFileSync(join(process.cwd(), 'content', 'articles', `${article.slug}.md`), 'utf8');
-  const headings = source.split('\n').filter((line) => line.startsWith('## ')).map((line) => line.slice(3));
-  const tags = tagsOf(article);
   const { slug, title, excerpt, topic, example, exampleStatus, order } = article;
-  return { slug, title, excerpt, topic, example, exampleStatus, order, tags, haystack: normalise([title, article.seoTitle ?? '', excerpt, article.shareLine, topic, example, ...tags.map((tag) => tag.label), ...headings].join(' ')) };
+  return { slug, title, excerpt, topic, example, exampleStatus, order, tags: tagsOf(article), text: plainText([article.seoTitle ?? '', article.shareLine, source].join('\n')) };
 }));
 
 export function collectionJsonLd(name: string, description: string, url: string, list: ArticleSummary[]) {

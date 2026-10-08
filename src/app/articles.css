@@ -13,13 +13,16 @@ body > header nav a[data-enquiry] { color: var(--gold-light); }
 :is(#article, #articles) figcaption { margin-top: .8rem; color: var(--cream-3); font-size: .8rem; line-height: 1.6; }
 :is(#article, #articles) figure { margin: 2rem 0; }
 :is(#article, #articles) :is(h2, section, aside) { scroll-margin-top: 2rem; }
-#articles { padding: 5rem var(--edge) 0; }
-#articles > header { max-width: 950px; padding-bottom: 3rem; }
+#articles { padding: 3rem var(--edge) 0; }
+#articles > header { max-width: 950px; padding-bottom: 2rem; }
 :is(#articles, #article, #article-series) header > p:first-child { font: .75rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
-#articles > header > small, #article > header > small { display: inline-block; margin-top: 1.5rem; border: 1px solid var(--gold-line); padding: .3rem .6rem; color: var(--gold-light); }
-#articles h1 { margin-top: 1.5rem; font-size: clamp(3.5rem, 7vw, 7rem); line-height: .96; }
-#articles > header > p:not(:first-child) { max-width: 54ch; margin-top: 2rem; font-size: 1.2rem; line-height: 1.7; }
-#articles > header > a { display: inline-block; margin-top: 2rem; color: var(--gold-light); }
+#articles > header > small, #article > header > small { display: inline-block; margin-top: .8rem; border: 1px solid var(--gold-line); padding: .3rem .6rem; color: var(--gold-light); }
+/* The finder is the way in, so the title stays short enough to leave it in the first screen. */
+#articles h1 { margin-top: .8rem; font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: 1; }
+#articles > header > p:not(:first-child) { max-width: 62ch; margin-top: 1rem; font-size: 1.05rem; line-height: 1.6; }
+#articles > header > a { display: inline-block; margin-top: 1.2rem; color: var(--gold-light); }
+#articles > header > nav { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; margin-top: 1.2rem; font-size: .9rem; }
+#articles > header > nav a { color: var(--gold-light); }
 #articles > article { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 3rem 0; border-block: 1px solid var(--gold-line); }
 #articles > article p:first-child { font: .75rem var(--font-mono); color: var(--gold); }
 #articles > article h2 { font-size: clamp(2.5rem, 4vw, 4rem); margin: 1rem 0; }
@@ -54,6 +57,7 @@ nav[aria-label="Topics"] a:hover { border-color: var(--gold-light); background: 
 nav[aria-label="Topics"] a[aria-current="true"] { background: var(--gold); border-color: var(--gold); color: var(--ink); }
 #articles > form nav[aria-label="Topics"] a { min-height: 44px; padding-inline: 1rem; font-size: .78rem; }
 #articles > ol nav[aria-label="Topics"] { margin-top: 1rem; }
+#articles > ol [data-snippet] { margin-top: .6rem; padding-left: .8rem; border-left: 2px solid var(--gold-line); color: var(--cream-3); font-size: .92rem; line-height: 1.55; }
 #article > header nav[aria-label="Topics"] { margin-top: 1rem; }
 #articles mark { background: var(--gold-soft); color: inherit; border-radius: 2px; box-shadow: 0 0 0 .12em var(--gold-soft); }
 @media (prefers-reduced-motion: no-preference) {
@@ -169,7 +173,7 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
 @media (max-width: 560px) {
   body:has(#articles, #article) > header nav { gap: .9rem 1.2rem; }
   body:has(#articles, #article) > header nav a:nth-child(3) { display: none; }
-  #articles { padding-top: 3rem; }
+  #articles { padding-top: 2rem; }
   #article > header { padding-block: 1rem; }
   #article > header nav { flex-wrap: wrap; }
   #articles > ol > li { grid-template-columns: 2rem minmax(0,1fr); gap: 1rem; padding-block: 2rem; }

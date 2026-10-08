@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from 'react';
 import { ArticleTags } from '@/components/ArticleTags';
 import { trackEvent } from '@/lib/analytics';
-import { highlight, searchArticles, tokens, type SearchEntry } from '@/lib/article-search';
+import { highlight, indexEntries, searchArticles, snippet, tokens, type SearchEntry } from '@/lib/article-search';
 import type { ArticleTag } from '@/lib/article-tags';
 
 type Props = { entries: SearchEntry[]; tags: (ArticleTag & { count: number })[]; initialTag?: string | null; children?: ReactNode };
@@ -19,7 +19,8 @@ export function ArticleFinder({ entries, tags, initialTag = null, children }: Pr
   const input = useRef<HTMLInputElement>(null);
   const words = tokens(query);
   const active = Boolean(words.length || tag);
-  const results = useMemo(() => searchArticles(entries, query, tag), [entries, query, tag]);
+  const indexed = useMemo(() => indexEntries(entries), [entries]);
+  const results = useMemo(() => searchArticles(indexed, query, tag), [indexed, query, tag]);
   const current = tags.find((item) => item.slug === tag) ?? null;
   const listed = active ? results : children ? entries.slice(1) : entries;
 
@@ -64,6 +65,8 @@ export function ArticleFinder({ entries, tags, initialTag = null, children }: Pr
   }
 
   const mark = (text: string) => highlight(text, words).map((run, index) => (run.hit ? <mark key={index}>{run.text}</mark> : run.text));
+  // A match the title and excerpt do not show gets the sentence that carries it.
+  const reason = (entry: SearchEntry) => (words.length && !highlight(`${entry.title} ${entry.excerpt}`, words).some((run) => run.hit) ? snippet(entry.text, words) : null);
 
   return <>
     <form role="search" action="/articles" method="get" onSubmit={(event) => event.preventDefault()} onClick={onTagClick}>
@@ -79,7 +82,7 @@ export function ArticleFinder({ entries, tags, initialTag = null, children }: Pr
     </form>
     {!active && children}
     <ol start={active || !children ? 1 : 2} onClick={onTagClick}>{listed.map((entry) => <li key={entry.slug}>
-      <span>{String(entry.order).padStart(2, '0')}</span><div><p>{entry.topic} / {entry.example}</p><h2><a href={`/articles/${entry.slug}`}>{mark(entry.title)}</a></h2><p>{mark(entry.excerpt)}</p><ArticleTags tags={entry.tags} current={tag} /><small>{entry.exampleStatus}</small></div><a href={`/articles/${entry.slug}`} aria-label={`Read ${entry.title}`}>Read →</a>
+      <span>{String(entry.order).padStart(2, '0')}</span><div><p>{entry.topic} / {entry.example}</p><h2><a href={`/articles/${entry.slug}`}>{mark(entry.title)}</a></h2><p>{mark(entry.excerpt)}</p>{reason(entry) && <p data-snippet="">{mark(reason(entry)!)}</p>}<ArticleTags tags={entry.tags} current={tag} /><small>{entry.exampleStatus}</small></div><a href={`/articles/${entry.slug}`} aria-label={`Read ${entry.title}`}>Read →</a>
     </li>)}</ol>
   </>;
 }
