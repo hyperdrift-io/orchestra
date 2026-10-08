@@ -33,7 +33,7 @@ See [`.env.example`](./.env.example). The contact form uses the existing Hyperdr
 
 Hyperdrift self-hosts on a Hostinger VPS. There is no Vercel / Netlify / managed Next.js host in the stack.
 
-- **Process manager**: PM2 (`ecosystem.config.cjs` in this repo mirrors the central `nginx-prod/ecosystem.config.js` entry on the server).
+- **Process manager**: PM2. Infra generates the process entry from `infra/group_vars/apps.yml` (`npm start`, port `3008`); this repo carries no ecosystem file, so nothing here can override it.
 - **Reverse proxy + TLS**: nginx on the VPS, terminating `ai.hyperdrift.io`.
 - **CI**: GitHub Actions (`.github/workflows/deploy.yml`) runs the test gate (`npm run test:ci`) and the production build on every push to `main`. It verifies only; deploy the approved revision separately through infra after CI passes.
 - **Server-side deploy**: managed by the `hyperdrift-infra` repo (ansible). The app entry lives in `infra/group_vars/apps.yml` under `deploy_apps[name=orchestra]` with port `3008`.
