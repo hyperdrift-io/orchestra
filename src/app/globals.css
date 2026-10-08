@@ -408,38 +408,6 @@ main > section > figure { margin: 0; }
 main > section picture img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
 :is(#proof, #contact) > figure { aspect-ratio: 16 / 9; }
 
-/* — First screen: statement in a left column, clear of the giant (screencraft/first-screen) */
-section[aria-labelledby='hero-title'] {
-  display: grid;
-  block-size: max(34rem, min(100svh, var(--band)));
-  overflow: hidden;
-}
-section[aria-labelledby='hero-title'] > * { grid-area: 1 / 1; }
-section[aria-labelledby='hero-title'] picture img { object-position: 50% 30%; }
-section[aria-labelledby='hero-title'] > div {
-  position: relative;
-  display: grid;
-  align-content: center;
-  justify-items: start;
-  gap: var(--sp-s);
-  padding-inline: var(--edge);
-  padding-block: var(--sp-xl) var(--sp-l);
-  background: linear-gradient(90deg, rgb(14 12 9 / 0.5), rgb(14 12 9 / 0.12) 42%, transparent 60%);
-}
-section[aria-labelledby='hero-title'] h1 {
-  max-inline-size: 13ch;
-  font-size: var(--fs-statement);
-  text-shadow: var(--shadow-text);
-}
-section[aria-labelledby='hero-title'] h1 + p {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: var(--fs-lead);
-  color: var(--cream);
-  text-shadow: var(--shadow-text);
-}
-section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-xs); }
-
 /* — The proof: the footprints are the work (screencraft/proof) */
 #proof { background: var(--ink); counter-reset: work; }
 #proof > h2 { margin-inline: var(--edge); padding-block-start: var(--sp-xl); max-inline-size: 24ch; font-size: var(--fs-h2); }
@@ -462,23 +430,13 @@ section[aria-labelledby='hero-title'] h1 + p + p { margin-block-start: var(--sp-
 #proof li iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; margin-top: 1rem; }
 
 /* Credit and stage lines inside the new cards: readable sans, sentence case */
-:is(#now article, #partnership) .meta, #proof li > p:nth-of-type(2), #proof li > p:nth-of-type(3) {
+#proof li > p:nth-of-type(2), #proof li > p:nth-of-type(3) {
   font-family: var(--font-body);
   font-size: var(--fs-meta);
   letter-spacing: 0.01em;
   text-transform: none;
   color: var(--cream-3);
 }
-
-/* — Now playing: dated from the public feeds, honest fallback links */
-#now { padding-block: var(--sp-l); padding-inline: var(--edge); background: var(--ink-2); border-block: 1px solid var(--line-hair); }
-#now > h2 { font-size: var(--fs-h3); margin-block-end: var(--sp-m); }
-#now > div { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--sp-l); }
-#now article + article { padding-inline-start: var(--sp-m); border-inline-start: 1px solid var(--line-hair); }
-#now h3 { margin-block-start: var(--sp-xs); max-inline-size: 24ch; }
-#now time { display: block; margin-block-start: var(--sp-xs); font-family: var(--font-mono); font-size: var(--fs-mark); letter-spacing: 0.08em; color: var(--cream-3); }
-#now article > p:last-child { margin-block-start: var(--sp-s); }
-#now article > p:last-child a { color: var(--gold-light); border-block-end-color: var(--gold-line); }
 
 /* — The enquiry: you say where, we go (screencraft/enquiry) */
 #contact { background: var(--ink); }
@@ -514,23 +472,9 @@ main > footer .meta + p, main > footer .meta + ul { margin-block-start: var(--sp
 main > footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--sp-2xs); }
 main > footer > p { margin-block-start: var(--sp-l); }
 
-/* — Narrow screens: portrait first screen; labels, statements and markers leave the art for readable rows */
-@media (max-width: 900px) {
-  #now article + article { padding: var(--sp-m) 0 0; border-inline-start: 0; border-block-start: 1px solid var(--line-hair); }
-}
+/* — Narrow screens: labels, statements and markers leave the art for readable rows */
 @media (max-width: 760px) {
   body > header nav a:nth-child(-n + 2) { display: none; }
-
-  section[aria-labelledby='hero-title'] { block-size: max(40rem, 100svh); }
-  section[aria-labelledby='hero-title'] picture img { object-position: 50% 45%; }
-  section[aria-labelledby='hero-title'] > div {
-    grid-template-rows: 1fr auto auto;
-    justify-items: center;
-    text-align: center;
-    padding-block: 6.5rem 2rem;
-    background: linear-gradient(180deg, rgb(14 12 9 / 0.35), transparent 32%, transparent 68%, rgb(14 12 9 / 0.5));
-  }
-  section[aria-labelledby='hero-title'] h1 { align-self: start; max-inline-size: 17ch; font-size: clamp(1.9rem, 1.2rem + 3.4vw, 2.5rem); }
 
   #proof > h2 { position: static; max-inline-size: none; padding-block-start: var(--sp-m); }
 
