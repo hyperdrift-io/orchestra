@@ -65,7 +65,7 @@ describe('mesh artwork GPU lifecycle', () => {
     engine.dispose();
   });
   it('preserves proportions on a phone, caps pixel density and disposes GPU resources', async () => {
-    const engine = await createMeshArtwork(canvas, 'article', 'conversation-with-a-shared-view', '', signal());
+    const engine = await createMeshArtwork(canvas, 'article', 'the-first-officer', '', signal());
     const renderer = gpu.instances[0];
     engine.render(342, 80);
     const [scene, camera] = renderer.render.mock.calls[0];

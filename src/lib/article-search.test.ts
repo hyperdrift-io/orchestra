@@ -9,7 +9,7 @@ const entry = (slug: string, title: string, tags: string[] = [], text = ''): Sea
 const catalogue = indexEntries([
   entry('a', 'AI agent permissions: how much authority should you delegate?', ['agents', 'permissions'], 'Completion needs a read-back.'),
   entry('b', 'Lakebase vs MongoDB and Cosmos DB: which approach fits?', ['databricks'], 'How do their transactions differ?'),
-  entry('c', 'Your dashboard should report to you', ['voice'], 'First Officer is built with AssemblyAI.\nIt listens, then reads the agenda back.'),
+  entry('c', 'The dashboard that speaks first', ['voice'], 'First Officer is built with AssemblyAI.\nIt listens, then reads the agenda back.'),
 ]);
 const slugs = (list: SearchEntry[]) => list.map((item) => item.slug);
 

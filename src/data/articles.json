@@ -191,59 +191,12 @@
     }
   },
   {
-    "slug": "conversation-with-a-shared-view",
-    "title": "Conversational AI interfaces: keep the evidence in view",
-    "seoTitle": "Conversational AI interfaces with shared evidence",
-    "excerpt": "Our First Officer prototype explores a conversation that moves the Bridge to the subject being discussed. HyperVideoMesh shows a related principle: the agent's work should remain visible and editable.",
-    "shareLine": "A conversation becomes useful when both sides can point to the same thing.",
-    "order": 5,
-    "topic": "Conversation",
-    "example": "First Officer",
-    "tags": [
-      "voice",
-      "ui"
-    ],
-    "exampleStatus": "Prototype in development",
-    "ctaLabel": "Discuss a conversational workflow",
-    "steps": [
-      "Name the item",
-      "Show the evidence",
-      "Discuss the proposal",
-      "Record the decision"
-    ],
-    "proof": {
-      "description": "First Officer explores conversation over the Bridge. HyperVideoMesh provides a recorded example of inspectable agent edits.",
-      "url": "https://hyperdrift.io/videos/hyper-video-mesh-demo.mp4",
-      "label": "Watch the editing example"
-    },
-    "media": {
-      "kind": "video",
-      "src": "https://hyperdrift.io/videos/hyper-video-mesh-demo.mp4",
-      "caption": "HyperVideoMesh: a recorded creative-tool prototype. This is supporting evidence, not a First Officer recording."
-    },
-    "publishedAt": "2026-09-23T00:00:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
-    "image": {
-      "src": "/articles/mesh/conversation-with-a-shared-view.svg",
-      "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "headerImage": {
-      "src": "/articles/mesh/conversation-with-a-shared-view.svg",
-      "alt": "Connected wireframe conversation, eye, response forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    }
-  },
-  {
     "slug": "connect-agents-to-existing-work",
     "title": "WebMCP and MCP: connect agents to existing workflows",
     "seoTitle": "WebMCP vs MCP for existing workflows",
     "excerpt": "uk.gov Radar lets a browser agent work with the same shortlist its user sees. A concrete example of integrating AI into an existing workflow while keeping decisions visible.",
     "shareLine": "The agent and the person should work from the same state.",
-    "order": 6,
+    "order": 5,
     "topic": "Integration",
     "example": "uk.gov Radar",
     "tags": [
@@ -291,7 +244,7 @@
     "seoTitle": "Lakebase vs MongoDB and Cosmos DB: key differences",
     "excerpt": "Compare Lakebase’s Postgres approach with MongoDB and Cosmos DB document models: relationships, transactions, use cases and when Databricks integration matters.",
     "shareLine": "Choose around relationships and write boundaries; JSON alone does not choose your database.",
-    "order": 7,
+    "order": 6,
     "topic": "AI engineering",
     "example": "Databases and agent state",
     "tags": [
@@ -362,7 +315,7 @@
     "seoTitle": "LangChain vs Databricks AppKit: streaming and SSE",
     "excerpt": "LangChain supplies agent updates; Databricks AppKit adds an integrated app server and agent host. Compare streaming, SSE, approval and recovery responsibilities.",
     "shareLine": "A useful stream tells the user what changed and what happens next.",
-    "order": 8,
+    "order": 7,
     "topic": "AI engineering",
     "example": "Streaming and event contracts",
     "tags": [
@@ -425,10 +378,11 @@
   },
   {
     "slug": "the-first-officer",
-    "title": "Your dashboard should report to you",
+    "title": "The dashboard that speaks first",
+    "seoTitle": "Voice-first operations: a first officer that reports to you",
     "excerpt": "A chief of staff walks in and says: three things need you today. We built that for a one-founder fleet. You talk, it answers in under a second, an agent acts, and it reports back.",
     "shareLine": "Dashboards wait to be read. A first officer reports.",
-    "order": 9,
+    "order": 8,
     "topic": "Conversation",
     "example": "Hyperdrift First Officer",
     "tags": [
@@ -475,7 +429,7 @@
     "seoTitle": "The future of UI: is the interface holding users back?",
     "excerpt": "New interfaces can remove work or move it into checking and correction. A historical argument for judging the whole task.",
     "shareLine": "Count the effort it takes to finish.",
-    "order": 10,
+    "order": 9,
     "topic": "History and human capability",
     "example": "UI and accessibility",
     "tags": [
@@ -532,7 +486,7 @@
     "seoTitle": "Web accessibility in 2026: barriers, voice and independent completion",
     "excerpt": "An accessible button is useful. An accessible way to finish is the point. What the current evidence tells us about agents and access.",
     "shareLine": "Access has to last until the task is done.",
-    "order": 11,
+    "order": 10,
     "topic": "Accessibility today",
     "example": "UI and accessibility",
     "tags": [
@@ -588,7 +542,7 @@
     "seoTitle": "WebMCP vs MCP, APIs and CLI: actions on the page",
     "excerpt": "WebMCP lets a page expose actions to a browser agent. Radar shows how that can keep the person and agent working in the same place.",
     "shareLine": "The page can explain what it does before an agent starts guessing.",
-    "order": 12,
+    "order": 11,
     "topic": "WebMCP and shared state",
     "example": "UI and accessibility",
     "tags": [
@@ -645,7 +599,7 @@
     "seoTitle": "Hands-free app control: what Commander and First Officer demonstrate",
     "excerpt": "A Cargo recovery request becomes an action, a checked result and a spoken report. What this bounded demonstration can teach app designers.",
     "shareLine": "A spoken promise is not a completed action.",
-    "order": 13,
+    "order": 12,
     "topic": "Commander / First Officer",
     "example": "UI and accessibility",
     "tags": [
@@ -760,7 +714,7 @@
     "seoTitle": "Voice through MCP: directing work across apps",
     "excerpt": "Dictating to an assistant can become a way to direct connected tools. Our proposed experiment starts with a scoped read and a draft.",
     "shareLine": "Your sentence can cross apps. Your permission should not grow on the way.",
-    "order": 14,
+    "order": 13,
     "topic": "Voice through MCP",
     "example": "UI and accessibility",
     "tags": [
@@ -813,7 +767,7 @@
     "seoTitle": "The future of UI and accessibility: keep the task, change the interface",
     "excerpt": "Speak, inspect, correct and continue. A future interface should preserve the task when the person changes how they interact.",
     "shareLine": "Changing how you work should not mean starting again.",
-    "order": 15,
+    "order": 14,
     "topic": "The future of UI",
     "example": "UI and accessibility",
     "tags": [

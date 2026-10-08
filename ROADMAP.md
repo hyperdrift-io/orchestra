@@ -19,7 +19,7 @@ The current preview adds the anniversary to the hero actions, makes the Hyperdri
 
 - `apps/orchestra` Next.js landing app at `ai.hyperdrift.io`.
 - Editorial design system (Fraunces + IBM Plex Sans/Mono, deep ink, vermillion accent, movement-numeral section markers, score-card case studies, staff-line motif, animated equalizer).
-- Sections: Hero · Problem · Why Orchestra · How We Work · What We Build · Case Studies (hydra + hyper-video-mesh, framed as applied-AI proof) · Packages · FAQ · Contact · Footer.
+- Sections: Hero · Problem · Why Orchestra · How We Work · What We Build · Case Studies (hydra, framed as applied-AI proof) · Packages · FAQ · Contact · Footer.
 - Contact pipeline: zod schema → Resend route → PostHog event capture. 6/6 tests passing.
 - `hyperdrift.io` repositioned additively: hero updated with Orchestra AI CTA, featured Orchestra AI block, Selected Work section seeded by JoinEverything + curated master-cv anchors. **Live products kept primary.**
 - `meta/mani.yaml` registers `orchestra` under the `hyperdrift-io` federation.

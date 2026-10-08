@@ -14,11 +14,10 @@ The editable runtime sources are `content/articles/<slug>.md` and `src/data/arti
 | 2 | [Give your agents the knowledge your best work depends on](02-expertise-agents-can-use.md) | Our actual publishing skill and the anniversary article, film and evidence ledger | Discuss a specialist workflow |
 | 3 | [Give an agent enough authority to finish its job](03-delegation-with-boundaries.md) | Helm's recorded sandbox drill and source | Discuss an agent workflow |
 | 4 | [A useful brief tells you who needs you next](04-evidence-that-starts-work.md) | Standup's recorded output and read audit | Discuss your team's daily brief |
-| 5 | [Talk through the decision. Keep the evidence in view.](05-conversation-with-a-shared-view.md) | First Officer prototype; HyperVideoMesh recorded editing example | Discuss a conversational workflow |
 | 6 | [Give your agent access to the work already on screen](06-connect-agents-to-existing-work.md) | Radar's recorded shared-page interaction; Standup's interfaces | Discuss an integration |
 
 
-Each article stands alone. The Bridge opens the series; First Officer retains explicit prototype framing. The source and media distinctions are recorded in [PROOF-AND-MEDIA.md](PROOF-AND-MEDIA.md).
+Each article stands alone. The Bridge opens the series. The former fifth piece, a conversational-interface draft, was retired on 8 October 2026 as a duplicate of [The dashboard that speaks first](../../../content/articles/the-first-officer.md); its URL redirects there. The source and media distinctions are recorded in [PROOF-AND-MEDIA.md](PROOF-AND-MEDIA.md).
 
 ## What is implemented
 

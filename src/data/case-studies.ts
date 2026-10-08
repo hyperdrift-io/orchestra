@@ -169,14 +169,4 @@ export const caseStudies: CaseStudy[] = [
     linkLabel: 'Live',
     article: 'https://hyperdrift.io/blog/web-app-vs-cli-command-palette-pwa-productivity',
   },
-  {
-    slug: 'hyper-video-mesh',
-    name: 'Hyper Video Mesh',
-    outcome:
-      'Video understanding pipeline that turns long-form footage into queryable, agent-actionable segments.',
-    problem:
-      'Long-form video is opaque to product workflows — search and retrieval stop at titles and tags.',
-    capability: 'Semantic segmentation + retrieval-augmented agent flow over video.',
-    stack: ['OpenAI Whisper', 'Embeddings', 'Vector search', 'TypeScript'],
-  },
 ];

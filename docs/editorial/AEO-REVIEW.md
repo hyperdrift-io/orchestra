@@ -11,7 +11,6 @@ Reviewed 29 September 2026 following the founder’s direction: every article is
 | `delegation-with-boundaries` | How much authority should an AI agent have, and how is it enforced? | Scope the job, restrict tools, separate observation/action and verify completion. Helm source and recorded sandbox demonstration; no universal security guarantee. |
 | `evidence-that-starts-work` | What makes an AI daily brief useful for prioritising work? | Agree an ordering rule, retain supporting records and let people correct recommendations. Standup public source and recorded output; estimates are not measured completion times. |
 | `connect-agents-to-existing-work` | When should an existing app use WebMCP or a server-side MCP integration? | Shared browser work versus server tools; explicit operations, permissions and inspectable state. Radar and Standup public implementations; browser compatibility remains a limit. |
-| `conversation-with-a-shared-view` | How should a conversational AI interface keep actions and evidence understandable? | Bind instructions to visible objects and keep proposed changes correctable. First Officer prototype and HyperVideoMesh recording/source; distinguish proof of concept from production validation. |
 
 ## Follow-up coverage
 

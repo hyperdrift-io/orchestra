@@ -2,7 +2,7 @@
 
 Research checked against local source on 21 September 2026. This ledger is internal editorial support, not public copy. Workspace-relative paths below start at `/Users/yannvr/dev/hyperdrift` unless stated otherwise. Historical reports are labelled as such; they are not fresh runtime checks.
 
-Public-link checks on 21 September: the Bridge article and screenshot, Helm/Standup/HyperVideoMesh/Radar GitHub repositories, Standup homepage and Radar Explore all returned HTTP 200. These are reachability checks, not fresh functional runs or independent validation of the demonstrations. YouTube recordings were not replayed during this drafting pass.
+Public-link checks on 21 September: the Bridge article and screenshot, Helm/Standup/Radar GitHub repositories, Standup homepage and Radar Explore all returned HTTP 200. These are reachability checks, not fresh functional runs or independent validation of the demonstrations. YouTube recordings were not replayed during this drafting pass.
 
 ## 1. The Bridge
 
@@ -42,8 +42,6 @@ Public-link checks on 21 September: the Bridge article and screenshot, Helm/Stan
 - Source: `apps/poc/bridge-voice/docs/FIRST-OFFICER.md`, `docs/RESUME.md`, `public/voice.js`, `public/router.js`, `public/cockpit.js` and the demo API under that repo.
 - Important discrepancy: the resume brief claims root `scripts/commander/ask.py` and voice paths merged on 18 September; `scripts/commander/ask.py` is absent in the current root checkout. Therefore do not infer that production voice is available from the resume brief. Article frames only the local prototype and documented experience.
 - Readiness: the resume brief records typed/spoken development checks and still leaves founder microphone validation and public demonstration open. Do not publish a private repo link as a public demo. No new voice video was made for this series.
-- Supporting public example: `https://hyperdrift.io/blog/agent-system-video-editing-hyper-video-mesh`, `https://github.com/hyperdrift-io/hyper-video-mesh`, `https://hyperdrift.io/videos/hyper-video-mesh-demo.mp4`.
-- HVM claim limit: editor timeline, typed commands and preview. Avoid the old live sales-page description of long-form video retrieval; it describes a different capability from the inspected build account.
 - Shareable diagram brief: **question → named item → evidence in view → explicit decision → recorded result**. Label First Officer prototype. A frozen demo record must never look like a production action receipt.
 
 ## 6. Integration
