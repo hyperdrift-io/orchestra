@@ -92,6 +92,8 @@ Current coverage and primary sources: [Contest attribution](docs/decisions/2026-
 
 ## The front door — On the shoulder (14 September 2026)
 
+History. Constellation A replaced this front door. Its components (`Hero`, `Places`, `CurrentContent`, `Programme` and the folded movements) had no importer and were removed on 8 October 2026; recover them from git history if a design brings them back.
+
 Versions, tags and what production serves: `docs/RELEASES.md`. Tag every reviewable state and add its row there.
 
 The homepage implements the five screens the founder approved (`docs/design/2026-09-14-redesign/SELECTION.md`, round 6). Each has a ScreenCraft packet in `docs/design/2026-09-14-redesign/screencraft/`; the packet's map, not taste, decides where text sits over the art.
