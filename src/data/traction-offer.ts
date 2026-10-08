@@ -37,7 +37,7 @@ export interface Finding { label: string; headline: string; detail: string; evid
  * Public surface only, exactly what an outside founder's read starts from.
  */
 export const sampleRead = {
-  app: 'ai.hyperdrift.io',
+  app: 'orchestra.hyperdrift.io',
   readOn: '6 October 2026',
   readFrom: 'Public pages only, as a new visitor meets them',
   findings: [

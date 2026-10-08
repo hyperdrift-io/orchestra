@@ -43,7 +43,7 @@ export const articleSearchEntries = cache((): SearchEntry[] => visibleArticles()
 export function collectionJsonLd(name: string, description: string, url: string, list: ArticleSummary[]) {
   return JSON.stringify({
     '@context': 'https://schema.org', '@type': 'CollectionPage', name, description, url,
-    isPartOf: { '@type': 'WebSite', name: 'Orchestra AI by Hyperdrift', url: 'https://ai.hyperdrift.io' },
+    isPartOf: { '@type': 'WebSite', name: 'Orchestra AI by Hyperdrift', url: 'https://orchestra.hyperdrift.io' },
     mainEntity: { '@type': 'ItemList', itemListElement: list.map((article, index) => ({ '@type': 'ListItem', position: index + 1, name: article.title, url: articleUrl(article.slug) })) },
   }).replace(/</g, '\\u003c');
 }
@@ -59,23 +59,23 @@ export function articleSections(article: NonNullable<ReturnType<typeof getArticl
 }
 
 export function articleJsonLd(article: NonNullable<ReturnType<typeof getArticle>>) {
-  const url = `https://ai.hyperdrift.io/articles/${article.slug}`;
+  const url = `https://orchestra.hyperdrift.io/articles/${article.slug}`;
   return JSON.stringify({
     '@context': 'https://schema.org', '@graph': [
       {
         '@type': 'Article', headline: article.title,
         description: article.excerpt, author: { '@type': 'Person', name: 'Yann VR', url: 'https://hyperdrift.io' },
-        publisher: { '@type': 'Organization', name: 'Orchestra AI by Hyperdrift', url: 'https://ai.hyperdrift.io' },
+        publisher: { '@type': 'Organization', name: 'Orchestra AI by Hyperdrift', url: 'https://orchestra.hyperdrift.io' },
         mainEntityOfPage: url,
         keywords: tagsOf(article).map((tag) => tag.label).join(', '),
         image: articleShareImage(article).url,
         ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
         ...(article.updatedAt ? { dateModified: article.updatedAt } : {}),
-        isPartOf: { '@type': 'CreativeWorkSeries', name: article.series ? 'The future of UI and accessibility' : 'The AI-native organisation', ...(article.series ? { url: 'https://ai.hyperdrift.io/articles/ui-accessibility' } : {}) },
+        isPartOf: { '@type': 'CreativeWorkSeries', name: article.series ? 'The future of UI and accessibility' : 'The AI-native organisation', ...(article.series ? { url: 'https://orchestra.hyperdrift.io/articles/ui-accessibility' } : {}) },
       },
       {
         '@type': 'BreadcrumbList', itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Articles', item: 'https://ai.hyperdrift.io/articles' },
+          { '@type': 'ListItem', position: 1, name: 'Articles', item: 'https://orchestra.hyperdrift.io/articles' },
           { '@type': 'ListItem', position: 2, name: article.title, item: url },
         ],
       },

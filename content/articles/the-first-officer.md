@@ -38,4 +38,4 @@ Send this to whoever builds your Monday report by hand. Then [talk to the office
 
 **Which decision would you rather say than click?**
 
-[Discuss your operating workflow →](https://ai.hyperdrift.io/?article=the-first-officer#contact)
+[Discuss your operating workflow →](https://orchestra.hyperdrift.io/?article=the-first-officer#contact)

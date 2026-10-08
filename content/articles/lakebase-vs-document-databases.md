@@ -38,4 +38,4 @@ This is a fit recommendation, not proof that documents are faster. If the organi
 
 **Choose Lakebase specifically** when Postgres fits and Databricks integration removes meaningful work. Otherwise, include ordinary managed Postgres in the service comparison. Regional availability, authentication, recovery and connection behaviour still need checking; no universal cost or performance winner follows from the data model.
 
-Bring the question back to the application: which facts must stay consistent together, and what does it usually retrieve? Send this comparison to the engineer choosing the data store. Bring your current stack and one operation to [discuss your agent data model](https://ai.hyperdrift.io/?article=lakebase-vs-document-databases#contact).
+Bring the question back to the application: which facts must stay consistent together, and what does it usually retrieve? Send this comparison to the engineer choosing the data store. Bring your current stack and one operation to [discuss your agent data model](https://orchestra.hyperdrift.io/?article=lakebase-vs-document-databases#contact).

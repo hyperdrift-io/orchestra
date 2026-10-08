@@ -24,4 +24,4 @@ export function tagsIn(list: ArticleSummary[]) {
 export const INDEXABLE_FROM = 3;
 export const indexableTags = (list = publishedArticles()) => tagsIn(list).filter((tag) => tag.count >= INDEXABLE_FROM);
 export const isTagIndexable = (slug: string, list = publishedArticles()) => indexableTags(list).some((tag) => tag.slug === slug);
-export const tagUrl = (slug: string) => `https://ai.hyperdrift.io/articles/tag/${slug}`;
+export const tagUrl = (slug: string) => `https://orchestra.hyperdrift.io/articles/tag/${slug}`;

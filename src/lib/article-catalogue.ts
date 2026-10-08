@@ -29,7 +29,7 @@ export interface ArticleSummary {
 
 export const articles = catalogue as ArticleSummary[];
 export const articleBySlug = (slug: string | null | undefined) => articles.find((article) => article.slug === slug);
-export const articleUrl = (slug: string) => `https://ai.hyperdrift.io/articles/${slug}`;
+export const articleUrl = (slug: string) => `https://orchestra.hyperdrift.io/articles/${slug}`;
 
 export function isArticlePreview() {
   return process.env.NODE_ENV === 'development' || process.env.ARTICLE_PREVIEW === 'true';

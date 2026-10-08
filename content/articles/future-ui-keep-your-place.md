@@ -46,4 +46,4 @@ If the new route adds more supervision than it removes, change the design. If it
 
 That is a future worth pursuing. A person's ability to do the work should count for more than their ability to operate every app involved.
 
-[Discuss where your users lose their place.](https://ai.hyperdrift.io/?article=future-ui-keep-your-place#contact)
+[Discuss where your users lose their place.](https://orchestra.hyperdrift.io/?article=future-ui-keep-your-place#contact)

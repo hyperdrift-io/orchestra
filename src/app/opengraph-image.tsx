@@ -23,7 +23,7 @@ export default async function Image() {
       <img src={logo} width={290} height={290} alt="" style={{ position: 'absolute', right: 64, top: 145 }} />
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 'auto', paddingTop: 24, borderTop: '1px solid #5e4a2c', fontSize: 20, color: '#c8beae' }}>
         <span>AI engineering for founders with momentum.</span>
-        <span style={{ color: '#e6b46c' }}>ai.hyperdrift.io</span>
+        <span style={{ color: '#e6b46c' }}>orchestra.hyperdrift.io</span>
       </div>
     </div>, { ...size, fonts },
   );

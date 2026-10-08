@@ -13,7 +13,7 @@ function Inline({ text, sourceNotes = false }: { text: string; sourceNotes?: boo
   return parts.map((part, index) => {
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (link) {
-      const href = link[2].startsWith('https://ai.hyperdrift.io/?article=') ? '#enquire' : link[2];
+      const href = link[2].startsWith('https://orchestra.hyperdrift.io/?article=') ? '#enquire' : link[2];
       if (!/^(https:\/\/|\/(?!\/)|#)/.test(href)) return <Fragment key={index}>{link[1]}</Fragment>;
       const note = sourceNotes && articleSourceNote(href);
       if (note) return <ArticleSourceLink key={index} href={href} label={link[1]} note={note} />;

@@ -44,4 +44,4 @@ The ambition is to make ordinary language a practical way to direct work. The st
 
 The final article considers [what should survive when the interface changes](/articles/future-ui-keep-your-place).
 
-[Discuss a task that crosses your apps.](https://ai.hyperdrift.io/?article=voice-through-mcp#contact)
+[Discuss a task that crosses your apps.](https://orchestra.hyperdrift.io/?article=voice-through-mcp#contact)

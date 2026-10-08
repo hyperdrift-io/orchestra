@@ -14,7 +14,7 @@ export async function trackEnquiry(event: 'enquiry_submitted' | 'enquiry_failed'
     });
     await client.captureImmediate({
       distinctId: input.session || id, event,
-      properties: { ...input.campaign, app: 'orchestra', env: 'production', hostname: 'ai.hyperdrift.io', article: input.article, situation: enquiryChoices.find((choice) => choice.label === input.situation)?.value, enquiry_id: id, stage, $process_person_profile: false },
+      properties: { ...input.campaign, app: 'orchestra', env: 'production', hostname: 'orchestra.hyperdrift.io', article: input.article, situation: enquiryChoices.find((choice) => choice.label === input.situation)?.value, enquiry_id: id, stage, $process_person_profile: false },
     });
   } catch { console.warn('Enquiry analytics unavailable', id); }
 }

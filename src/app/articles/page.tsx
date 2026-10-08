@@ -11,7 +11,7 @@ import { tagsIn } from '@/lib/article-tags';
 const description = 'Practical AI engineering guides from Hyperdrift: agent skills, permissions, connected workflows, Lakebase, document databases and streaming interfaces.';
 
 export function generateMetadata(): Metadata {
-  return { title: 'AI engineering articles and practical guides', description, alternates: { canonical: '/articles' }, openGraph: { ...websiteOpenGraph, title: 'The AI-native organisation', description: 'Working examples of the Bridge, skills, agent authority and integrations built by Hyperdrift.', url: 'https://ai.hyperdrift.io/articles' }, robots: isArticlePreview() ? { index: false, follow: false } : undefined };
+  return { title: 'AI engineering articles and practical guides', description, alternates: { canonical: '/articles' }, openGraph: { ...websiteOpenGraph, title: 'The AI-native organisation', description: 'Working examples of the Bridge, skills, agent authority and integrations built by Hyperdrift.', url: 'https://orchestra.hyperdrift.io/articles' }, robots: isArticlePreview() ? { index: false, follow: false } : undefined };
 }
 
 export default function ArticlesPage() {
@@ -19,7 +19,7 @@ export default function ArticlesPage() {
   if (!articles.length) notFound();
   const [first] = articles;
   return <section id="articles" aria-labelledby="articles-title">
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: collectionJsonLd('The AI-native organisation', description, 'https://ai.hyperdrift.io/articles', articles) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: collectionJsonLd('The AI-native organisation', description, 'https://orchestra.hyperdrift.io/articles', articles) }} />
     <header>
       <p>Orchestra AI by Hyperdrift · Field notes</p>
       {isArticlePreview() && <small>Editorial preview · not yet published</small>}

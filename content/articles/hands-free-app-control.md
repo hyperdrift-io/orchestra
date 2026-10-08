@@ -42,4 +42,4 @@ That could turn several separate operations into one directed task. It also crea
 
 Start by inspecting the recording below. The [demo page](https://bridge-voice-294160018950.europe-west1.run.app) also explains the live environment; interactive voice access may require an invitation. Then read [how voice through MCP would work](/articles/voice-through-mcp), including what remains to be built.
 
-[Discuss a workflow you would like to direct hands-free.](https://ai.hyperdrift.io/?article=hands-free-app-control#contact)
+[Discuss a workflow you would like to direct hands-free.](https://orchestra.hyperdrift.io/?article=hands-free-app-control#contact)

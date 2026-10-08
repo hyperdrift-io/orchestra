@@ -32,4 +32,4 @@ Then agree the ordering rule with that owner. Read the permitted sources. Show t
 
 Send [Standup](https://standup.hyperdrift.io) to someone returning to their open-source projects. If your team assembles a similar picture across business tools, tell us what the morning question is and where its answers live.
 
-[Discuss your team's daily brief →](https://ai.hyperdrift.io/?article=evidence-that-starts-work#contact)
+[Discuss your team's daily brief →](https://orchestra.hyperdrift.io/?article=evidence-that-starts-work#contact)

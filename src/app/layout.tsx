@@ -35,7 +35,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ai.hyperdrift.io'),
+  metadataBase: new URL('https://orchestra.hyperdrift.io'),
   title: {
     default: 'Orchestra AI by Hyperdrift — AI for business growth',
     template: '%s — Orchestra AI',
@@ -46,12 +46,22 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: [brandShareImage] },
 };
 
+const siteJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Organization', '@id': 'https://orchestra.hyperdrift.io/#organization', name: 'Orchestra AI', alternateName: 'Orchestra AI by Hyperdrift', url: 'https://orchestra.hyperdrift.io', logo: 'https://orchestra.hyperdrift.io/brand/orchestra-mesh.svg', parentOrganization: { '@type': 'Organization', name: 'Hyperdrift', url: 'https://hyperdrift.io' }, founder: { '@type': 'Person', name: 'Yann VR', url: 'https://hyperdrift.io' }, sameAs: ['https://github.com/hyperdrift-io'] },
+    { '@type': 'WebSite', '@id': 'https://orchestra.hyperdrift.io/#website', name: 'Orchestra AI', url: 'https://orchestra.hyperdrift.io', publisher: { '@id': 'https://orchestra.hyperdrift.io/#organization' }, inLanguage: 'en-GB' },
+  ],
+}).replace(/</g, '\\u003c');
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
         {/* In the layout, not metadata.alternates: every page sets its own canonical, which replaces that whole object. */}
         <link rel="alternate" type="application/rss+xml" title="Orchestra AI by Hyperdrift" href="/feed.xml" />
+        {/* The brand as an entity on every page: Orchestra is the name, Hyperdrift makes it. */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: siteJsonLd }} />
       </head>
       <body>
         <header>

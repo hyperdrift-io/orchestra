@@ -4,7 +4,7 @@ import { buildRssXml } from './discovery-feeds';
 
 const now = Date.parse('2026-10-08T12:00:00Z');
 const entry = (slug: string, publishedAt: string | null, title = slug): ArticleSummary => ({ ...articles[0], slug, title, publishedAt });
-const slugs = (xml: string) => Array.from(xml.matchAll(/<guid isPermaLink="true">https:\/\/ai\.hyperdrift\.io\/articles\/([^<]+)<\/guid>/g), (match) => match[1]);
+const slugs = (xml: string) => Array.from(xml.matchAll(/<guid isPermaLink="true">https:\/\/orchestra\.hyperdrift\.io\/articles\/([^<]+)<\/guid>/g), (match) => match[1]);
 
 describe('buildRssXml', () => {
   it('lists published articles only, newest first', () => {
@@ -22,7 +22,7 @@ describe('buildRssXml', () => {
   it('escapes text and carries the article share image', () => {
     const xml = buildRssXml([entry('escaped', '2026-10-01T00:00:00Z', 'Agents & <tools>')], now);
     expect(xml).toContain('<title>Agents &amp; &lt;tools&gt;</title>');
-    expect(xml).toMatch(/<enclosure url="https:\/\/ai\.hyperdrift\.io\/articles\/escaped\/opengraph-image\?v=[0-9a-f]{12}" type="image\/png" length="0" \/>/);
+    expect(xml).toMatch(/<enclosure url="https:\/\/orchestra\.hyperdrift\.io\/articles\/escaped\/opengraph-image\?v=[0-9a-f]{12}" type="image\/png" length="0" \/>/);
   });
 
   it('never lists a catalogue entry without a past publication date', () => {

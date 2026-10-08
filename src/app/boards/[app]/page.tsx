@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!board) return { title: 'Board not public', robots: { index: false } };
   const title = `${board.name} on Traction · its board, in public`;
   const description = `${board.name}'s evidence gates and every day on the record, misses included. Read from its own board.`;
-  return { title, description, alternates: { canonical: `/boards/${board.app}` }, openGraph: { ...websiteOpenGraph, title, description, url: `https://ai.hyperdrift.io/boards/${board.app}` } };
+  return { title, description, alternates: { canonical: `/boards/${board.app}` }, openGraph: { ...websiteOpenGraph, title, description, url: `https://orchestra.hyperdrift.io/boards/${board.app}` } };
 }
 
 export default async function PublicBoardPage({ params }: Props) {

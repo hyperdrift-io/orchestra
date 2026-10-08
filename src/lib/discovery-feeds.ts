@@ -2,7 +2,7 @@ import { articleUrl, publishedArticles, type ArticleSummary } from './article-ca
 import { tagsOf } from './article-tags';
 import { articleShareImage } from './share-metadata';
 
-const BASE_URL = 'https://ai.hyperdrift.io';
+const BASE_URL = 'https://orchestra.hyperdrift.io';
 const tagUrlOf = (slug: string) => `${BASE_URL}/articles/tag/${slug}`;
 
 const escapeXml = (text: string): string =>

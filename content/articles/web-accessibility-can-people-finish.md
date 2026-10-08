@@ -38,4 +38,4 @@ The opportunity is substantial. A well-designed agent could handle navigation th
 
 Next, [WebMCP gives agents explicit ways to act](/articles/webmcp-actions-on-the-page). Those actions can support a better journey. The journey still needs to work for the person using it.
 
-[Discuss a task your users need to complete independently.](https://ai.hyperdrift.io/?article=web-accessibility-can-people-finish#contact)
+[Discuss a task your users need to complete independently.](https://orchestra.hyperdrift.io/?article=web-accessibility-can-people-finish#contact)

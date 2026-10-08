@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'A six-part series on human capability, WebMCP, hands-free app control and voice through MCP. Evidence, explanatory figures and a method for comparing the whole task.',
   alternates: { canonical: '/articles/ui-accessibility' },
   robots: isArticlePreview() ? { index: false, follow: false } : undefined,
-  openGraph: { ...websiteOpenGraph, title: 'The future of UI and accessibility', url: 'https://ai.hyperdrift.io/articles/ui-accessibility' },
+  openGraph: { ...websiteOpenGraph, title: 'The future of UI and accessibility', url: 'https://orchestra.hyperdrift.io/articles/ui-accessibility' },
 };
 
 export default function UiAccessibilitySeries() {

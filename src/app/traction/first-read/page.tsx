@@ -5,9 +5,9 @@ import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'A first read',
-  description: 'A real Traction first read of ai.hyperdrift.io: one strength, one constraint and the next customer move, read from public pages only, with the evidence.',
+  description: 'A real Traction first read of orchestra.hyperdrift.io: one strength, one constraint and the next customer move, read from public pages only, with the evidence.',
   alternates: { canonical: '/traction/first-read' },
-  openGraph: { ...websiteOpenGraph, title: 'We read our own site first.', description: 'One strength, one constraint and the next customer move, with the evidence.', url: 'https://ai.hyperdrift.io/traction/first-read' },
+  openGraph: { ...websiteOpenGraph, title: 'We read our own site first.', description: 'One strength, one constraint and the next customer move, with the evidence.', url: 'https://orchestra.hyperdrift.io/traction/first-read' },
 };
 
 export default function FirstReadPage() { return <><FirstRead /><Footer /></>; }

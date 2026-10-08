@@ -38,4 +38,4 @@ That is the useful comparison: which approach lets your team implement and opera
 
 Share the graphic with the engineer building your agent interface. Bring one slow or uncertain workflow, the current runtime and the point where users lose confidence. We can discuss the event contract and a small experiment to validate it.
 
-[Discuss your agent streaming workflow →](https://ai.hyperdrift.io/?article=langchain-databricks-appkit-sse#contact)
+[Discuss your agent streaming workflow →](https://orchestra.hyperdrift.io/?article=langchain-databricks-appkit-sse#contact)

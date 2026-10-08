@@ -34,4 +34,4 @@ This is how we would scope a first engagement: one job, the data it may read, th
 
 Send the [technical account](https://hyperdrift.io/blog/your-error-page-is-a-prompt) to the person who will own the integration. Then tell us which job you want an agent to finish, and where its authority should stop. We can help define and build that boundary with your team.
 
-[Discuss an agent workflow →](https://ai.hyperdrift.io/?article=delegation-with-boundaries#contact)
+[Discuss an agent workflow →](https://orchestra.hyperdrift.io/?article=delegation-with-boundaries#contact)

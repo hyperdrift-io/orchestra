@@ -28,7 +28,7 @@ if (analyticsEnabled()) {
         const value = event.properties[key];
         if (value && typeof value === 'object') clean(value);
       }
-      Object.assign(event.properties, campaignAttribution(), { app: 'orchestra', env: 'production', hostname: 'ai.hyperdrift.io' });
+      Object.assign(event.properties, campaignAttribution(), { app: 'orchestra', env: 'production', hostname: 'orchestra.hyperdrift.io' });
       return event;
     },
   });
