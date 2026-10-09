@@ -123,3 +123,7 @@ The homepage implements the five screens the founder approved (`docs/design/2026
 - Public repository: the org deploy runner refuses it (GitHub's default for public repos, kept on purpose). CI runs on GitHub-hosted runners; production deploys by hand from infra with `make deploy app=orchestra` until a public-repo route is approved. Never widen runner access to fix a missing webhook secret: add the secret to the vault and redeploy.
 - Package manager: app code is npm; `.github/workflows/deploy.yml` and the `apps.yml` entry (`package_manager: "pnpm"`, `build_cmd: "pnpm build"`) are still pnpm. Migrate all three together before the next dependency change (root `AGENTS.md → Package manager and language`).
 - Public is not launched: `posthog_project_id` is empty in `infra/group_vars/apps.yml`. Wire PostHog and pass `make check-launch-readiness app=orchestra` before any post, ad or contest entry points here.
+
+## Shared communication feed — 10 October 2026
+
+`/feed.json` and `/feed.xml` use the same published article catalogue. JSON Feed supplies Hyperdrift’s field notes and existing newsletter, with canonical URLs and published excerpts/share lines. Never include drafts, scheduled articles before their publication instant, lead data or private Traction records.

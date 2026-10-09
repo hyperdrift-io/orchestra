@@ -59,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <head>
         {/* In the layout, not metadata.alternates: every page sets its own canonical, which replaces that whole object. */}
+        <link rel="alternate" type="application/feed+json" title="Orchestra AI by Hyperdrift" href="/feed.json" />
         <link rel="alternate" type="application/rss+xml" title="Orchestra AI by Hyperdrift" href="/feed.xml" />
         {/* The brand as an entity on every page: Orchestra is the name, Hyperdrift makes it. */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: siteJsonLd }} />
