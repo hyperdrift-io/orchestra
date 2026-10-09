@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
-    ...['how-it-works','work','partnership','traction','traction/first-read','articles/traction-from-zero','boards/traction'].map(path=>({url:`https://orchestra.hyperdrift.io/${path}`,changeFrequency:'monthly' as const,priority:path==='how-it-works'?.9:.8})),
+    ...['how-it-works','work','partnership','traction','traction/first-read','articles/traction-from-zero'].map(path=>({url:`https://orchestra.hyperdrift.io/${path}`,changeFrequency:'monthly' as const,priority:path==='how-it-works'?.9:.8})),
     ...(published.length ? [{ url: 'https://orchestra.hyperdrift.io/articles', changeFrequency: 'weekly' as const, priority: 0.8 }] : []),
     ...(published.some((article) => article.series === 'ui-accessibility') ? [{ url: 'https://orchestra.hyperdrift.io/articles/ui-accessibility', changeFrequency: 'monthly' as const, priority: 0.8 }] : []),
     ...published.map((article) => ({ url: articleUrl(article.slug), lastModified: new Date(article.updatedAt ?? article.publishedAt!), changeFrequency: 'monthly' as const, priority: 0.7 })),

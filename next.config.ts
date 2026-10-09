@@ -8,6 +8,8 @@ const config: NextConfig = {
       { source: '/articles/the-bridge', destination: '/articles/evidence-that-starts-work', permanent: true },
       { source: '/articles/expertise-agents-can-use', destination: '/articles', permanent: true },
       { source: '/articles/connect-agents-to-existing-work', destination: '/articles/webmcp-actions-on-the-page', permanent: true },
+      // Traction's public board was a launch-campaign page (removed 9 October 2026); /traction is the one Traction page.
+      { source: '/boards/:app*', destination: '/traction', permanent: true },
     ];
   },
   async rewrites() {
