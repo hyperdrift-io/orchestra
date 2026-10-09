@@ -40,6 +40,7 @@ ${topics}
 
 - [How it works](https://orchestra.hyperdrift.io/how-it-works): The operating model behind the work.
 - [Work](https://orchestra.hyperdrift.io/work): Public builds and demonstrations.
+- [About](https://orchestra.hyperdrift.io/about): Where founders get stuck, what Orchestra brings to each, and the work that proves it.
 - [Traction](https://orchestra.hyperdrift.io/traction): A growth board wired to a live app: a first read, your board, then the Traction Partnership when the board shows demand.
 - [Traction's launch log](https://orchestra.hyperdrift.io/articles/traction-from-zero): Traction launching itself from zero, in public: the count of founders on the board, the evidence gates and every day on the record.
 - [A sample first read](https://orchestra.hyperdrift.io/traction/first-read): A real first read of this site from its public pages: one strength, one constraint and the next customer move, with the evidence.

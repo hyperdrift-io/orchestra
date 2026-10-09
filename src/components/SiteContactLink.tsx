@@ -3,5 +3,6 @@ import { usePathname } from 'next/navigation';
 
 export function SiteContactLink() {
   const pathname = usePathname();
-  return <a href={pathname.startsWith('/articles/') && pathname !== '/articles/ui-accessibility' ? '#enquire' : '/#contact'} data-enquiry="">Discuss your next stage</a>;
+  const href = pathname.startsWith('/articles/') && pathname !== '/articles/ui-accessibility' ? '#enquire' : pathname === '/about' ? '#contact' : '/#contact';
+  return <a href={href} data-enquiry="">Discuss your next stage</a>;
 }

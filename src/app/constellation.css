@@ -1,5 +1,5 @@
 /* Living constellation — approved direction A, 22 September 2026. */
-body:has(#organisation, #partnership, #traction, #launch, #proof[data-catalogue='true']) > header { position: relative; padding-block: 1.5rem; }
+body:has(#organisation, #partnership, #about, #traction, #launch, #proof[data-catalogue='true']) > header { position: relative; padding-block: 1.5rem; }
 #system > [data-explore-link] { margin: 1.5rem auto 0; max-width: 1320px; font-size: .9rem; }
 #proof > :is(h1,h2) { margin-inline: var(--edge); padding: var(--sp-xl) 0 0; max-inline-size: 28ch; font-size: clamp(2.6rem,4.3vw,4.6rem); }
 #proof[data-catalogue='true'] > h1 { font-size: clamp(3.2rem,6vw,6rem); }
@@ -285,3 +285,26 @@ figure[data-read-excerpt] dd { margin: 0; font: 1.3rem/1.45 var(--font-display);
 #launch td[data-status='LATE'] { color: var(--cream-3); }
 #launch td[data-status='MISSED'] { color: #ffb3a1; }
 @media (max-width: 900px) { #launch > div { grid-template-columns: 1fr; } #launch li { grid-template-columns: 4.8rem 1fr; } [data-board-value] { grid-template-columns: 1fr; } }
+
+/* — About: where founders get stuck, what we bring, the proof; in the partnership page's grammar. */
+#about { padding: 4rem var(--edge) 3rem; background: var(--ink); }
+#about > header { max-width: 900px; }
+#about header > p:first-child { font: .75rem var(--font-mono); color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; }
+#about h1 { font-size: clamp(3.2rem,6.4vw,6.4rem); margin-block: 1.5rem 2rem; }
+#about header > p:nth-of-type(2) { font-size: 1.2rem; max-width: 52ch; }
+#about header > p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 2rem; }
+#about a[data-primary] { display: inline-flex; padding: 1rem 1.3rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
+#about > ol { list-style: none; padding: 0; margin: 5rem 0 0; max-width: 1200px; }
+#about > ol > li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; padding: 2.5rem 0; border-top: 1px solid var(--cream-4); }
+#about > ol h2 { margin: 0; font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.6rem); line-height: 1.15; }
+#about > ol dl { display: grid; gap: 1.5rem; margin: 0; }
+#about > ol dt { font: .75rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); margin-bottom: .5rem; }
+#about > ol dd { margin: 0; line-height: 1.7; color: var(--cream-2); }
+#about > ol dd a { display: inline-block; margin-right: 1.25rem; color: var(--cream); white-space: nowrap; }
+#about > footer { max-width: 1200px; padding-top: 2.5rem; border-top: 1px solid var(--cream-4); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; align-items: baseline; }
+#about > footer p:first-child { font-size: 1.15rem; }
+#about p[data-partners] { font: .8rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cream-3); }
+@media (max-width: 800px) {
+  #about { padding: 2.5rem var(--edge) 2rem; }
+  #about > ol > li { grid-template-columns: 1fr; gap: 1.25rem; padding: 2rem 0; }
+}
