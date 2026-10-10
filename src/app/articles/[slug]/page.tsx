@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }: Props) {
     </header>
     <div>
       <ArticleContents entries={sections} ctaLabel={article.ctaLabel} />
-      <ArticleBody blocks={article.blocks} sourceNotes={article.series === 'ui-accessibility'} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} figureSvg={article.visualization?.kind === 'ui-accessibility' ? interfaceFigureSvg(article.slug) : undefined} />} />
+      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} figureSvg={article.visualization?.kind === 'ui-accessibility' ? interfaceFigureSvg(article.slug) : undefined} />} />
     </div>
     <figure id="article-diagram" data-has-visualization={article.visualization ? "true" : undefined}>{!article.visualization && <><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol></>}<ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
     {(!article.visualization || article.media) && <ArticleProof article={article} />}
