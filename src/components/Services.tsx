@@ -1,9 +1,9 @@
 import { services } from '@/data/traction-offer';
 
-/** One Orchestra engagement, starting with the customer's current constraint. */
+/** Two offerings: customer progress through Traction, app operation through Orchestra OS. */
 export function Services() {
   return <section id="services" aria-labelledby="services-title">
-    <header><p>Working with Orchestra</p><h2 id="services-title">Start with one customer problem.</h2></header>
+    <header><p>Two ways to work with Orchestra</p><h2 id="services-title">Grow your app. Give it a home.</h2></header>
     <ul>{services.map((service) => <li key={service.slug} id={`service-${service.slug}`} data-service={service.slug}>
       <p>{service.eyebrow}</p>
       <h3>{service.name}</h3>

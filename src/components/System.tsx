@@ -11,6 +11,6 @@ export function System() {
       <p data-experience>Led by Yann VR. Client engagements include Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo. <a href="/about">The experience behind Orchestra →</a></p>
     </div>
     <SystemGraph />
-    <p data-explore-link><a href="/how-it-works">See how the whole organisation learns and grows →</a></p>
+    <p data-explore-link><a href="/how-it-works?view=business#organisation">See how the whole organisation learns and grows →</a></p>
   </section>;
 }

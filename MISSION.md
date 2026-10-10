@@ -14,6 +14,8 @@ Founders and leadership teams with a promising product, service or consultancy b
 
 ## What we do
 
+Two offerings give founders a clear entrance: Traction connects customer evidence, accepted commitments and results; Orchestra OS connects the app’s development, hosting, maintenance and support to that growth work. The client-facing invitation is “Embed your app on Orchestra OS.” Scope and readiness are agreed per app; a configured capability is not yet evidence of verified operation.
+
 Start with one workflow worth improving. Connect existing tools, knowledge and customer evidence. Agree a useful scope and the decisions that remain with people. Build the work so it can be inspected, operated and improved. Compare its effect against a baseline and the cost of delivery.
 
 The operating pattern is notice → choose → improve → release → learn. The Bridge connects evidence and decisions; agents carry out scoped work; skills carry expertise. These are the means. A more valuable and profitable business is the purpose.
