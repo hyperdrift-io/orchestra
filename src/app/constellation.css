@@ -205,9 +205,7 @@ body:has(#first-read) > header { position: relative; padding-block: 1.5rem; }
 #services h2 { font-size: clamp(2.6rem,4.5vw,4.5rem); max-width: 19ch; }
 #services ul { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 5rem; }
 #services li { display: grid; align-content: start; padding-block: 2rem; border-top: 1px solid var(--line-hair); }
-#services li[data-service='traction'] { grid-column: 1 / -1; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); grid-template-rows: auto auto auto auto 1fr; column-gap: 5rem; border-top: 0; padding-top: 0; }
-#services li[data-service='traction'] > :not(figure) { grid-column: 1; }
-#services li[data-service='traction'] > figure { grid-column: 2; grid-row: 1 / -1; margin: 0; align-self: start; }
+#services li[data-service='traction'] { grid-column: 1 / -1; border-top: 0; padding-top: 0; }
 #services li > p:first-child { font: .72rem var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); margin: 0 0 1rem; }
 #services h3 { margin: 0 0 1rem; font-size: clamp(1.8rem,2.6vw,2.6rem); max-width: 18ch; }
 #services li[data-service='traction'] h3 { font-size: clamp(2.2rem,3.4vw,3.4rem); }
@@ -217,9 +215,7 @@ body:has(#first-read) > header { position: relative; padding-block: 1.5rem; }
 #services li > p:has(a) { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; padding-top: .4rem; font-size: .95rem; }
 #services a[data-primary] { background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; padding: .9rem 1.2rem; font-weight: 600; }
 #services a[data-primary]:hover { background: var(--gold-light); color: var(--ink); }
-#services video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #080807; border: 1px solid var(--line-soft); }
-#services figcaption { margin-top: .8rem; font: .78rem var(--font-mono); letter-spacing: .06em; color: var(--cream-3); }
-@media(max-width:900px){ #services ul { grid-template-columns: 1fr; } #services li[data-service='traction'] { grid-template-columns: 1fr; } #services li[data-service='traction'] > figure { grid-column: 1; grid-row: auto; margin-top: 1.5rem; } #services h2 { max-width: 22ch; } }
+@media(max-width:900px){ #services ul { grid-template-columns: 1fr; } #services h2 { max-width: 22ch; } }
 
 [data-domain-story] small { display: block; margin-top: 1rem; }
 

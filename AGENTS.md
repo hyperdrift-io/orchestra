@@ -21,6 +21,9 @@ existing illustrative graph. Keep the selected WebGL interaction, brand and
 Traction Partnership visible. Customer insight, distribution and engineering
 support one scoped customer opportunity; no promise of automatic acquisition.
 This supersedes the older instruction to put the illustrative scene first.
+The founder's later refinement removes the homepage video showcase and trailer:
+keep the graph, capabilities and enquiry, with recordings and the full proof
+catalogue available on the deeper work and Traction pages.
 
 MCP is a product-integration capability within Orchestra. `/mcp-maker` and
 `/services/mcp-maker` preserve old links by redirecting to `/work#work-nextrole`.
