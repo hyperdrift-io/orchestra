@@ -45,20 +45,26 @@ describe('POST /api/contact', () => {
       message: 'A reasonable length message about agents.',
     });
     expect(res.status).toBe(200);
+    const { id } = await res.json();
     expect(fetchMock).toHaveBeenCalledOnce();
     expect(relayed()).toEqual({
       name: 'Ada',
       email: 'ada@example.com',
-      message: 'Where you are: Automating a workflow\nCompany: Analytical Engines\n\nA reasonable length message about agents.',
+      message: `Enquiry ID: ${id}\nWhere you are: Automating a workflow\nCompany: Analytical Engines\n\nA reasonable length message about agents.`,
       source: 'orchestra_ai',
     });
     const [file] = await readdir(enquiryDir);
-    expect(JSON.parse(await readFile(join(enquiryDir, file!), 'utf8'))).toMatchObject({ email: 'ada@example.com', delivery: 'sent' });
+    expect(JSON.parse(await readFile(join(enquiryDir, file!), 'utf8'))).toMatchObject({ id, email: 'ada@example.com', delivery: 'sent' });
   });
 
-  it('sends the message untouched when no context was given', async () => {
-    await callRoute({ name: 'Ada', email: 'ada@example.com', message: 'A reasonable length message.' });
-    expect(relayed().message).toBe('A reasonable length message.');
+  it('joins a received enquiry to its stored ID and source without leaking the browser session', async () => {
+    const session = crypto.randomUUID();
+    const res = await callRoute({ name: 'Ada', email: 'ada@example.com', message: 'A reasonable length message.', session, campaign: { utm_source: 'editorial', utm_campaign: 'integration', validation_run: 'preview-check' } });
+    const { id } = await res.json();
+    expect(relayed().message).toBe(`Enquiry ID: ${id}\nutm_source: editorial\nutm_campaign: integration\nvalidation_run: preview-check\n\nA reasonable length message.`);
+    expect(relayed().message).not.toContain(session);
+    const saved = JSON.parse(await readFile(join(enquiryDir, `${id}.json`), 'utf8'));
+    expect(saved).toMatchObject({ id, qualification: 'unreviewed', campaign: { utm_source: 'editorial', utm_campaign: 'integration', validation_run: 'preview-check' } });
   });
 
   it('returns 400 for an invalid submission without calling the relay', async () => {

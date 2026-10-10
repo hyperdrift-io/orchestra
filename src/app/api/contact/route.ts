@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const { name, email, company, situation, message, article, session } = parsed.data;
+  const { name, email, company, situation, message, article, session, campaign } = parsed.data;
   const id = crypto.randomUUID();
   const preview = process.env.CONTACT_DELIVERY === 'preview';
   if (preview && process.env.NODE_ENV === 'production') {
@@ -41,7 +41,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, preview: true, id });
   }
   // Context the visitor chose travels inside the message: the relay's contract stays name/email/message.
-  const context = [article && `Article: ${articleBySlug(article)!.title}\n${articleUrl(article)}`, situation && `Where you are: ${situation}`, company && `Company: ${company}`].filter(Boolean);
+  const context = [
+    `Enquiry ID: ${id}`,
+    article && `Article: ${articleBySlug(article)!.title}\n${articleUrl(article)}`,
+    situation && `Where you are: ${situation}`,
+    company && `Company: ${company}`,
+    ...(campaign ? Object.entries(campaign).filter(([, value]) => value).map(([key, value]) => `${key}: ${value}`) : []),
+  ].filter(Boolean);
   try {
     const relay = await fetch(RELAY_URL, {
       method: 'POST',
