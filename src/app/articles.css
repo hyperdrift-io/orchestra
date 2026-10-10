@@ -271,7 +271,7 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
 [data-document-fields] p { display: grid; gap: .25rem; margin: .7rem 0; }
 [data-document-fields] code { color: var(--gold-light); font: .75rem var(--font-mono); }
 [data-document-fields] p > span { font-size: .7rem; color: var(--cream-3); }
-[data-separate] { display: flex; align-items: start; gap: .6rem; margin-top: .6rem; }
+[data-separate] { display: flex; align-items: flex-start; gap: .6rem; margin-top: .6rem; }
 [data-separate] > span { color: var(--gold); font-size: 1.4rem; }
 [data-separate] > div { display: grid; gap: .25rem; padding-top: .15rem; }
 [data-separate] strong { font-size: .75rem; font-weight: 500; }
