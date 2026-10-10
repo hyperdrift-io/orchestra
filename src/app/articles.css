@@ -316,6 +316,42 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
 [data-run-state] strong { font: 500 .8rem var(--font-body); color: var(--gold-light); }
 [data-stage='2'] [data-run-state] > span:last-child { color: var(--viz-red); }
 [data-stage='3'] [data-run-state] > span:last-child { color: var(--viz-teal); }
+/* Delegation: three roles, one tool-enforced gate, a read-back. The outcome state colours the gate and the active lane. */
+:is([data-visual=authority], [data-visual=brief]) > nav { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 1.8rem 1.25rem; }
+[data-visual=authority] { --state: var(--viz-teal); }
+[data-visual=authority][data-outcome-state=refused] { --state: var(--viz-red); }
+[data-visual=authority][data-outcome-state=quarantined] { --state: var(--gold-light); }
+[data-roles] { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin: 0 1.8rem; padding: 0; list-style: none; }
+[data-roles] > li { display: grid; gap: .3rem; padding: .9rem .9rem 1rem; border: 1px solid var(--line-soft); border-radius: 6px; opacity: .45; transition: opacity .25s ease, border-color .25s ease; }
+[data-roles] > li[data-active=true] { opacity: 1; border-color: var(--gold-line); }
+[data-roles] > li[data-active=true]:not([data-role=route]) { border-color: var(--state); background: linear-gradient(160deg, color-mix(in srgb, var(--state) 9%, transparent), transparent 75%); }
+[data-roles] span { font: .6rem var(--font-mono); letter-spacing: .1em; color: var(--gold); }
+[data-roles] strong { font: 500 1.35rem/1.1 var(--font-display); color: var(--cream); }
+[data-roles] small { font: .72rem var(--font-body); color: var(--cream-3); }
+[data-roles] code { font: .66rem/1.45 var(--font-mono); color: var(--cream-2); }
+[data-gate] { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin: 1rem 1.8rem 0; padding: .8rem 1rem; border: 1px dashed var(--state); border-radius: 6px; }
+[data-gate] > span { font: .58rem var(--font-mono); letter-spacing: .1em; color: var(--cream-3); }
+[data-gate] code { font: .8rem var(--font-mono); color: var(--cream); }
+[data-gate] b { margin-left: auto; padding: .25rem .6rem; border-radius: 3px; background: color-mix(in srgb, var(--state) 16%, transparent); color: var(--state); font: 500 .62rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+[data-visual=authority] [data-outcome] strong { color: var(--state); }
+[data-readback] { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; padding: .9rem 1.8rem; border-top: 1px solid var(--line-hair); }
+[data-readback] > span { font: .58rem var(--font-mono); letter-spacing: .1em; color: var(--gold); }
+[data-readback] ol { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; counter-reset: readback; }
+[data-readback] li { counter-increment: readback; padding: .3rem .6rem; border: 1px solid var(--line-soft); border-radius: 3px; font: .72rem var(--font-body); color: var(--cream-3); }
+[data-readback] li::before { content: counter(readback) ' '; font: .6rem var(--font-mono); color: var(--gold); }
+[data-readback] li[data-done=true] { border-color: var(--viz-teal); color: var(--viz-teal); }
+[data-readback] li[data-done=false] { text-decoration: line-through; text-decoration-color: var(--cream-3); }
+/* Evidence: one brief, two rules. People waiting carry the gold mark; the rest dims when the rule puts them second. */
+[data-brief] { margin: 0 1.8rem; padding: 0; list-style: none; border-top: 1px solid var(--line-soft); }
+[data-brief] > li { display: flex; align-items: center; gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--line-soft); transition: opacity .25s ease; }
+[data-brief] > li > span { flex: 0 0 auto; font: .7rem var(--font-mono); color: var(--cream-3); }
+[data-brief] > li > div { display: grid; gap: .25rem; }
+[data-brief] strong { font: 500 .92rem/1.35 var(--font-body); color: var(--cream); }
+[data-brief] small { font: .66rem var(--font-mono); color: var(--cream-3); }
+[data-brief] small b { font-weight: 500; color: var(--cream-2); }
+[data-brief] > li[data-waiting=true] > span { color: var(--gold-light); }
+[data-brief] > li[data-waiting=true] small b { color: var(--gold-light); }
+[data-brief] > li[data-dim=true] { opacity: .5; }
 #article-proof[data-article-visual] figcaption { font-size: .8rem; }
 #article-proof[data-article-visual] figcaption a { display: inline-block; min-height: 44px; padding-block: .7rem; color: var(--gold-light); }
 #article-proof[data-article-visual] details { padding: 0; margin: 0; border: 0; border-top: 1px solid var(--line-hair); }
@@ -343,6 +379,15 @@ form[aria-label='Discuss your workflow'] [role='alert'] { color: #ffb3a1; }
   [data-visual] > footer { padding: .7rem 1rem; }
   [data-visual=streaming] > nav { margin: 0 1rem 1.3rem; gap: .3rem; }
   [data-visual=streaming] > nav button { flex-direction: column; gap: .2rem; font-size: .7rem; padding: .4rem .2rem; }
+  :is([data-visual=authority], [data-visual=brief]) > nav { margin: 0 1rem 1.1rem; }
+  :is([data-visual=authority], [data-visual=brief]) > nav button { flex: 1 1 100%; }
+  [data-roles] { grid-template-columns: 1fr; margin: 0 1rem; }
+  [data-roles] > li { grid-template-columns: auto 1fr; align-items: baseline; column-gap: .7rem; padding: .7rem .8rem; }
+  [data-roles] small, [data-roles] code { grid-column: 2; }
+  [data-gate] { margin: .9rem 1rem 0; }
+  [data-readback] { padding: .9rem 1rem; }
+  [data-brief] { margin: 0 1rem; }
+  [data-brief] strong { font-size: .9rem; }
   [data-sequence] { margin-inline: .6rem; }
   [data-lanes] > span { font-size: .6rem; }
   [data-lanes] small { font-size: .55rem; }

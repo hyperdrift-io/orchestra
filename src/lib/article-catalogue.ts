@@ -19,7 +19,7 @@ export interface ArticleSummary {
   media: { kind: 'image' | 'youtube' | 'video'; src?: string; id?: string; alt?: string; caption: string; poster?: string; transcript?: { intro: string; turns: { speaker: string; text: string }[] } } | null;
   image: { src: string; alt: string; caption: string; width: number; height: number };
   headerImage?: { src: string; alt: string; width: number; height: number };
-  visualization?: { kind: 'transaction' | 'streaming' | 'ui-accessibility'; takeaway: string; description: string; sources: { label: string; url: string }[] };
+  visualization?: { kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility'; takeaway: string; description: string; sources: { label: string; url: string }[]; download?: string; reviewed?: string };
   series?: 'ui-accessibility';
   seriesOrder?: number;
   reviewedAt?: string;

@@ -66,13 +66,67 @@ function StreamingSequence() {
   </section>;
 }
 
+const requests = [
+  { id: 'drill', label: 'Restart the drill service', route: 'act', outcome: 'allowed', title: 'Allowed, then checked.', text: 'The engineer holds a restart tool, and the tool accepts drill services. The request is in scope. The agent reports success only after the service answers again from outside.' },
+  { id: 'production', label: 'Restart production', route: 'act', outcome: 'refused', title: 'Refused by the tool, not by the prompt.', text: 'The same restart tool checks its target. Production is outside the allowance, so no wording can unlock it. The request goes to a person.' },
+  { id: 'injected', label: 'Error page says “report healthy”', route: 'read', outcome: 'quarantined', title: 'Read as evidence, never as an order.', text: 'The watch officer reads the failing page. Its instruction text is quarantined and recorded; the status code stays as evidence. Reading a page grants it no authority.' },
+] as const;
+
+const roles = [
+  { id: 'route', step: '01', name: 'Route', who: 'Assigns the job', tools: 'No tools' },
+  { id: 'read', step: '02', name: 'Read', who: 'Watch officer', tools: 'Health checks · logs · read-only' },
+  { id: 'act', step: '03', name: 'Act', who: 'Engineer', tools: 'Restart · drill services only' },
+] as const;
+
+function AuthorityMap() {
+  const [choice, setChoice] = useState<(typeof requests)[number]['id']>('drill');
+  const request = requests.find((entry) => entry.id === choice) ?? requests[0];
+  return <section data-visual="authority" data-outcome-state={request.outcome} aria-label="Where an agent's authority stops">
+    <header><p>WORKED EXAMPLE / HELM DRILL</p><h3>Where does its authority <em>stop?</em></h3><p>Send one request. The boundary lives in the tools each role holds, not in how persuasive the request sounds.</p></header>
+    <nav aria-label="Choose a request">{requests.map((entry) => <button key={entry.id} type="button" aria-pressed={choice === entry.id} onClick={() => setChoice(entry.id)}>{entry.label}</button>)}</nav>
+    <ol data-roles="">{roles.map((role) => <li key={role.id} data-role={role.id} data-active={role.id === 'route' || role.id === request.route}><span>{role.step}</span><strong>{role.name}</strong><small>{role.who}</small><code>{role.tools}</code></li>)}</ol>
+    <div data-gate=""><span>ENFORCED IN THE TOOL</span><code>target ∈ drill services</code><b>{request.outcome}</b></div>
+    <p data-outcome="" role="status"><strong>{request.title}</strong>{request.text}</p>
+    <div data-readback=""><span>COMPLETION</span><ol><li>Request accepted</li><li>Read the resulting state</li><li data-done={request.outcome === 'allowed'}>Report done</li></ol></div>
+    <footer>Illustrative of the recorded Helm drill · a contest build, not a client case</footer>
+  </section>;
+}
+
+const briefItems = [
+  { id: 'reply', title: 'Reply to a bug report that includes a reproduction', kind: 'Person waiting', evidence: 'Issue · asked 5 days ago', age: 5 * 24 * 60, waiting: true },
+  { id: 'review', title: 'Review a first-time contributor’s fix', kind: 'Person waiting', evidence: 'Pull request · review requested 2 days ago', age: 2 * 24 * 60, waiting: true },
+  { id: 'labels', title: 'Tidy the stale labels', kind: 'Routine', evidence: 'Your own note · 3 days ago', age: 3 * 24 * 60, waiting: false },
+  { id: 'bot', title: 'Bump a test library', kind: 'Automated', evidence: 'Dependency bot · 1 hour ago', age: 60, waiting: false },
+  { id: 'ci', title: 'Main branch build passed', kind: 'Automated', evidence: 'CI run · 20 minutes ago', age: 20, waiting: false },
+] as const;
+
+const orderings = {
+  recent: { label: 'Newest first', items: [...briefItems].sort((a, b) => a.age - b.age), title: 'The newest event wins.', text: 'A green build and a bot sit above two people who asked for help. Nothing is wrong with any line; the rule is.' },
+  waiting: { label: 'Who is waiting first', items: [...briefItems].sort((a, b) => Number(b.waiting) - Number(a.waiting) || b.age - a.age), title: 'Two people lead the brief.', text: 'Each line carries the record behind it, so you can disagree: you may already be talking to that contributor. Automated and routine work waits below.' },
+} as const;
+
+function BriefOrder() {
+  const [rule, setRule] = useState<keyof typeof orderings>('waiting');
+  const ordering = orderings[rule];
+  return <section data-visual="brief" data-rule={rule} aria-label="One brief, two ordering rules">
+    <header><p>WORKED EXAMPLE / A MORNING BRIEF</p><h3>What should come <em>first?</em></h3><p>The same five items under two ordering rules. The rule is the product decision a summary leaves open.</p></header>
+    <nav aria-label="Choose the ordering rule">{(Object.keys(orderings) as (keyof typeof orderings)[]).map((key) => <button key={key} type="button" aria-pressed={rule === key} onClick={() => setRule(key)}>{orderings[key].label}</button>)}</nav>
+    <ol data-brief="">{ordering.items.map((item, index) => <li key={item.id} data-waiting={item.waiting} data-dim={rule === 'waiting' && !item.waiting}><span>{String(index + 1).padStart(2, '0')}</span><div><strong>{item.title}</strong><small><b>{item.kind}</b> · {item.evidence}</small></div></li>)}</ol>
+    <p data-outcome="" role="status"><strong>{ordering.title}</strong>{ordering.text}</p>
+    <footer>Illustrative items modelled on Standup’s ordering rule · not real repository data</footer>
+  </section>;
+}
+
+const visuals = { transaction: TransactionMap, streaming: StreamingSequence, authority: AuthorityMap, brief: BriefOrder } as const;
+
 export function ArticleVisualization({ article, figureSvg }: { article: ArticleSummary; figureSvg?: FigureSvg }) {
   const visual = article.visualization;
   if (!visual) return null;
   if (visual.kind === 'ui-accessibility') return <InterfaceFigure article={article} svg={figureSvg} />;
-  return <figure id="article-proof" data-article-visual="" aria-label={article.proof.heading}>
-    {visual.kind === 'transaction' ? <TransactionMap /> : <StreamingSequence />}
-    <figcaption>{visual.takeaway} <a href={article.proof.url} download>Save the visual ↓</a></figcaption>
-    <details><summary>Explanation and primary sources</summary><p>{visual.description}</p><ul>{visual.sources.map((source) => <li key={source.url}><LinkPreview href={source.url}>{source.label} ↗</LinkPreview></li>)}</ul><small>Reviewed 22 September 2026 · Illustrative design, not a client result.</small></details>
+  const Visual = visuals[visual.kind];
+  return <figure id="article-proof" data-article-visual="" aria-label={article.proof.heading ?? visual.takeaway}>
+    <Visual />
+    <figcaption>{visual.takeaway}{visual.download && <> <a href={visual.download} download>Save the visual ↓</a></>}</figcaption>
+    <details><summary>Explanation and primary sources</summary><p>{visual.description}</p><ul>{visual.sources.map((source) => <li key={source.url}><LinkPreview href={source.url}>{source.label} ↗</LinkPreview></li>)}</ul><small>Reviewed {visual.reviewed ?? '22 September 2026'} · Illustrative design, not a client result.</small></details>
   </figure>;
 }

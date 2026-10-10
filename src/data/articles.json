@@ -39,6 +39,26 @@
       "height": 160,
       "caption": "Editorial mesh illustration · Explore the workflow in the article."
     },
+    "visualization": {
+      "kind": "authority",
+      "takeaway": "Authority lives in the tools a role holds; completion needs a read-back.",
+      "description": "Three requests pass through three roles. One role routes the work and holds no tools. The watch officer reads evidence with read-only tools. The engineer can restart services, and the restart tool itself accepts drill services only. A request to restart a drill service is allowed and reported done only after the service answers again from outside. A request to restart production is refused by the tool and escalated to a person, however it is worded. An error page instructing the agent to report the service healthy is read as evidence: its instruction text is quarantined and recorded, and the status code is kept. Illustrative of the recorded Helm drill, a contest build rather than a client case.",
+      "sources": [
+        {
+          "label": "Helm source",
+          "url": "https://github.com/hyperdrift-io/helm"
+        },
+        {
+          "label": "Helm recorded demonstration",
+          "url": "https://youtu.be/JB2O3WSwH90"
+        },
+        {
+          "label": "Your error page is a prompt",
+          "url": "https://hyperdrift.io/blog/your-error-page-is-a-prompt"
+        }
+      ],
+      "reviewed": "10 October 2026"
+    },
     "headerImage": {
       "src": "/articles/mesh/delegation-with-boundaries.svg",
       "alt": "Connected wireframe flag, shield, checklist forms in Orchestra's mesh style.",
@@ -86,6 +106,22 @@
       "width": 1200,
       "height": 160,
       "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "brief",
+      "takeaway": "The ordering rule is the product: people waiting for help come before routine work.",
+      "description": "Five illustrative items for one maintainer: a bug report with a reproduction asked five days ago, a first-time contributor’s pull request awaiting review for two days, the maintainer’s own note to tidy labels, a dependency bot update from an hour ago and a passing build from twenty minutes ago. Ordered newest first, the build and the bot lead. Ordered with people waiting first, the two people who asked for help lead, longest wait first, and automated and routine work follows. Each line shows the record behind it so the reader can correct the order. Modelled on Standup’s ordering rule; the items are illustrative, not real repository data.",
+      "sources": [
+        {
+          "label": "Standup",
+          "url": "https://standup.hyperdrift.io"
+        },
+        {
+          "label": "Standup recorded run",
+          "url": "https://github.com/hyperdrift-io/standup#real-output"
+        }
+      ],
+      "reviewed": "10 October 2026"
     },
     "headerImage": {
       "src": "/articles/mesh/evidence-that-starts-work.svg",
@@ -162,7 +198,8 @@
           "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/transactional-batch"
         }
       ],
-      "kind": "transaction"
+      "kind": "transaction",
+      "download": "/articles/databricks/transaction-visual.png"
     }
   },
   {
@@ -229,7 +266,8 @@
           "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
         }
       ],
-      "kind": "streaming"
+      "kind": "streaming",
+      "download": "/articles/databricks/streaming-visual.png"
     }
   },
   {
