@@ -4,7 +4,7 @@
 
 Help founders grow revenue, protect profit and reclaim time to lead by connecting AI to the business they already run.
 
-The work starts with a business opportunity: convert more existing demand, retain customers, reduce avoidable delivery cost or make valuable expertise easier to apply. We connect the relevant signals, prepare a useful decision, build the agreed improvement and measure what happened. The founder owns direction, scope and consequential decisions.
+The work starts with a business opportunity: reach relevant customers, convert existing demand, retain customers, reduce avoidable delivery cost or make valuable expertise easier to apply. We connect the relevant signals, prepare a useful decision, build the agreed improvement and measure what happened. The founder owns direction, scope and consequential decisions.
 
 Growth and profit are objectives to measure, not guaranteed consequences of adding AI. Shipping code or producing a brief is an intermediate result. The commercial result is what changed for the business after accounting for costs, quality and retention.
 
@@ -20,9 +20,9 @@ The operating pattern is notice → choose → improve → release → learn. Th
 
 ## How we communicate
 
-The landing page connects actions to business outcomes through interactive scenarios. It avoids framework lists and technical catalogues. The article series provides that depth, supported by real Hyperdrift work. Public examples, prototypes, internal systems and client results remain clearly distinguished. Illustrative scenarios never masquerade as measured client outcomes.
+The landing page leads with the Orchestra offer, who it serves and a direct enquiry. Optional interactive scenarios connect the work to business outcomes. It avoids framework lists and technical catalogues. The article series provides that depth, supported by real Hyperdrift work. Public examples, prototypes, internal systems and client results remain clearly distinguished. Illustrative scenarios never masquerade as measured client outcomes.
 
-The founder selected WebGL, removed the giant and requested a living interactive mesh on 22 September 2026. The mesh now opens into five coloured domains. The founder selected Living constellation A for the organisation exploration at `/how-it-works`: branching signals and retained learning across illustrative successful iterations. The homepage is now the promise, one interactive example, three real builds, a prominent Traction Partnership invitation and an enquiry; deeper work, reading and partnership terms have their own destinations. The partnership invitation and hero link are explicitly requested in the latest refinement. Preserve the existing ink, cream and gold identity. Article illustrations support the idea; real evidence remains in the proof sections. All copy follows `meta/PHILOSOPHY.md` §8, Speak to Enable.
+The founder selected WebGL, removed the giant and requested a living interactive mesh on 22 September 2026. The mesh now opens into five coloured domains. The founder selected Living constellation A for the organisation exploration at `/how-it-works`: branching signals and retained learning across illustrative successful iterations. The homepage is the offer and experience, one optional interactive example, scoped ways to work together, inspectable builds, a prominent Traction Partnership invitation and an enquiry; deeper work, reading and partnership terms have their own destinations. The partnership invitation and hero link are explicitly requested in the latest refinement. Preserve the existing ink, cream and gold identity. Article illustrations support the idea; real evidence remains in the proof sections. All copy follows `meta/PHILOSOPHY.md` §8, Speak to Enable.
 
 ## What success looks like
 
@@ -32,6 +32,6 @@ For this site: qualified conversations with founders who have a concrete workflo
 
 ## Identity and delivery
 
-`ai.hyperdrift.io` is Hyperdrift’s primary commercial destination. Hyperdrift is the company; Orchestra AI is the current site name. Existing articles and historical work retain their URLs on `hyperdrift.io`. Founder update, 23 September 2026: select a distinct new service name before branding. Retain the fresh AI-service content and leave the existing Hyperdrift portal unchanged. The naming direction must carry the fearless innovation, entrepreneurial empowerment and direct voice of the Hyperdrift philosophy and manifesto; no replacement name has been approved.
+`orchestra.hyperdrift.io` is the commercial destination, named Orchestra by the founder on 9 October 2026. `ai.hyperdrift.io` permanently redirects there. Hyperdrift is the company behind Orchestra; existing articles and historical work retain their URLs on `hyperdrift.io`. On 10 October the founder approved a clearer offer and simpler HD homepage: the offer and enquiry route lead, while the existing graph supplies optional exploration. The shared Confluence goal is qualified enquiries, with customer insight, distribution and AI engineering serving the same customer opportunity. The September naming exploration is superseded.
 
 Working examples and inspectable code support the offer. Production deployments go through Hyperdrift infra after founder approval. This mission revision authorises no deployment or outbound communication.

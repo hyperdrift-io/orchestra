@@ -14,7 +14,7 @@ export function GET() {
 
   const body = `# Orchestra AI by Hyperdrift
 
-AI engineering for founders with customers, active users or clear demand. We connect AI to existing business workflows and measure what changes.
+Orchestra connects customer insight, distribution and AI engineering for founders with a working product and evidence of demand. Start with one measurable opportunity to reach customers, help them use the product or improve delivery. Hyperdrift is the company behind Orchestra.
 
 ## Make your product usable through agents
 

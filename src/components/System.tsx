@@ -2,14 +2,15 @@ import { SystemGraph } from '@/components/SystemGraph';
 
 export function System() {
   return <section id="system" aria-labelledby="system-title">
-    <SystemGraph />
     <div data-proposition>
-      <p>For founders with momentum</p>
-      <h2>Grow your business.<br /><em>Keep more of the upside.</em></h2>
-      <p>You’ve built something people want. We bring AI engineering to the next stage: turning customer demand into growth, making delivery more profitable, and giving you room to lead.</p>
-      <p><a href="#contact">Discuss your next stage</a><a href="/traction">Traction, launching now →</a></p>
-      <small>For businesses with customers, active users or a clear signal of demand. Start with one measurable opportunity.</small>
+      <p>Orchestra, by Hyperdrift</p>
+      <h1 id="system-title">Give your next customers<br /><em>a way in.</em></h1>
+      <p>Orchestra connects customer insight, distribution and AI engineering. We help you choose the next customer move, build what’s needed and measure whether it worked.</p>
+      <p><a href="#contact">Discuss your next customer move</a><a href="/partnership">Explore a Traction Partnership →</a></p>
+      <small>For founders with a working product and evidence of demand. Start with one opportunity to reach customers, help them use your product or improve delivery.</small>
+      <p data-experience>Led by Yann VR. Client engagements include Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo. <a href="/about">The experience behind Orchestra →</a></p>
     </div>
+    <SystemGraph />
     <p data-explore-link><a href="/how-it-works">See how the whole organisation learns and grows →</a></p>
   </section>;
 }

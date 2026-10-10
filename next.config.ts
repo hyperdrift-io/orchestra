@@ -4,6 +4,9 @@ const config: NextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
+      // Historical MCP Maker links now reach the scoped Orchestra offer and its evidence.
+      { source: '/mcp-maker', destination: '/work#work-nextrole', permanent: true },
+      { source: '/services/mcp-maker', destination: '/work#work-nextrole', permanent: true },
       { source: '/articles/conversation-with-a-shared-view', destination: '/articles/the-first-officer', permanent: true },
       { source: '/articles/the-bridge', destination: '/articles/evidence-that-starts-work', permanent: true },
       { source: '/articles/expertise-agents-can-use', destination: '/articles', permanent: true },

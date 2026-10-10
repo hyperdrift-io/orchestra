@@ -6,6 +6,33 @@
 
 See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
 
+## Confluence offering — 10 October 2026
+
+The founder approved the clearer Orchestra offering and simpler HD homepage in
+the coordinating chat **Reframe HD customer acquisition**
+(`01a122b1-7666-7863-9eb8-9d1c4f6a2059`). The shared goal and coordination contract
+live in the HD workspace at `meta/discovery/README.md`; read its Confluence
+section before communication work. This approval covers implementation and
+preview of the presented hierarchy, not unreviewed publication or outreach.
+
+Orchestra owns the commercial offer; Hyperdrift supplies company provenance and
+delivery experience. The homepage states the offer and enquiry route before the
+existing illustrative graph. Keep the selected WebGL interaction, brand and
+Traction Partnership visible. Customer insight, distribution and engineering
+support one scoped customer opportunity; no promise of automatic acquisition.
+This supersedes the older instruction to put the illustrative scene first.
+
+MCP is a product-integration capability within Orchestra. `/mcp-maker` and
+`/services/mcp-maker` preserve old links by redirecting to `/work#work-nextrole`.
+NextRole is owned-product proof with fictional-data live checks, not a client
+success or established independent adoption. Yann's client engagements include
+Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo.
+Together and Revela are partner ventures; do not turn them into client endorsements.
+
+Enquiry notifications carry the saved enquiry ID and validated campaign tags so
+the operator can join inbox review to the source record. Relay acceptance is not
+proof of inbox arrival or human qualification. Preview delivery stays isolated.
+
 ## Orchestra is the name, orchestra.hyperdrift.io is the host — 9 October 2026
 
 Founder ruling: Orchestra is the name. The canonical host is `orchestra.hyperdrift.io`; `ai.hyperdrift.io` stays forever as a permanent 301 (nginx alias in `infra/group_vars/apps.yml`, `$request_uri` preserved) so every link ever sent keeps working. Code, article bodies, figures, share cards, `llms.txt`, feed, sitemap, JSON-LD and the PostHog hostname gate all name the new host; older sections below that say `ai.hyperdrift.io` are history, not instructions. PostHog events carry `hostname=orchestra.hyperdrift.io` from this release; filter insights on `app=orchestra` and both hostnames when reading across the move. Every page carries Organization and WebSite JSON-LD naming Orchestra AI with Hyperdrift as the parent organisation. Bitmaps and films that print the old host (the Traction title card, the trailer captions) are not re-rendered; the redirect covers them.

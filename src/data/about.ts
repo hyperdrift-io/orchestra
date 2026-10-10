@@ -38,4 +38,4 @@ export const fits: readonly Fit[] = [
   },
 ];
 
-export const partners = 'Partners Tecknuovo and Vodafone3 · sponsored by Databricks';
+export const partners = 'Yann’s client engagements include Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo. Together and Revela are partner ventures, each combining a founder’s audience knowledge with our engineering.';

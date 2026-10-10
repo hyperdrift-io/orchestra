@@ -8,7 +8,7 @@ import { Services } from '@/components/Services';
 
 export const metadata: Metadata = { alternates: { canonical: '/' }, openGraph: homepageOpenGraph };
 
-/** One promise, what we offer with Traction launching in public, inspectable proof and a first conversation. */
+/** The Orchestra offer, optional exploration, inspectable proof and a first conversation. */
 export default function Page() {
   return (
     <>

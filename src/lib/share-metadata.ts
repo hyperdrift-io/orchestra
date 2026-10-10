@@ -34,7 +34,7 @@ export const websiteOpenGraph = {
 
 export const homepageOpenGraph = {
   ...websiteOpenGraph,
-  title: 'Orchestra AI by Hyperdrift — AI for business growth',
-  description: 'Grow your business. Keep more of the upside. AI engineering for founders with customers, active users or clear demand.',
+  title: 'Orchestra AI by Hyperdrift — Customer growth and AI engineering',
+  description: 'Connect customer insight, distribution and AI engineering. Start with one measurable opportunity to reach customers, help them use your product or improve delivery.',
   url: 'https://orchestra.hyperdrift.io',
 };

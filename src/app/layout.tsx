@@ -37,11 +37,11 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://orchestra.hyperdrift.io'),
   title: {
-    default: 'Orchestra AI by Hyperdrift — AI for business growth',
+    default: 'Orchestra AI by Hyperdrift — Customer growth and AI engineering',
     template: '%s — Orchestra AI',
   },
   description:
-    'AI engineering for founders with customers, active users or clear demand. Build on your traction, grow revenue, protect profit and explore a shared-upside partnership.',
+    'Orchestra connects customer insight, distribution and AI engineering for founders with a working product and evidence of demand. Start with one measurable customer opportunity.',
   openGraph: homepageOpenGraph,
   twitter: { card: 'summary_large_image', images: [brandShareImage] },
 };

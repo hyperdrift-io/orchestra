@@ -4,11 +4,11 @@ import { EnquiryForm } from '@/components/EnquiryForm';
 export function Enquiry() {
   return (
     <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Find your next growth opportunity.</h2>
+      <h2 id="contact-title">What would move your business forward?</h2>
 
       <div>
         <div>
-          <p>Tell us what’s gaining traction, where you want the business to grow, and what would help you get there. We’ll reply within a working day to explore a useful first scope.</p>
+          <p>Bring your product, the customers you want to reach and the opportunity you see. Yann will reply within one working day to explore whether Orchestra can help and what a useful first scope would be.</p>
           <dl>
             <div>
               <dt>Reply time</dt>
@@ -23,7 +23,7 @@ export function Enquiry() {
               <dd>Remote · EU/UK hours</dd>
             </div>
           </dl>
-          <p>We start with one workflow, agree the scope, build an improvement you can inspect, and measure its effect.</p>
+          <p>We agree the work and how to judge it before building. You stay involved in customer conversations and consequential decisions; we help turn the agreed next move into something customers can use.</p>
           <p><a href="/partnership">Explore a Traction Partnership →</a></p>
         </div>
         <EnquiryForm />

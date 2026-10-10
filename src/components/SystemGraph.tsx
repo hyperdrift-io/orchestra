@@ -22,7 +22,7 @@ export function SystemGraph({scenario=businessScenarios[0]}:{scenario?:BusinessS
   const select=(index:number)=>{setStep(index);setFacet(null);if(available)engine.current?.select(index);else {setFocused(true);trackEvent('domain_explored',{domain:scenario.steps[index].name});}};
   const reset=()=>{engine.current?.reset();setFocused(false);setFacet(null);};
   return <div data-business-graph="globe" data-focused={focused} data-domain={step+1} onKeyDown={event=>{if(event.key==='Escape'&&focused){event.preventDefault();reset();}}}>
-    <header><p>AI engineering for founders · Illustrative scenario</p><h1 id="system-title">{scenario.title}</h1><p>Follow one opportunity from the first customer signal to a better business. Explore how every part contributes to growth.</p></header>
+    <header><p>Explore the work · Illustrative scenario</p><h2>{scenario.title}</h2><p>Follow one opportunity from the first customer signal to a measured improvement. Select a domain to see the work and the decisions behind it.</p></header>
     <div data-graph-experience>
     <nav data-domain-links aria-label="Explore the business domains" onPointerLeave={()=>engine.current?.hover(-1)}>
       {scenario.steps.map((item,i)=><button key={item.name} ref={el=>{links.current[i]=el;}} data-node={i+1} aria-label={`Explore ${item.name}`} aria-pressed={focused&&step===i} aria-controls={`${id}-detail`} onPointerEnter={event=>{if(event.pointerType==='mouse')engine.current?.hover(i);}} onFocus={event=>{if(event.currentTarget.matches(':focus-visible'))engine.current?.hover(i);}} onBlur={()=>engine.current?.hover(-1)} onClick={()=>select(i)}><strong>{item.name}</strong><span>{['Find demand','Focus effort','Remove friction','Deliver value','Build on results'][i]}</span></button>)}
