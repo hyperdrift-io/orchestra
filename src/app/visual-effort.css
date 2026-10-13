@@ -1,0 +1,173 @@
+/* Effort flow: one advisory, two flows, one row per step at the same pace.
+   The rail beside each flow is production's exposure: coral until the step that protects it, teal after.
+   Gold marks a hands-on step, a ring an automated one. Phones show one flow beside the step numbers;
+   wider figures mirror the dev loop so both rails meet at the step spine and their lengths compare at a glance. */
+[data-visual="effort"] {
+  container: effort / inline-size;
+  --coral: var(--viz-red, #e8a18a);
+  --teal: var(--viz-teal, #90c5b8);
+  --well: #191611;
+  --rail: .8rem;
+  --text-in: 2.15rem;
+  --gap: .25rem;
+}
+[data-visual="effort"] button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+[data-visual="effort"] > header > p:last-child { max-width: 40rem; }
+
+/* Controls: play, the flow switch (phones), the key. */
+[data-visual="effort"] > [data-controls] { display: grid; gap: .8rem; margin: 0 1rem 1.2rem; }
+[data-visual="effort"] [data-play] { display: inline-flex; align-items: center; justify-content: center; gap: .65rem; padding: .55rem 1.1rem .55rem .9rem; border-color: var(--gold); background: var(--gold-soft); font: 500 .85rem/1.2 var(--font-body); color: var(--cream); }
+[data-visual="effort"] [data-play] > i { width: .62rem; height: .74rem; background: var(--gold-light); clip-path: polygon(0 0, 100% 50%, 0 100%); }
+[data-visual="effort"] [data-play][aria-pressed="true"] > i { box-sizing: border-box; border-inline: 3px solid var(--gold-light); background: none; clip-path: none; }
+[data-visual="effort"] [data-switch] { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 3px; border: 1px solid var(--gold-line); border-radius: 5px; background: #0f0d0a66; }
+[data-visual="effort"] [data-switch] button { display: grid; align-content: center; gap: .2rem; min-height: 54px; padding: .45rem .7rem; border: 0; border-radius: 3px; text-align: left; font: 500 .85rem/1.2 var(--font-body); color: var(--cream-2); }
+[data-visual="effort"] [data-switch] small { font: .58rem/1.25 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="effort"] [data-switch] button[aria-pressed="true"] { color: var(--cream); background: var(--gold-soft); box-shadow: inset 0 0 0 1px var(--gold); }
+[data-visual="effort"] [data-legend] { display: flex; flex-wrap: wrap; gap: .45rem 1.1rem; margin: 0; padding: 0; list-style: none; font: .6rem/1.3 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="effort"] [data-legend] li { display: inline-flex; align-items: center; gap: .45rem; }
+[data-visual="effort"] [data-legend] li::before { content: ''; flex: none; box-sizing: border-box; width: .62rem; height: .62rem; border-radius: 50%; }
+[data-visual="effort"] [data-legend] [data-key="exposed"]::before { width: 1.1rem; height: 4px; border-radius: 2px; background: var(--coral); }
+[data-visual="effort"] [data-legend] [data-key="protected"]::before { width: 1.1rem; height: 4px; border-radius: 2px; background: var(--teal); }
+[data-visual="effort"] [data-legend] [data-key="hands"]::before { background: var(--gold); }
+[data-visual="effort"] [data-legend] [data-key="auto"]::before { border: 1.5px solid var(--cream-3); }
+
+/* The board: an advisory row, a heading row, then eight equal step rows shared by every column through subgrid,
+   so a token can travel by whole rows with a transform. Phones: step numbers, then one flow. */
+[data-visual="effort"] [data-flows] { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); grid-template-rows: auto auto repeat(8, 1fr); column-gap: var(--gap); margin: 0 1rem; }
+[data-visual="effort"] [data-advisory] { grid-column: 1 / -1; grid-row: 1; justify-self: start; display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .6rem; margin: 0; padding: .5rem .95rem; border: 1px solid color-mix(in srgb, var(--coral) 55%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--coral) 9%, #1d1913); font: .8rem/1.3 var(--font-body); color: var(--cream); }
+[data-visual="effort"] [data-advisory] > span { display: inline-flex; align-items: center; gap: .45rem; font: .58rem/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
+[data-visual="effort"] [data-advisory] > span::before { content: ''; width: .45rem; height: .45rem; background: var(--coral); transform: rotate(45deg); }
+/* From the advisory down into the rail. Wider figures split it into both rails. */
+[data-visual="effort"] [data-split] { grid-column: 2; grid-row: 2; position: relative; }
+[data-visual="effort"] [data-split]::before { content: ''; position: absolute; top: 0; bottom: 0; left: calc(var(--rail) - 2px); width: 4px; background: var(--coral); box-shadow: 0 0 12px color-mix(in srgb, var(--coral) 50%, transparent); }
+
+/* The step spine: the shared axis, and a way to see both flows at any one step. */
+[data-visual="effort"] [data-spine] { grid-column: 1; grid-row: 3 / -1; display: grid; grid-template: subgrid / subgrid; margin: 0; padding: 0; list-style: none; }
+[data-visual="effort"] [data-spine] > li { position: relative; display: grid; place-items: center; }
+[data-visual="effort"] [data-spine] button { position: relative; z-index: 1; width: 2.75rem; height: 2.75rem; min-height: 0; padding: 0; border-color: rgb(246 238 225 / .14); border-radius: 50%; background: var(--well); font: .74rem/1 var(--font-mono); color: var(--cream-3); }
+[data-visual="effort"] [data-spine] button[data-passed] { color: var(--cream); }
+[data-visual="effort"] [data-spine] button:hover { border-color: var(--gold-line); background: #2a2116; }
+[data-visual="effort"] [data-spine] button[aria-pressed="true"] { border-color: var(--gold); background: #33281a; color: var(--gold-light); }
+
+/* A flow: its heading, then its steps on the rail. */
+[data-visual="effort"] [data-flow] { grid-column: 2; grid-row: 2 / -1; display: grid; grid-template: subgrid / subgrid; min-width: 0; margin: 0; padding: 0; border: 0; }
+[data-visual="effort"][data-view="loop"] [data-flow="led"], [data-visual="effort"][data-view="led"] [data-flow="loop"] { display: none; }
+[data-visual="effort"] [data-flow] > * { grid-column: 1; }
+[data-visual="effort"] [data-flow] > h4 { grid-row: 1; display: grid; align-content: end; gap: .35rem; margin: 0; padding: 1.1rem 0 1rem var(--text-in); font: 500 1.5rem/1.05 var(--font-display); color: var(--cream); }
+[data-visual="effort"] [data-flow] > h4 small { font: .58rem/1.3 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="effort"] [data-flow] > ol { grid-row: 2 / -1; display: grid; grid-template: subgrid / subgrid; margin: 0; padding: 0; list-style: none; }
+[data-visual="effort"] [data-flow] li { --seg: var(--coral); --nw: .8rem; --nh: .8rem; position: relative; display: flex; flex-direction: column; justify-content: center; gap: .12rem; min-width: 0; min-height: 3.9rem; padding: .42rem 0 .42rem var(--text-in); }
+[data-visual="effort"] [data-flow] li > small { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .55rem; font: .58rem/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="effort"] [data-flow] li:is([data-kind="hands"], [data-kind="gate"]) > small { color: var(--gold); }
+[data-visual="effort"] [data-flow] li > strong { font: 500 .88rem/1.3 var(--font-body); color: var(--cream); }
+[data-visual="effort"] [data-flow] li > span { font: .74rem/1.4 var(--font-body); color: var(--cream-3); }
+[data-visual="effort"] [data-flow] li > * { transition: opacity .35s ease; }
+[data-visual="effort"] [data-flow] li[data-state="next"] > * { opacity: .3; }
+[data-visual="effort"] [data-flow] li[data-state="now"] > strong { color: var(--gold-light); }
+
+/* The rail, one segment per step: from the previous node down to this one. Steps not yet taken stay undrawn. */
+[data-visual="effort"] [data-flow] :is(li, [data-rest])::before { content: ''; position: absolute; z-index: 1; top: -50%; left: calc(var(--rail) - 2px); width: 4px; height: 100%; background: var(--seg); box-shadow: 0 0 12px color-mix(in srgb, var(--seg) 50%, transparent); transform: scaleY(0); transform-origin: 50% 0; transition: transform .7s var(--ease); }
+[data-visual="effort"] [data-flow] li:first-child::before { top: 0; height: 50%; }
+[data-visual="effort"] [data-flow] :is(li, [data-rest]):not([data-state="next"])::before { transform: none; }
+[data-visual="effort"] [data-flow] :is([data-safe], [data-rest]) { --seg: var(--teal); }
+[data-visual="effort"] [data-flow] > [data-rest] { grid-column: 1; position: relative; }
+[data-visual="effort"] [data-flow] > [data-rest="6"] { grid-row: 7; }
+[data-visual="effort"] [data-flow] > [data-rest="7"] { grid-row: 8; }
+[data-visual="effort"] [data-flow] > [data-rest="8"] { grid-row: 9; }
+
+/* Nodes: a gold disc is a person's step, a ring is automation, a gold bar across the rail is the release window. */
+[data-visual="effort"] [data-flow] li::after { content: ''; position: absolute; z-index: 2; top: 50%; left: var(--rail); box-sizing: border-box; width: var(--nw); height: var(--nh); margin: calc(var(--nh) / -2) 0 0 calc(var(--nw) / -2); border: 1.5px solid var(--cream-3); border-radius: 50%; background: var(--well); transition: opacity .35s ease; }
+[data-visual="effort"] [data-flow] li:is([data-kind="hands"], [data-kind="gate"]) { --nw: .95rem; --nh: .95rem; }
+[data-visual="effort"] [data-flow] li:is([data-kind="hands"], [data-kind="gate"])::after { border: 0; background: var(--gold); box-shadow: 0 0 0 3px var(--well), 0 0 16px color-mix(in srgb, var(--gold) 50%, transparent); }
+[data-visual="effort"] [data-flow] li[data-kind="gate"] { --nw: 1.8rem; --nh: .5rem; }
+[data-visual="effort"] [data-flow] li[data-kind="gate"]::after { border-radius: 2px; }
+[data-visual="effort"] [data-flow] li[data-state="next"]::after { opacity: .35; }
+
+/* What an alert count looks like: one pip per alert, the live one in coral. */
+[data-visual="effort"] [data-alerts] { display: inline-flex; gap: .24rem; }
+[data-visual="effort"] [data-alerts] > i { box-sizing: border-box; width: .44rem; height: .44rem; border: 1px solid rgb(246 238 225 / .45); border-radius: 50%; }
+[data-visual="effort"] [data-alerts] > i[data-live] { border-color: var(--coral); background: var(--coral); }
+/* The release window carries an hourglass in its label. */
+[data-visual="effort"] li[data-kind="gate"] > small::before { content: ''; width: .5rem; height: .62rem; background: currentColor; clip-path: polygon(0 0, 100% 0, 58% 50%, 100% 100%, 0 100%, 42% 50%); }
+[data-visual="effort"] [data-protected] { display: inline-flex; align-items: center; gap: .4rem; padding: .16rem .45rem .16rem .4rem; border: 1px solid color-mix(in srgb, var(--teal) 60%, transparent); border-radius: 3px; background: color-mix(in srgb, var(--teal) 13%, transparent); font-weight: 500; color: var(--teal); }
+/* It lands with a small rise when a replay reaches it; the finished state simply shows it. */
+[data-visual="effort"]:not([data-final]) [data-protected] { animation: effort-land .5s var(--ease) both; }
+[data-visual="effort"] [data-protected]::before { content: ''; width: .28rem; height: .55rem; margin: -.15rem .1rem 0; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+
+/* The advisory itself: one token per flow, travelling by whole rows. Coral while production is exposed, teal once it is protected. */
+[data-visual="effort"] [data-flow] > [data-token] { grid-column: 1; grid-row: 2; position: relative; z-index: 3; pointer-events: none; transform: translateY(calc(var(--at, 0) * 100%)); transition: transform .8s var(--ease); }
+[data-visual="effort"] [data-token="2"] { --at: 1; }
+[data-visual="effort"] [data-token="3"] { --at: 2; }
+[data-visual="effort"] [data-token="4"] { --at: 3; }
+[data-visual="effort"] [data-token="5"] { --at: 4; }
+[data-visual="effort"] [data-token="6"] { --at: 5; }
+[data-visual="effort"] [data-token="7"] { --at: 6; }
+[data-visual="effort"] [data-token="8"] { --at: 7; }
+[data-visual="effort"] [data-token]::before, [data-visual="effort"] [data-token]::after { content: ''; position: absolute; top: 50%; left: var(--rail); border-radius: 50%; }
+[data-visual="effort"] [data-token]::before { width: 1.15rem; height: 1.15rem; margin: -.575rem 0 0 -.575rem; background: var(--coral); box-shadow: 0 0 0 3px var(--well), 0 0 22px 3px color-mix(in srgb, var(--coral) 60%, transparent); transition: background-color .4s ease, box-shadow .4s ease; }
+[data-visual="effort"] [data-token][data-safe]::before { background: var(--teal); box-shadow: 0 0 0 3px var(--well), 0 0 22px 3px color-mix(in srgb, var(--teal) 60%, transparent); }
+/* Held at the release window: a ring keeps pulsing until the window opens. */
+[data-visual="effort"] [data-token]::after { width: 2.3rem; height: 2.3rem; margin: -1.15rem 0 0 -1.15rem; box-sizing: border-box; border: 1.5px solid var(--gold-light); opacity: 0; }
+[data-visual="effort"] [data-token][data-waiting]::after { animation: effort-hold 1.25s ease-out infinite; }
+
+/* Production-led, after its last step: production stays protected while the other flow continues. */
+[data-visual="effort"] [data-flow="led"] > [data-note] { grid-column: 1; grid-row: 7 / 10; align-self: center; margin: 0 0 0 var(--text-in); padding: .75rem .85rem; border: 1px dashed rgb(246 238 225 / .26); border-radius: 4px; font: .78rem/1.45 var(--font-body); color: var(--cream-2); }
+[data-visual="effort"] [data-note] > b { display: block; margin-bottom: .3rem; font: 500 .58rem/1.3 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); }
+
+/* The tally: the dev loop's count, what is counted, production-led's count. */
+[data-visual="effort"] > [data-tally] { width: calc(100% - 2rem); margin: 1.5rem 1rem 0; border-collapse: collapse; table-layout: fixed; }
+[data-visual="effort"] [data-tally] caption { padding-bottom: .7rem; font: .58rem/1.3 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="effort"] [data-tally] thead :is(th, td) { padding: 0 .8rem .45rem; font: 500 .62rem/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cream-2); }
+[data-visual="effort"] [data-tally] thead td { width: 44%; }
+[data-visual="effort"] [data-tally] :is(thead th, td):first-child { text-align: right; }
+[data-visual="effort"] [data-tally] :is(thead th, td):last-child { text-align: left; }
+[data-visual="effort"] [data-tally] tbody tr { border-top: 1px solid var(--line-hair); }
+[data-visual="effort"] [data-tally] tbody th { padding: .55rem .4rem; font: 400 .6rem/1.35 var(--font-mono); letter-spacing: .08em; text-align: center; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="effort"] [data-tally] td { padding: .3rem .8rem; font: 500 1.9rem/1 var(--font-display); font-variant-numeric: lining-nums tabular-nums; color: var(--cream); white-space: nowrap; }
+[data-visual="effort"] [data-tally] tbody td:last-child { color: var(--teal); }
+[data-visual="effort"] [data-tally] td small { font: .72rem var(--font-body); color: var(--cream-3); }
+[data-visual="effort"] [data-tally] td[data-pending] { font: italic .8rem/1.9rem var(--font-body); color: var(--cream-3); }
+[data-visual="effort"] [data-tally] td[data-pending="exposed"] { color: var(--coral); }
+
+[data-visual="effort"] [data-outcome] { min-height: 11.5rem; }
+
+/* Wider figures: both flows side by side, the dev loop mirrored so the two rails flank the shared step spine. */
+@container effort (min-width: 620px) {
+  [data-visual="effort"] { --gap: .55rem; }
+  [data-visual="effort"] > [data-controls] { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin: 0 1.8rem 1.4rem; }
+  [data-visual="effort"] [data-switch] { display: none; }
+  [data-visual="effort"] [data-legend] { margin-left: auto; }
+  [data-visual="effort"] [data-flows] { grid-template-columns: minmax(0, 1fr) 2.9rem minmax(0, 1fr); margin: 0 1.8rem; }
+  [data-visual="effort"] [data-advisory] { justify-self: center; }
+  [data-visual="effort"] [data-spine] { grid-column: 2; }
+  /* Same step, same row: a hairline joins the two nodes through the step number. */
+  [data-visual="effort"] [data-spine] > li::before { content: ''; position: absolute; top: 50%; left: calc(-1 * (var(--gap) + var(--rail))); right: calc(-1 * (var(--gap) + var(--rail))); border-top: 1px dotted rgb(246 238 225 / .2); }
+  [data-visual="effort"] [data-split] { grid-column: 2; }
+  [data-visual="effort"] [data-split]::before { bottom: .9rem; left: calc(50% - 2px); }
+  [data-visual="effort"] [data-split]::after { content: ''; position: absolute; bottom: 0; left: calc(-1 * (var(--gap) + var(--rail)) - 2px); right: calc(-1 * (var(--gap) + var(--rail)) - 2px); box-sizing: border-box; height: .9rem; border: 4px solid var(--coral); border-bottom: 0; border-radius: .9rem .9rem 0 0; filter: drop-shadow(0 0 6px color-mix(in srgb, var(--coral) 55%, transparent)); }
+  [data-visual="effort"][data-view] [data-flow] { display: grid; }
+  [data-visual="effort"] [data-flow="loop"] { grid-column: 1; }
+  [data-visual="effort"] [data-flow="led"] { grid-column: 3; }
+  [data-visual="effort"] [data-flow] > h4 { padding-top: 1.3rem; }
+  [data-visual="effort"] [data-flow="loop"] > h4 { padding: 1.3rem var(--text-in) 1rem 0; text-align: right; }
+  [data-visual="effort"] [data-flow="loop"] li { align-items: flex-end; padding: .5rem var(--text-in) .5rem 0; text-align: right; }
+  [data-visual="effort"] [data-flow="loop"] li > small { flex-direction: row-reverse; }
+  [data-visual="effort"] [data-flow="loop"] :is(li, [data-rest])::before { left: auto; right: calc(var(--rail) - 2px); }
+  [data-visual="effort"] [data-flow="loop"] li::after { left: auto; right: var(--rail); margin: calc(var(--nh) / -2) calc(var(--nw) / -2) 0 0; }
+  [data-visual="effort"] [data-flow="loop"] [data-token]::before, [data-visual="effort"] [data-flow="loop"] [data-token]::after { left: auto; right: var(--rail); }
+  [data-visual="effort"] [data-flow="loop"] [data-token]::before { margin: -.575rem -.575rem 0 0; }
+  [data-visual="effort"] [data-flow="loop"] [data-token]::after { margin: -1.15rem -1.15rem 0 0; }
+  [data-visual="effort"] > [data-tally] { width: calc(100% - 3.6rem); margin: 1.8rem 1.8rem 0; }
+  [data-visual="effort"] [data-tally] thead td { width: 34%; }
+  [data-visual="effort"] [data-tally] td { padding-inline: 1.2rem; font-size: 2.1rem; }
+  [data-visual="effort"] [data-outcome] { min-height: 8.6rem; }
+}
+
+@keyframes effort-hold { from { opacity: .9; transform: scale(.5); } to { opacity: 0; transform: scale(1.35); } }
+@keyframes effort-land { from { opacity: 0; transform: translateY(4px) scale(.96); } }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-visual="effort"] [data-flow] :is(li, [data-rest])::before, [data-visual="effort"] [data-flow] > [data-token], [data-visual="effort"] [data-token]::before, [data-visual="effort"] [data-flow] li > *, [data-visual="effort"] [data-flow] li::after { transition: none; }
+  [data-visual="effort"]:not([data-final]) [data-protected] { animation: none; }
+  [data-visual="effort"] [data-token][data-waiting]::after { animation: none; opacity: .85; transform: none; }
+}

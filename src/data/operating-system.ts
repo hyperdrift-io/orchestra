@@ -2,9 +2,15 @@
 export const operatingServices = [
   { id: 'build', name: 'Build & release', symbol: 'wrench', colour: '#e3a857', detail: 'Source, preview and relevant checks lead to an authorised release. The record identifies exactly what reached the live app.', evidence: 'Tested revision · release receipt · live customer path' },
   { id: 'run', name: 'Run & recover', symbol: 'clock', colour: '#78dcca', detail: 'Watch the running service, route a problem to its owner and verify recovery. Backups earn confidence through an exercised restore.', evidence: 'Fresh health checks · acknowledged alert · restore evidence' },
-  { id: 'protect', name: 'Protect & reconcile', symbol: 'shield', colour: '#8fb9f3', detail: 'Assess live exposure, prepare an allowed repair and verify it in service. Carry the protection into development and block later releases that would undo it.', evidence: 'Finding · verified repair · source reconciliation' },
+  { id: 'protect', name: 'Protect & reconcile', symbol: 'shield', colour: '#8fb9f3', detail: 'Assess live exposure, prepare an allowed repair and verify it in service. Carry the protection into development and block later releases that would undo it.', evidence: 'Finding · verified repair · source reconciliation', article: { href: '/articles/production-led-security-maintenance', label: 'Should a security fix wait for the next feature release?' } },
   { id: 'reach', name: 'Reach & serve', symbol: 'conversation', colour: '#ed9f91', detail: 'A named customer-success owner connects support, communication and accepted customer work. An action receipt and a customer result remain separate facts.', evidence: 'Accepted action · delivery receipt · customer result' },
   { id: 'learn', name: 'Measure & decide', symbol: 'book', colour: '#bca5e5', detail: 'Traction connects context, accepted work and outcomes. Customer, payment and analytics systems remain authoritative; their evidence informs the next decision.', evidence: 'Evidence source · decision · result · next move' },
+] as const;
+
+/** Field notes that explain the offer in depth. */
+export const operatingReading = [
+  { href: '/articles/app-operations-after-launch', label: 'Your app works. Who runs it now?', note: 'What to hand over, what to keep, and five questions for whoever runs your app.' },
+  { href: '/articles/production-led-security-maintenance', label: 'Should a security fix wait for the next feature release?', note: 'How a repair made in production survives the next release.' },
 ] as const;
 
 export const operatingScenes = [

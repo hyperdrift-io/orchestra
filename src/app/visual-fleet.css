@@ -1,0 +1,178 @@
+/* One fix, every app: the shared layer at the centre, our apps on a ring around it.
+   The event's capability colour (the five colours of /how-it-works) is the only accent; the mesh stays gold.
+   Every state is drawn at rest. Motion runs only under [data-animate], after a reader's choice, and lands where the static drawing already is. */
+[data-visual="fleet"] { container: fleet / inline-size; --event: #e3a857; --app: #1b1713; --hair: rgb(246 238 225 / .14); --fleet-ease: cubic-bezier(.22, 1, .36, 1); }
+[data-visual="fleet"][data-event="npm"] { --event: #8fb9f3; }
+[data-visual="fleet"][data-event="reading"] { --event: #ed9f91; }
+[data-visual="fleet"][data-event="joins"] { --event: #78dcca; }
+[data-visual="fleet"] button[value="react"] { --tone: #e3a857; }
+[data-visual="fleet"] button[value="npm"] { --tone: #8fb9f3; }
+[data-visual="fleet"] button[value="reading"] { --tone: #ed9f91; }
+[data-visual="fleet"] button[value="joins"] { --tone: #78dcca; }
+[data-visual="fleet"] button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+/* The switch: the same control as the week above it, its counts following the event. */
+[data-visual="fleet"] > nav[data-modes] { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 0 1.8rem 1rem; padding: 3px; border: 1px solid var(--gold-line); border-radius: 5px; background: #0f0d0a66; }
+[data-modes] button { display: grid; gap: .15rem; justify-items: start; min-height: 52px; padding: .5rem 1rem; border: 0; border-radius: 3px; text-align: left; font: 500 .85rem/1.25 var(--font-body); color: var(--cream-2); }
+[data-modes] button small { font: .58rem/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="fleet"] [data-modes] button[aria-pressed="true"] { color: var(--cream); background: var(--gold-soft); box-shadow: inset 0 0 0 1px var(--gold); }
+[data-modes] button[aria-pressed="true"] small { color: var(--gold-light); }
+
+/* The four events: each wears its capability colour. */
+[data-visual="fleet"] > nav[data-events] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .45rem; margin: 0 1.8rem .4rem; }
+[data-visual="fleet"] [data-events] button { display: grid; align-content: start; gap: .4rem; padding: .6rem .7rem .7rem; border-color: var(--line-soft); text-align: left; font: 500 .8rem/1.3 var(--font-body); color: var(--cream-2); }
+[data-events] button > span { display: flex; align-items: center; gap: .45rem; font: .54rem/1.2 var(--font-mono); letter-spacing: .09em; text-transform: uppercase; color: var(--tone); }
+[data-events] button > span::before { content: ''; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--tone); box-shadow: 0 0 10px color-mix(in srgb, var(--tone) 70%, transparent); }
+[data-visual="fleet"] [data-events] button:hover { color: var(--cream); background: color-mix(in srgb, var(--tone) 8%, transparent); border-color: color-mix(in srgb, var(--tone) 55%, transparent); }
+[data-visual="fleet"] [data-events] button[aria-pressed="true"] { color: var(--cream); background: color-mix(in srgb, var(--tone) 14%, transparent); border-color: var(--tone); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tone) 40%, transparent); }
+
+/* The map: one drawing, an HTML label at its centre so the name stays crisp at any size. */
+[data-visual="fleet"] [data-map] { position: relative; overflow: hidden; margin: 0 .6rem; }
+[data-map] > svg { display: block; width: 100%; height: auto; }
+[data-map] [data-orbit] { fill: none; stroke: var(--hair); stroke-dasharray: 2 6; transition: opacity .5s; }
+[data-map] stop { stop-color: var(--event); stop-opacity: .3; }
+[data-map] stop + stop { stop-opacity: 0; }
+[data-map] [data-spokes] path { fill: none; stroke: rgb(246 238 225 / .13); stroke-width: .8; }
+[data-map] [data-spokes] path[data-on] { stroke: var(--event); stroke-opacity: .6; stroke-width: 1.4; }
+[data-map] [data-spokes] path[data-on="soft"] { stroke-opacity: .32; stroke-width: 1; }
+/* A pulse is one short dash: parked past the path's end at rest, travelling outward when it plays. */
+[data-map] :is([data-pulses] path, path[data-incoming]) { fill: none; stroke: var(--event); stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: .14 1.3; stroke-dashoffset: -1.2; }
+[data-map] [data-trace] { fill: none; stroke: var(--cream-3); stroke-opacity: .6; stroke-width: 1; stroke-dasharray: 3 4; }
+[data-map] [data-trace-tip] { fill: none; stroke: var(--cream-3); stroke-opacity: .8; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+[data-map] [data-tips] path { fill: none; stroke: var(--event); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The shared layer: a gold mesh that turns slowly. */
+[data-map] [data-mesh] { transform-origin: 370px 222px; animation: fleet-turn 160s linear infinite; transition: opacity .6s; }
+[data-map] [data-mesh] [data-far] { fill: none; stroke: rgb(227 168 87 / .16); stroke-width: .6; }
+[data-map] [data-mesh] path[data-near] { fill: none; stroke: rgb(244 205 146 / .4); stroke-width: .75; }
+[data-map] [data-mesh] circle { fill: #e3a857; opacity: .35; }
+[data-map] [data-mesh] circle[data-near] { fill: #f4cd92; opacity: .85; }
+[data-visual="fleet"] [data-core] { position: absolute; top: 50.45%; left: 50%; display: grid; justify-items: center; gap: .3rem; margin: 0; padding: .5rem .8rem .55rem; border: 1px solid rgb(246 238 225 / .3); border-radius: 3px; background: rgb(22 19 15 / .9); transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; }
+[data-core] strong { font: 500 1.2rem/1 var(--font-display); color: var(--cream); }
+[data-core] span { font: 500 .55rem/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--event); }
+
+/* The gate that lives in the shared layer, and the wave it sends out. */
+[data-map] [data-gate] circle { fill: none; stroke: var(--event); stroke-width: 2.2; stroke-dasharray: 9 4; }
+[data-map] [data-shield] { fill: #191611; stroke: var(--event); stroke-width: 1.4; stroke-linejoin: round; }
+[data-map] [data-backing] { fill: rgb(22 19 15 / .88); }
+[data-map] [data-wave] { fill: none; stroke: var(--event); stroke-width: 1.5; opacity: 0; transform-origin: 370px 222px; }
+
+/* An app: a small window. Lit means the fix, the gate or the feature reached it, with a receipt beside it. */
+[data-map] [data-frame] { fill: var(--app); stroke: rgb(246 238 225 / .42); stroke-width: 1; }
+[data-map] [data-bar] { fill: none; stroke: rgb(246 238 225 / .3); stroke-width: 1; stroke-linecap: round; }
+[data-map] [data-page] { fill: none; stroke: rgb(246 238 225 / .32); stroke-width: 2.2; stroke-linecap: round; }
+[data-map] [data-halo] { fill: var(--event); opacity: 0; }
+[data-map] [data-check] { opacity: 0; }
+[data-map] [data-check] circle { fill: var(--event); stroke: #191611; stroke-width: 1.5; }
+[data-map] [data-check] path { fill: none; stroke: #191611; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+[data-map] [data-state="lit"] [data-frame] { stroke: var(--event); stroke-width: 1.4; }
+[data-map] [data-state="lit"] :is([data-bar], [data-page]) { stroke: var(--event); }
+[data-map] [data-state="lit"] [data-halo] { opacity: .15; }
+[data-map] [data-state="lit"] [data-check] { opacity: 1; }
+[data-map] [data-state="soft"] [data-frame] { stroke: color-mix(in srgb, var(--event) 65%, transparent); }
+[data-map] [data-state="ghost"] [data-frame] { fill: #17140f; stroke: rgb(246 238 225 / .17); }
+[data-map] [data-state="ghost"] :is([data-bar], [data-page]) { stroke: rgb(246 238 225 / .1); }
+[data-map] :is([data-state="dark"], [data-state="setup"]) [data-frame] { fill: #120f0c; stroke: rgb(246 238 225 / .24); stroke-dasharray: 3 3; }
+[data-map] :is([data-state="dark"], [data-state="setup"]) :is([data-bar], [data-page]) { stroke: rgb(246 238 225 / .14); }
+[data-map] [data-found] { fill: none; stroke: var(--cream); stroke-opacity: .6; stroke-width: 1; stroke-dasharray: 2 3; }
+/* Each team's own loop, on its own clock. */
+[data-map] [data-loop] { transform-origin: 0 0; animation: fleet-turn calc(4.5s + var(--o) * .8s) linear infinite; }
+[data-map] [data-loop] path { fill: none; stroke: var(--event); stroke-opacity: .85; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+[data-map] [data-outside] circle { fill: none; stroke: var(--cream-3); stroke-opacity: .5; stroke-dasharray: 2 3; }
+[data-map] [data-outside] circle[data-dot] { fill: var(--cream); stroke: none; }
+
+/* Receipts and notes in the drawing: wide figures only; the key below carries them on phones. */
+[data-map] text[data-label] { font: 12px var(--font-body); fill: var(--cream); }
+[data-map] text[data-label] tspan:first-child { font: 500 9.5px var(--font-mono); letter-spacing: .1em; fill: var(--event); }
+[data-map] :is([data-state="dark"], [data-state="setup"], [data-outside]) text[data-label] { fill: var(--cream-3); }
+[data-map] :is([data-state="dark"], [data-state="setup"], [data-outside]) text[data-label] tspan:first-child { fill: var(--cream-2); }
+
+/* Apps on their own: no orbit, no spokes, the shared layer a ghost of itself. */
+[data-mode="own"] [data-map] :is([data-orbit], [data-spokes], [data-glow]) { opacity: 0; }
+[data-mode="own"] [data-map] [data-mesh] { opacity: .2; }
+
+/* The key: what each mark means, and on phones the receipts themselves. */
+[data-visual="fleet"] [data-key] { display: flex; flex-wrap: wrap; gap: .45rem 1.5rem; margin: .3rem 1.8rem 1.1rem; padding: .8rem 0 0; border-top: 1px solid var(--line-hair); list-style: none; font: .74rem/1.45 var(--font-body); color: var(--cream-2); }
+[data-key] li { display: flex; align-items: baseline; gap: .55rem; }
+[data-key] li::before { content: ''; flex: none; width: 11px; height: 8px; border: 1px solid rgb(246 238 225 / .42); border-radius: 2px; background: var(--app); transform: translateY(1px); }
+[data-key] li:is([data-mark="lit"], [data-mark="new"])::before { border-color: var(--event); background: color-mix(in srgb, var(--event) 35%, var(--app)); box-shadow: 0 0 8px color-mix(in srgb, var(--event) 50%, transparent); }
+[data-key] li[data-mark="soft"]::before { border-color: color-mix(in srgb, var(--event) 65%, transparent); }
+[data-key] li[data-mark="ghost"]::before { opacity: .4; }
+[data-key] li[data-mark="dark"]::before { border-style: dashed; border-color: rgb(246 238 225 / .3); background: #120f0c; }
+[data-key] li:is([data-mark="origin"], [data-mark="loop"], [data-mark="gate"], [data-mark="built"])::before { width: 10px; height: 10px; border-radius: 50%; background: none; transform: translateY(2px); }
+[data-key] li[data-mark="origin"]::before { border: 1px dashed var(--cream); }
+[data-key] li[data-mark="loop"]::before { border: 1.5px solid var(--event); border-top-color: transparent; }
+[data-key] li[data-mark="gate"]::before { border: 2px dashed var(--event); }
+[data-key] li[data-mark="built"]::before { border: 1px solid var(--gold); background: radial-gradient(circle, var(--event) 0 2px, transparent 2.5px); }
+
+/* Motion, after a choice: in from where it was found, investigated once, then out to every app it applies to. */
+@keyframes fleet-turn { to { transform: rotate(360deg); } }
+@keyframes fleet-in { from { opacity: 0; } }
+@keyframes fleet-light { from { stroke: rgb(246 238 225 / .4); } }
+@keyframes fleet-travel { from { stroke-dashoffset: .14; } to { stroke-dashoffset: -1.2; } }
+@keyframes fleet-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes fleet-fade { from { opacity: .5; } to { opacity: 0; } }
+@keyframes fleet-pop { from { opacity: 0; transform: scale(.4); } }
+@keyframes fleet-wave { from { opacity: .8; transform: scale(.32); } to { opacity: 0; transform: scale(1.04); } }
+@keyframes fleet-arrive { from { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+[data-animate] [data-map] path[data-incoming] { animation: fleet-travel .7s var(--fleet-ease) .1s both; }
+[data-animate] [data-map] :is([data-trace], [data-trace-tip]) { animation: fleet-in .5s ease both; }
+[data-animate] [data-map] [data-tips] path { animation: fleet-in .3s ease calc(1.3s + var(--o) * 110ms) both; }
+[data-animate][data-mode="platform"] [data-map] :is([data-glow], [data-orbit]) { animation: fleet-in .6s ease .55s both; }
+[data-animate][data-mode="platform"] [data-core] span { animation: fleet-in .35s ease .7s both; }
+[data-animate] [data-map] [data-spokes] path[data-on] { stroke-dasharray: 1; animation: fleet-draw .6s var(--fleet-ease) calc(.95s + var(--o) * 110ms) both; }
+[data-animate] [data-map] [data-pulses] path { animation: fleet-travel .65s var(--fleet-ease) calc(.9s + var(--o) * 110ms) both; }
+[data-animate] [data-map] [data-state="lit"] :is([data-halo], [data-check]) { animation: fleet-in .45s ease calc(1.4s + var(--o) * 110ms) backwards; }
+[data-animate] [data-map] [data-state="lit"] :is([data-frame], [data-page], [data-bar]) { animation: fleet-light .45s ease calc(1.4s + var(--o) * 110ms) backwards; }
+[data-animate] [data-map] [data-state="lit"] text[data-label] { animation: fleet-in .45s ease calc(1.5s + var(--o) * 110ms) both; }
+[data-animate] [data-map] [data-found] { transform-origin: 0 0; animation: fleet-pop .4s var(--fleet-ease) both; }
+[data-animate] [data-map] [data-gate] > :not([data-label], [data-backing]) { transform-origin: 370px 222px; animation: fleet-pop .5s var(--fleet-ease) .75s both; }
+[data-animate] [data-map] [data-gate] > :is([data-label], [data-backing]) { animation: fleet-in .4s ease 1.1s both; }
+[data-animate] [data-map] [data-wave] { animation: fleet-wave 1.5s ease-out 1.1s both; }
+[data-animate] [data-map] [data-fresh] [data-arrive] { animation: fleet-arrive .7s var(--fleet-ease) both; }
+[data-animate][data-event="joins"] [data-map] :is(path[data-incoming], [data-trace], [data-trace-tip]) { animation-delay: .55s; }
+[data-animate][data-mode="own"] [data-map] :is([data-orbit], [data-spokes], [data-glow]) { animation: fleet-fade .45s ease both; }
+[data-animate][data-mode="own"] [data-map] [data-loop] path { animation: fleet-in .4s ease calc(.25s + var(--o) * 90ms) both; }
+[data-animate][data-mode="own"] [data-map] :is([data-state="dark"], [data-state="setup"]) [data-frame] { animation: fleet-in .5s ease .3s backwards; }
+[data-animate][data-mode="own"] [data-map] g:not([data-outside]) > text[data-label] { animation: fleet-in .4s ease .7s both; }
+/* A new app on one platform: every app on the ring is checked from outside, over and over. */
+[data-event="joins"][data-mode="platform"] [data-map] [data-pulses] path { stroke-width: 2.4; animation: fleet-travel 2.8s linear calc(var(--o) * -.23s) infinite; }
+
+/* Article-column figures. */
+@container fleet (max-width: 720px) {
+  [data-visual="fleet"] > nav[data-events] { gap: .35rem; margin-inline: 1.4rem; }
+  [data-visual="fleet"] > nav[data-modes] { margin-inline: 1.4rem; }
+  [data-visual="fleet"] [data-key] { margin-inline: 1.4rem; }
+  [data-visual="fleet"] [data-events] button { padding: .55rem .55rem .6rem; font-size: .76rem; }
+}
+
+/* Phones: the events in a 2×2 grid, the drawing cropped to the ring so the apps stay large, the receipts in the key. */
+@container fleet (max-width: 620px) {
+  [data-visual="fleet"] > nav[data-modes] { display: grid; margin: 0 1rem 1rem; }
+  [data-modes] button { padding: .5rem .6rem; font-size: .8rem; }
+  [data-modes] button small { letter-spacing: .03em; }
+  [data-visual="fleet"] > nav[data-events] { grid-template-columns: 1fr 1fr; margin: 0 1rem .2rem; }
+  [data-visual="fleet"] [data-events] button { font-size: .8rem; }
+  [data-visual="fleet"] [data-map] { margin: 0; }
+  [data-map] > svg { width: 145.7%; margin-left: -22.8%; }
+  [data-map] :is(text[data-label], [data-backing]) { display: none; }
+  [data-core] strong { font-size: 1.05rem; }
+  [data-core] span { font-size: .52rem; letter-spacing: .1em; }
+  [data-visual="fleet"] [data-key] { display: grid; gap: .5rem; margin: .2rem 1rem 1rem; font-size: .8rem; }
+}
+@container fleet (max-width: 400px) {
+  [data-visual="fleet"] > nav[data-modes] { grid-template-columns: 1fr; }
+  [data-modes] button { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .1rem .8rem; min-height: 46px; }
+  [data-visual="fleet"] [data-events] button { padding: .5rem .5rem .55rem; font-size: .76rem; }
+  [data-core] { gap: .2rem; padding: .3rem .55rem .35rem; }
+  [data-core] strong { font-size: .88rem; }
+  [data-core] span { font-size: .48rem; letter-spacing: .07em; }
+}
+/* The narrowest figures keep the name at the centre; the outcome line already says what happened there. */
+@container fleet (max-width: 290px) {
+  [data-core] span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-visual="fleet"] *, [data-visual="fleet"] *::before { animation: none !important; transition: none !important; }
+}

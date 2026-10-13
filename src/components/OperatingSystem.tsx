@@ -1,5 +1,5 @@
 'use client';
-import { operatingReadiness, operatingScenes, operatingScenarios, operatingServices } from '@/data/operating-system';
+import { operatingReading, operatingReadiness, operatingScenes, operatingScenarios, operatingServices } from '@/data/operating-system';
 import { useOperatingSystem } from '@/lib/hooks/use-operating-system';
 
 export function OperatingSystem() {
@@ -32,6 +32,7 @@ export function OperatingSystem() {
           <p>Inside Orchestra OS</p><h2>{operatingServices[view.selected].name}</h2>
           <p>{operatingServices[view.selected].detail}</p>
           <dl><dt>Evidence to retain</dt><dd>{operatingServices[view.selected].evidence}</dd></dl>
+          {'article' in operatingServices[view.selected] && <a data-service-article href={(operatingServices[view.selected] as { article: { href: string } }).article.href}>Read: {(operatingServices[view.selected] as { article: { label: string } }).article.label} →</a>}
           <button onClick={view.back}>← Back to the sphere</button>
         </> : <>
           <p>Step {view.scene + 1} of 6 <span>{view.current.status}</span></p>
@@ -46,6 +47,7 @@ export function OperatingSystem() {
     <fieldset data-operating-scenarios><legend>Follow one example</legend>{operatingScenarios.map((scenario, i) => <label key={scenario.id}><input type="radio" name="operating-example" checked={view.scenario === i} onChange={() => view.chooseScenario(i)} />{scenario.label}</label>)}</fieldset>
     <p data-model-boundary>This illustrates the intended operating flow. It is not a live status report: automatic enrollment and the complete security repair-and-reconciliation loop still need end-to-end proof.</p>
     <details data-operating-map><summary>The map behind the motion</summary><p>Five jobs connect around the app. Each needs an owner, an agreed scope and evidence of operation. Traction retains the work and its results; the app, payment provider, customer channels and analytics remain authoritative for their own records.</p><picture><source media="(max-width: 650px)" srcSet="/diagrams/app-operating-map-mobile.svg" /><img src="/diagrams/app-operating-map.svg" alt="The target operating map: source and development pass through testing and authorised release to the live app. Health and security feed maintenance. A recorded repair returns to source. Customer actions and measured results inform Traction, judgement, authority, execution and the next decision." width="1200" height="1360" /></picture><a href="/diagrams/app-operating-map.svg">Open the full operating map ↗</a></details>
+    <nav data-operating-reading aria-labelledby="operating-reading-title"><h2 id="operating-reading-title">The thinking behind it</h2><ul>{operatingReading.map((item) => <li key={item.href}><a href={item.href}><strong>{item.label}</strong><span>{item.note}</span></a></li>)}</ul></nav>
     <footer><div><h2>Start with your app.</h2><p>Bring a live product, or a customer problem worth building for. We’ll agree what to connect, who owns its operation and the evidence that shows it is working.</p></div><a href="/?situation=orchestra-os#contact">Embed your app →</a></footer>
   </section>;
 }

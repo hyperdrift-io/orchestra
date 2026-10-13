@@ -707,5 +707,170 @@
         }
       ]
     }
+  },
+  {
+    "slug": "production-led-security-maintenance",
+    "title": "Should a security fix wait for the next feature release?",
+    "seoTitle": "Production-led security maintenance: patching live apps between releases",
+    "excerpt": "A finished app still needs repairs. Patch it from production, carry the fix back to development, and refuse any later release that would undo it.",
+    "shareLine": "A security fix is finished when it survives the next release.",
+    "order": 12,
+    "topic": "Security maintenance",
+    "example": "Orchestra OS",
+    "tags": [
+      "operations",
+      "permissions"
+    ],
+    "exampleStatus": "Proposed reference model",
+    "ctaLabel": "Discuss your security maintenance",
+    "situation": "orchestra-os",
+    "steps": [
+      "Sweep what runs",
+      "Repair from production",
+      "Carry it back",
+      "Refuse the regression"
+    ],
+    "proof": {
+      "heading": "Will the repair survive the next release?",
+      "description": "An illustrative booking API: production is repaired from its own release, a newer feature build still carries the old parser, and the deployment gate decides whether the fix survives.",
+      "url": "/how-it-works",
+      "label": "See where it sits in Orchestra OS"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/production-led-security-maintenance.svg",
+      "alt": "Connected wireframe shield, wrench, clock forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/production-led-security-maintenance.svg",
+      "alt": "Connected wireframe shield, wrench, clock forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "visualization": {
+      "kind": "repair",
+      "takeaway": "A security fix is finished when it survives the next release.",
+      "description": "A worked example with an illustrative booking API. Production runs release A while development has moved on to branch B; when the bundled HTTP parser needs a security fix, maintenance builds A + fix from production and ships it through the deployment gate, which records the parser fix as required. A later build from B is newer and passes its tests but still carries the old parser: a gate that checks required fixes refuses it and assigns an owner to carry the fix into B, while a gate that checks release order alone admits it and production runs the vulnerable parser again.",
+      "sources": [
+        {
+          "label": "Git: merging fixes upwards",
+          "url": "https://git-scm.com/docs/gitworkflows#_merging_upwards"
+        },
+        {
+          "label": "GitLab: deployment safety",
+          "url": "https://docs.gitlab.com/ci/environments/deployment_safety/"
+        },
+        {
+          "label": "Red Hat: backporting security fixes",
+          "url": "https://access.redhat.com/security/updates/backporting"
+        }
+      ],
+      "download": "/articles/orchestra-os/repair-survival.png",
+      "reviewed": "13 October 2026"
+    },
+    "publishedAt": "2026-10-13T21:16:00Z",
+    "figures": [
+      {
+        "kind": "effort",
+        "title": "Where does the effort go?",
+        "takeaway": "Scan what customers use. Repair it there first.",
+        "description": "One advisory for the HTTP parser in the booking API travels through two flows at the same pace. Through the dev loop, scanners on four environments raise four alerts (three on servers no customer touches), and the fix passes six hands-on steps, including review, staging sign-off and a change approval that waits for the release window: production is protected at step 8 of 8. Production-led sweeps what is live, raises one finding with one owner, repairs the running release within agreed policy and verifies it in service: production is protected at step 4 of 5, with the fix carried back to development afterwards while CI keeps its pre-release checks.",
+        "sources": [
+          {
+            "label": "DORA: streamlining change approval",
+            "url": "https://dora.dev/capabilities/streamlining-change-approval/"
+          },
+          {
+            "label": "Amazon Inspector: rescanning images for new vulnerabilities",
+            "url": "https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html"
+          }
+        ],
+        "download": "/articles/orchestra-os/effort-flow.png",
+        "reviewed": "13 October 2026"
+      }
+    ],
+    "invite": "Bring your deployment flow, who patches today and the evidence you use to call a repair done. We’ll work out which maintenance can run on its own and which decisions stay with your team."
+  },
+  {
+    "slug": "app-operations-after-launch",
+    "title": "Your app works. Who runs it now?",
+    "seoTitle": "App operations after launch: what to hand over and what to keep",
+    "excerpt": "A live app creates five jobs every week. Give them named owners, agents with limits and receipts, and keep the decisions. What that looks like, and what to ask whoever runs your app.",
+    "shareLine": "After launch, keep the decisions and hand over the jobs.",
+    "order": 13,
+    "topic": "App operations",
+    "example": "Orchestra OS",
+    "tags": [
+      "operations",
+      "agents"
+    ],
+    "exampleStatus": "Our own apps run on it first",
+    "ctaLabel": "Discuss your app",
+    "situation": "orchestra-os",
+    "steps": [
+      "Name the owners",
+      "Connect the five jobs",
+      "Check each connection",
+      "Keep the decisions"
+    ],
+    "proof": {
+      "heading": "Who carries this week?",
+      "description": "Orchestra OS runs our own apps first. The interactive map shows how an app joins five connected jobs under named owners, with readiness checked connection by connection.",
+      "url": "/how-it-works",
+      "label": "Explore Orchestra OS"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/app-operations-after-launch.svg",
+      "alt": "Connected wireframe gate, shield, chart forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/app-operations-after-launch.svg",
+      "alt": "Connected wireframe gate, shield, chart forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "visualization": {
+      "kind": "operating-week",
+      "takeaway": "Keep the decisions. Hand over the jobs.",
+      "description": "One illustrative week of a live booking app: a security advisory on Monday, a customer who can't finish a booking on Tuesday, a release on Wednesday, a sign-up dip on Thursday and an outage at 02:10 on Saturday. Run yourself, all five jobs land on the founder, with the record in an inbox, a tab or memory. On Orchestra OS each goes to its lane: an agent does the routine part, a named owner answers for it, and a receipt records the result. Only two decisions come back, with evidence attached: whether to refund the customer, and whether to roll back the new sign-up form or fix forward.",
+      "sources": [
+        {
+          "label": "Orchestra OS: how an app joins",
+          "url": "/how-it-works"
+        },
+        {
+          "label": "Production-led security maintenance",
+          "url": "/articles/production-led-security-maintenance"
+        }
+      ],
+      "download": "/articles/orchestra-os/operating-week.png",
+      "reviewed": "13 October 2026"
+    },
+    "publishedAt": "2026-10-13T21:16:00Z",
+    "figures": [
+      {
+        "kind": "fleet",
+        "title": "One fix, every app",
+        "takeaway": "What one app learns, every app on the platform gets.",
+        "description": "Orchestra OS at the centre, our apps on a ring around it. When a React bug left pages blank on one app, it was found and investigated there once, on 17 September; on 8 October the fix went into all six apps on that stack the same day, while on their own each app would hunt the same bug separately and one that hasn't noticed still shows a blank page. The same pattern holds for a compromised npm package (a malicious-package gate in our deploy pipelines the next day), a reading feature built once and synced to three article sites, and a new app that outside monitoring checks every five minutes from the registry with nothing to set up.",
+        "sources": [
+          {
+            "label": "React fix for the stylesheet stall (facebook/react#34760)",
+            "url": "https://github.com/facebook/react/pull/34760"
+          }
+        ],
+        "download": "/articles/orchestra-os/fleet-compound.png",
+        "reviewed": "13 October 2026"
+      }
+    ],
+    "invite": "Tell us about your app, who runs it today and the job you’d hand over first. We’ll agree what to connect, who owns it and the evidence that shows it’s working.",
+    "readNext": "production-led-security-maintenance"
   }
 ]

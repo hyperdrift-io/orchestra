@@ -4,9 +4,13 @@ import { LinkPreview } from '@/components/LinkPreview';
 
 
 import { useEffect, useState } from 'react';
-import type { ArticleSummary } from '@/lib/article-catalogue';
+import type { ArticleSummary, ArticleVisual } from '@/lib/article-catalogue';
 import { InterfaceFigure } from '@/components/InterfaceFigure';
 import type { FigureSvg } from '@/lib/ui-accessibility-figure-svg';
+import { RepairSurvival } from '@/components/visuals/RepairSurvival';
+import { OperatingWeek } from '@/components/visuals/OperatingWeek';
+import { EffortFlow } from '@/components/visuals/EffortFlow';
+import { FleetCompound } from '@/components/visuals/FleetCompound';
 
 function TransactionMap() {
   const [retry, setRetry] = useState(false);
@@ -117,16 +121,16 @@ function BriefOrder() {
   </section>;
 }
 
-const visuals = { transaction: TransactionMap, streaming: StreamingSequence, authority: AuthorityMap, brief: BriefOrder } as const;
+const visuals = { transaction: TransactionMap, streaming: StreamingSequence, authority: AuthorityMap, brief: BriefOrder, repair: RepairSurvival, 'operating-week': OperatingWeek, effort: EffortFlow, fleet: FleetCompound } as const;
 
-export function ArticleVisualization({ article, figureSvg }: { article: ArticleSummary; figureSvg?: FigureSvg }) {
-  const visual = article.visualization;
+/** The article's main visual by default; a body figure when `visual` and `id` are given. */
+export function ArticleVisualization({ article, figureSvg, visual = article.visualization, id = 'article-proof' }: { article: ArticleSummary; figureSvg?: FigureSvg; visual?: ArticleVisual; id?: string }) {
   if (!visual) return null;
   if (visual.kind === 'ui-accessibility') return <InterfaceFigure article={article} svg={figureSvg} />;
   const Visual = visuals[visual.kind];
-  return <figure id="article-proof" data-article-visual="" aria-label={article.proof.heading ?? visual.takeaway}>
+  return <figure id={id} data-article-visual="" aria-label={id === 'article-proof' ? article.proof.heading ?? visual.takeaway : visual.title ?? visual.takeaway}>
     <Visual />
     <figcaption>{visual.takeaway}{visual.download && <> <a href={visual.download} download>Save the visual ↓</a></>}</figcaption>
-    <details><summary>Explanation and primary sources</summary><p>{visual.description}</p><ul>{visual.sources.map((source) => <li key={source.url}><LinkPreview href={source.url}>{source.label} ↗</LinkPreview></li>)}</ul><small>Reviewed {visual.reviewed ?? '22 September 2026'} · Illustrative design, not a client result.</small></details>
+    <details><summary>Explanation and primary sources</summary><p>{visual.description}</p><ul>{visual.sources.map((source) => <li key={source.url}><LinkPreview citation href={source.url}>{source.label}</LinkPreview></li>)}</ul><small>Reviewed {visual.reviewed ?? '22 September 2026'} · Illustrative design, not a client result.</small></details>
   </figure>;
 }

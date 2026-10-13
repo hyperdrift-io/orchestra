@@ -53,5 +53,15 @@
     "book",
     "eye",
     "decision"
+  ],
+  "production-led-security-maintenance": [
+    "shield",
+    "wrench",
+    "clock"
+  ],
+  "app-operations-after-launch": [
+    "gate",
+    "shield",
+    "chart"
   ]
 }

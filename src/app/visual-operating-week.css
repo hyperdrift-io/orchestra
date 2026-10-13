@@ -1,0 +1,110 @@
+/* Operating week: one live app, five jobs, two ways to carry them.
+   Columns are the week and the five Orchestra OS lanes at once; rows are you, then the owners.
+   Lane colours are the capability colours of /how-it-works. You are the light: cream, never a lane colour. */
+[data-visual="operating-week"] { container: operating-week / inline-size; --lane: var(--cream-3); --you-line: rgb(246 238 225 / .5); --card: #1b1713; }
+[data-visual="operating-week"] [data-capability="build"] { --lane: #e3a857; }
+[data-visual="operating-week"] [data-capability="run"] { --lane: #78dcca; }
+[data-visual="operating-week"] [data-capability="protect"] { --lane: #8fb9f3; }
+[data-visual="operating-week"] [data-capability="reach"] { --lane: #ed9f91; }
+[data-visual="operating-week"] [data-capability="learn"] { --lane: #bca5e5; }
+
+/* The switch: one control, two answers, each with its count. */
+[data-visual="operating-week"] > nav { display: inline-grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 0 1.8rem 1.6rem; padding: 3px; border: 1px solid var(--gold-line); border-radius: 5px; background: #0f0d0a66; }
+[data-visual="operating-week"] > nav button { display: grid; gap: .15rem; justify-items: start; min-height: 52px; padding: .5rem 1rem; border: 0; border-radius: 3px; text-align: left; font: 500 .85rem/1.25 var(--font-body); color: var(--cream-2); }
+[data-visual="operating-week"] > nav button small { font: .58rem/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="operating-week"] > nav button[aria-pressed="true"] { color: var(--cream); background: var(--gold-soft); box-shadow: inset 0 0 0 1px var(--gold); }
+[data-visual="operating-week"] > nav button[aria-pressed="true"] small { color: var(--gold-light); }
+[data-visual="operating-week"] button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+/* The week: six rows shared by every column through subgrid, so a lane can change rows without a column losing its place. */
+[data-week] { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: .5rem; margin: 0 1.8rem 1.5rem; }
+[data-week]::before { content: ''; grid-row: 2 / 4; grid-column: 1 / -1; margin-inline: -.7rem; border: 1px solid rgb(246 238 225 / .14); border-radius: 6px; background: linear-gradient(180deg, rgb(246 238 225 / .075), rgb(246 238 225 / .02)); }
+[data-week]::after { content: ''; grid-row: 1; grid-column: 1 / -1; align-self: start; height: 1px; margin-top: 4px; background: linear-gradient(90deg, var(--line-soft), var(--line-hair) 92%, transparent); }
+[data-week] > p { grid-column: 1 / -1; margin: 0; font: .6rem/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+[data-week] > [data-lane="you"] { grid-row: 2; padding: .8rem 0 .7rem; }
+[data-week] > [data-lane="you"] strong { font-weight: 500; color: var(--cream); }
+[data-week] > [data-lane="owners"] { grid-row: 4; padding: 1.25rem 0 .6rem; }
+[data-week] > ol { grid-row: 1 / -1; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; grid-template-rows: subgrid; margin: 0; padding: 0; list-style: none; z-index: 1; }
+[data-week] li { grid-row: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: subgrid; min-width: 0; }
+[data-week] li > *, [data-week] li::before { grid-column: 1; }
+
+/* Row 1 — when it happens. */
+[data-week] [data-when] { grid-row: 1; position: relative; padding: 1rem 0 .9rem; font: .6rem/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cream-3); }
+[data-week] [data-when] b { font-weight: 500; color: var(--cream); }
+[data-week] [data-when]::before { content: ''; position: absolute; top: 0; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--lane); box-shadow: 0 0 0 3px #1d1913, 0 0 14px color-mix(in srgb, var(--lane) 55%, transparent); }
+
+/* Rows 5–6 — the lane: its colour, its owner, then the job it carries. */
+[data-week] li::before { content: ''; grid-row: 5 / 7; border-top: 2px solid var(--lane); border-radius: 0 0 5px 5px; background: linear-gradient(180deg, color-mix(in srgb, var(--lane) 15%, transparent), color-mix(in srgb, var(--lane) 3%, transparent) 90%); }
+[data-week] [data-owner] { grid-row: 5; display: grid; align-content: start; gap: .2rem; margin: 0; padding: .7rem .7rem .65rem; }
+[data-week] [data-owner] > span { font: .56rem/1.35 var(--font-mono); letter-spacing: .09em; text-transform: uppercase; color: var(--lane); }
+[data-week] [data-owner] > strong { font: 500 .8rem/1.3 var(--font-body); color: var(--cream); }
+[data-week] [data-owner] > small { font: .68rem/1.35 var(--font-body); color: var(--cream-3); }
+
+/* The card travels; everything else stays. */
+[data-week] [data-card] { grid-row: 6; display: flex; flex-direction: column; gap: .5rem; min-width: 0; margin: 0 .45rem .45rem; padding: .7rem .7rem .75rem; border: 1px solid color-mix(in srgb, var(--lane) 38%, transparent); border-radius: 4px; background: var(--card); box-shadow: 0 12px 26px -18px #000; }
+[data-week] [data-card] > strong { font: 500 .8rem/1.35 var(--font-body); color: var(--cream); }
+[data-week] [data-job] { margin: 0; font: .74rem/1.4 var(--font-body); color: var(--cream-2); }
+[data-week] [data-trail] { display: grid; gap: .2rem; margin: auto 0 0; padding-top: .5rem; border-top: 1px solid var(--line-hair); font: .7rem/1.4 var(--font-body); color: var(--cream-2); }
+[data-week] [data-trail] > span { font: .55rem/1.2 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--lane); }
+/* A drawn tick, so the receipt mark never depends on a font that lacks the glyph. */
+[data-week] [data-trail] i { display: inline-block; width: .38em; height: .72em; margin: 0 .7em .12em .15em; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+
+/* Row 3 — what comes back to you: a decision, with the lane it came from beneath it. */
+[data-week] [data-decision] { grid-row: 3; position: relative; display: grid; align-content: start; gap: .3rem; margin: 0 0 .85rem; padding: .65rem .7rem .7rem; border: 1px solid var(--you-line); border-radius: 4px; background: #2a251e; box-shadow: 0 16px 34px -18px #000, 0 0 32px -10px rgb(246 238 225 / .22); }
+[data-week] [data-decision] > span { font: .55rem/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--lane); }
+[data-week] [data-decision] > strong { font: 500 1.08rem/1.12 var(--font-display); color: var(--cream); }
+[data-week] [data-decision] > small { font: .68rem/1.35 var(--font-body); color: var(--cream-3); }
+/* The return path: from the lane's top edge up into the decision card. Its length is row 4 plus the card's margin. */
+[data-week] [data-decision]::before { content: ''; position: absolute; top: calc(100% + 6px); left: 50%; height: calc(.85rem + 1.25rem + .6rem + .6rem - 6px); border-left: 1px dashed var(--lane); }
+[data-week] [data-decision]::after { content: ''; position: absolute; top: calc(100% + 1px); left: calc(50% - 4.5px); border: 0 solid transparent; border-width: 0 5px 6px; border-bottom-color: var(--lane); }
+
+/* Run it yourself: every card lands in your lane; each lane's owner reads "You". */
+[data-mode="self"] [data-week] [data-card] { grid-row: 3; margin: 0 0 .8rem; border-color: rgb(246 238 225 / .22); border-top: 2px solid var(--lane); }
+[data-mode="self"] [data-week] li::before { grid-row: 5 / 6; border-top-width: 1px; opacity: .6; }
+[data-mode="self"] [data-week] [data-trail] > span { color: var(--cream-3); }
+
+/* Article-column figures: give the five columns every pixel the frame can spare. */
+@container operating-week (max-width: 800px) {
+  [data-week] { column-gap: .4rem; margin-inline: 1.4rem; }
+  [data-week]::before { margin-inline: -.55rem; }
+  [data-week] [data-owner] { padding: .65rem .55rem .6rem; }
+  [data-week] [data-card] { margin: 0 .3rem .3rem; padding: .62rem .55rem .65rem; }
+  [data-week] [data-decision] { padding: .6rem .6rem .65rem; }
+  [data-week] [data-decision] > strong { font-size: 1.02rem; }
+}
+
+/* Narrow figures: the week runs down the page. The rail on the left is you; owners sit one step in. */
+@container operating-week (max-width: 620px) {
+  [data-visual="operating-week"] > nav { display: grid; margin: 0 1rem 1.3rem; }
+  [data-visual="operating-week"] > nav button { padding: .5rem .6rem; font-size: .8rem; }
+  [data-visual="operating-week"] > nav button small { letter-spacing: .03em; }
+  [data-week] { display: block; margin: 0 1rem 1.3rem; }
+  [data-week]::before, [data-week]::after, [data-week] > [data-lane="owners"] { display: none; }
+  [data-week] > [data-lane="you"] { padding: 0 0 1rem; }
+  [data-week] > ol { position: relative; display: grid; grid-template: none / minmax(0, 1fr); gap: 1.3rem; }
+  [data-week] > ol::before { content: ''; position: absolute; top: 4px; bottom: 0; left: 4px; border-left: 1px solid var(--you-line); }
+  [data-week] li { grid-row: auto; display: flex; flex-direction: column; gap: .5rem; padding-left: 1.4rem; }
+  [data-week] li::before { display: none; }
+  [data-week] [data-when] { padding: 0; }
+  [data-week] [data-when]::before { top: 0; left: -1.4rem; }
+  [data-week] [data-owner] { display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem .5rem; margin-left: 1.3rem; padding: .45rem 0 0 .6rem; border-top: 2px solid var(--lane); }
+  [data-week] [data-owner] > span { flex-basis: 100%; }
+  [data-week] [data-card] { margin: 0 0 0 1.3rem; border-left: 2px solid var(--lane); }
+  [data-week] [data-card] > strong { font-size: .88rem; }
+  [data-week] [data-job] { font-size: .8rem; }
+  [data-week] [data-trail] { font-size: .78rem; }
+  [data-week] [data-trail] > span, [data-week] [data-owner] > span, [data-week] [data-decision] > span { font-size: .6rem; }
+  [data-week] [data-owner] > strong { font-size: .85rem; }
+  [data-week] [data-owner] > small, [data-week] [data-decision] > small { font-size: .75rem; }
+  [data-week] [data-decision] { margin: .2rem 0 0; }
+  [data-week] [data-decision]::before { display: none; }
+  [data-week] [data-decision]::after { top: 50%; left: -1.4rem; margin-top: -4px; border-width: 4px 0 4px 6px; border-color: transparent; border-left-color: var(--cream); }
+  [data-mode="self"] [data-week] [data-owner] { margin-left: 0; padding: 0; border: 0; }
+  [data-mode="self"] [data-week] [data-owner] > span { flex-basis: auto; }
+  [data-mode="self"] [data-week] [data-card] { margin: 0; border-left-width: 1px; }
+}
+/* Phones: the switch stacks into two full-width rows, each answer on one line. */
+@container operating-week (max-width: 400px) {
+  [data-visual="operating-week"] > nav { grid-template-columns: 1fr; }
+  [data-visual="operating-week"] > nav button { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .1rem .8rem; min-height: 46px; }
+}
