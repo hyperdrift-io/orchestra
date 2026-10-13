@@ -32,6 +32,6 @@ export function InterfaceFigure({ article, svg }: Props) {
     </div>
     {interactive && <p role="status" data-route-note="">{route ? route.note : allRoutes}</p>}
     <figcaption>{article.visualization.takeaway}<nav aria-label="Download this figure"><a href={`${base}.svg`} download>Editable SVG ↓</a><a href={`${base}.png`} download>PNG ↓</a></nav></figcaption>
-    <details><summary>Explanation and sources</summary><p>{article.visualization.description}</p>{interactive && <dl>{interfaceRoutes.map((item) => <div key={item.id}><dt>{item.label}</dt><dd>{item.note}</dd></div>)}</dl>}<ul>{article.visualization.sources.map((source) => <li key={source.url}><LinkPreview href={source.url}>{source.label}</LinkPreview></li>)}</ul><small>{article.reviewedAt && <>Sources reviewed {articleDateLabel(article.reviewedAt)}. </>}Conceptual diagrams are labelled separately from the reported scan.</small></details>
+    <details><summary>Explanation and sources</summary><p>{article.visualization.description}</p>{interactive && <dl>{interfaceRoutes.map((item) => <div key={item.id}><dt>{item.label}</dt><dd>{item.note}</dd></div>)}</dl>}<ul>{article.visualization.sources.map((source) => <li key={source.url}><LinkPreview citation href={source.url}>{source.label}</LinkPreview></li>)}</ul><small>{article.reviewedAt && <>Sources reviewed {articleDateLabel(article.reviewedAt)}. </>}Conceptual diagrams are labelled separately from the reported scan.</small></details>
   </figure>;
 }
