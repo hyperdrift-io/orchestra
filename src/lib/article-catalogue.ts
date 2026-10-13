@@ -1,5 +1,12 @@
 import catalogue from '@/data/articles.json';
 
+export interface ArticleVisual {
+  kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet';
+  /** Contents entry for a figure placed in the body. */
+  title?: string;
+  takeaway: string; description: string; sources: { label: string; url: string }[]; download?: string; reviewed?: string;
+}
+
 export interface ArticleSummary {
   slug: string;
   title: string;
@@ -14,12 +21,20 @@ export interface ArticleSummary {
   tags: string[];
   exampleStatus: string;
   ctaLabel: string;
+  /** Preselects "Where you are" in the article's enquiry (a value from `enquiryChoices`). */
+  situation?: string;
+  /** One line under the end-of-article invitation and in the enquiry dialog. */
+  invite?: string;
+  /** Slug shown as Read next; defaults to the next article by order. */
+  readNext?: string;
   steps: string[];
   proof: { description: string; url: string; label: string; heading?: string };
   media: { kind: 'image' | 'youtube' | 'video'; src?: string; id?: string; alt?: string; caption: string; poster?: string; transcript?: { intro: string; turns: { speaker: string; text: string }[] } } | null;
   image: { src: string; alt: string; caption: string; width: number; height: number };
   headerImage?: { src: string; alt: string; width: number; height: number };
-  visualization?: { kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility'; takeaway: string; description: string; sources: { label: string; url: string }[]; download?: string; reviewed?: string };
+  visualization?: ArticleVisual;
+  /** Further visuals, placed in the body where `{{visual:<kind>}}` stands on its own line. */
+  figures?: ArticleVisual[];
   series?: 'ui-accessibility';
   seriesOrder?: number;
   reviewedAt?: string;

@@ -4,14 +4,14 @@ import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import { MeshArtwork } from '@/components/MeshArtwork';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getArticle, articleJsonLd, articleSections } from '@/lib/articles';
+import { getArticle, articleJsonLd, articleSections, figureId } from '@/lib/articles';
 import { visibleArticles, articleUrl, articleDateLabel } from '@/lib/article-catalogue';
 import { ArticleContents } from '@/components/ArticleContents';
 import { ArticleBody } from '@/components/ArticleBody';
 import { ArticleVisualization } from '@/components/ArticleVisualization';
 import { interfaceFigureSvg } from '@/lib/ui-accessibility-figure-svg';
 import { ArticleProof } from '@/components/ArticleProof';
-import { EnquiryForm } from '@/components/EnquiryForm';
+import { EnquiryDialog } from '@/components/EnquiryDialog';
 import { ArticleTracker } from '@/components/ArticleTracker';
 import { ArticleShare } from '@/components/ArticleShare';
 import { ArticleTags } from '@/components/ArticleTags';
@@ -40,7 +40,8 @@ export default async function ArticlePage({ params }: Props) {
   const image = new URL(articleShareImage(article).url);
   const headerImage = article.headerImage ?? article.image;
   const sections = articleSections(article);
-  const next = visibleArticles().find((entry) => entry.order === article.order + 1);
+  const next = (article.readNext && visibleArticles().find((entry) => entry.slug === article.readNext)) || visibleArticles().find((entry) => entry.order === article.order + 1);
+  const invite = article.invite ?? 'Tell us about one workflow and the tools involved. We’ll discuss where agents could help and which decisions should stay with your team.';
   return <article id="article">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd(article) }} />
     <ArticleTracker slug={article.slug} />
@@ -59,12 +60,16 @@ export default async function ArticlePage({ params }: Props) {
     </header>
     <div>
       <ArticleContents entries={sections} ctaLabel={article.ctaLabel} />
-      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} figureSvg={article.visualization?.kind === 'ui-accessibility' ? interfaceFigureSvg(article.slug) : undefined} />} />
+      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} figureSvg={article.visualization?.kind === 'ui-accessibility' ? interfaceFigureSvg(article.slug) : undefined} />} figures={Object.fromEntries((article.figures ?? []).map((figure) => [figure.kind, <ArticleVisualization key={figure.kind} article={article} visual={figure} id={figureId(figure.kind)} />]))} />
     </div>
     <figure id="article-diagram" data-has-visualization={article.visualization ? "true" : undefined}>{!article.visualization && <><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol></>}<ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
     {(!article.visualization || article.media) && <ArticleProof article={article} />}
-    <section id="enquire" aria-labelledby="enquire-heading"><header><p>Put the idea to work</p><h2 id="enquire-heading">What would this look<br /><em>like for you?</em></h2><p>Tell us about one workflow and the tools involved. We’ll discuss where agents could help and which decisions should stay with your team.</p><small>A personal reply within one working day.</small></header><EnquiryForm articleSlug={article.slug} /></section>
+    <section data-article-endcap="" aria-label="What next">
+      <div data-invite=""><p>Put the idea to work</p><h2>What would this look like <em>for you?</em></h2><p>{invite}</p><a href="#enquire" data-enquiry="" data-invite-cta="">{article.ctaLabel} →</a><small>A personal reply within one working day.</small></div>
+      {next && <a data-read-next="" href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong><small>{next.excerpt}</small></a>}
+    </section>
+    <EnquiryDialog articleSlug={article.slug} situation={article.situation} intro={invite} />
     <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} ctaLabel={article.ctaLabel} />
-    <footer><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? '← The complete series' : '← All field notes'}</a>{next && <a href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong></a>}</footer>
+    <footer><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? '← The complete series' : '← All field notes'}</a></footer>
   </article>;
 }

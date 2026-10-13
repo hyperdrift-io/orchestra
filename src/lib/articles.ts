@@ -10,12 +10,18 @@ import { articleShareImage } from './share-metadata';
 import { interfaceFigure } from './ui-accessibility-figures';
 
 export type ArticleBlock = { kind: 'heading' | 'paragraph' | 'quote'; text: string; id?: string } |
-  { kind: 'image'; src: string; alt: string };
+  { kind: 'image'; src: string; alt: string } | { kind: 'visual'; visual: string };
+
+/** `{{visual:<kind>}}` on its own line places a catalogue figure in the body. */
+const visualMarker = /^\{\{visual:([a-z-]+)\}\}$/;
+export const figureId = (kind: string) => `article-visual-${kind}`;
 
 /** Our editorial source uses only headings, paragraphs, quotations and images. No raw HTML is executed. */
 function parseBody(source: string, overrides: AnchorOverrides): ArticleBlock[] {
   const idFor = createAnchorIds(overrides);
   return source.trim().split(/\n\s*\n/).map((text) => {
+    const marker = text.trim().match(visualMarker);
+    if (marker) return { kind: 'visual', visual: marker[1] };
     const image = text.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (image) return { kind: 'image', src: image[2], alt: image[1] };
     if (text.startsWith('## ')) {
@@ -40,7 +46,7 @@ export const getArticle = cache((slug: string) => {
 export const articleSearchEntries = cache((): SearchEntry[] => visibleArticles().map((article) => {
   const source = readFileSync(join(process.cwd(), 'content', 'articles', `${article.slug}.md`), 'utf8');
   const { slug, title, excerpt, topic, example, exampleStatus, order } = article;
-  return { slug, title, excerpt, topic, example, exampleStatus, order, tags: tagsOf(article), text: plainText([article.seoTitle ?? '', article.shareLine, source].join('\n')) };
+  return { slug, title, excerpt, topic, example, exampleStatus, order, tags: tagsOf(article), text: plainText([article.seoTitle ?? '', article.shareLine, source.replace(/^\{\{visual:[a-z-]+\}\}$/gm, '')].join('\n')) };
 }));
 
 export function collectionJsonLd(name: string, description: string, url: string, list: ArticleSummary[]) {
@@ -56,6 +62,10 @@ export function articleSections(article: NonNullable<ReturnType<typeof getArticl
   const visualIndex = article.blocks.findIndex((block) => block.kind === 'quote');
   const body = article.blocks.flatMap((block, index) => {
     if (block.kind === 'heading' && block.id) return [{ id: block.id, title: block.text }];
+    if (block.kind === 'visual') {
+      const figure = article.figures?.find((entry) => entry.kind === block.visual);
+      return figure ? [{ id: figureId(figure.kind), title: figure.title ?? figure.takeaway }] : [];
+    }
     return article.visualization && index === visualIndex ? [visual] : [];
   });
   return [{ id: 'article-body', title: 'Overview' }, ...body, ...(!article.visualization ? [visual] : []), ...(article.visualization && article.media ? [{ id: 'article-recording', title: 'Recorded demonstration' }] : [])];
