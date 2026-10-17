@@ -1,6 +1,6 @@
 /* Operating week: one live app, five jobs, two ways to carry them.
    Columns are the week and the five Orchestra OS lanes at once; rows are you, then the owners.
-   Lane colours are the capability colours of /how-it-works. You are the light: cream, never a lane colour. */
+   Lane colours are the capability colours of /os. You are the light: cream, never a lane colour. */
 [data-visual="operating-week"] { container: operating-week / inline-size; --lane: var(--cream-3); --you-line: rgb(246 238 225 / .5); --card: #1b1713; }
 [data-visual="operating-week"] [data-capability="build"] { --lane: #e3a857; }
 [data-visual="operating-week"] [data-capability="run"] { --lane: #78dcca; }

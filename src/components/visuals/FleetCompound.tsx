@@ -4,7 +4,7 @@ import { useState, type CSSProperties } from 'react';
 
 /*
  * One fix, every app: what one app learns, every app on the platform gets.
- * Orchestra OS sits at the centre as a flat echo of the /how-it-works mesh; our apps sit on a ring
+ * Orchestra OS sits at the centre as a flat echo of the /os mesh; our apps sit on a ring
  * around it as small app windows, with no names because some are partner ventures. Four events from
  * our repositories, carried two ways. The server render is the React fix on one platform with all
  * six apps lit, so the static export and readers without JavaScript get the insight. Motion plays
@@ -179,7 +179,7 @@ const labelAt: Record<Place, (x: number, y: number) => { x: number; y: number; a
   left: (x, y) => ({ x: x - 44, y: y - 3, anchor: 'end' }),
 };
 
-/** A flat projection of a tilted sphere, nearest neighbours joined: the /how-it-works mesh, drawn once. */
+/** A flat projection of a tilted sphere, nearest neighbours joined: the /os mesh, drawn once. */
 function sphereMesh(count = 64, neighbours = 4) {
   const golden = Math.PI * (3 - Math.sqrt(5));
   const tilt = 0.38;

@@ -8,7 +8,6 @@ interface Options {
   host: HTMLDivElement;
   labels: () => (HTMLButtonElement | null)[];
   appLabel: () => HTMLParagraphElement | null;
-  onScene: (scene: number) => void;
   onSelect: (service: number | null) => void;
   onPlaying: (playing: boolean) => void;
   onMotion: (reduced: boolean) => void;
@@ -19,11 +18,10 @@ export interface OperatingSceneEngine {
   select(service: number | null): void;
   scenario(index: number): void;
   play(playing: boolean): void;
-  replay(): void;
   dispose(): void;
 }
 
-/** The homepage's spherical mesh language, around one app and one bounded example. */
+/** The homepage's spherical mesh language, around one app and one bounded example. The page's scroll chooses the scene; each scene plays its own transition once. */
 export function createOperatingScene(o: Options): OperatingSceneEngine {
   const renderer = new THREE.WebGLRenderer({ canvas: o.canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
   const scene = new THREE.Scene();
@@ -94,10 +92,10 @@ export function createOperatingScene(o: Options): OperatingSceneEngine {
 
   let width = 1, height = 1, step = 0, elapsed = 0, clock = 0, angle = .2, example = 0, selected: number | null = null;
   let raf = 0, last = 0, visible = false, lost = false, disposed = false, inFlight = true, focusBlend = 0;
-  let journey = true;
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   let running = !motion.matches;
   const duration = [4.5, 5, 5.5, 6, 8, 7];
+  if (motion.matches) elapsed = duration[0];
   const projected = new THREE.Vector3(), sample = new THREE.Vector3(), center = new THREE.Vector3();
   const quaternion = new THREE.Quaternion(), rotation = new THREE.Euler(.18, angle, .08);
   const ease = (value: number) => { const t = THREE.MathUtils.clamp(value, 0, 1); return t * t * (3 - 2 * t); };
@@ -131,7 +129,7 @@ export function createOperatingScene(o: Options): OperatingSceneEngine {
       mat.opacity = selected === null ? .82 : focused ? 1 : .1; dot.opacity = mat.opacity * .5;
       const route = routes[i]; route.curve.v2.copy(anchors[i]); route.curve.v1.copy(anchors[i]).multiplyScalar(.5); route.curve.v1.z += .25;
       replacePoints(route.path.geometry, route.curve, 32);
-      route.mat.opacity = (step < 2 ? .06 : .25) * (1 - focusBlend);
+      route.mat.opacity = (step < 2 ? .06 : step === 2 ? .06 + .19 * ease(progress * 1.4) : .25) * (1 - focusBlend);
     });
     reconcileCurve.v0.copy(anchors[2]); reconcileCurve.v1.copy(anchors[2]).multiplyScalar(1.35);
     reconcileCurve.v2.copy(anchors[0]).multiplyScalar(1.35); reconcileCurve.v3.copy(anchors[0]);
@@ -143,7 +141,8 @@ export function createOperatingScene(o: Options): OperatingSceneEngine {
       route.getPoint(ease(progress), record.position); record.rotation.z = motion.matches ? 0 : clock * .15;
     }
     if (selected === null) center.set(0, 0, 0); else center.copy(anchors[selected]);
-    inFlight = flight.update(center, selected === null ? fitDistance() : 5, 0, selected !== null, dt, motion.matches) || Math.abs(focusBlend - (selected === null ? 0 : 1)) > .001;
+    // On a wide stage the capability's panel sits on the left, so the focused symbol moves right of it.
+    inFlight = flight.update(center, selected === null ? fitDistance() : 5, selected !== null && width > 640 ? -.8 : 0, selected !== null, dt, motion.matches) || Math.abs(focusBlend - (selected === null ? 0 : 1)) > .001;
     o.labels().forEach((label, i) => {
       if (!label) return;
       projected.copy(anchors[i]).add(new THREE.Vector3(0, -.52, .1)).project(camera);
@@ -164,13 +163,7 @@ export function createOperatingScene(o: Options): OperatingSceneEngine {
   const frame = (now: number) => {
     if (disposed || lost) return;
     const dt = last ? Math.min((now - last) / 1000, .06) : .016; last = now;
-    if (running && journey && selected === null) {
-      elapsed += dt;
-      if (elapsed >= duration[step]) {
-        if (step === 5) { elapsed = duration[step]; journey = false; }
-        else { step++; elapsed = 0; o.onScene(step); }
-      }
-    }
+    if (running && selected === null) elapsed = Math.min(duration[step], elapsed + dt);
     render(dt);
     if ((running || inFlight) && visible && !document.hidden && !motion.matches) raf = requestAnimationFrame(frame);
   };
@@ -180,7 +173,7 @@ export function createOperatingScene(o: Options): OperatingSceneEngine {
     render(motion.matches ? 1 : .016);
     if ((running || inFlight) && visible && !document.hidden && !motion.matches) raf = requestAnimationFrame(frame);
   };
-  const select = (index: number | null) => { selected = index; journey = false; inFlight = true; setRunning(index === null); o.onSelect(index); o.host.focus({ preventScroll: true }); schedule(); };
+  const select = (index: number | null) => { selected = index; inFlight = true; setRunning(index === null); o.onSelect(index); o.host.focus({ preventScroll: true }); schedule(); };
   const size = () => {
     width = o.host.clientWidth; height = o.host.clientHeight; if (!width || !height) return;
     camera.aspect = width / height; camera.updateProjectionMatrix();
@@ -207,7 +200,7 @@ export function createOperatingScene(o: Options): OperatingSceneEngine {
   const move = (event: PointerEvent) => { o.canvas.style.cursor = selected !== null || pick(event) !== null ? 'pointer' : 'default'; };
   const visibility = new IntersectionObserver(entries => { visible = entries.some(entry => entry.isIntersecting); schedule(); }, { threshold: .05 }); visibility.observe(o.host);
   const resize = new ResizeObserver(size); resize.observe(o.host);
-  const changedMotion = () => { o.onMotion(motion.matches); if (motion.matches) setRunning(false); schedule(); };
+  const changedMotion = () => { o.onMotion(motion.matches); if (motion.matches) { setRunning(false); elapsed = duration[step]; } schedule(); };
   const contextLost = (event: Event) => { event.preventDefault(); lost = true; cancelAnimationFrame(raf); setRunning(false); o.onAvailable(false); };
   const contextRestored = () => { lost = false; o.onAvailable(true); schedule(); };
   motion.addEventListener('change', changedMotion); document.addEventListener('visibilitychange', schedule);
@@ -215,11 +208,18 @@ export function createOperatingScene(o: Options): OperatingSceneEngine {
   o.canvas.addEventListener('pointerdown', down); o.canvas.addEventListener('pointerup', up); o.canvas.addEventListener('pointermove', move);
   size(); o.onAvailable(true); o.onMotion(motion.matches); o.onPlaying(running);
   return {
-    goTo(index) { step = THREE.MathUtils.clamp(index, 0, 5); elapsed = duration[step]; selected = null; journey = false; inFlight = true; o.onScene(step); schedule(); },
+    goTo(index) {
+      const next = THREE.MathUtils.clamp(index, 0, 5), focused = selected !== null;
+      if (next === step && !focused) return;
+      step = next; selected = null; inFlight = true;
+      if (focused) setRunning(true);
+      // Paused or reduced motion: show the reached scene complete rather than frozen at its start.
+      elapsed = running ? 0 : duration[step];
+      schedule();
+    },
     select,
     scenario(index) { example = index; selected = null; inFlight = true; schedule(); },
     play(value) { selected = null; inFlight = true; setRunning(value); schedule(); },
-    replay() { step = 0; elapsed = 0; selected = null; journey = true; inFlight = true; o.onScene(0); setRunning(true); schedule(); },
     dispose() { disposed = true; cancelAnimationFrame(raf); visibility.disconnect(); resize.disconnect(); motion.removeEventListener('change', changedMotion); document.removeEventListener('visibilitychange', schedule); o.canvas.removeEventListener('webglcontextlost', contextLost); o.canvas.removeEventListener('webglcontextrestored', contextRestored); o.canvas.removeEventListener('pointerdown', down); o.canvas.removeEventListener('pointerup', up); o.canvas.removeEventListener('pointermove', move); geometries.forEach(g => g.dispose()); materials.forEach(m => m.dispose()); renderer.dispose(); },
   };
 }

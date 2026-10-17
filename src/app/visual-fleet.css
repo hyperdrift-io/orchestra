@@ -1,5 +1,5 @@
 /* One fix, every app: the shared layer at the centre, our apps on a ring around it.
-   The event's capability colour (the five colours of /how-it-works) is the only accent; the mesh stays gold.
+   The event's capability colour (the five colours of /os) is the only accent; the mesh stays gold.
    Every state is drawn at rest. Motion runs only under [data-animate], after a reader's choice, and lands where the static drawing already is. */
 [data-visual="fleet"] { container: fleet / inline-size; --event: #e3a857; --app: #1b1713; --hair: rgb(246 238 225 / .14); --fleet-ease: cubic-bezier(.22, 1, .36, 1); }
 [data-visual="fleet"][data-event="npm"] { --event: #8fb9f3; }

@@ -733,7 +733,7 @@
     "proof": {
       "heading": "Will the repair survive the next release?",
       "description": "An illustrative booking API: production is repaired from its own release, a newer feature build still carries the old parser, and the deployment gate decides whether the fix survives.",
-      "url": "/how-it-works",
+      "url": "/os",
       "label": "See where it sits in Orchestra OS"
     },
     "media": null,
@@ -819,7 +819,7 @@
     "proof": {
       "heading": "Who carries this week?",
       "description": "Orchestra OS runs our own apps first. The interactive map shows how an app joins five connected jobs under named owners, with readiness checked connection by connection.",
-      "url": "/how-it-works",
+      "url": "/os",
       "label": "Explore Orchestra OS"
     },
     "media": null,
@@ -843,7 +843,7 @@
       "sources": [
         {
           "label": "Orchestra OS: how an app joins",
-          "url": "/how-it-works"
+          "url": "/os"
         },
         {
           "label": "Production-led security maintenance",

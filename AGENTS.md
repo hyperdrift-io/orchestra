@@ -16,11 +16,12 @@ section before communication work. This approval covers implementation and
 preview of the presented hierarchy, not unreviewed publication or outreach.
 
 Orchestra owns the commercial offer; Hyperdrift supplies company provenance and
-delivery experience. The homepage states the offer and enquiry route before the
-existing illustrative graph. Keep the selected WebGL interaction, brand and
-Traction Partnership visible. Customer insight, distribution and engineering
-support one scoped customer opportunity; no promise of automatic acquisition.
-This supersedes the older instruction to put the illustrative scene first.
+delivery experience. The homepage opens on the illustrative business graph, then
+states the offer and enquiry route (founder, 17 October 2026: “the landing page
+should show the data-business-graph first”, superseding the 10 October
+offer-first order). Keep the selected WebGL interaction, brand and Traction
+Partnership visible. Customer insight, distribution and engineering support one
+scoped customer opportunity; no promise of automatic acquisition.
 The founder's later refinement removes the homepage video showcase and trailer:
 keep the graph, capabilities and enquiry, with recordings and the full proof
 catalogue available on the deeper work and Traction pages.
@@ -38,7 +39,7 @@ proof of inbox arrival or human qualification. Preview delivery stays isolated.
 
 ## Orchestra OS connection flow — approved 10 October 2026
 
-The founder approved the app operating map and six-scene story for implementation within Living constellation. The follow-up direction is explicit: use the homepage’s spherical mesh, spinning by default and clickable; present “Embed your app on Orchestra OS” as the second offering alongside Traction. This supersedes the earlier one-offering presentation. `/how-it-works` now introduces an app joining five service groups, named owners and scoped authority, readiness evidence, one authorised action and its return to Traction. The existing business loop remains available at `?view=business`. Use the approved wireframe family and preserve pause, reduced motion, a static fallback and readable controls. This is an illustrative target model: source implementation, connected services and verified operation are distinct; automatic enrollment and complete security repair/reconciliation are not claimed as demonstrated services. This approval covers implementation and local preview; publication and infrastructure changes remain separate. [Decision and delivery record](docs/design/2026-10-10-orchestra-os/README.md).
+The founder approved the app operating map and six-scene story for implementation within Living constellation. The follow-up direction is explicit: use the homepage’s spherical mesh, spinning by default and clickable; present “Embed your app on Orchestra OS” as the second offering alongside Traction. This supersedes the earlier one-offering presentation. Orchestra OS has its own page at `/os` (founder, 17 October 2026: “Create an amazing page for it”): the sphere stays pinned while the reader’s scroll moves it through the six scenes (an app joining five service groups, named owners and scoped authority, readiness evidence, one authorised action and its return to Traction), then the five jobs as a record, the map, the field notes and the invitation. Every word on it was already live; new words go through the founder’s copy review. `/how-it-works` without `?view` 308-redirects to `/os`; the business loop stays at `/how-it-works?view=business`. The nav, the homepage offer and the second offering link `/os`. Use the approved wireframe family and preserve pause, reduced motion, a static fallback and readable controls. This is an illustrative target model: source implementation, connected services and verified operation are distinct; automatic enrollment and complete security repair/reconciliation are not claimed as demonstrated services. This approval covers implementation and local preview; publication and infrastructure changes remain separate. [Decision and delivery record](docs/design/2026-10-10-orchestra-os/README.md).
 
 ## Orchestra is the name, orchestra.hyperdrift.io is the host — 9 October 2026
 

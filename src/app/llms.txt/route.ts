@@ -38,7 +38,7 @@ ${topics}
 
 ## More
 
-- [How it works](https://orchestra.hyperdrift.io/how-it-works): The operating model behind the work.
+- [Orchestra OS](https://orchestra.hyperdrift.io/os): The operating model behind the work.
 - [Work](https://orchestra.hyperdrift.io/work): Public builds and demonstrations.
 - [About](https://orchestra.hyperdrift.io/about): Where founders get stuck, what Orchestra brings to each, and the work that proves it.
 - [Traction](https://orchestra.hyperdrift.io/traction): A growth partnership covering positioning, customer relationships, product improvements and repeat use. AI prepares research, drafts and recommendations; work is agreed with the founder.

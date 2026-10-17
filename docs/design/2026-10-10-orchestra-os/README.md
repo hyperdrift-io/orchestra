@@ -28,3 +28,15 @@ The offer CTA preselects “Embedding my app on Orchestra OS” in the existing 
 | Moving targets alone were difficult to use from a keyboard | Stationary native buttons, focus return, pause and reduced-motion support |
 
 Disposition: ready for prototype review. Reduced-motion and WebGL-loss behavior have source inspection only; production release checks remain outstanding.
+
+## Its own page — 17 October 2026
+
+The founder asked to surface Orchestra OS on the homepage, integrate it and “create an amazing page for it”, and for the landing page to show the data-business graph first. Moving the approved experience to its dedicated page stays inside this approval; no concept round was opened.
+
+- `/os` is the page. The first screen sets the promise beside the turning sphere; the sphere then stays pinned while the reader’s scroll moves it through the six scenes, each playing its own transition once. The example choice sits in scene 5 and drives the receipt in scene 6 and the sphere. After the journey: the five jobs as a record, the boundary note, the map, the field notes and one invitation. Every word was already live on `/how-it-works` and the homepage.
+- `src/lib/operating-scene.ts` no longer auto-advances; `goTo` plays the reached scene and resumes the sphere after a focused capability. On wide stages a focused capability sits right of its panel. `use-operating-system` reads which scene has crossed the takeover line (56% of the screen, 80% on phones below the pinned sphere).
+- Phones pin the sphere to the top half, hide its projected labels (the coloured capability row names each symbol) and open a capability as a bottom sheet.
+- `/how-it-works` without `?view` 308-redirects to `/os`, so every shared Orchestra OS link lands on the page; the business loop stays at `/how-it-works?view=business` with the title it carried before Orchestra OS. The nav, the footer, the homepage offer, the second offering, both field notes, the sitemap and `llms.txt` point at `/os`; a `Service` JSON-LD names Orchestra OS.
+- The homepage opens on the living business graph; the offer follows, now linking both offerings.
+
+Browser review at 1440 × 900 and 375 × 812: scroll-driven scenes, capability selection from the sphere and the row, Escape with focus return, pause, the enquiry opening in place with Orchestra OS preselected (nothing sent), WebGL context loss falling back to the static sphere, no horizontal overflow. Reduced motion has source review: scenes switch without motion and no animation loop runs.
