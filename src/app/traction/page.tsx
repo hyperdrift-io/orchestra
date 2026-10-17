@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Traction — Your AI CRM and growth strategist',
   description: 'Research prospects, prepare personal introductions and keep customer relationships moving. Traction helps founders choose their next growth move.',
   alternates: { canonical: '/traction' },
-  openGraph: { ...websiteOpenGraph, title: 'Traction — Let’s find your next customers.', description: 'Your AI CRM and growth strategist. Research, introductions, relationships and next steps in one workspace.', url: 'https://orchestra.hyperdrift.io/traction', images: [shareImage] },
+  openGraph: { ...websiteOpenGraph, title: 'Traction — Let’s find your next users.', description: 'Founders helping each other get their apps to the people they’re made for. AI helps with research, introductions and the next useful work.', url: 'https://orchestra.hyperdrift.io/traction', images: [shareImage] },
   twitter: { card: 'summary_large_image', images: [shareImage] },
 };
 

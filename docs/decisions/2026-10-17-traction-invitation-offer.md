@@ -4,7 +4,17 @@
 
 Traction is an AI CRM and growth strategist. A founder arriving from Yann’s personal invitation should find a personal welcome, a concise explanation and an explorable example of the work. Small headings, short paragraphs, no numbered marketing sequence, founder counter or launch log. First reads are an optional action near the end, opening a modal; they are not a compulsory first step.
 
-The approved email wording remains the source of voice. The newest promise is: “I’ll tailor the process to your goals, so we can see what gets people interested and turn them into active users.” The ten saved prospect drafts use related sentences grouped into paragraphs, with separate greeting and signature. A separate suggestion about shaping Traction through feedback remains a proposal, not added to the emails.
+The approved email wording remains the source of voice. The newest promise is: “I’ll tailor the process to your goals, so we can see what gets people interested and turn them into active users.” The ten saved prospect drafts use related sentences grouped into paragraphs, with separate greeting and signature. Shaping Traction through feedback belongs on the welcome and founder letter rather than extending those emails.
+
+## Founder purpose
+
+Yann clarified that this service is personal: after 25 years he has seen good ideas, including his own, never reach their audience. He wants founders to help each other give worthwhile work its chance and avoid wondering what could have happened. This invitation asks for involvement and honest feedback, not payment. It is not a blanket free-service or unlimited-build promise.
+
+`/traction/why` is the short signed letter, shared through `TractionWhy` with the welcome page’s in-place reader. “Why I’m doing this” uses the existing `LinkPreview` with full owned React content; closing it returns to the personal invitation. The standalone page remains noindex and out of the sitemap pending publication review. No new shared reader implementation or dependency. The letter uses only Yann’s supplied experience, without invented anecdotes or results. The welcome, Traction enquiry copy, mission and agent guidance carry the same motive.
+
+The latest sender/board email guidance was saved and read back through the normal production comment operation. The approved example and public service URL remain intact; existing prospect drafts were not rewritten by this slice. Private receipt: `.local/evidence/founder-purpose-guidance.json`. No message sent. The earlier oversized guidance save was rejected by the 2,000-character comment bound; the concise replacement saved successfully.
+
+The new page and reader were checked at desktop and 390px: native link activation and Enter open the reader, Escape returns focus, and the page has no horizontal overflow. The page CTA opens the existing enquiry modal with Traction context. The first inspection caught a masthead overlap; the page now uses the existing in-flow masthead selector. No browser errors on the final letter page. Screenshots: `.local/evidence/founder-letter-{desktop,mobile,in-welcome,reader-mobile}.png`. Preview tag: `traction-founder-letter-preview-2026-10-17`. Release checks remain deferred to the release gate.
 
 ## Implementation
 

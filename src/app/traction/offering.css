@@ -7,6 +7,7 @@
 #traction [data-founder-note] > p { margin: 0 0 1rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction [data-founder-note] > p:first-child { color: var(--cream); }
 #traction [data-founder-note] > [data-signature] { margin-top: 1.2rem; color: var(--cream); }
+#traction [data-founder-note] [data-link-preview-trigger] { color: var(--gold-light); }
 #traction [data-primary] { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); background: var(--gold); border: 0; padding: .7rem 1.1rem; font-size: .9rem; font-weight: 500; }
 #traction [data-primary]:hover { background: var(--gold-light); }
 #traction[data-offering] #value { padding: 0; min-width: 0; border: 0; background: transparent; }
@@ -45,6 +46,14 @@
 #traction > footer details p { font-size: .9rem; margin-top: .7rem; line-height: 1.7; }
 #traction > footer > p { font-size: .85rem; align-self: start; color: var(--cream-3); }
 #traction > footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold-light); }
+#traction-story { max-width: 50rem; margin: 0 auto; padding: 1.3rem var(--edge) 2.5rem; }
+#traction-story > header { margin-bottom: 1.7rem; }
+#traction-story > header > p { font: .84rem/1.5 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--gold-light); }
+#traction-story h1 { font: 500 clamp(1.6rem, 2.5vw, 2rem)/1.25 var(--font-body); margin: .7rem 0 0; }
+[data-founder-letter] p { font: 1rem/1.7 var(--font-body); margin: 0 0 1rem; color: var(--cream-2); }
+[data-founder-letter] p:first-child, [data-founder-letter] [data-signature] { color: var(--cream); }
+#traction-story > footer { display: flex; flex-wrap: wrap; gap: .5rem 2rem; border-top: 1px solid var(--line-hair); padding-top: 1rem; }
+#traction-story > footer a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9rem; color: var(--gold-light); }
 @media (max-width: 900px) {
   #traction [data-offer-body] { grid-template-columns: 1fr; gap: 2rem; }
   #traction [data-founder-note] { max-width: 65ch; }
