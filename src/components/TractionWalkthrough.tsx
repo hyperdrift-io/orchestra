@@ -2,41 +2,64 @@
 
 import { useState } from 'react';
 
-const steps = [
-  { name: 'Find prospects', title: 'Who is worth a conversation?', description: 'Research a company’s product, stage and possible fit. See what the sources support and what you still need to ask.' },
-  { name: 'Prepare an email', title: 'An introduction that sounds like you.', description: 'Give Traction your offer and a sample of your writing. Review and edit the draft alongside the prospect’s research.' },
-  { name: 'Follow through', title: 'Pick up where you left off.', description: 'Keep the conversation, your promises and the next action with the person. Update the relationship as you learn more.' },
-  { name: 'Choose a priority', title: 'A reason for your next move.', description: 'Ask AI to propose the next useful work from your saved customer evidence. Review its reasoning before you take it on.' },
+const areas = [
+  {
+    name: 'Direction',
+    title: 'Know where to put your effort.',
+    description: 'We’ll help sharpen your positioning and choose a goal worth working towards. AI prepares recommendations from the product and customer evidence you share.',
+    example: [
+      ['Ambition', 'Help independent studios manage bookings without a spreadsheet.'],
+      ['Focus', 'Start with studios mixing classes and private sessions.'],
+      ['Useful result', 'A studio runs its real bookings in the app.'],
+    ],
+  },
+  {
+    name: 'Customers',
+    title: 'Build relationships with the right people.',
+    description: 'Your CRM keeps research, conversations and agreed next steps together. AI prepares introductions in your voice; you decide who to contact and what to send.',
+    example: [
+      ['Prospect', 'Alex runs a studio with classes and private sessions.'],
+      ['Approach', 'A personal introduction showing how the app could help with both.'],
+      ['Follow-through', 'Keep Alex’s reply and the agreed walkthrough with the relationship.'],
+    ],
+  },
+  {
+    name: 'First use',
+    title: 'Make their first experience count.',
+    description: 'Interest only helps if people can use what you’ve built. We’ll look at onboarding with you, find what gets in the way and agree the improvements to make.',
+    example: [
+      ['Feedback', 'Alex can create classes, but can’t see how to add a private session.'],
+      ['Action', 'Make both booking types clear during setup.'],
+      ['Check', 'Can Alex publish a real schedule without help?'],
+    ],
+  },
+  {
+    name: 'Lasting value',
+    title: 'Learn what makes people come back.',
+    description: 'Set measures around your app’s actual value. Customer feedback and repeat use help us decide where to invest more effort or change direction.',
+    example: [
+      ['Measure', 'Studios returning to manage their next week of bookings.'],
+      ['Listen for', 'What they still do outside the app, and why.'],
+      ['Next decision', 'Choose the next improvement from what those studios need.'],
+    ],
+  },
 ];
 
-/** An explorable example, explicitly fictional, with no customer data or model calls. */
+/** Illustrates the partnership using one fictional app; no customer data or model calls. */
 export function TractionWalkthrough() {
   const [selected, setSelected] = useState(0);
-  const step = steps[selected];
+  const area = areas[selected];
   return <div data-traction-walkthrough>
-    <div role="group" aria-label="Explore Traction">
-      {steps.map((item, index) => <button key={item.name} type="button" aria-pressed={selected === index} aria-controls="traction-example" onClick={() => setSelected(index)}>{item.name}<span aria-hidden="true">↗</span></button>)}
+    <div role="group" aria-label="How we can help">
+      {areas.map((item, index) => <button key={item.name} type="button" aria-pressed={selected === index} aria-controls="traction-example" onClick={() => setSelected(index)}>{item.name}</button>)}
     </div>
     <div id="traction-example" aria-live="polite">
-      <header><p>Example workspace · a studio booking app</p><h3>{step.title}</h3><p>{step.description}</p></header>
-      {selected === 0 && <div data-prospect-example>
-        <div><strong>Alex · Borough Studio</strong><span>Prospect</span></div>
-        <dl><div><dt>Possible fit</dt><dd>A small studio with classes and private sessions.</dd></div><div><dt>What to confirm</dt><dd>How they handle bookings today, and whether changing tools would help.</dd></div><div><dt>Next step</dt><dd>Prepare a personal introduction.</dd></div></dl>
-      </div>}
-      {selected === 1 && <div data-email-example>
-        <p><span>Subject</span> A thought for Borough Studio</p>
-        <p>Hi Alex,</p>
-        <p>I’m Sam, the founder of a booking app for small studios. I’d like to understand how you manage classes and private sessions, and whether what I’m building could help.</p>
-        <p>Would you be open to a conversation?</p>
-        <p>Sam</p>
-        <small>Draft for review · nothing sent</small>
-      </div>}
-      {selected === 2 && <dl data-followup-example>
-        <div><dt>Conversation</dt><dd>Alex wants to see how a private session fits around a class.</dd></div><div><dt>Agreed next step</dt><dd>Prepare a walkthrough using the studio’s example.</dd></div><div><dt>Owner</dt><dd>Sam · awaiting the walkthrough</dd></div>
-      </dl>}
-      {selected === 3 && <div data-priority-example>
-        <small>AI proposal · your decision</small><h4>Make the next demo useful.</h4><p>Alex has asked about private sessions. Prepare that walkthrough before approaching more studios.</p><p><strong>Evidence:</strong> the saved conversation and agreed next step.</p><p><strong>Learn:</strong> does it solve the booking problem Alex described?</p>
-      </div>}
+      <header><h3>{area.title}</h3><p>{area.description}</p></header>
+      <details key={area.name} data-work-example>
+        <summary>See an example</summary>
+        <p>Fictional example · a studio booking app</p>
+        <dl>{area.example.map(([label, detail]) => <div key={label}><dt>{label}</dt><dd>{detail}</dd></div>)}</dl>
+      </details>
     </div>
   </div>;
 }

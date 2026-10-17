@@ -34,6 +34,14 @@ The visitor already has a reason to contact us. The shared modal now uses **Get 
 
 Live preview: the invitation dialog measured 576 × 477 px in the 621 × 984 pane, and 352 × 592 px at a 390 × 844 viewport. Both show the send action without internal or horizontal scrolling. Escape returns focus to the opener; close/reopen retains a draft. Generic contact fields stay blank, and switching first-read/conversation modes still works. No submission or production write was needed for this layout change. Private evidence: `.local/evidence/contact-compact.json` and `traction-contact-compact{,-mobile}.png`. Review tag: `traction-contact-preview-2026-10-17`; release checks remain pending.
 
+## Whole growth partnership — founder refinement
+
+The founder judged “Take a look inside” too narrow. The section now explains help with the whole customer journey: direction and positioning, relationships, first useful product experience and continued value. The existing four-area interaction is retained, but each area leads with what we work on with the founder. CRM research, introductions and follow-through sit within Customers. Product improvements and meaningful engagement measures are explicit. The page eyebrow and public metadata use “A growth partner for your app”.
+
+One fictional studio app illustrates each area through an optional native disclosure. It is not a client result or a claim that every action runs autonomously. AI prepares research, drafts and recommendations; the scope of hands-on work is agreed together. No new backend capability, dependency or production change. Existing contact entry points and invitation prefills remain.
+
+All four area controls and the example disclosure were checked in the live preview. Desktop at 1280px uses the existing two-column layout; 390px stacks without horizontal overflow. The illustration is collapsed initially to keep the offering concise. Local screenshots: `.local/evidence/traction-partnership-{desktop,mobile,invitation}.png`. Review tag: `traction-partnership-preview-2026-10-17`. Full release checks remain pending; nothing deployed or sent.
+
 ## Implementation
 
 - `/traction` presents the public offer. `/traction/invitation/[token]` presents a reviewed personal welcome, without names or emails in query parameters. Both share the compact page and a clearly fictional, interactive example of research, email preparation, follow-through and strategy.

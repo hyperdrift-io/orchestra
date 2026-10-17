@@ -7,7 +7,7 @@ import { TractionWhy, tractionWhyTitle } from '@/components/TractionWhy';
 export function Traction({ invitation }: { invitation?: TractionInvitation }) {
   return <article id="traction" data-offering="">
     <header>
-      <p>Traction · Your AI CRM and growth strategist</p>
+      <p>Traction · A growth partner for your app</p>
       <h1>{invitation ? `Glad you made it, ${invitation.firstName}.` : 'Let’s find your next users.'}</h1>
     </header>
     <div data-offer-body>
@@ -19,9 +19,9 @@ export function Traction({ invitation }: { invitation?: TractionInvitation }) {
         <a href="#enquire" data-enquiry="" data-situation="partnership" data-primary="">Get in touch →</a>
       </div>
       <section id="value" aria-labelledby="traction-work-title">
-        <header><h2 id="traction-work-title">Take a look inside.</h2><p>Research who to approach, prepare an introduction in your voice and decide what to work on from customer feedback.</p></header>
+        <header><h2 id="traction-work-title">Help your app find its market.</h2><p>We work alongside you on strategy, customer relationships and the product experience. Traction keeps that work connected to your goals and to what people actually do with your app.</p></header>
         <TractionWalkthrough />
-        <p data-availability>Fictional example · Early access, set up with you. AI prepares drafts; sending stays in your hands.</p>
+        <p data-availability>Early access, set up with you. AI prepares research, drafts and recommendations; we agree the work together.</p>
       </section>
     </div>
     <footer id="contact">
