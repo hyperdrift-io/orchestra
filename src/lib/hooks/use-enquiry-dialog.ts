@@ -12,9 +12,6 @@ export function useEnquiryDialog(onOpen?: (url: URL, link?: HTMLAnchorElement) =
       if (element.open) return;
       onOpen?.(url, link);
       element.showModal();
-      // A phone keyboard would cover the invitation, so touch screens start on the heading.
-      const start = window.matchMedia('(pointer: fine)').matches ? 'input[name="name"]' : '#enquire-heading';
-      element.querySelector<HTMLElement>(start)?.focus();
     };
     const onLink = (event: MouseEvent) => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;

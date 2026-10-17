@@ -68,7 +68,7 @@ export default async function ArticlePage({ params }: Props) {
       <div data-invite=""><p>Put the idea to work</p><h2>What would this look like <em>for you?</em></h2><p>{invite}</p><a href="#enquire" data-enquiry="" data-invite-cta="">{article.ctaLabel} →</a><small>A personal reply within one working day.</small></div>
       {next && <a data-read-next="" href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong><small>{next.excerpt}</small></a>}
     </section>
-    <EnquiryDialog articleSlug={article.slug} situation={article.situation} intro={invite} />
+    <EnquiryDialog articleSlug={article.slug} situation={article.situation} />
     <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} ctaLabel={article.ctaLabel} />
     <footer><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? '← The complete series' : '← All field notes'}</a></footer>
   </article>;

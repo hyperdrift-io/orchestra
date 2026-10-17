@@ -22,11 +22,17 @@ The collective-voice refinement was read back in the local preview: generic purp
 
 ## Get in touch and known contact details
 
-The founder requested editable name, email and company prefills and corrected the app-introduction framing. The invitation now offers **Get in touch → Send message**, asks what to work on together and omits the first-read prompt. Existing `#first-read` links on an invitation resolve to the conversation form. Generic offering visitors retain the optional first-read route, with a Get in touch heading.
+The founder requested editable name, email and company prefills and corrected the app-introduction framing. The invitation now offers **Get in touch → Send message**, uses a plain Message field and omits the first-read prompt. Existing `#first-read` links on an invitation resolve to the conversation form. Generic offering visitors retain the optional first-read route, with an Ask for a first read heading.
 
 `EnquiryForm` and `EnquiryDialog` accept an optional `ContactPrefill`, validated through the existing contact schema. As articles already do, the server-rendered invitation supplies its own contextual instance of the same dialog; `SiteEnquiryDialog` skips the invitation route. There is exactly one dialog. Full name, email and company are optional in the private registry; missing name/company fall back to the known first name/product, and missing email stays blank. Contact details are scoped to that opaque invitation, never query strings, metadata, browser storage or analytics. Anyone holding the private invitation link can see its intended contact prefill; it still grants no workspace access. Production registry provisioning must include only the recipient details approved for that invitation.
 
 All ten local registry entries were populated from a read-only Traction board snapshot; nine have a known email. A private backup precedes the change. No production record changed. Browser checks covered a populated invitation, the unknown-email case at 390px, edits surviving close/reopen, exactly one dialog, and empty fields on the generic purpose page. A synthetic submission saved the edited name/email/company with `delivery: preview`; no email sent. Receipt: `.local/evidence/contact-prefill.json`, screenshots `traction-contact-{prefilled,mobile}.png`. This is a prototype flow check; release tests remain at the release gate.
+
+## Compact contact form — founder refinement
+
+The visitor already has a reason to contact us. The shared modal now uses **Get in touch**, **Message** and **Send message**, without an introductory pitch or guided question. Smaller spacing, sentence-case labels and a name/email row keep the form compact; on phones fields stack and the dialog fits its content instead of filling the screen. Contact defaults remain editable. On desktop the first missing required field receives focus, so a known invite starts at the message; touch retains heading focus to avoid opening the keyboard immediately.
+
+Live preview: the invitation dialog measured 576 × 477 px in the 621 × 984 pane, and 352 × 592 px at a 390 × 844 viewport. Both show the send action without internal or horizontal scrolling. Escape returns focus to the opener; close/reopen retains a draft. Generic contact fields stay blank, and switching first-read/conversation modes still works. No submission or production write was needed for this layout change. Private evidence: `.local/evidence/contact-compact.json` and `traction-contact-compact{,-mobile}.png`. Review tag: `traction-contact-preview-2026-10-17`; release checks remain pending.
 
 ## Implementation
 

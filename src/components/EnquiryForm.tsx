@@ -20,15 +20,19 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
 
 export function EnquiryForm({ articleSlug, situation, firstRead = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; contact?: ContactPrefill }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
-  return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Discuss your workflow">
+  return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Contact us">
     <fieldset disabled={status === 'sending'}>
       {firstRead || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
-      <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
-      <label><span>Email</span><input name="email" type="email" defaultValue={contact?.email} required maxLength={254} autoComplete="email" /></label>
+      <div data-contact-details="">
+        <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
+        <label><span>Email</span><input name="email" type="email" defaultValue={contact?.email} required maxLength={254} autoComplete="email" /></label>
+      </div>
       {!firstRead && <label><span>Company <small>Optional</small></span><input name="company" defaultValue={contact?.company} maxLength={200} autoComplete="organization" /></label>}
-      {firstRead ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label> : <label><span>{contact ? 'What would you like to work on together?' : 'What’s working, and what’s next?'}</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder={contact ? 'A goal, a question, or a time to talk…' : 'Tell us about your product or business, the demand you’re seeing, and the next result you want to achieve.'} /></label>}
-      <p>We’ll use these details to reply to your enquiry.</p>
-      <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : 'Send message →'}</button>
+      {firstRead ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label> : <label><span>Message</span><textarea name="message" required minLength={10} maxLength={5000} rows={4} /></label>}
+      <div data-contact-actions="">
+        <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : 'Send message →'}</button>
+        <p>We’ll use these details to reply to your enquiry.</p>
+      </div>
     </fieldset>
     {status === 'sent' && <p role="status">Received. We’ll reply within one working day.</p>}
     {status === 'preview' && <p role="status">Preview enquiry saved locally. No email was sent.</p>}
