@@ -26,7 +26,7 @@ export function Traction({ invitation }: { invitation?: TractionInvitation }) {
       </section>
     </div>
     <footer id="contact">
-      <details><summary>How we’d start</summary><p>We’ll talk about your app, the people you want to reach and where you’d value help. If there’s a fit, we’ll set up your workspace and AI access together, with a useful first piece of customer work.</p><p>I’m not asking you for money. I’d like your involvement and honest feedback. We’ll shape Traction around what helps you make progress.</p></details>
+      <details><summary>How we’d start</summary><p>We’ll talk about your app, the people you want to reach and where you’d value help. If there’s a fit, we’ll set up your workspace and AI access together, with a useful first piece of customer work.</p><p>I’d value your involvement and honest feedback. We’ll shape Traction around what helps you make progress.</p></details>
       <p>Prefer a written view of your app first? <a href="#first-read" data-enquiry="">Ask for a first read →</a></p>
     </footer>
   </article>;

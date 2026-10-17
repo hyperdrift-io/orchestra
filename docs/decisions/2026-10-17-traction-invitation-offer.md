@@ -8,7 +8,7 @@ The approved email wording remains the source of voice. The newest promise is: �
 
 ## Founder purpose
 
-Yann clarified that this service is personal: after 25 years he has seen good ideas, including his own, never reach their audience. He wants founders to help each other give worthwhile work its chance and avoid wondering what could have happened. This invitation asks for involvement and honest feedback, not payment. It is not a blanket free-service or unlimited-build promise.
+Yann clarified that this service is personal: after 25 years he has seen good ideas, including his own, never reach their audience. He wants founders to help each other give worthwhile work its chance and avoid wondering what could have happened. Invite involvement and honest feedback. He rejected the defensive sentence about not asking for money; omit money from this introduction and keep the focus on their app and shared purpose. The page and sender guidance follow that correction.
 
 `/traction/why` is the short signed letter, shared through `TractionWhy` with the welcome page’s in-place reader. “Why I’m doing this” uses the existing `LinkPreview` with full owned React content; closing it returns to the personal invitation. The standalone page remains noindex and out of the sitemap pending publication review. No new shared reader implementation or dependency. The letter uses only Yann’s supplied experience, without invented anecdotes or results. The welcome, Traction enquiry copy, mission and agent guidance carry the same motive.
 
