@@ -6,7 +6,7 @@ export function System() {
       <p>Orchestra, by Hyperdrift</p>
       <h1 id="system-title">Give your next customers<br /><em>a way in.</em></h1>
       <p>Orchestra connects customer insight, distribution and AI engineering. We help you choose the next customer move, build what’s needed and measure whether it worked.</p>
-      <p><a href="#contact">Discuss your next customer move</a><a href="/partnership">Explore a Traction Partnership →</a></p>
+      <p><a href="#contact">Discuss your next customer move</a><a href="/traction#partnership">Explore a Traction Partnership →</a></p>
       <small>For founders with a working product and evidence of demand. Start with one opportunity to reach customers, help them use your product or improve delivery.</small>
       <p data-experience>Our founder’s client engagements include Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo. <a href="/about">The experience behind Orchestra →</a></p>
     </div>

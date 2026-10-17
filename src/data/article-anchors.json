@@ -1,1 +1,6 @@
-{}
+{
+  "webmcp-actions-on-the-page": {
+    "Chrome's guide documents an origin trial from Chrome 149 and a local testing flag. It still describes JavaScript tools and annotated forms. The WebMCP draft changed on 8 October: it now focuses on JavaScript tools, with the form-based API still being explored separately. The draft and the browser experiment are moving at different speeds. Check both against the browser and agent your users will use.": "p-1606n4d",
+    "The next article examines hands-free control through First Officer. It brings speech into the picture and asks how the person knows that an instruction actually worked.": "p-12rybsj"
+  }
+}

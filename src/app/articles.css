@@ -74,14 +74,16 @@ nav[aria-label="Topics"] a[aria-current="true"] { background: var(--gold); borde
 #article > header > [data-article-meta] { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.2rem; margin-top: 1rem; padding-top: .65rem; border-top: 1px solid var(--line-hair); font-size: .8rem; color: var(--cream-3); }
 #article a[data-enquiry] { color: var(--gold-light); }
 #article > div { display: grid; grid-template-columns: 180px minmax(0, 760px); gap: clamp(1.5rem, 3vw, 3rem); justify-content: center; }
-#article > div > aside { position: sticky; top: 2rem; align-self: start; font-size: .8rem; padding-top: .3rem; }
-#article > div > aside nav > p { padding-block: .65rem; font: .7rem var(--font-mono); text-transform: uppercase; color: var(--gold); }
-#article > div > aside ol { margin: .6rem 0 1rem; padding: 0; list-style: none; display: grid; gap: .15rem; }
-#article > div > aside a { border: 0; color: var(--cream-3); }
-#article > div > aside a:hover { color: var(--gold-light); }
+#article [data-contents-disclosure] { position: sticky; top: 2rem; align-self: start; margin: 0; padding: 0; border: 0; font-size: .8rem; }
+#article [data-contents-disclosure] > summary { display: none; }
+#article > div [data-article-contents] { padding-top: .3rem; }
+#article > div [data-article-contents] nav > p { padding-block: .65rem; font: .7rem var(--font-mono); text-transform: uppercase; color: var(--gold); }
+#article > div [data-article-contents] ol { margin: .6rem 0 1rem; padding: 0; list-style: none; display: grid; gap: .15rem; }
+#article > div [data-article-contents] a { border: 0; color: var(--cream-3); }
+#article > div [data-article-contents] a:hover { color: var(--gold-light); }
 /* The rail keeps the two asks one click away at any depth; the header carries them on small screens. */
-#article > div > aside > nav[aria-label="Share or enquire"] { display: grid; gap: .6rem; margin-top: .6rem; padding-top: 1rem; border-top: 1px solid var(--line-hair); }
-#article > div > aside > nav[aria-label="Share or enquire"] a { color: var(--gold-light); }
+#article > div [data-article-contents] > nav[aria-label="Share or enquire"] { display: grid; gap: .6rem; margin-top: .6rem; padding-top: 1rem; border-top: 1px solid var(--line-hair); }
+#article > div [data-article-contents] > nav[aria-label="Share or enquire"] a { color: var(--gold-light); }
 #article-body > p { margin: 0 0 1rem; font-size: 1.04rem; line-height: 1.65; }
 #article-body > p:first-child { font-size: 1.12rem; color: var(--cream); }
 #article-body > h2 { font-size: clamp(1.8rem, 2.5vw, 2.2rem); line-height: 1.12; margin: 1.8rem 0 .8rem; }
@@ -190,9 +192,9 @@ form[aria-label='Contact us'] [role='alert'] { color: #ffb3a1; }
 #article-series li p { font-size: .85rem; margin-bottom: 1.5rem; }
 @media (max-width: 850px) {
   #article > div { display: block; }
-  #article > div > aside { position: static; border-block: 1px solid var(--line-hair); padding: 0; margin-bottom: 1.2rem; }
-  #article > div > aside ol { grid-template-columns: 1fr 1fr; gap: .1rem .5rem; margin: .3rem 0 .7rem; }
-  #article > div > aside > nav[aria-label="Share or enquire"] { display: none; }
+  #article > div [data-article-contents] { position: static; border-block: 1px solid var(--line-hair); padding: 0; margin-bottom: 1.2rem; }
+  #article > div [data-article-contents] ol { grid-template-columns: 1fr 1fr; gap: .1rem .5rem; margin: .3rem 0 .7rem; }
+  #article > div [data-article-contents] > nav[aria-label="Share or enquire"] { display: none; }
   #article > aside[data-nudge] > p { display: none; }
   #article > aside[data-nudge] nav { width: 100%; }
   #article > aside[data-nudge] nav > [data-article-share] > button { flex: 1; }
@@ -242,8 +244,8 @@ form[aria-label='Contact us'] [role='alert'] { color: #ffb3a1; }
 /* The opening is a shallow editorial strip; evidence belongs inside the story. */
 #article > header > small { margin-top: .7rem; padding: .15rem .4rem; font-size: .7rem; }
 #article > header > [data-article-meta] a { display: inline-flex; align-items: center; min-height: 36px; }
-#article > div > aside a { display: flex; align-items: center; min-height: 44px; padding: .45rem .6rem; border-left: 2px solid transparent; line-height: 1.45; }
-#article > div > aside a[aria-current="location"] { color: var(--gold-light); border-left-color: var(--gold); background: var(--gold-soft); }
+#article > div [data-article-contents] a { display: flex; align-items: center; min-height: 44px; padding: .45rem .6rem; border-left: 2px solid transparent; line-height: 1.45; }
+#article > div [data-article-contents] a[aria-current="location"] { color: var(--gold-light); border-left-color: var(--gold); background: var(--gold-soft); }
 #article-body, #article-proof { scroll-margin-top: 2rem; }
 #article-diagram[data-has-visualization] { padding: 0; border: 0; background: transparent; max-width: 1040px; margin-inline: auto; }
 @media (max-width: 650px) {
@@ -493,4 +495,18 @@ form[aria-label='Contact us'] [role='alert'] { color: #ffb3a1; }
   #article > aside[data-nudge] nav { min-width: 0; width: 100%; }
   #article > aside[data-nudge] nav > a { min-width: 0; flex: 1; white-space: normal; text-align: center; font-size: .75rem; padding: .4rem; }
   #article > aside[data-nudge] nav > button { flex-shrink: 0; }
+}
+
+/* Fold the secondary routes; leave the answer and search close to the opening. */
+#articles > form > details { margin: .5rem 0 0; padding: 0; border: 0; }
+#articles > form > details > summary { width: fit-content; min-height: 44px; padding-block: .65rem; color: var(--gold-light); font-size: .85rem; }
+#articles > form > details nav { margin-top: .3rem; }
+@media (max-width: 850px) {
+  #article [data-contents-disclosure] { position: static; border-block: 1px solid var(--line-hair); margin-bottom: 1rem; }
+  #article [data-contents-disclosure] > summary { display: list-item; min-height: 44px; padding: .65rem 0; color: var(--gold-light); }
+  #article > div [data-article-contents] { border: 0; margin: 0; }
+  #article [data-article-contents] > nav:first-child > p { display: none; }
+  #articles > header { padding-bottom: 1.2rem; }
+  #articles > form { padding-bottom: 1rem; }
+  #articles > ol > li { padding-block: 1.8rem; }
 }
