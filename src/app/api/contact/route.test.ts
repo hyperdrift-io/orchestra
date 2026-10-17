@@ -67,6 +67,18 @@ describe('POST /api/contact', () => {
     expect(saved).toMatchObject({ id, qualification: 'unreviewed', campaign: { utm_source: 'editorial', utm_campaign: 'integration', validation_run: 'preview-check' } });
   });
 
+  it('keeps HD acquisition and public source context in the saved record and relay', async () => {
+    const handoff = { source_site: 'hyperdrift', source_path: '/blog/the-agent-is-the-session', referring_domain: 'www.google.com' };
+    const campaign = { utm_source: 'google', utm_campaign: 'original' };
+    const res = await callRoute({ name: 'Preview', email: 'preview@example.com', message: 'A scoped integration enquiry.', handoff, campaign });
+    expect(res.status).toBe(200);
+    const { id } = await res.json();
+    expect(relayed().message).toContain('From Hyperdrift: https://hyperdrift.io/blog/the-agent-is-the-session');
+    expect(relayed().message).toContain('Original referring domain: www.google.com');
+    expect(relayed().message).toContain('utm_source: google');
+    expect(JSON.parse(await readFile(join(enquiryDir, `${id}.json`), 'utf8'))).toMatchObject({ id, handoff, campaign, delivery: 'sent' });
+  });
+
   it('returns 400 for an invalid submission without calling the relay', async () => {
     const res = await callRoute({ name: '', email: 'nope', message: 'x' });
     expect(res.status).toBe(400);

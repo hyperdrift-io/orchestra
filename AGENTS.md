@@ -193,3 +193,8 @@ Traction’s offering presents the whole growth partnership: positioning and pri
 ## Collective voice and release — 17 October 2026
 
 The founder approved the reviewed Traction site for production and asked for consistency: Orchestra speaks as **we** across service pages, contact copy and first-read descriptions. Do not present delivery as depending on Yann alone. Personal email remains in the sender’s first person; historical authorship and accurate client provenance are not claims of a one-person service. The generic purpose page states the shared problem without Yann’s biography. First reads are optional throughout the current offering. The public purpose page is indexable; opaque invitations remain private, uncached and excluded from indexing and analytics.
+
+
+## HD enquiry handoff — approved 17 October 2026
+
+Business invitations from HD continue through Orchestra’s existing `/api/contact` store and relay, with optional `handoff` context: the public HD path, an optional project identifier and an external referring domain. Original campaign fields stay in `campaign`; the internal HD referral does not replace them. The source is shown in the enquiry form and saved with the same enquiry ID for qualification. Validation rejects private paths, arbitrary URLs and full external referrer URLs. Context is a visitor-provided attribution hint, not proof of identity or qualification. Existing direct enquiries, article context and invitation prefill remain compatible. Production publication waits on the combined HD preview review; the isolated runtime uses `CONTACT_DELIVERY=preview`.

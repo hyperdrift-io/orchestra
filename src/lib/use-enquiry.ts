@@ -4,6 +4,7 @@ import { enquiryChoices } from '@/data/situations';
 import { articleSession, trackArticle } from './article-tracking';
 
 import { campaignAttribution } from './campaign';
+import { enquiryHandoff } from './enquiry-handoff';
 import { trackEvent } from './analytics';
 
 export function useEnquiry() {
@@ -16,7 +17,7 @@ export function useEnquiry() {
     const form = new FormData(event.currentTarget);
     const article = String(form.get('article') || '');
     const situation = enquiryChoices.find((choice) => choice.value === form.get('situation'))?.value;
-    trackEvent('enquiry_started', { article: article || undefined, situation });
+    trackEvent('enquiry_started', { article: article || undefined, situation, ...enquiryHandoff() });
     if (article) trackArticle(article, 'enquiry_started');
   };
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -33,7 +34,7 @@ export function useEnquiry() {
           name: String(form.get('name') || ''), email: String(form.get('email') || ''),
           company: String(form.get('company') || '') || undefined,
           situation: enquiryChoices.find((choice) => choice.value === form.get('situation'))?.label,
-          message: String(form.get('message') || ''), article, session: articleSession(), campaign: campaignAttribution(),
+          message: String(form.get('message') || ''), article, session: articleSession(), campaign: campaignAttribution(), handoff: enquiryHandoff(),
         }),
       });
       const body = await response.json();
