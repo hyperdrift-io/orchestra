@@ -51,3 +51,10 @@
   #traction [data-traction-walkthrough] > [role='group'] { display: grid; grid-template-columns: 1fr 1fr; }
   #traction-example dl > div { grid-template-columns: 1fr; gap: .2rem; padding-block: .5rem; }
 }
+/* The film: Traction at work on a fictional board, at the head of the work it shows. */
+#traction [data-traction-film] { margin: 1.2rem 0 0; }
+#traction [data-traction-film] video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #02050a; border: 1px solid var(--line-soft); }
+#traction [data-traction-film] figcaption { margin-top: .55rem; font: .75rem/1.6 var(--font-body); color: var(--cream-3); }
+#traction [data-traction-film] details { border: 0; margin: 0; }
+#traction [data-traction-film] summary { min-height: 44px; padding-block: .5rem; color: var(--gold-light); font: .8rem/1.5 var(--font-body); }
+#traction [data-traction-film] details p { margin: 0 0 .5rem; max-width: 68ch; font: .85rem/1.65 var(--font-body); color: var(--cream-2); }

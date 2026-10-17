@@ -77,7 +77,7 @@ All campaign work inherits `meta/PHILOSOPHY.md` §8, Speak to Enable: strengths 
 
 ### Event boundaries
 
-`$pageview` follows route changes. `cta_clicked` records enquiry, partnership and work links; `domain_explored` records deliberate domain entry. Article reading and share-control events retain their existing semantics. `enquiry_started` records the first form focus per mounted form; `enquiry_submitted` is emitted by the server only after the contact relay accepts the message, and `enquiry_failed` records storage or relay failure. Analytics failures never change delivery status. No replay or automatic form capture is enabled.
+`$pageview` follows route changes. `cta_clicked` records enquiry, partnership and work links; `domain_explored` records deliberate domain entry. Article reading and share-control events retain their existing semantics. `film_played` records the first play of the Traction film per page view and `film_completed` its end, both tagged `film`. `enquiry_started` records the first form focus per mounted form; `enquiry_submitted` is emitted by the server only after the contact relay accepts the message, and `enquiry_failed` records storage or relay failure. Analytics failures never change delivery status. No replay or automatic form capture is enabled.
 
 Campaign attribution is first touch within a browser tab, not cross-device identity. Anonymous session IDs join the browser funnel to the accepted enquiry; submission counts still require human qualification. URL queries and fragments are removed from SDK URL properties. Campaign values are bounded tags, never free text.
 
