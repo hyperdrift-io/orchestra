@@ -21,13 +21,10 @@
 #traction-example { padding: clamp(1rem, 2vw, 1.6rem); }
 #traction #traction-example h3 { font: 500 1.1rem/1.4 var(--font-body); margin: 0 0 .6rem; }
 #traction #traction-example header > p { font: .88rem/1.65 var(--font-body); max-width: 68ch; margin: 0; text-transform: none; letter-spacing: 0; color: var(--cream-2); }
-#traction-example [data-work-example] { border: 0; border-top: 1px solid var(--line-soft); margin-top: 1rem; }
-#traction-example [data-work-example] summary { display: flex; align-items: center; min-height: 44px; padding-block: .5rem; color: var(--gold-light); font: .8rem/1.5 var(--font-body); cursor: pointer; }
-#traction-example [data-work-example] > p { margin: 0; color: var(--cream-3); font: .73rem/1.5 var(--font-body); }
-#traction-example dl { margin: .5rem 0 0; }
-#traction-example dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: .8rem; padding: .4rem 0; font-size: .85rem; }
-#traction-example dt { color: var(--cream-3); }
-#traction-example dd { margin: 0; color: var(--cream-2); }
+#traction-example [data-in-action] { margin: 1rem 0 0; }
+#traction-example [data-in-action] video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #02050a; border: 1px solid var(--line-soft); }
+#traction-example [data-in-action] figcaption { margin-top: .6rem; max-width: 68ch; font: .82rem/1.6 var(--font-body); color: var(--cream-2); }
+#traction-example [data-in-action] figcaption small { display: block; margin-top: .2rem; font-size: .72rem; color: var(--cream-3); }
 #traction[data-offering] #value > [data-availability] { font: .75rem/1.6 var(--font-body); color: var(--cream-3); margin: .75rem 0 0; }
 #traction[data-offering] > footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 3rem; border-top: 1px solid var(--line-hair); margin-top: 2rem; padding-top: 1rem; }
 #traction > footer details { max-width: 66ch; border: 0; }
@@ -49,7 +46,6 @@
 }
 @media (max-width: 500px) {
   #traction [data-traction-walkthrough] > [role='group'] { display: grid; grid-template-columns: 1fr 1fr; }
-  #traction-example dl > div { grid-template-columns: 1fr; gap: .2rem; padding-block: .5rem; }
 }
 /* The film: Traction at work on a fictional board, at the head of the work it shows. */
 #traction [data-traction-film] { margin: 1.2rem 0 0; }
