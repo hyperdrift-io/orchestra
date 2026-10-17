@@ -140,11 +140,11 @@ svg[id^='graph'] text[data-lens]:not([data-lens='base']) { display: none; }
 }
 
 
-/* Business outcomes lead; the same scene powers the overview and the chosen scenario. */
+/* The living business graph greets the visitor; the offer follows it (founder, 17 October 2026). */
 body:has(#system) > header { position: relative; padding-block: 1.5rem; }
 #system, #plug { --cream-3: #c8beae; --line-soft: #716756; }
 #system { padding: 1rem var(--edge) 5rem; background: var(--ink); }
-#system > [data-proposition] { max-width: 1320px; margin: 1rem auto 4rem; padding-block: 1.5rem 3rem; border-bottom: 1px solid var(--line-soft); }
+#system > [data-proposition] { max-width: 1320px; margin: 3.5rem auto 0; padding-top: 3rem; border-top: 1px solid var(--line-soft); }
 #system > [data-proposition] > p:first-child { font: .75rem var(--font-mono); text-transform: uppercase; letter-spacing: .14em; color: var(--gold-light); }
 #system [data-proposition] h1 { max-width: 24ch; margin-block: 1rem 1.5rem; font-size: clamp(2.7rem,5.2vw,5.8rem); }
 #system > [data-proposition] > p:nth-of-type(2) { max-width: 60ch; font-size: 1.12rem; line-height: 1.75; }
