@@ -11,7 +11,7 @@ export async function LaunchLog() {
       <p>Traction · launched {launched}</p>
       <h1 id="launch-title">We’re launching it on itself. <em>From zero, in public.</em></h1>
       <p>An AI operator runs the launch on Traction’s own board. A human signs every word. The first three founders with a live app get on the board with us; the count is real and moves only on evidence. This page changes when something moves: a gate, a founder, a miss worth owning.</p>
-      <p><a href="/traction">What Traction is →</a> · <a href="/traction#contact">Ask for a first read →</a></p>
+      <p><a href="/traction">What Traction is →</a> · <a href="/traction#first-read">Ask for a first read →</a></p>
     </header>
     <figure>
       <video controls playsInline preload="none" poster="/traction/poster.jpg" aria-label="The Traction trailer, 46 seconds, with captions">
@@ -26,7 +26,7 @@ export async function LaunchLog() {
         <h2><span className="numeral">{count.founders}/{count.of}</span> founders on the board</h2>
         <ol>{gates.map((gate) => <li key={gate.label} aria-current={gate.current ? 'step' : undefined} data-passed={gate.passed || undefined}><span>{gate.label}</span>{gate.text}{gate.progress && <small>{gate.progress}</small>}</li>)}</ol>
         <p>Each gate opens on evidence, never on a date.</p>
-        <a href="/traction#contact">Be one of the three founders →</a>
+        <a href="/traction#first-read">Be one of the three founders →</a>
       </div>
       <table>
         <caption>Every day goes on the record. Misses too.<small>{live && readAt ? <>Read from Traction’s own board · {stamp(readAt)}</> : <>Updated {updated} · copied by hand from Traction’s own board</>}</small></caption>

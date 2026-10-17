@@ -10,3 +10,6 @@ out
 tsconfig.tsbuildinfo
 /data/
 .claude/
+
+# Local invitation copy, tokens and preview receipts
+.local/

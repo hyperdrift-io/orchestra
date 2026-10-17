@@ -1,5 +1,3 @@
-import { EnquiryForm } from '@/components/EnquiryForm';
-
 /** Real examples and a clear next step for the founder. */
 export function Enquiry() {
   return (
@@ -26,7 +24,7 @@ export function Enquiry() {
           <p>We agree the work and how to judge it before building. You stay involved in customer conversations and consequential decisions; we help turn the agreed next move into something customers can use.</p>
           <p><a href="/partnership">Explore a Traction Partnership →</a></p>
         </div>
-        <EnquiryForm />
+        <p><a href="#enquire" data-enquiry="">Start the conversation →</a></p>
       </div>
     </section>
   );

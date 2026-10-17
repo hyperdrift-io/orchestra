@@ -9,7 +9,7 @@ import { useEnquiry } from '@/lib/use-enquiry';
 function ContextFields({ articleSlug, situation: preset }: { articleSlug?: string; situation?: string }) {
   const query = useSearchParams();
   const article = articleBySlug(articleSlug || query.get('article'))?.slug || '';
-  const wanted = query.get('situation') || preset || '';
+  const wanted = preset || query.get('situation') || '';
   const situation = enquiryChoices.some((choice) => choice.value === wanted) ? wanted : '';
   return <>
     {article && <label><span>About this article <small>Optional</small></span><select name="article" key={article} defaultValue={article}><option value="">A different question</option>{articles.map((entry) => <option key={entry.slug} value={entry.slug}>{entry.title}</option>)}</select></label>}
@@ -17,17 +17,17 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
   </>;
 }
 
-export function EnquiryForm({ articleSlug, situation }: { articleSlug?: string; situation?: string }) {
+export function EnquiryForm({ articleSlug, situation, firstRead = false }: { articleSlug?: string; situation?: string; firstRead?: boolean }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
   return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Discuss your workflow">
     <fieldset disabled={status === 'sending'}>
-      <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>
+      {firstRead ? <><input type="hidden" name="situation" value="traction" />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
       <label><span>Name</span><input name="name" required maxLength={120} autoComplete="name" /></label>
       <label><span>Email</span><input name="email" type="email" required maxLength={254} autoComplete="email" /></label>
-      <label><span>Company <small>Optional</small></span><input name="company" maxLength={200} autoComplete="organization" /></label>
-      <label><span>What’s working, and what’s next?</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder="Tell us about your product or business, the demand you’re seeing, and the next result you want to achieve." /></label>
+      {!firstRead && <label><span>Company <small>Optional</small></span><input name="company" maxLength={200} autoComplete="organization" /></label>}
+      {firstRead ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label> : <label><span>What’s working, and what’s next?</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder="Tell us about your product or business, the demand you’re seeing, and the next result you want to achieve." /></label>}
       <p>We’ll use these details to reply to your enquiry.</p>
-      <button type="submit">{status === 'sending' ? 'Sending…' : 'Start the conversation →'}</button>
+      <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : 'Start the conversation →'}</button>
     </fieldset>
     {status === 'sent' && <p role="status">Received. We’ll reply within one working day.</p>}
     {status === 'preview' && <p role="status">Preview enquiry saved locally. No email was sent.</p>}

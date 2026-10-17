@@ -12,12 +12,12 @@ if (analyticsEnabled()) {
     autocapture: false, capture_dead_clicks: false, capture_exceptions: false,
     disable_session_recording: true, capture_pageview: 'history_change',
     before_send: (event) => {
-      if (!event) return null;
+      if (!event || !analyticsEnabled()) return null;
       // URL queries can contain personal information. Keep paths and bounded campaign tags only.
       const clean = (properties: Record<string, unknown>) => {
         for (const key of Object.keys(properties)) {
           if (/url|referrer/i.test(key) && typeof properties[key] === 'string') {
-            try { const url = new URL(properties[key] as string); properties[key] = url.origin + url.pathname; }
+            try { const url = new URL(properties[key] as string); properties[key] = url.origin + (url.pathname.startsWith('/traction/invitation/') ? '/traction' : url.pathname); }
             catch { delete properties[key]; }
           }
           if (/utm_|initial_utm_|search_keyword/i.test(key)) delete properties[key];
@@ -37,7 +37,7 @@ if (analyticsEnabled()) {
     const link = event.target.closest<HTMLAnchorElement>('a[href]');
     if (!link) return;
     const destination = link.origin === window.location.origin
-      ? link.hash === '#contact' ? 'enquiry' : link.pathname === '/partnership' ? 'partnership' : link.pathname === '/work' ? 'work' : link.pathname === '/traction' ? 'traction' : link.pathname === '/traction/first-read' ? 'first_read' : link.pathname === '/articles/traction-from-zero' ? 'launch_log' : null
+      ? link.hash === '#first-read' ? 'first_read' : ['#contact', '#enquire'].includes(link.hash) ? 'enquiry' : link.pathname === '/partnership' ? 'partnership' : link.pathname === '/work' ? 'work' : link.pathname === '/traction' ? 'traction' : link.pathname === '/traction/first-read' ? 'first_read' : link.pathname === '/articles/traction-from-zero' ? 'launch_log' : null
       : link.hostname === 'nextrole.site' ? 'nextrole' : null;
     if (destination) trackEvent('cta_clicked', { destination, offer: link.dataset.offer === 'mcp' ? 'mcp' : undefined, placement: link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : 'body' });
   });

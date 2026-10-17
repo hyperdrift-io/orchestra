@@ -2,6 +2,13 @@ import type { NextConfig } from 'next';
 
 const config: NextConfig = {
   reactStrictMode: true,
+  async headers() {
+    return [{ source: '/traction/invitation/:token', headers: [
+      { key: 'Cache-Control', value: 'private, no-store' },
+      { key: 'Referrer-Policy', value: 'no-referrer' },
+      { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' },
+    ] }];
+  },
   async redirects() {
     return [
       // Historical MCP Maker links now reach the scoped Orchestra offer and its evidence.

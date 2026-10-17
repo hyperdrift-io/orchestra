@@ -219,19 +219,6 @@ body:has(#first-read) > header { position: relative; padding-block: 1.5rem; }
 
 [data-domain-story] small { display: block; margin-top: 1rem; }
 
-/* — Traction: the offering, in the partnership page's grammar */
-#traction { padding: 4rem var(--edge) 5rem; background: var(--ink); }
-#traction > header { max-width: 900px; }
-#traction header > p:first-child { font: .75rem var(--font-mono); color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; }
-#traction h1 { font-size: clamp(3.5rem,7vw,7rem); margin-block: 1.5rem 2rem; }
-#traction h1 em { display: block; }
-#traction header > p:nth-of-type(2) { font-size: 1.2rem; max-width: 52ch; }
-#traction header > p:nth-of-type(3) { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem 2rem; margin-top: 2rem; }
-#traction header > p:nth-of-type(3) > a:first-child { display: inline-flex; padding: 1rem 1.3rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
-#traction header > p:nth-of-type(3) > a:first-child:hover { background: var(--gold-light); color: var(--ink); }
-#traction header > [data-live] { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gold-line); font: .78rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cream-3); }
-#traction header > [data-live] strong { font: 600 1.6rem var(--font-display); letter-spacing: 0; color: var(--gold-light); vertical-align: -.1em; margin: 0 .15em; }
-#traction header > [data-live] a { text-transform: none; letter-spacing: .02em; }
 :is(#value, #steps, #launch) { padding: 4rem var(--edge) 5rem; background: var(--ink); }
 :is(#value, #steps, #launch) > header { max-width: 900px; }
 :is(#value, #steps, #launch) > header > p:first-child { font: .75rem var(--font-mono); color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; margin-bottom: 1.2rem; }

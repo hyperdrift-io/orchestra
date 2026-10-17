@@ -13,6 +13,7 @@ import './visual-effort.css';
 import './visual-fleet.css';
 import './constellation.css';
 import { SiteContactLink } from '@/components/SiteContactLink';
+import { SiteEnquiryDialog } from '@/components/SiteEnquiryDialog';
 import { visibleArticles } from '@/lib/article-catalogue';
 import { brandShareImage, homepageOpenGraph } from '@/lib/share-metadata';
 
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
         <main>{children}</main>
+        <SiteEnquiryDialog />
       </body>
     </html>
   );

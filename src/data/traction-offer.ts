@@ -26,8 +26,8 @@ export const offerSteps: OfferStep[] = [
   },
 ];
 
-/** Where a founder asks for their own read: the launch page's enquiry, preset to a first read. */
-export const firstReadHref = '/traction#contact';
+/** Opens the shared enquiry dialog in first-read mode, preserving the current page. */
+export const firstReadHref = '/traction#first-read';
 
 /** `headline` is the finding in one sentence, also shown beside the offer; `detail` is the rest as the founder receives it. */
 export interface Finding { label: string; headline: string; detail: string; evidence: string[] }
@@ -108,6 +108,6 @@ export const boardValue: { name: string; text: string }[] = [
 /** What Orchestra offers, Traction first. One list for the home. */
 export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean }[] }
 export const services: Service[] = [
-  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find the next move that reaches a customer.', text: 'Start with a first read of your product’s public pages, prepared by our AI operator and reviewed by Yann. Your Traction board connects customer evidence, accepted commitments and results, so the next move has a reason.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: '/traction#contact', label: 'Ask for a first read' }] },
+  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'Your AI CRM and growth strategist. Research prospects, prepare introductions in your voice and keep relationships moving. Customer evidence helps you choose the next useful work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: firstReadHref, label: 'Ask for a first read' }] },
   { slug: 'orchestra-os', eyebrow: '02 · Orchestra OS', name: 'Embed your app on Orchestra OS.', text: 'Bring your app, or build it with us. Connect engineering, hosting, security maintenance and customer support, with growth work coordinated through Traction. We agree the scope and verify each connection with you.', links: [{ href: '/how-it-works', label: 'Explore Orchestra OS', primary: true }, { href: '/?situation=orchestra-os#contact', label: 'Discuss your app' }] },
 ];
