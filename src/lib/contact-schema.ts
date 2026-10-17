@@ -15,3 +15,5 @@ export const contactSchema = z.object({
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
+export const contactPrefillSchema = contactSchema.pick({ name: true, email: true, company: true }).partial();
+export type ContactPrefill = z.infer<typeof contactPrefillSchema>;

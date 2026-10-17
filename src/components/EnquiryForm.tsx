@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { enquiryChoices } from '@/data/situations';
 import { articles, articleBySlug } from '@/lib/article-catalogue';
 import { useEnquiry } from '@/lib/use-enquiry';
+import type { ContactPrefill } from '@/lib/contact-schema';
 
 function ContextFields({ articleSlug, situation: preset }: { articleSlug?: string; situation?: string }) {
   const query = useSearchParams();
@@ -17,17 +18,17 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
   </>;
 }
 
-export function EnquiryForm({ articleSlug, situation, firstRead = false }: { articleSlug?: string; situation?: string; firstRead?: boolean }) {
+export function EnquiryForm({ articleSlug, situation, firstRead = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; contact?: ContactPrefill }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
   return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Discuss your workflow">
     <fieldset disabled={status === 'sending'}>
-      {firstRead ? <><input type="hidden" name="situation" value="traction" />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
-      <label><span>Name</span><input name="name" required maxLength={120} autoComplete="name" /></label>
-      <label><span>Email</span><input name="email" type="email" required maxLength={254} autoComplete="email" /></label>
-      {!firstRead && <label><span>Company <small>Optional</small></span><input name="company" maxLength={200} autoComplete="organization" /></label>}
-      {firstRead ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label> : <label><span>What’s working, and what’s next?</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder="Tell us about your product or business, the demand you’re seeing, and the next result you want to achieve." /></label>}
+      {firstRead || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
+      <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
+      <label><span>Email</span><input name="email" type="email" defaultValue={contact?.email} required maxLength={254} autoComplete="email" /></label>
+      {!firstRead && <label><span>Company <small>Optional</small></span><input name="company" defaultValue={contact?.company} maxLength={200} autoComplete="organization" /></label>}
+      {firstRead ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label> : <label><span>{contact ? 'What would you like to work on together?' : 'What’s working, and what’s next?'}</span><textarea name="message" required minLength={10} maxLength={5000} rows={5} placeholder={contact ? 'A goal, a question, or a time to talk…' : 'Tell us about your product or business, the demand you’re seeing, and the next result you want to achieve.'} /></label>}
       <p>We’ll use these details to reply to your enquiry.</p>
-      <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : 'Start the conversation →'}</button>
+      <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : 'Send message →'}</button>
     </fieldset>
     {status === 'sent' && <p role="status">Received. We’ll reply within one working day.</p>}
     {status === 'preview' && <p role="status">Preview enquiry saved locally. No email was sent.</p>}
