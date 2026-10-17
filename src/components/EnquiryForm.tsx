@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { enquiryChoices } from '@/data/situations';
 import { articles, articleBySlug } from '@/lib/article-catalogue';
 import { useEnquiry } from '@/lib/use-enquiry';
+import { parseEnquiryHandoff } from '@/lib/enquiry-handoff';
 import type { ContactPrefill } from '@/lib/contact-schema';
 
 function ContextFields({ articleSlug, situation: preset }: { articleSlug?: string; situation?: string }) {
@@ -12,7 +13,9 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
   const article = articleBySlug(articleSlug || query.get('article'))?.slug || '';
   const wanted = preset || query.get('situation') || '';
   const situation = enquiryChoices.some((choice) => choice.value === wanted) ? wanted : '';
+  const handoff = parseEnquiryHandoff(new URLSearchParams(query.toString()));
   return <>
+    {handoff && <p>Continuing from <a href={`https://hyperdrift.io${handoff.source_path}`}>Hyperdrift</a>. The page you came from will accompany your enquiry.</p>}
     {article && <label><span>About this article <small>Optional</small></span><select name="article" key={article} defaultValue={article}><option value="">A different question</option>{articles.map((entry) => <option key={entry.slug} value={entry.slug}>{entry.title}</option>)}</select></label>}
     <label><span>Where you are <small>Optional</small></span><select name="situation" key={situation} defaultValue={situation}><option value="">Choose one, or leave it open</option>{enquiryChoices.map((choice) => <option key={choice.value} value={choice.value}>{choice.label}</option>)}</select></label>
   </>;

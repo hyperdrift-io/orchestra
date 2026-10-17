@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 const siteJsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@graph': [
-    { '@type': 'Organization', '@id': 'https://orchestra.hyperdrift.io/#organization', name: 'Orchestra AI', alternateName: 'Orchestra AI by Hyperdrift', url: 'https://orchestra.hyperdrift.io', logo: 'https://orchestra.hyperdrift.io/brand/orchestra-mesh.svg', parentOrganization: { '@type': 'Organization', name: 'Hyperdrift', url: 'https://hyperdrift.io' }, founder: { '@type': 'Person', name: 'Yann VR', url: 'https://hyperdrift.io' }, sameAs: ['https://github.com/hyperdrift-io'] },
+    { '@type': 'Organization', '@id': 'https://orchestra.hyperdrift.io/#organization', name: 'Orchestra AI', alternateName: 'Orchestra AI by Hyperdrift', url: 'https://orchestra.hyperdrift.io', logo: 'https://orchestra.hyperdrift.io/brand/orchestra-mesh.svg', parentOrganization: { '@type': 'Organization', '@id': 'https://hyperdrift.io/#organization', name: 'Hyperdrift', url: 'https://hyperdrift.io' }, founder: { '@type': 'Person', '@id': 'https://hyperdrift.io/#founder', name: 'Yann Vallery-Radot', url: 'https://www.linkedin.com/in/yannvr/' }, sameAs: ['https://github.com/hyperdrift-io'] },
     { '@type': 'WebSite', '@id': 'https://orchestra.hyperdrift.io/#website', name: 'Orchestra AI', url: 'https://orchestra.hyperdrift.io', publisher: { '@id': 'https://orchestra.hyperdrift.io/#organization' }, inLanguage: 'en-GB' },
   ],
 }).replace(/</g, '\\u003c');

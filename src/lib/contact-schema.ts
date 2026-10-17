@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { campaignSchema } from './campaign';
+import { enquiryHandoffSchema } from './enquiry-handoff';
 import { articleSlugSchema } from './article-events';
 
 export const contactSchema = z.object({
@@ -11,6 +12,7 @@ export const contactSchema = z.object({
   article: articleSlugSchema.optional(),
   session: z.string().uuid().optional(),
   campaign: campaignSchema.optional(),
+  handoff: enquiryHandoffSchema.optional(),
   message: z.string().trim().min(10, 'Tell us a bit more').max(5000),
 });
 

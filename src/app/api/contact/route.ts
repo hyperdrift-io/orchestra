@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const { name, email, company, situation, message, article, session, campaign } = parsed.data;
+  const { name, email, company, situation, message, article, session, campaign, handoff } = parsed.data;
   const id = crypto.randomUUID();
   const preview = process.env.CONTACT_DELIVERY === 'preview';
   if (preview && process.env.NODE_ENV === 'production') {
@@ -45,6 +45,9 @@ export async function POST(req: Request) {
     `Enquiry ID: ${id}`,
     article && `Article: ${articleBySlug(article)!.title}\n${articleUrl(article)}`,
     situation && `Where you are: ${situation}`,
+    handoff && `From Hyperdrift: https://hyperdrift.io${handoff.source_path}`,
+    handoff?.source_project && `Project: ${handoff.source_project}`,
+    handoff?.referring_domain && `Original referring domain: ${handoff.referring_domain}`,
     company && `Company: ${company}`,
     ...(campaign ? Object.entries(campaign).filter(([, value]) => value).map(([key, value]) => `${key}: ${value}`) : []),
   ].filter(Boolean);
