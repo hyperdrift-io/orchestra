@@ -6,7 +6,7 @@ export function Enquiry() {
 
       <div>
         <div>
-          <p>Bring your product, the customers you want to reach and the opportunity you see. Yann will reply within one working day to explore whether Orchestra can help and what a useful first scope would be.</p>
+          <p>Bring your product, the customers you want to reach and the opportunity you see. We’ll reply within one working day to explore whether Orchestra can help and what a useful first scope would be.</p>
           <dl>
             <div>
               <dt>Reply time</dt>

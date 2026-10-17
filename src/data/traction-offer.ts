@@ -1,27 +1,27 @@
 /**
  * The Traction offer: Traction is the board, the Traction Partnership is the work done with a founder on it.
- * Three steps, each earning the next. One source for the home section, /partnership and the sample read.
+ * One source for the home section, /partnership and the sample read. First reads are optional.
  */
 
 export interface OfferStep { name: string; gets: string; who: string; link: { href: string; label: string } }
 
 export const offerSteps: OfferStep[] = [
   {
-    name: 'A first read',
-    gets: 'Send us your live app. We read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.',
-    who: 'Prepared by our AI operator. Read and signed by Yann VR.',
+    name: 'A useful first step',
+    gets: 'Tell us about your app and what you want to achieve. We’ll agree where we can help. If you prefer a written starting point, ask for a first read of your public product.',
+    who: 'AI helps prepare the research. We review it and agree the next step with you.',
     link: { href: '/traction/first-read', label: 'Read a sample first read' },
   },
   {
     name: 'Your board',
-    gets: 'If the read is useful, your app goes on Traction and the read becomes its first record. Customers, promises and results sit on one board, and it proposes the next move from the evidence.',
+    gets: 'We set up Traction around your goals. Customer relationships, agreed actions and results sit in one workspace, with AI recommendations grounded in the evidence you share.',
     who: 'You own the customer work. We set up the board, connect your evidence and keep the record honest, misses included.',
-    link: { href: '/traction#value', label: 'Watch the board at work' },
+    link: { href: '/traction#value', label: 'Explore Traction' },
   },
   {
     name: 'The partnership',
-    gets: 'When the board shows people using, buying or asking for more, we build the next improvement with you and measure it on the same board.',
-    who: 'You bring the customers. We bring the AI engineering.',
+    gets: 'Work with us on positioning, reaching customers and improving their experience. We agree the scope, carry out the next useful improvement and learn from its effect.',
+    who: 'You bring product knowledge and customer feedback. We help with strategy, customer work and AI engineering.',
     link: { href: '/partnership', label: 'How the partnership works' },
   },
 ];
@@ -108,6 +108,6 @@ export const boardValue: { name: string; text: string }[] = [
 /** What Orchestra offers, Traction first. One list for the home. */
 export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean }[] }
 export const services: Service[] = [
-  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'Your AI CRM and growth strategist. Research prospects, prepare introductions in your voice and keep relationships moving. Customer evidence helps you choose the next useful work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: firstReadHref, label: 'Ask for a first read' }] },
+  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth partner for your app. Work with us on strategy, customer relationships and the product experience, from first interest to repeat use. AI helps prepare the work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: firstReadHref, label: 'Ask for a first read' }] },
   { slug: 'orchestra-os', eyebrow: '02 · Orchestra OS', name: 'Embed your app on Orchestra OS.', text: 'Bring your app, or build it with us. Connect engineering, hosting, security maintenance and customer support, with growth work coordinated through Traction. We agree the scope and verify each connection with you.', links: [{ href: '/how-it-works', label: 'Explore Orchestra OS', primary: true }, { href: '/?situation=orchestra-os#contact', label: 'Discuss your app' }] },
 ];

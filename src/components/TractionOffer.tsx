@@ -1,6 +1,6 @@
 import { offerSteps, sampleRead, readMethod, firstReadHref, boardFilm, boardValue } from '@/data/traction-offer';
 
-/** The three steps of the offer, each with the proof a founder can inspect before taking it. `here` drops the link to the current page. */
+/** The ways we help, each with a source a founder can inspect. `here` drops the link to the current page. */
 export function OfferSteps({ here }: { here?: string }) {
   return <ol data-offer-steps>{offerSteps.map((step) => <li key={step.name}>
     <h3>{step.name}</h3>
@@ -30,7 +30,7 @@ export function FirstRead() {
         <div><dt>App</dt><dd>{sampleRead.app}</dd></div>
         <div><dt>Read on</dt><dd>{sampleRead.readOn}</dd></div>
         <div><dt>Read from</dt><dd>{sampleRead.readFrom}</dd></div>
-        <div><dt>Signed by</dt><dd>Yann VR, prepared by Traction’s AI operator</dd></div>
+        <div><dt>Review method</dt><dd>Prepared with Traction’s AI operator, reviewed by us</dd></div>
       </dl>
     </header>
     <ol>{sampleRead.findings.map((finding) => <li key={finding.label}>
@@ -49,8 +49,8 @@ export function FirstRead() {
       <ol>{readMethod.map((part) => <li key={part.name}><h3>{part.name}</h3><p>{part.question}</p></li>)}</ol>
     </section>
     <section aria-labelledby="next-title">
-      <h2 id="next-title">Yours, then the board.</h2>
-      <p>Traction is the board. The Traction Partnership is the work we do with you on it. Each step has to earn the next.</p>
+      <h2 id="next-title">Your next step.</h2>
+      <p>Traction is the board. The Traction Partnership is the work we do with you on it. A first read is one way to start; you can also get in touch directly.</p>
       <OfferSteps here="/traction/first-read" />
       <a href={firstReadHref}>Ask for a first read of your app →</a>
     </section>

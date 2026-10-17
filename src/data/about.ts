@@ -11,9 +11,9 @@ export const fits: readonly Fit[] = [
   {
     id: 'demand',
     problem: 'Interested visitors reach pricing but hesitate during signup.',
-    bring: 'A growth board wired to your live app: a first read, your board, then the Traction Partnership when the board shows demand.',
-    proof: 'Traction is launching itself from zero, in public, on its own board.',
-    links: [{ label: 'The launch log', href: '/articles/traction-from-zero' }, { label: 'A sample first read', href: '/traction/first-read' }],
+    bring: 'A growth partnership connecting your goals, customer relationships and product improvements. We agree the next useful work and how to judge it.',
+    proof: 'We use Traction for our own prospect research, introductions and customer follow-through.',
+    links: [{ label: 'How Traction can help', href: '/traction' }, { label: 'A sample first read', href: '/traction/first-read' }],
   },
   {
     id: 'time',
@@ -38,4 +38,4 @@ export const fits: readonly Fit[] = [
   },
 ];
 
-export const partners = 'Yann’s client engagements include Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo. Together and Revela are partner ventures, each combining a founder’s audience knowledge with our engineering.';
+export const partners = 'Our founder’s client engagements include Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo. Together and Revela are partner ventures, each combining a founder’s audience knowledge with our engineering.';
