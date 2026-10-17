@@ -1,6 +1,6 @@
 ---
 app: orchestra
-url: https://ai.hyperdrift.io
+url: https://orchestra.hyperdrift.io
 growth_stage: activation
 primary_channel: linkedin
 posthog:
@@ -14,6 +14,9 @@ posthog:
   blocker_event: enquiry_failed
 web_review:
   key_pages:
+    - name: Traction growth partnership
+      url: /traction
+      funnel_step: enquiry_started
     - name: Business scenario
       url: /
       funnel_step: $pageview
@@ -51,7 +54,7 @@ The [service launch kit](docs/campaigns/2026-09-service-launch/README.md) coordi
 
 **Release status:** the founder approved PostHog on 23 September 2026. The SDK, explicit interaction events, session-scoped first-touch attribution and server accepted-relay conversion are implemented. Production ingestion was verified on 23 September with marked real browser interactions, including route views, domain exploration and enquiry starts; exclude those verification events from the first baseline. The server accepted-relay event has not been exercised by sending a synthetic live enquiry. Existing durable article events remain available.
 
-Use the existing Hyperdrift company PostHog project, with `app = orchestra` and hostname `ai.hyperdrift.io` on every report. Project-wide totals also include the legacy company site and must never be described as Orchestra traffic. The first baseline begins when verified production capture starts; there is no defensible historical conversion baseline for the new experience.
+Use the existing Hyperdrift company PostHog project, with `app = orchestra` and hostname `orchestra.hyperdrift.io` on every report. Project-wide totals also include the legacy company site and must never be described as Orchestra traffic. The first baseline begins when verified production capture starts; there is no defensible historical conversion baseline for the new experience.
 
 UTMs identify the source, medium, campaign and creative. Use `utm_campaign=one_opportunity_2026`; retain first-touch attribution through internal navigation and attach it to the saved enquiry. Never send names, email addresses, company names or free-text messages to analytics. Exclude local previews, events with `validation_run`, bots and internal visits when assessing the campaign. Share-control clicks are intent, not confirmed social publication.
 
@@ -77,6 +80,12 @@ All campaign work inherits `meta/PHILOSOPHY.md` §8, Speak to Enable: strengths 
 `$pageview` follows route changes. `cta_clicked` records enquiry, partnership and work links; `domain_explored` records deliberate domain entry. Article reading and share-control events retain their existing semantics. `enquiry_started` records the first form focus per mounted form; `enquiry_submitted` is emitted by the server only after the contact relay accepts the message, and `enquiry_failed` records storage or relay failure. Analytics failures never change delivery status. No replay or automatic form capture is enabled.
 
 Campaign attribution is first touch within a browser tab, not cross-device identity. Anonymous session IDs join the browser funnel to the accepted enquiry; submission counts still require human qualification. URL queries and fragments are removed from SDK URL properties. Campaign values are bounded tags, never free text.
+
+## Traction invitation journey — 17 October 2026
+
+Selected founders arrive from a personal invitation; public visitors can read the same growth partnership at `/traction` and its purpose at `/traction/why`. The useful next step is **Get in touch**, in one compact modal. A first read is optional. A welcome link does not grant access to the Traction app or prove that a new client has working AI access.
+
+Private invitation pages deliberately exclude browser analytics. Their opaque paths and editable contact prefills must never enter page-view URLs, referrers, sitemap entries or analytics properties. Public page views and enquiry interactions retain the existing measurement contract. Evaluate the relationship through genuine replies, qualified conversations and accepted work; do not infer invitation conversion from public-page totals. Release verification does not send a synthetic production enquiry or count as demand.
 
 ## NextRole MCP offering — 4 October 2026
 
