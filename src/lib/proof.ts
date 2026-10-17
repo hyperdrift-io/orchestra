@@ -14,11 +14,19 @@ const presentation: Record<string, { headline: string; value: string; recording?
   'bridge-voice': { headline: 'Talk through the next move.', value: 'Talk through a business decision with the evidence and available actions in view.' },
 };
 
-/** Keep the full contest catalogue; lead with the founder-selected owned product. */
+export const workGroups = [
+  { title: 'Reach people in their assistant', slugs: ['nextrole'] },
+  { title: 'Find customers and follow through', slugs: ['traction', 'uk-gov-radar', 'unanswered'] },
+  { title: 'Run work with clear decisions', slugs: ['helm', 'standup', 'bridge-voice'] },
+];
+
+/** Keep every demonstration and its evidence; group the catalogue by the work it helps with. */
 export function proofWorks(catalogue: boolean) {
+  const order = workGroups.flatMap((group) => group.slugs);
   return caseStudies
     .filter((item) => catalogue ? item.challenge || ['nextrole', 'traction'].includes(item.slug) : ['nextrole', 'helm', 'uk-gov-radar'].includes(item.slug))
-    .map((item) => ({ ...item, ...presentation[item.slug] }));
+    .map((item) => ({ ...item, ...presentation[item.slug] }))
+    .sort((a, b) => catalogue ? order.indexOf(a.slug) - order.indexOf(b.slug) : 0);
 }
 
 export const mcpEnquiryHref = '/?situation=mcp#contact';

@@ -22,6 +22,8 @@ export function ArticleFinder({ entries, tags, initialTag = null, children }: Pr
   const indexed = useMemo(() => indexEntries(entries), [entries]);
   const results = useMemo(() => searchArticles(indexed, query, tag), [indexed, query, tag]);
   const current = tags.find((item) => item.slug === tag) ?? null;
+  const primaryTags = tags.filter((item) => ['agents', 'ui', 'databases'].includes(item.slug));
+  const otherTags = tags.filter((item) => !primaryTags.includes(item));
   const listed = active ? results : children ? entries.slice(1) : entries;
 
   useEffect(() => {
@@ -72,7 +74,8 @@ export function ArticleFinder({ entries, tags, initialTag = null, children }: Pr
     <form role="search" action="/articles" method="get" onSubmit={(event) => event.preventDefault()} onClick={onTagClick}>
       <label htmlFor="article-search">Find an article</label>
       <input ref={input} id="article-search" type="search" name="q" value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === 'Escape') setQuery(''); }} placeholder="Try “voice” or “Lakebase”" autoComplete="off" spellCheck={false} enterKeyHint="search" />
-      <ArticleTags tags={tags} current={tag} />
+      <ArticleTags tags={primaryTags} current={tag} />
+      <details><summary>More topics</summary><ArticleTags tags={otherTags} current={tag} /></details>
       <p role="status" aria-live="polite">
         {active
           ? <>{results.length ? `${results.length} of ${entries.length}` : 'No match yet'}{current ? ` · ${current.label}` : ''} · <button type="button" onClick={clear}>Show all</button></>

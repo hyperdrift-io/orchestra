@@ -2,7 +2,7 @@ import { LinkPreview } from '@/components/LinkPreview';
 import Image from 'next/image';
 import type { ReactElement } from 'react';
 import { visibleArticles } from '@/lib/article-catalogue';
-import { proofWorks, mcpEnquiryHref } from '@/lib/proof';
+import { proofWorks, workGroups, mcpEnquiryHref } from '@/lib/proof';
 import { NextRoleProof } from '@/components/NextRoleProof';
 
 interface ProofProps { catalogue?: boolean }
@@ -12,7 +12,9 @@ export function Proof({ catalogue = false }: ProofProps): ReactElement {
   return <section id="proof" data-catalogue={catalogue} aria-labelledby="proof-title">
     <Heading id="proof-title">{catalogue ? 'Real work. Open to inspection.' : 'See what we can put to work for you.'}</Heading>
     <p>Explore Hyperdrift’s own products and public prototypes. Each example names what it demonstrates and how you can inspect it.</p>
+    {catalogue && <nav aria-label="Choose the work you need">{workGroups.map((group) => <a key={group.title} href={`#work-${group.slugs[0]}`}>{group.title} ↓</a>)}</nav>}
     <ol>{proofWorks(catalogue).map(cs => <li key={cs.slug} id={`work-${cs.slug}`}>
+      {catalogue && workGroups.find((group) => group.slugs[0] === cs.slug) && <h2 data-work-group>{workGroups.find((group) => group.slugs[0] === cs.slug)!.title}</h2>}
       <p data-project-name>{cs.name}{cs.relation && <> · {cs.relation}</>}</p>
       <h3>{cs.headline ?? cs.name}</h3>
       <p>{cs.value ?? cs.capability}</p>

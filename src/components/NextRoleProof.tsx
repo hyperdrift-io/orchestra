@@ -16,6 +16,7 @@ export function NextRoleProof({ catalogue }: NextRoleProofProps): ReactElement {
       <p>For your product</p>
       <h4>Let customers bring you into their conversation.</h4>
       <p>If your product already solves a useful problem, we can make one valuable workflow available to agents through MCP. Your website, customer relationship and commercial model remain yours.</p>
+      <details><summary>Scope, checks and connection details</summary>
       <p>We agree the workflow and permissions, connect it to your existing product, and check that someone can complete the task from a compatible assistant. That gives you a working integration, connection instructions and evidence of what actually ran.</p>
       <p>Judge the result by useful task completion and customers coming back. A directory listing is only a way in.</p>
       <a href={mcpEnquiryHref} data-offer="mcp">Discuss your product →</a>
@@ -27,6 +28,7 @@ export function NextRoleProof({ catalogue }: NextRoleProofProps): ReactElement {
         <p><a href="https://github.com/hyperdrift-io/nextrole-mcp#connect">Connection guide and tool reference ↗</a></p>
         <p>This is our own commercial product, not a commissioned client result. Tool availability does not establish repeat use, revenue or an employment outcome.</p>
         <p>Live checks covered CV linting and role scoring; the other three tools were listed but not exercised. The latest scoring check returned 5.9/10, with matching text and structured results. This is model-assessed fit for the fictional example, not a probability of being hired.</p>
+      </details>
       </details>
     </div>}
   </>;

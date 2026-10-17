@@ -485,3 +485,9 @@ main > footer > p { margin-block-start: var(--sp-l); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: 0.001ms !important; }
 }
+
+/* Work is entered by customer need; the underlying demonstrations remain inspectable. */
+#proof > nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 1.5rem var(--edge); }
+#proof > nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold-light); }
+#proof [data-work-group] { grid-column: 1 / -1; margin-bottom: 1.2rem; font-size: clamp(1.6rem, 3vw, 2.3rem); color: var(--gold-light); }
+#proof [data-mcp-offer] summary { min-height: 44px; padding-block: .65rem; color: var(--gold-light); }

@@ -24,7 +24,7 @@ A graphical interface exposes controls. People choose them; events trigger the a
 
 The choice depends on where the work belongs. A person reviewing a shortlist benefits from seeing changes beside their sources. A background job may need a server connection without an open page. Neither arrangement is automatically more accessible or more appropriate.
 
-[Chrome's current guide](https://developer.chrome.com/docs/ai/webmcp) documents a WebMCP origin trial from Chrome 149 and a flag for local development. It covers actions defined through JavaScript and annotated forms. That is a route to testing an integration. Support still needs checking in the browser and agent people will actually use; the trial does not establish support everywhere.
+[Chrome's guide](https://developer.chrome.com/docs/ai/webmcp) documents an origin trial from Chrome 149 and a local testing flag. It still describes JavaScript tools and annotated forms. The [WebMCP draft changed on 8 October](https://github.com/webmachinelearning/webmcp/commit/14ae813cc4e9fe0d39313f4b1ee5b231746731ad): it now focuses on JavaScript tools, with the form-based API still being explored separately. The draft and the browser experiment are moving at different speeds. Check both against the browser and agent your users will use.
 
 ## Context still has to cross a boundary
 
@@ -38,6 +38,6 @@ Our original article took a strong position on where context could live. This ad
 
 Choose a task where navigation gets in the way of judgement. Define the action clearly, show its result and make correction possible. Compare it with the existing controls, including failure cases. Fewer guessed clicks are promising; a correctly completed task is the evidence.
 
-The next article examines [hands-free control through Traction](/articles/hands-free-app-control). It brings speech into the picture and asks how the person knows that an instruction actually worked.
+The next article examines [hands-free control through First Officer](/articles/hands-free-app-control). It brings speech into the picture and asks how the person knows that an instruction actually worked.
 
 [Discuss an app your users should be able to direct.](https://orchestra.hyperdrift.io/?article=webmcp-actions-on-the-page#contact)

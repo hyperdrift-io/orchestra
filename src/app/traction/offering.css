@@ -6,6 +6,14 @@
 #traction [data-offer-body] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(2rem, 4vw, 4rem); align-items: start; }
 #traction [data-founder-note] > p { margin: 0 0 1rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction [data-founder-note] > p:first-child { color: var(--cream); }
+#traction [data-founder-note] > [data-reply] { margin-top: 1rem; font-size: .82rem; color: var(--cream-3); }
+#traction[data-offering] > section { border-top: 1px solid var(--line-hair); margin-top: 2.5rem; padding: 2rem 0 0; }
+#traction[data-offering] > section > :is(p, details) { max-width: 70ch; margin-block: 1rem; }
+#traction[data-offering] > section > header > p { color: var(--gold-light); font-size: .85rem; margin-bottom: .6rem; }
+#traction[data-offering] > section h2 { font: 500 clamp(1.8rem, 3vw, 2.6rem)/1.15 var(--font-display); }
+#traction[data-offering] > section a { color: var(--gold-light); }
+#traction[data-offering] #why summary { min-height: 44px; padding-block: .6rem; color: var(--gold-light); cursor: pointer; }
+#traction[data-offering] #first-read { max-width: 60ch; font-size: .9rem; }
 #traction [data-founder-note] [data-link-preview-trigger] { color: var(--gold-light); }
 #traction [data-primary] { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); background: var(--gold); border: 0; padding: .7rem 1.1rem; font-size: .9rem; font-weight: 500; }
 #traction [data-primary]:hover { background: var(--gold-light); }

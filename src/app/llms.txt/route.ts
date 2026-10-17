@@ -1,4 +1,5 @@
 import { articleUrl, visibleArticles } from '@/lib/article-catalogue';
+import { services } from '@/data/traction-offer';
 import { indexableTags, tagUrl } from '@/lib/article-tags';
 
 export const dynamic = 'force-static';
@@ -16,13 +17,18 @@ export function GET() {
 
 Orchestra connects customer insight, distribution and AI engineering for founders with a working product and evidence of demand. Start with one measurable opportunity to reach customers, help them use the product or improve delivery. Hyperdrift is the company behind Orchestra.
 
-## Make your product usable through agents
+## Work with Orchestra
 
-Orchestra integrates one useful workflow from an existing product through MCP: agree the outcome and permissions, connect the product, verify a task in a compatible assistant and provide connection instructions. Commercial access and customer relationships stay with the product owner.
+${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io${service.links[0].href}): ${service.text}`).join('\n')}
 
-- [NextRole integration and offering](https://orchestra.hyperdrift.io/work#work-nextrole): Our own commercial career product, with five MCP tools. An owned-product demonstration, not a commissioned client result.
-- [Inspect the live MCP check](https://orchestra.hyperdrift.io/proof/nextrole-mcp-corrected-2026-10-04.json): Synthetic CV and job, actual scoring response and verification limits. This demonstrates an operational call, not adoption or hiring outcomes.
-- [Discuss your product](https://orchestra.hyperdrift.io/?situation=mcp#contact): Bring one workflow you want customers to use from their assistant.
+- [The Traction partnership](https://orchestra.hyperdrift.io/traction#partnership): How we agree the work, set up your board and learn from customer evidence. A first read is optional.
+- [A sample first read](https://orchestra.hyperdrift.io/traction/first-read): A dated assessment of this site, with a follow-up distinguishing changes from measured outcomes.
+
+## Evidence you can inspect
+
+- [Work](https://orchestra.hyperdrift.io/work): Owned products and public prototypes, grouped by the work they help with. These demonstrations do not establish client outcomes.
+- [NextRole MCP check](https://orchestra.hyperdrift.io/proof/nextrole-mcp-corrected-2026-10-04.json): A synthetic CV and job, the scoring response and verification limits. One example of making a product usable from an assistant.
+- [About](https://orchestra.hyperdrift.io/about): Our founder, relevant engagements and the work behind Orchestra.
 
 ## Articles
 
@@ -36,16 +42,9 @@ Each topic page lists the articles that carry it, with a one-line answer to what
 
 ${topics}
 
-## More
+## Get in touch
 
-- [Orchestra OS](https://orchestra.hyperdrift.io/os): The operating model behind the work.
-- [Work](https://orchestra.hyperdrift.io/work): Public builds and demonstrations.
-- [About](https://orchestra.hyperdrift.io/about): Where founders get stuck, what Orchestra brings to each, and the work that proves it.
-- [Traction](https://orchestra.hyperdrift.io/traction): A growth partnership covering positioning, customer relationships, product improvements and repeat use. AI prepares research, drafts and recommendations; work is agreed with the founder.
-- [Why we’re building Traction](https://orchestra.hyperdrift.io/traction/why): Our purpose and how we work with a select few founders.
-- [Traction's launch log](https://orchestra.hyperdrift.io/articles/traction-from-zero): Historical account of Traction’s launch and its initial evidence gates.
-- [A sample first read](https://orchestra.hyperdrift.io/traction/first-read): A real first read of this site from its public pages: one strength, one constraint and the next customer move, with the evidence.
-- [Discuss a workflow](https://orchestra.hyperdrift.io/#contact): Bring a concrete opportunity and the tools involved.
+- [Discuss your app](https://orchestra.hyperdrift.io/#contact): Bring the people you want to reach, or one workflow you want to improve. We agree the next step together.
 `;
 
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

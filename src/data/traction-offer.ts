@@ -1,30 +1,7 @@
 /**
  * The Traction offer: Traction is the board, the Traction Partnership is the work done with a founder on it.
- * One source for the home section, /partnership and the sample read. First reads are optional.
+ * Shared offer facts, sample read and recordings. First reads are optional.
  */
-
-export interface OfferStep { name: string; gets: string; who: string; link: { href: string; label: string } }
-
-export const offerSteps: OfferStep[] = [
-  {
-    name: 'A useful first step',
-    gets: 'Tell us about your app and what you want to achieve. We’ll agree where we can help. If you prefer a written starting point, ask for a first read of your public product.',
-    who: 'AI helps prepare the research. We review it and agree the next step with you.',
-    link: { href: '/traction/first-read', label: 'Read a sample first read' },
-  },
-  {
-    name: 'Your board',
-    gets: 'We set up Traction around your goals. Customer relationships, agreed actions and results sit in one workspace, with AI recommendations grounded in the evidence you share.',
-    who: 'You own the customer work. We set up the board, connect your evidence and keep the record honest, misses included.',
-    link: { href: '/traction#value', label: 'Explore Traction' },
-  },
-  {
-    name: 'The partnership',
-    gets: 'Work with us on positioning, reaching customers and improving their experience. We agree the scope, carry out the next useful improvement and learn from its effect.',
-    who: 'You bring product knowledge and customer feedback. We help with strategy, customer work and AI engineering.',
-    link: { href: '/partnership', label: 'How the partnership works' },
-  },
-];
 
 /** Opens the shared enquiry dialog in first-read mode, preserving the current page. */
 export const firstReadHref = '/traction#first-read';

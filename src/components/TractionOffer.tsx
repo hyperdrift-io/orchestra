@@ -1,14 +1,4 @@
-import { offerSteps, sampleRead, readMethod, firstReadHref, boardFilm, boardValue } from '@/data/traction-offer';
-
-/** The ways we help, each with a source a founder can inspect. `here` drops the link to the current page. */
-export function OfferSteps({ here }: { here?: string }) {
-  return <ol data-offer-steps>{offerSteps.map((step) => <li key={step.name}>
-    <h3>{step.name}</h3>
-    <p>{step.gets}</p>
-    <p>{step.who}</p>
-    {step.link.href.split('#')[0] !== here && <a href={step.link.href}>{step.link.label} →</a>}
-  </li>)}</ol>;
-}
+import { sampleRead, readMethod, firstReadHref, boardFilm, boardValue } from '@/data/traction-offer';
 
 /** The sample read in three lines, where a founder decides whether to ask for theirs. */
 export function ReadExcerpt() {
@@ -33,6 +23,11 @@ export function FirstRead() {
         <div><dt>Review method</dt><dd>Prepared with Traction’s AI operator, reviewed by us</dd></div>
       </dl>
     </header>
+    <aside aria-labelledby="read-follow-up-title">
+      <h2 id="read-follow-up-title">What changed after this read?</h2>
+      <p>Checked on 17 October 2026: the homepage now puts an enquiry in the first screen on a phone. A first-read request asks for a name, email and app URL. The product proof now lives on the Work page.</p>
+      <p>The original assessment below is preserved as a dated example. These changes make the next step easier to find; their effect on enquiries and conversion has not been established.</p>
+    </aside>
     <ol>{sampleRead.findings.map((finding) => <li key={finding.label}>
       <h2>{finding.label}</h2>
       <p>{finding.headline}</p>
@@ -51,8 +46,8 @@ export function FirstRead() {
     <section aria-labelledby="next-title">
       <h2 id="next-title">Your next step.</h2>
       <p>Traction is the board. The Traction Partnership is the work we do with you on it. A first read is one way to start; you can also get in touch directly.</p>
-      <OfferSteps here="/traction/first-read" />
       <a href={firstReadHref}>Ask for a first read of your app →</a>
+      <p><a href="/traction#partnership">How we work together →</a></p>
     </section>
   </article>;
 }
