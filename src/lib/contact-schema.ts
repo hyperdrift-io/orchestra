@@ -4,9 +4,10 @@ import { enquiryHandoffSchema } from './enquiry-handoff';
 import { articleSlugSchema } from './article-events';
 
 export const contactSchema = z.object({
-  name: z.string().trim().min(1, 'Name is required').max(120),
+  name: z.string().trim().max(120).default(''),
   email: z.string().trim().email('Valid email required'),
   company: z.string().trim().max(200).optional(),
+  product_url: z.string().trim().url().max(2000).refine(value => /^https?:\/\//i.test(value), 'Use an http or https link').optional(),
   /** The situation the visitor chose on the front door, as its label. Optional and editable. */
   situation: z.string().trim().max(80).optional(),
   article: articleSlugSchema.optional(),
