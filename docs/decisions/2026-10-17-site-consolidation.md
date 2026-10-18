@@ -34,3 +34,20 @@ Sources checked on 17 October: [Chrome guide](https://developer.chrome.com/docs/
 ## Publication authorized — 18 October 2026
 
 The founder reviewed the preview and instructed: “push everything live”. This approves the revised public wording, redirects, layout and editorial corrections in this record. The WebMCP article retains its original 6 October publication date; its substantive modification is dated 18 October 2026. The two primary sources were checked again on 18 October and still support the correction. Release proceeds through exact-revision CI and the clean infra origin/main worktree. Final deployment/readiness and discovery receipts are recorded below when verified.
+
+## Production release — 18 October 2026
+
+The founder authorized this release with “push everything live”. The reviewed revision was integrated onto the newer graph-first homepage and dedicated `/os` release, preserving both. App revision `b0ddfe4eb2c4b01cd415cd115b806ca3a77e0f8c` is tagged `site-consolidation-2026-10-18`; infra was clean `origin/main` at `ee8b191d2edeb0ef621459c40d4171e73dbb6e4a` in an isolated worktree.
+
+- [Exact-revision CI](https://github.com/hyperdrift-io/orchestra/actions/runs/39173435394) passed TypeScript, the existing tests and the production build.
+- `make deploy app=orchestra` passed: 27 ok, 7 changed, zero failed/unreachable. Post-deploy integrity: 5 ok, 2 changed, zero failed.
+- Server Git SHA matches the release. PM2 is online with the new process/build; build `O9qCkZQq1HBJfZzryYfWg` was served with HTTP200 and zero process restarts.
+- `make check-launch-readiness app=orchestra`: 10 passed, zero failed, one existing warning because the app-level GSC field is empty. The domain property is separately verified; this warning does not indicate missing domain coverage.
+- All28 sitemap URLs were independently fetched from the canonical host: HTTP200, one H1, self-referencing canonical, no noindex. The sitemap includes `/os`, omits all three redirect sources, and does not stamp a homepage lastmod from build time.
+- `/partnership` →308 `/traction#partnership`; `/traction/why` →308 `/traction#why`; `/how-it-works` →308 `/os`.
+- Live `llms.txt` names both current offers; the WebMCP article serves the corrected product name, modification date, original publication date and preserved paragraph anchor. No contact form was submitted by this release verification.
+- Today's successful [daily BAU run](https://github.com/hyperdrift-io/hyperdrift/actions/runs/39118967649) produced the new per-URL monitor schema. Its pre-release sample observed 20 of the former30 URLs: 18 indexed, 2 not confirmed, 10 uninspected. This is a dated sample, not a full current indexing count. The existing scheduler is retained.
+
+Local receipts are under `.local/release-2026-10-18/`: CI, deploy, readiness, runtime, sitemap submission, editorial review and the 28-page live audit. The editorial scan found the corrected WebMCP article passed; its sole other flag treats Helm's Commander role as an old product name. Product/runtime lineage is intentionally retained rather than mechanically renaming a distinct demonstration.
+
+Sitemap submission succeeded through the supported repository CLI under `sc-domain:hyperdrift.io`. Google’s last recorded fetch was still 17 October at submission time; a new crawl/indexing result is left to the existing visibility monitor. The server’s short `hd` command resolves to system hexdump, so the absolute repo wrapper was used successfully without changing host configuration.
