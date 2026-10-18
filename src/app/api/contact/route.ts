@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const { name, email, company, situation, message, article, session, campaign, handoff } = parsed.data;
+  const { name, email, company, situation, message, article, session, campaign, handoff, product_url } = parsed.data;
   const id = crypto.randomUUID();
   const preview = process.env.CONTACT_DELIVERY === 'preview';
   if (preview && process.env.NODE_ENV === 'production') {
@@ -49,6 +49,7 @@ export async function POST(req: Request) {
     handoff?.source_project && `Project: ${handoff.source_project}`,
     handoff?.referring_domain && `Original referring domain: ${handoff.referring_domain}`,
     company && `Company: ${company}`,
+    product_url && `Product: ${product_url}`,
     ...(campaign ? Object.entries(campaign).filter(([, value]) => value).map(([key, value]) => `${key}: ${value}`) : []),
   ].filter(Boolean);
   try {
@@ -56,7 +57,7 @@ export async function POST(req: Request) {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        name,
+        name: name || 'Website enquiry',
         email,
         message: context.length ? `${context.join('\n')}\n\n${message}` : message,
         source: 'orchestra_ai',

@@ -3,7 +3,7 @@ import { z } from 'zod';
 /** Only public HD paths and a referring domain travel between the two sites. */
 export const enquiryHandoffSchema = z.object({
   source_site: z.literal('hyperdrift'),
-  source_path: z.string().regex(/^\/(?:blog\/(?:[a-z0-9-]+|tag\/[a-z0-9-]+|page\/[0-9]+)|apps|playground|blog|one|southwark-lambeth-quote-check)?$/).max(200),
+  source_path: z.string().regex(/^\/(?:blog\/(?:[a-z0-9-]+|tag\/[a-z0-9-]+|page\/[0-9]+|series\/[a-z0-9-]+)|apps|playground|blog|contact|one|southwark-lambeth-quote-check)?$/).max(200),
   source_project: z.string().regex(/^[a-z0-9-]{1,100}$/).optional(),
   referring_domain: z.string().regex(/^[a-z0-9.-]{1,253}$/i).optional(),
 });
