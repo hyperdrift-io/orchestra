@@ -85,6 +85,24 @@ describe('POST /api/contact', () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  it('accepts HD series enquiries without inventing a saved name and retains the product link', async () => {
+    const handoff = { source_site: 'hyperdrift', source_path: '/blog/series/stillness', source_project: 'stillness' };
+    const product_url = 'https://example.com/product';
+    const res = await callRoute({ email: 'preview@example.com', message: 'A scoped integration enquiry.', handoff, product_url });
+    expect(res.status).toBe(200);
+    const { id } = await res.json();
+    expect(relayed().name).toBe('Website enquiry');
+    expect(relayed().message).toContain(`Product: ${product_url}`);
+    expect(JSON.parse(await readFile(join(enquiryDir, `${id}.json`), 'utf8'))).toMatchObject({ id, name: '', handoff, product_url, delivery: 'sent' });
+  });
+
+  it('rejects non-web product links before saving or relaying the enquiry', async () => {
+    const res = await callRoute({ email: 'preview@example.com', message: 'A scoped integration enquiry.', product_url: 'javascript:alert(1)' });
+    expect(res.status).toBe(400);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(await readdir(enquiryDir)).toEqual([]);
+  });
+
   it('returns 502 when the relay fails', async () => {
     fetchMock.mockResolvedValue(new Response('nope', { status: 500 }));
     const res = await callRoute({ name: 'Ada', email: 'ada@example.com', message: 'A reasonable length message.' });

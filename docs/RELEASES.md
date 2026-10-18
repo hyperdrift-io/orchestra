@@ -139,3 +139,7 @@ The hybrid page, "the giant opens, the work leads" (`docs/design/2026-09-14-rede
 - Annotated tags named `<design-name>-<yyyy-mm-dd>` on the Orchestra repo, one per reviewable state.
 - Add a row and a section here in the same commit as the tag.
 - Tags stay local until the founder approves pushing; production is whatever `main` last deployed.
+
+## HD shared enquiry receiver — publication authorized, 18 October 2026
+
+The founder instructed “push and deploy everything, start retro from next week” in the HD foundation and reframing thread. This authorizes the prepared HD contact handoff, including optional name, optional web product URL and bounded public HD context. Integration starts from `6e9d156`, preserving the already released living graph, `/os`, consolidated `/traction`, private invitations and article discovery. The compatible receiver must deploy before HD's new same-origin adapter. Validation uses isolated records and a mocked relay; production verification must not create a customer lead or send mail. Actual release/runtime evidence is recorded after deployment.
