@@ -30,3 +30,7 @@ The existing daily visibility monitor is being corrected independently in the wo
 This app revision is a checked preview, not a production deployment. Founder review covers the exact revised words and layout. On publication approval: set the WebMCP article's actual substantive `updatedAt` and review metadata, run the existing article/release gates, deploy the approved revision through infra, submit the updated sitemap, and verify production pages and redirects. Never set unrelated article dates or claim a Google recrawl before its inspection evidence arrives.
 
 Sources checked on 17 October: [Chrome guide](https://developer.chrome.com/docs/ai/webmcp), [immutable WebMCP specification change](https://github.com/webmachinelearning/webmcp/commit/14ae813cc4e9fe0d39313f4b1ee5b231746731ad). Correction wording originated in the workspace's 12 October editorial correction packet.
+
+## Publication authorized — 18 October 2026
+
+The founder reviewed the preview and instructed: “push everything live”. This approves the revised public wording, redirects, layout and editorial corrections in this record. The WebMCP article retains its original 6 October publication date; its substantive modification is dated 18 October 2026. The two primary sources were checked again on 18 October and still support the correction. Release proceeds through exact-revision CI and the clean infra origin/main worktree. Final deployment/readiness and discovery receipts are recorded below when verified.

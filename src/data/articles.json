@@ -468,9 +468,10 @@
       "height": 160
     },
     "publishedAt": "2026-10-06T00:00:00Z",
+    "updatedAt": "2026-10-18T22:41:35Z",
     "series": "ui-accessibility",
     "seriesOrder": 3,
-    "reviewedAt": "2026-10-05",
+    "reviewedAt": "2026-10-18",
     "visualization": {
       "kind": "ui-accessibility",
       "takeaway": "The page can explain what it does before an agent starts guessing.",
