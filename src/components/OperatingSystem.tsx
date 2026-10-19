@@ -1,7 +1,6 @@
 'use client';
 import { operatingReadiness, operatingScenes, operatingScenarios, operatingServices } from '@/data/operating-system';
 import { useOperatingSystem } from '@/lib/hooks/use-operating-system';
-import { siteDoor } from '@/data/site-door';
 
 /** Orchestra OS, the app's own page: the sphere stays in view while the reader's scroll connects the app. */
 export function OperatingSystem() {
@@ -12,7 +11,7 @@ export function OperatingSystem() {
       <p>Orchestra OS · managed app operation</p>
       <h1 id="operating-title">Embed your app on <em>Orchestra OS.</em></h1>
       <p>Bring your app, or build it with us. Connect development, production care and customer progress around the people it serves.</p>
-      <p data-os-actions><a href="/?situation=orchestra-os#contact" data-situation="orchestra-os">{siteDoor.label} →</a><a href="#os-scene-1">Explore Orchestra OS ↓</a></p>
+      <p data-os-actions><a href="#os-scene-1">Explore Orchestra OS ↓</a></p>
     </header>
     <div data-os-stage>
       <header>

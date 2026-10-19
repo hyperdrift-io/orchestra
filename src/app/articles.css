@@ -6,7 +6,6 @@ body > header > p em { color: var(--gold-light); }
 body > header > p small { display: block; margin-top: .5rem; font: .7rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
 body:has(#articles, #article) > header { position: relative; border-bottom: 1px solid var(--line-hair); padding-block: 1rem; }
 body:has(#articles, #article) { background: radial-gradient(ellipse at 80% 0, #342819 0, transparent 45%), var(--ink); }
-body > header nav a[data-enquiry] { color: var(--gold-light); }
 :is(#article, #articles, #article-series) :is(h1, h2, h3) a { border: 0; padding: 0; }
 :is(#article, #articles, #article-series) small { color: var(--cream-3); font-size: .8rem; }
 :is(#article, #articles) img { display: block; max-width: 100%; height: auto; }
@@ -82,8 +81,8 @@ nav[aria-label="Topics"] a[aria-current="true"] { background: var(--gold); borde
 #article > div [data-article-contents] a { border: 0; color: var(--cream-3); }
 #article > div [data-article-contents] a:hover { color: var(--gold-light); }
 /* The rail keeps the two asks one click away at any depth; the header carries them on small screens. */
-#article > div [data-article-contents] > nav[aria-label="Share or enquire"] { display: grid; gap: .6rem; margin-top: .6rem; padding-top: 1rem; border-top: 1px solid var(--line-hair); }
-#article > div [data-article-contents] > nav[aria-label="Share or enquire"] a { color: var(--gold-light); }
+#article > div [data-article-contents] > nav[aria-label="Share"] { display: grid; gap: .6rem; margin-top: .6rem; padding-top: 1rem; border-top: 1px solid var(--line-hair); }
+#article > div [data-article-contents] > nav[aria-label="Share"] a { color: var(--gold-light); }
 #article-body > p { margin: 0 0 1rem; font-size: 1.04rem; line-height: 1.65; }
 #article-body > p:first-child { font-size: 1.12rem; color: var(--cream); }
 #article-body > h2 { font-size: clamp(1.8rem, 2.5vw, 2.2rem); line-height: 1.12; margin: 1.8rem 0 .8rem; }
@@ -194,7 +193,7 @@ form[aria-label='Contact us'] [role='alert'] { color: #ffb3a1; }
   #article > div { display: block; }
   #article > div [data-article-contents] { position: static; border-block: 1px solid var(--line-hair); padding: 0; margin-bottom: 1.2rem; }
   #article > div [data-article-contents] ol { grid-template-columns: 1fr 1fr; gap: .1rem .5rem; margin: .3rem 0 .7rem; }
-  #article > div [data-article-contents] > nav[aria-label="Share or enquire"] { display: none; }
+  #article > div [data-article-contents] > nav[aria-label="Share"] { display: none; }
   #article > aside[data-nudge] > p { display: none; }
   #article > aside[data-nudge] nav { width: 100%; }
   #article > aside[data-nudge] nav > [data-article-share] > button { flex: 1; }

@@ -54,22 +54,22 @@ export default async function ArticlePage({ params }: Props) {
         <div data-article-orb=""><MeshArtwork key={article.slug} kind="article" fallbackSvg={meshFallbackSvg('article', article.slug)} slug={article.slug} fallback={headerImage.src} layout="title" animated /></div>
       </div>
       <p>{article.excerpt}</p>
-      <div data-article-meta=""><span>By <a href="/about">Yann VR</a> · {article.minutes} min read{article.publishedAt && <> · Published <time dateTime={article.publishedAt}>{articleDateLabel(article.publishedAt)}</time></>}{article.updatedAt && article.updatedAt !== article.publishedAt && <> · Updated <time dateTime={article.updatedAt}>{articleDateLabel(article.updatedAt)}</time></>}</span><a href="#article-share">Share article ↓</a><a href="#enquire" data-enquiry="">{article.ctaLabel} →</a></div>
+      <div data-article-meta=""><span>By <a href="/about">Yann VR</a> · {article.minutes} min read{article.publishedAt && <> · Published <time dateTime={article.publishedAt}>{articleDateLabel(article.publishedAt)}</time></>}{article.updatedAt && article.updatedAt !== article.publishedAt && <> · Updated <time dateTime={article.updatedAt}>{articleDateLabel(article.updatedAt)}</time></>}</span><a href="#article-share">Share article ↓</a></div>
       <ArticleTags tags={tagsOf(article)} />
       {article.reviewedAt && <small data-reviewed="">Evidence reviewed {articleDateLabel(article.reviewedAt)} · <a href="/articles/ui-accessibility#method">Method and maintenance</a></small>}
     </header>
     <div>
-      <ArticleContents entries={sections} ctaLabel={article.ctaLabel} />
+      <ArticleContents entries={sections} />
       <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} figureSvg={article.visualization?.kind === 'ui-accessibility' ? interfaceFigureSvg(article.slug) : undefined} />} figures={Object.fromEntries((article.figures ?? []).map((figure) => [figure.kind, <ArticleVisualization key={figure.kind} article={article} visual={figure} id={figureId(figure.kind)} />]))} />
     </div>
     <figure id="article-diagram" data-has-visualization={article.visualization ? "true" : undefined}>{!article.visualization && <><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol></>}<ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!article.publishedAt || Date.parse(article.publishedAt) > Date.now()} /></figure>
     {(!article.visualization || article.media) && <ArticleProof article={article} />}
     <section data-article-endcap="" aria-label="What next">
-      <div data-invite=""><p>Put the idea to work</p><h2>What would this look like <em>for you?</em></h2><p>{invite}</p><a href="#enquire" data-enquiry="" data-invite-cta="">{article.ctaLabel} →</a><small>A personal reply within one working day.</small></div>
+      <div data-invite=""><p>Put the idea to work</p><h2>What would this look like <em>for you?</em></h2><p>{invite}</p><a href="#enquire" data-enquiry="" data-invite-cta="">{article.ctaLabel} →</a></div>
       {next && <a data-read-next="" href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong><small>{next.excerpt}</small></a>}
     </section>
     <EnquiryDialog articleSlug={article.slug} situation={article.situation} />
-    <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} ctaLabel={article.ctaLabel} />
+    <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} />
     <footer><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? '← The complete series' : '← All field notes'}</a></footer>
   </article>;
 }

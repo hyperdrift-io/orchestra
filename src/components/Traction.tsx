@@ -5,7 +5,7 @@ import { LinkPreview } from '@/components/LinkPreview';
 import { TractionWhy, tractionWhyTitle } from '@/components/TractionWhy';
 import { TractionJourney } from '@/components/TractionJourney';
 
-/** An invited founder's next step, beside an explorable example of the work. */
+/** The Traction proposal, read in full before the one door at its end. */
 export function Traction({ invitation }: { invitation?: TractionInvitation }) {
   return <article id="traction" data-offering="">
     <TractionJourney />
@@ -19,10 +19,6 @@ export function Traction({ invitation }: { invitation?: TractionInvitation }) {
         <p>We’re keeping this small so we can work closely with you. We’ll agree the next useful move for your app and put it into action together.</p>
         <p>You know your product. We’ll help you find the people who need it and learn from what happens when they use it.</p>
         <p>Your feedback will shape Traction as we go. <a href={invitation ? '/traction#why' : '#why'}>Why we’re doing this</a></p>
-        {invitation
-          ? <a href="#enquire" data-enquiry="" data-situation="partnership" data-primary="">Get in touch →</a>
-          : <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="" data-primary="">Introduce your app →</a>}
-        {!invitation && <p data-reply>The link to your app, who it’s for and what you want next. A personal reply within one working day.</p>}
         <div id="joining" data-joining>
           <h2>How we choose</h2>
           <p>We look for a product that can help people and a founder with a meaningful ambition, reached by introduction or by asking. A conversation settles the rest: whether you own your customers, act on what you learn and want honest feedback. Funding, followers and prestige are not the test. We stay small because a person does the work with each founder.</p>
@@ -53,7 +49,6 @@ export function Traction({ invitation }: { invitation?: TractionInvitation }) {
         <header><p>The Traction Partnership</p><h2 id="traction-partnership-title">The work we do together.</h2></header>
         <p>Bring a working product and a sign that people value it: paying customers, people returning, repeat work, or another credible signal of demand. We’ll choose one customer opportunity and agree how to judge the result.</p>
         <p>You bring product knowledge, customer feedback and the decisions. We help with strategy, customer relationships and AI engineering. Scope, costs, ownership and terms are agreed before work starts. An initial conversation creates no commitment.</p>
-        <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="">Introduce your app →</a>
       </section>
       <section id="why" data-journey="why" aria-labelledby="traction-why-title">
         <header><h2 id="traction-why-title">{tractionWhyTitle}</h2></header>
@@ -62,9 +57,18 @@ export function Traction({ invitation }: { invitation?: TractionInvitation }) {
         <details><summary>Our purpose, in full</summary><TractionWhy /></details>
       </section>
     </>}
-    <footer id="contact" data-journey="contact">
-      <details><summary>How we’d start</summary><p>We’ll talk about your app, the people you want to reach and where you’d value help. {invitation ? 'Then we’ll' : 'If there’s a fit, we’ll'} set up your workspace and AI access together, with a useful first piece of customer work.</p><p>We’d value your involvement and honest feedback. We’ll shape Traction around what helps you make progress.</p></details>
-      {!invitation && <div id="first-read"><p>Prefer a written view of your app first? Get one strength, one constraint and a next customer move, based on its public pages.</p><p><a href="#first-read" data-enquiry="">Ask for a first read →</a> · <a href="/traction/first-read">See a worked example →</a></p></div>}
+    {/* The one door, after the proposal: a visitor reads what Traction is before being asked anything. */}
+    <footer id="contact" data-journey="contact" aria-labelledby="traction-contact-title">
+      {invitation ? <>
+        <h2 id="traction-contact-title">Get in touch.</h2>
+        <p>We’ll talk about your app, the people you want to reach and where you’d value help. Then we’ll set up your workspace and AI access together, with a useful first piece of customer work.</p>
+        <a href="#enquire" data-enquiry="" data-situation="partnership" data-primary="">Get in touch →</a>
+      </> : <>
+        <h2 id="traction-contact-title">Introduce your app.</h2>
+        <p>Send us the link, who it’s for and what you want next. We’ll read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.</p>
+        <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="" data-primary="">Introduce your app →</a>
+        <p><a href="/traction/first-read">See what a first read looks like →</a></p>
+      </>}
     </footer>
   </article>;
 }

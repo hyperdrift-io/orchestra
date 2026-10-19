@@ -1,4 +1,4 @@
-import { sampleRead, readMethod, firstReadHref, boardFilm, boardValue } from '@/data/traction-offer';
+import { sampleRead, readMethod, boardFilm, boardValue } from '@/data/traction-offer';
 
 /** The sample read in three lines, where a founder decides whether to ask for theirs. */
 export function ReadExcerpt() {
@@ -45,8 +45,8 @@ export function FirstRead() {
     </section>
     <section aria-labelledby="next-title">
       <h2 id="next-title">Your next step.</h2>
-      <p>Traction is the board. The Traction Partnership is the work we do with you on it. A first read is one way to start; you can also get in touch directly.</p>
-      <a href={firstReadHref}>Ask for a first read of your app →</a>
+      <p>Traction is the board. The Traction Partnership is the work we do with you on it. This is what a first read looks like; introduce your app and we’ll read yours the same way.</p>
+      <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="">Introduce your app →</a>
       <p><a href="/traction#partnership">How we work together →</a></p>
     </section>
   </article>;

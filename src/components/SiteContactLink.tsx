@@ -2,9 +2,10 @@
 import { usePathname } from 'next/navigation';
 import { siteDoor } from '@/data/site-door';
 
-/** The masthead repeats the page's door for the reader who has already decided. */
+/** The masthead carries the page's door as a plain navigation link, for the reader who has already decided. */
 export function SiteContactLink() {
   const pathname = usePathname();
-  const mirrorsTraction = pathname === '/traction' || pathname.startsWith('/traction/invitation/');
-  return <a href="#enquire" data-enquiry="">{mirrorsTraction ? 'Get in touch' : siteDoor.label}</a>;
+  if (pathname.startsWith('/traction/invitation/')) return <a href="#enquire" data-enquiry="">Get in touch</a>;
+  if (pathname.startsWith('/traction')) return <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="">Introduce your app</a>;
+  return <a href="#enquire" data-enquiry="">{siteDoor.label}</a>;
 }

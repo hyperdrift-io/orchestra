@@ -32,7 +32,7 @@ export function Proof({ catalogue = false }: ProofProps): ReactElement {
           {cs.article && <LinkPreview href={cs.article}>Read the build ↗</LinkPreview>}
           {cs.challenge?.entryUrl && <LinkPreview href={cs.challenge.entryUrl}>Challenge entry ↗</LinkPreview>}
         </p>
-      </> : <p><a href={`/work#work-${cs.slug}`} data-offer={cs.slug === 'nextrole' ? 'mcp' : undefined}>Explore {cs.name} →</a>{cs.slug === 'nextrole' && <a href={mcpEnquiryHref} data-offer="mcp">Discuss your product →</a>}</p>}
+      </> : <p><a href={`/work#work-${cs.slug}`} data-offer={cs.slug === 'nextrole' ? 'mcp' : undefined}>Explore {cs.name} →</a>{cs.slug === 'nextrole' && <a href={mcpEnquiryHref} data-offer="mcp">{siteDoor.label} →</a>}</p>}
     </li>)}</ol>
     <footer>{catalogue ? <p>What could we put to work in your business? <a href="/#contact">{siteDoor.label} →</a></p> : <><a href="/work">Explore all our work →</a><a href={visibleArticles().length > 0 ? '/articles' : 'https://hyperdrift.io/blog'}>Read our engineering notes →</a></>}</footer>
   </section>;

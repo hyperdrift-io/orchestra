@@ -8,21 +8,7 @@ export function Enquiry() {
 
       <div>
         <div>
-          <p>Bring your product, the customers you want to reach and the opportunity you see. We’ll reply within one working day to explore whether Orchestra can help and what a useful first scope would be.</p>
-          <dl>
-            <div>
-              <dt>Reply time</dt>
-              <dd>One working day</dd>
-            </div>
-            <div>
-              <dt>Engagements</dt>
-              <dd>2 to 4 weeks, scoped concretely</dd>
-            </div>
-            <div>
-              <dt>Locale</dt>
-              <dd>Remote · EU/UK hours</dd>
-            </div>
-          </dl>
+          <p>Bring your product, the customers you want to reach and the opportunity you see. We’ll work out together whether Orchestra can help and what a useful first scope would be.</p>
           <p>We agree the work and how to judge it before building. You stay involved in customer conversations and consequential decisions; we help turn the agreed next move into something customers can use.</p>
           <p><a href="/traction#partnership">Explore a Traction Partnership →</a></p>
         </div>
