@@ -1,4 +1,5 @@
 import { operatingReading, operatingServices } from '@/data/operating-system';
+import { siteDoor } from '@/data/site-door';
 
 /** After the journey: the five jobs side by side, the map, the reading and the invitation. Server-rendered, no script. */
 export function OperatingSystemRecord() {
@@ -18,6 +19,6 @@ export function OperatingSystemRecord() {
       <details data-operating-map><summary>The map behind the motion</summary><picture><source media="(max-width: 650px)" srcSet="/diagrams/app-operating-map-mobile.svg" /><img src="/diagrams/app-operating-map.svg" alt="The target operating map: source and development pass through testing and authorised release to the live app. Health and security feed maintenance. A recorded repair returns to source. Customer actions and measured results inform Traction, judgement, authority, execution and the next decision." width="1200" height="1360" loading="lazy" /></picture><a href="/diagrams/app-operating-map.svg">Open the full operating map ↗</a></details>
     </section>
     <nav data-operating-reading aria-labelledby="operating-reading-title"><h2 id="operating-reading-title">The thinking behind it</h2><ul>{operatingReading.map((item) => <li key={item.href}><a href={item.href}><strong>{item.label}</strong><span>{item.note}</span></a></li>)}</ul><p><a href="/how-it-works?view=business#organisation">Explore the business loop ↗</a></p></nav>
-    <section id="os-start" aria-labelledby="os-start-title"><div><h2 id="os-start-title">Start with your app.</h2><p>Bring a live product, or a customer problem worth building for. We’ll agree what to connect, who owns its operation and the evidence that shows it is working.</p></div><a href="/?situation=orchestra-os#contact" data-situation="orchestra-os">Embed your app →</a></section>
+    <section id="os-start" aria-labelledby="os-start-title"><div><h2 id="os-start-title">Start with your app.</h2><p>Bring a live product, or a customer problem worth building for. We’ll agree what to connect, who owns its operation and the evidence that shows it is working.</p></div><a href="/?situation=orchestra-os#contact" data-situation="orchestra-os">{siteDoor.label} →</a></section>
   </>;
 }

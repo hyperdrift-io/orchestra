@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { visibleArticles, isArticlePreview } from '@/lib/article-catalogue';
 import { articleSearchEntries, collectionJsonLd } from '@/lib/articles';
 import { tagsIn } from '@/lib/article-tags';
+import { siteDoor } from '@/data/site-door';
 
 const description = 'Practical AI engineering guides from Hyperdrift: agent skills, permissions, connected workflows, Lakebase, document databases and streaming interfaces.';
 
@@ -24,10 +25,9 @@ export default function ArticlesPage() {
       <p>Practical notes from building and running our apps. Find a working example, inspect the evidence, and see where it could help you.</p>
       <nav aria-label="Also on this site">
         {articles.some((article) => article.series === 'ui-accessibility') && <a href="/articles/ui-accessibility">The future of UI and accessibility →</a>}
-        <a href="/#contact">Discuss your workflow →</a>
       </nav>
     </header>
     <ArticleFinder entries={articleSearchEntries()} tags={tagsIn(articles)} />
-    <footer><h2>Where could this help you?</h2><p>Bring one workflow, a question or a product you want to improve. We’ll work out a useful first step together.</p><a href="/#contact">Describe your workflow →</a><p><a href="/articles/traction-from-zero">From the archive: Traction’s launch log →</a></p></footer>
+    <footer><h2>Where could this help you?</h2><p>Bring one workflow, a question or a product you want to improve. We’ll work out a useful first step together.</p><a href="/#contact">{siteDoor.label} →</a><p><a href="/articles/traction-from-zero">From the archive: Traction’s launch log →</a></p></footer>
   </section>;
 }

@@ -1,5 +1,6 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
+import { siteDoor } from '@/data/site-door';
 import {businessScenarios} from '@/data/business-scenarios';
 import {businessIterations,iterationSteps} from '@/data/business-iterations';
 import {BusinessDetail} from './BusinessDetail';
@@ -55,7 +56,7 @@ export function Organisation({articlesAvailable=false}:{articlesAvailable?:boole
         <ol aria-label="Illustrated iterations">{iterations.map((item,i)=><li key={item.title} data-retained={i<complete} data-current={i===cycle}><button aria-pressed={i===cycle} onClick={()=>chooseIteration(i)}><span>{i<complete?'Retained':i===cycle?'In focus':'Up next'}</span><strong>{item.title}</strong><span>{item.benefit}</span><small>Measure: {item.measure}</small></button></li>)}</ol>
       </div>
       <p data-organisation-outcome><span>What you’re building towards</span><strong>{scenario.outcome}</strong></p>
-      <footer><div><h2>Start with one opportunity.</h2><p>Bring us a workflow worth improving. We’ll connect the first useful step to the outcome you want to measure.</p></div><a href="/#contact">Find your growth opportunity →</a><a href={articlesAvailable?'/articles':'https://hyperdrift.io/blog'}>Explore the ideas behind the work →</a></footer>
+      <footer><div><h2>Start with one opportunity.</h2><p>Bring us a workflow worth improving. We’ll connect the first useful step to the outcome you want to measure.</p></div><a href="/#contact">{siteDoor.label} →</a><a href={articlesAvailable?'/articles':'https://hyperdrift.io/blog'}>Explore the ideas behind the work →</a></footer>
     </div>
   </section>;
 }

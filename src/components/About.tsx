@@ -1,5 +1,5 @@
 import { fits, partners } from '@/data/about';
-import { firstReadHref } from '@/data/traction-offer';
+import { siteDoor } from '@/data/site-door';
 
 /** Where founders get stuck, what we bring to each, the work that proves it, and the door. */
 export function About() {
@@ -8,7 +8,7 @@ export function About() {
       <p>About Orchestra</p>
       <h1 id="about-title">You’ve built something promising.<br/><em>Let’s help it become a stronger business.</em></h1>
       <p>We start with one workflow, agree the scope, build an improvement you can inspect, and measure its effect.</p>
-      <p><a href="#contact" data-primary="">Discuss your next stage →</a><a href={firstReadHref}>Start with a first read →</a></p>
+      <p data-actions><a href="#contact" data-primary="">{siteDoor.label} →</a><small>{siteDoor.reply}</small></p>
       <p>Orchestra is built by Hyperdrift, founded by Yann VR. We develop and run our own apps, and bring what we learn into our work with other founders.</p>
       <p>{partners}</p>
     </header>
@@ -21,8 +21,5 @@ export function About() {
         </dl>
       </li>)}
     </ol>
-    <footer>
-      <p>Orchestra AI is made by Hyperdrift. <a href="#contact">Tell us what’s gaining traction →</a></p>
-    </footer>
   </section>;
 }

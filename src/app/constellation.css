@@ -276,8 +276,15 @@ figure[data-read-excerpt] dd { margin: 0; font: 1.3rem/1.45 var(--font-display);
 #about header > p:first-child { font: .75rem var(--font-mono); color: var(--gold-light); text-transform: uppercase; letter-spacing: .13em; }
 #about h1 { font-size: clamp(3.2rem,6.4vw,6.4rem); margin-block: 1.5rem 2rem; }
 #about header > p:nth-of-type(2) { font-size: 1.2rem; max-width: 52ch; }
-#about header > p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 2rem; }
-#about a[data-primary] { display: inline-flex; padding: 1rem 1.3rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
+/* The door row is named: ids and positions are reused across this site, so page CSS says which element it means. */
+#about header > p[data-actions] { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; margin-block: 2rem 2.5rem; }
+#about header > p[data-actions] > small { color: var(--cream-3); font-size: .85rem; }
+#about header > p[data-actions] ~ p { max-width: 68ch; margin-top: 1rem; color: var(--cream-2); line-height: 1.75; }
+#about a[data-primary] { display: inline-flex; align-items: center; min-height: 48px; padding: .9rem 1.3rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; font-size: .9rem; }
+#about a[data-primary]:hover { background: var(--gold-light); color: var(--ink); }
+/* The enquiry section's door, on the home and about pages: the same button as the first view's. */
+section#contact > div > p > a[data-enquiry] { display: inline-flex; align-items: center; min-height: 48px; padding: .9rem 1.3rem; border: 1px solid var(--gold); border-radius: 3px; background: var(--gold); color: var(--ink); font-weight: 600; font-size: .9rem; }
+section#contact > div > p > a[data-enquiry]:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--ink); }
 #about > ol { list-style: none; padding: 0; margin: 5rem 0 0; max-width: 1200px; }
 #about > ol > li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; padding: 2.5rem 0; border-top: 1px solid var(--cream-4); }
 #about > ol h2 { margin: 0; font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.6rem); line-height: 1.15; }

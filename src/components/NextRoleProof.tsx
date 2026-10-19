@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { siteDoor } from '@/data/site-door';
 import { mcpEnquiryHref } from '@/lib/proof';
 
 interface NextRoleProofProps { catalogue: boolean }
@@ -19,7 +20,7 @@ export function NextRoleProof({ catalogue }: NextRoleProofProps): ReactElement {
       <details><summary>Scope, checks and connection details</summary>
       <p>We agree the workflow and permissions, connect it to your existing product, and check that someone can complete the task from a compatible assistant. That gives you a working integration, connection instructions and evidence of what actually ran.</p>
       <p>Judge the result by useful task completion and customers coming back. A directory listing is only a way in.</p>
-      <a href={mcpEnquiryHref} data-offer="mcp">Discuss your product →</a>
+      <a href={mcpEnquiryHref} data-offer="mcp">{siteDoor.label} →</a>
       <details>
         <summary>Connect to NextRole’s MCP</summary>
         <p>In an assistant that supports remote MCP servers, add this URL using Streamable HTTP:</p>

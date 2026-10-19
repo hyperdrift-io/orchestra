@@ -4,6 +4,7 @@ import type { ReactElement } from 'react';
 import { visibleArticles } from '@/lib/article-catalogue';
 import { proofWorks, workGroups, mcpEnquiryHref } from '@/lib/proof';
 import { NextRoleProof } from '@/components/NextRoleProof';
+import { siteDoor } from '@/data/site-door';
 
 interface ProofProps { catalogue?: boolean }
 
@@ -33,6 +34,6 @@ export function Proof({ catalogue = false }: ProofProps): ReactElement {
         </p>
       </> : <p><a href={`/work#work-${cs.slug}`} data-offer={cs.slug === 'nextrole' ? 'mcp' : undefined}>Explore {cs.name} →</a>{cs.slug === 'nextrole' && <a href={mcpEnquiryHref} data-offer="mcp">Discuss your product →</a>}</p>}
     </li>)}</ol>
-    <footer>{catalogue ? <p><a href="/#contact">What could we put to work in your business? →</a></p> : <><a href="/work">Explore all our work →</a><a href={visibleArticles().length > 0 ? '/articles' : 'https://hyperdrift.io/blog'}>Read our engineering notes →</a></>}</footer>
+    <footer>{catalogue ? <p>What could we put to work in your business? <a href="/#contact">{siteDoor.label} →</a></p> : <><a href="/work">Explore all our work →</a><a href={visibleArticles().length > 0 ? '/articles' : 'https://hyperdrift.io/blog'}>Read our engineering notes →</a></>}</footer>
   </section>;
 }
