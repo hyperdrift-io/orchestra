@@ -7,6 +7,15 @@
 #traction [data-founder-note] > p { margin: 0 0 1rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction [data-founder-note] > p:first-child { color: var(--cream); }
 #traction [data-founder-note] > [data-reply] { margin-top: 1rem; font-size: .82rem; color: var(--cream-3); }
+/* How we choose, what joining looks like, what we ask: three short blocks under the welcome. */
+#traction [data-joining] { margin-top: 1.8rem; padding-top: 1.4rem; border-top: 1px solid var(--line-hair); }
+#traction[data-offering] [data-joining] h2 { margin: 1.25rem 0 .35rem; }
+#traction[data-offering] [data-joining] h2:first-child { margin-top: 0; }
+#traction [data-joining] p, #traction [data-joining] li { margin: 0; font: .9rem/1.65 var(--font-body); color: var(--cream-2); }
+#traction [data-joining] :is(ol, ul) { margin: 0; padding-left: 1.15rem; }
+#traction [data-joining] ol { list-style: none; padding-left: 0; }
+#traction [data-joining] li + li { margin-top: .3rem; }
+#traction [data-joining] li strong { font-weight: 500; color: var(--cream); }
 #traction[data-offering] > section { border-top: 1px solid var(--line-hair); margin-top: 2.5rem; padding: 2rem 0 0; }
 #traction[data-offering] > section > :is(p, details) { max-width: 70ch; margin-block: 1rem; }
 #traction[data-offering] > section > header > p { color: var(--gold-light); font-size: .85rem; margin-bottom: .6rem; }

@@ -21,7 +21,7 @@ Orchestra connects customer insight, distribution and AI engineering for founder
 
 ${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io${service.links[0].href}): ${service.text}`).join('\n')}
 
-- [The Traction partnership](https://orchestra.hyperdrift.io/traction#partnership): How we agree the work, set up your board and learn from customer evidence. A first read is optional.
+- [The Traction partnership](https://orchestra.hyperdrift.io/traction#partnership): For a few founders at a time, by introduction or by asking. It starts with a conversation and a read of your app, then your board with the first customer move prepared; after that, one move at a time. A written first read is optional.
 - [A sample first read](https://orchestra.hyperdrift.io/traction/first-read): A dated assessment of this site, with a follow-up distinguishing changes from measured outcomes.
 
 ## Evidence you can inspect

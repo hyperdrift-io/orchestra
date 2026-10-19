@@ -8,7 +8,7 @@ export function Services() {
       <p>{service.eyebrow}</p>
       <h3>{service.name}</h3>
       <p>{service.text}</p>
-      <p>{service.links.map((link) => <a key={link.href} href={link.href} data-primary={link.primary ? '' : undefined}>{link.label} →</a>)}</p>
+      <p>{service.links.map((link) => <a key={link.href} href={link.href} data-primary={link.primary ? '' : undefined} data-situation={link.situation} data-introduce={link.introduce ? '' : undefined}>{link.label} →</a>)}</p>
     </li>)}</ul>
   </section>;
 }
