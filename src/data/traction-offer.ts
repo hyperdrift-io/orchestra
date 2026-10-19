@@ -83,8 +83,9 @@ export const boardValue: { name: string; text: string }[] = [
 ];
 
 /** What Orchestra offers, Traction first. One list for the home. */
-export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean }[] }
+/** A link with `introduce` opens the shared enquiry dialog as the Traction door, asking for the app. */
+export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean; situation?: string; introduce?: boolean }[] }
 export const services: Service[] = [
-  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth partner for your app. Work with us on strategy, customer relationships and the product experience, from first interest to repeat use. AI helps prepare the work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: firstReadHref, label: 'Ask for a first read' }] },
+  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth partner for your app. We work with a few founders at a time, by introduction or by asking, on strategy, customer relationships and the product experience, from first interest to repeat use. AI helps prepare the work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: '/traction#enquire', label: 'Introduce your app', situation: 'partnership', introduce: true }] },
   { slug: 'orchestra-os', eyebrow: '02 · Orchestra OS', name: 'Embed your app on Orchestra OS.', text: 'Bring your app, or build it with us. Connect engineering, hosting, security maintenance and customer support, with growth work coordinated through Traction. We agree the scope and verify each connection with you.', links: [{ href: '/os', label: 'Explore Orchestra OS', primary: true }, { href: '/?situation=orchestra-os#contact', label: 'Discuss your app' }] },
 ];

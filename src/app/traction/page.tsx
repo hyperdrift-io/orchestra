@@ -8,7 +8,7 @@ const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'Th
 
 export const metadata: Metadata = {
   title: 'Traction — A growth partner for your app',
-  description: 'Work with us on your app’s strategy, customer relationships and product experience. Traction connects your goals to useful action and customer feedback.',
+  description: 'A growth partner for your app, for a few founders at a time, by introduction or by asking. It starts with a conversation and a read of your app, then your board with the first customer move prepared.',
   alternates: { canonical: '/traction' },
   openGraph: { ...websiteOpenGraph, title: 'Traction — Let’s find your next users.', description: 'A partnership to help your app find its market, turn interest into use and learn what brings people back. AI supports the work; we shape it with you.', url: 'https://orchestra.hyperdrift.io/traction', images: [shareImage] },
   twitter: { card: 'summary_large_image', images: [shareImage] },
