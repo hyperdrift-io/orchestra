@@ -406,7 +406,7 @@ body > header nav a:hover { color: var(--gold-light); }
 main > section { position: relative; padding: 0; border: 0; }
 main > section > figure { margin: 0; }
 main > section picture img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
-:is(#proof, #contact) > figure { aspect-ratio: 16 / 9; }
+:is(#proof, section#contact) > figure { aspect-ratio: 16 / 9; }
 
 /* — The proof: the footprints are the work (screencraft/proof) */
 #proof { background: var(--ink); counter-reset: work; }
@@ -439,22 +439,22 @@ main > section picture img { display: block; inline-size: 100%; block-size: 100%
 }
 
 /* — The enquiry: you say where, we go (screencraft/enquiry) */
-#contact { background: var(--ink); }
-#contact > h2 { margin-inline: var(--edge); padding-block-start: var(--sp-xl); max-inline-size: 24ch; font-size: var(--fs-h2); }
-#contact > div {
+section#contact { background: var(--ink); }
+section#contact > h2 { margin-inline: var(--edge); padding-block-start: var(--sp-xl); max-inline-size: 24ch; font-size: var(--fs-h2); }
+section#contact > div {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: var(--sp-xl);
   align-items: start;
   padding: var(--sp-l) var(--edge) var(--sp-xl);
 }
-#contact > div > div > p:first-child { font-family: var(--font-display); font-size: var(--fs-lead); color: var(--cream); max-inline-size: 34ch; }
-#contact dl { display: grid; gap: var(--sp-s); margin: var(--sp-m) 0 0; }
-#contact dd { margin: 0; color: var(--cream); }
-#contact form { display: grid; gap: var(--sp-m); max-inline-size: 640px; }
-#contact form [role='status'], #contact form [role='alert'] { font-size: var(--fs-meta); }
-#contact form [role='status'] { color: var(--gold-light); }
-#contact form [role='alert'] { color: #ffb3a1; }
+section#contact > div > div > p:first-child { font-family: var(--font-display); font-size: var(--fs-lead); color: var(--cream); max-inline-size: 34ch; }
+section#contact dl { display: grid; gap: var(--sp-s); margin: var(--sp-m) 0 0; }
+section#contact dd { margin: 0; color: var(--cream); }
+section#contact form { display: grid; gap: var(--sp-m); max-inline-size: 640px; }
+section#contact form [role='status'], section#contact form [role='alert'] { font-size: var(--fs-meta); }
+section#contact form [role='status'] { color: var(--gold-light); }
+section#contact form [role='alert'] { color: #ffb3a1; }
 
 #partnership { margin-block-start: var(--sp-l); padding: var(--sp-m); background: var(--ink-elev); border-block-start: 2px solid var(--gold); }
 #partnership h3 { margin-block: var(--sp-2xs) var(--sp-s); }
@@ -478,8 +478,8 @@ main > footer > p { margin-block-start: var(--sp-l); }
 
   #proof > h2 { position: static; max-inline-size: none; padding-block-start: var(--sp-m); }
 
-  #contact > h2 { position: static; max-inline-size: none; padding-block-start: var(--sp-m); font-size: clamp(2.1rem, 1.4rem + 3vw, 2.7rem); }
-  #contact > div { grid-template-columns: 1fr; gap: var(--sp-l); }
+  section#contact > h2 { position: static; max-inline-size: none; padding-block-start: var(--sp-m); font-size: clamp(2.1rem, 1.4rem + 3vw, 2.7rem); }
+  section#contact > div { grid-template-columns: 1fr; gap: var(--sp-l); }
 }
 
 @media (prefers-reduced-motion: reduce) {
