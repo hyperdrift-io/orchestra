@@ -1,4 +1,5 @@
 import { sampleRead, readMethod, boardFilm, boardValue } from '@/data/traction-offer';
+import { LinkPreview } from '@/components/LinkPreview';
 
 /** The sample read in three lines, where a founder decides whether to ask for theirs. */
 export function ReadExcerpt() {
@@ -42,6 +43,7 @@ export function FirstRead() {
     <section aria-labelledby="method-title">
       <h2 id="method-title">What every first read looks at.</h2>
       <ol>{readMethod.map((part) => <li key={part.name}><h3>{part.name}</h3><p>{part.question}</p></li>)}</ol>
+      <p>This method is an open Agent Skill made by Orchestra. <LinkPreview intent="navigate" href="https://github.com/hyperdrift-io/first-read" target="_blank" rel="noreferrer">Run it on your own app ↗</LinkPreview> in Claude Code, Codex or any client that reads Agent Skills.</p>
     </section>
     <section aria-labelledby="next-title">
       <h2 id="next-title">Your next step.</h2>
