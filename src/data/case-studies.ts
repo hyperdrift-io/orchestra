@@ -47,6 +47,17 @@ export const caseStudies: CaseStudy[] = [
     linkLabel: 'Explore Traction',
   },
   {
+    slug: 'first-read',
+    name: 'First read',
+    relation: 'Orchestra method · open Agent Skill',
+    outcome: 'The method behind our first reads, packaged as an Agent Skill a founder can run on their own app from Claude Code, Codex or any client that reads Agent Skills. Its first run, on GreenLife, found a notification panel covering the first nudge on a phone and proposed a five-person test; the unedited output is in the repository.',
+    problem: 'A founder knows their product too well to see how a new customer meets it.',
+    capability: 'One strength, one constraint and the next customer move, from public pages only, each with its evidence.',
+    stack: ['Agent Skills', 'Agent Plugins', 'Claude Code', 'Codex'],
+    link: 'https://github.com/hyperdrift-io/first-read',
+    linkLabel: 'Get the skill',
+  },
+  {
     slug: 'standup',
     name: 'Standup',
     outcome:

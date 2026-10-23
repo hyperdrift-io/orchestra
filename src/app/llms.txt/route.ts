@@ -23,6 +23,7 @@ ${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io
 
 - [The Traction partnership](https://orchestra.hyperdrift.io/traction#partnership): For a few founders at a time, by introduction or by asking. It starts with a conversation and a read of your app, then your board with the first customer move prepared; after that, one move at a time. A written first read is optional.
 - [A sample first read](https://orchestra.hyperdrift.io/traction/first-read): A dated assessment of this site, with a follow-up distinguishing changes from measured outcomes.
+- [Run a first read on your own app](https://github.com/hyperdrift-io/first-read): The same method as an open Agent Skill made by Orchestra, for Claude Code, Codex and any client that reads Agent Skills. Public pages only; one strength, one constraint and the next customer move, each with its evidence. Install with npx skills add hyperdrift-io/first-read.
 
 ## Evidence you can inspect
 
