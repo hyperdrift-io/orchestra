@@ -5,6 +5,8 @@
 
 /** Opens the shared enquiry dialog in first-read mode, preserving the current page. */
 export const firstReadHref = '/traction#first-read';
+/** The public example board on Traction: Slotbloom, an invented startup, opened on its tour's intro card. */
+export const exampleBoardHref = 'https://traction.hyperdrift.io/example/studio-example?tour';
 
 /** `headline` is the finding in one sentence, also shown beside the offer; `detail` is the rest as the founder receives it. */
 export interface Finding { label: string; headline: string; detail: string; evidence: string[] }
