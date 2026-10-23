@@ -65,7 +65,7 @@
   #traction [data-traction-walkthrough] > [role='group'] { display: grid; grid-template-columns: 1fr 1fr; }
 }
 /* The film: Traction at work on a fictional board, at the head of the work it shows. */
-/* The live example board leads the media slot; the film follows on request. */
+/* The working example board leads the media slot; the film follows on request. */
 #traction [data-traction-tour] { margin: 1.2rem 0 0; }
 #traction [data-traction-tour] > a { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line-soft); background: #02050a; color: var(--cream); text-decoration: none; }
 #traction [data-traction-tour] > a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgb(2 5 10 / .78)); pointer-events: none; }
