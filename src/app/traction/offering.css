@@ -48,6 +48,7 @@
 #traction[data-offering] > footer > p { max-width: 60ch; margin: 0 0 1.4rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction[data-offering] > footer > p:last-child { margin: 1.2rem 0 0; font-size: .9rem; }
 #traction[data-offering] > footer > p > a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold-light); }
+#traction[data-offering] > footer > p[data-samples] { display: flex; flex-wrap: wrap; gap: 0 1.6rem; }
 #traction-story { max-width: 50rem; margin: 0 auto; padding: 1.3rem var(--edge) 2.5rem; }
 #traction-story > header { margin-bottom: 1.7rem; }
 #traction-story > header > p { font: .84rem/1.5 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--gold-light); }

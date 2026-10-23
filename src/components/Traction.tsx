@@ -4,6 +4,7 @@ import type { TractionInvitation } from '@/lib/traction-invitations';
 import { LinkPreview } from '@/components/LinkPreview';
 import { TractionWhy, tractionWhyTitle } from '@/components/TractionWhy';
 import { TractionJourney } from '@/components/TractionJourney';
+import { exampleBoardHref } from '@/data/traction-offer';
 
 /** The Traction proposal, read in full before the one door at its end. */
 export function Traction({ invitation }: { invitation?: TractionInvitation }) {
@@ -67,7 +68,8 @@ export function Traction({ invitation }: { invitation?: TractionInvitation }) {
         <h2 id="traction-contact-title">Introduce your app.</h2>
         <p>Send us the link, who it’s for and what you want next. We’ll read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.</p>
         <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="" data-primary="">Introduce your app →</a>
-        <p><a href="/traction/first-read">See what a first read looks like →</a></p>
+        {/* Samples, not a second door: a first read, and an invented startup's board with a narrated tour on Traction itself. */}
+        <p data-samples><a href="/traction/first-read">See what a first read looks like →</a><a href={exampleBoardHref}>See Traction at work on an example board →</a></p>
       </>}
     </footer>
   </article>;
