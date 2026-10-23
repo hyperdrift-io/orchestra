@@ -1,4 +1,5 @@
 import { TractionFilm } from '@/components/TractionFilm';
+import { TractionTour } from '@/components/TractionTour';
 import { TractionWalkthrough } from '@/components/TractionWalkthrough';
 import type { TractionInvitation } from '@/lib/traction-invitations';
 import { LinkPreview } from '@/components/LinkPreview';
@@ -40,7 +41,8 @@ export function Traction({ invitation }: { invitation?: TractionInvitation }) {
       </div>
       <section id="value" data-journey="value" aria-labelledby="traction-work-title">
         <header><h2 id="traction-work-title">Help your app find its market.</h2><p>We work alongside you on strategy, customer relationships and the product experience. Traction keeps that work connected to your goals and to what people actually do with your app.</p></header>
-        <TractionFilm />
+        <TractionTour />
+        <details data-traction-film-more><summary>Or watch the 57-second film</summary><TractionFilm /></details>
         <TractionWalkthrough />
         <p data-availability>Early access, set up with you. AI prepares research, drafts and recommendations; we agree the work together.</p>
       </section>
