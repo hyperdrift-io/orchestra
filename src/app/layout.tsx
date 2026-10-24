@@ -11,7 +11,7 @@ import './visual-repair.css';
 import './visual-operating-week.css';
 import './visual-effort.css';
 import './visual-fleet.css';
-import './visual-intel-ui.css';
+import './visual-traction-peek.css';
 import './constellation.css';
 import { SiteContactLink } from '@/components/SiteContactLink';
 import { SiteEnquiryDialog } from '@/components/SiteEnquiryDialog';

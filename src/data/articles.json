@@ -878,28 +878,28 @@
   {
     "slug": "agent-driven-ui-intelligence-and-action",
     "title": "Here’s the new deal. UI is for intel. Agents are for operating.",
-    "seoTitle": "UI is for intel. Agents are for operating. | Integrated Fleet",
-    "excerpt": "We’re building Integrated Fleet: agents operate our apps and the servers they run on. The UI gives us the intel, shows the work done and lets us direct it.",
+    "seoTitle": "UI is for intel. Agents are for operating. A peek into Traction",
+    "excerpt": "A peek into Traction’s 24 October release: the board shows what the Growth Manager and Builder are doing and what they delivered. The agents do the work. We decide what becomes work.",
     "shareLine": "UI is for intel. Agents are for operating.",
     "order": 14,
-    "topic": "UI and operations",
-    "example": "Integrated Fleet",
+    "topic": "A peek into Traction",
+    "example": "Traction",
     "tags": [
-      "ui",
       "agents",
+      "ui",
       "operations"
     ],
-    "exampleStatus": "Local recovery test · wider fleet in development",
-    "ctaLabel": "Discuss your app fleet",
-    "invite": "Tell us what you run and what still needs your attention. We’ll look at what the apps and infrastructure could handle together.",
+    "exampleStatus": "Our Orchestra board · 24 October 2026",
+    "ctaLabel": "Discuss your app",
+    "invite": "Tell us what you run and what still needs your attention. We’ll show you what your board and its agents would take on.",
     "situation": "workflow",
     "readNext": "app-operations-after-launch",
     "steps": [],
     "proof": {
-      "description": "Stack One local recovery test: three failed content checks triggered automatic rollback; the Nginx response was verified. No production server was involved.",
-      "url": "/articles/integrated-fleet/intelligence-ui-loop.png",
-      "label": "Save the test record",
-      "heading": "Stack One: automatic recovery, verified locally"
+      "description": "Real screenshots of our Orchestra board in Traction on 24 October 2026: the Growth Manager composer, a request queued and picked up, and the Builder’s verified result.",
+      "url": "/articles/traction-peek/gm-working.webp",
+      "label": "Save the screenshot",
+      "heading": "A peek into Traction"
     },
     "media": null,
     "publishedAt": "2026-10-24T02:11:00Z",
@@ -911,13 +911,14 @@
       "caption": "Editorial mesh illustration · Explore the workflow in the article."
     },
     "visualization": {
-      "kind": "intel-ui",
-      "takeaway": "Three failed content checks triggered rollback. The local Nginx response was verified without a dashboard action.",
-      "description": "A record of the local Stack One recovery test on 24 October 2026. The checks ran at least thirty seconds apart. The third failure triggered the fixed recovery policy, which restored the retained release and checked the response. No model made the decision and no production server was involved.",
+      "kind": "traction-peek",
+      "title": "A peek into Traction",
+      "takeaway": "One board, one request, the agents doing the work. Screenshots from our Orchestra board on 24 October 2026.",
+      "description": "Four screenshots from our own Orchestra board in Traction, taken on 24 October 2026. The composer, where a question investigates, a proposal comes back for review and a work request authorises action. A request saved at 04:45 and picked up by the Growth Manager at 04:47, shown by the board's own progress strip. The Builder's result from 04:30 the same morning, delivered and independently verified, which repaired the links pointing to this article. Nothing is staged: the screenshots are cropped, not edited.",
       "sources": [],
-      "download": "/articles/integrated-fleet/intelligence-ui-loop.png",
+      "download": "/articles/traction-peek/gm-working.webp",
       "reviewed": "24 October 2026",
-      "evidenceLabel": "Local test record · no production deployment."
+      "evidenceLabel": "Screenshots from our Orchestra board in Traction · cropped, not edited."
     },
     "headerImage": {
       "src": "/articles/mesh/agent-driven-ui-intelligence-and-action.svg",

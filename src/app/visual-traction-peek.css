@@ -1,0 +1,39 @@
+/* A peek into Traction: real screenshots in a quiet window, the board's own progress strip as the rail.
+   The screenshot carries the colour; the frame stays ink and gold. */
+[data-visual="traction-peek"] { display: grid; gap: 1.1rem; padding: 1.4rem 1.4rem 1.2rem; --peek-blue: #4aa3ff; --peek-ease: cubic-bezier(.22, 1, .36, 1); }
+@media (max-width: 600px) { [data-visual="traction-peek"] { padding: 1rem .8rem; } }
+
+[data-peek-rail] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; position: relative; }
+[data-peek-rail]::before { content: ''; position: absolute; left: 12px; right: 12px; top: 11px; height: 2px; background: var(--line-hair); }
+[data-peek-rail] li { position: relative; }
+[data-peek-rail] li[data-state="done"]::after, [data-peek-rail] li[data-state="now"]::after { content: ''; position: absolute; left: 12px; right: -12px; top: 11px; height: 2px; background: var(--gold); transform-origin: left; }
+[data-peek-rail] li[data-state="now"]::after { right: 50%; animation: peek-fill .9s var(--peek-ease) both; }
+[data-peek-rail] li:last-child::after { right: 12px; }
+@keyframes peek-fill { from { transform: scaleX(0); } }
+[data-peek-rail] button { position: relative; z-index: 1; display: grid; justify-items: start; gap: .3rem; width: 100%; min-height: 44px; padding: 0 .4rem 0 0; border: 0; background: transparent; color: var(--cream-3); text-align: left; cursor: pointer; }
+[data-peek-rail] [data-mark] { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--line-soft); background: var(--ink); font: 700 .7rem/1 var(--font-body); color: var(--ink); transition: background-color .4s, border-color .4s, box-shadow .4s; }
+[data-peek-rail] li[data-state="done"] [data-mark] { background: var(--gold); border-color: var(--gold); }
+[data-peek-rail] li[data-state="now"] [data-mark] { border-color: var(--gold-light); background: var(--ink); box-shadow: 0 0 0 4px var(--gold-soft), 0 0 18px var(--gold-soft); }
+[data-peek-rail] li[data-state="now"] [data-mark]::after { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--gold-light); }
+[data-peek-rail] strong { font: 500 .86rem/1.25 var(--font-body); color: var(--cream-2); }
+[data-peek-rail] li[data-state="now"] strong { color: var(--cream); }
+[data-peek-rail] small { font: .62rem/1.3 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cream-3); }
+[data-peek-rail] li[data-state="now"] small { color: var(--gold-light); }
+[data-peek-rail] button:hover strong { color: var(--cream); }
+[data-peek-rail] button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; border-radius: 4px; }
+@media (max-width: 600px) { [data-peek-rail] strong { font-size: .74rem; } [data-peek-rail] small { font-size: .56rem; } }
+
+/* The window: browser chrome, the real board inside. */
+[data-peek-window] { overflow: hidden; border: 1px solid var(--line-soft); border-radius: 10px; background: #0b1220; box-shadow: 0 1.6rem 3.5rem rgb(0 0 0 / .45), 0 0 0 1px rgb(227 168 87 / .08), 0 0 60px rgb(74 163 255 / .07); }
+[data-peek-bar] { display: flex; align-items: center; gap: .4rem; padding: .55rem .8rem; border-bottom: 1px solid rgb(255 255 255 / .06); background: #0f1726; }
+[data-peek-bar] i { width: 10px; height: 10px; border-radius: 50%; background: rgb(255 255 255 / .16); }
+[data-peek-bar] span { flex: 1; margin-left: .6rem; padding: .25rem .7rem; border-radius: 5px; background: rgb(255 255 255 / .05); font: .68rem/1.3 var(--font-mono); color: rgb(226 232 240 / .7); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+[data-peek-stage] { position: relative; display: grid; place-items: center; background: #0b1220; }
+[data-peek-stage] img { grid-area: 1 / 1; display: block; width: 100%; height: auto; max-height: 100%; object-fit: contain; opacity: 0; transform: translateY(8px) scale(.995); transition: opacity .6s var(--peek-ease), transform .8s var(--peek-ease); }
+[data-peek-stage] img[data-on] { opacity: 1; transform: none; }
+[data-peek-stage] img[data-shot="ask"], [data-peek-stage] img[data-shot="result"] { width: 96%; border-radius: 6px; }
+
+[data-peek-text] { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: baseline; margin: 0; font: .95rem/1.55 var(--font-body); color: var(--cream); min-height: 3.1em; }
+[data-peek-text] span { font: .66rem/1.4 var(--font-mono); letter-spacing: .08em; color: var(--gold-light); }
+
+@media (prefers-reduced-motion: reduce) { [data-visual="traction-peek"] * { transition: none !important; animation: none !important; } }

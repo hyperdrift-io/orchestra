@@ -11,7 +11,7 @@ import { RepairSurvival } from '@/components/visuals/RepairSurvival';
 import { OperatingWeek } from '@/components/visuals/OperatingWeek';
 import { EffortFlow } from '@/components/visuals/EffortFlow';
 import { FleetCompound } from '@/components/visuals/FleetCompound';
-import { IntelUiLoop } from '@/components/visuals/IntelUiLoop';
+import { TractionPeek } from '@/components/visuals/TractionPeek';
 
 function TransactionMap() {
   const [retry, setRetry] = useState(false);
@@ -122,7 +122,7 @@ function BriefOrder() {
   </section>;
 }
 
-const visuals = { transaction: TransactionMap, streaming: StreamingSequence, authority: AuthorityMap, brief: BriefOrder, repair: RepairSurvival, 'operating-week': OperatingWeek, effort: EffortFlow, fleet: FleetCompound, 'intel-ui': IntelUiLoop } as const;
+const visuals = { transaction: TransactionMap, streaming: StreamingSequence, authority: AuthorityMap, brief: BriefOrder, repair: RepairSurvival, 'operating-week': OperatingWeek, effort: EffortFlow, fleet: FleetCompound, 'traction-peek': TractionPeek } as const;
 
 /** The article's main visual by default; a body figure when `visual` and `id` are given. */
 export function ArticleVisualization({ article, figureSvg, visual = article.visualization, id = 'article-proof' }: { article: ArticleSummary; figureSvg?: FigureSvg; visual?: ArticleVisual; id?: string }) {

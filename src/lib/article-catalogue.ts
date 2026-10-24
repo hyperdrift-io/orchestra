@@ -1,7 +1,7 @@
 import catalogue from '@/data/articles.json';
 
 export interface ArticleVisual {
-  kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui';
+  kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'traction-peek';
   /** Caption provenance for recorded work; omitted visuals remain illustrative. */
   evidenceLabel?: string;
   /** Contents entry for a figure placed in the body. */

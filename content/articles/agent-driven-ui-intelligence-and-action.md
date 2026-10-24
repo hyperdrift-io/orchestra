@@ -1,25 +1,27 @@
-We want the fleet to look after its apps. The UI gives us the intel to understand what is happening, check the work done and engage with an agent. We can set the direction, ask a question or intervene. The agent carries on operating when we close the page.
+We want our apps looked after. The UI gives us the intel: what is happening, what the agents did and what needs us. The agents do the work. We set the direction, ask a question or step in.
 
-This is what we're building with **Integrated Fleet**: agents that know an app's purpose, its releases and the health of the server it runs on, and can follow a problem from one to the other.
-
-Our [First Officer](/articles/the-first-officer) already reports before we ask. Integrated Fleet is the work behind that report.
-
-## One operator can see the app, its release and its server
-
-At Hyperdrift, most apps are experiments. Some may never prove demand. A few matter to the business every day. We want the fleet to recognise the difference and give capacity to the apps that earn it.
-
-We control the code, deployments and infrastructure configuration. An operator with access to all three can know what an app is for, what changed in its latest release and whether its server has enough capacity. It can use that context to act, then check the result.
-
-We want to stop experiments when they aren't needed, recover services when they fail and give successful apps more capacity as demand grows. This should be practical for a founder or a small tech hub running its own services, on infrastructure they choose, with tools they control. That is the alternative we want to build.
-
-When we open the UI, we should be able to see what changed and why the agent acted. If we disagree, we can give it a new instruction. A new capability adds something to read and something the agent may do. It doesn't need a new control panel.
-
-## The first repair already works locally
-
-We tested automatic recovery on Stack One, a static app in our fleet. We deliberately broke the content in a local release. After three failed checks, thirty seconds apart, the recovery policy restored the previous release and verified the response through Nginx.
+Traction's release on 24 October puts this on every app board. Here is our own Orchestra board that same morning.
 
 {{visual:primary}}
 
-The repair followed a fixed rule. For decisions such as whether an experiment still deserves resources or a traffic spike is useful demand, we want an agent to consider the app's purpose and the work underway. That part is still to be built.
+## The board shows what the agents are doing
 
-We're building on Ansible, Nginx and tools we already use. Next, we'll put this recovery setup on the replacement server as we migrate our apps. The broader agent operation will follow from what we learn running it.
+Each app board opens on its Growth Manager: one conversation that holds the app's evidence, its initiatives and the Builder's results. A strip shows where the latest request stands: message saved, GM working, Builder handoff, Builder working, result ready. It moves on its own while the page is open. There is nothing to refresh and nobody to chase.
+
+## The agents do the work
+
+At 04:10 we asked the Orchestra Growth Manager to run the discovery campaign for this article. Seven minutes later it had answered and handed the Builder one piece of work: repair the links pointing here and the sitemap target. At 04:30 the Builder's result was on the board, delivered and independently verified, with the evidence in the receipt.
+
+Nobody opened a deploy form or a settings page. We read the result.
+
+## We decide what becomes work
+
+One box talks to the Growth Manager. A question investigates and changes nothing. A proposal comes back for review, with Approve and start, Edit and Reject. A work request authorises action. An approval is recorded once, under the name of the person who gave it, and becomes exactly one piece of Builder work.
+
+Pricing, positioning, security and spend stay with us. The agents carry the operating load.
+
+## Why we're building it this way
+
+Most of our apps are experiments, and a few matter to the business every day. The agents can see what each app is for, what changed and what it needs, because we control the code, the releases and the servers. Next, the same loop takes over running those servers as we move our apps in November.
+
+Traction is where founders get this for their own app: the week, the work the agents did, and the decisions that are theirs.
