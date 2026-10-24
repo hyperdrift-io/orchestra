@@ -315,7 +315,8 @@
       "alt": "Connected wireframe conversation, signpost, decision forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "readNext": "agent-driven-ui-intelligence-and-action"
   },
   {
     "slug": "is-ui-holding-us-back",
@@ -872,7 +873,7 @@
       }
     ],
     "invite": "Tell us about your app, who runs it today and the job you’d hand over first. We’ll agree what to connect, who owns it and the evidence that shows it’s working.",
-    "readNext": "production-led-security-maintenance"
+    "readNext": "agent-driven-ui-intelligence-and-action"
   },
   {
     "slug": "agent-driven-ui-intelligence-and-action",
