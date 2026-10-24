@@ -22,4 +22,4 @@ The replacement VPS has not been commissioned. Fleet-wide operation, resource al
 
 The existing Orchestra mesh header remains. The main visual is a readable test record placed with `{{visual:primary}}`; no pull quote is required. The PNG at `public/articles/integrated-fleet/intelligence-ui-loop.png` is exported from that same component and was refreshed with the candidate wording. Catalogue title, excerpt, sharing copy and figure text follow the revised argument. The source URL stays stable.
 
-Release checks and the live read-back are recorded in `VERIFICATION.md`. No outreach followed from the release. Discovery follow-through after release is the Traction initiative `f3faab76c4a948a089f53e764def161b` on the Orchestra board (HD handoff, section 4).
+Live since 24 October 2026 at https://orchestra.hyperdrift.io/articles/agent-driven-ui-intelligence-and-action; release checks and the live read-back are in `VERIFICATION.md`. No outreach followed from the release. Discovery follow-through after release is the Traction initiative `f3faab76c4a948a089f53e764def161b` on the Orchestra board (HD handoff, section 4).
