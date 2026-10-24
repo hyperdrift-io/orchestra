@@ -50,6 +50,8 @@ Help founders with customers, active users or credible demand turn an existing o
 
 The [service launch kit](docs/campaigns/2026-09-service-launch/README.md) coordinates the scenario, proof, articles and Traction Partnership. Organic discovery leads: useful canonical articles and documentation, search and assistant visibility, and independent references, recorded on the Orchestra board as initiative `f3faab76c4a948a089f53e764def161b` (24 October 2026, from [the discovery proposal](../../../docs/fleet/ORCHESTRA-DISCOVERY.md)). LinkedIn was the initial distribution hypothesis for a founder-led service; it is now used per piece when a named audience justifies it, through the existing publication register, and is no longer the primary channel. Channel fit remains to be established by real enquiries. No paid budget is committed.
 
+**Release schedule (Yann, 24 October 2026):** the Orchestra GM owns when Orchestra articles and their announcements go out: it chooses the time and slot, prepares the register entry and commissions Builder for the deploy. Yann approves every public word; the existing sender is the only sender.
+
 ## Measurement contract
 
 **Release status:** the founder approved PostHog on 23 September 2026. The SDK, explicit interaction events, session-scoped first-touch attribution and server accepted-relay conversion are implemented. Production ingestion was verified on 23 September with marked real browser interactions, including route views, domain exploration and enquiry starts; exclude those verification events from the first baseline. The server accepted-relay event has not been exercised by sending a synthetic live enquiry. Existing durable article events remain available.

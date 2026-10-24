@@ -9,6 +9,8 @@
 [data-link-preview-header] :is(small,strong) { display: block; }
 [data-link-preview-actions] { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; }
 [data-link-preview-actions] :is(a,button) { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; }
+/* The close is a button, not a sentence: one glyph, a 44px target, the label for assistive technology. */
+[data-link-preview-close] { justify-content: center; min-width: 44px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; font-size: 1.6rem; line-height: 1; cursor: pointer; }
 [data-link-preview-viewport] { display: flex; flex-direction: column; flex: 1; min-height: 0; }
 [data-link-preview-viewport] iframe { display: block; width: 100%; flex: 1; min-height: 0; border: 0; background: #fff; }
 [data-link-preview-document] { flex: 1; overflow: auto; overscroll-behavior: contain; padding: clamp(1rem,4vw,3rem); }

@@ -30,7 +30,7 @@ function PreviewLink({ content, labels, onPreviewEvent, onClick, onPointerEnter,
     {ready && createPortal(<div ref={panel} id={id} popover="auto" data-link-preview-panel="" data-testid="link-preview-panel" role="dialog" aria-labelledby={`${id}-title`}>
       <header data-link-preview-header="">
         <span><small>{content.publisher}</small><strong id={`${id}-title`} data-link-preview-title="" data-testid="link-preview-title" tabIndex={-1}>{content.title}</strong></span>
-        <span data-link-preview-actions=""><a data-testid="link-preview-original" href={anchor.href} target="_blank" rel="noopener noreferrer" onClick={openOriginal}>{labels.openOriginal} <span aria-hidden="true">↗</span></a><button data-testid="link-preview-close" type="button" onClick={close}>{labels.close}</button></span>
+        <span data-link-preview-actions=""><a data-testid="link-preview-original" href={anchor.href} target="_blank" rel="noopener noreferrer" onClick={openOriginal}>{labels.openOriginal} <span aria-hidden="true">↗</span></a><button data-testid="link-preview-close" type="button" data-link-preview-close="" onClick={close} aria-label={labels.close} title={labels.close}><span aria-hidden="true">×</span></button></span>
       </header>
       {(expanded || prepared) && <div data-link-preview-viewport="" data-testid="link-preview-viewport">
         {content.view.kind === 'content' ? <div data-link-preview-document="">{content.view.body}</div>
