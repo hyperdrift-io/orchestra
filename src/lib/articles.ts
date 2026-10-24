@@ -59,10 +59,12 @@ export function collectionJsonLd(name: string, description: string, url: string,
 
 export function articleSections(article: NonNullable<ReturnType<typeof getArticle>>) {
   const visual = { id: 'article-proof', title: (article.series && interfaceFigure(article.slug)?.title) || article.proof.heading || 'See the working example' };
-  const visualIndex = article.blocks.findIndex((block) => block.kind === 'quote');
+  const explicitVisual = article.blocks.some((block) => block.kind === 'visual' && block.visual === 'primary');
+  const visualIndex = explicitVisual ? -1 : article.blocks.findIndex((block) => block.kind === 'quote');
   const body = article.blocks.flatMap((block, index) => {
     if (block.kind === 'heading' && block.id) return [{ id: block.id, title: block.text }];
     if (block.kind === 'visual') {
+      if (block.visual === 'primary') return article.visualization ? [visual] : [];
       const figure = article.figures?.find((entry) => entry.kind === block.visual);
       return figure ? [{ id: figureId(figure.kind), title: figure.title ?? figure.takeaway }] : [];
     }

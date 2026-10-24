@@ -28,3 +28,12 @@ All published articles have a topic-naming H1/search title and an opening answer
 At release, verify the generated page, Article/Breadcrumb JSON-LD, social image, sitemap and `llms.txt`; record actual production verification separately. Publication dates remain original and modification dates reflect these content edits.
 
 Citation checks for this revision: **not measured**. Record engine, exact question, date, cited URL and mode when running them. Sitemap acceptance or crawler access does not establish citation. Review available GSC/Bing evidence and identifiable PostHog assistant referrals separately from qualified enquiries; do not infer a causal uplift from one response.
+
+
+## Integrated Fleet / intelligence UI — published 24 October 2026
+
+- Question: How can agents operate a self-hosted app fleet while the UI presents intel and completed work? Search intent hypothesis; demand unmeasured.
+- Position: “UI is for intel. Agents are for operating.” Preserve the founder’s affirmative proposal and the capability it gives smaller operators.
+- Page: `/articles/agent-driven-ui-intelligence-and-action`; the URL is unchanged through the editorial corrections.
+- Evidence: recorded local Stack One automatic recovery. The replacement VPS is not commissioned; the wider operating model remains in development.
+- Register and review: [Integrated Fleet editorial record](integrated-fleet/README.md). Wording approved by Yann on 24 October 2026 ([release candidate](integrated-fleet/RELEASE-CANDIDATE.md)); `publishedAt: 2026-10-24T02:11:00Z`. Verify the live page, JSON-LD, OG card, sitemap, feed and `llms.txt` after deploy and record them in `integrated-fleet/VERIFICATION.md`.

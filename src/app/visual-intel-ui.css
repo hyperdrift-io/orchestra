@@ -1,0 +1,12 @@
+/* The recorded repair stays readable without JavaScript. */
+[data-visual=intel-ui]{padding:1.5rem}
+[data-visual=intel-ui]>header h3{font-size:clamp(1.65rem,3vw,2.2rem);line-height:1.15}
+[data-visual=intel-ui] [data-intel-checks]{list-style:none;padding:0;margin:1.5rem 0 0;border-top:1px solid var(--gold-line)}
+[data-visual=intel-ui] [data-intel-checks] li{display:grid;grid-template-columns:5.5rem 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line-soft)}
+[data-visual=intel-ui] [data-intel-checks] span{color:var(--gold-light);font:.68rem/1.5 var(--font-mono);letter-spacing:.07em;padding-top:.15rem}
+[data-visual=intel-ui] [data-intel-checks] strong{color:var(--cream);font:500 1rem/1.4 var(--font-body)}
+[data-visual=intel-ui] [data-intel-checks] p{margin:.35rem 0 0;color:var(--cream-2);font:.88rem/1.5 var(--font-body)}
+[data-visual=intel-ui] [data-intel-result]{color:var(--cream);font:.9rem/1.5 var(--font-body);margin:1.2rem 0}
+[data-visual=intel-ui] footer{font:.72rem/1.6 var(--font-body);color:var(--cream-2);border-top:1px solid var(--line-hair);padding-top:.8rem}
+[data-visual=intel-ui] footer a{display:block;margin-top:.35rem}
+@media(max-width:600px){[data-visual=intel-ui]{padding:1rem}[data-visual=intel-ui] [data-intel-checks] li{grid-template-columns:1fr;gap:.35rem}}

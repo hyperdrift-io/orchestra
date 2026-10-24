@@ -1,7 +1,9 @@
 import catalogue from '@/data/articles.json';
 
 export interface ArticleVisual {
-  kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet';
+  kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui';
+  /** Caption provenance for recorded work; omitted visuals remain illustrative. */
+  evidenceLabel?: string;
   /** Contents entry for a figure placed in the body. */
   title?: string;
   takeaway: string; description: string; sources: { label: string; url: string }[]; download?: string; reviewed?: string;

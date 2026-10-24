@@ -63,5 +63,10 @@
     "gate",
     "shield",
     "chart"
+  ],
+  "agent-driven-ui-intelligence-and-action": [
+    "eye",
+    "wrench",
+    "book"
   ]
 }

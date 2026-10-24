@@ -28,7 +28,8 @@ function Inline({ text, sourceNotes = true }: { text: string; sourceNotes?: bool
 }
 
 export function ArticleBody({ blocks, share, visualization, figures, sourceNotes = true }: { blocks: ArticleBlock[]; share?: Share; visualization?: ReactNode; figures?: Record<string, ReactNode>; sourceNotes?: boolean }) {
-  const insertAt = blocks.findIndex((block) => block.kind === 'quote');
+  const explicitVisual = blocks.some((block) => block.kind === 'visual' && block.visual === 'primary');
+  const insertAt = explicitVisual ? -1 : blocks.findIndex((block) => block.kind === 'quote');
   return <div id="article-body" data-article-body="">{blocks.map((block, index) => {
     if (block.kind === 'heading') return <h2 key={index} id={block.id} tabIndex={-1}>{block.text}{share && block.id && <ArticlePermalink canonical={share.url} anchor={block.id} label={articleLabels.sectionLink} labels={articleLabels} />}</h2>;
     if (block.kind === 'quote') {
@@ -41,7 +42,7 @@ export function ArticleBody({ blocks, share, visualization, figures, sourceNotes
     }
     // The closing enquiry line is carried by the invitation after the article, which opens the same dialog.
     if (block.kind === 'paragraph' && /^\[[^\]]+\]\(https:\/\/orchestra\.hyperdrift\.io\/\?article=[^)]*\)$/.test(block.text.trim())) return null;
-    if (block.kind === 'visual') return <Fragment key={index}>{figures?.[block.visual]}</Fragment>;
+    if (block.kind === 'visual') return <Fragment key={index}>{block.visual === 'primary' ? visualization : figures?.[block.visual]}</Fragment>;
     if (block.kind === 'image') return <figure key={index}><img src={block.src} alt={block.alt} loading="lazy" /></figure>;
     return <p key={index} id={block.id} tabIndex={-1}><Inline text={block.text} sourceNotes={sourceNotes} />{share && block.id && <ArticlePermalink canonical={share.url} anchor={block.id} label={articleLabels.paragraphLink} labels={articleLabels} />}</p>;
   })}<span id="article-end" aria-hidden="true" /></div>;

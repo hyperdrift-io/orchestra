@@ -2,7 +2,7 @@
 app: orchestra
 url: https://orchestra.hyperdrift.io
 growth_stage: activation
-primary_channel: linkedin
+primary_channel: organic
 posthog:
   region: eu
   project_id: 206943
@@ -48,7 +48,7 @@ cadence:
 
 Help founders with customers, active users or credible demand turn an existing opportunity into sustainable growth and profit. The primary conversion is an enquiry about a concrete business workflow. A form submission is not a qualified lead, and a qualified lead is not revenue.
 
-The [service launch kit](docs/campaigns/2026-09-service-launch/README.md) coordinates the scenario, proof, articles and Traction Partnership. LinkedIn is the initial distribution hypothesis because this is a founder-led service; channel fit remains to be established by real enquiries. Search brings durable discovery through the AI-native articles. No paid budget is committed.
+The [service launch kit](docs/campaigns/2026-09-service-launch/README.md) coordinates the scenario, proof, articles and Traction Partnership. Organic discovery leads: useful canonical articles and documentation, search and assistant visibility, and independent references, recorded on the Orchestra board as initiative `f3faab76c4a948a089f53e764def161b` (24 October 2026, from [the discovery proposal](../../../docs/fleet/ORCHESTRA-DISCOVERY.md)). LinkedIn was the initial distribution hypothesis for a founder-led service; it is now used per piece when a named audience justifies it, through the existing publication register, and is no longer the primary channel. Channel fit remains to be established by real enquiries. No paid budget is committed.
 
 ## Measurement contract
 
