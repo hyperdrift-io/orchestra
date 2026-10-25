@@ -1,6 +1,6 @@
 import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import './fonts.css';
 import './globals.css';
 import "./link-preview.css";
 import './mesh-artwork.css';
@@ -17,29 +17,6 @@ import { SiteContactLink } from '@/components/SiteContactLink';
 import { SiteEnquiryDialog } from '@/components/SiteEnquiryDialog';
 import { visibleArticles } from '@/lib/article-catalogue';
 import { brandShareImage, homepageOpenGraph } from '@/lib/share-metadata';
-
-// Candidate faces for the approved concept: a quiet high-contrast serif for statements, a clean sans for reading.
-const display = Cormorant_Garamond({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--nf-display',
-});
-
-const body = IBM_Plex_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '600'],
-  variable: '--nf-body',
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500'],
-  variable: '--nf-mono',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://orchestra.hyperdrift.io'),
@@ -63,8 +40,13 @@ const siteJsonLd = JSON.stringify({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className="font-display font-body font-mono">
       <head>
+        <link rel="preload" href="/fonts/26d4368bf94c0ec4-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/7b89a4fd5e90ede0-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/98e207f02528a563-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/d3ebbfd689654d3a-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/e18f83c737786aa7-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* In the layout, not metadata.alternates: every page sets its own canonical, which replaces that whole object. */}
         <link rel="alternate" type="application/feed+json" title="Orchestra AI by Hyperdrift" href="/feed.json" />
         <link rel="alternate" type="application/rss+xml" title="Orchestra AI by Hyperdrift" href="/feed.xml" />
