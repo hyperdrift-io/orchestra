@@ -925,5 +925,257 @@
       "width": 1200,
       "height": 160
     }
+  },
+  {
+    "slug": "dspy-programmes-you-can-improve",
+    "title": "DSPy: build AI programmes you can improve",
+    "seoTitle": "DSPy introduction: signatures, modules, metrics and RLM",
+    "excerpt": "DSPy gives repeatable AI tasks a structure for evaluation and improvement. Start with one workflow, a baseline and examples your team can judge.",
+    "shareLine": "Give the programme a clear job and a useful measure of success. Improve it against real examples.",
+    "order": 15,
+    "topic": "DSPy",
+    "example": "DSPy research",
+    "tags": [
+      "agents",
+      "operations"
+    ],
+    "exampleStatus": "Source research · illustrative workflow",
+    "ctaLabel": "Discuss your AI evaluation",
+    "invite": "Bring a repeatable task and examples of a useful result. We can help define the first measurable improvement.",
+    "readNext": "dspy-reasoning-continuity",
+    "steps": [
+      "Define the task",
+      "Measure the baseline",
+      "Compare a change",
+      "Review useful outcomes"
+    ],
+    "proof": {
+      "heading": "The useful boundary",
+      "description": "Source research and an illustrative design; no production benchmark or accepted DSPy contribution.",
+      "url": "https://github.com/stanfordnlp/dspy/issues/10675",
+      "label": "Read the DSPy issue"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/dspy-programmes-you-can-improve.svg",
+      "alt": "Connected wireframe checklist, chart, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "editorial",
+      "image": "/articles/dspy/dspy-programmes-you-can-improve.svg",
+      "alt": "A loop connects a defined task, representative examples, measured results and a reviewed change.",
+      "takeaway": "Improve a repeatable task against examples people can judge.",
+      "description": "The diagram shows our recommended evaluation loop. Define useful output, establish a baseline, compare a candidate on held-out examples and review quality, latency and cost. It is an illustrative workflow, not benchmark data.",
+      "sources": [
+        {
+          "label": "DSPy signatures",
+          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/programming/signatures.md"
+        },
+        {
+          "label": "DSPy modules",
+          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/programming/modules.md"
+        },
+        {
+          "label": "DSPy metrics",
+          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/evaluation/metrics.md"
+        },
+        {
+          "label": "Optimisation overview",
+          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/optimization/overview.md"
+        },
+        {
+          "label": "DSPy RLM guide",
+          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/diving-deeper/rlm.md"
+        },
+        {
+          "label": "reasoning-continuity issue",
+          "url": "https://github.com/stanfordnlp/dspy/issues/10675"
+        }
+      ],
+      "reviewed": "23 October 2026",
+      "download": "/articles/dspy/dspy-programmes-you-can-improve.png"
+    },
+    "reviewedAt": "2026-10-23",
+    "publishedAt": null,
+    "headerImage": {
+      "src": "/articles/mesh/dspy-programmes-you-can-improve.svg",
+      "alt": "Connected wireframe checklist, chart, decision forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
+  },
+  {
+    "slug": "dspy-reasoning-continuity",
+    "title": "Helping agents pick up where they left off",
+    "seoTitle": "DSPy reasoning continuity: history, model state and handoffs",
+    "excerpt": "Preserve original messages, prepare compatible model requests and keep a readable handoff. Our DSPy research explains how these responsibilities fit together.",
+    "shareLine": "Keep the original record. Give the next model the state it can use and the context it needs.",
+    "order": 16,
+    "topic": "DSPy",
+    "example": "DSPy research",
+    "tags": [
+      "agents",
+      "operations"
+    ],
+    "exampleStatus": "Local offline example · seven checks",
+    "ctaLabel": "Discuss an agent handoff",
+    "invite": "Bring a workflow that needs to resume after a pause or model change. We can examine what must survive.",
+    "readNext": "dspy-programmes-you-can-improve",
+    "steps": [
+      "Preserve the record",
+      "Check compatibility",
+      "Prepare the request",
+      "Continue useful work"
+    ],
+    "proof": {
+      "heading": "The useful boundary",
+      "description": "Seven offline checks on DSPy main 25162c4f, 30 October 2026. Private hooks; no live-provider result or accepted upstream contribution.",
+      "url": "https://github.com/stanfordnlp/dspy/issues/10675",
+      "label": "Read the DSPy issue"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/dspy-reasoning-continuity.svg",
+      "alt": "Connected wireframe conversation, book, signpost forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "editorial",
+      "image": "/articles/dspy/dspy-reasoning-continuity.svg",
+      "alt": "Original messages are saved intact; provider rules prepare a compatible request; a readable work record supports a model handoff.",
+      "takeaway": "Preserve once. Prepare the next request for its destination.",
+      "description": "The stored record retains ordered message parts and metadata. A provider-specific decision prepares the next request. A separate readable handoff carries the goal, findings and next action across model changes. This is a proposed design, not a universal compatibility guarantee.",
+      "sources": [
+        {
+          "label": "issue #10675",
+          "url": "https://github.com/stanfordnlp/dspy/issues/10675"
+        },
+        {
+          "label": "offered replay and save/load tests",
+          "url": "https://github.com/stanfordnlp/dspy/issues/10675#issuecomment-6321503189"
+        },
+        {
+          "label": "DSPy message types",
+          "url": "https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/_vendor/lm15/types.py"
+        },
+        {
+          "label": "reasoning adapter on current main",
+          "url": "https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/adapters/types/reasoning.py"
+        },
+        {
+          "label": "OpenAI reasoning guide",
+          "url": "https://developers.openai.com/api/docs/guides/reasoning#preserve-reasoning-across-calls"
+        },
+        {
+          "label": "Preserved thinking",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking"
+        },
+        {
+          "label": "Generate Content thought signatures",
+          "url": "https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures"
+        },
+        {
+          "label": "reasoning-ID fix #39278",
+          "url": "https://github.com/langchain-ai/langchain/pull/39278"
+        },
+        {
+          "label": "streaming fix #39635",
+          "url": "https://github.com/langchain-ai/langchain/pull/39635"
+        },
+        {
+          "label": "typed messages",
+          "url": "https://github.com/pydantic/pydantic-ai/blob/a549fd1a368a8677090e10b504d7cb5c12b2dd4a/pydantic_ai_slim/pydantic_ai/messages.py"
+        },
+        {
+          "label": "merged adapter migration",
+          "url": "https://github.com/stanfordnlp/dspy/pull/10713"
+        }
+      ],
+      "reviewed": "30 October 2026: DSPy example; 23 October: provider references",
+      "download": "/articles/dspy/dspy-reasoning-continuity.png"
+    },
+    "reviewedAt": "2026-10-30",
+    "publishedAt": null,
+    "headerImage": {
+      "src": "/articles/mesh/dspy-reasoning-continuity.svg",
+      "alt": "Connected wireframe conversation, book, signpost forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
+  },
+  {
+    "slug": "clear-mermaid-diagrams-people-can-follow",
+    "title": "Clear Mermaid: diagrams people can follow",
+    "seoTitle": "Clear Mermaid: a browser reader for Mermaid flowcharts",
+    "excerpt": "Keep Mermaid source and make its relationships easier to follow. What eight prototype rounds taught us about layout, connections and accessible reading.",
+    "shareLine": "A diagram should make its relationships easy to follow.",
+    "order": 17,
+    "topic": "Clear Mermaid",
+    "example": "Clear Mermaid local trial",
+    "tags": [
+      "ui",
+      "accessibility"
+    ],
+    "exampleStatus": "Local prototype · founder-reviewed",
+    "ctaLabel": "Discuss a diagram people need to read",
+    "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
+    "readNext": "web-accessibility-can-people-finish",
+    "steps": [
+      "Preserve the source",
+      "Check the meaning",
+      "Follow the connections",
+      "Test the reading"
+    ],
+    "proof": {
+      "heading": "A decision and its return path",
+      "description": "Clear Mermaid is a local prototype for a supported flowchart subset. Public packaging and independent reading trials remain ahead.",
+      "url": "https://mermaid.js.org/config/accessibility.html",
+      "label": "Mermaid accessibility documentation"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/clear-mermaid-diagrams-people-can-follow.svg",
+      "alt": "Connected wireframe eye, signpost, conversation forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "editorial",
+      "image": "/articles/clear-mermaid/long-labels-local-trial.png",
+      "alt": "A request reaches a completeness question. Complete requests continue to review, recording and a reply. Incomplete requests go to missing information and return to the question.",
+      "evidenceLabel": "Recorded local Clear Mermaid comparison, 24 October 2026. No independent comprehension study.",
+      "takeaway": "Connect each answer to its route and keep the return path visible.",
+      "description": "The request moves left to right. A complete request advances to review; an incomplete request goes to missing information and returns to the original question. The reader preserves those connections and provides a readable-size control, overview and connection exploration.",
+      "sources": [
+        {
+          "label": "Beautiful Mermaid",
+          "url": "https://github.com/lukilabs/beautiful-mermaid"
+        },
+        {
+          "label": "Mermaid accessibility",
+          "url": "https://mermaid.js.org/config/accessibility.html"
+        },
+        {
+          "label": "WCAG: use of colour",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
+        }
+      ],
+      "reviewed": "30 October 2026",
+      "download": "/articles/clear-mermaid/long-labels-local-trial.png"
+    },
+    "reviewedAt": "2026-10-30",
+    "publishedAt": null,
+    "headerImage": {
+      "src": "/articles/mesh/clear-mermaid-diagrams-people-can-follow.svg",
+      "alt": "Connected wireframe eye, signpost, conversation forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
   }
 ]

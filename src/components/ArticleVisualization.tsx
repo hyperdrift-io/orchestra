@@ -128,9 +128,9 @@ const visuals = { transaction: TransactionMap, streaming: StreamingSequence, aut
 export function ArticleVisualization({ article, figureSvg, visual = article.visualization, id = 'article-proof' }: { article: ArticleSummary; figureSvg?: FigureSvg; visual?: ArticleVisual; id?: string }) {
   if (!visual) return null;
   if (visual.kind === 'ui-accessibility') return <InterfaceFigure article={article} svg={figureSvg} />;
-  const Visual = visuals[visual.kind];
+  const Visual = visual.kind === 'editorial' ? null : visuals[visual.kind];
   return <figure id={id} data-article-visual="" aria-label={id === 'article-proof' ? article.proof.heading ?? visual.takeaway : visual.title ?? visual.takeaway}>
-    <Visual />
+    {Visual ? <Visual /> : <img src={visual.image} alt={visual.alt ?? visual.description} loading="lazy" style={{ width: '100%', height: 'auto' }} />}
     <figcaption>{visual.takeaway}{visual.download && <> <a href={visual.download} download>Save the visual ↓</a></>}</figcaption>
     <details><summary>{visual.sources.length ? 'Explanation and primary sources' : 'Test details'}</summary><p>{visual.description}</p><ul>{visual.sources.map((source) => <li key={source.url}><LinkPreview citation href={source.url}>{source.label}</LinkPreview></li>)}</ul><small>Reviewed {visual.reviewed ?? '22 September 2026'} · {visual.evidenceLabel ?? 'Illustrative design, not a client result.'}</small></details>
   </figure>;

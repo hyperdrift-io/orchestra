@@ -37,3 +37,21 @@ Citation checks for this revision: **not measured**. Record engine, exact questi
 - Page: `/articles/agent-driven-ui-intelligence-and-action`; the URL is unchanged through the editorial corrections.
 - Evidence: recorded local Stack One automatic recovery. The replacement VPS is not commissioned; the wider operating model remains in development.
 - Register and review: [Integrated Fleet editorial record](integrated-fleet/README.md). Wording approved by Yann on 24 October 2026 ([release candidate](integrated-fleet/RELEASE-CANDIDATE.md)); `publishedAt: 2026-10-24T02:11:00Z`. Verify the live page, JSON-LD, OG card, sitemap, feed and `llms.txt` after deploy and record them in `integrated-fleet/VERIFICATION.md`.
+
+
+## DSPy drafts — 23 October 2026
+
+| Canonical article slug | Primary reader question | Answer and evidence to preserve |
+|---|---|---|
+| `dspy-programmes-you-can-improve` | When should a team use DSPy, and how do signatures, modules, metrics and optimisation fit together? | Start with a repeatable task, examples and a baseline. Explain the evaluation loop and experimental RLM. Primary DSPy documentation; illustrative support workflow; no executed quality/cost benchmark. |
+| `dspy-reasoning-continuity` | How can DSPy preserve reasoning between model calls and support a useful model handoff? | Separate canonical message storage, eligible provider replay and portable task context. Issue #10675, GBX's offered tests, pinned source inspection, seven-check local public-API example and provider contracts. Proposed change, no accepted contribution or universal replay claim. |
+
+Both remain unpublished and noindex. Series evidence, voice and refresh requirements: [DSPy editorial record](dspy-series/README.md).
+
+## Clear Mermaid draft — 30 October 2026
+
+- Question: How can existing Mermaid flowcharts be easier to read in a web page?
+- Answer: preserve the graph, follow its direction, connect named outcomes directly and offer readable-size navigation plus textual relationships. Use the browser for text and interaction.
+- Evidence: seven-case, eight-round local prototype; recorded long-label example. Founder preference and automated checks have explicit limits. Beautiful Mermaid, Mermaid accessibility and W3C colour guidance are credited.
+- Scope: checked flowchart subset; no published package/MCP, universal compatibility, accessibility conformance or independent comprehension result. Query demand and assistant citations are unmeasured.
+- Copy and slots: [OSS series record](oss-better-standards/README.md); `publishedAt` remains null.

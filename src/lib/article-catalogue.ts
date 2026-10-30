@@ -1,7 +1,10 @@
 import catalogue from '@/data/articles.json';
 
 export interface ArticleVisual {
-  kind: 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui';
+  kind: 'editorial' | 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui';
+  /** Static editorial diagram inside the existing figure and source controls. */
+  image?: string;
+  alt?: string;
   /** Caption provenance for recorded work; omitted visuals remain illustrative. */
   evidenceLabel?: string;
   /** Contents entry for a figure placed in the body. */

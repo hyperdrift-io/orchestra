@@ -68,5 +68,20 @@
     "eye",
     "wrench",
     "book"
+  ],
+  "dspy-programmes-you-can-improve": [
+    "checklist",
+    "chart",
+    "decision"
+  ],
+  "dspy-reasoning-continuity": [
+    "conversation",
+    "book",
+    "signpost"
+  ],
+  "clear-mermaid-diagrams-people-can-follow": [
+    "eye",
+    "signpost",
+    "conversation"
   ]
 }

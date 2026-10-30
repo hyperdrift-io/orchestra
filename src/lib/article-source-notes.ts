@@ -4,6 +4,31 @@ export type { SourceNote } from './article-experience/model';
 import type { SourceNote } from './article-experience/model';
 
 const notes: Record<string, SourceNote> = {
+  // OSS series: local evidence and these primary sources refreshed 30 October 2026.
+  'https://github.com/lukilabs/beautiful-mermaid': { title: 'Beautiful Mermaid', by: 'Luki Labs · reviewed 30 October 2026', preview: 'unavailable' },
+  'https://mermaid.js.org/config/accessibility.html': { title: 'Mermaid accessibility options', by: 'Mermaid · reviewed 30 October 2026', preview: 'unavailable' },
+  'https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html': { title: 'WCAG 2.2: Use of Color', by: 'W3C · reviewed 30 October 2026', preview: 'unavailable' },
+  'https://github.com/stanfordnlp/dspy/pull/10713': { title: 'Merged DSPy adapter migration', by: 'DSPy contributors · merged 28 October 2026; checked 30 October', preview: 'unavailable' },
+  'https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/_vendor/lm15/types.py': { title: 'DSPy message and continuation types', by: 'DSPy contributors · checked 30 October 2026', preview: 'unavailable' },
+  'https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/adapters/types/reasoning.py': { title: 'DSPy reasoning adapter', by: 'DSPy contributors · checked 30 October 2026', preview: 'unavailable' },
+
+  // DSPy drafts: reviewed 23 October 2026. External sources remain available in the figure source controls.
+  "https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures": {"title": "Gemini Generate Content thought signatures", "by": "Google AI documentation \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://developers.openai.com/api/docs/guides/reasoning": {"title": "OpenAI reasoning guide", "by": "OpenAI documentation \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/langchain-ai/langchain/pull/39278": {"title": "Preserve distinct reasoning item IDs", "by": "LangChain contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/langchain-ai/langchain/pull/39635": {"title": "Preserve completed streaming reasoning state", "by": "LangChain contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/pydantic/pydantic-ai/blob/a549fd1a368a8677090e10b504d7cb5c12b2dd4a/pydantic_ai_slim/pydantic_ai/messages.py": {"title": "Pydantic AI message types", "by": "Pydantic AI contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/diving-deeper/rlm.md": {"title": "DSPy Recursive Language Model", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/evaluation/metrics.md": {"title": "DSPy metrics", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/optimization/overview.md": {"title": "DSPy optimisation overview", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/programming/modules.md": {"title": "DSPy modules", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/programming/signatures.md": {"title": "DSPy signatures", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/dspy/_vendor/lm15/types.py": {"title": "DSPy canonical message and continuation types", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/blob/96fc9828a2cff2e7fa018372c4c840afa4e4c8a1/dspy/adapters/types/reasoning.py": {"title": "DSPy proposed reasoning adapter", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/issues/10675": {"title": "Reasoning continuity across DSPy calls", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://github.com/stanfordnlp/dspy/pull/10652": {"title": "DSPy 3.5 migration", "by": "DSPy contributors \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+  "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking": {"title": "Anthropic preserved thinking", "by": "Anthropic documentation \u00b7 reviewed 23 October 2026", "preview": "unavailable"},
+
   'https://www.cl.cam.ac.uk/~pr10/iui/licklider60.pdf': { preview: 'pdf', title: 'Man–Computer Symbiosis', by: 'J.C.R. Licklider · 1960 · §3.1' },
   'https://www.ece.uvic.ca/~aalbu/CENG%20412%202009/bewley83.pdf': { preview: 'pdf', title: 'Human Factors Testing in the Design of Xerox Star', by: 'Bewley and colleagues · CHI 1983' },
   'https://dougengelbart.org/pubs/augment-3906-Framework.html': { title: 'Augmenting Human Intellect', by: 'Douglas Engelbart · 1962' },

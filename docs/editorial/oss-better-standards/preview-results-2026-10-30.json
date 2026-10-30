@@ -1,0 +1,113 @@
+[
+  {
+    "slug": "clear-mermaid-diagrams-people-can-follow",
+    "width": 1440,
+    "status": 200,
+    "title": "Clear Mermaid: diagrams people can follow",
+    "noindex": "noindex, nofollow",
+    "overflow": false,
+    "images": [
+      {
+        "src": "/articles/clear-mermaid/long-labels-local-trial.png",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "details": "Explanation and primary sourcesThe request moves left to right. A complete request advances to review; an incomplete request goes to missing information and returns to the original question. The reader preserves those connections and provides a readable-size control, overview and connection exploration.Beautiful MermaidMermaid accessibilityWCAG: use of colourReviewed 30 October 2026 · Recorded local Clear Mermaid comparison, 24 October 2026. No independent comprehension study."
+  },
+  {
+    "slug": "clear-mermaid-diagrams-people-can-follow",
+    "width": 390,
+    "status": 200,
+    "title": "Clear Mermaid: diagrams people can follow",
+    "noindex": "noindex, nofollow",
+    "overflow": false,
+    "images": [
+      {
+        "src": "/articles/clear-mermaid/long-labels-local-trial.png",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "details": "Explanation and primary sourcesThe request moves left to right. A complete request advances to review; an incomplete request goes to missing information and returns to the original question. The reader preserves those connections and provides a readable-size control, overview and connection exploration.Beautiful MermaidMermaid accessibilityWCAG: use of colourReviewed 30 October 2026 · Recorded local Clear Mermaid comparison, 24 October 2026. No independent comprehension study."
+  },
+  {
+    "slug": "clear-mermaid-diagrams-people-can-follow",
+    "ogStatus": 200,
+    "ogType": "image/png"
+  },
+  {
+    "slug": "dspy-programmes-you-can-improve",
+    "width": 1440,
+    "status": 200,
+    "title": "DSPy: build AI programmes you can improve",
+    "noindex": "noindex, nofollow",
+    "overflow": false,
+    "images": [
+      {
+        "src": "/articles/dspy/dspy-programmes-you-can-improve.svg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "details": "Explanation and primary sourcesThe diagram shows our recommended evaluation loop. Define useful output, establish a baseline, compare a candidate on held-out examples and review quality, latency and cost. It is an illustrative workflow, not benchmark data.DSPy signaturesDSPy modulesDSPy metricsOptimisation overviewDSPy RLM guidereasoning-continuity issueReviewed 23 October 2026 · Illustrative design, not a client result."
+  },
+  {
+    "slug": "dspy-programmes-you-can-improve",
+    "width": 390,
+    "status": 200,
+    "title": "DSPy: build AI programmes you can improve",
+    "noindex": "noindex, nofollow",
+    "overflow": false,
+    "images": [
+      {
+        "src": "/articles/dspy/dspy-programmes-you-can-improve.svg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "details": "Explanation and primary sourcesThe diagram shows our recommended evaluation loop. Define useful output, establish a baseline, compare a candidate on held-out examples and review quality, latency and cost. It is an illustrative workflow, not benchmark data.DSPy signaturesDSPy modulesDSPy metricsOptimisation overviewDSPy RLM guidereasoning-continuity issueReviewed 23 October 2026 · Illustrative design, not a client result."
+  },
+  {
+    "slug": "dspy-programmes-you-can-improve",
+    "ogStatus": 200,
+    "ogType": "image/png"
+  },
+  {
+    "slug": "dspy-reasoning-continuity",
+    "width": 1440,
+    "status": 200,
+    "title": "Helping agents pick up where they left off",
+    "noindex": "noindex, nofollow",
+    "overflow": false,
+    "images": [
+      {
+        "src": "/articles/dspy/dspy-reasoning-continuity.svg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "details": "Explanation and primary sourcesThe stored record retains ordered message parts and metadata. A provider-specific decision prepares the next request. A separate readable handoff carries the goal, findings and next action across model changes. This is a proposed design, not a universal compatibility guarantee.issue #10675offered replay and save/load testsDSPy message typesreasoning adapter on current mainOpenAI reasoning guidePreserved thinkingGenerate Content thought signaturesreasoning-ID fix #39278streaming fix #39635typed messagesmerged adapter migrationReviewed 30 October 2026: DSPy example; 23 October: provider references · Illustrative design, not a client result."
+  },
+  {
+    "slug": "dspy-reasoning-continuity",
+    "width": 390,
+    "status": 200,
+    "title": "Helping agents pick up where they left off",
+    "noindex": "noindex, nofollow",
+    "overflow": false,
+    "images": [
+      {
+        "src": "/articles/dspy/dspy-reasoning-continuity.svg",
+        "loaded": true,
+        "alt": true
+      }
+    ],
+    "details": "Explanation and primary sourcesThe stored record retains ordered message parts and metadata. A provider-specific decision prepares the next request. A separate readable handoff carries the goal, findings and next action across model changes. This is a proposed design, not a universal compatibility guarantee.issue #10675offered replay and save/load testsDSPy message typesreasoning adapter on current mainOpenAI reasoning guidePreserved thinkingGenerate Content thought signaturesreasoning-ID fix #39278streaming fix #39635typed messagesmerged adapter migrationReviewed 30 October 2026: DSPy example; 23 October: provider references · Illustrative design, not a client result."
+  },
+  {
+    "slug": "dspy-reasoning-continuity",
+    "ogStatus": 200,
+    "ogType": "image/png"
+  }
+]
