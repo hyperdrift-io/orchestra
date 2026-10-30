@@ -1,209 +1,60 @@
 # Orchestra
 
-> Inherits: [Hyperdrift Agent Guidelines](../../AGENTS.md)
->
-> Also read: `~/dev/hyperdrift/AGENTS.md` — workspace-level context (deploy tooling, fleet management, HD infra).
+> Inherits `~/dev/hyperdrift/AGENTS.md`.
 
-See `MISSION.md` and `ROADMAP.md` for product goals and current focus.
+Offer, audience and register: `MISSION.md`. History: `docs/RELEASES.md`, `docs/decisions/`.
 
-## Confluence offering — 10 October 2026
+## Stage and host
 
-The founder approved the clearer Orchestra offering and simpler HD homepage in
-the coordinating chat **Reframe HD customer acquisition**
-(`01a122b1-7666-7863-9eb8-9d1c4f6a2059`). The shared goal and coordination contract
-live in the HD workspace at `meta/discovery/README.md`; read its Confluence
-section before communication work. This approval covers implementation and
-preview of the presented hierarchy, not unreviewed publication or outreach.
+Promoted: Orchestra is no longer a POC. The canonical host is `orchestra.hyperdrift.io`. `ai.hyperdrift.io` stays as a permanent 301 that keeps path and query (nginx alias in `infra/group_vars/apps.yml`), so every link ever sent still works. Code, canonicals, sitemap, `llms.txt`, feeds and share cards name the new host. Every page carries Organization and WebSite JSON-LD naming Orchestra AI, with Hyperdrift as the parent organisation.
 
-Orchestra owns the commercial offer; Hyperdrift supplies company provenance and
-delivery experience. The homepage opens on the illustrative business graph, then
-states the offer and enquiry route (founder, 17 October 2026: “the landing page
-should show the data-business-graph first”, superseding the 10 October
-offer-first order). Keep the selected WebGL interaction, brand and Traction
-Partnership visible. Customer insight, distribution and engineering support one
-scoped customer opportunity; no promise of automatic acquisition.
-The founder's later refinement removes the homepage video showcase and trailer:
-keep the graph, capabilities and enquiry, with recordings and the full proof
-catalogue available on the deeper work and Traction pages.
+Analytics: PostHog project 206943 (EU). Filter on `app=orchestra` and both hostnames when reading across the 9 October 2026 move. No session replay, form autocapture, contact text or person profiles. Capture runs only on the production host, so previews send nothing.
 
-MCP is a product-integration capability within Orchestra. `/mcp-maker` and
-`/services/mcp-maker` preserve old links by redirecting to `/work#work-nextrole`.
-NextRole is owned-product proof with fictional-data live checks, not a client
-success or established independent adoption. Yann's client engagements include
-Everything and VodafoneThree, with VodafoneThree delivered through Tecknuovo.
-Together and Revela are partner ventures; do not turn them into client endorsements.
+## The site now
 
-Enquiry notifications carry the saved enquiry ID and validated campaign tags so
-the operator can join inbox review to the source record. Relay acceptance is not
-proof of inbox arrival or human qualification. Preview delivery stays isolated.
+- **Home** opens on the business graph, then its two offerings, Traction and "Embed your app on Orchestra OS", then one door at the end.
+- **`/traction`** holds the offer, partnership scope and purpose; `/partnership` and `/traction/why` redirect to its `#partnership` and `#why` sections. First reads are optional. `/traction/first-read` publishes a real first read of this site with its evidence and disclosure; keep both. `src/data/traction-offer.ts` is the one list behind the offer wherever it appears. Films and board loops show fictional data or Traction's own launch; never record partner app data in frame.
+- **`/os`** is Orchestra OS: the pinned sphere moves through six scenes as the reader scrolls, then the record, the map, field notes and the door. `/how-it-works` without `?view` 308-redirects to `/os`; the business loop stays at `/how-it-works?view=business`. It's an illustrative target model, so automatic enrolment and complete security repair are never claimed as demonstrated.
+- **`/work`** shows eight examples in three groups (`workGroups` in `src/lib/proof.ts`): reach people in their assistant (NextRole); find customers and follow through (Traction, First read, uk.gov Radar, Unanswered); run work with clear decisions (Helm, Standup, Bridge Voice). `/mcp-maker` and `/services/mcp-maker` redirect to `/work#work-nextrole`.
 
-## Orchestra OS connection flow — approved 10 October 2026
+Every animated scene keeps pause, reduced motion, a static fallback and readable controls.
 
-The founder approved the app operating map and six-scene story for implementation within Living constellation. The follow-up direction is explicit: use the homepage’s spherical mesh, spinning by default and clickable; present “Embed your app on Orchestra OS” as the second offering alongside Traction. This supersedes the earlier one-offering presentation. Orchestra OS has its own page at `/os` (founder, 17 October 2026: “Create an amazing page for it”): the sphere stays pinned while the reader’s scroll moves it through the six scenes (an app joining five service groups, named owners and scoped authority, readiness evidence, one authorised action and its return to Traction), then the five jobs as a record, the map, the field notes and the invitation. Every word on it was already live; new words go through the founder’s copy review. `/how-it-works` without `?view` 308-redirects to `/os`; the business loop stays at `/how-it-works?view=business`. The nav, the homepage offer and the second offering link `/os`. Use the approved wireframe family and preserve pause, reduced motion, a static fallback and readable controls. This is an illustrative target model: source implementation, connected services and verified operation are distinct; automatic enrollment and complete security repair/reconciliation are not claimed as demonstrated services. This approval covers implementation and local preview; publication and infrastructure changes remain separate. [Decision and delivery record](docs/design/2026-10-10-orchestra-os/README.md).
+## Claims
 
-## Orchestra is the name, orchestra.hyperdrift.io is the host — 9 October 2026
+- NextRole is owned-product proof with fictional-data live checks, not a client success or proven adoption. Client engagements are Everything and VodafoneThree (through Tecknuovo).
+- Together and Revela are partner ventures, not client endorsements.
+- Contest entries are participation, never a commission, endorsement or award. Each contest case fills `challenge` in `src/data/case-studies.ts` (organiser, exact event, official URL, evidenced stage) from the HD workspace's `.growth/contests/ledger.jsonl` and the event page. Never expose a private repository as a public demo.
+- Illustrations, including the graph's growth iterations and the `/os` scenes, aren't forecasts or client results. Label invented examples.
+- No prices or terms on any page.
 
-Founder ruling: Orchestra is the name. The canonical host is `orchestra.hyperdrift.io`; `ai.hyperdrift.io` stays forever as a permanent 301 (nginx alias in `infra/group_vars/apps.yml`, `$request_uri` preserved) so every link ever sent keeps working. Code, article bodies, figures, share cards, `llms.txt`, feed, sitemap, JSON-LD and the PostHog hostname gate all name the new host; older sections below that say `ai.hyperdrift.io` are history, not instructions. PostHog events carry `hostname=orchestra.hyperdrift.io` from this release; filter insights on `app=orchestra` and both hostnames when reading across the move. Every page carries Organization and WebSite JSON-LD naming Orchestra AI with Hyperdrift as the parent organisation. Bitmaps and films that print the old host (the Traction title card, the trailer captions) are not re-rendered; the redirect covers them.
+## Copy
 
-## Article search and tags — 8 October 2026
+All words follow `hd-content-writer`; articles also follow `docs/editorial/ARTICLE-STANDARD.md`. New customer-facing words go through the founder's review before release. Register: `MISSION.md` → How we communicate.
 
-`/articles` carries a finder: one search field, the topic chips and the list narrowing as the reader types, with no reload (`ArticleFinder`; matching in `src/lib/article-search.ts`; `articleSearchEntries` reads every visible article's markdown at build time, so a new article is searchable on its next deploy with no extra step). The whole prose is indexed as word starts; a match the title and excerpt do not show gets the sentence that carries it. The header above the finder stays short so the field sits in the first screen. Tags live in `src/data/article-tags.json` (slug, label, one-line description) and every catalogue entry carries `tags`; keep the vocabulary small so each tag has company. Each tag has a page at `/articles/tag/<slug>` rendering the same finder; it enters the sitemap, `llms.txt` and the search index only from three published articles (`INDEXABLE_FROM`), below that it is `noindex, follow`. Article JSON-LD carries the tag labels as `keywords`, RSS items as `<category>`. Chips are real links everywhere; the finder intercepts them to filter in place and mirrors query and tag in the URL with `replaceState`, so a narrowed view survives a reload. A search sends one `article_search` event (query, tag, result count) after a 900 ms pause, production only.
+One door per page, after the proposal. No call to action beside a title or in a header, no reply-time promise. Door words live in `src/data/site-door.ts`; `/traction` asks the founder to introduce their app.
 
-## Traction offer — 6 October 2026
+## Enquiry and invitations
 
-The founder approved the Traction offer and every customer-facing word in its review list (`.growth/content/reviews/2026-10-06-traction-offer-review.md` in the HD workspace; private offer definition, capacity and trade-offs in `.growth/strategist/orchestra/2026-10-06-traction-offer.md`). Traction is the board; the Traction Partnership is the work done with a founder on it. Three steps, each earning the next: a first read (public surface only, prepared by the AI operator, read and signed by Yann VR), the founder's board, then the partnership when the board shows demand. One list in `src/data/traction-offer.ts` feeds home, /partnership and /traction/first-read; edit it there. `/traction/first-read` publishes a real first read of this site, with its evidence and the disclosure that the operator knew the launch it was reading for; keep both. No prices or terms on any of these pages: the former /partnership fee/owe-nothing paragraph was removed for that reason. The /work Traction film (47 s, ElevenLabs voice and score, captions burned in, VTT on the page) shows Traction's own launch board only; never re-record with partner app data in frame. Its kit, script and build live in the HD workspace at `.growth/strategist/orchestra/board-film/`; every spoken and on-screen word is in the review list, and the founder directed on 6 October that this proof is a narrated film to the trailer's standard, not a silent clip. The read's own advice (move the first exchange into the first screen) waits on its evidence gate: 3 of the first 10 founders who receive a read ask for a next step.
+Every enquiry is saved by this app's `/api/contact`, then relayed to HD `/api/contact`. HD `/api/enquiry` posts here; keep the two HD routes distinct or the relay loops. Notifications carry the saved enquiry ID and validated campaign tags. Optional `handoff` context and `product_url` are visitor hints, not proof of identity or qualification, and relay acceptance isn't proof the mail arrived. Never count preview submissions as leads. Isolated runtimes set `CONTACT_DELIVERY=preview`.
 
-## Owned MCP offering — 4 October 2026
+Private invitations live at `/traction/invitation/<token>`: an opaque token resolved on the server from a registry outside Git (`TRACTION_INVITATIONS_FILE`; local copies stay in `.local/`). They're no-store, no-referrer, noindex and outside analytics, grant no app access and prefill only the details authorised for them. Never put contact fields in query strings or browser storage, or read the production database on a public page load.
 
-The founder selected NextRole as the owned MCP driver and asked to integrate the offering here. [Direction, evidence and review state](docs/decisions/2026-10-04-nextrole-mcp-offering.md). Extend the approved proof/catalogue design: NextRole leads the homepage examples, its own product path stays distinct from Orchestra’s scoped integration enquiry, and Deputy remains a separate commercial lead. Keep live tool evidence separate from adoption and client outcomes. The founder’s subsequent “continue” carries this reviewed content slice through verification and release. The score-scale and unsupported outcome-copy corrections are live on NextRole; the linked decision records the exact evidence and Orchestra release state.
+The modal reads **Get in touch**, plain field labels, **Message**, **Send message**. Known details stay editable and survive close and reopen. Desktop focus starts at the first missing required field; touch starts at the heading.
 
-## Production instruction — 23 September 2026
+## Brand and art
 
-The founder explicitly requested “Push live and work an innovative and coordinated campaign”. This authorizes deployment of the reviewed experience and the six original AI-native articles, superseding historical local-preview-only statements below. The two newer Databricks drafts retain their separate review gate. Verification and deployment now use npm consistently. GitHub Actions verifies only: the old webhook has no credentials and the existing org runner did not accept this public repository. Production deploys through infra (`make deploy app=orchestra`) after the approved revision passes CI; do not expand public-repo runner access without explicit approval. The [campaign kit](docs/campaigns/2026-09-service-launch/README.md) contains approved-brand exports, tracked distribution links and founder briefing material; it does not represent scheduled social posts. The founder approved PostHog on 23 September. Browser and accepted-relay events use the existing company project 206943 (EU), always filtered by app=orchestra and hostname=ai.hyperdrift.io. No replay, form autocapture, contact text or person profiles. Session-only first-touch campaign tags accompany the durable enquiry; local previews do not send analytics.
+Decorative art is WebGL `MeshArtwork` over inline SVG fallbacks, no bitmap brand art; behaviour contract in `docs/editorial/ARTICLE-STANDARD.md`. The Mesh Aperture mark: `public/brand/orchestra-mesh.svg` for large placements, `orchestra-mesh-compact.svg` for masthead, footer and cards, `src/app/icon.svg` for the favicon. The wordmark stays live text. Pages with their own Open Graph object include `brandShareImage` from `src/lib/share-metadata.ts`. Real recordings and screenshots stay separate from editorial art. In development, `?mesh=fallback` exercises the fallback path.
 
-## Brand exploration — 23 September 2026
+## Articles and links
 
-The founder explicitly keeps the existing Hyperdrift portal unchanged. The AI service already has fresh content: retain it and choose the new service name before branding work. No replacement name or public rebrand has been approved. Hyperdrift can supply provenance; it is not the selected new service name. Do not infer design failure from the legacy portal bringing no customers.
+Article reading and public links: `article-experience` skill. `src/lib/article-experience/` is generated from `packages/article-experience/`; never edit it here. Unpreviewable external citations render as text (`citationStaysText`).
 
-Founder correction: Gainkind, Furtherkind and Withward were rejected as too soft and generic. Naming must embody meta/PHILOSOPHY.md §§3, 8 and 9 and meta/MANIFESTO.md: fearless innovation, challenging established patterns, empowering entrepreneurs to build better alternatives, and taking a clear stance. Customer experience means respecting and increasing customer capability; it must not be translated into timid language. Growth and profit remain commercial outcomes, alongside the ambition to create new capability. Evaluate brand fit before domain availability. Keep claims grounded and the tone enabling; no hype, founder shaming or fabricated results.
+Article finder: `src/lib/article-search.ts`; a tag page is indexed from three articles (`INDEXABLE_FROM`).
 
-## Article standard — founder direction, 22 September 2026
+Articles are `content/articles/*.md` plus `src/data/articles.json`, with `publishedAt: null` until publication is approved. Drafts render only in development or an `ARTICLE_PREVIEW=true` build and stay out of the sitemap, `llms.txt` and `/feed.json` and `/feed.xml`; feeds never carry lead data or private Traction records. Dates are honest: sitemap `lastModified` comes from the article, never the build.
 
-For all new AI-site articles, read [ARTICLE-STANDARD.md](docs/editorial/ARTICLE-STANDARD.md). Prioritise qualified enquiries, explanations of about five minutes (900–1,200 words, shorter when the answer is complete), examples that support the reader’s target question, a WebGL expertise globe to the right of the title with a matching SVG fallback and a striking explanatory visual within the explanation (choose diagrams for flows and architecture; reserve data-visualisation skills for data). Every article follows the AEO contract linked from that standard: preserve the target question in its title, opening and conclusion, with worked examples supporting the answer. Compare concepts fairly and cite current primary sources. This site-specific standard supersedes the legacy blog's audience and format rules. The [Databricks series](docs/editorial/databricks-series/README.md) starts with database modelling and streaming contracts; drafts remain unpublished until final copy/media review and production approval.
+## Commands and release
 
-## Current approved experience — Living constellation A, 22 September 2026
+`npm run dev` (port 3108), `npm run test:ci` (typecheck and Vitest), `npm run build`.
 
-The founder selected **A — Living constellation**. [Selection and implementation](docs/design/2026-09-22-business-flow/SELECTION.md). This supersedes earlier instructions to keep the full organisation diagram on the homepage and all giant artwork directions.
-
-- Home: illustrative customer-growth scenario and interactive mesh first, followed by the commercial proposition for founders with demonstrated demand, three inspectable builds, a prominent Traction Partnership invitation and enquiry. The founder explicitly restored partnership visibility in the 22 September refinement. No organisation diagram, article grid or news feed in the main homepage flow.
-- `/how-it-works`: the selected constellation, now using the same five semantic wireframe objects. Signals branch along shared curves, each domain opens into signal/action/impact/measurement, click-out and Escape return to the overview. The founder keeps consequential decisions.
-- Three **illustrative successful iterations** per business scenario retain illuminated memory rings. After the third, existing signals keep circulating without inventing further improvements. Growth/profit are measured objectives, never guaranteed results. Heartbeat changes light only.
-- `/work`: complete catalogue and correct contest attribution. `/partnership`: existing partnership offer with scoped terms and contextual enquiry link. Articles stay at `/articles`; publication gating is preserved in navigation and secondary links.
-- All routes have canonical metadata and sitemap coverage. Local preview only; no deployment or public sitemap submission authorized.
-
-Latest refinement: the founder rejected atomic/molecular motifs, reused abstract sculptures and textured materials. Both engines use the same recognisable, texture-free wireframe family: Notice/eye, Choose/signpost, Improve/wrench, Release/paper plane and Learn/open book. Internal action assets must represent their actual labels. Every scale is uniform; update the camera aspect with the canvas dimensions. The homepage uses a full-viewport outer shell, a spherical inner network and a business core. Domain anchors and return paths share the network rotation. Domain-coloured contributions return to the core, briefly illuminate the mesh and gradually retain strength. Growth is a bounded illustration, not a forecast; heartbeat never changes camera distance. Keep continuous, interruptible camera motion and a stable canvas size. Homepage navigation combines fixed domain links beside the sphere (a compact row above it on phones) with domain and actor meshes/labels, click-out/Escape, and an unobtrusive pause control in the scene. The founder explicitly requested these stable entrances so rotation cannot make a domain unreachable. Do not restore the control row or numbered navigation below it. The 22 September founder request explicitly keeps Traction Partnership prominent and targets committed founders with evidence of demand. Unanswered’s existing recorded walkthrough is re-encoded as a local MP4 on `/work`; it is not a new live capture. [Refinement record](docs/design/2026-09-22-business-flow/WIREFRAME-REFINEMENT.md).
-
-Prototype verification: typecheck, manual browser review at desktop and 390px phone widths, domain/facet interaction, click-out, Escape focus restoration, scenario/iteration state, full catalogue and partnership enquiry context. No test suite or new dependency added.
-
-The founder selected **B — Mesh Aperture** with “B is good”, superseding the filled Aperture mark. Use `public/brand/orchestra-mesh.svg` for large placements, `orchestra-mesh-compact.svg` for the 44px masthead, 48px footer and article cards, and `src/app/icon.svg` for the simplified favicon. The open A is genuine empty space between mesh edges; preserve square proportions, spherical silhouette and central business node. The monochrome master uses `currentColor`. Keep the wordmark as live text. `/opengraph-image` uses the full vector and growth/profit proposition. Child pages with Open Graph objects must include `brandShareImage` from `src/lib/share-metadata.ts`; article details retain individual cards. [Selection and assets](docs/design/2026-09-22-mesh-logo/README.md).
-
-## WebGL assets and article navigation — 22 September 2026
-
-Founder instruction: use WebGL for article headers, the logo and all Orchestra decorative artwork, with a fallback. `MeshArtwork` progressively enhances server-rendered SVGs; `mesh-artwork-engine.ts` renders the approved logo paths and shared domain-object geometry. No new bitmap brand art. Use this component for new decorative placements. Keep real proof recordings/screenshots and semantic explanatory labels intact; favicons, social cards and downloads require static exports. Preserve the selected Mesh Aperture silhouette and open A.
-
-Article mesh definitions: `src/data/article-mesh.json`; fallback generator: `node docs/editorial/databricks-series/generate-article-mesh.cjs`. It projects the actual scene into SVG. The 23 September founder refinement places the expertise globe to the right of the title in the same row, removing the separate stripe to save vertical space. Keep the artwork borderless, with no panel fill or text overlap; the headline determines the row height. At 850px and below, hide the decorative globe and its pause control in CSS before hydration, give the title the full available width, and avoid allocating its WebGL context. Dispose the title renderer when shrinking across that breakpoint; widening mounts a fresh canvas and progressively enhances the inline SVG again. `mesh-artwork-layout.ts` supplies the same close framing to the inline SVG and WebGL camera. The article is an expertise domain: show a spherical mesh with connected topic symbols, continuously rotate its actual 3D geometry, and add smooth horizontal/vertical cursor tilt across the article header. No travelling-light substitute. Retain an accessible pause control, automatic suspension offscreen/in hidden tabs, bounded pixel density, reduced-motion support and complete GPU disposal. Only resize the drawing buffer when dimensions change; inline the SVG in the server response so no image fetch is needed; retain it until a preserved GPU frame exists, then crossfade before starting motion. Return to the vector immediately on context loss. Logos remain stable and render on demand. Fallbacks cover no JavaScript, loading, initialization failure and context loss. For local responsive fallback QA, append `?mesh=fallback` in development to exercise the initialization-failure path; production ignores this flag.
-
-“In this article” is always expanded, highlights the section at the reading position, and updates its URL fragment via replaceState for bookmarking without flooding Back history. Native anchors remain functional without JavaScript.
-
-## AI-native editorial series — approved 21 September 2026
-
-New AI-native proposition articles belong at `ai.hyperdrift.io/articles` and lead to a relevant sales enquiry. Use the strongest real Hyperdrift example for each argument, explicitly distinguishing internal operations, public demonstrations, prototypes and client outcomes. Source of record: [editorial decision](docs/decisions/2026-09-21-ai-native-articles.md); drafts and proof ledger: [series review](docs/editorial/ai-native-series/README.md). Existing published articles keep their URLs initially. All copy inherits `meta/PHILOSOPHY.md` §8, Speak to Enable. The founder instructed implementation on 21 September; the article pages extend the existing approved gold/ink/serif identity. Runtime source is `content/articles/*.md` plus `src/data/articles.json`; original drafts remain in the review directory. Article context is editable in the form, validated and retained in the lead record and relay message. Final words/media and production publication still need review. Drafts are visible only in development or an explicit preview build and stay out of the sitemap. Never count preview submissions as leads. See the series README for local delivery, attribution and release details.
-
-## Founder-selected WebGL refinement — 22 September 2026
-
-The founder chose the existing WebGL view, removed the giant and asked for business growth/profit positioning. At that review, the home page used a living mesh followed by the full graph. The later selection of constellation A supersedes that arrangement; do not restore the diagram to the homepage. The later WebGL asset refinement supersedes the six bitmap editorial openings: article headers now use live meshes with matching SVG fallbacks, while real evidence remains in proof sections. [Selected refinement and verification](docs/design/2026-09-21-landing-review/SELECTION.md). The prior A/B/C landing concepts were not selected. `MISSION.md` now leads with founder revenue, profit and time. These changes remain local preview only.
-
-## Coloured domains and conversion review — 22 September 2026
-
-The latest founder request permits moving the organisation experience to another page and exploring alternatives to the graph. This supersedes the earlier requirement to keep it on the homepage, and the founder subsequently selected A. The constellation now replaces that graph in the public exploration. Three comparable concepts and their status: [business flow](docs/design/2026-09-22-business-flow/README.md). Homepage hierarchy and page-move recommendations: [conversion review](docs/reviews/2026-09-22-homepage-conversion.md).
-
-The approved homepage mesh now has five coloured domain spheres, original procedural signal/action/impact/measurement assets, click-out and Escape navigation, and keyboard focus restoration. Heartbeat is light-only. Keep the business context readable without WebGL. The proof section offers existing Helm and Radar recordings inline. Unsupported sponsorship/partnership assertions were removed from the partnership terms; do not restore them without evidence specific to this offer. No production deployment or outbound communication.
-
-### Domain references
-
-Reviewed community [Three.js materials](https://playbooks.com/skills/cloudai-x/threejs-skills/threejs-materials) and [animation](https://playbooks.com/skills/cloudai-x/threejs-skills/threejs-animation), plus [official shader documentation](https://threejs.org/docs/pages/ShaderMaterial.html). Apply shared GPU resources, explicit disposal, time-based procedural motion and stationary geometry for the heartbeat. Existing Three.js is sufficient; no new dependency or stock-asset pipeline.
-
-## Current direction — 14 September 2026
-
-`ai.hyperdrift.io` is Hyperdrift's primary business and marketing destination. Founder explicitly corrected the proposal to keep investing in the legacy HD homepage: move the focus to this AI site. The older site remains the location of existing articles and historical work during this transition.
-
-- **Identity under redesign (founder, 14 September, later that day):** the Concert Hall × Lab Notebook identity is retired for an open redesign. The chosen concept is "On the shoulder": a stone giant carrying the founder through golden country toward prosperity. Record and status: `docs/design/2026-09-14-redesign/SELECTION.md`. The live code still carries the old identity until a round-5 concept is approved and implemented; keep the enquiry path either way.
-- Design gate for this redesign: concept images first, founder review, then ScreenCraft implements the approved image (`meta/skills/design-crafter/SKILL.md` → The gate). Do not render a page skeleton through an image model.
-- Promote AI services, MCP integrations, working examples, and the anniversary here. Use existing components for content refinements.
-- Keep Hyperdrift's ownership clear. The existing Orchestra name is retained in this slice; a separate rename or new domain has not been approved.
-- Do not resume the rejected legacy-homepage redesign or redirect this site back to it.
-- Do not retire the legacy runtime: `/api/contact` currently relays there, and published article URLs remain there.
-- No production deployment or public outreach is authorized by this content-preview change.
-
-Decision and release follow-ups: [AI site as primary destination](docs/decisions/2026-09-14-primary-destination.md).
-
-## Contest visibility and attribution
-
-Every project-backed contest entry belongs in this AI site's case-study catalogue. Read `.growth/contests/ledger.jsonl` from the HD workspace and the official event page when adding or updating an entry. Enrolments without a project are not portfolio entries.
-
-Each contest case must populate `challenge` in `src/data/case-studies.ts`: recognisable organiser/sponsor name, exact event, official URL, and evidenced stage. The component shows the company credit prominently and explains the relationship with “Built for”. Use Google and Amazon Web Services rather than leaving readers to decode programme acronyms. Preserve the actual sponsor technology in the stack and method description.
-
-Keep contest participation distinct from a commissioned client engagement, endorsement, or award. For DEV's Generosity challenge, DEV is the organiser and Google AI is the entry category. For Bridge Voice, AssemblyAI and lablab.ai jointly run the event; show “In development” until a later phase is verified. Never expose a private repository as a public demo.
-
-Current coverage and primary sources: [Contest attribution](docs/decisions/2026-09-14-contest-attribution.md). Refresh this catalogue as part of each contest's post-build and post-result work, without duplicating the entry owner's submission tasks.
-
-## The front door — On the shoulder (14 September 2026)
-
-History. Constellation A replaced this front door. Its components (`Hero`, `Places`, `CurrentContent`, `Programme` and the folded movements) had no importer and were removed on 8 October 2026; recover them from git history if a design brings them back. The four-places art and the CSS for the places and folded movements went with them, as did the rest of the `public/shoulder/` art and the CSS for the first screen and Now playing. `src/data/situations.ts` now holds only `enquiryChoices`, so `/?situation=<slug>#contact` still preselects "Where you are" in `EnquiryForm`.
-
-Versions, tags and what production serves: `docs/RELEASES.md`. Tag every reviewable state and add its row there.
-
-The homepage implements the five screens the founder approved (`docs/design/2026-09-14-redesign/SELECTION.md`, round 6). Each has a ScreenCraft packet in `docs/design/2026-09-14-redesign/screencraft/`; the packet's map, not taste, decides where text sits over the art.
-
-- **Art:** `public/shoulder/*.webp`, made from the text-free masters in `docs/design/2026-09-14-redesign/assets-textfree/` (words erased with Recraft eraseRegion and the masks in `text-masks/`). Every word on the page is live HTML over the art; never bake text into an image. Art bands are full bleed and 16:9, so positions use `--band` (`100vw * 9 / 16`) and viewport percentages taken from the maps.
-- **First screen** (`Hero`): statement and question in a left column clear of the giant; a portrait art source below 760px.
-- **The four places** (`Places`): native radios named `place` over the horizon, from `src/data/situations.ts`. `:has(input[value=…]:checked)` lights that place and opens its response below the art. No client JavaScript. Each response's action links to `/?situation=<slug>#contact`, which preselects the editable "Where you are" in `EnquiryForm`.
-- **The proof** (`Proof`): the contest-backed entries of `src/data/case-studies.ts`, numbered; the same numbers sit as markers on the footprints. "Built for" participation credit only.
-- **Now playing** (`CurrentContent`): Intel's `/api/daily-intel/list` and hyperdrift.io `/api/blog/list` server-side, 15-minute revalidate, honest fallback links. The blog feed lives on hyper-drift branch `feat/blog-list-feed` and is not deployed yet.
-- **The enquiry** (`Enquiry`): "You say where. We go." over the art; the form and the Traction Partnership below it. The relay to hyperdrift.io is unchanged.
-- The long material stays folded in `Programme`. Pure cascading CSS in `src/app/globals.css`; the folded movements still use the older `.card`/`.meta`/`.numeral` rules, rethemed to the gold palette.
-
-## Release (2026-09-23)
-
-- Public repository: the org deploy runner refuses it (GitHub's default for public repos, kept on purpose). CI runs on GitHub-hosted runners; production deploys by hand from infra with `make deploy app=orchestra` until a public-repo route is approved. Never widen runner access to fix a missing webhook secret: add the secret to the vault and redeploy.
-- Package manager: app code is npm; `.github/workflows/deploy.yml` and the `apps.yml` entry (`package_manager: "pnpm"`, `build_cmd: "pnpm build"`) are still pnpm. Migrate all three together before the next dependency change (root `AGENTS.md → Package manager and language`).
-- Public is not launched: `posthog_project_id` is empty in `infra/group_vars/apps.yml`. Wire PostHog and pass `make check-launch-readiness app=orchestra` before any post, ad or contest entry points here.
-
-## Shared communication feed — 10 October 2026
-
-`/feed.json` and `/feed.xml` use the same published article catalogue. JSON Feed supplies Hyperdrift’s field notes and existing newsletter, with canonical URLs and published excerpts/share lines. Never include drafts, scheduled articles before their publication instant, lead data or private Traction records.
-
-## Article reading
-
-For article authoring or reading UI changes, load `~/dev/hyperdrift/meta/skills/article-experience/SKILL.md`. `src/lib/article-experience/` is generated from the workspace’s `packages/article-experience/`; follow the skill’s sync and verification workflow while keeping app styling and renderer here.
-
-On 2 October 2026 the founder approved one labelled Share trigger at each existing article entry point. Use the shared panel and `src/lib/article-sharing.ts` for app choices: LinkedIn and the existing downloadable card where available. Keep the preview notice and canonical URL, remove static platform rows, and never count a native-sheet resolution as a published post.
-
-On 4 October 2026, the founder approved generic `LinkPreview`. The shared `ArticleSourceLink` is its thin adapter; keep source-note data and palette here, and change interaction code only in the canonical workspace package. The founder clarified that preview means browsable content, not a summary: desktop hover and link click/tap/Enter open the actual page or full owned article in place. The eye is touch-only; Open original and modifier/middle clicks retain deliberate navigation. In article prose and visual source lists, an external citation that cannot preview in place renders as plain text, on every screen size, so reading never leaves the page (founder, 13 October 2026; `citationStaysText` in `src/lib/article-source-notes.ts`). Deliberate actions (proof links, Open original, share destinations) stay links. Enhance only previewable content; never add an intermediary failure screen. Navigation/actions and links without valid notes stay direct. The previous source hook/selectors are retired. Other app surfaces can import the generic component directly after assessing intent; use the workspace article-experience skill and consumer map.
-
-## Public-facing links
-
-Use `LinkPreview` from `@/components/LinkPreview` for new public-facing content links (citations, supporting evidence, related reading and resources). The article renderer already applies the canonical component to Markdown links. The app entry point supplies labels and registered source capabilities; `src/app/link-preview.css` loads in the root layout so previews work outside articles.
-
-A link is the baseline. Supply full authorised content or reviewed destination metadata to enhance it. Missing metadata, unsupported browsers and known unavailable previews remain ordinary anchors with no popup, eye or preloading. Do not infer embedding support from a URL/title. Preserve locale, meaningful queries, fragments, anchor attributes and existing analytics. Use `intent="navigate"` for explicit Visit/Open actions; keep router navigation, authentication, transactions, downloads and same-page jumps direct. Do not intercept links globally or edit generated shared files.
-
-For any new public link surface, load `~/dev/hyperdrift/meta/skills/article-experience/SKILL.md`, use the shared implementation and register new consumers through its existing sync mechanism. No one-off preview popup or automatic scraping service.
-
-## Traction invitation journey — 17 October 2026
-
-Founder-directed local revision: compact personal welcome and AI CRM/strategist explanation, with one explorable fictional example. No giant headline, numbered marketing sequence, founder counter or launch-log promotion on `/traction`. First-read requests open the shared enquiry modal near the end; they are optional. Other enquiry links use the existing article modal pattern in place, preserving context. Personal welcomes use a server-resolved opaque path and reviewed private copy, never name/email query parameters. They grant no app access. See [decision and preview evidence](docs/decisions/2026-10-17-traction-invitation-offer.md). This supersedes the earlier mandatory-first-read offering sequence on this page; historical articles and other product routes remain historical content. Keep local invitation files and prospect data out of Git. No deployment or outbound mail is part of this preview.
-
-The purpose is founder to founder: Yann has seen good ideas, including his own, never reach the people they could help. Traction brings founders together to give those ideas their chance, with involvement and honest feedback. Carry that motive through the welcome, enquiry copy and email guidance; do not turn it into a corporate pitch or a repeated biography. Keep money and defensive sales disclaimers out of the introduction. Orchestra uses **we**; only personal email uses **I**. `/traction/why` is the generic purpose page, not a personal email or a page requiring an invitation. It explains our conviction about the opportunity now and the select few founders we want to work closely with. The private invitation page recognises the invited founder and their product and moves to the next step; do not repeat the email or reopen qualification. `Traction.tsx` previews the generic purpose through the existing `LinkPreview`; `TractionWhy.tsx` is shared by that reader and the standalone page. No new preview implementation or external fetch. This page remains local/noindex pending publication review. See `MISSION.md` for the invitation’s purpose and scope.
-
-Invited founders should **get in touch**, not introduce an app we already know. Use the existing enquiry dialog with editable name/email/company defaults from that invitation’s private registry entry. The invitation page supplies this context using the same pattern as article pages; the global dialog skips that route to avoid duplicates. Generic pages remain blank. Do not infer missing emails, put contact fields in query strings or browser storage, or read the production DB on public page loads. Opaque invitation links disclose the contact details explicitly authorised for their own prefill; keep them private, no-store, no-referrer, noindex and outside analytics. Closing/reopening preserves form edits. Invited pages offer a conversation, while optional first reads remain on the generic offering. Local preview submissions stay local.
-
-Keep the shared contact modal compact and generic: **Get in touch**, ordinary field labels, **Message**, **Send message**. The page supplies the reason to contact us; do not repeat the pitch, biography or a guided question in the form. Use content height on phones with bounded scrolling only when needed. Known details stay editable; desktop focus starts at the first missing required field, and touch starts at the heading.
-
-Traction’s offering presents the whole growth partnership: positioning and priorities, customer relationships, onboarding improvements and repeat value. CRM is part of that work. Keep the four areas compact, with fictional examples available on request; do not reduce the offer to prospect research and email generation. Distinguish AI preparation from work agreed with the founder, and avoid claiming guaranteed growth or fully autonomous delivery.
-
-## Collective voice and release — 17 October 2026
-
-The founder approved the reviewed Traction site for production and asked for consistency: Orchestra speaks as **we** across service pages, contact copy and first-read descriptions. Do not present delivery as depending on Yann alone. Personal email remains in the sender’s first person; historical authorship and accurate client provenance are not claims of a one-person service. The generic purpose page states the shared problem without Yann’s biography. First reads are optional throughout the current offering. The public purpose page is indexable; opaque invitations remain private, uncached and excluded from indexing and analytics.
-
-## Consolidation release — 18 October 2026
-
-The founder approved the site-audit implementation direction. `/traction` is the current offer, partnership scope and purpose destination; keep first reads optional and the welcome compact. `/partnership` and `/traction/why` are permanent redirects to its sections. Keep seven inspectable work examples grouped by customer need, with NextRole first. Articles retain native topic links and full-text search, with secondary topics and mobile contents folded; the app wrapper owns this responsive presentation, not generated shared reading code. The no-JavaScript contents remain open. Show honest publication/update dates, and never stamp sitemap lastmod from build time. The founder approved publication on 18 October 2026 with “push everything live”; see [scope, evidence and release boundary](docs/decisions/2026-10-17-site-consolidation.md).
-
-
-## HD enquiry handoff — approved 17 October 2026
-
-Business invitations from HD continue through Orchestra’s existing `/api/contact` store and relay, with optional `handoff` context: the public HD path, an optional project identifier and an external referring domain. Original campaign fields stay in `campaign`; the internal HD referral does not replace them. The source is shown in the enquiry form and saved with the same enquiry ID for qualification. Validation rejects private paths, arbitrary URLs and full external referrer URLs. Context is a visitor-provided attribution hint, not proof of identity or qualification. Existing direct enquiries, article context and invitation prefill remain compatible. Production publication waits on the combined HD preview review; the isolated runtime uses `CONTACT_DELIVERY=preview`.
-
-## HD contact on the current site — approved preview, 18 October 2026
-
-The founder approved contact on HD through this existing saved-enquiry workflow. HD `/api/enquiry` calls this app’s `/api/contact`; delivery still relays through HD `/api/contact`. Keep those HD routes distinct to avoid a relay loop. The receiver accepts an omitted name (stored as empty, not an invented identity) and an optional bounded http/https `product_url`, included in the delivery context. HD source paths now include `/contact` and `/blog/series/<slug>`. Relationship, original campaign and qualification semantics remain unchanged. The isolated runtime uses `CONTACT_DELIVERY=preview`; no public release is authorised by the preview instruction.
+Release: commit to main and push; deploy from a worktree of infra origin/main with `make deploy app=orchestra`, then check the live revision. GitHub Actions only verifies. Never widen runner access to this public repo. UI changes deploy after the founder's yes on a preview. Record each release in `docs/RELEASES.md`.
