@@ -9,7 +9,7 @@ type Attribute = 'agent' | 'conversation';
 
 const stops: readonly { date: string; who?: string; title: string; text: string; scope: readonly Attribute[]; form: string; approval?: boolean }[] = [
   { date: '1 Oct', title: 'Opened', text: 'An 18-line summary of where two attributes already appear.', scope: ['agent', 'conversation'], form: 'Summary' },
-  { date: '12 Oct', who: 'Liudmila Molkova', title: 'Make it normative', text: 'Set rules for propagation, and link the canonical definitions instead of repeating them.', scope: ['agent', 'conversation'], form: 'Summary' },
+  { date: '12 Oct', who: 'Liudmila Molkova', title: 'Make it normative', text: 'Proposed rules for propagation, and links to the canonical definitions instead of repeating them.', scope: ['agent', 'conversation'], form: 'Summary' },
   { date: '13 Oct', who: 'Liudmila Molkova', title: 'Revised and approved', text: 'A change like this also needs an approval from a reviewer at a second company.', scope: ['agent', 'conversation'], form: 'Rules', approval: true },
   { date: '23 Oct', who: 'Trask Stalnaker', title: 'The wrong agent', text: 'An inherited agent name can label a remote agent with its caller’s name. The SIG continues agent naming in #385.', scope: ['agent', 'conversation'], form: 'Rules' },
   { date: '27 Oct', title: 'Agent name removed', text: 'The list keeps the conversation ID only.', scope: ['conversation'], form: 'Rules' },
@@ -20,8 +20,7 @@ const names: Record<Attribute, string> = { agent: 'gen_ai.agent.name', conversat
 
 const facts = [
   { value: '30', label: 'days in review' },
-  { value: '5', label: 'commits' },
-  { value: '7', label: 'review threads, all resolved' },
+  { value: '16', label: 'lines added' },
   { value: '2', label: 'approvals, two companies' },
   { value: '44', label: 'checks passed on the final commit' },
 ];
@@ -29,7 +28,7 @@ const facts = [
 /** How review turned a summary of two attributes into four rules for one. */
 export function ReviewTimeline() {
   return <section data-visual="review-timeline" aria-label="Thirty days of review on pull request 556">
-    <header><p>FROM THE PUBLIC PULL REQUEST / 1–30 OCTOBER 2026</p><h3>Review made it <em>smaller and stronger</em></h3><p>What the change carried at each step of its review.</p></header>
+    <header><p>FROM THE PUBLIC PULL REQUEST / 1–30 OCTOBER 2026</p><h3>From two attributes <em>to one</em></h3><p>What the change carried at each step of its review.</p></header>
     <ol data-stops="">{stops.map((stop) => <li key={stop.date} data-approval={stop.approval || undefined}>
       <time>{stop.date}</time>
       <div><strong>{stop.title}</strong>{stop.who && <small>{stop.who}</small>}<p>{stop.text}</p></div>

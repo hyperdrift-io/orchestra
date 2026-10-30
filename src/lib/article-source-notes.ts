@@ -21,6 +21,12 @@ const notes: Record<string, SourceNote> = {
   'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/README.md': { title: 'GenAI reference implementations and reports', by: 'OpenTelemetry · main 6f98aef · read 30 October 2026', preview: 'unavailable' },
   'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/reports/inference-span.md': { title: 'Inference span: supporting libraries', by: 'OpenTelemetry · main 6f98aef · read 30 October 2026', preview: 'unavailable' },
   'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/.github/POLICIES.md': { title: 'Repository review and merge rules', by: 'OpenTelemetry · read 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/opentelemetry-python-genai/pull/726': { title: 'Propagate gen_ai.conversation.id to nested spans', by: 'OpenTelemetry Python GenAI · merged 22 September 2026', preview: 'unavailable' },
+  'https://grafana.com/docs/grafana-cloud/observe-and-act/agent-observability/get-started/opentelemetry/': { title: 'Send agent telemetry with OpenTelemetry', by: 'Grafana Cloud documentation · read 30 October 2026', preview: 'unavailable' },
+  'https://docs.honeycomb.io/send-data/use-cases/agents': { title: 'Agents', by: 'Honeycomb documentation · read 30 October 2026', preview: 'unavailable' },
+  'https://docs.datadoghq.com/llm_observability/instrument/otel_instrumentation/': { title: 'OpenTelemetry instrumentation', by: 'Datadog documentation · read 30 October 2026', preview: 'unavailable' },
+  'https://docs.dynatrace.com/docs/observe/dynatrace-for-ai-observability/metrics-reference': { title: 'AI observability metrics and attributes', by: 'Dynatrace documentation · read 30 October 2026', preview: 'unavailable' },
+  'https://www.cncf.io/announcements/2026/05/21/cloud-native-computing-foundation-announces-opentelemetrys-graduation-solidifying-status-as-the-de-facto-observability-standard/': { title: 'CNCF announces OpenTelemetry’s graduation', by: 'CNCF · 21 May 2026', preview: 'unavailable' },
 
   // DSPy drafts: reviewed 23 October 2026. External sources remain available in the figure source controls.
   "https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures": {"title": "Gemini Generate Content thought signatures", "by": "Google AI documentation \u00b7 reviewed 23 October 2026", "preview": "unavailable"},

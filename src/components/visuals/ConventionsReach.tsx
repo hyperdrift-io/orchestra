@@ -16,7 +16,7 @@ const groups = [
   { id: 'evaluation', label: 'Evaluation', libraries: ['deepeval', 'azure-ai-evaluation'] },
 ] as const;
 
-/** Every span that defines `gen_ai.conversation.id`, the reference libraries that emit it and those that record the ID on it. */
+/** Every span that references `gen_ai.conversation.id`, the reference libraries that emit it and those that record the ID on it. */
 const spans = [
   { id: 'agent', label: 'Agent, in process', emits: ['adk_a2a', 'agent-framework', 'autogen', 'crewai', 'google-adk', 'langchain', 'openai-agents', 'pydantic-ai'], records: ['adk_a2a', 'google-adk'] },
   { id: 'remote', label: 'Remote agent', emits: ['aws-bedrock-agent', 'azure-ai-foundry', 'google-genai', 'openai-assistants'], records: ['aws-bedrock-agent', 'openai-assistants'] },
@@ -35,8 +35,13 @@ const libraryCount = groups.reduce((sum, group) => sum + group.libraries.length,
 const places = spans.reduce((sum, span) => sum + span.emits.length, 0);
 const recorded = spans.reduce((sum, span) => sum + span.records.length, 0);
 
-/** Backends whose own documentation describes reading the GenAI conventions, as checked on 30–31 October 2026. */
-const readers: readonly string[] = [];
+/** Backends whose own documentation describes reading the GenAI conventions, read 30 October 2026. `groups`: the docs group a conversation by `gen_ai.conversation.id`. */
+const readers: readonly { name: string; groups?: boolean }[] = [
+  { name: 'Datadog', groups: true }, { name: 'Honeycomb', groups: true }, { name: 'Grafana Cloud', groups: true }, { name: 'Dynatrace', groups: true },
+  { name: 'Opik', groups: true }, { name: 'W&B Weave', groups: true }, { name: 'Pydantic Logfire', groups: true },
+  { name: 'Langfuse' }, { name: 'Arize Phoenix' }, { name: 'MLflow' }, { name: 'LangSmith' }, { name: 'Braintrust' }, { name: 'New Relic' }, { name: 'Google Cloud' },
+];
+const grouping = readers.filter((reader) => reader.groups).length;
 
 /** One document between the libraries that write GenAI telemetry and the backends that read it. */
 export function ConventionsReach() {
@@ -49,17 +54,17 @@ export function ConventionsReach() {
   };
   const summary = span
     ? { title: `${span.label}: ${span.records.length} of ${span.emits.length}.`, text: `${span.emits.length === 1 ? 'One library emits' : `${span.emits.length} libraries emit`} this span in the reference scenarios; ${span.records.length === span.emits.length ? 'it records' : `${span.records.length} record`} the conversation ID on it.` }
-    : { title: `${recordsAnywhere.size} of ${libraryCount} libraries record the conversation ID somewhere.`, text: `Count every place a library emits a span that defines the attribute and you get ${places}; the ID is in ${recorded} of them. The rule in #556 is how a conversation that the framework knows can reach the spans nested inside it.` };
+    : { title: `In their scenarios, ${recordsAnywhere.size} of ${libraryCount} libraries record the conversation ID.`, text: `Count every place a library emits a span that references the attribute and you get ${places}; the ID is in ${recorded} of them. The rule in #556 is how a conversation that the framework knows can reach the spans nested inside it.` };
   return <section data-visual="conventions-reach" data-pick={pick} aria-label="Where the rule sits between the libraries that write GenAI telemetry and the backends that read it">
-    <header><p>FROM THE REPOSITORY’S REFERENCE REPORTS / 30 OCTOBER 2026</p><h3>One document between <em>writers and readers</em></h3><p>The reference scenarios check {libraryCount} libraries against the GenAI conventions. Gold marks a library that records the conversation ID. Pick a span to see which libraries emit it.</p></header>
+    <header><p>FROM THE REPOSITORY’S REFERENCE REPORTS / 30 OCTOBER 2026</p><h3>One document between <em>writers and readers</em></h3><p>The reference scenarios check {libraryCount} libraries against the GenAI conventions, and backends read the same names. Gold marks a library that records the conversation ID and a backend that groups conversations by it. Pick a span to see which libraries emit it.</p></header>
     <div data-coverage="">
       <h4>Where the conversation ID is recorded today <small>{recorded} of {places}</small></h4>
       <nav aria-label="Pick a span">
-        <button type="button" aria-pressed={pick === 'all'} onClick={() => setPick('all')}><span>All spans</span><small>{recorded} of {places}</small></button>
+        <button type="button" aria-pressed={pick === 'all'} onClick={() => setPick('all')}><span>All spans</span>{' '}<small>{recorded} of {places}</small></button>
         {spans.map((entry) => <button key={entry.id} type="button" aria-pressed={pick === entry.id} onClick={() => setPick(entry.id)}>
           <span>{entry.label}</span>
           <i aria-hidden="true">{entry.emits.map((library) => <b key={library} data-on={(entry.records as readonly string[]).includes(library) || undefined} />)}</i>
-          <small>{entry.records.length} of {entry.emits.length}</small>
+          {' '}<small>{entry.records.length} of {entry.emits.length}</small>
         </button>)}
       </nav>
     </div>
@@ -77,11 +82,11 @@ export function ConventionsReach() {
       </div>
       <svg data-funnel="out" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M44 0L2 24M47 0L26 24M50 0V24M53 0L74 24M56 0L98 24" /></svg>
       <section data-readers="" aria-label="Backends that read the conventions">
-        <h4>Read telemetry <small>any OpenTelemetry backend</small></h4>
-        {readers.length > 0 && <ul>{readers.map((reader) => <li key={reader}>{reader}</li>)}</ul>}
-        <p>Spans, metrics and events arrive with the same names, whichever library wrote them.</p>
+        <h4>Read telemetry <small>{readers.length} backends document the conventions</small></h4>
+        <ul>{readers.map((reader) => <li key={reader.name} data-groups={reader.groups || undefined}>{reader.name}</li>)}</ul>
+        <p>Gold: {grouping} group an agent conversation by <code>gen_ai.conversation.id</code>, so the spans that carry it join the conversation.</p>
       </section>
     </div>
-    <footer>Counts from the repository’s reference reports at main 6f98aef, read 30 October 2026 · groups are ours · a scenario shows what it exercises, not everything a library can do</footer>
+    <footer>Counts from the repository’s reference reports at main 6f98aef, read 30 October 2026 · library groups are ours · a scenario shows what it exercises, not everything a library can do · backends from their own documentation, read 30 October 2026</footer>
   </section>;
 }

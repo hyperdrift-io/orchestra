@@ -33,11 +33,14 @@ function load(file) {
   return loaded.exports;
 }
 
+// Captions come from the catalogue, so the image and the article never disagree.
+const entry = require(path.resolve('src/data/articles.json')).find((article) => article.slug === 'opentelemetry-genai-conversation-id');
+const takeaway = (kind) => [entry.visualization, ...entry.figures].find((visual) => visual.kind === kind).takeaway;
 const visuals = [
-  { name: 'conversation-trace', file: 'ConversationTrace', css: 'visual-conversation-trace.css', takeaway: 'One conversation ID, carried from the agent into the model and tool calls nested inside it.' },
-  { name: 'conventions-reach', file: 'ConventionsReach', css: 'visual-conventions-reach.css', takeaway: 'Thirty reference libraries write to the same conventions. Six record the conversation ID today.' },
-  { name: 'review-timeline', file: 'ReviewTimeline', css: 'visual-review-timeline.css', takeaway: 'Review turned a summary of two attributes into four rules for one.' },
-];
+  { name: 'conversation-trace', file: 'ConversationTrace', css: 'visual-conversation-trace.css' },
+  { name: 'conventions-reach', file: 'ConventionsReach', css: 'visual-conventions-reach.css' },
+  { name: 'review-timeline', file: 'ReviewTimeline', css: 'visual-review-timeline.css' },
+].map((visual) => ({ ...visual, takeaway: takeaway(visual.name) }));
 
 const font = (name) => `url('file://${path.join(fonts, name)}')`;
 const measure = `<script>document.fonts.ready.then(()=>{const b=document.body;const end=Math.max(...[...b.children].map((e)=>e.getBoundingClientRect().bottom));b.dataset.height=Math.ceil(end+parseFloat(getComputedStyle(b).paddingBottom))})</script>`;

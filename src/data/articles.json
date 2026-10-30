@@ -1182,8 +1182,8 @@
     "slug": "opentelemetry-genai-conversation-id",
     "title": "We got our first PR merged into OpenTelemetry",
     "seoTitle": "OpenTelemetry GenAI conversation ID: passing it to nested spans",
-    "excerpt": "OpenTelemetry's GenAI conventions now say how an agent framework can share its conversation ID with the model and tool calls nested inside it. What changed, why review narrowed it to one attribute, and what to do in your instrumentation.",
-    "shareLine": "Your agent framework knows the conversation. Now the model and tool calls inside it can carry the same ID.",
+    "excerpt": "OpenTelemetry's GenAI conventions now say how an agent framework can share its conversation ID with the model and tool calls nested inside it. Review narrowed the rule to that one ID; agent naming continues in a separate draft.",
+    "shareLine": "OpenTelemetry's GenAI conventions now let model and tool calls inside an agent record its conversation ID.",
     "order": 18,
     "topic": "Agent telemetry",
     "example": "OpenTelemetry GenAI conventions",
@@ -1197,10 +1197,10 @@
     "situation": "workflow",
     "readNext": "agent-driven-ui-intelligence-and-action",
     "steps": [
-      "Pass it in-process",
-      "Prefer the library's value",
-      "Share only what's listed",
-      "Only where it's defined"
+      "Pass the ID in-process",
+      "Prefer the library's ID",
+      "Share nothing unlisted",
+      "Only where referenced"
     ],
     "proof": {
       "heading": "Follow one conversation",
@@ -1219,7 +1219,7 @@
     "visualization": {
       "kind": "conversation-trace",
       "takeaway": "One conversation ID, carried from the agent into the model and tool calls nested inside it.",
-      "description": "An illustrative trace of one support conversation in one process. Before the rule, only spans whose own library knows the conversation record its ID, so a query by conversation finds three of six spans. With the rule, the agent framework passes the ID in context and the nested model calls record it too. A remote agent's library has its own session ID, and that value wins. The token metric never carries the ID because GenAI metrics don't define it. The third view shows why agent names stayed out of the list: inherited, the remote agent's span would name its caller.",
+      "description": "An illustrative trace of one support conversation in one process. Without propagation, only spans whose own library knows the conversation record its ID, so a query by conversation finds three of six spans. With the rule, the agent framework passes the ID in context and the nested model calls record it too. A remote agent's library has its own session ID, and that value wins. The token metric never carries the ID because GenAI metrics don't reference it. The third view shows why agent names stayed out of the list: inherited, the remote agent's span would name its caller.",
       "sources": [
         {
           "label": "Merged pull request #556",
@@ -1246,8 +1246,8 @@
       {
         "kind": "conventions-reach",
         "title": "Where the rule sits",
-        "takeaway": "Thirty reference libraries write to the same conventions. Six record the conversation ID today.",
-        "description": "The GenAI semantic conventions sit between the libraries that write telemetry and the backends that read it. The repository's reference scenarios check 30 Python libraries: 11 model clients, 12 agent frameworks, five hosted agents or agent protocols and two evaluation libraries (grouping ours). In those scenarios, six libraries record gen_ai.conversation.id on at least one span: adk_a2a, agent-framework, google-adk, openai-assistants, aws-bedrock-agent and a2a-python. By span: agent invocation inside the process 2 of 8 libraries, remote agent invocation 2 of 4, workflow 1 of 4, inference 2 of 14, tool execution 2 of 11, A2A client and server 1 of 1 each: 11 of 43 in all. Scenario coverage shows what each reference scenario exercises, not everything a library can do.",
+        "takeaway": "Thirty reference libraries write to the same conventions; six record the conversation ID in their scenarios. Seven backends group conversations by it.",
+        "description": "The GenAI semantic conventions sit between the libraries that write telemetry and the backends that read it. The repository's reference scenarios check 30 Python libraries: 11 model clients, 12 agent frameworks, five hosted agents or agent protocols and two evaluation libraries (grouping ours). In those scenarios, six libraries record gen_ai.conversation.id on at least one span: adk_a2a, agent-framework, google-adk, openai-assistants, aws-bedrock-agent and a2a-python. By span: agent invocation inside the process 2 of 8 libraries, remote agent invocation 2 of 4, workflow 1 of 4, inference 2 of 14, tool execution 2 of 11, A2A client and server 1 of 1 each: 11 of 43 in all. Scenario coverage shows what each reference scenario exercises, not everything a library can do. On the reading side, 14 backends document reading the GenAI conventions. Datadog, Honeycomb, Grafana Cloud, Dynatrace, Opik, W&B Weave and Pydantic Logfire document grouping an agent conversation by gen_ai.conversation.id; Langfuse, Arize Phoenix, MLflow, LangSmith, Braintrust, New Relic and Google Cloud document reading the conventions. Backend documentation read 30 October 2026; no endorsement or partnership is implied.",
         "sources": [
           {
             "label": "Reference implementations and reports",
@@ -1258,19 +1258,35 @@
             "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/reports/inference-span.md"
           },
           {
-            "label": "GenAI semantic conventions repository",
-            "url": "https://github.com/open-telemetry/semantic-conventions-genai"
+            "label": "Grafana Cloud: OpenTelemetry for agents",
+            "url": "https://grafana.com/docs/grafana-cloud/observe-and-act/agent-observability/get-started/opentelemetry/"
+          },
+          {
+            "label": "Honeycomb: agents",
+            "url": "https://docs.honeycomb.io/send-data/use-cases/agents"
+          },
+          {
+            "label": "Datadog: OpenTelemetry instrumentation",
+            "url": "https://docs.datadoghq.com/llm_observability/instrument/otel_instrumentation/"
+          },
+          {
+            "label": "Dynatrace: AI observability attributes",
+            "url": "https://docs.dynatrace.com/docs/observe/dynatrace-for-ai-observability/metrics-reference"
+          },
+          {
+            "label": "CNCF: OpenTelemetry graduation",
+            "url": "https://www.cncf.io/announcements/2026/05/21/cloud-native-computing-foundation-announces-opentelemetrys-graduation-solidifying-status-as-the-de-facto-observability-standard/"
           }
         ],
         "reviewed": "30 October 2026, upstream main 6f98aef",
-        "evidenceLabel": "Counts from the repository's reference reports, read 30 October 2026",
+        "evidenceLabel": "Counts from the reference reports and backend documentation, read 30 October 2026",
         "download": "/articles/opentelemetry/conventions-reach.png"
       },
       {
         "kind": "review-timeline",
         "title": "Thirty days of review",
         "takeaway": "Review turned a summary of two attributes into four rules for one.",
-        "description": "Opened on 1 October as an 18-line summary of where gen_ai.agent.name and gen_ai.conversation.id appear. On 12 October Liudmila Molkova asked for normative guidance and links to canonical definitions; the revision was approved the next day. The repository requires a second approval from another company for non-editorial changes. On 23 October Trask Stalnaker showed how an inherited agent name can identify the wrong agent; the GenAI SIG continued agent naming in #385, and the agent name was removed on 27 October. Trask approved on 30 October with two wording suggestions, both applied, and Liudmila approved and merged the change at 22:56 UTC.",
+        "description": "Opened on 1 October as an 18-line summary of where gen_ai.agent.name and gen_ai.conversation.id appear. On 12 October Liudmila Molkova asked for normative guidance, proposed its wording and asked for links to canonical definitions; the revision was approved the next day. The repository requires a second approval from another company for non-editorial changes. On 23 October Trask Stalnaker showed how an inherited agent name can identify the wrong agent; the GenAI SIG continued agent naming in #385, and the agent name was removed on 27 October. Trask approved on 30 October with two wording suggestions, both applied, and Liudmila approved and merged the change at 22:56 UTC.",
         "sources": [
           {
             "label": "Pull request #556 and its review",

@@ -45,21 +45,21 @@ const rules = [
   { id: 'pass', text: 'Pass it to nested calls in the same process' },
   { id: 'prefer', text: 'Prefer the library’s own value' },
   { id: 'listed', text: 'Share only what’s listed' },
-  { id: 'defined', text: 'Only on signals that define it' },
+  { id: 'defined', text: 'Only on signals that reference it' },
 ] as const;
 
 type RuleId = (typeof rules)[number]['id'];
 
 const views: Record<View, { label: string; count: string; lit: readonly RuleId[]; title: string; text: string }> = {
   before: {
-    label: 'Before the rule', count: '3 of 6 spans', lit: [],
-    title: 'Three of six spans answer to the conversation.',
+    label: 'Without propagation', count: '3 of 6 spans', lit: [],
+    title: 'Three of six spans carry the conversation ID.',
     text: 'The agent framework records its session on its own spans. The model client inside it doesn’t know which conversation it serves, so both chat spans arrive without the ID. To find them, you walk the trace down from the agent.',
   },
   rule: {
     label: 'With the rule', count: '5 of 6 spans', lit: ['pass', 'prefer', 'defined'],
-    title: 'Five of six, without walking the trace.',
-    text: 'The framework puts the conversation ID in context, and the model client in the same process records it on both chat spans. The remote agent’s client has its own session ID, and the library’s value wins. The token metric stays without it, because GenAI metrics don’t define the attribute.',
+    title: 'Five of six spans carry it, without walking the trace.',
+    text: 'The framework puts the conversation ID in context, and the model client in the same process records it on both chat spans. The remote agent’s client has its own session ID, and the library’s value wins. The token metric stays without it, because GenAI metrics don’t reference the attribute.',
   },
   names: {
     label: 'If agent names were inherited', count: '1 wrong agent', lit: ['listed'],
@@ -95,7 +95,7 @@ export function ConversationTrace() {
   }).length;
   return <section data-visual="conversation-trace" data-view={view} data-animate={animate || undefined} aria-label="One conversation as a trace: which spans carry its ID">
     <header><p>ILLUSTRATIVE TRACE / ONE CONVERSATION, ONE PROCESS</p><h3>Which spans can you find <em>by conversation?</em></h3><p>A support agent hands work to a sub-agent, a tool and a remote agent. Pick a view, then read the query.</p></header>
-    <nav data-views="" aria-label="Choose a view">{order.map((id) => <button key={id} type="button" value={id} aria-pressed={view === id} onClick={() => { setAnimate(true); setView(id); }}>{views[id].label}<small>{views[id].count}</small></button>)}</nav>
+    <nav data-views="" aria-label="Choose a view">{order.map((id) => <button key={id} type="button" value={id} aria-pressed={view === id} onClick={() => { setAnimate(true); setView(id); }}>{views[id].label}{' '}<small>{views[id].count}</small></button>)}</nav>
     <div data-query=""><span>Query</span><code>{query.attribute} = &quot;{query.value}&quot;</code><strong aria-live="polite">{matches} of {spans.length} spans</strong></div>
     <div data-spans-head="" aria-hidden="true"><span>Span</span><span>One turn</span><span>{query.attribute}</span></div>
     <ol data-spans="">{spans.map((span) => {
@@ -108,7 +108,7 @@ export function ConversationTrace() {
         <div data-value="" key={view}>{view === 'names'
           ? (span.agent
             ? (wrong ? <span data-chip="wrong"><code>{span.inherited}</code> wrong agent: this span invokes {span.agent}</span> : <span data-chip="agent"><code>{span.agent}</code> its own agent</span>)
-            : <span data-chip="none">not defined on inference spans</span>)
+            : <span data-chip="none">inference spans don’t reference it</span>)
           : <Chip source={source} />}
           {view === 'rule' && span.rule === 'context' && <b data-rule-mark="" title="Rule 1">1</b>}
           {view === 'rule' && span.rule === 'session' && <b data-rule-mark="" title="Rule 2">2</b>}
@@ -116,7 +116,7 @@ export function ConversationTrace() {
         </div>
       </li>;
     })}</ol>
-    <div data-metric=""><div data-name=""><code>gen_ai.client.<wbr />inference.<wbr />usage.<wbr />input_tokens</code><small>Metric · model client</small></div><div data-value=""><span data-chip="none">no conversation ID: metrics don’t define it</span>{view === 'rule' && <b data-rule-mark="" title="Rule 4">4</b>}</div></div>
+    <div data-metric=""><div data-name=""><code>gen_ai.client.<wbr />inference.<wbr />usage.<wbr />input_tokens</code><small>Metric · model client</small></div><div data-value=""><span data-chip="none">no conversation ID: metrics don’t reference it</span>{view === 'rule' && <b data-rule-mark="" title="Rule 4">4</b>}</div></div>
     <ol data-rules="" aria-label="The four rules in the merged section">{rules.map((rule, index) => <li key={rule.id} data-lit={current.lit.includes(rule.id) || undefined}><b>{index + 1}</b>{rule.text}</li>)}</ol>
     <p data-outcome="" role="status"><strong>{current.title}</strong>{current.text}</p>
     <footer>Illustrative trace · span and attribute names from the GenAI conventions · rules from the section merged in #556</footer>
