@@ -45,8 +45,8 @@ export const getArticle = cache((slug: string) => {
 /** The finder's index: every visible article as plain prose, read at build time, so a new article is searchable on the next deploy with no extra step. */
 export const articleSearchEntries = cache((): SearchEntry[] => visibleArticles().map((article) => {
   const source = readFileSync(join(process.cwd(), 'content', 'articles', `${article.slug}.md`), 'utf8');
-  const { slug, title, excerpt, topic, example, exampleStatus, order } = article;
-  return { slug, title, excerpt, topic, example, exampleStatus, order, tags: tagsOf(article), text: plainText([article.seoTitle ?? '', article.shareLine, source.replace(/^\{\{visual:[a-z-]+\}\}$/gm, '')].join('\n')) };
+  const { slug, title, excerpt, topic, example, exampleStatus, order, oss } = article;
+  return { slug, title, excerpt, topic, example, exampleStatus, order, oss, tags: tagsOf(article), text: plainText([article.seoTitle ?? '', article.shareLine, source.replace(/^\{\{visual:[a-z-]+\}\}$/gm, '')].join('\n')) };
 }));
 
 export function collectionJsonLd(name: string, description: string, url: string, list: ArticleSummary[]) {

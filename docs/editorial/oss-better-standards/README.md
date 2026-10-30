@@ -9,8 +9,9 @@ Requested by Yann on 30 October 2026. Direction: show useful contributions and r
 | 5 November 2026, 09:00 | [Clear Mermaid: diagrams people can follow](../../../content/articles/clear-mermaid-diagrams-people-can-follow.md) | New complete draft. Seven flowchart cases and eight rounds; founder preference, local checks and limits. Recorded 24 October screenshot. |
 | 12 November 2026, 09:00 | [DSPy: build AI programmes you can improve](../../../content/articles/dspy-programmes-you-can-improve.md) | Recovered existing introduction. Pinned 23 October source research and illustrative support workflow; no optimisation benchmark. |
 | 19 November 2026, 09:00 | [Helping agents pick up where they left off](../../../content/articles/dspy-reasoning-continuity.md) | Recovered and refreshed: seven checks on DSPy main 25162c4f, after #10713 merged. Provider-reference review remains dated 23 October. |
+| Not scheduled; founder review first | [We got our first PR merged into OpenTelemetry](../../../content/articles/opentelemetry-genai-conversation-id.md) | Founder request, 30 October: the first merged upstream PR, in his own words, with the OSS flag. Facts read from the public PR, issue #522 and the reference reports at upstream main 6f98aef on 30 October. Three original visuals: an illustrative trace, the reference-library coverage and the review timeline. |
 
-All three have `publishedAt: null`. Dates reserve an editorial slot; they never approve customer copy or cause production exposure. The existing HD calendar owns changes to these dates. If a gate is unmet, hold the article and record the revised slot. Do not backdate publication or treat a planned date as a live result. No social posts are approved by this request.
+All four have `publishedAt: null`. Dates reserve an editorial slot; they never approve customer copy or cause production exposure. The existing HD calendar owns changes to these dates. If a gate is unmet, hold the article and record the revised slot. Do not backdate publication or treat a planned date as a live result. No social posts are approved by this request.
 
 ## What the series contributes
 
@@ -41,3 +42,7 @@ Desktop/mobile screenshots inspected locally; no enquiry submitted and no produc
 Independent editorial review by the coordinating agent, 30 October: argument follows Yann's observation, no inflated release or adoption claims. Removed a needless adverb; updated the local package/migration status from the coordinator's verified result. Founder copy review remains outstanding.
 
 The contextual article invitation opens the existing enquiry dialog on mobile. No form was submitted.
+
+## The OSS flag — 30 October 2026
+
+Founder request: mark open-source articles on Orchestra. A catalogue entry's optional `oss` field (`project`, verified upstream `status`) shows the flag above the article's topic line, a compact flag on its card in the article list and an "Open source · <project>" label on its share card. It is set on the OpenTelemetry article only; the three drafts above can carry it once their upstream status is worth stating. Status words follow the earned-discovery distinctions: proposed, accepted, merged, released and adopted are different states.

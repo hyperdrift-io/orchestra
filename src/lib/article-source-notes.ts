@@ -11,6 +11,16 @@ const notes: Record<string, SourceNote> = {
   'https://github.com/stanfordnlp/dspy/pull/10713': { title: 'Merged DSPy adapter migration', by: 'DSPy contributors · merged 28 October 2026; checked 30 October', preview: 'unavailable' },
   'https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/_vendor/lm15/types.py': { title: 'DSPy message and continuation types', by: 'DSPy contributors · checked 30 October 2026', preview: 'unavailable' },
   'https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/adapters/types/reasoning.py': { title: 'DSPy reasoning adapter', by: 'DSPy contributors · checked 30 October 2026', preview: 'unavailable' },
+  // OpenTelemetry #556: read on GitHub 30 October 2026, after the merge. GitHub refuses framing.
+  'https://github.com/open-telemetry/semantic-conventions-genai/pull/556': { title: 'Clarify propagation of shared GenAI context attributes', by: 'OpenTelemetry · pull request #556 · merged 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai': { title: 'OpenTelemetry GenAI semantic conventions', by: 'OpenTelemetry · repository · read 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai/issues/522': { title: 'Document the list of attributes duplicated across layers', by: 'OpenTelemetry · issue #522 · closed by #556', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai/pull/385': { title: 'Add gen_ai.main_agent.name for nested agent and workflow invocations', by: 'OpenTelemetry · draft pull request #385 · open on 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/README.md': { title: 'Semantic conventions for generative AI systems', by: 'OpenTelemetry · Development status · read 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/registry/attributes/gen-ai.md': { title: 'GenAI attribute registry', by: 'OpenTelemetry · read 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/README.md': { title: 'GenAI reference implementations and reports', by: 'OpenTelemetry · main 6f98aef · read 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/reports/inference-span.md': { title: 'Inference span: supporting libraries', by: 'OpenTelemetry · main 6f98aef · read 30 October 2026', preview: 'unavailable' },
+  'https://github.com/open-telemetry/semantic-conventions-genai/blob/main/.github/POLICIES.md': { title: 'Repository review and merge rules', by: 'OpenTelemetry · read 30 October 2026', preview: 'unavailable' },
 
   // DSPy drafts: reviewed 23 October 2026. External sources remain available in the figure source controls.
   "https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures": {"title": "Gemini Generate Content thought signatures", "by": "Google AI documentation \u00b7 reviewed 23 October 2026", "preview": "unavailable"},

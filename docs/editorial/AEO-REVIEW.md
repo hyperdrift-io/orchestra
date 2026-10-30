@@ -55,3 +55,11 @@ Both remain unpublished and noindex. Series evidence, voice and refresh requirem
 - Evidence: seven-case, eight-round local prototype; recorded long-label example. Founder preference and automated checks have explicit limits. Beautiful Mermaid, Mermaid accessibility and W3C colour guidance are credited.
 - Scope: checked flowchart subset; no published package/MCP, universal compatibility, accessibility conformance or independent comprehension result. Query demand and assistant citations are unmeasured.
 - Copy and slots: [OSS series record](oss-better-standards/README.md); `publishedAt` remains null.
+
+## OpenTelemetry #556 draft — 30 October 2026
+
+- Question: How do I find every span of an AI agent conversation in OpenTelemetry, and should my instrumentation pass `gen_ai.conversation.id` to nested calls?
+- Answer: since PR #556 (merged 30 October 2026), instrumentations may pass the conversation ID to nested instrumentations in the same process, prefer the library's own value, share nothing unlisted and record it only on signals that define it. Agent names stay per operation; main-agent naming continues in draft #385.
+- Evidence: the public PR, issue #522, the merged README section, the attribute definition and the repository's reference reports read at upstream main 6f98aef (30 libraries; 11 of 43 library-span pairs record the ID).
+- Scope: Development-status conventions with no tagged release; the rule is optional; the trace visual is illustrative; reference scenarios show what each exercises, not full library capability. Orchestra runs no OpenTelemetry instrumentation of its own yet. Query demand and assistant citations are unmeasured.
+- Copy and slots: [OSS series record](oss-better-standards/README.md); `publishedAt` remains null.

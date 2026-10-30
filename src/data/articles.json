@@ -1177,5 +1177,134 @@
       "width": 1200,
       "height": 160
     }
+  },
+  {
+    "slug": "opentelemetry-genai-conversation-id",
+    "title": "We got our first PR merged into OpenTelemetry",
+    "seoTitle": "OpenTelemetry GenAI conversation ID: passing it to nested spans",
+    "excerpt": "OpenTelemetry's GenAI conventions now say how an agent framework can share its conversation ID with the model and tool calls nested inside it. What changed, why review narrowed it to one attribute, and what to do in your instrumentation.",
+    "shareLine": "Your agent framework knows the conversation. Now the model and tool calls inside it can carry the same ID.",
+    "order": 18,
+    "topic": "Agent telemetry",
+    "example": "OpenTelemetry GenAI conventions",
+    "tags": [
+      "agents",
+      "operations"
+    ],
+    "exampleStatus": "Merged upstream · 30 October 2026",
+    "ctaLabel": "Discuss your agent telemetry",
+    "invite": "Bring an agent workflow you need to trace. We'll look at what each span should record and where the conversation and agent identities belong.",
+    "situation": "workflow",
+    "readNext": "agent-driven-ui-intelligence-and-action",
+    "steps": [
+      "Pass it in-process",
+      "Prefer the library's value",
+      "Share only what's listed",
+      "Only where it's defined"
+    ],
+    "proof": {
+      "heading": "Follow one conversation",
+      "description": "Pull request #556 to OpenTelemetry's GenAI semantic conventions, merged 30 October 2026 after two approvals from reviewers at different companies. Merged on main; no tagged release yet.",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/556",
+      "label": "Read the merged pull request"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/opentelemetry-genai-conversation-id.svg",
+      "alt": "Connected wireframe conversation, magnifier, gift forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "conversation-trace",
+      "takeaway": "One conversation ID, carried from the agent into the model and tool calls nested inside it.",
+      "description": "An illustrative trace of one support conversation in one process. Before the rule, only spans whose own library knows the conversation record its ID, so a query by conversation finds three of six spans. With the rule, the agent framework passes the ID in context and the nested model calls record it too. A remote agent's library has its own session ID, and that value wins. The token metric never carries the ID because GenAI metrics don't define it. The third view shows why agent names stayed out of the list: inherited, the remote agent's span would name its caller.",
+      "sources": [
+        {
+          "label": "Merged pull request #556",
+          "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/556"
+        },
+        {
+          "label": "Attributes shared across operations",
+          "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/gen-ai/README.md#attributes-shared-across-operations"
+        },
+        {
+          "label": "gen_ai.conversation.id definition",
+          "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/main/docs/registry/attributes/gen-ai.md#gen-ai-conversation-id"
+        },
+        {
+          "label": "The wrong-agent case in review",
+          "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/556#discussion_r4363137924"
+        }
+      ],
+      "reviewed": "30 October 2026",
+      "evidenceLabel": "Illustrative trace · rules quoted from the merged section",
+      "download": "/articles/opentelemetry/conversation-trace.png"
+    },
+    "figures": [
+      {
+        "kind": "conventions-reach",
+        "title": "Where the rule sits",
+        "takeaway": "Thirty reference libraries write to the same conventions. Six record the conversation ID today.",
+        "description": "The GenAI semantic conventions sit between the libraries that write telemetry and the backends that read it. The repository's reference scenarios check 30 Python libraries: 11 model clients, 12 agent frameworks, five hosted agents or agent protocols and two evaluation libraries (grouping ours). In those scenarios, six libraries record gen_ai.conversation.id on at least one span: adk_a2a, agent-framework, google-adk, openai-assistants, aws-bedrock-agent and a2a-python. By span: agent invocation inside the process 2 of 8 libraries, remote agent invocation 2 of 4, workflow 1 of 4, inference 2 of 14, tool execution 2 of 11, A2A client and server 1 of 1 each: 11 of 43 in all. Scenario coverage shows what each reference scenario exercises, not everything a library can do.",
+        "sources": [
+          {
+            "label": "Reference implementations and reports",
+            "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/README.md"
+          },
+          {
+            "label": "Inference span report",
+            "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/main/reference/reports/inference-span.md"
+          },
+          {
+            "label": "GenAI semantic conventions repository",
+            "url": "https://github.com/open-telemetry/semantic-conventions-genai"
+          }
+        ],
+        "reviewed": "30 October 2026, upstream main 6f98aef",
+        "evidenceLabel": "Counts from the repository's reference reports, read 30 October 2026",
+        "download": "/articles/opentelemetry/conventions-reach.png"
+      },
+      {
+        "kind": "review-timeline",
+        "title": "Thirty days of review",
+        "takeaway": "Review turned a summary of two attributes into four rules for one.",
+        "description": "Opened on 1 October as an 18-line summary of where gen_ai.agent.name and gen_ai.conversation.id appear. On 12 October Liudmila Molkova asked for normative guidance and links to canonical definitions; the revision was approved the next day. The repository requires a second approval from another company for non-editorial changes. On 23 October Trask Stalnaker showed how an inherited agent name can identify the wrong agent; the GenAI SIG continued agent naming in #385, and the agent name was removed on 27 October. Trask approved on 30 October with two wording suggestions, both applied, and Liudmila approved and merged the change at 22:56 UTC.",
+        "sources": [
+          {
+            "label": "Pull request #556 and its review",
+            "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/556"
+          },
+          {
+            "label": "Issue #522",
+            "url": "https://github.com/open-telemetry/semantic-conventions-genai/issues/522"
+          },
+          {
+            "label": "Draft #385: main agent name",
+            "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/385"
+          },
+          {
+            "label": "Repository review policy",
+            "url": "https://github.com/open-telemetry/semantic-conventions-genai/blob/main/.github/POLICIES.md"
+          }
+        ],
+        "reviewed": "30 October 2026",
+        "evidenceLabel": "Dates and events from the public pull request",
+        "download": "/articles/opentelemetry/review-timeline.png"
+      }
+    ],
+    "oss": {
+      "project": "OpenTelemetry",
+      "status": "Merged upstream"
+    },
+    "reviewedAt": "2026-10-30",
+    "publishedAt": null,
+    "headerImage": {
+      "src": "/articles/mesh/opentelemetry-genai-conversation-id.svg",
+      "alt": "Connected wireframe conversation, magnifier, gift forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
   }
 ]

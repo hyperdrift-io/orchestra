@@ -83,5 +83,10 @@
     "eye",
     "signpost",
     "conversation"
+  ],
+  "opentelemetry-genai-conversation-id": [
+    "conversation",
+    "magnifier",
+    "gift"
   ]
 }

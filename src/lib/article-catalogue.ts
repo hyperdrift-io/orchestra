@@ -1,7 +1,7 @@
 import catalogue from '@/data/articles.json';
 
 export interface ArticleVisual {
-  kind: 'editorial' | 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui';
+  kind: 'editorial' | 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui' | 'conversation-trace' | 'conventions-reach' | 'review-timeline';
   /** Static editorial diagram inside the existing figure and source controls. */
   image?: string;
   alt?: string;
@@ -42,6 +42,8 @@ export interface ArticleSummary {
   figures?: ArticleVisual[];
   series?: 'ui-accessibility';
   seriesOrder?: number;
+  /** The OSS flag: an upstream open-source contribution the article reports, with its verified upstream status. */
+  oss?: { project: string; status: string };
   reviewedAt?: string;
   publishedAt: string | null;
   updatedAt?: string;

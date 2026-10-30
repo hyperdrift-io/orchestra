@@ -509,3 +509,13 @@ form[aria-label='Contact us'] [role='alert'] { color: #ffb3a1; }
   #articles > form { padding-bottom: 1rem; }
   #articles > ol > li { padding-block: 1.8rem; }
 }
+
+/* The OSS flag: the article reports an upstream open-source contribution. Above the topic line on the article, inline on its card. */
+[data-oss-flag] { display: inline-flex; align-items: center; gap: .4rem; margin-right: .7rem; padding: .24rem .65rem .24rem .45rem; border: 1px solid var(--gold); border-radius: var(--r-pill); background: var(--gold-soft); font: .68rem/1.25 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-light); vertical-align: middle; }
+[data-oss-flag] svg { flex: none; width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+[data-oss-flag] b { font-weight: 600; color: var(--cream); }
+[data-oss-flag] abbr { text-decoration: none; cursor: inherit; }
+[data-oss-flag] > span { padding-left: .5rem; border-left: 1px solid var(--gold-line); }
+#article > header > p:first-of-type > [data-oss-flag] { display: flex; flex-wrap: wrap; width: fit-content; max-width: 100%; margin: 0 0 .65rem; }
+[data-oss-flag="compact"] { gap: .3rem; margin-right: .6rem; padding: .12rem .45rem .12rem .35rem; font-size: .62rem; }
+[data-oss-flag="compact"] svg { width: 12px; height: 12px; }

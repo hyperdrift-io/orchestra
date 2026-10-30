@@ -1,0 +1,42 @@
+/* Thirty days of review: a stop per event, the attributes in scope beside it, the facts underneath.
+   Gold marks an approval and an attribute still in scope; a removed attribute stays visible, struck through. */
+[data-visual="review-timeline"] { container: review / inline-size; }
+
+[data-visual="review-timeline"] [data-stops] { position: relative; display: grid; gap: 0; margin: 0 1.8rem; padding: 0; list-style: none; }
+[data-visual="review-timeline"] [data-stops]::before { content: ''; position: absolute; left: 4.6rem; top: .9rem; bottom: .9rem; width: 1px; background: linear-gradient(var(--gold-line), var(--gold)); }
+[data-stops] > li { position: relative; display: grid; grid-template-columns: 4.2rem minmax(0, 1fr) minmax(0, 15rem); gap: 1.2rem; align-items: start; padding: .75rem 0; border-bottom: 1px solid var(--line-hair); }
+[data-stops] > li:last-child { border-bottom: 0; }
+[data-stops] > li::before { content: ''; position: absolute; left: calc(4.6rem - 5px); top: 1.05rem; width: 9px; height: 9px; border-radius: 50%; background: var(--ink-2); box-shadow: inset 0 0 0 1.5px var(--gold-line); }
+[data-stops] > li[data-approval]::before { background: var(--gold); box-shadow: 0 0 12px rgb(227 168 87 / .55); }
+[data-stops] time { font: 500 .72rem/1.6 var(--font-mono); letter-spacing: .06em; color: var(--gold-light); }
+[data-stops] > li > div { padding-left: .6rem; }
+[data-stops] strong { display: block; font: 500 1.05rem/1.25 var(--font-display); color: var(--cream); }
+[data-stops] > li > div > small { display: block; margin-top: .1rem; font: .56rem/1.4 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+[data-stops] p { margin: .3rem 0 0; font: .8rem/1.5 var(--font-body); color: var(--cream-3); }
+[data-stops] > li > ul { display: grid; gap: .25rem; margin: 0; padding: 0; list-style: none; }
+[data-stops] > li > ul li { padding: .2rem .45rem; border: 1px dashed var(--line-hair); border-radius: 3px; font: .62rem/1.35 var(--font-mono); color: var(--cream-3); opacity: .55; }
+[data-stops] > li > ul li code { font: inherit; text-decoration: line-through; text-decoration-color: rgb(232 161 138 / .7); }
+[data-stops] > li > ul li[data-in] { border-style: solid; border-color: var(--gold-line); background: var(--gold-soft); color: var(--gold-light); opacity: 1; }
+[data-stops] > li > ul li[data-in] code { text-decoration: none; }
+[data-stops] > li > ul li[data-form] { border: 0; padding-inline: .1rem; letter-spacing: .1em; text-transform: uppercase; font-size: .55rem; opacity: 1; }
+[data-stops] > li:last-child > ul li[data-form] { color: var(--gold-light); }
+
+[data-visual="review-timeline"] [data-facts] { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin: 1.1rem 1.8rem 0; border-block: 1px solid var(--line-soft); }
+[data-facts] > div { display: flex; flex-direction: column-reverse; gap: .2rem; padding: .8rem .7rem; border-left: 1px solid var(--line-hair); }
+[data-facts] > div:first-child { border-left: 0; padding-left: 0; }
+[data-facts] dd { margin: 0; font: 500 2rem/1 var(--font-display); color: var(--gold-light); }
+[data-facts] dt { font: .58rem/1.35 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--cream-3); }
+[data-visual="review-timeline"] [data-action] { margin: .9rem 1.8rem 1rem; }
+[data-visual="review-timeline"] [data-action] a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold-light); font: 500 .85rem var(--font-body); }
+
+@container review (max-width: 640px) {
+  [data-visual="review-timeline"] [data-stops] { margin-inline: 1rem; }
+  [data-visual="review-timeline"] [data-stops]::before { left: .3rem; }
+  [data-stops] > li { grid-template-columns: 1fr; gap: .4rem; padding-left: 1.4rem; }
+  [data-stops] > li::before { left: calc(.3rem - 4px); }
+  [data-stops] > li > div { padding-left: 0; }
+  [data-stops] > li > ul { display: flex; flex-wrap: wrap; }
+  [data-visual="review-timeline"] [data-facts] { grid-template-columns: 1fr 1fr; margin-inline: 1rem; }
+  [data-facts] > div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line-hair); }
+  [data-visual="review-timeline"] [data-action] { margin-inline: 1rem; }
+}

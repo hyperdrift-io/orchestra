@@ -1,0 +1,65 @@
+/* Where the rule sits: writers above, the conventions at the waist, readers below. Gold is a library that records
+   the conversation ID; picking a span lights the libraries that emit it. The default view needs no script. */
+[data-visual="conventions-reach"] { container: reach / inline-size; --records: #e3a857; --emits: rgb(246 238 225 / .55); }
+[data-visual="conventions-reach"] button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+[data-visual="conventions-reach"] h4 { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; margin: 0 0 .8rem; font: 500 1.15rem/1.2 var(--font-display); color: var(--cream); }
+[data-visual="conventions-reach"] h4 small { font: .56rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+
+[data-visual="conventions-reach"] [data-reach] { margin: 0 1.8rem 1.6rem; }
+
+/* Writers: four groups of scenario names. */
+[data-reach] [data-writers] { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.4rem; padding: 1rem 1.1rem 1.1rem; border: 1px solid var(--line-soft); border-radius: 4px; background: rgb(15 13 10 / .45); }
+[data-reach] [data-writers] > h4 { grid-column: 1 / -1; margin-bottom: 0; }
+[data-reach] [data-group] h5 { display: flex; justify-content: space-between; gap: .5rem; margin: 0 0 .45rem; padding-bottom: .3rem; border-bottom: 1px solid var(--line-hair); font: .58rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+[data-reach] [data-group] h5 span { color: var(--cream-3); }
+[data-reach] [data-group] ul { display: flex; flex-wrap: wrap; gap: .3rem; margin: 0; padding: 0; list-style: none; }
+[data-reach] [data-group] li { padding: .22rem .45rem; border: 1px solid var(--line-hair); border-radius: 3px; transition: color var(--d-fast), background var(--d-fast), border-color var(--d-fast), opacity var(--d-fast); }
+[data-reach] [data-group] li code { font: .66rem/1.2 var(--font-mono); color: var(--cream-2); }
+[data-reach] [data-group] li[data-state="records"] { border-color: var(--records); background: rgb(227 168 87 / .2); }
+[data-reach] [data-group] li[data-state="records"] code { color: var(--gold-light); }
+[data-reach] [data-group] li[data-state="records"] code::before { content: '●'; margin-right: .3rem; font-size: .55rem; color: var(--records); }
+[data-reach] [data-group] li[data-state="emits"] { border-color: var(--emits); background: rgb(246 238 225 / .06); }
+[data-reach] [data-group] li[data-state="emits"] code { color: var(--cream); }
+[data-reach] [data-group] li[data-state="dim"] { opacity: .32; }
+
+/* The funnel lines in and out of the waist. */
+[data-reach] [data-funnel] { display: block; width: 100%; height: 34px; overflow: visible; }
+[data-reach] [data-funnel] path { fill: none; stroke: var(--gold-line); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 3 4; }
+
+/* The waist: the conventions, with the merged section lit. */
+[data-reach] [data-waist] { display: grid; justify-items: center; gap: .6rem; width: min(100%, 560px); margin: 0 auto; padding: 1rem 1.1rem 1.1rem; border: 1px solid var(--gold); border-radius: 4px; background: radial-gradient(ellipse at 50% 0, rgb(227 168 87 / .16), rgb(22 19 15 / .92) 70%); text-align: center; box-shadow: 0 0 40px rgb(227 168 87 / .12); }
+[data-waist] > p { display: grid; gap: .3rem; margin: 0; font: 500 1.2rem/1.2 var(--font-display); color: var(--cream); }
+[data-waist] > p small { font: .55rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--cream-3); }
+[data-waist] > ul { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem .35rem; margin: 0; padding: 0; list-style: none; }
+[data-waist] > ul li { padding: .15rem .45rem; border: 1px solid var(--line-soft); border-radius: var(--r-pill); font: .6rem/1.3 var(--font-mono); color: var(--cream-3); }
+[data-waist] [data-ours] { display: grid; gap: .25rem; width: 100%; padding: .6rem .8rem; border-radius: 3px; background: var(--gold); color: var(--ink); }
+[data-waist] [data-ours] span { font: 600 .9rem/1.25 var(--font-body); }
+[data-waist] [data-ours] small { font: .62rem/1.4 var(--font-mono); letter-spacing: .03em; color: rgb(20 18 14 / .82); }
+[data-waist] [data-ours] code { font: inherit; font-weight: 600; color: var(--ink); }
+
+/* Readers. */
+[data-reach] [data-readers] { padding: 1rem 1.1rem; border: 1px solid var(--line-soft); border-radius: 4px; background: rgb(15 13 10 / .45); text-align: center; }
+[data-reach] [data-readers] h4 { justify-content: center; }
+[data-reach] [data-readers] ul { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .5rem; margin: 0 0 .7rem; padding: 0; list-style: none; }
+[data-reach] [data-readers] li { padding: .25rem .6rem; border: 1px solid var(--line-firm); border-radius: 3px; font: .78rem/1.2 var(--font-body); color: var(--cream); }
+[data-reach] [data-readers] p { margin: 0; font: .8rem/1.5 var(--font-body); color: var(--cream-3); }
+
+/* Coverage: one row per span that defines the attribute, one dot per library that emits it. */
+[data-visual="conventions-reach"] [data-coverage] { margin: 0 1.8rem; }
+[data-coverage] nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; }
+[data-visual="conventions-reach"] [data-coverage] button { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "label count" "dots dots"; align-items: center; gap: .35rem .5rem; padding: .55rem .65rem; text-align: left; border-color: var(--line-soft); }
+[data-coverage] button > span { grid-area: label; font: 500 .78rem/1.25 var(--font-body); color: var(--cream-2); }
+[data-coverage] button > small { grid-area: count; font: .62rem var(--font-mono); color: var(--cream-3); }
+[data-coverage] button > i { grid-area: dots; display: flex; flex-wrap: wrap; gap: 3px; min-height: 9px; }
+[data-coverage] button > i b { width: 9px; height: 9px; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--emits); }
+[data-coverage] button > i b[data-on] { background: var(--records); box-shadow: none; }
+[data-visual="conventions-reach"] [data-coverage] button[aria-pressed="true"] { border-color: var(--gold); background: var(--gold-soft); }
+[data-coverage] button[aria-pressed="true"] > span { color: var(--cream); }
+[data-coverage] button[aria-pressed="true"] > small { color: var(--gold-light); }
+[data-visual="conventions-reach"] [data-outcome] { min-height: 92px; padding-bottom: 1.3rem; }
+
+@container reach (max-width: 640px) {
+  [data-visual="conventions-reach"] :is([data-reach], [data-coverage]) { margin-inline: 1rem; }
+  [data-reach] [data-writers] { grid-template-columns: 1fr; padding: .9rem; }
+  [data-coverage] nav { grid-template-columns: 1fr 1fr; }
+}

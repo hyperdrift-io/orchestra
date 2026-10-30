@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from 'react';
 import { ArticleTags } from '@/components/ArticleTags';
+import { OssFlag } from '@/components/OssFlag';
 import { trackEvent } from '@/lib/analytics';
 import { highlight, indexEntries, searchArticles, snippet, tokens, type SearchEntry } from '@/lib/article-search';
 import type { ArticleTag } from '@/lib/article-tags';
@@ -85,7 +86,7 @@ export function ArticleFinder({ entries, tags, initialTag = null, children }: Pr
     </form>
     {!active && children}
     <ol start={active || !children ? 1 : 2} onClick={onTagClick}>{listed.map((entry) => <li key={entry.slug}>
-      <span>{String(entry.order).padStart(2, '0')}</span><div><p>{entry.topic} / {entry.example}</p><h2><a href={`/articles/${entry.slug}`}>{mark(entry.title)}</a></h2><p>{mark(entry.excerpt)}</p>{reason(entry) && <p data-snippet="">{mark(reason(entry)!)}</p>}<ArticleTags tags={entry.tags} current={tag} /><small>{entry.exampleStatus}</small></div><a href={`/articles/${entry.slug}`} aria-label={`Read ${entry.title}`}>Read →</a>
+      <span>{String(entry.order).padStart(2, '0')}</span><div><p>{entry.oss && <OssFlag oss={entry.oss} compact />}{entry.topic} / {entry.example}</p><h2><a href={`/articles/${entry.slug}`}>{mark(entry.title)}</a></h2><p>{mark(entry.excerpt)}</p>{reason(entry) && <p data-snippet="">{mark(reason(entry)!)}</p>}<ArticleTags tags={entry.tags} current={tag} /><small>{entry.exampleStatus}</small></div><a href={`/articles/${entry.slug}`} aria-label={`Read ${entry.title}`}>Read →</a>
     </li>)}</ol>
   </>;
 }

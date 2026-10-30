@@ -18,6 +18,7 @@ import { ArticleTags } from '@/components/ArticleTags';
 import { ReadNudge } from '@/components/ReadNudge';
 import { articleShareImage } from '@/lib/share-metadata';
 import { tagsOf } from '@/lib/article-tags';
+import { OssFlag } from '@/components/OssFlag';
 
 type Props = { params: Promise<{ slug: string }> };
 export const generateStaticParams = () => visibleArticles().map(({ slug }) => ({ slug }));
@@ -49,7 +50,7 @@ export default async function ArticlePage({ params }: Props) {
     <header>
       <nav aria-label="Breadcrumb"><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? 'The future of UI and accessibility' : 'The AI-native organisation'}</a><span>/ {String(article.seriesOrder ?? article.order).padStart(2, '0')}</span></nav>
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}
-      <p>{article.topic} / {article.example}</p>
+      <p>{article.oss && <OssFlag oss={article.oss} />}{article.topic} / {article.example}</p>
       <div data-article-heading=""><h1>{article.title}</h1>
         <div data-article-orb=""><MeshArtwork key={article.slug} kind="article" fallbackSvg={meshFallbackSvg('article', article.slug)} slug={article.slug} fallback={headerImage.src} layout="title" animated /></div>
       </div>

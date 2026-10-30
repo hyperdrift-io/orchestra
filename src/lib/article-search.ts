@@ -1,3 +1,4 @@
+import type { ArticleSummary } from './article-catalogue';
 import type { ArticleTag } from './article-tags';
 
 /** What the finder needs per article, built once on the server; `text` is the whole article as plain prose. */
@@ -10,6 +11,7 @@ export type SearchEntry = {
   exampleStatus: string;
   order: number;
   tags: ArticleTag[];
+  oss?: ArticleSummary['oss'];
   text: string;
 };
 
