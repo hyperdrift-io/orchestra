@@ -57,4 +57,4 @@ Articles are `content/articles/*.md` plus `src/data/articles.json`, with `publis
 
 `npm run dev` (port 3108), `npm run test:ci` (typecheck and Vitest), `npm run build`.
 
-Release: commit to main and push; deploy from a worktree of infra origin/main with `make deploy app=orchestra`, then check the live revision. GitHub Actions only verifies. Never widen runner access to this public repo. UI changes deploy after the founder's yes on a preview. Record each release in `docs/RELEASES.md`.
+Release: commit to main and push; from a worktree of infra origin/main, `make build-release app=orchestra`, then `make release app=orchestra artifact=<printed path> target=hyperdrift_new`, then read the live page back. Since the 30 October cutover `make deploy` reaches the old host, which serves no traffic. A static build leaves out an article whose `publishedAt` is later than the build, so build after that moment. GitHub Actions only verifies. Never widen runner access to this public repo. UI changes deploy after the founder's yes on a preview. Record each release in `docs/RELEASES.md`.
