@@ -22,7 +22,7 @@ This is where the benefit could appear. The person directs the work using knowle
 
 For the release example, we would expose a scoped read of blockers before considering any write. Each result should identify the project and observation time. The assistant should retain the source of a finding instead of turning several uncertain inputs into one confident paragraph.
 
-If two sources disagree, the note should show the disagreement or request clarification. If access to one service fails, the result should say which part is missing. Quietly completing a smaller task creates a misleading impression of success.
+If two sources disagree, the note should show the disagreement or request clarification. If access to one service fails, the result should say which part is missing. Completing a smaller task without saying so gives a false impression of success.
 
 ## A correction must reach the right place
 

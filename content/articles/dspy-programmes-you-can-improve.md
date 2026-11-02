@@ -46,7 +46,7 @@ For a founder, the decision is practical: does the improvement help the team fin
 
 For example, an exploratory programme could locate relevant policy sections with Python, ask a sub-model to examine each one and combine the findings. That is an illustrative design, not a benchmark we have run. RLM is experimental in the inspected revision. Its call budget, execution environment and recovery behaviour need deliberate configuration.
 
-RLM's interpreter state is one part of the work. The conversation record and a provider's native reasoning state are other parts. Each has its own lifetime. This distinction led us to research DSPy's [reasoning-continuity issue](https://github.com/stanfordnlp/dspy/issues/10675), which we explore in [Helping agents pick up where they left off](/articles/dspy-reasoning-continuity).
+RLM's interpreter state is one part of the work. The conversation record and a provider's native reasoning state are other parts. Each has its own lifetime. This distinction led us to research DSPy's [reasoning-continuity issue](https://github.com/stanfordnlp/dspy/issues/10675).
 
 ## Choose one repeatable workflow
 

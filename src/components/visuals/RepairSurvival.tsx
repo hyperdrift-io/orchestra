@@ -55,7 +55,7 @@ const states: Record<string, { tone: Tone; title: string; text: string; label: s
   '4-order': {
     tone: 'coral',
     title: 'Newer code. Older vulnerability.',
-    text: 'The gate sees a later commit and admits it. Production runs the old parser again, and nothing failed loudly: a feature release quietly undid the repair.',
+    text: 'The gate sees a later commit and admits it. Production runs the old parser again, and nothing failed loudly: a feature release undid the repair and nobody noticed.',
     label: 'Step 4 of 5, the gate checks release order only. Candidate B, digest-3, is admitted. Production runs the old parser again.',
   },
   '5-fixes': {

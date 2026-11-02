@@ -32,6 +32,8 @@ An agent may already know something relevant about a person. That can reduce rep
 
 When the agent passes a profile field to a page tool, that field has crossed into the page. Authentication and access checks remain necessary where the operation requires them. The useful design question is which information this action actually needs, and whether the person can inspect what is being proposed.
 
+A page can mislabel a tool as read-only. The [WebMCP security guidance](https://github.com/webmachinelearning/webmcp/commit/51ed75653aaa7f174f8dbe05d1bc327359bbc57c) makes the agent's responsibility explicit: it needs its own checks on actions and data sharing. A page's labels cannot grant permission.
+
 Our original article took a strong position on where context could live. This adaptation narrows the claim: keeping some context with the agent can change what a site needs to store. The result depends on the application and the information sent to its tools.
 
 ## Start with an action worth exposing

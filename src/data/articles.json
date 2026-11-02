@@ -3,7 +3,7 @@
     "slug": "delegation-with-boundaries",
     "title": "AI agent permissions: how much authority should you delegate?",
     "seoTitle": "AI agent permissions and human oversight",
-    "excerpt": "Helm separates diagnosis from action and confines disruptive operations to drill services. The demonstration makes agent authority visible, inspectable and worth discussing before deployment.",
+    "excerpt": "Helm separates diagnosis from action and restricts disruptive operations to Cargo. Its completion-reporting gap shows why permissions and outcome checks need separate tests.",
     "shareLine": "Useful delegation gives an agent a job, a boundary and a way to prove completion.",
     "order": 1,
     "topic": "Delegation",
@@ -31,7 +31,7 @@
       "caption": "Helm: recorded demonstration of agent roles and sandbox recovery."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
+    "updatedAt": "2026-11-02T12:00:00Z",
     "image": {
       "src": "/articles/mesh/delegation-with-boundaries.svg",
       "alt": "Connected wireframe flag, shield, checklist forms in Orchestra's mesh style.",
@@ -42,11 +42,15 @@
     "visualization": {
       "kind": "authority",
       "takeaway": "Authority lives in the tools a role holds; completion needs a read-back.",
-      "description": "Three requests pass through three roles. One role routes the work and holds no tools. The watch officer reads evidence with read-only tools. The engineer can restart services, and the restart tool itself accepts drill services only. A request to restart a drill service is allowed and reported done only after the service answers again from outside. A request to restart production is refused by the tool and escalated to a person, however it is worded. An error page instructing the agent to report the service healthy is read as evidence: its instruction text is quarantined and recorded, and the status code is kept. Illustrative of the recorded Helm drill, a contest build rather than a client case.",
+      "description": "Three requests pass through three roles. One role routes the work and holds no tools. The watch officer reads evidence with read-only tools. The engineer can switch a service's public ingress, and that tool accepts drill services only. A request to bring the drill service back is allowed; the recommended check reports success only after the service answers again from outside, and a timeout otherwise. A request to take production offline is refused by the tool and escalated to a person, however it is worded. An error page instructing the agent to report the service healthy is read as evidence: its instruction text is quarantined and recorded, and the status code is kept. Recommended completion check, illustrated with Helm's roles; Helm is a contest build rather than a client case, and its own console route can report success after a timeout.",
       "sources": [
         {
           "label": "Helm source",
           "url": "https://github.com/hyperdrift-io/helm"
+        },
+        {
+          "label": "Helm console completion check (pinned source)",
+          "url": "https://github.com/hyperdrift-io/helm/blob/e2bed164d45df4268e4f6cb063a32771ffc0d2aa/helm/web.py#L890"
         },
         {
           "label": "Helm recorded demonstration",
@@ -57,21 +61,22 @@
           "url": "https://hyperdrift.io/blog/your-error-page-is-a-prompt"
         }
       ],
-      "reviewed": "10 October 2026"
+      "reviewed": "2 November 2026"
     },
     "headerImage": {
       "src": "/articles/mesh/delegation-with-boundaries.svg",
       "alt": "Connected wireframe flag, shield, checklist forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "invite": "Bring one job, the records it needs and the changes it may make. We'll define its authority and completion checks."
   },
   {
     "slug": "evidence-that-starts-work",
     "title": "AI daily briefs: turn activity into useful priorities",
     "seoTitle": "AI daily briefs: evidence and priorities",
-    "excerpt": "Standup reads public GitHub activity and returns a short, evidenced set of priorities. Its ordering rule shows what makes an AI brief useful enough to act on.",
-    "shareLine": "A brief earns its place when you can act on it and check why.",
+    "excerpt": "Standup puts people waiting for a maintainer before routine work. Its recorded output and later MCP checks show why each recommendation needs a source the reader can inspect.",
+    "shareLine": "People waiting for a maintainer come before work the maintainer can do alone.",
     "order": 2,
     "topic": "Priorities",
     "example": "Standup",
@@ -99,7 +104,7 @@
       "caption": "Standup is a public project. Its historical example output is linked in the article."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
+    "updatedAt": "2026-11-02T12:00:00Z",
     "image": {
       "src": "/articles/mesh/evidence-that-starts-work.svg",
       "alt": "Connected wireframe magnifier, signpost, target forms in Orchestra's mesh style.",
@@ -128,7 +133,8 @@
       "alt": "Connected wireframe magnifier, signpost, target forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "invite": "Bring the recurring question and the sources your team reads. We'll define what should come first and how to check it."
   },
   {
     "slug": "lakebase-vs-document-databases",
@@ -159,7 +165,7 @@
     },
     "media": null,
     "publishedAt": "2026-09-24T20:10:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
+    "updatedAt": "2026-11-02T12:00:00Z",
     "image": {
       "src": "/articles/mesh/lakebase-vs-document-databases.svg",
       "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
@@ -274,8 +280,8 @@
     "slug": "the-first-officer",
     "title": "The dashboard that speaks first",
     "seoTitle": "Voice-first operations: a first officer that reports to you",
-    "excerpt": "A chief of staff walks in and says: three things need you today. We built that for a one-founder fleet. You talk, it answers in under a second, an agent acts, and it reports back.",
-    "shareLine": "Dashboards wait to be read. A first officer reports.",
+    "excerpt": "In a recorded Cargo recovery, a spoken instruction starts the work. First Officer checks the response and reports back, with the evidence still on screen.",
+    "shareLine": "First Officer reports the result of a spoken instruction, with the evidence still on screen.",
     "order": 5,
     "topic": "Conversation",
     "example": "Hyperdrift First Officer",
@@ -284,7 +290,7 @@
       "operations",
       "ui"
     ],
-    "exampleStatus": "Live, and open source",
+    "exampleStatus": "Recorded sandbox recovery · 29 September 2026",
     "ctaLabel": "Discuss your operating workflow",
     "steps": [
       "It speaks first",
@@ -293,9 +299,9 @@
       "It reports back"
     ],
     "proof": {
-      "description": "The officer is live and its code is open. Talk to it in Chrome with a microphone; Cargo is a sandbox ship you can really switch. The watch opens by invitation: this link carries it.",
-      "url": "https://bridge-voice-294160018950.europe-west1.run.app/?watch=VZSq5WB10SSQ",
-      "label": "Talk to the officer"
+      "description": "The recorded take shows a sandbox recovery from one spoken instruction. The officer's code is open; the interactive watch has not been re-verified since September.",
+      "url": "https://github.com/hyperdrift-io/bridge-voice",
+      "label": "Read the officer's code"
     },
     "media": {
       "kind": "video",
@@ -316,7 +322,9 @@
       "width": 1200,
       "height": 160
     },
-    "readNext": "agent-driven-ui-intelligence-and-action"
+    "readNext": "agent-driven-ui-intelligence-and-action",
+    "invite": "Bring one operating decision and the evidence it needs. We'll discuss what speech could simplify.",
+    "updatedAt": "2026-11-02T12:00:00Z"
   },
   {
     "slug": "is-ui-holding-us-back",
@@ -469,7 +477,7 @@
       "height": 160
     },
     "publishedAt": "2026-10-06T00:00:00Z",
-    "updatedAt": "2026-10-18T22:41:35Z",
+    "updatedAt": "2026-11-02T12:00:00Z",
     "series": "ui-accessibility",
     "seriesOrder": 3,
     "reviewedAt": "2026-10-18",
@@ -655,7 +663,8 @@
           "url": "https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture"
         }
       ]
-    }
+    },
+    "updatedAt": "2026-11-02T12:00:00Z"
   },
   {
     "slug": "future-ui-keep-your-place",
@@ -1282,7 +1291,8 @@
       "alt": "Connected wireframe conversation, magnifier, gift forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "updatedAt": "2026-11-02T12:00:00Z"
   },
   {
     "slug": "clear-mermaid-in-action",

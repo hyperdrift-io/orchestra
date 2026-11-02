@@ -2,5 +2,38 @@
   "webmcp-actions-on-the-page": {
     "Chrome's guide documents an origin trial from Chrome 149 and a local testing flag. It still describes JavaScript tools and annotated forms. The WebMCP draft changed on 8 October: it now focuses on JavaScript tools, with the form-based API still being explored separately. The draft and the browser experiment are moving at different speeds. Check both against the browser and agent your users will use.": "p-1606n4d",
     "The next article examines hands-free control through First Officer. It brings speech into the picture and asks how the person knows that an instruction actually worked.": "p-12rybsj"
+  },
+  "opentelemetry-genai-conversation-id": {
+    "Search an agent's telemetry for one conversation ID and you'll usually find the agent span, not the model and tool calls it made. We got our first PR merged into a significant repository to change that: OpenTelemetry's semantic conventions for generative AI. Liudmila Molkova merged #556 on 30 October. As libraries adopt the rule, model and tool calls can carry the conversation ID supplied by the enclosing agent, unless they have their own. A filter finds the calls carrying that ID.": "p-ggpcl8"
+  },
+  "dspy-programmes-you-can-improve": {
+    "RLM's interpreter state is one part of the work. The conversation record and a provider's native reasoning state are other parts. Each has its own lifetime. This distinction led us to research DSPy's reasoning-continuity issue.": "p-1uk5c2d"
+  },
+  "voice-through-mcp": {
+    "If two sources disagree, the note should show the disagreement or request clarification. If access to one service fails, the result should say which part is missing. Completing a smaller task without saying so gives a false impression of success.": "p-137anw5"
+  },
+  "lakebase-vs-document-databases": {
+    "For AI applications, the tempting shortcut is to pick documents because the agent produces JSON. That does not settle the database choice. This guide compares the approaches, then uses a refund and a support case to show where each can fit. The examples are illustrative designs, not benchmarks or client results.": "p-1d8k35s"
+  },
+  "the-first-officer": {
+    "We built First Officer so we could ask about the fleet, make a decision and hear the result while the evidence stayed on screen. In the 29 September recording, “bring it back” starts recovery of Cargo, our sandbox service. The officer reports after two consecutive successful external checks.": "p-1aoc5fj",
+    "Response time in the recorded tests": "half-a-second",
+    "Across four takes of six turns on 29 September, answers began 0.5–0.8 seconds after the generated captain’s voice ended. The longest conversational silence was 1.2 seconds. That measures response onset; the interval from the captain’s first word to the report was 12.7 seconds in the recorded take.": "p-62pc0r",
+    "There was one wall. With the speech API we tested in September, a voice that had started a sentence could not be stopped. So when you talk over the officer, it does what a person does: it goes quiet, hangs up on itself, and picks up a fresh line while you are still speaking. You hear a pause of about a second. Underneath, a whole session ended and another began.": "p-nferu7",
+    "We used AssemblyAI for speech recognition and speech output, and kept the operating decisions in our own code. The response path selects lines from the agenda and its evidence. Its accuracy still depends on those records and the checks behind them.": "p-1mk0768",
+    "The code is open.": "p-4c5y2s"
+  },
+  "delegation-with-boundaries": {
+    "Give an AI agent the permissions needed for its assigned job, enforce those limits in its tools and require evidence of the result before reporting completion. Separate diagnosis from actions that change systems, with explicit approval or escalation where needed. Helm demonstrates restricted roles and sandbox operations; its console source also exposes a completion-reporting gap.": "p-18fgud2",
+    "We explored this in Helm, a demonstration built for Google's All Things Agentic Hackathon. It gives different agents different responsibilities over a product fleet, with disruptive drill actions confined to designated sandbox services.": "p-1yeo5bi",
+    "Helm has three roles: a commander routes the work, a watch officer reads the evidence, and an engineer acts through a restricted set of tools.": "p-4ggmcp",
+    "An API accepting a request does not prove that the operation finished. Helm illustrates the intended check, but its inspected console route has a gap: after twenty unsuccessful probes it can still report “live confirmed”. Completion reporting needs to depend on the observed result, including failure or timeout.": "p-x8gvbw",
+    "Before an agent touches real tools, ask to see one allowed action, one refused action and one failed action handled honestly. A convincing success path leaves those questions open.": "p-1j1huj7",
+    "The technical account has the detail for whoever will own the integration.": "p-5niiqf"
+  },
+  "evidence-that-starts-work": {
+    "Standup works this way. Give it a GitHub handle and it reads public repository activity, then prepares a short set of recommended next actions with the evidence it used.": "p-19rkg8f",
+    "The repository includes a recorded run over public projects. Its recommendations identify reviews and replies, cite the relevant issues or pull requests and give rough effort estimates. The accompanying audit lists what was read. That is a historical example of output, not a claim about those projects' current needs. The estimates are the model's suggestions, not measured completion times.": "p-1cguh3p",
+    "Generating a summary is easy now. A useful service still needs a clear definition of what deserves attention. Compare one proposed brief with the decisions your team actually makes; disagreements show where the context or ordering needs work.": "p-rctru8"
   }
 }

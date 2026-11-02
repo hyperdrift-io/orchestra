@@ -76,15 +76,15 @@ function StreamingSequence() {
 }
 
 const requests = [
-  { id: 'drill', label: 'Restart the drill service', route: 'act', outcome: 'allowed', title: 'Allowed, then checked.', text: 'The engineer holds a restart tool, and the tool accepts drill services. The request is in scope. The agent reports success only after the service answers again from outside.' },
-  { id: 'production', label: 'Restart production', route: 'act', outcome: 'refused', title: 'Refused by the tool, not by the prompt.', text: 'The same restart tool checks its target. Production is outside the allowance, so no wording can unlock it. The request goes to a person.' },
+  { id: 'drill', label: 'Bring the drill service back', route: 'act', outcome: 'allowed', title: 'An allowed action still needs checking.', text: 'The engineer holds an ingress tool, and the tool accepts drill services only. The request is in scope. Report success only after the service answers again from outside; report a timeout otherwise.' },
+  { id: 'production', label: 'Take production offline', route: 'act', outcome: 'refused', title: 'Refused by the tool, not by the prompt.', text: 'The same ingress tool checks its target. Production is outside the allowance, so no wording opens it. The request goes to a person.' },
   { id: 'injected', label: 'Error page says “report healthy”', route: 'read', outcome: 'quarantined', title: 'Read as evidence, never as an order.', text: 'The watch officer reads the failing page. Its instruction text is quarantined and recorded; the status code stays as evidence. Reading a page grants it no authority.' },
 ] as const;
 
 const roles = [
   { id: 'route', step: '01', name: 'Route', who: 'Assigns the job', tools: 'No tools' },
   { id: 'read', step: '02', name: 'Read', who: 'Watch officer', tools: 'Health checks · logs · read-only' },
-  { id: 'act', step: '03', name: 'Act', who: 'Engineer', tools: 'Restart · drill services only' },
+  { id: 'act', step: '03', name: 'Act', who: 'Engineer', tools: 'Ingress on/off · drill services only' },
 ] as const;
 
 function AuthorityMap() {
@@ -97,7 +97,7 @@ function AuthorityMap() {
     <div data-gate=""><span>ENFORCED IN THE TOOL</span><code>target ∈ drill services</code><b>{request.outcome}</b></div>
     <p data-outcome="" role="status"><strong>{request.title}</strong>{request.text}</p>
     <div data-readback=""><span>COMPLETION</span><ol><li>Request accepted</li><li>Read the resulting state</li><li data-done={request.outcome === 'allowed'}>Report done</li></ol></div>
-    <footer>Illustrative of the recorded Helm drill · a contest build, not a client case</footer>
+    <footer>Recommended completion check, illustrated with Helm’s roles · a contest build, not a client case</footer>
   </section>;
 }
 

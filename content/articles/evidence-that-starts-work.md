@@ -1,10 +1,10 @@
 A useful AI daily brief ranks the next actions using an agreed priority rule and shows the source record behind each recommendation. It should distinguish people waiting for help from routine activity and let the reader correct its judgement. Standup demonstrates this with public GitHub issues and pull requests.
 
-That is the question behind [Standup](https://standup.hyperdrift.io). Give it a GitHub handle and it reads public repository activity, then prepares a short set of recommended next actions with the evidence it used.
+[Standup](https://standup.hyperdrift.io) works this way. Give it a GitHub handle and it reads public repository activity, then prepares a short set of recommended next actions with the evidence it used.
 
 We built it for the Agents for Humans Hackathon using the Strands Agents SDK. The example is small enough to inspect and familiar enough to recognise in other kinds of work.
 
-> A brief earns its place when you can act on it and check why.
+> People waiting for a maintainer come before work the maintainer can do alone.
 
 ## The ordering rule is the product
 
@@ -13,6 +13,8 @@ Standup puts a person waiting for help ahead of a task that only costs the maint
 Those choices define what the brief values. Asking a model to summarise everything would leave the most important product decision unresolved: what should come first?
 
 The [repository includes a recorded run](https://github.com/hyperdrift-io/standup#real-output) over public projects. Its recommendations identify reviews and replies, cite the relevant issues or pull requests and give rough effort estimates. The accompanying audit lists what was read. That is a historical example of output, not a claim about those projects' current needs. The estimates are the model's suggestions, not measured completion times.
+
+[Two October checks](https://github.com/hyperdrift-io/standup/blob/42500a5778484cd33fce728e3544658473c56acf/docs/proof/2026-10-04/README.md) of Standup's MCP build overstated waiting times and CI coverage. Read the linked records before acting; the tests did not establish better priorities than reading GitHub directly.
 
 ## Keep the reader able to disagree
 
@@ -28,8 +30,6 @@ These examples suggest a practical starting point for a client workflow. Pick a 
 
 Then agree the ordering rule with that owner. Read the permitted sources. Show the supporting record beside each recommendation. Give people a way to correct the conclusion before adding authority to act on it. [The First Officer](/articles/the-first-officer) turns this kind of brief into a conversation that ends in a decision.
 
-**What to watch:** generating a summary is increasingly easy. A useful service still needs a clear definition of what deserves attention. Compare one proposed brief with the decisions your team actually makes; disagreements show where the context or ordering needs work.
-
-Send [Standup](https://standup.hyperdrift.io) to someone returning to their open-source projects. If your team assembles a similar picture across business tools, tell us what the morning question is and where its answers live.
+Generating a summary is easy now. A useful service still needs a clear definition of what deserves attention. Compare one proposed brief with the decisions your team actually makes; disagreements show where the context or ordering needs work.
 
 [Discuss your team's daily brief →](https://orchestra.hyperdrift.io/?article=evidence-that-starts-work#contact)

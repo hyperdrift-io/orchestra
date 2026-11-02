@@ -178,6 +178,5 @@ export const caseStudies: CaseStudy[] = [
     stack: ['React', 'URL-synced state', 'PWA'],
     link: 'https://stack-one.hyperdrift.io/logs',
     linkLabel: 'Live',
-    article: 'https://hyperdrift.io/blog/web-app-vs-cli-command-palette-pwa-productivity',
   },
 ];

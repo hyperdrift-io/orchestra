@@ -1,4 +1,4 @@
-Search an agent's telemetry for one conversation ID and you'll usually find the agent span, not the model and tool calls it made. We got our first PR merged into a significant repository to change that: OpenTelemetry's semantic conventions for generative AI. Liudmila Molkova merged [#556](https://github.com/open-telemetry/semantic-conventions-genai/pull/556) on 30 October. It lets GenAI instrumentation pass the conversation ID to the calls nested inside an agent, so as libraries adopt it, one filter on that ID returns the whole conversation.
+Search an agent's telemetry for one conversation ID and you'll usually find the agent span, not the model and tool calls it made. We got our first PR merged into a significant repository to change that: OpenTelemetry's semantic conventions for generative AI. Liudmila Molkova merged [#556](https://github.com/open-telemetry/semantic-conventions-genai/pull/556) on 30 October. As libraries adopt the rule, model and tool calls can carry the conversation ID supplied by the enclosing agent, unless they have their own. A filter finds the calls carrying that ID.
 
 {{visual:primary}}
 

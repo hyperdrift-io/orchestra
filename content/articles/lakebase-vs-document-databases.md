@@ -1,6 +1,6 @@
 **Databricks Lakebase is managed Postgres; MongoDB and Azure Cosmos DB's document model organise data around documents.** Choose the relational approach when relationships, shared constraints and transactions across records drive the application. Consider documents when the workload mainly reads and changes independent, nested records. Lakebase adds a separate reason to choose it: integration with an existing Databricks platform.
 
-That is the useful comparison for AI applications. An agent producing JSON does not settle the database choice. This guide compares the approaches, then uses a refund and a support case to show where each can fit. The examples are illustrative designs, not benchmarks or client results.
+For AI applications, the tempting shortcut is to pick documents because the agent produces JSON. That does not settle the database choice. This guide compares the approaches, then uses a refund and a support case to show where each can fit. The examples are illustrative designs, not benchmarks or client results.
 
 ## What is the difference between Lakebase and document databases?
 
