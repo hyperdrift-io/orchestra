@@ -59,6 +59,13 @@ ol[data-offer-steps] p { margin: 0 0 .8rem; max-width: 58ch; line-height: 1.75; 
 ol[data-offer-steps] p + p { font-size: var(--fs-meta); color: var(--cream-3); }
 ol[data-offer-steps] a { justify-self: start; margin-top: .2rem; font-size: .9rem; }
 
+/* — Privacy: the notice as plain prose, in the first read's grammar. */
+body:has(article#privacy) > header { position: relative; padding-block: 1.5rem; }
+article#privacy { padding: 4rem var(--edge) 6rem; background: var(--ink); }
+article#privacy h1 { font-size: clamp(3.2rem,6.4vw,6.4rem); margin-block: 0 2rem; }
+article#privacy p { max-width: 64ch; margin-top: 1.2rem; font-size: 1.05rem; line-height: 1.8; color: var(--cream-2); }
+article#privacy p a { color: var(--cream); overflow-wrap: anywhere; }
+
 /* — The sample first read: the partnership page's grammar, findings set like a signed record */
 body:has(article#first-read) > header { position: relative; padding-block: 1.5rem; }
 article#first-read { padding: 4rem var(--edge) 6rem; background: var(--ink); }
@@ -96,6 +103,9 @@ article#first-read > section > a:hover { background: var(--gold-light); color: v
 [data-site-footer] small { display: block; font: .7rem var(--font-mono); margin-top: .5rem; text-transform: uppercase; letter-spacing: .1em; }
 [data-site-footer] nav { display: grid; justify-items: start; gap: .8rem; font-size: .85rem; }
 [data-site-footer] > p { color: var(--cream-3); font-size: .75rem; }
+/* The legal row under the copyright line: entity, where we are, the privacy notice. */
+[data-site-footer] > p[data-legal] { margin-block-start: .5rem; max-width: 72ch; font-size: .72rem; line-height: 1.6; }
+[data-site-footer] > p[data-legal] a { margin-left: .8rem; color: var(--cream-2); }
 @media(max-width:640px){body > header nav a:nth-child(-n + 2){display:inline;} body > header nav{gap:.6rem 1rem;} body > header nav a{font-size:.78rem;} [data-site-footer] > div{grid-template-columns:1fr;} }
 /* The selected image's centred promise, asymmetric five spheres and branching golden centre. */
 #organisation { --domain-colour: #78dcca; padding: 3rem 0 0; background: #100f0c; }
@@ -292,7 +302,13 @@ section#contact > div > p > a[data-enquiry]:hover { background: var(--gold-light
 #about > footer { max-width: 1200px; padding-top: 2.5rem; border-top: 1px solid var(--cream-4); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; align-items: baseline; }
 #about > footer p:first-child { font-size: 1.15rem; }
 #about p[data-partners] { font: .8rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cream-3); }
+/* Company: the directors, how we work and the insurance, in the fits' two-column grammar. */
+#about > section { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem; max-width: 1200px; padding: 2.5rem 0; border-top: 1px solid var(--cream-4); }
+#about > section h2 { margin: 0; font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.6rem); line-height: 1.15; }
+#about > section p { margin: 0; max-width: 60ch; line-height: 1.7; color: var(--cream-2); }
+#about > section p + p { margin-top: 1rem; }
 @media (max-width: 800px) {
   #about { padding: 2.5rem var(--edge) 2rem; }
   #about > ol > li { grid-template-columns: 1fr; gap: 1.25rem; padding: 2rem 0; }
+  #about > section { grid-template-columns: 1fr; gap: 1.25rem; padding: 2rem 0; }
 }

@@ -19,5 +19,14 @@ export function About() {
         </dl>
       </li>)}
     </ol>
+    <section aria-labelledby="company-title">
+      <h2 id="company-title">Company</h2>
+      <div>
+        <p>Orchestra AI is made by Hyperdrift, run by its two directors, Yann Vallery-Radot, founder, and Alana Williamson.</p>
+        <p>We believe in grassroots development: we build with the people who have the problem, in person when we can, and grow through the value they get from the work.</p>
+        <p>We’re in London and always happy to meet our customers.</p>
+        <p>Professional indemnity and public liability insurance with Hiscox.</p>
+      </div>
+    </section>
   </section>;
 }
