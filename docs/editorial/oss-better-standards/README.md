@@ -24,7 +24,7 @@ DSPy reuses the existing drafts and assets from `codex/dspy-article-series` at f
 ## Review and release
 
 1. Yann reviews the three linked articles and visuals. The Clear Mermaid argument is new; the two DSPy drafts retain their earlier voice review with a narrowly refreshed continuity result.
-2. Check the final HD migration receipt before adding any deployment claim. The draft describes the shared package and two HD blog diagrams in local preview; it does not assert the HD rollout is live.
+2. The HD diagrams were deployed on 2 November after Yann approved the preview. Both public article diagrams passed desktop/mobile checks. The draft now links the live integration; this does not approve article publication or establish independent adoption. Release evidence: HD `docs/releases/clear-mermaid-2026-11-02.md`.
 3. Recheck upstream state, provider references and the supported parser subset at publication. Confirm public code/demo and distribution licence before adding install or try links. Do not invite installation of an unpublished package.
 4. Preview desktop and mobile, image/text alternatives, source controls, social card and contextual enquiry. Verify the drafts remain out of production listings, feeds, sitemap and llms.txt.
 5. After approved copy, set the real publication instant, release through Orchestra's normal command and read the page/metadata/assets back. Add verified outcomes to HD `meta/discovery/publications.json`; draft any promotion separately for review.

@@ -26,7 +26,7 @@ The same distinction matters for accessibility. [Mermaid already supports access
 
 Our founder preferred the consolidated reader in the final comparison. That is useful product feedback from our own review, rather than an independent comprehension study. The local checks cover graph and arrow preservation, docking, overlap, keyboard navigation, narrow-screen reflow, contrast and automated accessibility scans. They do not establish accessibility conformance. Screen-reader testing, browser and text zoom, larger graphs and reading trials with other people remain necessary.
 
-Compatibility is deliberately bounded. The prototype handles a checked flowchart subset; it does not support every Mermaid diagram family or every flowchart feature. It rejects unsupported input to preserve meaning. We have extracted a shared package and switched two HD blog diagrams to it in local preview. Public deployment, distribution and an MCP integration remain ahead.
+Compatibility is deliberately bounded. The prototype handles a checked flowchart subset; it does not support every Mermaid diagram family or every flowchart feature. It rejects unsupported input to preserve meaning. We have extracted a shared package and now use it for two diagrams on the [HD blog](https://hyperdrift.io/blog/own-your-stack-types-all-the-way-down). Public package distribution and an MCP integration remain ahead.
 
 ## Share the improvement and the evidence
 
