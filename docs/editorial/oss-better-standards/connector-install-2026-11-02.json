@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-11-02T19:21:22.863Z",
+  "installation": "Exact README npx command against public GitHub release",
+  "packageUrl": "https://github.com/hyperdrift-io/clear-mermaid/releases/download/v0.1.0/hyperdrift-io-clear-mermaid-mcp-0.1.0.tgz",
+  "tool": "clear_mermaid_render",
+  "browser": {
+    "nodes": 4,
+    "edges": 4,
+    "composition": "Clear Mermaid · left to right"
+  },
+  "pageErrors": []
+}

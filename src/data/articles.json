@@ -1011,8 +1011,8 @@
     "slug": "dspy-reasoning-continuity",
     "title": "Helping agents pick up where they left off",
     "seoTitle": "DSPy reasoning continuity: history, model state and handoffs",
-    "excerpt": "Preserve original messages, prepare compatible model requests and keep a readable handoff. Our DSPy research explains how these responsibilities fit together.",
-    "shareLine": "Keep the original record. Give the next model the state it can use and the context it needs.",
+    "excerpt": "An agent should resume a job without making you explain it again. What our DSPy example taught us about keeping progress usable after a pause.",
+    "shareLine": "Your sources, decisions and next action should survive a change of agent.",
     "order": 16,
     "topic": "DSPy",
     "example": "DSPy research",
@@ -1020,21 +1020,21 @@
       "agents",
       "operations"
     ],
-    "exampleStatus": "Local offline example · seven checks",
+    "exampleStatus": "Tested offline example",
     "ctaLabel": "Discuss an agent handoff",
     "invite": "Bring a workflow that needs to resume after a pause or model change. We can examine what must survive.",
     "readNext": "dspy-programmes-you-can-improve",
     "steps": [
-      "Preserve the record",
-      "Check compatibility",
-      "Prepare the request",
-      "Continue useful work"
+      "Keep the goal",
+      "Save the evidence",
+      "Record decisions",
+      "Resume the work"
     ],
     "proof": {
-      "heading": "The useful boundary",
-      "description": "Seven offline checks on DSPy main 25162c4f, 30 October 2026. Private hooks; no live-provider result or accepted upstream contribution.",
+      "heading": "Keep the work usable",
+      "description": "Our saved-conversation example preserved information through a save and reload. Tested offline on 30 October; no live model result or accepted upstream change.",
       "url": "https://github.com/stanfordnlp/dspy/issues/10675",
-      "label": "Read the DSPy issue"
+      "label": "Read the continuity proposal"
     },
     "media": null,
     "image": {
@@ -1046,58 +1046,21 @@
     },
     "visualization": {
       "kind": "editorial",
-      "image": "/articles/dspy/dspy-reasoning-continuity.svg",
-      "alt": "Original messages are saved intact; provider rules prepare a compatible request; a readable work record supports a model handoff.",
-      "takeaway": "Preserve once. Prepare the next request for its destination.",
-      "description": "The stored record retains ordered message parts and metadata. A provider-specific decision prepares the next request. A separate readable handoff carries the goal, findings and next action across model changes. This is a proposed design, not a universal compatibility guarantee.",
+      "image": "/articles/dspy/readable-handoff.svg",
+      "alt": "Do the work, save the findings and decisions, then let the next person or agent inspect and continue them.",
+      "takeaway": "Keep a readable record of the work, with the evidence and next action.",
+      "description": "The work record should remain useful after a pause or model change. Extra continuation information may help compatible models, but does not replace the readable record.",
       "sources": [
         {
-          "label": "issue #10675",
+          "label": "DSPy continuity proposal",
           "url": "https://github.com/stanfordnlp/dspy/issues/10675"
         },
         {
-          "label": "offered replay and save/load tests",
-          "url": "https://github.com/stanfordnlp/dspy/issues/10675#issuecomment-6321503189"
-        },
-        {
-          "label": "DSPy message types",
-          "url": "https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/_vendor/lm15/types.py"
-        },
-        {
-          "label": "reasoning adapter on current main",
-          "url": "https://github.com/stanfordnlp/dspy/blob/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007/dspy/adapters/types/reasoning.py"
-        },
-        {
-          "label": "OpenAI reasoning guide",
-          "url": "https://developers.openai.com/api/docs/guides/reasoning#preserve-reasoning-across-calls"
-        },
-        {
-          "label": "Preserved thinking",
-          "url": "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking"
-        },
-        {
-          "label": "Generate Content thought signatures",
-          "url": "https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures"
-        },
-        {
-          "label": "reasoning-ID fix #39278",
-          "url": "https://github.com/langchain-ai/langchain/pull/39278"
-        },
-        {
-          "label": "streaming fix #39635",
-          "url": "https://github.com/langchain-ai/langchain/pull/39635"
-        },
-        {
-          "label": "typed messages",
-          "url": "https://github.com/pydantic/pydantic-ai/blob/a549fd1a368a8677090e10b504d7cb5c12b2dd4a/pydantic_ai_slim/pydantic_ai/messages.py"
-        },
-        {
-          "label": "merged adapter migration",
-          "url": "https://github.com/stanfordnlp/dspy/pull/10713"
+          "label": "The DSPy version tested on 30 October",
+          "url": "https://github.com/stanfordnlp/dspy/tree/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007"
         }
       ],
-      "reviewed": "30 October 2026: DSPy example; 23 October: provider references",
-      "download": "/articles/dspy/dspy-reasoning-continuity.png"
+      "reviewed": "Offline example checked 30 October 2026; explanation revised 2 November"
     },
     "reviewedAt": "2026-10-30",
     "publishedAt": null,
@@ -1116,15 +1079,15 @@
     "shareLine": "A diagram should make its relationships easy to follow.",
     "order": 17,
     "topic": "Clear Mermaid",
-    "example": "Clear Mermaid local trial",
+    "example": "Compare the same diagram",
     "tags": [
       "ui",
       "accessibility"
     ],
-    "exampleStatus": "Local prototype · founder-reviewed",
+    "exampleStatus": "Interactive comparison",
     "ctaLabel": "Discuss a diagram people need to read",
     "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
-    "readNext": "web-accessibility-can-people-finish",
+    "readNext": "clear-mermaid-in-action",
     "steps": [
       "Preserve the source",
       "Check the meaning",
@@ -1132,10 +1095,10 @@
       "Test the reading"
     ],
     "proof": {
-      "heading": "A decision and its return path",
-      "description": "Clear Mermaid is a local prototype for a supported flowchart subset. Public packaging and independent reading trials remain ahead.",
+      "heading": "Same source, two ways to read it",
+      "description": "Try decisions, retries and shared dependencies with the same Mermaid source in both renderers.",
       "url": "https://mermaid.js.org/config/accessibility.html",
-      "label": "Mermaid accessibility documentation"
+      "label": "Read Mermaid accessibility guidance"
     },
     "media": null,
     "image": {
@@ -1146,12 +1109,11 @@
       "caption": "Editorial mesh illustration · Explore the workflow in the article."
     },
     "visualization": {
-      "kind": "editorial",
-      "image": "/articles/clear-mermaid/long-labels-local-trial.png",
-      "alt": "A request reaches a completeness question. Complete requests continue to review, recording and a reply. Incomplete requests go to missing information and return to the question.",
-      "evidenceLabel": "Recorded local Clear Mermaid comparison, 24 October 2026. No independent comprehension study.",
-      "takeaway": "Connect each answer to its route and keep the return path visible.",
-      "description": "The request moves left to right. A complete request advances to review; an incomplete request goes to missing information and returns to the original question. The reader preserves those connections and provides a readable-size control, overview and connection exploration.",
+      "kind": "mermaid-comparison",
+      "alt": "Choose a decision, retry or shared dependency and compare the same source in Mermaid and Clear Mermaid.",
+      "evidenceLabel": "Interactive comparison using the same source",
+      "takeaway": "Follow the same connection in both renderers, then inspect it as text.",
+      "description": "Choose one of three examples. Both renderers receive the same source. Clear Mermaid adds node selection, relationship reading and exploration; Mermaid provides the standard drawing. No independent comprehension benchmark is claimed.",
       "sources": [
         {
           "label": "Beautiful Mermaid",
@@ -1166,10 +1128,9 @@
           "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
         }
       ],
-      "reviewed": "30 October 2026",
-      "download": "/articles/clear-mermaid/long-labels-local-trial.png"
+      "reviewed": "2 November 2026"
     },
-    "reviewedAt": "2026-10-30",
+    "reviewedAt": "2026-11-02",
     "publishedAt": null,
     "headerImage": {
       "src": "/articles/mesh/clear-mermaid-diagrams-people-can-follow.svg",
@@ -1319,6 +1280,126 @@
     "headerImage": {
       "src": "/articles/mesh/opentelemetry-genai-conversation-id.svg",
       "alt": "Connected wireframe conversation, magnifier, gift forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
+  },
+  {
+    "slug": "clear-mermaid-in-action",
+    "title": "Clear Mermaid in action",
+    "seoTitle": "Clear Mermaid visual editor: connect steps and keep Mermaid source",
+    "excerpt": "Edit a step, connect it to the next and take the Mermaid source with you. Try decisions, retry paths and shared dependencies in your browser.",
+    "shareLine": "Make the connection yourself. Keep the diagram as code.",
+    "order": 19,
+    "topic": "Clear Mermaid",
+    "example": "Edit a diagram",
+    "tags": [
+      "ui",
+      "accessibility"
+    ],
+    "exampleStatus": "Interactive browser editor",
+    "ctaLabel": "Discuss a diagram people need to read",
+    "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
+    "readNext": "clear-mermaid-in-your-ai-assistant",
+    "steps": [
+      "Select a step",
+      "Make the connection",
+      "Follow the result",
+      "Export the source"
+    ],
+    "proof": {
+      "heading": "Edit the explanation",
+      "description": "Three local examples you can change, connect and export as Mermaid source. No account or AI service is used.",
+      "url": "https://hyperdrift.io/blog/own-your-stack-types-all-the-way-down",
+      "label": "See Clear Mermaid on the HD blog"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/clear-mermaid-in-action.svg",
+      "alt": "Connected wireframe wrench, signpost, eye forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "clear-mermaid-editor",
+      "title": "Try the visual editor",
+      "takeaway": "Select a step, change it and connect it to what happens next.",
+      "description": "A browser-only editor for three flowchart examples. Change labels, add steps and connections, undo changes and export the resulting Mermaid source. Keyboard controls provide an alternative to selecting connections in the diagram.",
+      "sources": [
+        {
+          "label": "Mermaid flowcharts",
+          "url": "https://mermaid.js.org/syntax/flowchart.html"
+        }
+      ],
+      "evidenceLabel": "Interactive local example; changes stay in this browser"
+    },
+    "reviewedAt": "2026-11-02",
+    "publishedAt": null,
+    "headerImage": {
+      "src": "/articles/mesh/clear-mermaid-in-action.svg",
+      "alt": "Connected wireframe wrench, signpost, eye forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
+  },
+  {
+    "slug": "clear-mermaid-in-your-ai-assistant",
+    "title": "Clear Mermaid in your AI assistant",
+    "seoTitle": "Clear Mermaid MCP connector: create diagrams from your AI assistant",
+    "excerpt": "Install the local connector, ask for an architecture diagram and follow its connections in your browser. Keep the Mermaid source for your next change.",
+    "shareLine": "Ask for a diagram you can inspect and change.",
+    "order": 20,
+    "topic": "Clear Mermaid",
+    "example": "A diagram from your assistant",
+    "tags": [
+      "ui",
+      "accessibility"
+    ],
+    "exampleStatus": "Installable local MCP connector",
+    "ctaLabel": "Discuss a diagram people need to read",
+    "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
+    "readNext": "clear-mermaid-in-action",
+    "steps": [
+      "Install the connector",
+      "Describe the system",
+      "Inspect the diagram",
+      "Keep the source"
+    ],
+    "proof": {
+      "heading": "A diagram returned by the connector",
+      "description": "A real connector call and browser render of a fictional web application. Desktop and phone checks; no claim of compatibility with every AI client.",
+      "url": "https://github.com/hyperdrift-io/clear-mermaid#install-the-connector",
+      "label": "Install the Clear Mermaid connector"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/clear-mermaid-in-your-ai-assistant.svg",
+      "alt": "A conversation, signpost and eye: ask for a diagram and inspect its connections.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "editorial",
+      "image": "/articles/clear-mermaid/connector-example.png",
+      "alt": "A web application flowchart created through the Clear Mermaid connector, with a sign-in decision and a retry path.",
+      "evidenceLabel": "Actual local connector output; fictional architecture example",
+      "takeaway": "Ask for the architecture, then follow the connections yourself.",
+      "description": "The assistant sends Mermaid source to the local connector. The returned browser view lets you select nodes, inspect relationships and save the source. The diagram is an example to review, not a verified production architecture.",
+      "sources": [
+        {
+          "label": "Clear Mermaid source and installation",
+          "url": "https://github.com/hyperdrift-io/clear-mermaid"
+        }
+      ],
+      "reviewed": "2 November 2026"
+    },
+    "reviewedAt": "2026-11-02",
+    "publishedAt": null,
+    "headerImage": {
+      "src": "/articles/mesh/clear-mermaid-in-your-ai-assistant.svg",
+      "alt": "A conversation, signpost and eye: ask for a diagram and inspect its connections.",
       "width": 1200,
       "height": 160
     }

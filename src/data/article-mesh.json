@@ -88,5 +88,15 @@
     "conversation",
     "magnifier",
     "gift"
+  ],
+  "clear-mermaid-in-action": [
+    "wrench",
+    "signpost",
+    "eye"
+  ],
+  "clear-mermaid-in-your-ai-assistant": [
+    "conversation",
+    "signpost",
+    "eye"
   ]
 }

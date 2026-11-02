@@ -1,0 +1,89 @@
+{
+  "checkedAt": "2026-11-02T19:21:10.285Z",
+  "comparisons": [
+    {
+      "name": "A decision with a return path",
+      "clearMermaid": {
+        "nodes": 6,
+        "edges": 6,
+        "height": 520
+      },
+      "mermaid": {
+        "nodes": 6,
+        "edges": 6,
+        "labels": [
+          "Receive the application",
+          "Does the request include everything needed for a fair review?",
+          "Review the evidence against the eligibility criteria",
+          "Ask for the missing information",
+          "Add the applicant’s reply",
+          "Send the decision and explain the next step"
+        ]
+      }
+    },
+    {
+      "name": "A request that needs another attempt",
+      "clearMermaid": {
+        "nodes": 7,
+        "edges": 8,
+        "height": 520
+      },
+      "mermaid": {
+        "nodes": 7,
+        "edges": 8,
+        "labels": [
+          "Send the request",
+          "Did the service respond?",
+          "Save the result",
+          "Is the failure temporary?",
+          "Wait before trying again",
+          "Explain the problem and ask for help",
+          "Show the outcome"
+        ]
+      }
+    },
+    {
+      "name": "A service shared by several teams",
+      "clearMermaid": {
+        "nodes": 8,
+        "edges": 11,
+        "height": 520
+      },
+      "mermaid": {
+        "nodes": 8,
+        "edges": 11,
+        "labels": [
+          "Customer website",
+          "Mobile app",
+          "Support workspace",
+          "Identity service",
+          "Orders service",
+          "Payments service",
+          "Customer records",
+          "Notifications"
+        ]
+      }
+    }
+  ],
+  "comparisonAxe": [],
+  "editorAxe": [],
+  "mobile": {
+    "width": 390,
+    "overflow": false,
+    "rename": true,
+    "validation": true,
+    "clipboardFallback": true,
+    "downloadMatchesSource": true
+  },
+  "desktopJourney": {
+    "rename": true,
+    "addStep": true,
+    "graphicalConnection": true,
+    "correctArrowDirection": true,
+    "undo": true,
+    "keyboardConnection": true,
+    "removeConnection": true,
+    "reset": true
+  },
+  "errors": []
+}

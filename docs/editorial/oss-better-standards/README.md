@@ -6,9 +6,9 @@ Requested by Yann on 30 October 2026. Direction: show useful contributions and r
 
 | London time | Article | Copy and evidence |
 |---|---|---|
-| 5 November 2026, 09:00 | [Clear Mermaid: diagrams people can follow](../../../content/articles/clear-mermaid-diagrams-people-can-follow.md) | New complete draft. Seven flowchart cases and eight rounds; founder preference, local checks and limits. Recorded 24 October screenshot. |
-| 12 November 2026, 09:00 | [DSPy: build AI programmes you can improve](../../../content/articles/dspy-programmes-you-can-improve.md) | Recovered existing introduction. Pinned 23 October source research and illustrative support workflow; no optimisation benchmark. |
-| 19 November 2026, 09:00 | [Helping agents pick up where they left off](../../../content/articles/dspy-reasoning-continuity.md) | Recovered and refreshed: seven checks on DSPy main 25162c4f, after #10713 merged. Provider-reference review remains dated 23 October. |
+| 5 November 2026, 09:00 | [Clear Mermaid: diagrams people can follow](../../../content/articles/clear-mermaid-diagrams-people-can-follow.md) | New complete draft. Seven flowchart cases and eight rounds; founder preference, local checks and limits. Live same-source comparison of decisions, retry paths and shared dependencies. |
+| Held; YNOT lane owns timing | [DSPy: build AI programmes you can improve](../../../content/articles/dspy-programmes-you-can-improve.md) | Recovered existing introduction. Pinned 23 October source research and illustrative support workflow; no optimisation benchmark. |
+| Held; no replacement date | [Helping agents pick up where they left off](../../../content/articles/dspy-reasoning-continuity.md) | Recovered and refreshed: seven checks on DSPy main 25162c4f, after #10713 merged. Provider-reference review remains dated 23 October. |
 | Published 31 October 2026, 14:00 UTC, on the founder's "Publish and schedule" | [We got our first PR merged into OpenTelemetry](../../../content/articles/opentelemetry-genai-conversation-id.md) | Founder request, 30 October: the first merged upstream PR, in his own words, with the OSS flag. Facts read from the public PR, issue #522 and the reference reports at upstream main 6f98aef on 30 October. Three original visuals: an illustrative trace, the reference-library coverage and the review timeline. |
 
 The OpenTelemetry #556 article is published; the other three keep `publishedAt: null`. Dates reserve an editorial slot; they never approve customer copy or cause production exposure. The existing HD calendar owns changes to these dates. If a gate is unmet, hold the article and record the revised slot. Do not backdate publication or treat a planned date as a live result. No social posts are approved by this request.
@@ -46,3 +46,26 @@ The contextual article invitation opens the existing enquiry dialog on mobile. N
 ## The OSS flag — 30 October 2026
 
 Founder request: mark open-source articles on Orchestra. A catalogue entry's optional `oss` field (`project`, verified upstream `status`) shows the flag above the article's topic line, a compact flag on its card in the article list and an "Open source · <project>" label on its share card. It is set on the OpenTelemetry article only; the three drafts above can carry it once their upstream status is worth stating. Status words follow the earned-discovery distinctions: proposed, accepted, merged, released and adopted are different states.
+
+## Reader correction — 2 November 2026
+
+Yann rejected the continuity article's technical emphasis and unlinked identifiers. It now explains the reader's capability first, uses descriptive evidence links and keeps the offline result distinct from live model performance. The figure and catalogue copy follow the same register. An independent editorial read corrected save/reload wording and editor instructions.
+
+The Clear Mermaid sequence is now comparison → visual editing → use from an AI assistant. `clear-mermaid-in-action` lets readers edit nodes, connect steps and export Mermaid source. The third piece must name an actually installable connector and its tested host limits. These drafts remain unpublished; the connector has separate explicit publication authority.
+
+Root `meta/discovery/CALENDAR.md` owns timing. Its later YNOT direction superseded the old 12/19 November DSPy slots; this record now reflects that. No replacement dates or automatic publication are inferred. New Clear Mermaid follow-ups await copy review and a useful release order.
+
+Keep exact revisions in linked evidence. Visible prose and captions should name what the reader can inspect; a bare hash or issue number is not an explanation. A comparison must give both renderers the same source and a usable viewport. Show the action that becomes easier, rather than making an unmeasured superiority claim.
+
+## Verified previews and connector — 2 November 2026
+
+- [Rewritten continuity article](http://127.0.0.1:3189/articles/dspy-reasoning-continuity): plain-language reader benefit, descriptive evidence links and a simpler handoff figure.
+- [Same-source comparison](http://127.0.0.1:3189/articles/clear-mermaid-diagrams-people-can-follow): standard Mermaid and Clear Mermaid, three cases, equal 520px diagram viewports. A renderer toggle gives each enough width. Shadow DOM isolates the baseline from host styles.
+- [Clear Mermaid in action](http://127.0.0.1:3189/articles/clear-mermaid-in-action): visual and keyboard node/connection editing, undo/reset and Mermaid export. Local example graphs only; no arbitrary source importer.
+- [Clear Mermaid in your AI assistant](http://127.0.0.1:3189/articles/clear-mermaid-in-your-ai-assistant): the real [public connector release](https://github.com/hyperdrift-io/clear-mermaid/releases/tag/v0.1.0), installation and an actual output capture. This is local stdio MCP, not a hosted connector or an autonomous agent.
+
+Connector publication was explicitly authorised. The public release's exact npx command passed MCP discovery, a tool call and browser rendering; no client-specific desktop UI installation is claimed. Article copy remains held. The release is distributed as a GitHub tarball, not through the npm registry.
+
+Orchestra typecheck, 32 tests and production build passed. The draft slugs are excluded from built public listings, sitemap and feeds. Interactive checks cover all three graphs in both renderers, visible baseline labels, directional connections, visual and keyboard editing, undo/remove/reset, mobile edits, clipboard denial and exact source download. Comparison and editor axe scans have no violations; no page overflow or browser errors. These are bounded checks, not accessibility certification or independent comprehension measurements. [Interactive receipt](interactive-checks-2026-11-02.json) · [Public install receipt](connector-install-2026-11-02.json).
+
+The independent editorial review corrected save/reload versus process restart, matched the sample's sign-in question and avoided claiming a model-led chat test from a protocol-client test. Original DSPy source evidence remains dated 30 October.

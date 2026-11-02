@@ -1,0 +1,53 @@
+.experience { --cm-border: #6d695f; --cm-text: #f2eadb; --cm-muted: #c3bba9; color: var(--cm-text); min-width: 0; padding: clamp(12px, 2vw, 24px); background: #171917; border: 1px solid var(--cm-border); border-radius: 10px; font: 16px/1.5 system-ui, sans-serif; }
+.experience * { box-sizing: border-box; }
+.experience h3 { margin: 0 0 12px; font: 600 18px/1.35 system-ui, sans-serif; color: var(--cm-text); }
+.experience h3 small { display: block; margin-top: 4px; color: var(--cm-muted); font-size: 12px; font-weight: 400; }
+.experience button, .experience input, .experience select, .experience textarea { font: inherit; }
+.experience button { min-height: 44px; padding: 8px 12px; color: var(--cm-text); background: #282c27; border: 1px solid #807b6e; border-radius: 5px; cursor: pointer; line-height: 1.35; }
+.experience button:hover { background: #3a4037; }
+.experience button[aria-pressed='true'] { background: #e7c991; color: #24241f; border-color: #e7c991; }
+.experience button:disabled { opacity: .45; cursor: default; }
+.experience :focus-visible { outline: 3px solid #e7c991; outline-offset: 3px; }
+.examples, .actions, .zoom { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.examples { margin-bottom: 18px; }
+.examples button { flex: 1 1 190px; }
+.task { margin: 12px 0 20px; font-size: 18px; line-height: 1.5; color: #fff5df; }
+.comparison { display: block; }
+.experience .comparison > section { padding: 0; margin: 0; border: 0; background: none; }
+.experience .comparison > section[hidden] { display: none; }
+.rendererTabs { display: flex; gap: 8px; margin: 0 0 18px; }
+.rendererTabs button { flex: 1; }
+.comparison > section { min-width: 0; }
+.reader { color-scheme: light; --surface: #fff; --ink: #172b40; --muted: #40546b; --line: #718297; --accent: #175f4b; color: #172b40; background: #fafbfd; min-width: 0; border-radius: 5px; }
+.reader > p { padding: 12px; }
+.baseline { background: #fafbfd; color: #172b40; border-radius: 5px; overflow: hidden; }
+.zoom { min-height: 56px; padding: 8px; border-bottom: 1px solid #9aabba; }
+.zoom button { color: #172b40; background: #fff; border-color: #718297; }
+.zoom button:hover { background: #e6edf4; }
+.zoom span { min-width: 44px; text-align: center; }
+.baselineViewport { height: 520px; overflow: auto; padding: 16px; }
+.baselineDrawing { min-width: 100%; min-height: 100%; display: block; }
+.baselineDrawing > svg { width: 100%; height: auto; max-height: none; flex: none; }
+.notice { padding: 12px 0 0; color: var(--cm-text); }
+.note { color: var(--cm-muted); font-size: 14px; line-height: 1.5; }
+.source, .connections { margin-top: 18px; border-top: 1px solid var(--cm-border); padding-top: 12px; }
+.experience summary { cursor: pointer; min-height: 44px; padding: 10px 0; color: var(--cm-text); }
+.source textarea { display: block; width: 100%; padding: 12px; margin: 8px 0; resize: vertical; color: #172b40; background: #fff; border: 1px solid #8d9ca9; border-radius: 5px; font: 13px/1.5 ui-monospace, monospace; }
+.status { padding: 10px 12px; background: #26352e; color: #eaf4eb; border-left: 3px solid #a9c5ad; }
+.error { padding: 12px; background: #4c2726; color: #ffe9e4; border-left: 3px solid #ffb4a7; }
+.editorControls { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+.experience .controlSection { min-width: 0; margin: 0; padding: 0; border: 0; background: none; }
+.controlSection form { display: grid; gap: 12px; margin: 16px 0; }
+.controlSection form > button { justify-self: start; }
+.controlSection label { display: grid; gap: 6px; margin: 10px 0; color: var(--cm-text); }
+.controlSection label small { color: var(--cm-muted); }
+.controlSection input:not([type='checkbox']), .controlSection select { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #8d9ca9; background: #fff; color: #172b40; border-radius: 5px; padding: 8px; }
+.controlSection .checkbox { display: flex; gap: 10px; align-items: flex-start; }
+.checkbox input { width: 20px; height: 20px; margin-top: 3px; flex: none; }
+.connections ul { padding: 0; list-style: none; }
+.connections li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #4d5148; }
+.connections li span { min-width: 0; overflow-wrap: anywhere; }
+.connections li small { display: block; color: var(--cm-muted); }
+.connections li button { flex: none; }
+@media (max-width: 760px) { .comparison, .editorControls { grid-template-columns: minmax(0, 1fr); } .baselineViewport { height: 520px; } .experience { padding: 12px; } .task { font-size: 17px; } }
+@media (prefers-reduced-motion: reduce) { .experience * { scroll-behavior: auto; } }

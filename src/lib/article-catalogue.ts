@@ -1,7 +1,7 @@
 import catalogue from '@/data/articles.json';
 
 export interface ArticleVisual {
-  kind: 'editorial' | 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui' | 'conversation-trace' | 'conventions-reach' | 'review-timeline';
+  kind: 'editorial' | 'transaction' | 'streaming' | 'authority' | 'brief' | 'ui-accessibility' | 'repair' | 'operating-week' | 'effort' | 'fleet' | 'intel-ui' | 'conversation-trace' | 'conventions-reach' | 'review-timeline' | 'mermaid-comparison' | 'clear-mermaid-editor';
   /** Static editorial diagram inside the existing figure and source controls. */
   image?: string;
   alt?: string;

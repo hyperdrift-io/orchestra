@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+<title id="title">Keep the work ready for whoever continues it</title><desc id="desc">Save the goal, sources and decisions. Keep any extra model state separately. The next person or agent can inspect the record and continue from the next action.</desc>
+<rect width="960" height="360" rx="18" fill="#17231f"/>
+<g font-family="system-ui, sans-serif" fill="#f5f1e8"><text x="36" y="48" font-size="22" font-weight="600">A pause should not erase the progress</text>
+<g stroke="#829a8c" fill="#24372e"><rect x="36" y="90" width="264" height="198" rx="12"/><rect x="348" y="90" width="264" height="198" rx="12"/><rect x="660" y="90" width="264" height="198" rx="12"/></g>
+<g fill="#d6b77c" stroke="#d6b77c" stroke-width="2"><path d="M308 188H336m-8-7 8 7-8 7" fill="none"/><path d="M622 188H648m-8-7 8 7-8 7" fill="none"/></g>
+<g font-size="22" font-weight="600"><text x="58" y="128">Do the work</text><text x="370" y="128">Save what matters</text><text x="682" y="128">Continue from here</text></g>
+<g font-size="18" fill="#d2ddd5"><text x="58" y="170">Check the sources</text><text x="58" y="204">Make a decision</text><text x="58" y="238">Record the next action</text><text x="370" y="170">A readable work record</text><text x="370" y="204">Evidence and corrections</text><text x="370" y="238">Extra model state, if usable</text><text x="682" y="170">Inspect the findings</text><text x="682" y="204">Check what is complete</text><text x="682" y="238">Take the next useful step</text></g>
+<text x="36" y="327" font-size="16" fill="#c3cec6">A proposed handoff: readable work travels across models; extra model state has compatibility limits.</text></g></svg>
