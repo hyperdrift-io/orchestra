@@ -69,3 +69,11 @@ Connector publication was explicitly authorised. The public release's exact npx 
 Orchestra typecheck, 32 tests and production build passed. The draft slugs are excluded from built public listings, sitemap and feeds. Interactive checks cover all three graphs in both renderers, visible baseline labels, directional connections, visual and keyboard editing, undo/remove/reset, mobile edits, clipboard denial and exact source download. Comparison and editor axe scans have no violations; no page overflow or browser errors. These are bounded checks, not accessibility certification or independent comprehension measurements. [Interactive receipt](interactive-checks-2026-11-02.json) · [Public install receipt](connector-install-2026-11-02.json).
 
 The independent editorial review corrected save/reload versus process restart, matched the sample's sign-in question and avoided claiming a model-led chat test from a protocol-client test. Original DSPy source evidence remains dated 30 October.
+
+## Nested architecture and hosted connection follow-up
+
+Yann asked for domains, nesting and a direct comparison that shows the reading benefit. In action now has 13 steps, six domains across three levels and 14 connections. The guided view starts inside Checkout; Show whole diagram returns to the full architecture. Basic Mermaid uses the same edited source, with its own zoom and a true overview. The differing starting views are labelled.
+
+Readers can inspect a domain, move a service between existing domains, add steps and connections, and export the hierarchy. The three simpler examples remain. Checks cover both arrowheads on the payment exchange, node/edge/group parity, membership after edits, source export, desktop/mobile operation and zero automated accessibility findings. These checks do not measure comprehension gains. [Nested comparison receipt](nested-comparison-2026-11-02.json).
+
+The AI article now explains a hosted connection by URL. The original screenshot remains explicitly attributed to the local connector; hosted endpoint and platform results are recorded separately below. The independent editorial read removed implementation vocabulary and a repeated benefit paragraph. All articles remain unpublished drafts.

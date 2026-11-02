@@ -6,7 +6,7 @@ Clear Mermaid keeps the Mermaid source and changes how people read and explore i
 
 ## Follow the same connection in both
 
-Choose a decision, a retry or a shared dependency below. Both renderers receive exactly the same source. Start with one question: where does this connection lead?
+Choose nested domains, a decision, a retry or a shared dependency below. Both renderers receive exactly the same source. Start with one question: where does this connection lead?
 
 {{visual:primary}}
 

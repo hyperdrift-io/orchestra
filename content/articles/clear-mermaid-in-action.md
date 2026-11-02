@@ -1,27 +1,33 @@
-Change a diagram by working with the steps it describes. Select a box, give it a clearer name and connect it to what should happen next. Clear Mermaid redraws the flow and keeps the Mermaid source available.
+A diagram becomes harder to read when you have to remember which service owns each step, where a request crosses a boundary and where a failed attempt returns. Clear Mermaid lets you inspect those relationships without keeping the whole route in your head.
 
-The examples below give you three things to examine: a decision with named answers, a retry that returns to an earlier step, and several services using the same dependency. These are places where the connections carry the explanation.
+Start with the nested architecture below. Customer channels sit outside a commerce platform. Inside the platform, Order services contains Checkout, while Identity and Notifications belong to Shared services. The payment provider sits beyond that platform boundary. The same source is rendered by Clear Mermaid and basic Mermaid, so you can compare the explanation directly.
 
-## Make the connection yourself
+## Follow the boundaries and the request
 
 {{visual:primary}}
 
-Start with the decision example. Select the question and change its wording. Then add a step and connect it to the outcome it belongs to. Name the connection so another reader knows why that route exists.
+Checkout is selected when the example opens. Choose **Show whole diagram** to see its place in the architecture, or **Find the checkout boundary** to return. Its title, outline and position inside Order services show what belongs there. The domain inspector lists the contained steps and their full path. Colour supports that structure; the words and boundaries carry it too.
 
-For the retry, follow the failure route back to its destination. Replace that connection so it returns to another step, and watch what the new route says about the process. Returning to the original request means something different from returning to the final confirmation.
+Choose **Trace the payment request**. Request payment sits inside Checkout but connects to a provider outside the platform. The two-way connection carries the payment request out and its response back. Checkout then reads that response before deciding whether to save the order or retry. **Follow the retry** brings you to the failed-payment route and its return to the request.
 
-For shared dependencies, select the common service. Inspect its incoming and outgoing relationships. That view helps answer who relies on it without tracing every line across the diagram.
+Switch to **Mermaid basic** at any point. It opens with the whole diagram; choose **Show whole diagram** in Clear Mermaid for an overview comparison. It receives the same nodes, nested groups, connections and labels in the same-sized viewport. Use both views to answer the same question: what belongs here, and where does this connection lead?
 
-## Keep the explanation clear as it grows
+## Change the architecture and compare the result
 
-An extra line is easy to draw. The harder task is helping the next person understand it. Named routes, clear arrow direction and a readable question do more work than assigning every line a different colour.
+Select Notifications and move its Step domain from Shared services to Order services. The boundary changes while its existing connections remain. Switch renderer again to see how each presents your edited architecture.
 
-Use the overview to see the whole flow. Return to readable size when the labels become small. The relationship view gives you another way to check what is connected, including with a keyboard.
+Add a step inside Checkout, give it a clear name and connect it to the point where it belongs. Name the connection when its purpose would otherwise be ambiguous. Undo restores the previous change; Reset example returns to the starting architecture.
 
-Compare the same examples in [Mermaid and Clear Mermaid](/articles/clear-mermaid-diagrams-people-can-follow). The useful difference is what you can understand and change in the diagram, not how much decoration it carries.
+The other examples isolate a decision with named outcomes, a retry loop and a shared dependency. They let you examine one reading problem before returning to the nested architecture.
+
+## Keep less of the diagram in your head
+
+The overview shows the shape of the whole system. Selecting a step highlights its immediate connections. Domain membership tells you where that step belongs. The relationship view gives you the same facts as text, including with a keyboard.
+
+These are different ways to answer a question without repeatedly tracing every line. Compare a route you care about, change it, and check whether the result is easier to explain to someone else.
 
 ## Take the source with you
 
-Copy or download the Mermaid text when you have a useful result. Editing happens in this browser; these examples do not send the diagram to an AI service or save it to an account. Export your work before leaving the page.
+Copy or download the Mermaid text when you have a useful result. The export keeps the nested groups, node membership and connections you edited. Everything happens in this browser; no AI service or account receives the diagram. Export your work before leaving the page.
 
-This editor handles the examples and the supported steps and connections it exposes. It is not a general importer for every Mermaid diagram. The source remains available so your diagram can travel with your documentation and other Mermaid tools.
+This editor handles the supplied examples, their existing domains and the steps and connections it exposes. It does not import every Mermaid diagram or create arbitrary domain hierarchies. The source can travel with your documentation and other Mermaid tools.

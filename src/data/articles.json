@@ -1113,7 +1113,7 @@
       "alt": "Choose a decision, retry or shared dependency and compare the same source in Mermaid and Clear Mermaid.",
       "evidenceLabel": "Interactive comparison using the same source",
       "takeaway": "Follow the same connection in both renderers, then inspect it as text.",
-      "description": "Choose one of three examples. Both renderers receive the same source. Clear Mermaid adds node selection, relationship reading and exploration; Mermaid provides the standard drawing. No independent comprehension benchmark is claimed.",
+      "description": "Choose one of four examples. Both renderers receive the same source. Clear Mermaid adds node selection, relationship reading and exploration; Mermaid provides the standard drawing. No independent comprehension benchmark is claimed.",
       "sources": [
         {
           "label": "Beautiful Mermaid",
@@ -1287,9 +1287,9 @@
   {
     "slug": "clear-mermaid-in-action",
     "title": "Clear Mermaid in action",
-    "seoTitle": "Clear Mermaid visual editor: connect steps and keep Mermaid source",
-    "excerpt": "Edit a step, connect it to the next and take the Mermaid source with you. Try decisions, retry paths and shared dependencies in your browser.",
-    "shareLine": "Make the connection yourself. Keep the diagram as code.",
+    "seoTitle": "Clear Mermaid in action: edit nested diagrams and compare Mermaid",
+    "excerpt": "Explore nested domains, trace a cross-boundary request and follow its retry. Edit the architecture and compare the same source with basic Mermaid.",
+    "shareLine": "Follow the boundary, the request and the retry. Then change the diagram.",
     "order": 19,
     "topic": "Clear Mermaid",
     "example": "Edit a diagram",
@@ -1302,14 +1302,14 @@
     "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
     "readNext": "clear-mermaid-in-your-ai-assistant",
     "steps": [
-      "Select a step",
-      "Make the connection",
-      "Follow the result",
+      "Find the boundary",
+      "Trace the request",
+      "Edit and compare",
       "Export the source"
     ],
     "proof": {
       "heading": "Edit the explanation",
-      "description": "Three local examples you can change, connect and export as Mermaid source. No account or AI service is used.",
+      "description": "Four local examples, led by a nested architecture: inspect domain membership, move steps, edit connections and compare the same source with basic Mermaid.",
       "url": "https://hyperdrift.io/blog/own-your-stack-types-all-the-way-down",
       "label": "See Clear Mermaid on the HD blog"
     },
@@ -1323,9 +1323,9 @@
     },
     "visualization": {
       "kind": "clear-mermaid-editor",
-      "title": "Try the visual editor",
-      "takeaway": "Select a step, change it and connect it to what happens next.",
-      "description": "A browser-only editor for three flowchart examples. Change labels, add steps and connections, undo changes and export the resulting Mermaid source. Keyboard controls provide an alternative to selecting connections in the diagram.",
+      "title": "Explore and edit a nested architecture",
+      "takeaway": "Find a boundary, follow a request, edit the architecture and compare the same source.",
+      "description": "A browser-only editor with four examples. The default architecture has 13 steps, 6 domains across 3 levels and 14 connections, including a two-way payment request and response. Both renderers receive the same source and viewport. Change labels, move a step between existing domains, add steps and connections, undo and export the source with its nested groups. Keyboard controls provide alternatives to diagram selection.",
       "sources": [
         {
           "label": "Mermaid flowcharts",
@@ -1346,8 +1346,8 @@
   {
     "slug": "clear-mermaid-in-your-ai-assistant",
     "title": "Clear Mermaid in your AI assistant",
-    "seoTitle": "Clear Mermaid MCP connector: create diagrams from your AI assistant",
-    "excerpt": "Install the local connector, ask for an architecture diagram and follow its connections in your browser. Keep the Mermaid source for your next change.",
+    "seoTitle": "Clear Mermaid for ChatGPT and Claude: connect without a local server",
+    "excerpt": "Connect by URL, ask for an architecture diagram and inspect its connections. No Node.js or local server. Keep the Mermaid source for your next change.",
     "shareLine": "Ask for a diagram you can inspect and change.",
     "order": 20,
     "topic": "Clear Mermaid",
@@ -1356,12 +1356,12 @@
       "ui",
       "accessibility"
     ],
-    "exampleStatus": "Installable local MCP connector",
+    "exampleStatus": "Hosted MCP connector",
     "ctaLabel": "Discuss a diagram people need to read",
     "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
     "readNext": "clear-mermaid-in-action",
     "steps": [
-      "Install the connector",
+      "Connect by URL",
       "Describe the system",
       "Inspect the diagram",
       "Keep the source"
@@ -1370,7 +1370,7 @@
       "heading": "A diagram returned by the connector",
       "description": "A real connector call and browser render of a fictional web application. Desktop and phone checks; no claim of compatibility with every AI client.",
       "url": "https://github.com/hyperdrift-io/clear-mermaid#install-the-connector",
-      "label": "Install the Clear Mermaid connector"
+      "label": "Connect Clear Mermaid"
     },
     "media": null,
     "image": {
@@ -1386,7 +1386,7 @@
       "alt": "A web application flowchart created through the Clear Mermaid connector, with a sign-in decision and a retry path.",
       "evidenceLabel": "Actual local connector output; fictional architecture example",
       "takeaway": "Ask for the architecture, then follow the connections yourself.",
-      "description": "The assistant sends Mermaid source to the local connector. The returned browser view lets you select nodes, inspect relationships and save the source. The diagram is an example to review, not a verified production architecture.",
+      "description": "The connector returns an interactive diagram and its Mermaid source. Select nodes, inspect relationships and save the source. This capture shows the same reader through the original local connector, using a fictional architecture.",
       "sources": [
         {
           "label": "Clear Mermaid source and installation",

@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-11-02T20:53:02.555Z",
+  "initial": {
+    "nodes": 13,
+    "connections": 14,
+    "domains": 6,
+    "nestingLevels": 3
+  },
+  "domainFocus": {
+    "scale": 0.9418604651162791,
+    "highlight": "true"
+  },
+  "rename": true,
+  "membershipMove": true,
+  "addInsideDomain": true,
+  "removePreservesDomains": true,
+  "exportExact": true,
+  "baselineSameSource": {
+    "nodes": 13,
+    "edges": 14,
+    "groups": 6,
+    "editedLabelVisible": true
+  },
+  "desktopAxe": [],
+  "mobile": {
+    "width": 390,
+    "overflow": false,
+    "membershipMove": true,
+    "axe": []
+  },
+  "errors": [],
+  "verification_notes": [
+    "Basic Mermaid Overview fits both width and height; both renderers preserve paired arrow markers.",
+    "The introductory comparison retains the decision example; the editor opens Checkout focus and names the difference from the baseline overview.",
+    "Empty-domain edits fail before committing; the three original examples retain their graph counts.",
+    "32 tests, typecheck and production build passed. No Orchestra deployment."
+  ]
+}
