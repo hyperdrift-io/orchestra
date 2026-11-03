@@ -6,13 +6,14 @@ import { EnquiryForm } from '@/components/EnquiryForm';
 import { useEnquiryDialog } from '@/lib/hooks/use-enquiry-dialog';
 import type { ContactPrefill } from '@/lib/contact-schema';
 
-type Props = { articleSlug?: string; situation?: string; contact?: ContactPrefill };
+/** `offerRead`: an invitation without a prepared first read lets the founder ask for one. */
+type Props = { articleSlug?: string; situation?: string; contact?: ContactPrefill; offerRead?: boolean };
 
 /**
  * One contextual invitation over the current page, with the article's existing form and delivery.
  * A Traction door (`data-introduce`) asks a cold visitor for their app; invited founders keep the plain conversation.
  */
-export function EnquiryDialog({ articleSlug, situation, contact }: Props) {
+export function EnquiryDialog({ articleSlug, situation, contact, offerRead }: Props) {
   const pathname = usePathname();
   const [intent, setIntent] = useState({ firstRead: false, introduce: false, situation });
   const chooseIntent = useCallback((url: URL, link?: HTMLAnchorElement) => {
@@ -35,6 +36,6 @@ export function EnquiryDialog({ articleSlug, situation, contact }: Props) {
     <header>
       <h2 id="enquire-heading" tabIndex={-1}>{intent.firstRead ? 'Ask for a first read' : intent.introduce ? 'Introduce your app' : 'Get in touch'}</h2>
     </header>
-    <EnquiryForm key={intent.firstRead ? 'first-read' : intent.introduce ? 'introduce' : 'conversation'} articleSlug={articleSlug} situation={intent.situation} firstRead={intent.firstRead} introduce={intent.introduce} contact={contact} />
+    <EnquiryForm key={intent.firstRead ? 'first-read' : intent.introduce ? 'introduce' : 'conversation'} articleSlug={articleSlug} situation={intent.situation} firstRead={intent.firstRead} introduce={intent.introduce} contact={contact} offerRead={offerRead} />
   </dialog>;
 }

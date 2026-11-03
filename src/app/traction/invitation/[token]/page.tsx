@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Traction } from '@/components/Traction';
+import { TractionInvitation } from '@/components/TractionInvitation';
 import { Footer } from '@/components/Footer';
 import { EnquiryDialog } from '@/components/EnquiryDialog';
 import { tractionInvitation } from '@/lib/traction-invitations';
@@ -22,5 +22,5 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
   const invitation = await tractionInvitation(token);
   if (!invitation) notFound();
   const contact = { name: invitation.firstName, company: invitation.product, ...invitation.contact };
-  return <><Traction invitation={invitation} /><Footer /><EnquiryDialog key={token} contact={contact} /></>;
+  return <><TractionInvitation invitation={invitation} /><Footer /><EnquiryDialog key={token} contact={contact} offerRead={!invitation.read} /></>;
 }

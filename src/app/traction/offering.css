@@ -107,3 +107,32 @@
 #traction [data-traction-film] details { border: 0; margin: 0; }
 #traction [data-traction-film] summary { min-height: 44px; padding-block: .5rem; color: var(--gold-light); font: .8rem/1.5 var(--font-body); }
 #traction [data-traction-film] details p { margin: 0 0 .5rem; max-width: 68ch; font: .85rem/1.65 var(--font-body); color: var(--cream-2); }
+
+/* A personal invitation: the founder's own product first, then the work, the two ways and one door. One reading column. */
+#traction[data-invitation] > * { max-width: 52rem; }
+#traction[data-invitation] h1 { font: 500 clamp(2rem, 4.2vw, 3.1rem)/1.12 var(--font-display); margin-top: .8rem; }
+#traction[data-invitation] > header > [data-lead] { max-width: 60ch; margin: 1.1rem 0 0; font: 1.05rem/1.65 var(--font-body); color: var(--cream-2); }
+#traction[data-invitation] #read { border-top: 0; margin-top: .4rem; padding-top: 0; }
+#traction[data-invitation] #read ol { list-style: none; margin: 0; padding: 0; }
+#traction[data-invitation] #read li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--line-hair); }
+#traction[data-invitation] #read li > p { margin: .35rem 0 0; font: .7rem/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+#traction[data-invitation] #read h2 { margin: 0 0 .55rem; font: 500 clamp(1.25rem, 2.2vw, 1.55rem)/1.3 var(--font-display); color: var(--cream); }
+#traction[data-invitation] #read li > div > p { max-width: 62ch; margin: 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
+#traction[data-invitation] #read [data-sources] { margin-top: .7rem; font-size: .8rem; color: var(--cream-3); }
+#traction[data-invitation] #read [data-sources] a { color: var(--gold-light); }
+#traction[data-invitation] > section > h2 { margin: 0 0 1rem; font: 500 clamp(1.5rem, 2.6vw, 2rem)/1.2 var(--font-display); }
+#traction[data-invitation] #together ol { margin: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: .85rem; }
+#traction[data-invitation] #together li { counter-increment: step; display: grid; grid-template-columns: 2rem minmax(0, 1fr); max-width: 64ch; font: .98rem/1.65 var(--font-body); color: var(--cream-2); }
+#traction[data-invitation] #together li::before { content: counter(step); font: 500 1.05rem/1.55 var(--font-display); color: var(--gold); }
+#traction[data-invitation] #together > p { margin: 1.4rem 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .8rem; }
+#traction[data-invitation] #together > p a { display: inline-flex; align-items: center; min-height: 44px; }
+#traction[data-invitation] #together > p small { font-size: .75rem; color: var(--cream-3); }
+#traction[data-invitation] #ways dl { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0; }
+#traction[data-invitation] #ways dl > div { padding: 1.1rem 1.2rem; border: 1px solid var(--line-soft); background: var(--ink-2); }
+#traction[data-invitation] #ways dt { font: 500 1.15rem/1.3 var(--font-display); color: var(--cream); margin-bottom: .45rem; }
+#traction[data-invitation] #ways dd { margin: 0; font: .92rem/1.65 var(--font-body); color: var(--cream-2); }
+#traction[data-invitation] #ways > p { margin: 1rem 0 0; font: .9rem/1.6 var(--font-body); color: var(--cream-3); }
+@media (max-width: 640px) {
+  #traction[data-invitation] #read li { grid-template-columns: 1fr; gap: .4rem; padding: 1.2rem 0; }
+  #traction[data-invitation] #ways dl { grid-template-columns: 1fr; }
+}

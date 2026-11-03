@@ -1,5 +1,5 @@
 import posthog from 'posthog-js';
-import { analyticsEnabled, trackEvent } from './lib/analytics';
+import { analyticsEnabled, analyticsPath, trackEvent } from './lib/analytics';
 import { campaignAttribution, visitorSession } from './lib/campaign';
 
 if (analyticsEnabled()) {
@@ -17,10 +17,11 @@ if (analyticsEnabled()) {
       const clean = (properties: Record<string, unknown>) => {
         for (const key of Object.keys(properties)) {
           if (/url|referrer/i.test(key) && typeof properties[key] === 'string') {
-            try { const url = new URL(properties[key] as string); properties[key] = url.origin + (url.pathname.startsWith('/traction/invitation/') ? '/traction' : url.pathname); }
+            try { const url = new URL(properties[key] as string); properties[key] = url.origin + analyticsPath(url.pathname); }
             catch { delete properties[key]; }
           }
           if (/utm_|initial_utm_|search_keyword/i.test(key)) delete properties[key];
+          if (/pathname/i.test(key) && typeof properties[key] === 'string') properties[key] = analyticsPath(properties[key] as string);
         }
       };
       clean(event.properties);
