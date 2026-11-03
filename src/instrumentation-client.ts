@@ -39,7 +39,7 @@ if (analyticsEnabled()) {
     if (!link) return;
     const destination = link.origin === window.location.origin
       ? link.hash === '#first-read' ? 'first_read' : ['#contact', '#enquire'].includes(link.hash) ? 'enquiry' : (link.pathname === '/partnership' || (link.pathname === '/traction' && link.hash === '#partnership')) ? 'partnership' : link.pathname === '/work' ? 'work' : link.pathname === '/traction' ? 'traction' : link.pathname === '/traction/first-read' ? 'first_read' : link.pathname === '/articles/traction-from-zero' ? 'launch_log' : null
-      : link.hostname === 'nextrole.site' ? 'nextrole' : null;
+      : link.hostname === 'nextrole.site' ? 'nextrole' : link.hostname === 'traction.hyperdrift.io' && link.pathname === '/start' ? 'start_free' : null;
     if (destination) trackEvent('cta_clicked', { destination, offer: link.dataset.offer === 'mcp' ? 'mcp' : undefined, placement: link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : 'body' });
   });
 }

@@ -21,23 +21,12 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
   </>;
 }
 
-/** An invited founder says which of the two ways suits them, or leaves it open. */
-function InvitationChoice({ offerRead }: { offerRead: boolean }) {
-  return <fieldset data-choice="">
-    <legend>Which suits you <small>Optional</small></legend>
-    {offerRead && <label><input type="radio" name="situation" value="traction" /><span>A first read of my app first</span></label>}
-    <label><input type="radio" name="situation" value="traction-board" /><span>Traction on my own board</span></label>
-    <label><input type="radio" name="situation" value="partnership" /><span>The Traction Partnership</span></label>
-    <label><input type="radio" name="situation" value="" defaultChecked /><span>Not sure yet</span></label>
-  </fieldset>;
-}
-
 /** `introduce` is the Traction door: the same fields and delivery, with the open field asking for the app. */
-export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, contact, offerRead = false }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; contact?: ContactPrefill; offerRead?: boolean }) {
+export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; contact?: ContactPrefill }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
   return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Contact us">
     <fieldset disabled={status === 'sending'}>
-      {contact && !firstRead && !introduce ? <InvitationChoice offerRead={offerRead} /> : firstRead || introduce ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
+      {firstRead || introduce || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
       <div data-contact-details="">
         <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
         <label><span>Email</span><input name="email" type="email" defaultValue={contact?.email} required maxLength={254} autoComplete="email" /></label>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { TractionInvitation } from '@/components/TractionInvitation';
 import { Footer } from '@/components/Footer';
-import { EnquiryDialog } from '@/components/EnquiryDialog';
 import { tractionInvitation } from '@/lib/traction-invitations';
 import { websiteOpenGraph } from '@/lib/share-metadata';
 import '../../offering.css';
@@ -21,6 +20,5 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
   const { token } = await params;
   const invitation = await tractionInvitation(token);
   if (!invitation) notFound();
-  const contact = { name: invitation.firstName, company: invitation.product, ...invitation.contact };
-  return <><TractionInvitation invitation={invitation} /><Footer /><EnquiryDialog key={token} contact={contact} offerRead={!invitation.read} /></>;
+  return <><TractionInvitation invitation={invitation} /><Footer /></>;
 }

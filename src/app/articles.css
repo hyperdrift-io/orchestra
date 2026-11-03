@@ -171,12 +171,6 @@ form[aria-label='Contact us'] button { justify-self: start; padding: .65rem 1rem
 form[aria-label='Contact us'] button:hover { background: var(--gold-light); }
 form[aria-label='Contact us'] fieldset:disabled { opacity: .6; }
 form[aria-label='Contact us'] [data-contact-details] { display: grid; gap: 1rem; min-width: 0; }
-/* An invited founder's choice between the two ways to work with us: plain radios, each a full-width touch target. */
-form[aria-label='Contact us'] [data-choice] { gap: .25rem; }
-form[aria-label='Contact us'] [data-choice] legend { padding: 0; margin-bottom: .4rem; font-size: .875rem; color: var(--cream-2); }
-form[aria-label='Contact us'] [data-choice] label { display: flex; align-items: center; gap: .65rem; min-height: 44px; cursor: pointer; }
-form[aria-label='Contact us'] [data-choice] input { width: 1.1rem; min-width: 1.1rem; min-height: 0; height: 1.1rem; padding: 0; margin: 0; accent-color: var(--gold); }
-form[aria-label='Contact us'] [data-choice] label > span { color: var(--cream); font-size: .95rem; }
 form[aria-label='Contact us'] [data-contact-actions] { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1rem; }
 form[aria-label='Contact us'] [data-contact-actions] p { flex: 1 1 10rem; margin: 0; font-size: .75rem; line-height: 1.5; color: var(--cream-3); }
 @media (min-width: 560px) {

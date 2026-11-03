@@ -6,7 +6,6 @@ export const enquiryChoices: { value: string; label: string }[] = [
   { value: 'live', label: 'Improving a live product' },
   { value: 'orchestra-os', label: 'Embedding my app on Orchestra OS' },
   { value: 'mcp', label: 'Making my product usable by agents' },
-  { value: 'traction-board', label: 'Traction on my own board' },
   { value: 'partnership', label: 'The Traction Partnership' },
   { value: 'traction', label: 'A first read of my live app' },
 ];
