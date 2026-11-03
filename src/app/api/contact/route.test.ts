@@ -10,6 +10,8 @@ beforeEach(async () => {
   // The route saves every enquiry; keep test records out of the real store under ~/.local/share.
   enquiryDir = await mkdtemp(join(tmpdir(), 'orchestra-enquiries-'));
   vi.stubEnv('ENQUIRY_DATA_DIR', enquiryDir);
+  // Fresh module per test: the rate windows live in module state.
+  vi.resetModules();
   fetchMock.mockReset();
   fetchMock.mockResolvedValue(new Response('{"ok":true}', { status: 200 }));
   vi.stubGlobal('fetch', fetchMock);
@@ -20,11 +22,11 @@ afterEach(async () => {
   await rm(enquiryDir, { recursive: true, force: true });
 });
 
-async function callRoute(body: unknown) {
+async function callRoute(body: unknown, headers: Record<string, string> = {}) {
   const { POST } = await import('./route');
   const req = new Request('http://localhost/api/contact', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', ...headers },
     body: JSON.stringify(body),
   });
   return POST(req);
@@ -39,7 +41,7 @@ describe('POST /api/contact', () => {
   it('relays a valid submission, folding situation and company into the message', async () => {
     const res = await callRoute({
       name: 'Ada',
-      email: 'ada@example.com',
+      email: 'ada@analytical.engines',
       company: 'Analytical Engines',
       situation: 'Automating a workflow',
       message: 'A reasonable length message about agents.',
@@ -49,17 +51,17 @@ describe('POST /api/contact', () => {
     expect(fetchMock).toHaveBeenCalledOnce();
     expect(relayed()).toEqual({
       name: 'Ada',
-      email: 'ada@example.com',
+      email: 'ada@analytical.engines',
       message: `Enquiry ID: ${id}\nWhere you are: Automating a workflow\nCompany: Analytical Engines\n\nA reasonable length message about agents.`,
       source: 'orchestra_ai',
     });
     const [file] = await readdir(enquiryDir);
-    expect(JSON.parse(await readFile(join(enquiryDir, file!), 'utf8'))).toMatchObject({ id, email: 'ada@example.com', delivery: 'sent' });
+    expect(JSON.parse(await readFile(join(enquiryDir, file!), 'utf8'))).toMatchObject({ id, email: 'ada@analytical.engines', delivery: 'sent' });
   });
 
   it('joins a received enquiry to its stored ID and source without leaking the browser session', async () => {
     const session = crypto.randomUUID();
-    const res = await callRoute({ name: 'Ada', email: 'ada@example.com', message: 'A reasonable length message.', session, campaign: { utm_source: 'editorial', utm_campaign: 'integration', validation_run: 'preview-check' } });
+    const res = await callRoute({ name: 'Ada', email: 'ada@analytical.engines', message: 'A reasonable length message.', session, campaign: { utm_source: 'editorial', utm_campaign: 'integration', validation_run: 'preview-check' } });
     const { id } = await res.json();
     expect(relayed().message).toBe(`Enquiry ID: ${id}\nutm_source: editorial\nutm_campaign: integration\nvalidation_run: preview-check\n\nA reasonable length message.`);
     expect(relayed().message).not.toContain(session);
@@ -70,7 +72,7 @@ describe('POST /api/contact', () => {
   it('keeps HD acquisition and public source context in the saved record and relay', async () => {
     const handoff = { source_site: 'hyperdrift', source_path: '/blog/the-agent-is-the-session', referring_domain: 'www.google.com' };
     const campaign = { utm_source: 'google', utm_campaign: 'original' };
-    const res = await callRoute({ name: 'Preview', email: 'preview@example.com', message: 'A scoped integration enquiry.', handoff, campaign });
+    const res = await callRoute({ name: 'Preview', email: 'founder@analytical.engines', message: 'A scoped integration enquiry.', handoff, campaign });
     expect(res.status).toBe(200);
     const { id } = await res.json();
     expect(relayed().message).toContain('From Hyperdrift: https://hyperdrift.io/blog/the-agent-is-the-session');
@@ -88,7 +90,7 @@ describe('POST /api/contact', () => {
   it('accepts HD series enquiries without inventing a saved name and retains the product link', async () => {
     const handoff = { source_site: 'hyperdrift', source_path: '/blog/series/stillness', source_project: 'stillness' };
     const product_url = 'https://example.com/product';
-    const res = await callRoute({ email: 'preview@example.com', message: 'A scoped integration enquiry.', handoff, product_url });
+    const res = await callRoute({ email: 'founder@analytical.engines', message: 'A scoped integration enquiry.', handoff, product_url });
     expect(res.status).toBe(200);
     const { id } = await res.json();
     expect(relayed().name).toBe('Website enquiry');
@@ -97,15 +99,75 @@ describe('POST /api/contact', () => {
   });
 
   it('rejects non-web product links before saving or relaying the enquiry', async () => {
-    const res = await callRoute({ email: 'preview@example.com', message: 'A scoped integration enquiry.', product_url: 'javascript:alert(1)' });
+    const res = await callRoute({ email: 'founder@analytical.engines', message: 'A scoped integration enquiry.', product_url: 'javascript:alert(1)' });
     expect(res.status).toBe(400);
     expect(fetchMock).not.toHaveBeenCalled();
     expect(await readdir(enquiryDir)).toEqual([]);
   });
 
+  it('answers an invalid submission without listing the fields', async () => {
+    const res = await callRoute({ email: 'nope', message: 'x' });
+    expect(res.status).toBe(400);
+    expect(await res.json()).toEqual({ error: 'Invalid submission' });
+  });
+
   it('returns 502 when the relay fails', async () => {
     fetchMock.mockResolvedValue(new Response('nope', { status: 500 }));
-    const res = await callRoute({ name: 'Ada', email: 'ada@example.com', message: 'A reasonable length message.' });
+    const res = await callRoute({ name: 'Ada', email: 'ada@analytical.engines', message: 'A reasonable length message.' });
     expect(res.status).toBe(502);
+  });
+});
+
+describe('POST /api/contact abuse guards', () => {
+  const enquiry = { name: 'Ada', email: 'ada@analytical.engines', message: 'A reasonable length message.' };
+
+  it('drops a filled honeypot with the normal answer, saving and relaying nothing', async () => {
+    const res = await callRoute({ ...enquiry, website: 'https://spam.example' });
+    expect(res.status).toBe(200);
+    expect(await res.json()).toMatchObject({ ok: true, id: expect.any(String) });
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(await readdir(enquiryDir)).toEqual([]);
+  });
+
+  it('drops reserved test domains on real delivery without saving, relaying or mailing', async () => {
+    for (const email of ['alice@example.com', 'bob@mail.example.org', 'scan@security.test', 'x@host.invalid', 'y@app.localhost']) {
+      vi.resetModules();
+      const res = await callRoute({ ...enquiry, email });
+      expect(res.status, email).toBe(200);
+      expect((await res.json()).ok).toBe(true);
+    }
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(await readdir(enquiryDir)).toEqual([]);
+  });
+
+  it('keeps reserved domains working in preview delivery', async () => {
+    vi.stubEnv('CONTACT_DELIVERY', 'preview');
+    const res = await callRoute({ ...enquiry, email: 'alice@example.com' });
+    expect(await res.json()).toMatchObject({ ok: true, preview: true });
+    expect(await readdir(enquiryDir)).toHaveLength(1);
+  });
+
+  it('limits each connection to five posts in ten minutes, whatever it claims as its first hop', async () => {
+    for (let i = 0; i < 5; i++) expect((await callRoute({}, { 'x-forwarded-for': `203.0.113.${i}, 198.51.100.7` })).status).toBe(400);
+    const limited = await callRoute(enquiry, { 'x-forwarded-for': '203.0.113.99, 198.51.100.7' });
+    expect(limited.status).toBe(429);
+    expect((await limited.json()).error).toEqual(expect.any(String));
+    expect((await callRoute(enquiry, { 'x-forwarded-for': '198.51.100.8' })).status).toBe(200);
+    expect(fetchMock).toHaveBeenCalledOnce();
+  });
+
+  it('stops real delivery at thirty enquiries an hour across connections', async () => {
+    for (let i = 0; i < 30; i++) expect((await callRoute(enquiry, { 'x-forwarded-for': `198.51.100.${i}` })).status).toBe(200);
+    expect((await callRoute(enquiry, { 'x-forwarded-for': '198.51.100.200' })).status).toBe(429);
+    expect(fetchMock).toHaveBeenCalledTimes(30);
+  });
+
+  it('sends the relay key only when CONTACT_RELAY_KEY is set', async () => {
+    await callRoute(enquiry);
+    expect((fetchMock.mock.calls[0]![1] as RequestInit).headers).not.toHaveProperty('x-contact-relay-key');
+    vi.resetModules();
+    vi.stubEnv('CONTACT_RELAY_KEY', 'shared-test-key');
+    await callRoute(enquiry);
+    expect((fetchMock.mock.calls[1]![1] as RequestInit).headers).toMatchObject({ 'x-contact-relay-key': 'shared-test-key' });
   });
 });

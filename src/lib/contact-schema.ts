@@ -15,6 +15,8 @@ export const contactSchema = z.object({
   campaign: campaignSchema.optional(),
   handoff: enquiryHandoffSchema.optional(),
   message: z.string().trim().min(10, 'Tell us a bit more').max(5000),
+  /** Honeypot: hidden from people, so any value means an automated filler. */
+  website: z.string().max(2000).optional(),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

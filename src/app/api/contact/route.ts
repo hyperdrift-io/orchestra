@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/contact-schema';
 import { articleBySlug, articleUrl } from '@/lib/article-catalogue';
 import { saveEnquiry, recordArticleEvent } from '@/lib/enquiry-storage';
+import { createRateGate, reservedEmailDomain } from '@/lib/contact-guard';
 
 import { trackEnquiry } from '@/lib/analytics-server';
 
@@ -12,7 +13,14 @@ export const runtime = 'nodejs';
 // per-app SMTP/Resend credentials that silently rot.
 const RELAY_URL = process.env.CONTACT_RELAY_URL ?? 'https://hyperdrift.io/api/contact';
 
+// A scanner sent about 80 enquiries in five minutes on 2 Nov 2026. Every post counts against its
+// connection; only enquiries that would reach the inbox count against the hourly ceiling.
+const perConnection = createRateGate({ windowMs: 10 * 60_000, perClient: 5, total: Infinity });
+const deliveries = createRateGate({ windowMs: 60 * 60_000, perClient: Infinity, total: 30 });
+const tooMany = () => NextResponse.json({ error: 'Too many messages. Please try again in a few minutes.' }, { status: 429 });
+
 export async function POST(req: Request) {
+  if (!perConnection(req)) return tooMany();
   let body: unknown;
   try {
     body = await req.json();
@@ -21,19 +29,20 @@ export async function POST(req: Request) {
   }
 
   const parsed = contactSchema.safeParse(body);
-  if (!parsed.success) {
-    return NextResponse.json(
-      { error: 'Invalid submission', issues: parsed.error.flatten() },
-      { status: 400 }
-    );
-  }
+  // The client shows only `error`; the field list stays out of a scanner's reach.
+  if (!parsed.success) return NextResponse.json({ error: 'Invalid submission' }, { status: 400 });
 
-  const { name, email, company, situation, message, article, session, campaign, handoff, product_url } = parsed.data;
+  const { name, email, company, situation, message, article, session, campaign, handoff, product_url, website } = parsed.data;
   const id = crypto.randomUUID();
+  // A filled honeypot, or a real delivery from a domain no one receives mail at, gets the normal
+  // answer and goes nowhere: no record, no relay, no mail.
+  if (website) return NextResponse.json({ ok: true, id });
   const preview = process.env.CONTACT_DELIVERY === 'preview';
   if (preview && process.env.NODE_ENV === 'production') {
     return NextResponse.json({ error: 'Contact delivery is not configured' }, { status: 503 });
   }
+  if (!preview && reservedEmailDomain(email)) return NextResponse.json({ ok: true, id });
+  if (!preview && !deliveries(req)) return tooMany();
   try { await saveEnquiry(id, parsed.data, preview ? 'preview' : 'pending'); }
   catch { await trackEnquiry('enquiry_failed', parsed.data, id, 'storage'); return NextResponse.json({ error: 'We could not save your enquiry. Please try again.' }, { status: 503 }); }
   if (preview) {
@@ -55,7 +64,7 @@ export async function POST(req: Request) {
   try {
     const relay = await fetch(RELAY_URL, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...(process.env.CONTACT_RELAY_KEY ? { 'x-contact-relay-key': process.env.CONTACT_RELAY_KEY } : {}) },
       body: JSON.stringify({
         name: name || 'Website enquiry',
         email,

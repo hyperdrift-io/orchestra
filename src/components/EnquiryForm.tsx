@@ -31,6 +31,8 @@ export function EnquiryForm({ articleSlug, situation, firstRead = false, introdu
         <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
         <label><span>Email</span><input name="email" type="email" defaultValue={contact?.email} required maxLength={254} autoComplete="email" /></label>
       </div>
+      {/* Honeypot: people never see or reach it; an automated filler that completes it is dropped. */}
+      <div aria-hidden="true" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap' }}><label><span>Website</span><input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       {!firstRead && <label><span>Company <small>Optional</small></span><input name="company" defaultValue={contact?.company} maxLength={200} autoComplete="organization" /></label>}
       {firstRead
         ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label>

@@ -34,7 +34,7 @@ export function useEnquiry() {
           name: String(form.get('name') || ''), email: String(form.get('email') || ''),
           company: String(form.get('company') || '') || undefined,
           situation: enquiryChoices.find((choice) => choice.value === form.get('situation'))?.label,
-          message: String(form.get('message') || ''), article, session: articleSession(), campaign: campaignAttribution(), handoff: enquiryHandoff(),
+          message: String(form.get('message') || ''), website: String(form.get('website') || '') || undefined, article, session: articleSession(), campaign: campaignAttribution(), handoff: enquiryHandoff(),
         }),
       });
       const body = await response.json();
