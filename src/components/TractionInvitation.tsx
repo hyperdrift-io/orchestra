@@ -2,8 +2,8 @@ import { TractionJourney } from '@/components/TractionJourney';
 import { exampleBoardHref } from '@/data/traction-offer';
 import type { TractionInvitation as Invitation } from '@/lib/traction-invitations';
 
-/** Free sign-up on Traction; the opaque reference ties a started board back to this invitation. */
-const startHref = (ref?: string) => `https://traction.hyperdrift.io/start${ref ? `?from=${ref}` : ''}`;
+/** Free sign-up on Traction (TRACTION_START_URL points a local preview at its own Traction); the opaque reference ties a started board back to this invitation. */
+const startHref = (ref?: string) => `${process.env.TRACTION_START_URL || 'https://traction.hyperdrift.io/start'}${ref ? `?from=${ref}` : ''}`;
 
 /**
  * The page a personal invitation lands on, in the order a founder decides:
