@@ -1,5 +1,5 @@
 import { TractionJourney } from '@/components/TractionJourney';
-import { exampleBoardHref } from '@/data/traction-offer';
+import { continueHref, exampleBoardHref } from '@/data/traction-offer';
 import type { TractionInvitation as Invitation } from '@/lib/traction-invitations';
 
 /** Free sign-up on Traction (TRACTION_START_URL points a local preview at its own Traction); the opaque reference ties a started board back to this invitation. */
@@ -41,6 +41,7 @@ export function TractionInvitation({ invitation }: { invitation: Invitation }) {
         <li>Every reply and result lands on the board, so the next move comes from what actually happened.</li>
       </ol>
       <p><a href={exampleBoardHref}>See Traction at work on an example board →</a> <small>A fictional startup on the real product.</small></p>
+      <p><a href={continueHref}>How Traction continues after day one →</a></p>
     </section>
 
     {/* The one door, after the proposal. */}

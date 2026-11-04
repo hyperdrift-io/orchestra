@@ -8,4 +8,5 @@ export const enquiryChoices: { value: string; label: string }[] = [
   { value: 'mcp', label: 'Making my product usable by agents' },
   { value: 'partnership', label: 'The Traction Partnership' },
   { value: 'traction', label: 'A first read of my live app' },
+  { value: 'continue', label: 'Continuing from my free Traction board' },
 ];

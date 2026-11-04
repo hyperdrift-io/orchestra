@@ -42,6 +42,17 @@
 #traction-example [data-in-action] figcaption { margin-top: .6rem; max-width: 68ch; font: .82rem/1.6 var(--font-body); color: var(--cream-2); }
 #traction-example [data-in-action] figcaption small { display: block; margin-top: .2rem; font-size: .72rem; color: var(--cream-3); }
 #traction[data-offering] #value > [data-availability] { font: .75rem/1.6 var(--font-body); color: var(--cream-3); margin: .75rem 0 0; }
+/* How Traction continues: three steps, each what you get, what you bring, when it fits. No button here; the door follows. */
+#traction[data-offering] #continue > header > p:last-child { max-width: 60ch; margin: .6rem 0 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
+#traction[data-offering] #continue > ol { list-style: none; max-width: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+#traction[data-offering] #continue > ol > li { display: flex; flex-direction: column; gap: .8rem; margin: 0; padding: 1.2rem 1.25rem 1.4rem; border: 1px solid var(--line-soft); background: var(--ink-2); }
+#traction[data-offering] #continue > ol > li[aria-current] { border-color: color-mix(in srgb, var(--gold) 55%, transparent); }
+#traction[data-offering] #continue > ol > li > p { margin: 0; font: .68rem/1.4 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
+#traction[data-offering] #continue h3 { margin: 0; font: 500 clamp(1.3rem, 2vw, 1.55rem)/1.25 var(--font-display); color: var(--cream); }
+#traction[data-offering] #continue dl { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem .8rem; margin: .2rem 0 0; }
+#traction[data-offering] #continue dt { font: .68rem/1.7 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cream-3); }
+#traction[data-offering] #continue dd { margin: 0; font: .9rem/1.6 var(--font-body); color: var(--cream-2); }
+@media (max-width: 900px) { #traction[data-offering] #continue > ol { grid-template-columns: 1fr; } }
 /* The door, once, after the proposal. */
 #traction[data-offering] > footer { border-top: 1px solid var(--line-hair); margin-top: 2.5rem; padding-top: 2rem; }
 #traction[data-offering] > footer h2 { font: 500 clamp(1.8rem, 3vw, 2.6rem)/1.15 var(--font-display); margin: 0 0 1rem; }
@@ -127,12 +138,6 @@
 #traction[data-invitation] #together > p { margin: 1.4rem 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .8rem; }
 #traction[data-invitation] #together > p a { display: inline-flex; align-items: center; min-height: 44px; }
 #traction[data-invitation] #together > p small { font-size: .75rem; color: var(--cream-3); }
-#traction[data-invitation] #ways dl { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0; }
-#traction[data-invitation] #ways dl > div { padding: 1.1rem 1.2rem; border: 1px solid var(--line-soft); background: var(--ink-2); }
-#traction[data-invitation] #ways dt { font: 500 1.15rem/1.3 var(--font-display); color: var(--cream); margin-bottom: .45rem; }
-#traction[data-invitation] #ways dd { margin: 0; font: .92rem/1.65 var(--font-body); color: var(--cream-2); }
-#traction[data-invitation] #ways > p { margin: 1rem 0 0; font: .9rem/1.6 var(--font-body); color: var(--cream-3); }
 @media (max-width: 640px) {
   #traction[data-invitation] #read li { grid-template-columns: 1fr; gap: .4rem; padding: 1.2rem 0; }
-  #traction[data-invitation] #ways dl { grid-template-columns: 1fr; }
 }

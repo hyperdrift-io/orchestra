@@ -7,8 +7,16 @@ export const campaignSchema = z.object({
   /** A personal invitation's opaque reference and page version, read from the page itself. */
   invite_ref: z.string().regex(/^c-[a-f0-9]{8}$/).optional(),
   page_variant: z.string().regex(/^[a-z0-9_]{1,40}$/).optional(),
+  /** The free Traction board a founder came from (`/traction?from=<app id>`), bounded as Traction bounds its app ids; never a name or an email. */
+  trial_app: z.string().regex(/^[a-z0-9][a-z0-9-]{0,40}$/).optional(),
 });
 export type Campaign = z.infer<typeof campaignSchema>;
+
+/** The app id a free board put in `?from=`, or nothing: anything outside Traction's own id shape is dropped before it reaches a page or an event. */
+export function trialAppFrom(value: string | string[] | undefined) {
+  const parsed = campaignSchema.shape.trial_app.safeParse(Array.isArray(value) ? value[0] : value);
+  return parsed.success ? parsed.data : undefined;
+}
 
 let memorySession: string | undefined;
 export function visitorSession() {
@@ -39,6 +47,9 @@ export function campaignAttribution(): Campaign {
       const found = campaignSchema.safeParse({ invite_ref: invitation.inviteRef, page_variant: invitation.pageVariant });
       if (found.success) Object.assign(campaign, found.data);
     }
+    // The free board a founder came from, read from the page the same way, so the rest of the visit and an enquiry carry it.
+    const trial = trialAppFrom(document.querySelector<HTMLElement>('[data-trial-app]')?.dataset.trialApp);
+    if (!campaign.trial_app && trial) campaign.trial_app = trial;
     sessionStorage.setItem('ai-campaign', JSON.stringify(campaign));
     return campaign;
   } catch { return {}; }

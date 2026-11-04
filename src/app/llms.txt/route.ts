@@ -1,5 +1,5 @@
 import { articleUrl, visibleArticles } from '@/lib/article-catalogue';
-import { services } from '@/data/traction-offer';
+import { ladder, services } from '@/data/traction-offer';
 import { indexableTags, tagUrl } from '@/lib/article-tags';
 
 export const dynamic = 'force-static';
@@ -21,7 +21,10 @@ Orchestra connects customer insight, distribution and AI engineering for founder
 
 ${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io${service.links[0].href}): ${service.text}`).join('\n')}
 
-- [The Traction partnership](https://orchestra.hyperdrift.io/traction#partnership): For a few founders at a time, by introduction or by asking. It starts with a conversation and a read of your app, then your board with the first customer move prepared; after that, one move at a time. A written first read is optional.
+How Traction continues, three steps in order, each earned by the one before (https://orchestra.hyperdrift.io/traction#continue):
+
+${ladder.map((step) => `- [${step.name}](https://orchestra.hyperdrift.io/traction#${step.slug}): ${step.get} You bring: ${step.bring.charAt(0).toLowerCase()}${step.bring.slice(1)} It fits when: ${step.fits.charAt(0).toLowerCase()}${step.fits.slice(1)}`).join('\n')}
+
 - [A sample first read](https://orchestra.hyperdrift.io/traction/first-read): A dated assessment of this site, with a follow-up distinguishing changes from measured outcomes.
 - [Run a first read on your own app](https://github.com/hyperdrift-io/first-read): The same method as an open Agent Skill made by Orchestra, for Claude Code, Codex and any client that reads Agent Skills. Public pages only; one strength, one constraint and the next customer move, each with its evidence. Install with npx skills add hyperdrift-io/first-read.
 
