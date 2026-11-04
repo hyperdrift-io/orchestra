@@ -20,12 +20,12 @@ export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
  * the Partnership starts with a conversation. No price, term or count anywhere here.
  */
 export const freeBoard = {
-  text: 'Day one: a first read of your app, your own board, and the Growth Manager proposing your first customer move. Free.',
+  text: 'Day one is free: a first read of your app and your first customer move, on your own board.',
 };
 export interface WayOn { slug: 'subscription' | 'partnership'; name: string; text: string; link?: { href: string; label: string } }
 export const waysOn: WayOn[] = [
-  { slug: 'subscription', name: 'A subscription', text: 'The Growth Manager works your board every day: moves prepared and sent from your mailbox with your yes, replies and readings back on the board, and the next move from what happened. You see the price on your board before you pay anything.' },
-  { slug: 'partnership', name: 'The Traction Partnership', text: 'We do the customer work with you, move by move, to paying customers, on the same board. It starts with a conversation.', link: { href: partnershipHref, label: 'How we work with you →' } },
+  { slug: 'subscription', name: 'A subscription', text: 'The Growth Manager works your board every day, and nothing is sent without your yes. You see the price on your board before you pay.' },
+  { slug: 'partnership', name: 'The Traction Partnership', text: 'We do the customer work with you, move by move, to paying customers. It starts with a conversation.', link: { href: partnershipHref, label: 'How we work with you →' } },
 ];
 
 /** The board film: the product doing the work, on Traction's own launch records. */

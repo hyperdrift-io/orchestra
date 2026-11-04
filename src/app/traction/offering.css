@@ -1,8 +1,8 @@
-/* A short welcome and useful work share the page. No full-height hero or staged reveal. */
+/* Traction's pages in Orchestra's hero grammar: a gold mono eyebrow, a serif title, a short lead. */
 #traction[data-offering] { padding: 1.3rem var(--edge) 2.5rem; }
 #traction[data-offering] > header { max-width: none; padding: 0 0 1.7rem; }
-#traction[data-offering] > header > p { font: .84rem/1.5 var(--font-body); letter-spacing: 0; text-transform: none; color: var(--gold-light); }
-#traction[data-offering] h1 { font: 500 clamp(1.6rem, 2.5vw, 2rem)/1.25 var(--font-body); margin: .7rem 0 0; max-width: none; text-wrap: pretty; }
+#traction[data-offering] > header > p:first-child { margin: 0; font: .72rem/1.5 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
+#traction[data-offering] h1 { font: 500 clamp(2.4rem, 4.4vw, 3.9rem)/1.05 var(--font-display); margin: 1.1rem 0 0; max-width: 20ch; text-wrap: balance; }
 #traction [data-founder-note] { max-width: 65ch; }
 #traction [data-founder-note] > p { margin: 0 0 1rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction [data-founder-note] > p:first-child { color: var(--cream); }
@@ -17,7 +17,7 @@
 #traction [data-joining] li strong { font-weight: 500; color: var(--cream); }
 #traction[data-offering] > section { border-top: 1px solid var(--line-hair); margin-top: 2.5rem; padding: 2rem 0 0; }
 #traction[data-offering] > section > :is(p, details) { max-width: 70ch; margin-block: 1rem; }
-#traction[data-offering] > section > header > p { color: var(--gold-light); font-size: .85rem; margin-bottom: .6rem; }
+#traction[data-offering] > section > header > p:first-child { margin: 0 0 .7rem; font: .68rem/1.5 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
 #traction[data-offering] > section h2 { font: 500 clamp(1.8rem, 3vw, 2.6rem)/1.15 var(--font-display); }
 #traction[data-offering] > section a { color: var(--gold-light); }
 #traction[data-offering] #why summary { min-height: 44px; padding-block: .6rem; color: var(--gold-light); cursor: pointer; }
@@ -29,15 +29,42 @@
 #traction[data-partnership] #value > p:last-child { margin: 1rem 0 0; font: inherit; color: inherit; }
 /* A lead under the title, on the pages that open with one. */
 #traction[data-offering] > header > [data-lead] { max-width: 62ch; margin: 1.1rem 0 0; font: 1.05rem/1.65 var(--font-body); color: var(--cream-2); }
-/* The product page: one reading column; the tour, the four areas at work, the two ways on, one door. */
-#traction[data-product] > * { max-width: 56rem; }
-#traction[data-product] #value { border-top: 0; margin-top: .6rem; padding-top: 0; }
-#traction[data-product] #value > h2 { margin: 0 0 .9rem; font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
-/* How it works: three steps in words, the founder's own app as the subject. No invented company, no recording. */
-#traction[data-product] #value > ol[data-steps] { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 2rem; margin: 0; padding: 0; }
-#traction[data-product] #value > ol[data-steps] > li { padding-top: 1rem; border-top: 1px solid var(--gold-line); font: .95rem/1.7 var(--font-body); color: var(--cream-2); }
-#traction[data-product] #value > ol[data-steps] strong { display: block; margin-bottom: .35rem; font: 500 1.08rem/1.4 var(--font-body); color: var(--cream); }
-@media (max-width: 760px) { #traction[data-product] #value > ol[data-steps] { grid-template-columns: 1fr; } }
+/* The product page: the promise on the left, the engine at work on the right, both in the first screen; then the two ways on and one door. */
+#traction[data-product] { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); align-items: center; padding-top: clamp(1.5rem, 4vw, 3.5rem); }
+#traction[data-product] > * { grid-column: 1 / -1; max-width: 62rem; }
+#traction[data-product] > header { grid-column: 1; grid-row: 1; padding: 0; }
+#traction[data-product] h1 { margin: 1.4rem 0 1.5rem; max-width: 15ch; font-size: clamp(2.8rem, 4.8vw, 5rem); line-height: 1; }
+#traction[data-product] > header > [data-lead] { max-width: 34ch; margin: 0; font-size: 1.12rem; line-height: 1.7; }
+#traction[data-product] > #value { grid-column: 2; grid-row: 1; max-width: none; margin: 0; padding: 0; border: 0; background: none; }
+/* Below the first screen the same two columns carry on: what it is on the left, the choice or the door on the right. */
+#traction[data-product] > :is(#continue, footer) { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); max-width: none; margin-top: clamp(3rem, 6vw, 5rem); padding-top: clamp(2rem, 4vw, 3rem); }
+#traction[data-product] > #continue { align-items: start; }
+#traction[data-product] > #continue > header { grid-column: 1; }
+#traction[data-product] > #continue > ul { grid-column: 2; margin: 0; }
+#traction[data-product] > footer { align-items: center; row-gap: 0; }
+#traction[data-product] > footer > h2 { grid-column: 1; grid-row: 1 / span 3; margin: 0; }
+#traction[data-product] > footer > :not(h2) { grid-column: 2; justify-self: start; }
+/* The engine at work: four areas, one clip at a time. Tabs in the home page's underline grammar; the clip is the page's one picture. */
+#traction [data-traction-walkthrough] > [role='group'] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; margin: 0 0 1rem; }
+#traction [data-traction-walkthrough] button { min-height: 44px; padding: .55rem .2rem; border: 0; border-bottom: 1px solid var(--line-soft); background: none; color: var(--cream-3); font: .8rem/1.3 var(--font-body); cursor: pointer; transition: color .2s ease, border-color .2s ease; }
+#traction [data-traction-walkthrough] button:hover { color: var(--cream); border-bottom-color: var(--cream-3); }
+#traction [data-traction-walkthrough] button[aria-pressed='true'] { color: var(--gold-light); border-bottom: 2px solid var(--gold); }
+#traction [data-traction-walkthrough] button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+#traction [data-in-action] { margin: 0; }
+#traction [data-in-action] video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #02050a; border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); border-radius: 4px; box-shadow: 0 28px 70px rgb(0 0 0 / .55), 0 0 0 6px color-mix(in srgb, var(--gold) 5%, transparent); }
+#traction [data-in-action] figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: 1rem; letter-spacing: 0; }
+#traction [data-in-action] figcaption > span { font: 500 clamp(1.2rem, 1.8vw, 1.55rem)/1.3 var(--font-display); color: var(--cream); }
+#traction [data-in-action] figcaption > small { flex: none; font: .62rem/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+@media (max-width: 960px) {
+  #traction[data-product] { grid-template-columns: minmax(0, 1fr); }
+  #traction[data-product] > :is(header, #value) { grid-column: 1; grid-row: auto; }
+  #traction[data-product] > #value { margin-top: 2rem; }
+  #traction[data-product] > :is(#continue, footer) { grid-template-columns: minmax(0, 1fr); }
+  #traction[data-product] > #continue > :is(header, ul), #traction[data-product] > footer > h2, #traction[data-product] > footer > :not(h2) { grid-column: 1; grid-row: auto; }
+  #traction[data-product] > #continue > ul { margin-top: 1.6rem; }
+  #traction[data-product] > footer > h2 { margin-bottom: 1rem; }
+}
+@media (max-width: 420px) { #traction [data-traction-walkthrough] button { font-size: .74rem; } }
 /* How it continues: the free day one, then two ways on side by side. No button here; the door follows. */
 #traction[data-offering] #continue > header > p:last-child { max-width: 62ch; margin: .6rem 0 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction[data-offering] #continue > ul { list-style: none; max-width: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -46,7 +73,6 @@
 #traction[data-offering] #continue li > p { margin: 0; font: .92rem/1.65 var(--font-body); color: var(--cream-2); }
 #traction[data-offering] #continue li > p > a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 760px) { #traction[data-offering] #continue > ul { grid-template-columns: 1fr; } }
-/* The partnership page keeps the two-column proposal; the sample read sits as proof under what you bring. */
 /* The door, once, after the proposal. */
 #traction[data-offering] > footer { border-top: 1px solid var(--line-hair); margin-top: 2.5rem; padding-top: 2rem; }
 #traction[data-offering] > footer h2 { font: 500 clamp(1.8rem, 3vw, 2.6rem)/1.15 var(--font-display); margin: 0 0 1rem; }
@@ -54,14 +80,8 @@
 #traction[data-offering] > footer > p:last-child { margin: 1.2rem 0 0; font-size: .9rem; }
 #traction[data-offering] > footer > p > a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold-light); }
 #traction[data-offering] > footer > p[data-samples] { display: flex; flex-wrap: wrap; gap: 0 1.6rem; }
-#traction-story { max-width: 50rem; margin: 0 auto; padding: 1.3rem var(--edge) 2.5rem; }
-#traction-story > header { margin-bottom: 1.7rem; }
-#traction-story > header > p { font: .84rem/1.5 var(--font-body); text-transform: none; letter-spacing: 0; color: var(--gold-light); }
-#traction-story h1 { font: 500 clamp(1.6rem, 2.5vw, 2rem)/1.25 var(--font-body); margin: .7rem 0 0; }
 [data-founder-letter] p { font: 1rem/1.7 var(--font-body); margin: 0 0 1rem; color: var(--cream-2); }
 [data-founder-letter] p:first-child { color: var(--cream); }
-#traction-story > footer { display: flex; flex-wrap: wrap; gap: .5rem 2rem; border-top: 1px solid var(--line-hair); padding-top: 1rem; }
-#traction-story > footer a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9rem; color: var(--gold-light); }
 
 /* A personal invitation: the founder's own product first, then the work, the two ways and one door. One reading column. */
 #traction[data-invitation] > * { max-width: 52rem; }

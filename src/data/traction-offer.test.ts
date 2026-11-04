@@ -9,7 +9,7 @@ describe('how Traction continues', () => {
   it('is a free day one, then two ways on: a subscription taken inside Traction, the Partnership by conversation', () => {
     expect(waysOn.map((way) => way.slug)).toEqual(['subscription', 'partnership']);
     expect(waysOn[0].name).toBe('A subscription');
-    expect(waysOn[0].text).toMatch(/price on your board before you pay anything/);
+    expect(waysOn[0].text).toMatch(/price on your board before you pay/);
     expect(waysOn[0].link).toBeUndefined();
     expect(waysOn[1].link?.href).toBe(partnershipHref);
     expect(continueHref).toBe('/traction#continue');
@@ -48,6 +48,13 @@ describe('how Traction continues', () => {
     expect(product).not.toMatch(/\/traction\/first-read/);
     expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
     expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
+  });
+
+  it('opens on the engine at work, in few words', async () => {
+    const product = await source('../components/Traction.tsx');
+    expect(product).toMatch(/Traction is an engine/);
+    expect(product).toMatch(/<TractionWalkthrough \/>/);
+    expect(await source('../components/TractionWalkthrough.tsx')).toMatch(/Example data/);
   });
 
   it('shows no invented company: the founder’s own app is the subject', async () => {

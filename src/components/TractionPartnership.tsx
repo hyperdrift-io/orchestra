@@ -8,7 +8,7 @@ export function TractionPartnership() {
     <TractionJourney />
     <header>
       <p>The Traction Partnership</p>
-      <h1>How we work with you.</h1>
+      <h1>How we work <em>with you.</em></h1>
       <p data-lead="">We do the customer work with you, move by move, from the first conversation to paying customers, on your Traction board. Here is what that looks like, how it starts and what we ask.</p>
     </header>
     <div data-founder-note>
