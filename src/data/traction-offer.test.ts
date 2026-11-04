@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
+import { tour } from './traction-tour';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
 const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
@@ -63,11 +64,19 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('opens on the engine at work, in few words', async () => {
+  it('opens on the engine at work: real runs on our own apps, in the board’s words, with no door of its own', async () => {
     const product = await source('../components/Traction.tsx');
     expect(product).toMatch(/Traction is an engine/);
-    expect(product).toMatch(/<TractionWalkthrough \/>/);
-    expect(await source('../components/TractionWalkthrough.tsx')).toMatch(/Example data/);
+    expect(product).toMatch(/<TractionTour \/>/);
+    expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'send', 'plan', 'market']);
+    expect(tour.end.line).toBe(freeBoard.text);
+    // The businesses found are real people and firms: no name field, and the page says names are hidden.
+    expect(tour.customers.found.every((business) => !('company' in business) && business.nameLength > 0)).toBe(true);
+    expect(tour.labels.trial).toMatch(/names hidden/);
+    expect(tour.labels.simulated).toMatch(/simulated/i);
+    expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented/i);
+    // The page asks once, at its end.
+    expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
   });
 
   it('shows no invented company: the founder’s own app is the subject', async () => {
