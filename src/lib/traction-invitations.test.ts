@@ -23,6 +23,11 @@ describe('invitation registry', () => {
     expect(parseInvitation({ ...base, read: insecure })).toMatchObject({ read: undefined, variant: 'proposition_v1' });
   });
 
+  it('reads the app live when the entry carries its https address', () => {
+    expect(parseInvitation({ ...base, url: 'https://venuebook.co/', ref: 'c-f1a7fa4e' })).toMatchObject({ url: 'https://venuebook.co/', variant: 'live_read_v1' });
+    expect(parseInvitation({ ...base, url: 'http://venuebook.co/' })).toMatchObject({ url: undefined, variant: 'proposition_v1' });
+  });
+
   it('accepts only an opaque reference, never a name or email', () => {
     expect(parseInvitation({ ...base, ref: 'ada@example.com' })?.ref).toBeUndefined();
     expect(parseInvitation({ ...base, ref: 'c-50B91EDD' })?.ref).toBeUndefined();

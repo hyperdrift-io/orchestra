@@ -8,7 +8,7 @@ const text = (max: number) => z.string().trim().min(1).max(max);
 const source = z.object({ label: text(80), href: z.string().url().max(500).refine((href) => href.startsWith('https://'), 'https only') });
 
 /** A first read of the founder's own product, prepared and checked before the invitation goes out. */
-const readSchema = z.object({
+export const readSchema = z.object({
   /** When the public pages were read, as written on the page. */
   on: text(40),
   findings: z.array(z.object({
@@ -25,6 +25,8 @@ export type TractionInvitation = {
   /** Who the product is for, in the invitation email's own words ("the small teams it’s made for"). */
   audience?: string;
   read?: FirstRead;
+  /** The app's own address, https only. With it, the page reads the app when the founder lands (Traction's site read). */
+  url?: string;
   /** Opaque per-person analytics reference (`c-` and eight hex digits); never a name. */
   ref?: string;
   /** Which page this invitation shows, for comparing versions fairly. */
@@ -34,6 +36,7 @@ export type TractionInvitation = {
 const optional = {
   audience: text(80).optional(),
   read: readSchema.optional(),
+  url: z.string().url().max(300).refine((href) => href.startsWith('https://'), 'https only').optional(),
   ref: z.string().regex(/^c-[a-f0-9]{8}$/).optional(),
   variant: z.string().regex(/^[a-z0-9_]{1,40}$/).optional(),
 };
@@ -65,9 +68,10 @@ export function parseInvitation(value: unknown): TractionInvitation | undefined 
     return parsed.success ? parsed.data as z.infer<(typeof optional)[K]> : undefined;
   };
   const read = field('read');
+  const url = field('url');
   return {
     firstName, product, welcome, contact: prefill.success ? prefill.data : undefined,
-    audience: field('audience'), read, ref: field('ref'),
-    variant: field('variant') ?? (read ? 'first_read_v1' : 'proposition_v1'),
+    audience: field('audience'), read, url, ref: field('ref'),
+    variant: field('variant') ?? (url ? 'live_read_v1' : read ? 'first_read_v1' : 'proposition_v1'),
   };
 }

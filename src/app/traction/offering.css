@@ -94,6 +94,24 @@
 #traction[data-invitation] #read li > div > p { max-width: 62ch; margin: 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction[data-invitation] #read [data-sources] { margin-top: .7rem; font-size: .8rem; color: var(--cream-3); }
 #traction[data-invitation] #read [data-sources] a { color: var(--gold-light); }
+/* The live read: the site's own name and line, each page as it is read, the findings' outlines until they land. */
+#traction[data-invitation] [data-reading] { display: grid; gap: .9rem; padding: 1.2rem 0 1.4rem; }
+#traction[data-invitation] [data-site] { display: grid; gap: .3rem; margin: 0; }
+#traction[data-invitation] [data-site] strong { font: 500 1.15rem/1.35 var(--font-display); color: var(--cream); }
+#traction[data-invitation] [data-site] span { max-width: 62ch; font: .92rem/1.6 var(--font-body); color: var(--cream-3); }
+#traction[data-invitation] #read [data-reading] ul { display: flex; flex-wrap: wrap; gap: .45rem .6rem; margin: 0; padding: 0; list-style: none; }
+#traction[data-invitation] #read [data-reading] li { display: inline-flex; align-items: center; gap: .4rem; min-height: 1.9rem; padding: 0 .7rem; border: 1px solid var(--line-hair); border-radius: 999px; font: .72rem/1 var(--font-mono); color: var(--cream-2); }
+#traction[data-invitation] #read [data-reading] li svg { color: var(--gold); }
+#traction[data-invitation] #read [data-reading] [data-now] { border-style: dashed; }
+#traction[data-invitation] [data-dot] { width: .45rem; height: .45rem; border-radius: 50%; background: var(--gold); animation: traction-breathe 1.2s ease-in-out infinite; }
+#traction[data-invitation] #read [data-pending] [data-line] { display: block; height: .8rem; margin: .45rem 0 .7rem; border-radius: 4px; background: linear-gradient(90deg, var(--line-hair), color-mix(in srgb, var(--gold) 22%, transparent), var(--line-hair)); background-size: 200% 100%; animation: traction-shimmer 1.6s linear infinite; }
+#traction[data-invitation] #read [data-pending] [data-line][data-short] { width: 62%; }
+#traction[data-invitation] #read [data-pending] [data-line]:first-child { height: 1.15rem; width: 84%; }
+#traction[data-invitation] [data-read-note] { margin: 0; padding: 1rem 0; font: .95rem/1.6 var(--font-body); color: var(--cream-2); }
+#traction [data-sr-only] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@keyframes traction-breathe { 50% { opacity: .3; transform: scale(.8); } }
+@keyframes traction-shimmer { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { #traction[data-invitation] :is([data-dot], [data-line]) { animation: none; } }
 #traction[data-invitation] > section > h2 { margin: 0 0 1rem; font: 500 clamp(1.5rem, 2.6vw, 2rem)/1.2 var(--font-display); }
 #traction[data-invitation] #together ol { margin: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: .85rem; }
 #traction[data-invitation] #together li { counter-increment: step; display: grid; grid-template-columns: 2rem minmax(0, 1fr); max-width: 64ch; font: .98rem/1.65 var(--font-body); color: var(--cream-2); }

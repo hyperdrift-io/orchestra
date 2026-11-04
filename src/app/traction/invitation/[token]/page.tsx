@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { TractionInvitation } from '@/components/TractionInvitation';
 import { Footer } from '@/components/Footer';
 import { tractionInvitation } from '@/lib/traction-invitations';
+import { liveRead } from '@/lib/traction-read';
 import { websiteOpenGraph } from '@/lib/share-metadata';
 import '../../offering.css';
 
@@ -20,5 +21,7 @@ export default async function InvitationPage({ params }: { params: Promise<{ tok
   const { token } = await params;
   const invitation = await tractionInvitation(token);
   if (!invitation) notFound();
-  return <><TractionInvitation invitation={invitation} /><Footer /></>;
+  // The read starts as the founder lands; the page then follows it.
+  const live = invitation.url ? await liveRead(invitation.url) : undefined;
+  return <><TractionInvitation invitation={invitation} token={token} live={live} /><Footer /></>;
 }

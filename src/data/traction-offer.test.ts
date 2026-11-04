@@ -22,6 +22,9 @@ describe('how Traction continues', () => {
   it('sends a founder to Traction itself to start or to continue', () => {
     expect(startHref()).toBe('https://traction.hyperdrift.io/start');
     expect(startHref('c-50b91edd')).toBe('https://traction.hyperdrift.io/start?from=c-50b91edd');
+    // From an invitation: the app's public address and name, so the form arrives filled in; never a person's name or email.
+    expect(startHref('c-f1a7fa4e', { url: 'https://venuebook.co/', product: 'VenueBook' }))
+      .toBe('https://traction.hyperdrift.io/start?from=c-f1a7fa4e&app=https%3A%2F%2Fvenuebook.co%2F&product=VenueBook');
     expect(boardHref('olatti')).toBe('https://traction.hyperdrift.io/app/olatti');
   });
 
@@ -41,13 +44,23 @@ describe('how Traction continues', () => {
     expect(partnership).toMatch(/data-introduce/);
   });
 
-  it('asks for the founder’s own first read; the sample read is retired', async () => {
+  it('shows Traction in action on the founder’s own app; the sample read is retired', async () => {
     const product = await source('../components/Traction.tsx');
-    expect(product).toMatch(/Get your first read →/);
+    expect(product).toMatch(/See Traction in action →/);
+    expect(product).not.toMatch(/Start free|Get your first read/);
     expect(product).toMatch(/your email, then a passkey/);
     expect(product).not.toMatch(/\/traction\/first-read/);
     expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
     expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
+  });
+
+  it('opens an invited founder’s own board, on the read made as they landed', async () => {
+    const invitation = await source('../components/TractionInvitation.tsx');
+    expect(invitation).toMatch(/Open \$\{product\}’s Traction board now →/);
+    expect(invitation).not.toMatch(/Start free/);
+    expect(invitation).toMatch(/<TractionLiveRead /);
+    expect(await source('../app/traction/invitation/[token]/page.tsx')).toMatch(/await liveRead\(invitation\.url\)/);
+    expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
   it('opens on the engine at work, in few words', async () => {

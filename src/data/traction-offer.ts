@@ -8,9 +8,16 @@ export const continueHref = '/traction#continue';
 /** How we work with a founder: the page that answers the question prospects ask first. */
 export const partnershipHref = '/traction/partnership';
 /** Traction itself; TRACTION_URL points a local preview at a local Traction. */
-const tractionOrigin = () => process.env.TRACTION_URL || 'https://traction.hyperdrift.io';
-/** Free sign-up on Traction; an invitation's opaque reference rides along. TRACTION_START_URL still overrides the whole address for a local preview. */
-export const startHref = (from?: string) => `${process.env.TRACTION_START_URL || `${tractionOrigin()}/start`}${from ? `?from=${from}` : ''}`;
+export const tractionOrigin = () => process.env.TRACTION_URL || 'https://traction.hyperdrift.io';
+/**
+ * Free sign-up on Traction. From an invitation, its opaque reference rides along with the app's public address and name,
+ * so the form arrives filled in and the board opens on the read the founder saw. Never a person's name or email.
+ * TRACTION_START_URL still overrides the whole address for a local preview.
+ */
+export const startHref = (from?: string, app?: { url: string; product: string }) => {
+  const query = new URLSearchParams({ ...(from ? { from } : {}), ...(app ? { app: app.url, product: app.product } : {}) }).toString();
+  return `${process.env.TRACTION_START_URL || `${tractionOrigin()}/start`}${query ? `?${query}` : ''}`;
+};
 /** A founder's own board, by its app id, validated before it gets here. */
 export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
 

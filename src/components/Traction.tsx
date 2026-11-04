@@ -39,9 +39,9 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
         <p>Both ways on are there, with the price.</p>
         <a href={boardHref(trialApp)} data-primary="">Open your board →</a>
       </> : <>
-        <h2 id="traction-contact-title">Get your first read.</h2>
-        <p>Free. Your name, your app and your email, then a passkey.</p>
-        <a href={startHref()} data-primary="">Get your first read →</a>
+        <h2 id="traction-contact-title">See Traction in action.</h2>
+        <p>On your own app, free. Your name, your app and your email, then a passkey.</p>
+        <a href={startHref()} data-primary="">See Traction in action →</a>
         {/* The reason, not a second door. */}
         <p data-samples=""><a href={`${partnershipHref}#why`}>Why we’re building Traction →</a></p>
       </>}
