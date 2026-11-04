@@ -49,7 +49,7 @@ export function FirstRead() {
       <h2 id="next-title">Your next step.</h2>
       <p>Traction is the board. The Traction Partnership is the work we do with you on it. This is what a first read looks like; introduce your app and we’ll read yours the same way.</p>
       <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="">Introduce your app →</a>
-      <p><a href="/traction#partnership">How we work together →</a></p>
+      <p><a href="/traction/partnership">How we work with you →</a></p>
     </section>
   </article>;
 }

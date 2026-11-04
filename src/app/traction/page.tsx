@@ -8,10 +8,10 @@ import './offering.css';
 const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
 
 export const metadata: Metadata = {
-  title: 'Traction — A growth partner for your app',
-  description: 'A growth partner for your app. Start free: a first read of your app, your own board and an AI Growth Manager proposing your first customer move. Continue with Traction, or bring us in for the customer work.',
+  title: 'Traction — A growth board for your app',
+  description: 'Traction is a growth board for your app with an AI Growth Manager: it holds your evidence, names the one thing in the way and proposes your next customer move. Start free on day one, with a first read of your app.',
   alternates: { canonical: '/traction' },
-  openGraph: { ...websiteOpenGraph, title: 'Traction — Let’s find your next users.', description: 'A partnership to help your app find its market, turn interest into use and learn what brings people back. AI supports the work; we shape it with you.', url: 'https://orchestra.hyperdrift.io/traction', images: [shareImage] },
+  openGraph: { ...websiteOpenGraph, title: 'Traction — Let’s find your next users.', description: 'A growth board for your app with an AI Growth Manager. It holds your evidence, names the one thing in the way and proposes your next customer move. Start free on day one.', url: 'https://orchestra.hyperdrift.io/traction', images: [shareImage] },
   twitter: { card: 'summary_large_image', images: [shareImage] },
 };
 

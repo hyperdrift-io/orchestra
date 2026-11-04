@@ -21,15 +21,12 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
   </>;
 }
 
-/**
- * `introduce` is the Traction door: the same fields and delivery, with the open field asking for the app.
- * `continues` is a free board's founder taking the next step: the open field asks which one.
- */
-export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, continues = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; continues?: boolean; contact?: ContactPrefill }) {
+/** `introduce` is the Traction door: the same fields and delivery, with the open field asking for the app. */
+export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; contact?: ContactPrefill }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
   return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Contact us">
     <fieldset disabled={status === 'sending'}>
-      {firstRead || introduce || continues || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : continues ? 'continue' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
+      {firstRead || introduce || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
       <div data-contact-details="">
         <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
         <label><span>Email</span><input name="email" type="email" defaultValue={contact?.email} required maxLength={254} autoComplete="email" /></label>
@@ -41,11 +38,9 @@ export function EnquiryForm({ articleSlug, situation, firstRead = false, introdu
         ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label>
         : introduce
           ? <label><span>Your app <small>The link, who it’s for and what you want next</small></span><textarea name="message" required minLength={10} maxLength={5000} rows={5} /></label>
-          : continues
-            ? <label><span>Which step, and what you want next <small>Traction every day, or the Partnership; what the free board has shown you</small></span><textarea name="message" required minLength={10} maxLength={5000} rows={5} /></label>
-            : <label><span>Message</span><textarea name="message" required minLength={10} maxLength={5000} rows={4} /></label>}
+          : <label><span>Message</span><textarea name="message" required minLength={10} maxLength={5000} rows={4} /></label>}
       <div data-contact-actions="">
-        <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : introduce ? 'Introduce my app →' : continues ? 'Continue →' : 'Send message →'}</button>
+        <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : introduce ? 'Introduce my app →' : 'Send message →'}</button>
         <p>We’ll use these details to reply to your enquiry.</p>
       </div>
     </fieldset>

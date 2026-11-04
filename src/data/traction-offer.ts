@@ -7,43 +7,30 @@
 export const firstReadHref = '/traction#first-read';
 /** The public example board on Traction: Slotbloom, an invented startup, opened on its tour's intro card. */
 export const exampleBoardHref = 'https://traction.hyperdrift.io/example/studio-example?tour';
-/** The three steps on /traction; a free board links here with `?from=<app id>` so continuing is one address away. */
+/** The block on /traction that says how the free board continues; a free board links here with `?from=<app id>`. */
 export const continueHref = '/traction#continue';
+/** How we work with a founder: the page that answers the question prospects ask first. */
+export const partnershipHref = '/traction/partnership';
+/** Traction itself; TRACTION_URL points a local preview at a local Traction. */
+const tractionOrigin = () => process.env.TRACTION_URL || 'https://traction.hyperdrift.io';
+/** Free sign-up on Traction; an invitation's opaque reference rides along. TRACTION_START_URL still overrides the whole address for a local preview. */
+export const startHref = (from?: string) => `${process.env.TRACTION_START_URL || `${tractionOrigin()}/start`}${from ? `?from=${from}` : ''}`;
+/** A founder's own board, by its app id, validated before it gets here. */
+export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
 
 /**
- * How Traction continues: three steps in the order a founder takes them, each earned by the one before.
- * Defined once for the home card, /traction, the invitation page and llms.txt. No price, no term, no count anywhere here.
+ * The offer after day one, defined once for the home card, /traction, the invitation page and llms.txt.
+ * Day one is free; then two ways on. Neither is sold on a page: the paid board is taken inside Traction, where the number is shown;
+ * the Partnership starts with a conversation. No price, term or count anywhere here.
  */
-export interface LadderStep {
-  /** Also the step's anchor on /traction; `partnership` keeps every older link to the partnership working. */
-  slug: 'start-free' | 'board' | 'partnership';
-  name: string;
-  /** What the founder gets. */
-  get: string;
-  /** What the founder brings. */
-  bring: string;
-  /** When it fits. */
-  fits: string;
-}
-export const ladder: LadderStep[] = [
-  {
-    slug: 'start-free', name: 'Start free',
-    get: 'Day one: a first read of your app, your own board, and the Growth Manager proposing your first customer move. Free. The board is measured in moves, not days.',
-    bring: 'Your name and your app’s address, then a passkey.',
-    fits: 'You have a live app and want to see what Traction does with your own customers before deciding anything.',
-  },
-  {
-    slug: 'board', name: 'Traction',
-    get: 'The Growth Manager works your board every day: each move prepared, sent from your own mailbox with your yes, every reply and reading back on the board, and the next move from what happened.',
-    bring: 'The decisions and the customer work. Your team runs the moves.',
-    fits: 'Your first move has a result and you want the next ones to keep coming. We agree what it costs when we talk.',
-  },
-  {
-    slug: 'partnership', name: 'The Traction Partnership',
-    get: 'We do the customer work with you, move by move, from the first conversation to paying customers, measured on the same board.',
-    bring: 'A working product, a sign that people value it, and the decisions. Scope, costs, ownership and terms are agreed before work starts.',
-    fits: 'Your board shows demand and the work needs more hands than yours. A first conversation creates no commitment.',
-  },
+export const freeBoard = {
+  name: 'Start free',
+  text: 'Day one: a first read of your app, your own board, and the Growth Manager proposing your first customer move. Free. The board is measured in moves, not days.',
+};
+export interface WayOn { slug: 'board' | 'partnership'; name: string; text: string; link?: { href: string; label: string } }
+export const waysOn: WayOn[] = [
+  { slug: 'board', name: 'A paid board', text: 'The Growth Manager works your board every day: moves prepared and sent from your mailbox with your yes, replies and readings back on the board, and the next move from what happened. You continue on your board; the number is shown there.' },
+  { slug: 'partnership', name: 'The Traction Partnership', text: 'We do the customer work with you, move by move, to paying customers, on the same board. It starts with a conversation.', link: { href: partnershipHref, label: 'How we work with you →' } },
 ];
 
 /** `headline` is the finding in one sentence, also shown beside the offer; `detail` is the rest as the founder receives it. */
@@ -126,6 +113,6 @@ export const boardValue: { name: string; text: string }[] = [
 /** A link with `introduce` opens the shared enquiry dialog as the Traction door, asking for the app. */
 export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean; situation?: string; introduce?: boolean }[] }
 export const services: Service[] = [
-  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth partner for your app. Start free: a first read of your app, your own board and an AI Growth Manager proposing your first customer move. Continue with Traction, or bring us in for the customer work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }] },
+  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth partner for your app. Start free: a first read of your app, your own board and an AI Growth Manager proposing your first customer move. Continue on a paid board, or bring us in for the customer work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: partnershipHref, label: 'How we work with you' }] },
   { slug: 'orchestra-os', eyebrow: '02 · Orchestra OS', name: 'Embed your app on Orchestra OS.', text: 'Bring your app, or build it with us. Connect engineering, hosting, security maintenance and customer support, with growth work coordinated through Traction. We agree the scope and verify each connection with you.', links: [{ href: '/os', label: 'Explore Orchestra OS', primary: true }] },
 ];

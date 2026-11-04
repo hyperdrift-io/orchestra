@@ -14,13 +14,11 @@ type Props = { articleSlug?: string; situation?: string; contact?: ContactPrefil
  */
 export function EnquiryDialog({ articleSlug, situation, contact }: Props) {
   const pathname = usePathname();
-  const [intent, setIntent] = useState({ firstRead: false, introduce: false, continues: false, situation });
+  const [intent, setIntent] = useState({ firstRead: false, introduce: false, situation });
   const chooseIntent = useCallback((url: URL, link?: HTMLAnchorElement) => {
     const firstRead = url.hash === '#first-read' && !contact;
     const introduce = !firstRead && !contact && link?.dataset.introduce !== undefined;
-    // A free board's founder continuing (`data-continue`): same fields and delivery, the open field asking which step.
-    const continues = !firstRead && !introduce && !contact && link?.dataset.continue !== undefined;
-    setIntent({ firstRead, introduce, continues, situation: firstRead ? 'traction' : continues ? 'continue' : link?.dataset.situation || url.searchParams.get('situation') || situation || (pathname.startsWith('/traction') ? 'partnership' : undefined) });
+    setIntent({ firstRead, introduce, situation: firstRead ? 'traction' : link?.dataset.situation || url.searchParams.get('situation') || situation || (pathname.startsWith('/traction') ? 'partnership' : undefined) });
   }, [pathname, situation, contact]);
   const dialog = useEnquiryDialog(chooseIntent);
   useEffect(() => {
@@ -35,8 +33,8 @@ export function EnquiryDialog({ articleSlug, situation, contact }: Props) {
   return <dialog id="enquire" ref={dialog} aria-labelledby="enquire-heading">
     <form method="dialog" data-dialog-close=""><button type="submit" aria-label="Close">×</button></form>
     <header>
-      <h2 id="enquire-heading" tabIndex={-1}>{intent.firstRead ? 'Ask for a first read' : intent.introduce ? 'Introduce your app' : intent.continues ? 'Continue with Traction' : 'Get in touch'}</h2>
+      <h2 id="enquire-heading" tabIndex={-1}>{intent.firstRead ? 'Ask for a first read' : intent.introduce ? 'Introduce your app' : 'Get in touch'}</h2>
     </header>
-    <EnquiryForm key={intent.firstRead ? 'first-read' : intent.introduce ? 'introduce' : intent.continues ? 'continue' : 'conversation'} articleSlug={articleSlug} situation={intent.situation} firstRead={intent.firstRead} introduce={intent.introduce} continues={intent.continues} contact={contact} />
+    <EnquiryForm key={intent.firstRead ? 'first-read' : intent.introduce ? 'introduce' : 'conversation'} articleSlug={articleSlug} situation={intent.situation} firstRead={intent.firstRead} introduce={intent.introduce} contact={contact} />
   </dialog>;
 }

@@ -1,3 +1,3 @@
 import { permanentRedirect } from 'next/navigation';
 
-export default function PartnershipPage() { permanentRedirect('/traction#partnership'); }
+export default function PartnershipPage() { permanentRedirect('/traction/partnership'); }

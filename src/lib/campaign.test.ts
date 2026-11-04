@@ -13,7 +13,7 @@ describe('the free board behind a visit', () => {
   it('travels as a bounded campaign tag with an enquiry, never free text', () => {
     expect(campaignSchema.parse({ trial_app: 'olatti' })).toEqual({ trial_app: 'olatti' });
     expect(campaignSchema.safeParse({ trial_app: 'ada@example.com' }).success).toBe(false);
-    const input = contactSchema.parse({ email: 'preview@example.com', message: 'Continuing from the free board.', situation: 'Continuing from my free Traction board', campaign: { trial_app: 'olatti' } });
+    const input = contactSchema.parse({ email: 'preview@example.com', message: 'Continuing from the free board.', situation: 'The Traction Partnership', campaign: { trial_app: 'olatti' } });
     expect(input.campaign?.trial_app).toBe('olatti');
   });
 });

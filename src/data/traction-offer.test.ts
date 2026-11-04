@@ -1,16 +1,15 @@
 import { readFile } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
-import { continueHref, ladder, services } from './traction-offer';
-import { enquiryChoices } from './situations';
+import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
-const words = [...ladder.flatMap((step) => [step.name, step.get, step.bring, step.fits]), ...services.map((service) => service.text)].join('\n');
+const words = [freeBoard.name, freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
 
 describe('how Traction continues', () => {
-  it('is three steps in the order a founder takes them, each with what they get, what they bring and when it fits', () => {
-    expect(ladder.map((step) => step.slug)).toEqual(['start-free', 'board', 'partnership']);
-    expect(ladder.map((step) => step.name)).toEqual(['Start free', 'Traction', 'The Traction Partnership']);
-    for (const step of ladder) for (const field of [step.get, step.bring, step.fits]) expect(field.length).toBeGreaterThan(20);
+  it('is a free day one, then two ways on: the paid board taken inside Traction, the Partnership by conversation', () => {
+    expect(waysOn.map((way) => way.slug)).toEqual(['board', 'partnership']);
+    expect(waysOn[0].link).toBeUndefined();
+    expect(waysOn[1].link?.href).toBe(partnershipHref);
     expect(continueHref).toBe('/traction#continue');
   });
 
@@ -18,20 +17,25 @@ describe('how Traction continues', () => {
     expect(words).not.toMatch(/[£$€]|\bper (?:month|week|year)\b|\d+ ?%|\bdays? (?:free|trial)\b|\b(?:select few|only \d|spots?|places left|limited|waiting list)\b/i);
   });
 
-  it('is the one definition the page, the home card and llms.txt read', async () => {
-    expect(await source('../components/Traction.tsx')).toMatch(/ladder\.map/);
-    expect(await source('../app/llms.txt/route.ts')).toMatch(/ladder\.map/);
+  it('sends a founder to Traction itself to start or to continue', () => {
+    expect(startHref()).toBe('https://traction.hyperdrift.io/start');
+    expect(startHref('c-50b91edd')).toBe('https://traction.hyperdrift.io/start?from=c-50b91edd');
+    expect(boardHref('olatti')).toBe('https://traction.hyperdrift.io/app/olatti');
+  });
+
+  it('is the one definition the pages, the home card and llms.txt read', async () => {
+    expect(await source('../components/Traction.tsx')).toMatch(/waysOn\.map/);
+    expect(await source('../app/llms.txt/route.ts')).toMatch(/waysOn\.map/);
     expect(await source('../components/Services.tsx')).toMatch(/services\.map/);
   });
 
-  it('keeps one door on /traction after the proposal, in both readings of the page', async () => {
-    const page = await source('../components/Traction.tsx');
-    // One per reading: a visitor introduces an app; a free board's founder continues theirs. The steps carry no button.
-    expect(page.match(/data-primary=""/g)).toHaveLength(2);
-    expect(page).toMatch(/id="continue"/);
-  });
-
-  it('lets a free board’s founder say they are continuing, through the shared enquiry', () => {
-    expect(enquiryChoices.find((choice) => choice.value === 'continue')?.label).toBe('Continuing from my free Traction board');
+  it('keeps one door per page and no form for continuing', async () => {
+    const product = await source('../components/Traction.tsx');
+    // One per reading: a visitor starts free; a free board's founder opens their board. Neither is a form.
+    expect(product.match(/data-primary=""/g)).toHaveLength(2);
+    expect(product).not.toMatch(/data-enquiry/);
+    const partnership = await source('../components/TractionPartnership.tsx');
+    expect(partnership.match(/data-primary=""/g)).toHaveLength(1);
+    expect(partnership).toMatch(/data-introduce/);
   });
 });
