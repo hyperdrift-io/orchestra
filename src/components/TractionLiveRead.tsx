@@ -41,7 +41,7 @@ export function TractionLiveRead({ token, product, host, initial }: { token: str
   const read = live?.read;
   if (live?.state === 'failed') {
     return <section id="read" data-journey="read" data-live="failed" aria-label={`First read of ${product}`}>
-      <p data-read-note="">{`${host} didn’t let us read it just now. Your board reads it again when it opens.`}</p>
+      <p data-read-note="">{live.blocked ? `${host} didn’t let us read it just now. Your board reads it again when it opens.` : 'We couldn’t finish the read just now. Your board makes it again when it opens.'}</p>
     </section>;
   }
   return <section id="read" data-journey="read" data-live={read ? 'ready' : 'reading'} aria-label={`First read of ${product}`} aria-busy={!read}>
