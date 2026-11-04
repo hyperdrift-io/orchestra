@@ -1,4 +1,4 @@
-import { sampleRead, readMethod, boardFilm, boardValue } from '@/data/traction-offer';
+import { sampleRead, readMethod, startHref } from '@/data/traction-offer';
 import { LinkPreview } from '@/components/LinkPreview';
 
 /** The sample read in three lines, where a founder decides whether to ask for theirs. */
@@ -47,24 +47,10 @@ export function FirstRead() {
     </section>
     <section aria-labelledby="next-title">
       <h2 id="next-title">Your next step.</h2>
-      <p>Traction is the board. The Traction Partnership is the work we do with you on it. This is what a first read looks like; introduce your app and we’ll read yours the same way.</p>
-      <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="">Introduce your app →</a>
-      <p><a href="/traction/partnership">How we work with you →</a></p>
+      <p>Your own first read comes with a free Traction board: your app, read the same way, on day one.</p>
+      <a href={startHref()} data-primary="">Get your first read →</a>
+      <p><a href="/traction">What Traction is →</a> · <a href="/traction/partnership">How we work with you →</a></p>
     </section>
   </article>;
-}
-
-/** The board doing the work: the film, with its words readable. */
-export function BoardFilm() {
-  return <figure data-board-film>
-    <video controls playsInline preload="none" poster={boardFilm.poster} aria-label={boardFilm.label}><source src={boardFilm.src} type="video/mp4" /><track kind="captions" src={boardFilm.captions} srcLang="en" label="English" /><a href={boardFilm.src}>Watch the film</a></video>
-    <figcaption>{boardFilm.caption}</figcaption>
-    <details><summary>Read the film</summary><p>{boardFilm.text}</p></details>
-  </figure>;
-}
-
-/** What a founder gets, in three lines. */
-export function BoardValue() {
-  return <dl data-board-value>{boardValue.map((item) => <div key={item.name}><dt>{item.name}</dt><dd>{item.text}</dd></div>)}</dl>;
 }
 

@@ -95,6 +95,7 @@ article#first-read > section > ol:not([data-offer-steps]) p { margin: 0; font-si
 article#first-read > section > ol[data-offer-steps] { margin-top: 1.5rem; }
 article#first-read > section > a { display: inline-flex; margin-top: 2rem; padding: 1rem 1.3rem; background: var(--gold); color: var(--ink); border: 0; border-radius: 3px; font-weight: 600; }
 article#first-read > section > a:hover { background: var(--gold-light); color: var(--ink); }
+article#first-read > section > a + p { margin-top: 1.2rem; }
 @media (max-width: 760px) { article#first-read > section > ol:not([data-offer-steps]) { grid-template-columns: 1fr; } }
 [data-site-footer] > div { grid-template-columns: 1.2fr 1fr 1fr; }
 [data-site-footer] > div > p { font: 600 1.8rem var(--font-display); }
@@ -241,9 +242,6 @@ article#first-read > section > a:hover { background: var(--gold-light); color: v
 :is(#value, #launch) figure details { margin-top: 1rem; border-top: 1px solid var(--line-hair); max-width: 72ch; }
 :is(#value, #launch) figure summary { min-height: 44px; padding-block: .8rem; font-size: .85rem; color: var(--gold-light); cursor: pointer; }
 :is(#value, #launch) figure details p { margin: 0 0 1rem; font-size: .95rem; line-height: 1.65; color: var(--cream-2); }
-[data-board-value] { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 2rem 3rem; margin: 3.5rem 0 0; padding-top: 2.5rem; border-top: 1px solid var(--gold-line); max-width: 1000px; }
-[data-board-value] dt { margin-bottom: .7rem; font: 600 clamp(1.3rem,1.8vw,1.6rem)/1.25 var(--font-display); color: var(--cream); }
-[data-board-value] dd { margin: 0; line-height: 1.7; color: var(--cream-2); }
 #value > p:last-child { margin: 2rem 0 0; font: 600 1.25rem/1.4 var(--font-display); color: var(--gold-light); }
 #steps > ol[data-offer-steps] { max-width: 720px; margin-top: 2.5rem; }
 #steps > figure[data-read-excerpt] { margin-top: 3rem; max-width: 1000px; }
@@ -278,7 +276,7 @@ figure[data-read-excerpt] dd { margin: 0; font: 1.3rem/1.45 var(--font-display);
 #launch td[data-status='KEPT'] { color: var(--gold-light); }
 #launch td[data-status='LATE'] { color: var(--cream-3); }
 #launch td[data-status='MISSED'] { color: #ffb3a1; }
-@media (max-width: 900px) { #launch > div { grid-template-columns: 1fr; } #launch li { grid-template-columns: 4.8rem 1fr; } [data-board-value] { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { #launch > div { grid-template-columns: 1fr; } #launch li { grid-template-columns: 4.8rem 1fr; } }
 
 /* — About: where founders get stuck, what we bring, the proof; in the partnership page's grammar. */
 #about { padding: 4rem var(--edge) 3rem; background: var(--ink); }

@@ -3,11 +3,13 @@ import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
-const words = [freeBoard.name, freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
+const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
 
 describe('how Traction continues', () => {
-  it('is a free day one, then two ways on: the paid board taken inside Traction, the Partnership by conversation', () => {
-    expect(waysOn.map((way) => way.slug)).toEqual(['board', 'partnership']);
+  it('is a free day one, then two ways on: a subscription taken inside Traction, the Partnership by conversation', () => {
+    expect(waysOn.map((way) => way.slug)).toEqual(['subscription', 'partnership']);
+    expect(waysOn[0].name).toBe('A subscription');
+    expect(waysOn[0].text).toMatch(/price on your board before you pay anything/);
     expect(waysOn[0].link).toBeUndefined();
     expect(waysOn[1].link?.href).toBe(partnershipHref);
     expect(continueHref).toBe('/traction#continue');
@@ -37,5 +39,22 @@ describe('how Traction continues', () => {
     const partnership = await source('../components/TractionPartnership.tsx');
     expect(partnership.match(/data-primary=""/g)).toHaveLength(1);
     expect(partnership).toMatch(/data-introduce/);
+  });
+
+  it('asks for the founder’s own first read, never a sample request by enquiry', async () => {
+    const product = await source('../components/Traction.tsx');
+    expect(product).toMatch(/Get your first read →/);
+    expect(product).toMatch(/your email, then a passkey/);
+    const sample = await source('../components/TractionOffer.tsx');
+    expect(sample).toMatch(/href=\{startHref\(\)\} data-primary="">Get your first read →/);
+    expect(sample).not.toMatch(/data-enquiry/);
+  });
+
+  it('shows the four areas at work on the product page only, with no second film beside the tour', async () => {
+    const product = await source('../components/Traction.tsx');
+    expect(product).toMatch(/<TractionWalkthrough \/>/);
+    expect(product).not.toMatch(/TractionFilm|BoardValue/);
+    expect(await source('../components/TractionPartnership.tsx')).not.toMatch(/TractionWalkthrough/);
+    expect(await source('../components/TractionWalkthrough.tsx')).not.toMatch(/We’ll|help us/);
   });
 });

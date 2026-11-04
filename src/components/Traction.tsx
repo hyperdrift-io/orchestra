@@ -1,13 +1,12 @@
-import { TractionFilm } from '@/components/TractionFilm';
 import { TractionTour } from '@/components/TractionTour';
-import { BoardValue } from '@/components/TractionOffer';
+import { TractionWalkthrough } from '@/components/TractionWalkthrough';
 import { TractionJourney } from '@/components/TractionJourney';
 import { boardHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
 
 /**
- * What Traction is and how it starts, in one reading column, with one door: start free.
+ * What Traction is and how it starts, in one reading column, with one door: get your first read, free.
  * `trialApp` is the free board a founder came from (`?from=<app id>`): the page then speaks to where they are,
- * and its door takes them back to their board, where the paid board is proposed. No form here.
+ * and its door takes them back to their board, where the subscription is proposed. No form here.
  */
 export function Traction({ trialApp }: { trialApp?: string } = {}) {
   return <article id="traction" data-offering="" data-product="" data-trial-app={trialApp}>
@@ -20,8 +19,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
     <section id="value" data-journey="value" aria-labelledby="traction-work-title">
       <h2 id="traction-work-title">See it at work.</h2>
       <TractionTour />
-      <details data-traction-film-more><summary>Or watch the 57-second film</summary><TractionFilm /></details>
-      <BoardValue />
+      <TractionWalkthrough />
     </section>
     {/* How the free board continues: two ways on, stated once. Links only; the door follows. */}
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
@@ -38,16 +36,16 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
         {way.link && <p><a href={way.link.href}>{way.link.label}</a></p>}
       </li>)}</ul>
     </section>
-    {/* The one door, after the proposal. A free board's founder goes back to the board, where both ways on are offered with the number. */}
+    {/* The one door, after the proposal. A free board's founder goes back to the board, where both ways on are offered with the price. */}
     <footer id="contact" data-journey="contact" aria-labelledby="traction-contact-title">
       {trialApp ? <>
         <h2 id="traction-contact-title">Continue on your board.</h2>
-        <p>Both ways on are there, with the number. Your board and its records stay as they are until you say so.</p>
+        <p>Both ways on are there, with the subscription’s price. Your board and its records stay as they are until you say so.</p>
         <a href={boardHref(trialApp)} data-primary="">Open your board →</a>
       </> : <>
-        <h2 id="traction-contact-title">Start free.</h2>
-        <p>Your name and your app’s address, then a passkey. Your board opens in a minute, your first read with it.</p>
-        <a href={startHref()} data-primary="">Start free →</a>
+        <h2 id="traction-contact-title">Get your first read.</h2>
+        <p>Free. Your name, your app’s address and your email, then a passkey. Your board opens straight away and your first read follows within minutes.</p>
+        <a href={startHref()} data-primary="">Get your first read →</a>
         {/* Proof and the reason, not a second door. */}
         <p data-samples=""><a href="/traction/first-read">See what a first read looks like →</a><a href={`${partnershipHref}#why`}>Why we’re building Traction →</a></p>
       </>}

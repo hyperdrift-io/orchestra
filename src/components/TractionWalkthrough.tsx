@@ -7,7 +7,7 @@ const areas = [
   {
     name: 'Direction',
     title: 'Know where to put your effort.',
-    description: 'We’ll help sharpen your positioning and choose a goal worth working towards. AI prepares recommendations from the product and customer evidence you share.',
+    description: 'Choose a goal worth working towards. The Growth Manager sharpens your positioning and proposes moves from the product and customer evidence you share.',
     clip: '/traction/in-action/direction.mp4',
     poster: '/traction/in-action/direction.jpg',
     shows: 'Where you stand, what the next stage needs and the one move worth making now.',
@@ -15,7 +15,7 @@ const areas = [
   {
     name: 'Customers',
     title: 'Build relationships with the right people.',
-    description: 'Your CRM keeps research, conversations and agreed next steps together. AI prepares introductions in your voice; you decide who to contact and what to send.',
+    description: 'Your CRM keeps research, conversations and agreed next steps together. The Growth Manager prepares introductions in your voice; you decide who to contact and what to send.',
     clip: '/traction/in-action/customers.mp4',
     poster: '/traction/in-action/customers.jpg',
     shows: 'Prospects ranked by fit, each one researched, and a first email drafted for you to review. Nothing is sent without you.',
@@ -23,7 +23,7 @@ const areas = [
   {
     name: 'First use',
     title: 'Make their first experience count.',
-    description: 'Interest only helps if people can use what you’ve built. We’ll look at onboarding with you, find what gets in the way and agree the improvements to make.',
+    description: 'Interest only helps if people can use what you’ve built. Customer feedback becomes onboarding work on your board, so what gets in the way is found and fixed.',
     clip: '/traction/in-action/firstuse.mp4',
     poster: '/traction/in-action/firstuse.jpg',
     shows: 'One sentence turns a customer’s feedback into an action on your onboarding work, with a note on the customer and Undo beside it.',
@@ -31,7 +31,7 @@ const areas = [
   {
     name: 'Lasting value',
     title: 'Learn what makes people come back.',
-    description: 'Set measures around your app’s actual value. Customer feedback and repeat use help us decide where to invest more effort or change direction.',
+    description: 'Set measures around your app’s actual value. Customer feedback and repeat use show where to invest more effort or change direction.',
     clip: '/traction/in-action/value.mp4',
     poster: '/traction/in-action/value.jpg',
     shows: 'Work and results on one timeline: as the week’s demos land, bookings reach the next stage’s target.',
@@ -44,7 +44,7 @@ export function TractionWalkthrough() {
   const calm = useCalmVideo();
   const area = areas[selected];
   return <div data-traction-walkthrough>
-    <div role="group" aria-label="How we can help">
+    <div role="group" aria-label="What Traction works on">
       {areas.map((item, index) => <button key={item.name} type="button" aria-pressed={selected === index} aria-controls="traction-example" onClick={() => setSelected(index)}>{item.name}</button>)}
     </div>
     <div id="traction-example" aria-live="polite">

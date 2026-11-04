@@ -3,7 +3,7 @@
 #traction[data-offering] > header { max-width: none; padding: 0 0 1.7rem; }
 #traction[data-offering] > header > p { font: .84rem/1.5 var(--font-body); letter-spacing: 0; text-transform: none; color: var(--gold-light); }
 #traction[data-offering] h1 { font: 500 clamp(1.6rem, 2.5vw, 2rem)/1.25 var(--font-body); margin: .7rem 0 0; max-width: none; text-wrap: pretty; }
-#traction [data-offer-body] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(2rem, 4vw, 4rem); align-items: start; }
+#traction [data-founder-note] { max-width: 65ch; }
 #traction [data-founder-note] > p { margin: 0 0 1rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction [data-founder-note] > p:first-child { color: var(--cream); }
 /* How we choose, what joining looks like, what we ask: three short blocks under the welcome. */
@@ -25,10 +25,9 @@
 #traction [data-founder-note] [data-link-preview-trigger] { color: var(--gold-light); }
 #traction [data-primary] { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); background: var(--gold); border: 0; padding: .7rem 1.1rem; font-size: .9rem; font-weight: 500; }
 #traction [data-primary]:hover { background: var(--gold-light); }
-#traction[data-offering] #value { padding: 0; min-width: 0; border: 0; background: transparent; }
-#traction[data-offering] #value > header { max-width: none; }
 #traction[data-offering] h2 { font: 500 1.08rem/1.5 var(--font-body); margin: 0 0 .4rem; max-width: none; }
-#traction[data-offering] #value > header > p { font: .9rem/1.6 var(--font-body); color: var(--cream-3); text-transform: none; letter-spacing: 0; margin: 0; }
+/* The site-wide gold closing line for #value does not apply to the partnership page's link. */
+#traction[data-partnership] #value > p:last-child { margin: 1rem 0 0; font: inherit; color: inherit; }
 #traction [data-traction-walkthrough] { margin-top: 1.2rem; border: 1px solid var(--line-soft); background: var(--ink-2); }
 #traction [data-traction-walkthrough] > [role='group'] { display: flex; flex-wrap: wrap; padding: .5rem; border-bottom: 1px solid var(--line-soft); gap: .2rem; }
 #traction [data-traction-walkthrough] button { flex: 1; display: flex; justify-content: center; align-items: center; gap: .5rem; min-height: 44px; padding: .6rem; font-size: .8rem; white-space: nowrap; color: var(--cream-3); background: transparent; border: 0; cursor: pointer; }
@@ -41,16 +40,12 @@
 #traction-example [data-in-action] video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #02050a; border: 1px solid var(--line-soft); }
 #traction-example [data-in-action] figcaption { margin-top: .6rem; max-width: 68ch; font: .82rem/1.6 var(--font-body); color: var(--cream-2); }
 #traction-example [data-in-action] figcaption small { display: block; margin-top: .2rem; font-size: .72rem; color: var(--cream-3); }
-#traction[data-offering] #value > [data-availability] { font: .75rem/1.6 var(--font-body); color: var(--cream-3); margin: .75rem 0 0; }
 /* A lead under the title, on the pages that open with one. */
 #traction[data-offering] > header > [data-lead] { max-width: 62ch; margin: 1.1rem 0 0; font: 1.05rem/1.65 var(--font-body); color: var(--cream-2); }
-/* The product page: one reading column; the tour, three lines of value, the two ways on, one door. */
+/* The product page: one reading column; the tour, the four areas at work, the two ways on, one door. */
 #traction[data-product] > * { max-width: 56rem; }
 #traction[data-product] #value { border-top: 0; margin-top: .6rem; padding-top: 0; }
 #traction[data-product] #value > h2 { margin: 0 0 .9rem; font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
-#traction[data-product] [data-board-value] { margin-top: 2rem; padding-top: 1.5rem; gap: 1rem 2rem; max-width: none; }
-#traction[data-product] [data-board-value] dt { margin-bottom: .4rem; font-size: 1.05rem; }
-#traction[data-product] [data-board-value] dd { font-size: .92rem; }
 /* How it continues: the free day one, then two ways on side by side. No button here; the door follows. */
 #traction[data-offering] #continue > header > p:last-child { max-width: 62ch; margin: .6rem 0 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction[data-offering] #continue > ul { list-style: none; max-width: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -76,15 +71,10 @@
 [data-founder-letter] p:first-child { color: var(--cream); }
 #traction-story > footer { display: flex; flex-wrap: wrap; gap: .5rem 2rem; border-top: 1px solid var(--line-hair); padding-top: 1rem; }
 #traction-story > footer a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9rem; color: var(--gold-light); }
-@media (max-width: 900px) {
-  #traction [data-offer-body] { grid-template-columns: 1fr; gap: 2rem; }
-  #traction [data-founder-note] { max-width: 65ch; }
-}
 @media (max-width: 500px) {
   #traction [data-traction-walkthrough] > [role='group'] { display: grid; grid-template-columns: 1fr 1fr; }
 }
-/* The film: Traction at work on a fictional board, at the head of the work it shows. */
-/* The working example board leads the media slot; the film follows on request. */
+/* The working example board leads the media slot; the four areas at work follow it. */
 #traction [data-traction-tour] { margin: 1.2rem 0 0; }
 #traction [data-traction-tour] > a { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line-soft); background: #02050a; color: var(--cream); text-decoration: none; }
 #traction [data-traction-tour] > a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgb(2 5 10 / .78)); pointer-events: none; }
@@ -99,17 +89,7 @@
 #traction [data-traction-tour] [data-tour-label] strong { font: 1.35rem/1.1 var(--font-display); color: var(--cream); }
 #traction [data-traction-tour] [data-tour-label] small { font: .75rem/1.4 var(--font-body); color: var(--cream-2); }
 #traction [data-traction-tour] figcaption { margin-top: .55rem; font: .75rem/1.6 var(--font-body); color: var(--cream-3); }
-#traction [data-traction-film-more] { margin: .4rem 0 0; border: 0; }
-#traction [data-traction-film-more] > summary { min-height: 44px; padding-block: .5rem; color: var(--gold-light); font: .8rem/1.5 var(--font-body); cursor: pointer; }
 @media (prefers-reduced-motion: reduce) { #traction [data-traction-tour] img, #traction [data-traction-tour] [data-tour-play] { transition: none; } }
-/* One column: the live tour follows the opening paragraphs instead of waiting below "What we ask". */
-@media (max-width: 900px) {
-  #traction [data-founder-note] { display: contents; }
-  #traction [data-offer-body] { row-gap: 0; }
-  #traction [data-founder-note] > p { max-width: 65ch; }
-  #traction [data-offer-body] > #value { order: 1; margin: 1rem 0 2rem; }
-  #traction [data-founder-note] > [data-joining] { order: 2; }
-}
 @media (max-width: 640px) {
   #traction [data-traction-tour] > a { aspect-ratio: auto; }
   #traction [data-traction-tour] > a::after { display: none; }
@@ -120,12 +100,6 @@
   #traction [data-traction-tour] [data-tour-label] { position: static; display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; padding: .7rem .9rem; border-top: 1px solid var(--line-soft); background: var(--ink-2); }
   #traction [data-traction-tour] [data-tour-label] strong { font-size: 1.15rem; }
 }
-#traction [data-traction-film] { margin: 1.2rem 0 0; }
-#traction [data-traction-film] video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #02050a; border: 1px solid var(--line-soft); }
-#traction [data-traction-film] figcaption { margin-top: .55rem; font: .75rem/1.6 var(--font-body); color: var(--cream-3); }
-#traction [data-traction-film] details { border: 0; margin: 0; }
-#traction [data-traction-film] summary { min-height: 44px; padding-block: .5rem; color: var(--gold-light); font: .8rem/1.5 var(--font-body); }
-#traction [data-traction-film] details p { margin: 0 0 .5rem; max-width: 68ch; font: .85rem/1.65 var(--font-body); color: var(--cream-2); }
 
 /* A personal invitation: the founder's own product first, then the work, the two ways and one door. One reading column. */
 #traction[data-invitation] > * { max-width: 52rem; }
