@@ -1,10 +1,10 @@
-import { TractionWalkthrough } from '@/components/TractionWalkthrough';
+import { TractionTour } from '@/components/TractionTour';
 import { TractionJourney } from '@/components/TractionJourney';
 import { boardHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
 
 /**
  * What Traction is and how it starts, in Orchestra's hero grammar: the promise beside the engine at work,
- * then the two ways on and one door. Few words; the clips show the rest.
+ * then the two ways on and one door. Few words; the tour shows the rest.
  * `trialApp` is the free board a founder came from (`?from=<app id>`): the page then speaks to where they are,
  * and its door takes them back to their board, where the subscription is proposed. No form here.
  */
@@ -17,7 +17,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       <p data-lead="">Traction is an engine that reads your app, finds what’s in the way and prepares your next customer move. You decide.</p>
     </header>
     <section id="value" data-journey="value" aria-label="Traction at work">
-      <TractionWalkthrough />
+      <TractionTour />
     </section>
     {/* How the free board continues: two ways on, stated once. Links only; the door follows. */}
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
