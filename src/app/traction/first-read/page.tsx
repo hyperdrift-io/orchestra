@@ -1,13 +1,4 @@
-import type { Metadata } from 'next';
-import { websiteOpenGraph } from '@/lib/share-metadata';
-import { FirstRead } from '@/components/TractionOffer';
-import { Footer } from '@/components/Footer';
+import { permanentRedirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'A first read',
-  description: 'A real Traction first read of orchestra.hyperdrift.io: one strength, one constraint and the next customer move, read from public pages only, with the evidence.',
-  alternates: { canonical: '/traction/first-read' },
-  openGraph: { ...websiteOpenGraph, title: 'We read our own site first.', description: 'One strength, one constraint and the next customer move, with the evidence.', url: 'https://orchestra.hyperdrift.io/traction/first-read' },
-};
-
-export default function FirstReadPage() { return <><FirstRead /><Footer /></>; }
+/** The sample read was retired on 4 November 2026: a founder's own first read replaces it. Links already out land on Traction. */
+export default function FirstReadPage() { permanentRedirect('/traction'); }

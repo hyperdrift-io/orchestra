@@ -1,5 +1,3 @@
-import { TractionTour } from '@/components/TractionTour';
-import { TractionWalkthrough } from '@/components/TractionWalkthrough';
 import { TractionJourney } from '@/components/TractionJourney';
 import { boardHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
 
@@ -17,9 +15,12 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       <p data-lead="">Traction is a board that holds your evidence, names the one thing in the way and proposes your next customer move. A Growth Manager prepares the work; you decide. It starts free, on day one, with a first read of your own app.</p>
     </header>
     <section id="value" data-journey="value" aria-labelledby="traction-work-title">
-      <h2 id="traction-work-title">See it at work.</h2>
-      <TractionTour />
-      <TractionWalkthrough />
+      <h2 id="traction-work-title">How it works.</h2>
+      <ol data-steps="">
+        <li><strong>Traction reads your app.</strong> Its public pages, the way a new customer meets them: one strength, one thing in the way and the next customer move, each with the page it comes from.</li>
+        <li><strong>The Growth Manager prepares the move.</strong> On your own board: who to reach, what to say and when. Nothing is sent without your yes.</li>
+        <li><strong>Results come back to the board.</strong> Every reply and reading lands there, so the next move comes from what actually happened.</li>
+      </ol>
     </section>
     {/* How the free board continues: two ways on, stated once. Links only; the door follows. */}
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
@@ -46,8 +47,8 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
         <h2 id="traction-contact-title">Get your first read.</h2>
         <p>Free. Your name, your app’s address and your email, then a passkey. Your board opens straight away and your first read follows within minutes.</p>
         <a href={startHref()} data-primary="">Get your first read →</a>
-        {/* Proof and the reason, not a second door. */}
-        <p data-samples=""><a href="/traction/first-read">See what a first read looks like →</a><a href={`${partnershipHref}#why`}>Why we’re building Traction →</a></p>
+        {/* The reason, not a second door. */}
+        <p data-samples=""><a href={`${partnershipHref}#why`}>Why we’re building Traction →</a></p>
       </>}
     </footer>
   </article>;

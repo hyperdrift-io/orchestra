@@ -1,5 +1,4 @@
 import { LinkPreview } from '@/components/LinkPreview';
-import { ReadExcerpt } from '@/components/TractionOffer';
 import { TractionWhy, tractionWhyTitle } from '@/components/TractionWhy';
 import { TractionJourney } from '@/components/TractionJourney';
 
@@ -37,13 +36,11 @@ export function TractionPartnership() {
     <section id="value" data-journey="value" aria-labelledby="traction-work-title">
       <header><h2 id="traction-work-title">What we work on with you.</h2></header>
       <p>Direction, customers, first use and lasting value: the four areas your Traction board holds. AI prepares research, drafts and recommendations; we agree the work together and you decide.</p>
-      <p><a href="/traction#value">See the four areas at work →</a></p>
     </section>
     <section id="partnership" data-journey="partnership" aria-labelledby="traction-partnership-title">
       <header><h2 id="traction-partnership-title">What you bring, and what you get.</h2></header>
       <p>Bring a working product and a sign that people value it: paying customers, people returning, repeat work, or another credible signal of demand. You bring product knowledge, customer feedback and the decisions.</p>
       <p>We bring strategy, customer relationships and AI engineering, and we measure every move on the same board, so the result is yours to inspect. Already on a free board? It carries over as it is.</p>
-      <ReadExcerpt />
     </section>
     <section id="why" data-journey="why" aria-labelledby="traction-why-title">
       <header><h2 id="traction-why-title">{tractionWhyTitle}</h2></header>

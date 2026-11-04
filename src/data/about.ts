@@ -13,7 +13,7 @@ export const fits: readonly Fit[] = [
     problem: 'Interested visitors reach pricing but hesitate during signup.',
     bring: 'A growth partnership connecting your goals, customer relationships and product improvements. We agree the next useful work and how to judge it.',
     proof: 'We use Traction for our own prospect research, introductions and customer follow-through.',
-    links: [{ label: 'How Traction can help', href: '/traction' }, { label: 'A sample first read', href: '/traction/first-read' }],
+    links: [{ label: 'How Traction can help', href: '/traction' }],
   },
   {
     id: 'time',

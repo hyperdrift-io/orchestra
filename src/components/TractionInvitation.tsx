@@ -1,5 +1,5 @@
 import { TractionJourney } from '@/components/TractionJourney';
-import { continueHref, exampleBoardHref, startHref } from '@/data/traction-offer';
+import { continueHref, startHref } from '@/data/traction-offer';
 import type { TractionInvitation as Invitation } from '@/lib/traction-invitations';
 
 /**
@@ -37,14 +37,13 @@ export function TractionInvitation({ invitation }: { invitation: Invitation }) {
         <li>Traction prepares the work on your own board: who to reach, what to say and when. Nothing is sent without your yes.</li>
         <li>Every reply and result lands on the board, so the next move comes from what actually happened.</li>
       </ol>
-      <p><a href={exampleBoardHref}>See Traction at work on an example board →</a> <small>A fictional startup on the real product.</small></p>
       <p><a href={continueHref}>How Traction continues after day one →</a></p>
     </section>
 
     {/* The one door, after the proposal. */}
     <footer id="contact" data-journey="contact" aria-labelledby="traction-contact-title">
       <h2 id="traction-contact-title">Start free.</h2>
-      <p>{`Your name and ${product}’s address, then a passkey. Your board opens in a minute.`}</p>
+      <p>{`Your name, ${product}’s address and your email, then a passkey. Your board opens straight away.`}</p>
       <a href={startHref(invitation.ref)} data-primary="">Start free →</a>
       <p>{read ? 'Or reply to Yann’s email to know more, or to have us do the customer work with you.' : `Or reply to Yann’s email for a first read of ${product}, or to have us do the customer work with you.`}</p>
     </footer>

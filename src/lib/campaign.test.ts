@@ -4,8 +4,8 @@ import { contactSchema } from './contact-schema';
 
 describe('the free board behind a visit', () => {
   it('accepts a Traction app id and nothing shaped like a person', () => {
-    expect(trialAppFrom('slotbloom')).toBe('slotbloom');
-    expect(trialAppFrom('studio-example')).toBe('studio-example');
+    expect(trialAppFrom('olatti')).toBe('olatti');
+    expect(trialAppFrom('my-app-2')).toBe('my-app-2');
     expect(trialAppFrom(['olatti', 'other'])).toBe('olatti');
     for (const value of ['ada@example.com', 'Ada Lovelace', 'Olatti', '-olatti', 'a'.repeat(42), '', undefined]) expect(trialAppFrom(value)).toBeUndefined();
   });

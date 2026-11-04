@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
 
@@ -41,20 +41,20 @@ describe('how Traction continues', () => {
     expect(partnership).toMatch(/data-introduce/);
   });
 
-  it('asks for the founder’s own first read, never a sample request by enquiry', async () => {
+  it('asks for the founder’s own first read; the sample read is retired', async () => {
     const product = await source('../components/Traction.tsx');
     expect(product).toMatch(/Get your first read →/);
     expect(product).toMatch(/your email, then a passkey/);
-    const sample = await source('../components/TractionOffer.tsx');
-    expect(sample).toMatch(/href=\{startHref\(\)\} data-primary="">Get your first read →/);
-    expect(sample).not.toMatch(/data-enquiry/);
+    expect(product).not.toMatch(/\/traction\/first-read/);
+    expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
+    expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
   });
 
-  it('shows the four areas at work on the product page only, with no second film beside the tour', async () => {
-    const product = await source('../components/Traction.tsx');
-    expect(product).toMatch(/<TractionWalkthrough \/>/);
-    expect(product).not.toMatch(/TractionFilm|BoardValue/);
-    expect(await source('../components/TractionPartnership.tsx')).not.toMatch(/TractionWalkthrough/);
-    expect(await source('../components/TractionWalkthrough.tsx')).not.toMatch(/We’ll|help us/);
+  it('shows no invented company: the founder’s own app is the subject', async () => {
+    const files = [
+      ...(await readdir(new URL('../components/', import.meta.url))).map((name) => `../components/${name}`),
+      ...(await readdir(new URL('./', import.meta.url))).map((name) => `./${name}`),
+    ].filter((path) => /\.(tsx?|json)$/.test(path) && !path.endsWith('.test.ts'));
+    for (const path of files) expect(await source(path), path).not.toMatch(/slotbloom|studio-example|example board/i);
   });
 });
