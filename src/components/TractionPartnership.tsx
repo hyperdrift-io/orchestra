@@ -16,8 +16,6 @@ export function TractionPartnership() {
       <p>We’ll agree the next useful move for your app and put it into action together. You know your product. We’ll help you find the people who need it and learn from what happens when they use it.</p>
       <p>Your feedback will shape Traction as we go. <a href="#why">Why we’re doing this</a></p>
       <div id="joining" data-joining>
-        <h2>How we choose</h2>
-        <p>We look for a product that can help people and a founder with a meaningful ambition, reached by introduction or by asking. A conversation settles the rest: whether you own your customers, act on what you learn and want honest feedback. Funding, followers and prestige are not the test. We stay small because a person does the work with each founder.</p>
         <h2>How it starts</h2>
         <ol>
           <li><strong>Introduce your app.</strong> We read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.</li>

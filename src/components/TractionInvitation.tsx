@@ -33,7 +33,7 @@ export function TractionInvitation({ invitation }: { invitation: Invitation }) {
     <section id="together" data-journey="value" aria-labelledby="together-title">
       <h2 id="together-title">What happens next</h2>
       <ol>
-        <li>{read ? 'Your board starts from this read. Traction proposes the first move; you choose it.' : `Traction reads ${product} and proposes the first move; you choose it.`}</li>
+        <li>{read ? `Your board opens on a fresh read of ${product}. Traction proposes the first move; you choose it.` : `Traction reads ${product} and proposes the first move; you choose it.`}</li>
         <li>Traction prepares the work on your own board: who to reach, what to say and when. Nothing is sent without your yes.</li>
         <li>Every reply and result lands on the board, so the next move comes from what actually happened.</li>
       </ol>

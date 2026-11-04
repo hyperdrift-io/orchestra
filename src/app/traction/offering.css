@@ -6,7 +6,7 @@
 #traction [data-founder-note] { max-width: 65ch; }
 #traction [data-founder-note] > p { margin: 0 0 1rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction [data-founder-note] > p:first-child { color: var(--cream); }
-/* How we choose, what joining looks like, what we ask: three short blocks under the welcome. */
+/* How it starts and what we ask: two short blocks under the welcome. */
 #traction [data-joining] { margin-top: 1.8rem; padding-top: 1.4rem; border-top: 1px solid var(--line-hair); }
 #traction[data-offering] [data-joining] h2 { margin: 1.25rem 0 .35rem; }
 #traction[data-offering] [data-joining] h2:first-child { margin-top: 0; }
