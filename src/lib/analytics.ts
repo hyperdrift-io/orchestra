@@ -1,9 +1,10 @@
 import posthog from 'posthog-js';
 import { campaignAttribution } from './campaign';
+import { measurementAllowed } from './journey';
 
 export function analyticsEnabled() {
   return process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
-    && window.location.hostname === 'orchestra.hyperdrift.io' && Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY);
+    && window.location.hostname === 'orchestra.hyperdrift.io' && Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY) && measurementAllowed();
 }
 
 /** An invitation's token is its key, so analytics only ever sees the shared path. */

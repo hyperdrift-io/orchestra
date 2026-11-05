@@ -23,15 +23,15 @@ export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
 
 /**
  * The offer after day one, defined once for the home card, /traction, the invitation page and llms.txt.
- * Day one is free; then two ways on. Neither is sold on a page: the subscription is taken inside Traction, where its price is shown;
- * the Partnership starts with a conversation. No price, term or count anywhere here.
+ * Day one is free. Continued use and the Partnership currently start with an enquiry.
+ * No self-service checkout is available. Prices and scope are agreed before commitment.
  */
 export const freeBoard = {
   text: 'Day one is free: a first read of your app and your first customer move, on your own board.',
 };
 export interface WayOn { slug: 'subscription' | 'partnership'; name: string; text: string; link?: { href: string; label: string } }
 export const waysOn: WayOn[] = [
-  { slug: 'subscription', name: 'A subscription', text: 'The Growth Manager works your board every day, and nothing is sent without your yes. You see the price on your board before you pay.' },
+  { slug: 'subscription', name: 'Continue with Traction', text: 'Discuss ongoing use of the Growth Manager and connected email. We’ll confirm availability, scope and price before you commit. Subscription checkout is not available yet.', link: { href: '/traction?situation=subscription#enquire', label: 'Discuss continued use →' } },
   { slug: 'partnership', name: 'The Traction Partnership', text: 'We do the customer work with you, move by move, to paying customers. It starts with a conversation.', link: { href: partnershipHref, label: 'How we work with you →' } },
 ];
 

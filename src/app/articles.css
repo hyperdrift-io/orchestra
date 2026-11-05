@@ -161,6 +161,7 @@ nav[aria-label="Topics"] a[aria-current="true"] { background: var(--gold); borde
 }
 form[aria-label='Contact us'] { min-width: 0; }
 form[aria-label='Contact us'] fieldset { display: grid; gap: 1rem; margin: 0; padding: 0; border: 0; min-width: 0; }
+form[aria-label='Contact us'] fieldset[hidden] { display: none; }
 form[aria-label='Contact us'] label { display: grid; gap: .4rem; min-width: 0; }
 form[aria-label='Contact us'] label > span { margin: 0; font-family: var(--font-body); font-size: .875rem; letter-spacing: normal; text-transform: none; color: var(--cream-2); }
 form[aria-label='Contact us'] small { color: var(--cream-3); margin-left: .4rem; font-weight: 400; }

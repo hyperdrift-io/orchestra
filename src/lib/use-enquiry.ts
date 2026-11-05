@@ -34,6 +34,7 @@ export function useEnquiry() {
           name: String(form.get('name') || ''), email: String(form.get('email') || ''),
           company: String(form.get('company') || '') || undefined,
           situation: enquiryChoices.find((choice) => choice.value === form.get('situation'))?.label,
+          traction_board: String(form.get('traction_board') || '') || undefined,
           message: String(form.get('message') || ''), website: String(form.get('website') || '') || undefined, article, session: articleSession(), campaign: campaignAttribution(), handoff: enquiryHandoff(),
         }),
       });

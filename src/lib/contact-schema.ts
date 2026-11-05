@@ -14,6 +14,8 @@ export const contactSchema = z.object({
   session: z.string().uuid().optional(),
   campaign: campaignSchema.optional(),
   handoff: enquiryHandoffSchema.optional(),
+  /** Visitor-supplied board context; never proof of membership or a subscription. */
+  traction_board: z.string().regex(/^[a-z0-9][a-z0-9-]{0,63}$/).optional(),
   message: z.string().trim().min(10, 'Tell us a bit more').max(5000),
   /** Honeypot: hidden from people, so any value means an automated filler. */
   website: z.string().max(2000).optional(),

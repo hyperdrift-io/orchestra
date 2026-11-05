@@ -3,7 +3,7 @@ import { TractionWhy, tractionWhyTitle } from '@/components/TractionWhy';
 import { TractionJourney } from '@/components/TractionJourney';
 
 /** How we work with a founder: the question prospects ask first, answered in full, with one door at the end. */
-export function TractionPartnership() {
+export function TractionPartnership({ trialApp }: { trialApp?: string } = {}) {
   return <article id="traction" data-offering="" data-partnership="">
     <TractionJourney />
     <header>
@@ -48,9 +48,9 @@ export function TractionPartnership() {
     </section>
     {/* The one door, after the proposal: a visitor reads how we work before being asked anything. */}
     <footer id="contact" data-journey="contact" aria-labelledby="traction-contact-title">
-      <h2 id="traction-contact-title">Introduce your app.</h2>
-      <p>Send us the link, who it’s for and what you want next. We’ll read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.</p>
-      <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce="" data-primary="">Introduce your app →</a>
+      <h2 id="traction-contact-title">{trialApp ? 'Build on your first move.' : 'Introduce your app.'}</h2>
+      <p>{trialApp ? 'Tell us what the first move showed and where you want help. Your board accompanies the enquiry; we’ll agree the next customer opportunity together.' : 'Send us the link, who it’s for and what you want next. We’ll read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.'}</p>
+      <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce={trialApp ? undefined : ''} data-primary="">{trialApp ? 'Discuss working together →' : 'Introduce your app →'}</a>
       <p data-samples=""><a href="/traction">What Traction is →</a></p>
     </footer>
   </article>;

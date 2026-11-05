@@ -21,7 +21,7 @@ export type TourChapter = {
 export const tour = {
   chapters: [
     { id: 'read', name: 'Read', title: 'It reads your app like a new customer.', line: 'What works, what’s in the way and the move to make first, each from your own pages.' },
-    { id: 'customers', name: 'Customers', title: 'One tap finds who needs it now.', line: 'Businesses that show the need on their own pages, each with the line that proves it.' },
+    { id: 'customers', name: 'Customers', title: 'One tap researches five prospects.', line: 'Businesses chosen from what their own pages say, each with the line it was chosen on.' },
     { id: 'email', name: 'Email', title: 'The first email, in your voice.', line: 'Approve, and they’re in your CRM. Nothing leaves without your click.' },
     { id: 'plan', name: 'Plan', title: 'Ask in a sentence. Get a plan.', line: 'The Growth Manager drafts the work to your deadline. It starts when you approve it.' },
     { id: 'market', name: 'Market', title: 'Your market, read every day.', line: 'Each story once, with its source, so you see what changed.' },
@@ -38,8 +38,8 @@ export const tour = {
     ],
     traction: [
       { count: 3, label: 'pages of the app read' },
-      { count: 8, label: 'businesses’ pages read' },
-      { count: 5, label: 'businesses found, each with its proof' },
+      { count: 8, label: 'web pages read for the research' },
+      { count: 5, label: 'prospects researched, each with its reason' },
       { count: 5, label: 'first emails written, one per business' },
       { count: 1, label: 'plan to approve' },
       { count: 4, label: 'days of the market read' },

@@ -1,12 +1,13 @@
 import { TractionTour } from '@/components/TractionTour';
 import { TractionJourney } from '@/components/TractionJourney';
+import { TractionStartLink } from '@/components/TractionStartLink';
 import { boardHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
 
 /**
  * What Traction is and how it starts, in Orchestra's hero grammar: the promise beside the engine at work,
  * then the two ways on and one door. Few words; the tour shows the rest.
  * `trialApp` is the free board a founder came from (`?from=<app id>`): the page then speaks to where they are,
- * and its door takes them back to their board, where the subscription is proposed. No form here.
+ * and its door opens the existing enquiry, retaining the board as visitor-supplied context.
  */
 export function Traction({ trialApp }: { trialApp?: string } = {}) {
   return <article id="traction" data-offering="" data-product="" data-trial-app={trialApp}>
@@ -29,19 +30,20 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       <ul>{waysOn.map((way) => <li key={way.slug} id={way.slug} data-journey={way.slug === 'partnership' ? 'partnership' : undefined}>
         <h3>{way.name}</h3>
         <p>{way.text}</p>
-        {way.link && <p><a href={way.link.href}>{way.link.label}</a></p>}
+        {way.link && <p><a href={trialApp ? (way.slug === 'subscription' ? `/traction?from=${encodeURIComponent(trialApp)}&situation=subscription#enquire` : `${way.link.href}?from=${encodeURIComponent(trialApp)}`) : way.link.href}>{way.link.label}</a></p>}
       </li>)}</ul>
     </section>
-    {/* The one door, after the proposal. A free board's founder goes back to the board, where both ways on are offered with the price. */}
+    {/* Continued use begins with a conversation until checkout is available. */}
     <footer id="contact" data-journey="contact" aria-labelledby="traction-contact-title">
       {trialApp ? <>
-        <h2 id="traction-contact-title">Continue on your board.</h2>
-        <p>Both ways on are there, with the price.</p>
-        <a href={boardHref(trialApp)} data-primary="">Open your board →</a>
+        <h2 id="traction-contact-title">What would help your app next?</h2>
+        <p>Tell us what worked and what you need next. We’ll discuss continued use or working together. Your free board stays available.</p>
+        <a href={`/traction?from=${encodeURIComponent(trialApp)}&situation=subscription#enquire`} data-primary="">Discuss the next step →</a>
+        <p><a href={boardHref(trialApp)}>Back to your board →</a></p>
       </> : <>
         <h2 id="traction-contact-title">See Traction in action.</h2>
         <p>On your own app, free. Your name, your app and your email, then a passkey.</p>
-        <a href={startHref()} data-primary="">See Traction in action →</a>
+        <TractionStartLink href={startHref()}>See Traction in action →</TractionStartLink>
         {/* The reason, not a second door. */}
         <p data-samples=""><a href={`${partnershipHref}#why`}>Why we’re building Traction →</a></p>
       </>}

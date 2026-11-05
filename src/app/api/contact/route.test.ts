@@ -81,6 +81,18 @@ describe('POST /api/contact', () => {
     expect(JSON.parse(await readFile(join(enquiryDir, `${id}.json`), 'utf8'))).toMatchObject({ id, handoff, campaign, delivery: 'sent' });
   });
 
+  it('retains editable board context without treating it as membership or payment', async () => {
+    const res = await callRoute({ name: 'Preview', email: 'founder@analytical.engines', message: 'Discuss continued use of my board.', traction_board: 'yourapp', situation: 'Continued use of Traction' });
+    expect(res.status).toBe(200);
+    const { id } = await res.json();
+    expect(relayed().message).toContain('Traction board (visitor supplied): yourapp');
+    expect(JSON.parse(await readFile(join(enquiryDir, `${id}.json`), 'utf8'))).toMatchObject({ id, traction_board: 'yourapp', delivery: 'sent' });
+    fetchMock.mockClear();
+    const bad = await callRoute({ name: 'Preview', email: 'founder@analytical.engines', message: 'Discuss continued use of my board.', traction_board: '../another/board' });
+    expect(bad.status).toBe(400);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it('returns 400 for an invalid submission without calling the relay', async () => {
     const res = await callRoute({ name: '', email: 'nope', message: 'x' });
     expect(res.status).toBe(400);

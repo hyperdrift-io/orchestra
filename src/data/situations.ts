@@ -7,5 +7,6 @@ export const enquiryChoices: { value: string; label: string }[] = [
   { value: 'orchestra-os', label: 'Embedding my app on Orchestra OS' },
   { value: 'mcp', label: 'Making my product usable by agents' },
   { value: 'partnership', label: 'The Traction Partnership' },
+  { value: 'subscription', label: 'Continued use of Traction' },
   { value: 'traction', label: 'A first read of my live app' },
 ];

@@ -7,6 +7,7 @@ import { articles, articleBySlug } from '@/lib/article-catalogue';
 import { useEnquiry } from '@/lib/use-enquiry';
 import { parseEnquiryHandoff } from '@/lib/enquiry-handoff';
 import type { ContactPrefill } from '@/lib/contact-schema';
+import { trialAppFrom } from '@/lib/campaign';
 
 function ContextFields({ articleSlug, situation: preset }: { articleSlug?: string; situation?: string }) {
   const query = useSearchParams();
@@ -21,12 +22,19 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
   </>;
 }
 
+function BoardContext() {
+  const query = useSearchParams();
+  const board = trialAppFrom(query.get('from') || undefined);
+  return board ? <label><span>Traction board <small>Optional</small></span><input name="traction_board" defaultValue={board} maxLength={64} /><small>This links the conversation to the board you came from. It does not grant access.</small></label> : null;
+}
+
 /** `introduce` is the Traction door: the same fields and delivery, with the open field asking for the app. */
 export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; contact?: ContactPrefill }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
   return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Contact us">
-    <fieldset disabled={status === 'sending'}>
+    <fieldset disabled={status === 'sending'} hidden={status === 'sent' || status === 'preview'}>
       {firstRead || introduce || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
+      <Suspense fallback={null}><BoardContext /></Suspense>
       <div data-contact-details="">
         <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
         <label><span>Email</span><input name="email" type="email" defaultValue={contact?.email} required maxLength={254} autoComplete="email" /></label>

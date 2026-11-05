@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { websiteOpenGraph } from '@/lib/share-metadata';
 import { TractionPartnership } from '@/components/TractionPartnership';
 import { Footer } from '@/components/Footer';
+import { trialAppFrom } from '@/lib/campaign';
 import '../offering.css';
 
 const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
@@ -16,4 +17,6 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: [shareImage] },
 };
 
-export default function TractionPartnershipPage() { return <><TractionPartnership /><Footer /></>; }
+export default async function TractionPartnershipPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  return <><TractionPartnership trialApp={trialAppFrom((await searchParams).from)} /><Footer /></>;
+}

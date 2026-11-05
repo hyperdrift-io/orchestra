@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { journeyId, measurementAllowed } from './journey';
 
 const tag = z.string().regex(/^[a-z0-9_.:-]{1,100}$/i).optional();
 export const campaignSchema = z.object({
@@ -9,6 +10,9 @@ export const campaignSchema = z.object({
   page_variant: z.string().regex(/^[a-z0-9_]{1,40}$/).optional(),
   /** The free Traction board a founder came from (`/traction?from=<app id>`), bounded as Traction bounds its app ids; never a name or an email. */
   trial_app: z.string().regex(/^[a-z0-9][a-z0-9-]{0,40}$/).optional(),
+  journey_id: z.string().uuid().optional(),
+  journey_schema: z.literal('invitation_signup_v1').optional(),
+  identity_basis: z.literal('browser_journey').optional(),
 });
 export type Campaign = z.infer<typeof campaignSchema>;
 
@@ -31,6 +35,7 @@ export function visitorSession() {
 
 /** Keep the first campaign in this tab across navigation, never form contents. */
 export function campaignAttribution(): Campaign {
+  if (!measurementAllowed()) return {};
   try {
     const saved = sessionStorage.getItem('ai-campaign');
     const campaign: Campaign = saved ? campaignSchema.parse(JSON.parse(saved)) : {};
@@ -50,6 +55,10 @@ export function campaignAttribution(): Campaign {
     // The free board a founder came from, read from the page the same way, so the rest of the visit and an enquiry carry it.
     const trial = trialAppFrom(document.querySelector<HTMLElement>('[data-trial-app]')?.dataset.trialApp);
     if (!campaign.trial_app && trial) campaign.trial_app = trial;
+    if (window.location.pathname === '/traction' || window.location.pathname.startsWith('/traction/')) {
+      const journey = journeyId();
+      if (journey) Object.assign(campaign, { journey_id: journey, journey_schema: 'invitation_signup_v1', identity_basis: 'browser_journey' });
+    }
     sessionStorage.setItem('ai-campaign', JSON.stringify(campaign));
     return campaign;
   } catch { return {}; }

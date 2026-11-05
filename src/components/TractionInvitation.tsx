@@ -1,4 +1,5 @@
 import { TractionJourney } from '@/components/TractionJourney';
+import { TractionStartLink } from '@/components/TractionStartLink';
 import { TractionLiveRead } from '@/components/TractionLiveRead';
 import { continueHref, startHref } from '@/data/traction-offer';
 import type { TractionInvitation as Invitation } from '@/lib/traction-invitations';
@@ -53,7 +54,7 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
     <footer id="contact" data-journey="contact" aria-labelledby="traction-contact-title">
       <h2 id="traction-contact-title">{`Open ${product}’s Traction board.`}</h2>
       <p>{url ? 'It opens on this read. Your name and your email, then a passkey.' : `Your name, ${product}’s address and your email, then a passkey.`}</p>
-      <a href={startHref(invitation.ref, url ? { url, product } : undefined)} data-primary="">{`Open ${product}’s Traction board now →`}</a>
+      <TractionStartLink href={startHref(invitation.ref, url ? { url, product } : undefined)}>{`Open ${product}’s Traction board now →`}</TractionStartLink>
       <p>{reading ? 'Or reply to Yann’s email to know more, or to have us do the customer work with you.' : `Or reply to Yann’s email for a first read of ${product}, or to have us do the customer work with you.`}</p>
     </footer>
   </article>;

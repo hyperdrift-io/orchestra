@@ -32,7 +32,7 @@ export async function POST(req: Request) {
   // The client shows only `error`; the field list stays out of a scanner's reach.
   if (!parsed.success) return NextResponse.json({ error: 'Invalid submission' }, { status: 400 });
 
-  const { name, email, company, situation, message, article, session, campaign, handoff, product_url, website } = parsed.data;
+  const { name, email, company, situation, message, article, session, campaign, handoff, product_url, website, traction_board } = parsed.data;
   const id = crypto.randomUUID();
   // A filled honeypot, or a real delivery from a domain no one receives mail at, gets the normal
   // answer and goes nowhere: no record, no relay, no mail.
@@ -59,6 +59,7 @@ export async function POST(req: Request) {
     handoff?.referring_domain && `Original referring domain: ${handoff.referring_domain}`,
     company && `Company: ${company}`,
     product_url && `Product: ${product_url}`,
+    traction_board && `Traction board (visitor supplied): ${traction_board}`,
     ...(campaign ? Object.entries(campaign).filter(([, value]) => value).map(([key, value]) => `${key}: ${value}`) : []),
   ].filter(Boolean);
   try {
