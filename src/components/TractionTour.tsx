@@ -133,7 +133,7 @@ export function TractionTour() {
     <div data-tour-caption="" aria-live={running ? 'off' : 'polite'}>
       <h3>{current.title}</h3>
       <p>{current.line}</p>
-      <small>{id === 'market' ? tour.labels.market : tour.labels.recorded}</small>
+      <small>{tour.labels[id ? chapters[chapter].label : 'recorded']}</small>
     </div>
   </div>;
 }
