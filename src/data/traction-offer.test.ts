@@ -1,4 +1,4 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
 import { tour } from './traction-tour';
@@ -64,17 +64,21 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('opens on the engine at work: real runs on our own apps, in the board’s words, with no door of its own', async () => {
+  it('opens on the engine at work: Traction recorded on one run, chapter by chapter, with no door of its own', async () => {
     const product = await source('../components/Traction.tsx');
     expect(product).toMatch(/Traction is an engine/);
     expect(product).toMatch(/<TractionTour \/>/);
-    expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'send', 'plan', 'market']);
+    expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'plan', 'market']);
     expect(tour.end.line).toBe(freeBoard.text);
-    // The businesses found are real people and firms: no name field, and the page says names are hidden.
-    expect(tour.customers.found.every((business) => !('company' in business) && business.nameLength > 0)).toBe(true);
-    expect(tour.labels.trial).toMatch(/names hidden/);
-    expect(tour.labels.simulated).toMatch(/simulated/i);
-    expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented/i);
+    // Every chapter has its clip and still in public/, and the page says what the recording is.
+    for (const chapter of tour.chapters) {
+      for (const file of [tour.clip(chapter.id), tour.poster(chapter.id)]) {
+        await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
+      }
+    }
+    expect(tour.labels.recorded).toMatch(/renamed Yourapp/);
+    expect(tour.labels.recorded).toMatch(/blurred/);
+    expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
     // The page asks once, at its end.
     expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
   });
