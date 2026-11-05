@@ -79,6 +79,8 @@ describe('how Traction continues', () => {
     expect(tour.labels.recorded).toMatch(/renamed Yourapp/);
     expect(tour.labels.recorded).toMatch(/blurred/);
     expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
+    // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
+    expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
     // The page asks once, at its end.
     expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
   });
