@@ -8,7 +8,8 @@ import { freeBoard } from '@/data/traction-offer';
  * Read, Customers and Email replay a 5 November 2026 run on the corrected screens (app f8916f7, engine 73d95b6a) with no
  * new model or search call; Plan was recorded that day; Market is Traction's own board on 6 November, its strip opening
  * on the day its market read began (Traction 90fdfd5). The app it reads is one of ours, Next Role, renamed Yourapp at
- * yourapp.example. The businesses the search found are real, so their names, reasons, addresses and pages are blurred.
+ * yourapp.example, and every sentence naming its field is blurred, so a founder from any field sees their own app in it.
+ * The businesses the search found are real, so their names, reasons, addresses and pages are blurred too.
  * Waits are cut and the film says how long each took. Method, footage and edit: `.growth/traction/launch/tour-film/`
  * (`film.json`, `render-film.mjs`). A new render replaces the file, the chapter starts and the door's box together.
  */
@@ -29,20 +30,20 @@ export const tour = {
   /** The same film at 720p, for screens where the picture is narrow. */
   small: '/traction/tour/film-720.mp4',
   poster: '/traction/tour/film.jpg',
-  duration: 55.96,
+  duration: 56.31,
   /** The question the film opens on, before the first chapter. */
   opening: { title: 'One app that needs to meet its market?', line: 'See Traction in action: one of our apps, from its sign-up to its market.' },
   chapters: [
     { id: 'read', start: 4.05, label: 'replayed', name: 'Read', title: 'It reads your app like a new customer.', line: 'What works, what’s in the way and the move to make first, each from your own pages.' },
     { id: 'customers', start: 13.03, label: 'replayed', name: 'Customers', title: 'One tap researches five prospects.', line: 'Businesses chosen from what their own pages say, each with the line it was chosen on.' },
-    { id: 'email', start: 23.87, label: 'replayed', name: 'Email', title: 'The first email, in your voice.', line: 'Approve, and they’re in your CRM. Nothing leaves without your click.' },
-    { id: 'plan', start: 31.84, label: 'recorded', name: 'Plan', title: 'Ask in a sentence. Get a plan.', line: 'The Growth Manager drafts the work to your deadline. It starts when you approve it.' },
-    { id: 'market', start: 39.65, label: 'market', name: 'Market', title: 'Your market, read every day.', line: 'On Traction’s own board: one tile a day since its market read began, each story with its source.' },
+    { id: 'email', start: 24.06, label: 'replayed', name: 'Email', title: 'The first email, in your voice.', line: 'Approve, and they’re in your CRM. Nothing leaves without your click.' },
+    { id: 'plan', start: 32.19, label: 'recorded', name: 'Plan', title: 'Ask in a sentence. Get a plan.', line: 'The Growth Manager drafts the work to your deadline. It starts when you approve it.' },
+    { id: 'market', start: 39.99, label: 'market', name: 'Market', title: 'Your market, read every day.', line: 'On Traction’s own board: one tile a day since its market read began, each story with its source.' },
   ] satisfies TourChapter[],
   /** When the close starts: what each side did, then the line and the door. */
-  close: 48.96,
+  close: 49.31,
   /** Where the door shows in the last frame, as fractions of the frame, and when: the page lays its own link over it. */
-  door: { at: 51.86, left: 0.3108, top: 0.679, width: 0.3784, height: 0.0611 },
+  door: { at: 52.21, left: 0.3108, top: 0.679, width: 0.3784, height: 0.0611 },
   end: { title: 'Make Traction work for you, now.', line: freeBoard.text },
   /** The close, in words: what the founder did against what Traction did in this recording. */
   ledger: {
@@ -63,7 +64,7 @@ export const tour = {
   labels: {
     film: 'Traction in action: one of our apps, renamed Yourapp, from its sign-up to its market',
     recorded: 'Recorded in Traction on 5 November 2026 · one of our apps, renamed Yourapp · businesses blurred',
-    replayed: 'A 5 November 2026 run, replayed on today’s Traction screens · one of our apps, renamed Yourapp · businesses blurred',
+    replayed: 'A 5 November 2026 run, replayed on today’s Traction screens · one of our apps, renamed Yourapp · its field and the businesses blurred',
     market: 'Traction’s own board, recorded on 6 November 2026 · stories from Intel’s daily brief',
     end: 'Every count is from this recording',
     yourPart: 'Your part',

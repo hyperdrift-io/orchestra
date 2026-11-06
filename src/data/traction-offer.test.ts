@@ -94,6 +94,11 @@ describe('how Traction continues', () => {
     expect(tour.labels.replayed).toMatch(/5 November 2026 run, replayed/);
     expect(tour.chapters.filter((chapter) => chapter.label === 'replayed').map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email']);
     expect(tour.labels.market).toMatch(/Traction’s own board/);
+    // The film stays agnostic: the stand-in's field is blurred on screen and never named in the page's words.
+    expect(tour.labels.replayed).toMatch(/its field and the businesses blurred/);
+    for (const path of ['./traction-tour.ts', '../components/Traction.tsx', '../components/TractionTour.tsx']) {
+      expect(await source(path), path).not.toMatch(/\bCVs?\b|r[ée]sum[ée]|\bjobs?\b|career|recruit/i);
+    }
     expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
     // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
     expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
