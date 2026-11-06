@@ -1,7 +1,6 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
-import { tour } from './traction-tour';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
 const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
@@ -64,28 +63,16 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('opens on the engine at work: Traction recorded on one run, chapter by chapter, with no door of its own', async () => {
+  it('opens on the engine at work: four areas of Traction’s board, one clip at a time, with no door of its own', async () => {
     const product = await source('../components/Traction.tsx');
-    expect(product.indexOf('See Traction in action →')).toBeLessThan(product.indexOf('<TractionTour />'));
-    expect(product).toMatch(/<TractionTour \/>/);
-    expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'plan', 'market']);
-    expect(tour.end.line).toBe(freeBoard.text);
-    // Every chapter has its clip and still in public/, and the page says what the recording is.
-    for (const chapter of tour.chapters) {
-      for (const file of [tour.clip(chapter.id), tour.poster(chapter.id)]) {
-        await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
-      }
-    }
-    expect(tour.labels.recorded).toMatch(/renamed Yourapp/);
-    expect(tour.labels.recorded).toMatch(/blurred/);
-    // Chapters replayed from saved research on later screens say so under the picture.
-    expect(tour.labels.replayed).toMatch(/5 November 2026 run, replayed/);
-    expect(tour.chapters.filter((chapter) => chapter.label === 'replayed').map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email']);
-    expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
-    // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
-    expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
-    // The tour has no competing signup link.
-    expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
+    expect(product.indexOf('See Traction in action →')).toBeLessThan(product.indexOf('<TractionWalkthrough />'));
+    const walkthrough = await source('../components/TractionWalkthrough.tsx');
+    expect(walkthrough).toMatch(/Example data/);
+    expect(walkthrough).not.toMatch(/href=/);
+    // Every area has its clip and still in public/.
+    const files = [...walkthrough.matchAll(/'(\/traction\/in-action\/[a-z]+\.(?:mp4|jpg))'/g)].map((match) => match[1]);
+    expect(files).toHaveLength(8);
+    for (const file of files) await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
   });
 
   it('shows no invented company: the founder’s own app is the subject', async () => {

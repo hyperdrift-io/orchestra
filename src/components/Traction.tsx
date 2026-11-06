@@ -1,4 +1,4 @@
-import { TractionTour } from '@/components/TractionTour';
+import { TractionWalkthrough } from '@/components/TractionWalkthrough';
 import { TractionJourney } from '@/components/TractionJourney';
 import { boardHref, continuedUseHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
 
@@ -26,7 +26,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       </>}
     </header>
     <section id="value" data-journey="value" aria-label="Traction at work">
-      <TractionTour />
+      <TractionWalkthrough />
     </section>
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
       <header>
