@@ -35,11 +35,17 @@ describe('how Traction continues', () => {
     expect(await source('../components/Services.tsx')).toMatch(/services\.map/);
   });
 
-  it('keeps one door per page and no form for continuing', async () => {
+  it('defines the door once and offers it twice in the same words: on the film’s last frame and at the page’s end', async () => {
     const product = await source('../components/Traction.tsx');
-    // One per reading: a visitor starts free; a free board's founder opens their board. Neither is a form.
-    expect(product.match(/data-primary=""/g)).toHaveLength(2);
+    // One per reading: a visitor sees Traction on their own app; a free board's founder opens their board. Neither is a form.
+    expect(product.match(/data-primary=""/g)).toHaveLength(1);
+    expect(product).toMatch(/<TractionTour door=\{door\} \/>/);
+    expect(product).toMatch(/href=\{door\.href\} data-primary="">\{door\.label\}/);
     expect(product).not.toMatch(/data-enquiry/);
+    // The film's door is the page's: its address and words come in from the page, never its own.
+    const film = await source('../components/TractionTour.tsx');
+    expect(film.match(/href=/g)).toHaveLength(1);
+    expect(film).toMatch(/href=\{door\.href\}/);
     const partnership = await source('../components/TractionPartnership.tsx');
     expect(partnership.match(/data-primary=""/g)).toHaveLength(1);
     expect(partnership).toMatch(/data-introduce/);
@@ -64,28 +70,33 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('opens on the engine at work: Traction recorded on one run, chapter by chapter, with no door of its own', async () => {
+  it('opens on the engine at work: Traction itself as one film, a question, five chapters in order, then the close and the door', async () => {
     const product = await source('../components/Traction.tsx');
     expect(product).toMatch(/Traction is an engine/);
-    expect(product).toMatch(/<TractionTour \/>/);
     expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'plan', 'market']);
+    // The opening question plays first; the chapters start in order; the close follows the last, the door shows inside it.
+    const starts = tour.chapters.map((chapter) => chapter.start);
+    expect(starts[0]).toBeGreaterThan(0);
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts);
+    expect(tour.close).toBeGreaterThan(starts.at(-1)!);
+    expect(tour.door.at).toBeGreaterThan(tour.close);
+    expect(tour.duration).toBeGreaterThan(tour.door.at);
+    expect(tour.end.title).toBe('Make Traction work for you, now.');
+    expect(product).toMatch(/Make Traction work for you, now\./);
     expect(tour.end.line).toBe(freeBoard.text);
-    // Every chapter has its clip and still in public/, and the page says what the recording is.
-    for (const chapter of tour.chapters) {
-      for (const file of [tour.clip(chapter.id), tour.poster(chapter.id)]) {
-        await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
-      }
+    // The film, its phone copy and its still are in public/, and the page says what the recording is.
+    for (const file of [tour.src, tour.small, tour.poster]) {
+      await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
     }
     expect(tour.labels.recorded).toMatch(/renamed Yourapp/);
     expect(tour.labels.recorded).toMatch(/blurred/);
-    // Chapters replayed from saved research on later screens say so under the picture.
+    // Chapters replayed from saved research on later screens say so under the picture; the market says whose board it is.
     expect(tour.labels.replayed).toMatch(/5 November 2026 run, replayed/);
     expect(tour.chapters.filter((chapter) => chapter.label === 'replayed').map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email']);
+    expect(tour.labels.market).toMatch(/Traction’s own board/);
     expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
     // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
     expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
-    // The page asks once, at its end.
-    expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
   });
 
   it('shows no invented company: the founder’s own app is the subject', async () => {

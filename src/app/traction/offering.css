@@ -29,81 +29,95 @@
 #traction[data-partnership] #value > p:last-child { margin: 1rem 0 0; font: inherit; color: inherit; }
 /* A lead under the title, on the pages that open with one. */
 #traction[data-offering] > header > [data-lead] { max-width: 62ch; margin: 1.1rem 0 0; font: 1.05rem/1.65 var(--font-body); color: var(--cream-2); }
-/* The product page: the promise on the left, the engine at work on the right, both in the first screen; then the two ways on and one door. */
-#traction[data-product] { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); align-items: center; padding-top: clamp(1.5rem, 4vw, 3.5rem); }
-#traction[data-product] > * { grid-column: 1 / -1; max-width: 62rem; }
-#traction[data-product] > header { grid-column: 1; grid-row: 1; padding: 0; }
-#traction[data-product] h1 { margin: 1.4rem 0 1.5rem; max-width: 15ch; font-size: clamp(2.8rem, 4.8vw, 5rem); line-height: 1; }
-#traction[data-product] > header > [data-lead] { max-width: 34ch; margin: 0; font-size: 1.12rem; line-height: 1.7; }
-#traction[data-product] > #value { grid-column: 2; grid-row: 1; max-width: none; margin: 0; padding: 0; border: 0; background: none; }
-/* Below the first screen the same two columns carry on: what it is on the left, the choice or the door on the right. */
-#traction[data-product] > :is(#continue, footer) { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); max-width: none; margin-top: clamp(3rem, 6vw, 5rem); padding-top: clamp(2rem, 4vw, 3rem); }
-#traction[data-product] > #continue { align-items: start; }
-#traction[data-product] > #continue > header { grid-column: 1; }
-#traction[data-product] > #continue > ul { grid-column: 2; margin: 0; }
+/* The product page: the promise across the top, the film full width beneath it, then the context in the same two
+   columns (what it is on the left, the substance on the right), the two ways on and one door. */
+#traction[data-product] { display: grid; grid-template-columns: minmax(0, 1fr); padding-top: clamp(1.5rem, 4vw, 3.5rem); }
+#traction[data-product] > * { max-width: none; }
+#traction[data-product] > header { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); align-items: end; padding: 0; }
+#traction[data-product] > header > p:first-child { grid-column: 1 / -1; }
+#traction[data-product] h1 { grid-column: 1; margin: 1.2rem 0 0; max-width: 15ch; font-size: clamp(2.8rem, 4.8vw, 5rem); line-height: 1; }
+#traction[data-product] > header > [data-lead] { grid-column: 2; max-width: 46ch; margin: 0 0 .35rem; font-size: 1.12rem; line-height: 1.7; }
+#traction[data-product] > #value { margin: clamp(1.8rem, 3.5vw, 2.8rem) 0 0; padding: 0; border: 0; background: none; }
+#traction[data-product] > :is(#context, #day-one, #control, #continue, footer) { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); margin-top: clamp(3rem, 6vw, 5rem); padding-top: clamp(2rem, 4vw, 3rem); }
+#traction[data-product] > :is(#context, #day-one, #control, #continue) { align-items: start; }
+#traction[data-product] > :is(#context, #day-one, #control, #continue) > header { grid-column: 1; }
+#traction[data-product] > :is(#context, #day-one, #control, #continue) > :not(header) { grid-column: 2; margin: 0; }
 #traction[data-product] > footer { align-items: center; row-gap: 0; }
 #traction[data-product] > footer > h2 { grid-column: 1; grid-row: 1 / span 3; margin: 0; }
 #traction[data-product] > footer > :not(h2) { grid-column: 2; justify-self: start; }
+/* Why it exists, day one, you decide: a few plain paragraphs and short lists in the page's reading type. */
+#traction[data-product] :is(#context, #day-one) > div > p { max-width: 62ch; margin: 0 0 1rem; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
+#traction[data-product] :is(#context, #day-one) > div > p:last-child { margin-bottom: 0; }
+#traction[data-product] :is(#day-one, #control) ul { list-style: none; max-width: 64ch; padding: 0; display: grid; gap: .1rem; }
+#traction[data-product] #day-one ul { margin: 0; }
+#traction[data-product] :is(#day-one, #control) li { padding: .85rem 0; border-top: 1px solid var(--line-hair); font: .95rem/1.65 var(--font-body); color: var(--cream-2); }
+#traction[data-product] :is(#day-one, #control) li:first-child { border-top: 0; padding-top: 0; }
+#traction[data-product] #day-one li strong { display: block; margin-bottom: .15rem; font: 500 1.15rem/1.35 var(--font-display); color: var(--cream); }
+#traction[data-product] #control li { padding-left: 1.6rem; position: relative; }
+#traction[data-product] #control li::before { content: ''; position: absolute; left: 0; top: 1.45rem; width: .7rem; height: 1px; background: var(--gold); }
+#traction[data-product] #control li:first-child::before { top: .65rem; }
 @media (max-width: 960px) {
-  #traction[data-product] { grid-template-columns: minmax(0, 1fr); }
-  #traction[data-product] > :is(header, #value) { grid-column: 1; grid-row: auto; }
-  #traction[data-product] > #value { margin-top: 2rem; }
-  #traction[data-product] > :is(#continue, footer) { grid-template-columns: minmax(0, 1fr); }
-  #traction[data-product] > #continue > :is(header, ul), #traction[data-product] > footer > h2, #traction[data-product] > footer > :not(h2) { grid-column: 1; grid-row: auto; }
-  #traction[data-product] > #continue > ul { margin-top: 1.6rem; }
+  #traction[data-product] > header, #traction[data-product] > :is(#context, #day-one, #control, #continue, footer) { grid-template-columns: minmax(0, 1fr); }
+  #traction[data-product] > header > :is(h1, [data-lead]), #traction[data-product] > :is(#context, #day-one, #control, #continue) > :is(header, :not(header)), #traction[data-product] > footer > h2, #traction[data-product] > footer > :not(h2) { grid-column: 1; grid-row: auto; }
+  #traction[data-product] > header > [data-lead] { margin-top: 1.2rem; }
+  #traction[data-product] > :is(#context, #day-one, #control, #continue) > :not(header) { margin-top: 1.4rem; }
   #traction[data-product] > footer > h2 { margin-bottom: 1rem; }
 }
-/* Traction at work: the real app, recorded and played chapter by chapter beside the promise. Orchestra's grammar around
-   the picture; inside it, Traction's own screen. */
-#traction [data-traction-tour] { --p: 0; display: grid; gap: .9rem; }
-#traction [data-tour-bar] { display: flex; align-items: flex-end; gap: .8rem; }
+/* Traction at work: one film of the real app, full width under the promise. Orchestra's grammar around the picture;
+   inside it, Traction's own screen. The chapters run under it like a timeline, each filling as it plays. */
+#traction [data-traction-tour] { --p: 0; display: grid; gap: .8rem; }
+#traction [data-tour-window] {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #02050a; border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); border-radius: 12px;
+  box-shadow: 0 28px 70px rgb(0 0 0 / .55), 0 0 0 6px color-mix(in srgb, var(--gold) 5%, transparent);
+}
+#traction [data-tour-window] video { display: block; width: 100%; height: 100%; object-fit: cover; background: #02050a; cursor: pointer; }
+#traction [data-traction-tour][data-ended] [data-tour-window] video { cursor: default; }
+/* The door on the film's last frame, laid over the one the film draws; under the picture on a narrow screen. */
+#traction [data-tour-stage] { position: relative; }
+#traction [data-tour-door] {
+  position: absolute; z-index: 1; transform: translate(-50%, -50%); min-width: 13.5rem; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0 1.3rem; border-radius: 999px; background: var(--gold); color: var(--ink); font: 500 clamp(.9rem, 1.4vw, 1.05rem)/1.2 var(--font-body); text-decoration: none; white-space: nowrap;
+  box-shadow: 0 14px 40px rgb(227 168 87 / .25); animation: tour-land .45s ease both;
+}
+#traction[data-offering] > #value [data-tour-door] { color: var(--ink); }
+#traction [data-tour-door]:hover { background: var(--gold-light); }
+#traction [data-tour-door]:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+#traction [data-tour-bar] { display: flex; align-items: flex-start; gap: .8rem; }
 #traction [data-chapters] { flex: 1; min-width: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: .3rem; }
-#traction [data-chapters] button { position: relative; min-height: 40px; padding: .45rem 0 .55rem; border: 0; border-bottom: 1px solid var(--line-soft); background: none; color: var(--cream-3); font: .8rem/1.2 var(--font-body); text-align: left; cursor: pointer; transition: color .2s ease; }
-#traction [data-chapters] button::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; }
+#traction [data-chapters] button { position: relative; min-height: 40px; padding: .55rem 0 .45rem; border: 0; border-top: 1px solid var(--line-soft); background: none; color: var(--cream-3); font: .8rem/1.2 var(--font-body); text-align: left; cursor: pointer; transition: color .2s ease; }
+#traction [data-chapters] button::after { content: ''; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; }
 #traction [data-chapters] button:hover { color: var(--cream); }
 #traction [data-chapters] button[data-done] { color: var(--cream-2); }
 #traction [data-chapters] button[data-done]::after { transform: scaleX(1); background: color-mix(in srgb, var(--gold) 45%, transparent); }
 #traction [data-chapters] button[aria-pressed='true'] { color: var(--gold-light); }
 #traction [data-chapters] button[aria-pressed='true']::after { transform: scaleX(var(--p)); }
 #traction [data-chapters] button:focus-visible, #traction [data-tour-toggle]:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
-#traction [data-tour-toggle] { flex: none; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 1px solid var(--line-soft); border-radius: 50%; background: none; color: var(--cream); cursor: pointer; transition: border-color .2s ease; }
+#traction [data-tour-toggle] { flex: none; display: grid; place-items: center; width: 40px; height: 40px; margin-top: .2rem; padding: 0; border: 1px solid var(--line-soft); border-radius: 50%; background: none; color: var(--cream); cursor: pointer; transition: border-color .2s ease; }
 #traction [data-tour-toggle]:hover { border-color: var(--gold); }
 #traction [data-tour-toggle] svg { display: block; fill: currentColor; }
 
-#traction [data-tour-window] {
-  position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #02050a; border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); border-radius: 10px;
-  box-shadow: 0 28px 70px rgb(0 0 0 / .55), 0 0 0 6px color-mix(in srgb, var(--gold) 5%, transparent);
-}
-#traction [data-tour-window] video { display: block; width: 100%; height: 100%; object-fit: cover; background: #02050a; }
-
-/* The close, in Traction's board palette: what the founder did against what Traction did. */
-#traction [data-tour-end] { position: absolute; inset: 0; display: grid; align-content: center; gap: 14px; padding: 18px 22px; background: radial-gradient(120% 90% at 50% 40%, #0b1624 0%, #050a12 60%, #02050a 100%); color: #e9f0fa; font: 400 13px/1.45 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-#traction [data-tour-end] dl { margin: 0; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 12px; }
-#traction [data-tour-end] dl > div { display: grid; align-content: start; gap: 7px; padding: 12px 14px; border: 1px solid #17293d; border-radius: 10px; background: #0d1928; }
-#traction [data-tour-end] dt { color: #8fa4be; font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-#traction [data-tour-end] dd { margin: 0; color: #c6d4e4; font-size: 13px; animation: tour-land .45s ease both; animation-delay: calc(var(--i) * 140ms); }
-#traction [data-tour-end] dd strong { display: inline-block; min-width: 1.4em; color: #f5be56; font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
-#traction [data-tour-end] [data-side='traction'] dd strong { color: #50d8b6; }
-#traction [data-tour-end] > small { color: #6f87a3; font-size: 11px; text-align: center; }
-
-/* The caption under the picture, in the page's own type. */
-#traction [data-tour-caption] { display: grid; gap: .35rem; min-height: 7.4rem; align-content: start; }
+/* Under the picture: where the footage comes from. The film carries its own words; a narrow screen reads them here, and a
+   screen reader always does. */
+#traction [data-tour-caption] { display: grid; gap: .35rem; }
 #traction [data-tour-caption] h3 { margin: 0; font: 500 clamp(1.3rem, 2vw, 1.65rem)/1.2 var(--font-display); color: var(--cream); }
 #traction [data-tour-caption] p { margin: 0; max-width: 54ch; font: .95rem/1.6 var(--font-body); color: var(--cream-2); }
-#traction [data-tour-caption] small { margin-top: .2rem; font: .6rem/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+#traction [data-tour-caption] dl { margin: .2rem 0 0; display: grid; gap: .5rem; font: .85rem/1.5 var(--font-body); color: var(--cream-2); }
+#traction [data-tour-caption] dt { font: .62rem/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+#traction [data-tour-caption] dd { margin: 0; }
+#traction [data-tour-caption] small { font: .6rem/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+@media (max-width: 760px) {
+  #traction [data-tour-door] { position: static; transform: none; display: flex; width: 100% !important; height: auto !important; margin-top: .8rem; font-size: .95rem; }
+}
+@media (min-width: 761px) {
+  #traction [data-tour-caption] :is(h3, p, dl) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
 
-@keyframes tour-land { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes tour-land { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 620px) {
   #traction [data-chapters] { grid-auto-columns: auto; gap: .55rem; }
   #traction [data-chapters] button { font-size: .74rem; }
-  /* On a phone the close is taller than the picture: the frame grows to hold it. */
-  #traction [data-traction-tour][data-ended] [data-tour-window] { aspect-ratio: auto; }
-  #traction [data-tour-end] { position: relative; gap: 8px; padding: 12px; }
-  #traction [data-tour-end] dl { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-  #traction [data-tour-end] dl > div { gap: 4px; padding: 8px 10px; }
-  #traction [data-tour-end] dd { font-size: 11px; }
-  #traction [data-tour-end] dd strong { font-size: 14px; }
+
 }
 @media (prefers-reduced-motion: reduce) {
   #traction [data-traction-tour] *, #traction [data-traction-tour] *::before, #traction [data-traction-tour] *::after { animation: none !important; transition: none !important; }
