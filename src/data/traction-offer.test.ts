@@ -84,6 +84,14 @@ describe('how Traction continues', () => {
     expect(tour.end.title).toBe('Make Traction work for you, now.');
     expect(product).toMatch(/Make Traction work for you, now\./);
     expect(tour.end.line).toBe(freeBoard.text);
+    // Each chapter is narrated: its lines come in order inside the chapter, and the page carries them under the picture.
+    tour.chapters.forEach((chapter, index) => {
+      const next = tour.chapters[index + 1]?.start ?? tour.close;
+      expect(chapter.says.length, chapter.id).toBeGreaterThan(1);
+      expect(chapter.says.map((say) => say.at), chapter.id).toEqual([...chapter.says.map((say) => say.at)].sort((a, b) => a - b));
+      for (const say of chapter.says) expect(say.at > chapter.start && say.at < next, `${chapter.id}: ${say.text}`).toBe(true);
+    });
+    expect(await source('../components/TractionTour.tsx')).toMatch(/chapters\[scene\]\.says\[say\]\.text/);
     // The film, its phone copy and its still are in public/, and the page says what the recording is.
     for (const file of [tour.src, tour.small, tour.poster]) {
       await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();

@@ -5,17 +5,20 @@ import { trackEvent } from '@/lib/analytics';
 import { tour } from '@/data/traction-tour';
 
 /**
- * Traction at work: one continuous film of the real app (`@/data/traction-tour`), an opening question, five chapters and
- * the close. It plays muted once it scrolls into view and pauses when it leaves; a click on the picture or the button
- * pauses it, a chapter jumps to its start and fills as it plays. Its last frame carries the page's door, handed in by
- * the page in the page's own words; on a narrow screen the door sits under the picture instead. Reduced motion: no autoplay; the poster waits for the visitor. Narrow screens get
- * the 720p copy and read each chapter's words under the picture.
+ * Traction at work: one continuous film of the real app (`@/data/traction-tour`), an opening question, five narrated
+ * chapters and the close. It plays muted once it scrolls into view and pauses when it leaves; a click on the picture or
+ * the button pauses it, a chapter jumps to its start and fills as it plays. Its last frame carries the page's door,
+ * handed in by the page in the page's own words; on a narrow screen the door sits under the picture instead. Reduced
+ * motion: no autoplay; the poster waits for the visitor. Narrow screens get the 720p copy and read the film's narration,
+ * line by line, under the picture, as screen readers do.
  */
 
 const chapters = tour.chapters;
 const END = chapters.length;
 /** -1 while the opening question plays, a chapter's index, or END once the close starts. */
 const sceneAt = (t: number) => t >= tour.close ? END : chapters.reduce((found, chapter, index) => t >= chapter.start ? index : found, -1);
+/** The film's narration line on screen at t in a chapter, or -1 before its first. */
+const sayAt = (t: number, scene: number) => chapters[scene]?.says.reduce((found, say, index) => t >= say.at ? index : found, -1) ?? -1;
 
 function useReducedMotion() {
   const [calm, setCalm] = useState(false);
@@ -33,6 +36,7 @@ export function TractionTour({ door }: { door: { href: string; label: string } }
   const root = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [scene, setScene] = useState(-1);
+  const [say, setSay] = useState(-1);
   const [visible, setVisible] = useState(false);
   const [away, setAway] = useState(false);
   const [paused, setPaused] = useState<boolean | null>(null);
@@ -40,7 +44,7 @@ export function TractionTour({ door }: { door: { href: string; label: string } }
   const [doorOpen, setDoorOpen] = useState(false);
   const seen = useRef(new Set<string>());
   const how = useRef('auto');
-  const last = useRef({ scene: -1, door: false });
+  const last = useRef({ scene: -1, say: -1, door: false });
   const calm = useReducedMotion();
   // Reduced motion: nothing plays until the visitor asks.
   const stopped = paused ?? calm;
@@ -78,6 +82,8 @@ export function TractionTour({ door }: { door: { href: string; label: string } }
     const next = now + 1 < END ? chapters[now + 1].start : tour.close;
     root.current?.style.setProperty('--p', chapter ? Math.min(1, (t - chapter.start) / (next - chapter.start)).toFixed(4) : '0');
     if (now !== last.current.scene) { last.current.scene = now; setScene(now); }
+    const line = sayAt(t, now);
+    if (line !== last.current.say) { last.current.say = line; setSay(line); }
     if ((t >= tour.door.at) !== last.current.door) { last.current.door = t >= tour.door.at; setDoorOpen(last.current.door); }
     if (chapter && !seen.current.has(chapter.id)) { seen.current.add(chapter.id); trackEvent('tour_chapter', { chapter: chapter.id, how: how.current }); }
   }, []);
@@ -134,7 +140,7 @@ export function TractionTour({ door }: { door: { href: string; label: string } }
     {/* The film carries its own words; a narrow screen and a screen reader get them here. */}
     <div data-tour-caption="" aria-live={running ? 'off' : 'polite'}>
       <h3>{current.title}</h3>
-      <p>{current.line}</p>
+      <p>{scene >= 0 && scene < END && say >= 0 ? chapters[scene].says[say].text : current.line}</p>
       {scene >= END && <dl data-tour-ledger="">
         <div><dt>{tour.labels.yourPart}</dt>{tour.ledger.you.map((item) => <dd key={item.label}>{item.count} {item.label}</dd>)}</div>
         <div><dt>{tour.labels.itsPart}</dt>{tour.ledger.traction.map((item) => <dd key={item.label}>{item.count} {item.label}</dd>)}</div>
