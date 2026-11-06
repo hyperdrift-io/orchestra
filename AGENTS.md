@@ -31,7 +31,7 @@ Every animated scene keeps pause, reduced motion, a static fallback and readable
 
 All words follow `hd-content-writer`; articles also follow `docs/editorial/ARTICLE-STANDARD.md`. New customer-facing words go through the founder's review before release. Register: `MISSION.md` → How we communicate.
 
-One door per page, after the proposal. No call to action beside a title or in a header, no reply-time promise. Door words live in `src/data/site-door.ts`; `/traction` asks the founder to introduce their app.
+One primary action per page. On the Traction offer and personal invitations it sits beside the promise and opens free signup. A returning founder can discuss continued use through the existing enquiry. Other offers keep their door after the proposal. Door words live in `src/data/site-door.ts`.
 
 ## Enquiry and invitations
 

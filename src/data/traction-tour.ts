@@ -25,10 +25,10 @@ export type TourChapter = {
 export const tour = {
   chapters: [
     { id: 'read', label: 'replayed', name: 'Read', title: 'It reads your app like a new customer.', line: 'What works, what’s in the way and the move to make first, each from your own pages.' },
-    { id: 'customers', label: 'replayed', name: 'Customers', title: 'One tap researches five prospects.', line: 'Businesses chosen from what their own pages say, each with the line it was chosen on.' },
-    { id: 'email', label: 'replayed', name: 'Email', title: 'The first email, in your voice.', line: 'Approve, and they’re in your CRM. Nothing leaves without your click.' },
+    { id: 'customers', label: 'replayed', name: 'Customers', title: 'Who might be a customer?', line: 'This search found five businesses. Their own websites show why each might fit.' },
+    { id: 'email', label: 'replayed', name: 'Email', title: 'The first email, in your voice.', line: 'Review the suggested recipients and the draft before you decide what to send.' },
     { id: 'plan', label: 'recorded', name: 'Plan', title: 'Ask in a sentence. Get a plan.', line: 'The Growth Manager drafts the work to your deadline. It starts when you approve it.' },
-    { id: 'market', label: 'market', name: 'Market', title: 'Your market, read every day.', line: 'Each story once, with its source, so you see what changed.' },
+    { id: 'market', label: 'market', name: 'Market', title: 'What’s changing in your market?', line: 'Traction’s own board shows four days of coverage, with links to the sources.' },
   ] satisfies TourChapter[],
   clip: (id: TourChapter['id']) => `/traction/tour/${id}.mp4`,
   poster: (id: TourChapter['id']) => `/traction/tour/${id}.jpg`,
@@ -51,7 +51,7 @@ export const tour = {
   },
   labels: {
     recorded: 'Recorded in Traction on 5 November 2026 · one of our apps, renamed Yourapp · businesses blurred',
-    replayed: 'A 5 November 2026 run, replayed on today’s Traction screens · one of our apps, renamed Yourapp · businesses blurred',
+    replayed: 'A 5 November 2026 run, replayed with its saved research · one of our apps, renamed Yourapp · businesses blurred',
     market: 'Recorded on Traction’s own board on 5 November 2026',
     end: 'Every count is from this recording',
     yourPart: 'Your part',

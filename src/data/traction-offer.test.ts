@@ -9,7 +9,7 @@ const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]),
 describe('how Traction continues', () => {
   it('offers continued use and the Partnership through available conversation routes', () => {
     expect(waysOn.map((way) => way.slug)).toEqual(['subscription', 'partnership']);
-    expect(waysOn[0].text).toContain('Subscription checkout is not available yet');
+    expect(waysOn[0].text).toContain('price before you commit');
     expect(waysOn[0].text).not.toContain('price on your board');
     expect(waysOn[0].link?.href).toBe('/traction?situation=subscription#enquire');
     expect(waysOn[1].link?.href).toBe(partnershipHref);
@@ -49,7 +49,7 @@ describe('how Traction continues', () => {
     const product = await source('../components/Traction.tsx');
     expect(product).toMatch(/See Traction in action →/);
     expect(product).not.toMatch(/Start free|Get your first read/);
-    expect(product).toMatch(/your email, then a passkey/);
+    expect(product).toMatch(/email, then a passkey/);
     expect(product).not.toMatch(/\/traction\/first-read/);
     expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
     expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
@@ -66,7 +66,7 @@ describe('how Traction continues', () => {
 
   it('opens on the engine at work: Traction recorded on one run, chapter by chapter, with no door of its own', async () => {
     const product = await source('../components/Traction.tsx');
-    expect(product).toMatch(/Traction is an engine/);
+    expect(product.indexOf('See Traction in action →')).toBeLessThan(product.indexOf('<TractionTour />'));
     expect(product).toMatch(/<TractionTour \/>/);
     expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'plan', 'market']);
     expect(tour.end.line).toBe(freeBoard.text);
@@ -84,7 +84,7 @@ describe('how Traction continues', () => {
     expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
     // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
     expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
-    // The page asks once, at its end.
+    // The tour has no competing signup link.
     expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
   });
 

@@ -53,6 +53,17 @@
   #traction[data-product] > #continue > ul { margin-top: 1.6rem; }
   #traction[data-product] > footer > h2 { margin-bottom: 1rem; }
 }
+#traction [data-start] { margin-top: 1.35rem; scroll-margin-top: 6rem; }
+#traction [data-start] > p { max-width: 38ch; margin: .65rem 0 0; font: .88rem/1.5 var(--font-body); color: var(--cream-2); }
+#traction [data-start] a { overflow-wrap: anywhere; }
+#traction[data-product] a:focus-visible, #traction [data-start] a:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
+#traction[data-product] #continue > header > a { display: inline-block; margin-top: .7rem; }
+#traction[data-product] #continue > header > h2 { font: 500 clamp(1.8rem, 3vw, 2.6rem)/1.15 var(--font-display); }
+#traction[data-product] #continue > header > h2 + p { margin: .6rem 0 0; color: var(--cream-2); }
+@media (max-width: 400px) {
+  #traction[data-product] h1 { margin-block: .9rem; }
+  #traction[data-product] > header > [data-lead] { line-height: 1.5; }
+}
 /* Traction at work: the real app, recorded and played chapter by chapter beside the promise. Orchestra's grammar around
    the picture; inside it, Traction's own screen. */
 #traction [data-traction-tour] { --p: 0; display: grid; gap: .9rem; }
