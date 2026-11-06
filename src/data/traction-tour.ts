@@ -2,7 +2,9 @@ import { freeBoard } from '@/data/traction-offer';
 
 /**
  * The tour beside the promise on /traction: Traction itself, recorded in Chrome on 5 November 2026 and framed chapter
- * by chapter (`public/traction/tour/<id>.mp4`, poster `<id>.jpg`).
+ * by chapter (`public/traction/tour/<id>.mp4`, poster `<id>.jpg`). Read's ending, Customers and Email replay that day's
+ * saved research on the corrected screens (app f8916f7, engine 73d95b6a), with no new model or search call; their label
+ * says so.
  *
  * The app it reads is one of ours, Next Role, renamed Yourapp at yourapp.example so a founder sees their own app in
  * its place. Every other line on screen is what the engine wrote about those pages. The businesses the search found
@@ -13,6 +15,8 @@ import { freeBoard } from '@/data/traction-offer';
 
 export type TourChapter = {
   id: 'read' | 'customers' | 'email' | 'plan' | 'market';
+  /** Which line under the picture tells where the footage comes from. */
+  label: 'recorded' | 'replayed' | 'market';
   name: string;
   title: string;
   line: string;
@@ -20,11 +24,11 @@ export type TourChapter = {
 
 export const tour = {
   chapters: [
-    { id: 'read', name: 'Read', title: 'It reads your app like a new customer.', line: 'What works, what’s in the way and the move to make first, each from your own pages.' },
-    { id: 'customers', name: 'Customers', title: 'One tap finds who needs it now.', line: 'Businesses that show the need on their own pages, each with the line that proves it.' },
-    { id: 'email', name: 'Email', title: 'The first email, in your voice.', line: 'Approve, and they’re in your CRM. Nothing leaves without your click.' },
-    { id: 'plan', name: 'Plan', title: 'Ask in a sentence. Get a plan.', line: 'The Growth Manager drafts the work to your deadline. It starts when you approve it.' },
-    { id: 'market', name: 'Market', title: 'Your market, read every day.', line: 'Each story once, with its source, so you see what changed.' },
+    { id: 'read', label: 'replayed', name: 'Read', title: 'It reads your app like a new customer.', line: 'What works, what’s in the way and the move to make first, each from your own pages.' },
+    { id: 'customers', label: 'replayed', name: 'Customers', title: 'Who might be a customer?', line: 'This search found five businesses. Their own websites show why each might fit.' },
+    { id: 'email', label: 'replayed', name: 'Email', title: 'The first email, in your voice.', line: 'Review the suggested recipients and the draft before you decide what to send.' },
+    { id: 'plan', label: 'recorded', name: 'Plan', title: 'Ask in a sentence. Get a plan.', line: 'The Growth Manager drafts the work to your deadline. It starts when you approve it.' },
+    { id: 'market', label: 'market', name: 'Market', title: 'What’s changing in your market?', line: 'Traction’s own board shows four days of coverage, with links to the sources.' },
   ] satisfies TourChapter[],
   clip: (id: TourChapter['id']) => `/traction/tour/${id}.mp4`,
   poster: (id: TourChapter['id']) => `/traction/tour/${id}.jpg`,
@@ -38,8 +42,8 @@ export const tour = {
     ],
     traction: [
       { count: 3, label: 'pages of the app read' },
-      { count: 8, label: 'businesses’ pages read' },
-      { count: 5, label: 'businesses found, each with its proof' },
+      { count: 8, label: 'web pages read for the research' },
+      { count: 5, label: 'prospects researched, each with its reason' },
       { count: 5, label: 'first emails written, one per business' },
       { count: 1, label: 'plan to approve' },
       { count: 4, label: 'days of the market read' },
@@ -47,6 +51,7 @@ export const tour = {
   },
   labels: {
     recorded: 'Recorded in Traction on 5 November 2026 · one of our apps, renamed Yourapp · businesses blurred',
+    replayed: 'A 5 November 2026 run, replayed with its saved research · one of our apps, renamed Yourapp · businesses blurred',
     market: 'Recorded on Traction’s own board on 5 November 2026',
     end: 'Every count is from this recording',
     yourPart: 'Your part',

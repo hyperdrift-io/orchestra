@@ -8,7 +8,7 @@ import { tour } from '@/data/traction-tour';
  * Traction at work, beside the promise: the real app, recorded on one run and played chapter by chapter, each clip
  * leading into the next (`@/data/traction-tour`). It plays muted once it scrolls into view, holds while a mouse or
  * keyboard focus is on the picture, and ends on what the founder did against what Traction did. Reduced motion: no
- * autoplay; each chapter shows its still until the visitor plays it. No door here: the page asks once, at its end.
+ * autoplay; each chapter shows its still until the visitor plays it. The signup link sits beside the tour.
  */
 
 const chapters = tour.chapters;
@@ -125,7 +125,7 @@ export function TractionTour() {
       onFocus={(event) => { if (event.target.matches(':focus-visible')) setHeld(true); }}
       onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setHeld(document.hidden); }}>
       {id
-        ? <video ref={video} src={tour.clip(id)} poster={tour.poster(id)} muted playsInline preload="auto"
+        ? <video ref={video} src={tour.clip(id)} poster={tour.poster(id)} muted playsInline preload="metadata"
             aria-label={tour.labels.clip(chapters[chapter].name, chapters[chapter].title)}
             onEnded={() => go(chapter + 1, 'auto')} />
         : <End />}
@@ -133,7 +133,7 @@ export function TractionTour() {
     <div data-tour-caption="" aria-live={running ? 'off' : 'polite'}>
       <h3>{current.title}</h3>
       <p>{current.line}</p>
-      <small>{id === 'market' ? tour.labels.market : tour.labels.recorded}</small>
+      <small>{tour.labels[id ? chapters[chapter].label : 'recorded']}</small>
     </div>
   </div>;
 }

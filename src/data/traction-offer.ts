@@ -7,6 +7,7 @@
 export const continueHref = '/traction#continue';
 /** How we work with a founder: the page that answers the question prospects ask first. */
 export const partnershipHref = '/traction/partnership';
+export const continuedUseHref = '/traction?situation=subscription#enquire';
 /** Traction itself; TRACTION_URL points a local preview at a local Traction. */
 export const tractionOrigin = () => process.env.TRACTION_URL || 'https://traction.hyperdrift.io';
 /**
@@ -23,16 +24,15 @@ export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
 
 /**
  * The offer after day one, defined once for the home card, /traction, the invitation page and llms.txt.
- * Day one is free; then two ways on. Neither is sold on a page: the subscription is taken inside Traction, where its price is shown;
- * the Partnership starts with a conversation. No price, term or count anywhere here.
+ * The first read and search are free. Continued use and partnership start with a conversation.
  */
 export const freeBoard = {
-  text: 'Day one is free: a first read of your app and your first customer move, on your own board.',
+  text: 'Your website review, first search and email drafts are free.',
 };
 export interface WayOn { slug: 'subscription' | 'partnership'; name: string; text: string; link?: { href: string; label: string } }
 export const waysOn: WayOn[] = [
-  { slug: 'subscription', name: 'A subscription', text: 'The Growth Manager works your board every day, and nothing is sent without your yes. You see the price on your board before you pay.' },
-  { slug: 'partnership', name: 'The Traction Partnership', text: 'We do the customer work with you, move by move, to paying customers. It starts with a conversation.', link: { href: partnershipHref, label: 'How we work with you →' } },
+  { slug: 'subscription', name: 'Keep using Traction', text: 'Tell us how you’d like to use Traction. We’ll agree what’s included and the price before you commit.', link: { href: continuedUseHref, label: 'Discuss continued use →' } },
+  { slug: 'partnership', name: 'Work with us', text: 'We can do the customer research and outreach with you. We’ll start with the people you want to reach and agree who does what.', link: { href: partnershipHref, label: 'Explore the partnership →' } },
 ];
 
 /** The board film: the product doing the work, on Traction's own launch records. */

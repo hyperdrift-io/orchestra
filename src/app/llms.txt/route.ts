@@ -21,7 +21,7 @@ Orchestra connects customer insight, distribution and AI engineering for founder
 
 ${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io${service.links[0].href}): ${service.text}`).join('\n')}
 
-- [Start free on Traction](https://orchestra.hyperdrift.io/traction#continue): ${freeBoard.text} Then two ways on:
+- [Start free on Traction](https://orchestra.hyperdrift.io/traction#your-board): ${freeBoard.text} Then two ways on:
 ${waysOn.map((way) => `- [${way.name}](https://orchestra.hyperdrift.io${way.slug === 'partnership' ? '/traction/partnership' : '/traction#subscription'}): ${way.text}`).join('\n')}
 
 - [Run a first read on your own app](https://github.com/hyperdrift-io/first-read): The same method as an open Agent Skill made by Orchestra, for Claude Code, Codex and any client that reads Agent Skills. Public pages only; one strength, one constraint and the next customer move, each with its evidence. Install with npx skills add hyperdrift-io/first-read.
