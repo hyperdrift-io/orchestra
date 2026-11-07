@@ -36,11 +36,23 @@
 #traction[data-product] h1 { margin: 1.4rem 0 1.5rem; max-width: 15ch; font-size: clamp(2.8rem, 4.8vw, 5rem); line-height: 1; }
 #traction[data-product] > header > [data-lead] { max-width: 34ch; margin: 0; font-size: 1.12rem; line-height: 1.7; }
 #traction[data-product] > #value { grid-column: 2; grid-row: 1; max-width: none; margin: 0; padding: 0; border: 0; background: none; }
-/* Below the first screen the same two columns carry on: what it is on the left, the choice or the door on the right. */
-#traction[data-product] > :is(#continue, footer) { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); max-width: none; margin-top: clamp(3rem, 6vw, 5rem); padding-top: clamp(2rem, 4vw, 3rem); }
-#traction[data-product] > #continue { align-items: start; }
-#traction[data-product] > #continue > header { grid-column: 1; }
+/* Below the first screen the same two columns carry on: what it is on the left, the detail, the choice or the door on the right. */
+#traction[data-product] > :is(#features, #continue, footer) { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); max-width: none; margin-top: clamp(3rem, 6vw, 5rem); padding-top: clamp(2rem, 4vw, 3rem); }
+#traction[data-product] > :is(#features, #continue) { align-items: start; }
+#traction[data-product] > :is(#features, #continue) > header { grid-column: 1; }
 #traction[data-product] > #continue > ul { grid-column: 2; margin: 0; }
+/* What it does: the header holds while the parts read on the right, the free start first. */
+#traction[data-product] > #features > header { position: sticky; top: 6rem; }
+#traction[data-product] > #features > header > p:last-child { max-width: 44ch; margin: .9rem 0 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
+#traction [data-features] { grid-column: 2; display: grid; gap: 2.2rem; }
+#traction [data-features] > div > p { margin: 0 0 .5rem; font: .66rem/1.5 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
+#traction [data-features] ol { list-style: none; margin: 0; padding: 0; }
+#traction [data-features] li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); column-gap: .5rem; margin: 0; padding: 1.1rem 0 1.2rem; border-top: 1px solid var(--line-hair); }
+#traction [data-features] li > span { grid-row: 1 / span 2; font: .72rem/1.9 var(--font-mono); letter-spacing: .08em; color: var(--gold); }
+#traction [data-features] h3 { margin: 0; font: 500 clamp(1.2rem, 1.8vw, 1.45rem)/1.25 var(--font-display); color: var(--cream); }
+#traction [data-features] li > p { margin: .45rem 0 0; max-width: 58ch; font: .95rem/1.65 var(--font-body); color: var(--cream-2); }
+/* The door's note sits under its button, in the small type it had beside the promise. */
+#traction[data-product] > footer[data-start] > p { max-width: 40ch; margin: .65rem 0 0; font: .88rem/1.5 var(--font-body); color: var(--cream-2); }
 #traction[data-product] > footer { align-items: center; row-gap: 0; }
 #traction[data-product] > footer > h2 { grid-column: 1; grid-row: 1 / span 3; margin: 0; }
 #traction[data-product] > footer > :not(h2) { grid-column: 2; justify-self: start; }
@@ -48,9 +60,10 @@
   #traction[data-product] { grid-template-columns: minmax(0, 1fr); }
   #traction[data-product] > :is(header, #value) { grid-column: 1; grid-row: auto; }
   #traction[data-product] > #value { margin-top: 2rem; }
-  #traction[data-product] > :is(#continue, footer) { grid-template-columns: minmax(0, 1fr); }
-  #traction[data-product] > #continue > :is(header, ul), #traction[data-product] > footer > h2, #traction[data-product] > footer > :not(h2) { grid-column: 1; grid-row: auto; }
-  #traction[data-product] > #continue > ul { margin-top: 1.6rem; }
+  #traction[data-product] > :is(#features, #continue, footer) { grid-template-columns: minmax(0, 1fr); }
+  #traction[data-product] > :is(#features, #continue) > :is(header, ul, div), #traction[data-product] > footer > h2, #traction[data-product] > footer > :not(h2) { grid-column: 1; grid-row: auto; }
+  #traction[data-product] > #features > header { position: static; }
+  #traction[data-product] > :is(#features, #continue) > :is(ul, div) { margin-top: 1.6rem; }
   #traction[data-product] > footer > h2 { margin-bottom: 1rem; }
 }
 #traction [data-start] { margin-top: 1.35rem; scroll-margin-top: 6rem; }
