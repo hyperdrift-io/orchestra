@@ -22,7 +22,7 @@ Body: [content/articles/agent-driven-ui-intelligence-and-action.md](../../../con
 | Share line (OG headline) | UI is for intel. Agents are for operating. |
 | Figure steps | You ask · One box / Saved · 04:45 / GM working · 04:47 / Earlier result · 04:30 |
 | Figure captions | A question investigates without authorising work. A proposal comes back for review. A work request authorises action. · 04:45. The request is saved on the board before anything runs. Everyone looking at the app sees the same state. · 04:47. The Growth Manager reads the app’s evidence and decides. The strip moves on its own while the page is open. · Earlier that morning, at 04:30, a Builder result landed on the same board with its evidence in the receipt. It repaired the links pointing to this article. |
-| Figure takeaway | Requests and results on our Orchestra board. Screenshots from 24 October 2026; the result at 04:30 precedes the displayed 04:45 request. |
+| Figure takeaway | The agents at work on our Orchestra board. Screenshots from 24 October 2026: a request saved at 04:45, the Growth Manager working at 04:47, and an earlier Builder result at 04:30. |
 | Invitation | Tell us what you run and what still needs your attention. We’ll show you what your board and its agents would take on. |
 
 ## Facts behind the copy
@@ -33,4 +33,4 @@ Checks on the branch: type check, 32 tests, no page errors, no horizontal overfl
 
 ## Integration check — 8 November
 
-Rebased onto Orchestra main `292c3d8`, preserving the newer article visuals and site changes. Type-check and 64 tests pass. The article-experience package remains identical to main: the older candidate’s close-button change was not carried into generated files without an owning package release. The original candidate remains in history. Local preview: http://127.0.0.1:3328/articles/agent-driven-ui-intelligence-and-action. No deployment or public approval.
+Rebased onto Orchestra main `292c3d8`, preserving the newer article visuals and site changes. Type-check, 64 tests and the production build pass. The running preview’s current caption and earlier-result selection were checked after a clean restart. The article-experience package remains identical to main: the older candidate’s close-button change was not carried into generated files without an owning package release. The original candidate remains in history. Local preview: http://127.0.0.1:3328/articles/agent-driven-ui-intelligence-and-action. No deployment or public approval.
