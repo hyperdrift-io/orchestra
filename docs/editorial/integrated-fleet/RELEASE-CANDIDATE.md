@@ -1,6 +1,6 @@
-# A peek into Traction — refreshed candidate, 8 November 2026
+# A peek into Traction — approved wording, 8 November 2026
 
-Rewrite for Yann's wording review. Not deployed: the live page still carries the first version until he approves. The Orchestra GM owns the release time and the announcement slot (Traction work `86194210947a46a8a977692e5d17c7b0`, Yann's direction in source `source-fe10bfc6e9a63477ab4440de114bd814`).
+Yann approved this rewrite on 8 November 2026. [Release evidence](../../RELEASES.md) records the live result. The Orchestra GM retains the announcement work `86194210947a46a8a977692e5d17c7b0`.
 
 Yann's direction: the first version was boring; Stack One and First Officer made no sense. Use one example, Traction's 24 October release, where the board presents the intel and the agents do the work, with real screenshots: a peek into Traction, worth a buzz.
 
@@ -33,4 +33,4 @@ Checks on the branch: type check, 32 tests, no page errors, no horizontal overfl
 
 ## Integration check — 8 November
 
-Rebased onto Orchestra main `292c3d8`, preserving the newer article visuals and site changes. Type-check, 64 tests and the production build pass. The running preview’s current caption and earlier-result selection were checked after a clean restart. The article-experience package remains identical to main: the older candidate’s close-button change was not carried into generated files without an owning package release. The original candidate remains in history. Local preview: http://127.0.0.1:3328/articles/agent-driven-ui-intelligence-and-action. No deployment or public approval.
+Rebased onto Orchestra main `292c3d8`, preserving the newer article visuals and site changes. Type-check, 64 tests and the production build pass. The running preview’s current caption and earlier-result selection were checked after a clean restart. The article-experience package remains identical to main: the older candidate’s close-button change was not carried into generated files without an owning package release. The original candidate remains in history. Local preview: http://127.0.0.1:3328/articles/agent-driven-ui-intelligence-and-action. This paragraph records the preview before approval and release.
