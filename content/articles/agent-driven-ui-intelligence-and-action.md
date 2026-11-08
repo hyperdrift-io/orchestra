@@ -1,6 +1,6 @@
 We want our apps looked after. The UI gives us the intel: what is happening, what the agents did and what needs us. The agents do the work. We set the direction, ask a question or step in.
 
-Traction's release on 24 October puts this on every app board. Here is our own Orchestra board that same morning.
+Traction's release on 24 October put this on every app board. Here is our own Orchestra board that same morning.
 
 {{visual:primary}}
 
@@ -16,12 +16,12 @@ Nobody opened a deploy form or a settings page. We read the result.
 
 ## We decide what becomes work
 
-One box talks to the Growth Manager. A question investigates and changes nothing. A proposal comes back for review, with Approve and start, Edit and Reject. A work request authorises action. An approval is recorded once, under the name of the person who gave it, and becomes exactly one piece of Builder work.
+One box talks to the Growth Manager. A question investigates without authorising work. A proposal comes back for review, with Approve and start, Edit and Reject. A work request authorises action. An approval is recorded once, under the name of the person who gave it, and becomes exactly one piece of Builder work.
 
 Pricing, positioning, security and spend stay with us. The agents carry the operating load.
 
 ## Why we're building it this way
 
-Most of our apps are experiments, and a few matter to the business every day. The agents can see what each app is for, what changed and what it needs, because we control the code, the releases and the servers. Next, the same loop takes over running those servers as we move our apps in November.
+Most of our apps are experiments, and a few matter to the business every day. The agents can see what each app is for, what changed and what it needs, because we control the code, the releases and the servers.
 
 Traction is where founders get this for their own app: the week, the work the agents did, and the decisions that are theirs.
