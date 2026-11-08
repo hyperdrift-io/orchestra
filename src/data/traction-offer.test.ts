@@ -1,7 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
-import { tour } from './traction-tour';
+import { featureGroups, featuresIntro } from './traction-features';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
 const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
@@ -45,10 +45,12 @@ describe('how Traction continues', () => {
     expect(partnership).toMatch(/data-introduce/);
   });
 
-  it('shows Traction in action on the founder’s own app; the sample read is retired', async () => {
+  it('starts a trial on the founder’s own app; the sample read is retired', async () => {
     const product = await source('../components/Traction.tsx');
-    expect(product).toMatch(/See Traction in action →/);
-    expect(product).not.toMatch(/Start free|Get your first read/);
+    expect(product).toMatch(/Trial Traction →/);
+    expect(product).not.toMatch(/See Traction in action|Start free|Get your first read/);
+    // The masthead carries the same door, in the same words, for a reader who has already decided.
+    expect(await source('../components/SiteContactLink.tsx')).toMatch(/<a href="#your-board">Trial Traction<\/a>/);
     expect(product).toMatch(/email, then a passkey/);
     expect(product).not.toMatch(/\/traction\/first-read/);
     expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
@@ -64,28 +66,36 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('opens on the engine at work: Traction recorded on one run, chapter by chapter, with no door of its own', async () => {
+  it('reads the proposal before the ask: the engine at work, what it does, how it continues, then the one door', async () => {
     const product = await source('../components/Traction.tsx');
-    expect(product.indexOf('See Traction in action →')).toBeLessThan(product.indexOf('<TractionTour />'));
-    expect(product).toMatch(/<TractionTour \/>/);
-    expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'plan', 'market']);
-    expect(tour.end.line).toBe(freeBoard.text);
-    // Every chapter has its clip and still in public/, and the page says what the recording is.
-    for (const chapter of tour.chapters) {
-      for (const file of [tour.clip(chapter.id), tour.poster(chapter.id)]) {
-        await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
-      }
-    }
-    expect(tour.labels.recorded).toMatch(/renamed Yourapp/);
-    expect(tour.labels.recorded).toMatch(/blurred/);
-    // Chapters replayed from saved research on later screens say so under the picture.
-    expect(tour.labels.replayed).toMatch(/5 November 2026 run, replayed/);
-    expect(tour.chapters.filter((chapter) => chapter.label === 'replayed').map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email']);
-    expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
+    const order = ['<TractionWalkthrough />', '<TractionFeatures />', 'id="continue"', 'Trial Traction →'].map((mark) => product.indexOf(mark));
+    expect(order.every((at) => at > 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(product.match(/Trial Traction →/g)).toHaveLength(1);
+    const walkthrough = await source('../components/TractionWalkthrough.tsx');
+    // Each tab names the part of the board as Traction names it.
+    expect([...walkthrough.matchAll(/name: '([^']+)'/g)].map((match) => match[1])).toEqual(['Roadmap', 'CRM', 'Growth Manager', 'Results']);
+    expect(walkthrough).toMatch(/Example data/);
+    expect(walkthrough).not.toMatch(/href=/);
+    // Every area has its clip and still in public/.
+    const files = [...walkthrough.matchAll(/'(\/traction\/in-action\/[a-z]+\.(?:mp4|jpg))'/g)].map((match) => match[1]);
+    expect(files).toHaveLength(8);
+    for (const file of files) await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
+  });
+
+  it('says what Traction does: the free start first, each claim one the board keeps', () => {
+    expect(featureGroups.map((group) => group.id)).toEqual(['free', 'continued']);
+    // The free group is exactly what `freeBoard` gives: the website review, the first search and its email drafts.
+    expect(featureGroups[0].features.map((feature) => feature.title)).toEqual([
+      'It reads your app like a new customer.', 'It finds people your app could help.', 'It writes to each, in your voice.',
+    ]);
+    const featureWords = [featuresIntro.title, featuresIntro.text, ...featureGroups.flatMap((group) => [group.label, ...group.features.flatMap((feature) => [feature.title, feature.text])])].join('\n');
+    expect(featureWords).toMatch(/up to five businesses/);
+    expect(featureWords).toMatch(/only a reply confirms interest/);
+    expect(featureWords).toMatch(/Nothing is sent without you\./);
     // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
-    expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
-    // The tour has no competing signup link.
-    expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
+    expect(featureWords).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it|guarantee/i);
+    expect(featureWords).not.toMatch(/[£$€]|\d+ ?%|\bper (?:month|week|year)\b|\b(?:limited|only \d|spots?|places left)\b/i);
   });
 
   it('shows no invented company: the founder’s own app is the subject', async () => {
