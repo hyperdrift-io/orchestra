@@ -28,7 +28,7 @@ ${waysOn.map((way) => `- [${way.name}](https://orchestra.hyperdrift.io${way.slug
 
 ## Evidence you can inspect
 
-- [Work](https://orchestra.hyperdrift.io/work): Owned products and public prototypes, grouped by the work they help with. These demonstrations do not establish client outcomes.
+- [Work](https://orchestra.hyperdrift.io/work): Traction on our own launch, our open-source First read skill, our merged OpenTelemetry contribution, then NextRole and four challenge entries. These demonstrations do not establish client outcomes.
 - [NextRole MCP check](https://orchestra.hyperdrift.io/proof/nextrole-mcp-corrected-2026-10-04.json): A synthetic CV and job, the scoring response and verification limits. One example of making a product usable from an assistant.
 - [About](https://orchestra.hyperdrift.io/about): Our founder, relevant engagements and the work behind Orchestra.
 
