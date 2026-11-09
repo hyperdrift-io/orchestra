@@ -36,28 +36,6 @@ export const caseStudies: CaseStudy[] = [
     linkLabel: 'Try NextRole',
   },
   {
-    slug: 'traction',
-    name: 'Traction',
-    relation: 'Hyperdrift product · private pilot',
-    outcome: 'This recording shows Traction working on its own launch. Today, founders can get in touch to discuss their app and set up early access together. A first read of the public product is optional.',
-    problem: 'A founder’s customers, promises and results live in different places, so the next customer move gets decided from memory.',
-    capability: 'One board for an app’s evidence, commitments and next move: an AI operator prepares the work and a person signs it.',
-    stack: ['Waku', 'Owned passkeys', 'WebMCP', 'PostHog'],
-    link: '/traction',
-    linkLabel: 'Explore Traction',
-  },
-  {
-    slug: 'first-read',
-    name: 'First read',
-    relation: 'Orchestra method · open Agent Skill',
-    outcome: 'The method behind our first reads, packaged as an Agent Skill a founder can run on their own app from Claude Code, Codex or any client that reads Agent Skills. Its first run, on GreenLife, found a notification panel covering the first nudge on a phone and proposed a five-person test; the unedited output is in the repository.',
-    problem: 'A founder knows their product too well to see how a new customer meets it.',
-    capability: 'One strength, one constraint and the next customer move, from public pages only, each with its evidence.',
-    stack: ['Agent Skills', 'Agent Plugins', 'Claude Code', 'Codex'],
-    link: 'https://github.com/hyperdrift-io/first-read',
-    linkLabel: 'Get the skill',
-  },
-  {
     slug: 'standup',
     name: 'Standup',
     outcome:
@@ -74,7 +52,7 @@ export const caseStudies: CaseStudy[] = [
       organiser: 'Amazon Web Services',
       name: 'Agents for Humans Hackathon',
       url: 'https://agentsforhumans.devpost.com/',
-      stage: 'Built for the challenge',
+      stage: 'Submitted',
     },
   },
   {
@@ -137,46 +115,5 @@ export const caseStudies: CaseStudy[] = [
       stage: 'Submitted',
       entryUrl: 'https://dev.to/yannvr/somebody-asked-for-help-nobody-came-5c7i',
     },
-  },
-  {
-    slug: 'bridge-voice',
-    name: 'Bridge Voice',
-    outcome:
-      'A voice interface for discussing fleet priorities and confirming proposed actions. The prototype explores how a founder can work with the Bridge through a conversation.',
-    problem:
-      'Operators need to ask about their systems and act on the answer while keeping each consequential decision explicit.',
-    capability: 'AssemblyAI conversation and tool calling connected to the fleet’s existing controls.',
-    stack: ['AssemblyAI Voice Agent API', 'Fleet MCP', 'WebSocket'],
-    challenge: {
-      organiser: 'AssemblyAI · lablab.ai',
-      name: 'AssemblyAI Voice Agent Hackathon',
-      url: 'https://lablab.ai/ai-hackathons/assemblyai-voice-agent-hackathon',
-      stage: 'In development',
-    },
-  },
-  {
-    slug: 'own-stack',
-    name: 'own-stack',
-    outcome:
-      'Server-rendered React with owned passkey authentication, typed server functions and pure cascading CSS. The reference stack every new Hyperdrift app inherits.',
-    problem:
-      'Framework lock-in taxes every feature after the first; most of the dependency tree serves the framework, not the product.',
-    capability: 'Owned, minimal full-stack architecture.',
-    stack: ['Waku RSC', 'TypeScript', 'Owned passkeys'],
-    link: 'https://own-stack.hyperdrift.io',
-    linkLabel: 'Explore the stack',
-    article: 'https://hyperdrift.io/blog/own-your-stack-server-rendered-react-without-nextjs',
-  },
-  {
-    slug: 'stack-one',
-    name: 'CLI meets UI',
-    outcome:
-      'A log-investigation UI where the command palette, vim navigation and a chart-filtered table make the whole workflow zero-click — terminal speed in the browser, installable as a PWA.',
-    problem:
-      'Browser devtools are slower than terminals for operators who live in the work.',
-    capability: 'Operator-grade interaction design for data-dense tools.',
-    stack: ['React', 'URL-synced state', 'PWA'],
-    link: 'https://stack-one.hyperdrift.io/logs',
-    linkLabel: 'Live',
   },
 ];
