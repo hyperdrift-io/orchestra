@@ -1,5 +1,6 @@
 import { articleUrl, visibleArticles } from '@/lib/article-catalogue';
 import { freeBoard, services, waysOn } from '@/data/traction-offer';
+import { howItWorks } from '@/data/traction-features';
 import { indexableTags, tagUrl } from '@/lib/article-tags';
 
 export const dynamic = 'force-static';
@@ -23,6 +24,7 @@ ${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io
 
 - [Start free on Traction](https://orchestra.hyperdrift.io/traction#your-board): ${freeBoard.text} Then two ways on:
 ${waysOn.map((way) => `- [${way.name}](https://orchestra.hyperdrift.io${way.slug === 'partnership' ? '/traction/partnership' : '/traction#subscription'}): ${way.text}`).join('\n')}
+- [How Traction works](https://orchestra.hyperdrift.io/traction/how-it-works): ${howItWorks.lead}
 
 - [Run a first read on your own app](https://github.com/hyperdrift-io/first-read): The same method as an open Agent Skill made by Orchestra, for Claude Code, Codex and any client that reads Agent Skills. Public pages only; one strength, one constraint and the next customer move, each with its evidence. Install with npx skills add hyperdrift-io/first-read.
 

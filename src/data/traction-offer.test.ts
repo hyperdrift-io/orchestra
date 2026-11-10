@@ -1,7 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
-import { featuresIntro, firstRead, loop, tiers } from './traction-features';
+import { featuresIntro, firstRead, howItWorks, howItWorksHref, loop, tiers, tractionPages } from './traction-features';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
 const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
@@ -47,11 +47,11 @@ describe('how Traction continues', () => {
 
   it('starts a trial on the founder’s own app; the sample read is retired', async () => {
     const product = await source('../components/Traction.tsx');
-    expect(product).toMatch(/Trial Traction →/);
+    expect(await source('../components/TractionDoor.tsx')).toMatch(/Trial Traction →/);
     expect(product).not.toMatch(/See Traction in action|Start free|Get your first read/);
     // The masthead carries the same door, in the same words, for a reader who has already decided.
     expect(await source('../components/SiteContactLink.tsx')).toMatch(/<a href="#your-board">Trial Traction<\/a>/);
-    expect(product).toMatch(/email, then a passkey/);
+    expect(howItWorks.doorNote).toMatch(/email, then a passkey/);
     expect(product).not.toMatch(/\/traction\/first-read/);
     expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
     expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
@@ -66,25 +66,49 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('reads the proposal before the ask: the engine at work, what it does, how it continues, then the one door', async () => {
+  it('gives the start page one job: the engine at work, the loop by name, how it continues, then the one door', async () => {
     const product = await source('../components/Traction.tsx');
-    const order = ['<TractionWalkthrough />', '<TractionFeatures />', 'id="continue"', 'Trial Traction →'].map((mark) => product.indexOf(mark));
+    const order = ['<TractionWalkthrough ', 'id="loop"', 'id="continue"', '<TractionDoor />'].map((mark) => product.indexOf(mark));
     expect(order.every((at) => at > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
-    expect(product.match(/Trial Traction →/g)).toHaveLength(1);
+    // The loop's words live on their own page; the start page names the steps and links to each.
+    expect(product).not.toMatch(/<TractionFeatures/);
+    expect(product).toMatch(/\$\{howItWorksHref\}\$\{from\}#\$\{step\.id\}/);
+    expect((await source('../components/TractionDoor.tsx')).match(/Trial Traction →/g)).toHaveLength(1);
+  });
+
+  it('cycles the walkthrough through the loop itself: the same steps, names and order, Intel included', async () => {
+    const steps = [firstRead, ...loop];
+    expect(steps.map((step) => step.name)).toEqual(['First read', 'Intel', 'The move', 'Research', 'Your email', 'Analytics', 'Next move']);
     const walkthrough = await source('../components/TractionWalkthrough.tsx');
-    // Each tab names the part of the board as Traction names it.
-    expect([...walkthrough.matchAll(/name: '([^']+)'/g)].map((match) => match[1])).toEqual(['Roadmap', 'CRM', 'Growth Manager', 'Results']);
-    expect(walkthrough).toMatch(/Example data/);
-    expect(walkthrough).not.toMatch(/href=/);
-    // Every area has its clip and still in public/.
-    const files = [...walkthrough.matchAll(/'(\/traction\/in-action\/[a-z]+\.(?:mp4|jpg))'/g)].map((match) => match[1]);
-    expect(files).toHaveLength(8);
-    for (const file of files) await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
+    expect(walkthrough).toMatch(/const steps = \[firstRead, \.\.\.loop\];/);
+    // It moves on by itself, and a visitor can stop it; a system asking for less motion never starts it.
+    expect(walkthrough).toMatch(/prefers-reduced-motion: reduce/);
+    expect(walkthrough).toMatch(/howItWorks\.pause/);
+    // Every picture named is in public/, and each says where it came from. A step with none says it is to record.
+    for (const { picture } of steps) {
+      expect(picture.kept).toMatch(/^(Example data|Preview still|To record on our own board)$/);
+      for (const file of [picture.clip, picture.poster]) if (file) await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
+    }
+  });
+
+  it('answers how Traction works on a page of its own, one click from the other two', async () => {
+    expect(howItWorksHref).toBe('/traction/how-it-works');
+    const page = await source('../app/traction/how-it-works/page.tsx');
+    expect(page).toMatch(/canonical: '\/traction\/how-it-works'/);
+    expect(page).toMatch(/const title = 'How Traction works/);
+    expect(howItWorks.title).toBe('How Traction works');
+    const component = await source('../components/TractionHowItWorks.tsx');
+    expect(component).toMatch(/<h1>\{howItWorks\.title\}<\/h1>/);
+    expect(component.indexOf('<TractionFeatures />')).toBeLessThan(component.indexOf('<TractionDoor '));
+    expect(await source('../app/sitemap.ts')).toMatch(/'traction\/how-it-works'/);
+    expect(await source('../app/llms.txt/route.ts')).toMatch(/\/traction\/how-it-works\)/);
+    expect(tractionPages.map((entry) => entry.href)).toEqual(['/traction', '/traction/how-it-works', '/traction/partnership']);
+    for (const file of ['../app/traction/page.tsx', '../app/traction/how-it-works/page.tsx', '../app/traction/partnership/page.tsx']) expect(await source(file), file).toMatch(/<TractionPages current="/);
   });
 
   it('says what Traction does as one loop: the first read, then six steps that end where they began', async () => {
-    // The order is the loop. Each id is an address a door on the board can open: /traction#<id>.
+    // The order is the loop. Each id is an address a door on the board can open: /traction/how-it-works#<id>.
     const ids = [firstRead, ...loop].map((step) => step.id);
     expect(ids).toEqual(['first-read', 'intel', 'growth-manager', 'research', 'mailbox', 'analytics', 'next-move']);
     // The last step hands back to the first; it promises no second market read, which a free board doesn't have.

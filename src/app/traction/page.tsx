@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { websiteOpenGraph } from '@/lib/share-metadata';
 import { Traction } from '@/components/Traction';
+import { TractionPages } from '@/components/TractionPages';
 import { Footer } from '@/components/Footer';
 import { trialAppFrom } from '@/lib/campaign';
 import './offering.css';
@@ -20,5 +21,5 @@ export const metadata: Metadata = {
 /** A free Traction board links here with `?from=<app id>`; the page offers a conversation about continued use. */
 export default async function TractionPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const trialApp = trialAppFrom((await searchParams).from);
-  return <><Traction trialApp={trialApp} /><Footer /></>;
+  return <><TractionPages current="overview" trialApp={trialApp} /><Traction trialApp={trialApp} /><Footer /></>;
 }

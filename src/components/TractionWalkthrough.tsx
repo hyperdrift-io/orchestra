@@ -1,52 +1,42 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCalmVideo } from '@/lib/hooks/use-calm-video';
+import { firstRead, howItWorks, howItWorksHref, loop } from '@/data/traction-features';
 
-const areas = [
-  {
-    name: 'Roadmap',
-    title: 'Know where to put your effort.',
-    clip: '/traction/in-action/direction.mp4',
-    poster: '/traction/in-action/direction.jpg',
-    shows: 'Where you stand, what the next stage needs and the one move worth making now.',
-  },
-  {
-    name: 'CRM',
-    title: 'Build relationships with the right people.',
-    clip: '/traction/in-action/customers.mp4',
-    poster: '/traction/in-action/customers.jpg',
-    shows: 'Prospects ranked by fit, each one researched, and a first email drafted for you to review. Nothing is sent without you.',
-  },
-  {
-    name: 'Growth Manager',
-    title: 'Make their first experience count.',
-    clip: '/traction/in-action/firstuse.mp4',
-    poster: '/traction/in-action/firstuse.jpg',
-    shows: 'One sentence turns a customer’s feedback into an action on your onboarding work, with a note on the customer and Undo beside it.',
-  },
-  {
-    name: 'Results',
-    title: 'Learn what makes people come back.',
-    clip: '/traction/in-action/value.mp4',
-    poster: '/traction/in-action/value.jpg',
-    shows: 'Work and results on one timeline: as the week’s demos land, bookings reach the next stage’s target.',
-  },
-];
+const steps = [firstRead, ...loop];
+const HOLD = 7000;
 
-/** The engine at work, one part of the board at a time, on example data. Each tab names the part as Traction names it.
- * The clips carry their corner label; the caption says it again for small screens. */
-export function TractionWalkthrough() {
-  const [selected, setSelected] = useState(0);
+/** The engine at work, one step of the loop at a time: the same steps, names and order as the page that explains them.
+ * It moves on by itself until the visitor chooses a step, pauses it, points at it or asks their system for less motion.
+ * Each step links to its own words. A step with no picture yet says so. */
+export function TractionWalkthrough({ from = '' }: { from?: string }) {
+  const [selected, setSelected] = useState(0), [cycling, setCycling] = useState(true), [held, setHeld] = useState(false);
   const calm = useCalmVideo();
-  const area = areas[selected];
-  return <div data-traction-walkthrough>
-    <div role="group" aria-label="What Traction works on">
-      {areas.map((item, index) => <button key={item.name} type="button" aria-pressed={selected === index} aria-controls="traction-example" onClick={() => setSelected(index)}>{item.name}</button>)}
+  useEffect(() => { if (matchMedia('(prefers-reduced-motion: reduce)').matches) setCycling(false); }, []);
+  useEffect(() => {
+    if (!cycling || held) return;
+    const timer = window.setTimeout(() => setSelected((at) => (at + 1) % steps.length), HOLD);
+    return () => window.clearTimeout(timer);
+  }, [cycling, held, selected]);
+  const step = steps[selected], picture = step.picture;
+  return <div data-traction-walkthrough onMouseEnter={() => setHeld(true)} onMouseLeave={() => setHeld(false)} onFocus={() => setHeld(true)} onBlur={() => setHeld(false)}>
+    <div role="group" aria-label={howItWorks.steps}>
+      {steps.map((item, index) => <button key={item.id} type="button" aria-pressed={selected === index} aria-controls="traction-example" onClick={() => { setSelected(index); setCycling(false); }}>
+        <span aria-hidden="true">{index ? String(index).padStart(2, '0') : '○'}</span>{item.name}</button>)}
     </div>
-    <figure id="traction-example" data-in-action key={area.name} aria-live="polite">
-      <video ref={calm} autoPlay muted loop playsInline preload="metadata" poster={area.poster} aria-label={`${area.name} on Traction’s board: ${area.shows}`}><source src={area.clip} type="video/mp4" /></video>
-      <figcaption><span>{area.title}</span><small>Example data</small></figcaption>
+    <figure id="traction-example" data-in-action key={step.id} aria-live={cycling ? 'off' : 'polite'}>
+      {picture.clip
+        ? <video ref={calm} autoPlay muted loop playsInline preload="metadata" poster={picture.poster} aria-label={`${step.name} on Traction’s board: ${step.title}`}><source src={picture.clip} type="video/mp4" /></video>
+        : picture.poster
+          // eslint-disable-next-line @next/next/no-img-element
+          ? <img src={picture.poster} alt={`${step.name} on Traction’s board: ${step.title}`} width={800} height={500} />
+          : <div data-to-record=""><p>{picture.kept}</p></div>}
+      <figcaption><span>{step.title}</span>{(picture.clip || picture.poster) && <small>{picture.kept}</small>}</figcaption>
     </figure>
+    <p data-walkthrough-more="">
+      <a href={`${howItWorksHref}${from}#${step.id}`}>{howItWorks.more}</a>
+      <button type="button" aria-pressed={!cycling} onClick={() => setCycling((on) => !on)}>{cycling ? howItWorks.pause : howItWorks.play}</button>
+    </p>
   </div>;
 }

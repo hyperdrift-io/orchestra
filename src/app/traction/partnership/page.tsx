@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { websiteOpenGraph } from '@/lib/share-metadata';
 import { TractionPartnership } from '@/components/TractionPartnership';
+import { TractionPages } from '@/components/TractionPages';
 import { Footer } from '@/components/Footer';
 import { trialAppFrom } from '@/lib/campaign';
 import '../offering.css';
@@ -18,5 +19,6 @@ export const metadata: Metadata = {
 };
 
 export default async function TractionPartnershipPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <><TractionPartnership trialApp={trialAppFrom((await searchParams).from)} /><Footer /></>;
+  const trialApp = trialAppFrom((await searchParams).from);
+  return <><TractionPages current="partnership" trialApp={trialApp} /><TractionPartnership trialApp={trialApp} /><Footer /></>;
 }
