@@ -50,8 +50,8 @@ export const loop: LoopStep[] = [
   },
   {
     id: 'analytics',
-    title: 'Analytics shows your numbers around each move.',
-    text: 'Visitors, trials and paying customers, each with its source and how fresh it is. Every initiative is a marker on the line, so you see the numbers before and after each move.',
+    title: 'Analytics matches your numbers to your initiatives.',
+    text: 'Visitors, trials and paying customers, each with its source and how fresh it is. Every initiative is marked on the same line, so you can measure the return on each one and put your effort where it pays.',
     subscription: 'Analytics connected to your own app.',
   },
   {

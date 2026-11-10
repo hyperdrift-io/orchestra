@@ -112,6 +112,8 @@ describe('how Traction continues', () => {
     expect(loop.find((step) => step.id === 'mailbox')?.text).not.toMatch(/repl|follow-up/i);
     expect(Object.keys(marks('subscription'))).toEqual(['intel', 'mailbox', 'analytics']);
     expect(tiers).toEqual({ free: 'Free to start', subscription: 'With the subscription' });
+    // Analytics is there to measure what each initiative returned (founder, 10 November 2026).
+    expect(loop.find((step) => step.id === 'analytics')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/measure the return on each one/) });
   });
 
   it('keeps each claim to what the board does: no price, term or trial length, and no claim about demand', () => {
