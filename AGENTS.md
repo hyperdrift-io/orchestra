@@ -31,7 +31,7 @@ Every animated scene keeps pause, reduced motion, a static fallback and readable
 
 All words follow `hd-content-writer`; articles also follow `docs/editorial/ARTICLE-STANDARD.md`. New customer-facing words go through the founder's review before release. Register: `MISSION.md` → How we communicate.
 
-One primary action per page. On the Traction offer and personal invitations it sits beside the promise and opens free signup. A returning founder can discuss continued use through the existing enquiry. Other offers keep their door after the proposal. Door words live in `src/data/site-door.ts`.
+One primary action per page. On the Traction offer and personal invitations it sits beside the promise and opens free signup. The film on `/traction` offers that same door again on its last frame, in the page's words (`docs/decisions/2026-11-06-traction-film.md`). A returning founder can discuss continued use through the existing enquiry. Other offers keep their door after the proposal. Door words live in `src/data/site-door.ts`.
 
 ## Enquiry and invitations
 

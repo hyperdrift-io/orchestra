@@ -2,9 +2,14 @@ import { TractionTour } from '@/components/TractionTour';
 import { TractionJourney } from '@/components/TractionJourney';
 import { boardHref, continuedUseHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
 
-/** A visitor from an invitation email starts on their own app. A founder coming back from a board can discuss continued use. */
+/**
+ * A visitor from an invitation email starts on their own app. A founder coming back from a board can discuss continued use.
+ * The page's one door is defined once and offered in the same words twice: beside the promise, and on the film's last
+ * frame, where a watcher decides.
+ */
 export function Traction({ trialApp }: { trialApp?: string } = {}) {
   const enquiry = trialApp ? `/traction?from=${encodeURIComponent(trialApp)}&situation=subscription#enquire` : continuedUseHref;
+  const door = trialApp ? { href: enquiry, label: 'Discuss the next step →' } : { href: startHref(), label: 'See Traction in action →' };
   return <article id="traction" data-offering="" data-product="" data-trial-app={trialApp}>
     <TractionJourney />
     <header>
@@ -12,21 +17,19 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       {trialApp ? <>
         <h1>Where would you like <em>help next?</em></h1>
         <p data-lead="">Tell us what you tried on your board and where you’d like a hand. We’ll work out the scope and price with you.</p>
-        <div id="your-board" data-start="" data-journey="contact">
-          <a href={enquiry} data-primary="">Discuss the next step →</a>
-          <p><a href={boardHref(trialApp)}>Back to your board →</a></p>
-        </div>
       </> : <>
         <h1>Let’s find your <em>next users.</em></h1>
         <p data-lead="">Traction reviews your website. Ask it to find potential customers and draft your first email. You choose who to contact.</p>
-        <div id="your-board" data-start="" data-journey="contact">
-          <a href={startHref()} data-primary="">See Traction in action →</a>
-          <p>Your first search is free. Sign up with your name, website and email, then a passkey.</p>
-        </div>
       </>}
+      <div id="your-board" data-start="" data-journey="contact">
+        <a href={door.href} data-primary="">{door.label}</a>
+        {trialApp
+          ? <p><a href={boardHref(trialApp)}>Back to your board →</a></p>
+          : <p>Your first search is free. Sign up with your name, website and email, then a passkey.</p>}
+      </div>
     </header>
     <section id="value" data-journey="value" aria-label="Traction at work">
-      <TractionTour />
+      <TractionTour door={door} />
     </section>
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
       <header>

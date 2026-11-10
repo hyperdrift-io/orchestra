@@ -64,28 +64,57 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('opens on the engine at work: Traction recorded on one run, chapter by chapter, with no door of its own', async () => {
+  it('defines the door once and offers it twice in the same words: beside the promise and on the film’s last frame', async () => {
     const product = await source('../components/Traction.tsx');
-    expect(product.indexOf('See Traction in action →')).toBeLessThan(product.indexOf('<TractionTour />'));
-    expect(product).toMatch(/<TractionTour \/>/);
+    // One per reading: a visitor sees Traction on their own app; a free board's founder discusses the next step.
+    expect(product.match(/data-primary=""/g)).toHaveLength(1);
+    expect(product).toMatch(/href=\{door\.href\} data-primary="">\{door\.label\}/);
+    expect(product).toMatch(/<TractionTour door=\{door\} \/>/);
+    // The promise and its door come first; the film plays under them.
+    expect(product.indexOf('data-primary=""')).toBeLessThan(product.indexOf('<TractionTour '));
+    // The film's door is the page's: its address and words come in from the page, never its own.
+    const film = await source('../components/TractionTour.tsx');
+    expect(film.match(/href=/g)).toHaveLength(1);
+    expect(film).toMatch(/href=\{door\.href\}/);
+  });
+
+  it('opens on the engine at work: Traction itself as one film, a question, five chapters in order, then the close and the door', async () => {
     expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'plan', 'market']);
+    // The opening question plays first; the chapters start in order; the close follows the last, the door shows inside it.
+    const starts = tour.chapters.map((chapter) => chapter.start);
+    expect(starts[0]).toBeGreaterThan(0);
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts);
+    expect(tour.close).toBeGreaterThan(starts.at(-1)!);
+    expect(tour.door.at).toBeGreaterThan(tour.close);
+    expect(tour.duration).toBeGreaterThan(tour.door.at);
+    expect(tour.end.title).toBe('Make Traction work for you, now.');
     expect(tour.end.line).toBe(freeBoard.text);
-    // Every chapter has its clip and still in public/, and the page says what the recording is.
-    for (const chapter of tour.chapters) {
-      for (const file of [tour.clip(chapter.id), tour.poster(chapter.id)]) {
-        await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
-      }
+    // Each chapter is narrated: its lines come in order inside the chapter, and the page carries them under the picture.
+    tour.chapters.forEach((chapter, index) => {
+      const next = tour.chapters[index + 1]?.start ?? tour.close;
+      expect(chapter.says.length, chapter.id).toBeGreaterThan(1);
+      expect(chapter.says.map((say) => say.at), chapter.id).toEqual([...chapter.says.map((say) => say.at)].sort((a, b) => a - b));
+      for (const say of chapter.says) expect(say.at > chapter.start && say.at < next, `${chapter.id}: ${say.text}`).toBe(true);
+    });
+    expect(await source('../components/TractionTour.tsx')).toMatch(/chapters\[scene\]\.says\[say\]\.text/);
+    // The film, its phone copy and its still are in public/, and the page says what the recording is.
+    for (const file of [tour.src, tour.small, tour.poster]) {
+      await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
     }
     expect(tour.labels.recorded).toMatch(/renamed Yourapp/);
     expect(tour.labels.recorded).toMatch(/blurred/);
-    // Chapters replayed from saved research on later screens say so under the picture.
+    // Chapters replayed from saved research on later screens say so under the picture; the market says whose board it is.
     expect(tour.labels.replayed).toMatch(/5 November 2026 run, replayed/);
     expect(tour.chapters.filter((chapter) => chapter.label === 'replayed').map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email']);
+    expect(tour.labels.market).toMatch(/Traction’s own board/);
+    // The film stays agnostic: the stand-in's field is blurred on screen and never named in the page's words.
+    expect(tour.labels.replayed).toMatch(/its field and the businesses blurred/);
+    for (const path of ['./traction-tour.ts', '../components/Traction.tsx', '../components/TractionTour.tsx']) {
+      expect(await source(path), path).not.toMatch(/\bCVs?\b|r[ée]sum[ée]|\bjobs?\b|career|recruit/i);
+    }
     expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
     // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
     expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
-    // The tour has no competing signup link.
-    expect(await source('../components/TractionTour.tsx')).not.toMatch(/href=/);
   });
 
   it('shows no invented company: the founder’s own app is the subject', async () => {
