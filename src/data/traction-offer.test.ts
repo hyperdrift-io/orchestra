@@ -1,7 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
-import { featureGroups, featuresIntro } from './traction-features';
+import { featuresIntro, firstRead, loop, tiers } from './traction-features';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
 const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
@@ -83,19 +83,49 @@ describe('how Traction continues', () => {
     for (const file of files) await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
   });
 
-  it('says what Traction does: the free start first, each claim one the board keeps', () => {
-    expect(featureGroups.map((group) => group.id)).toEqual(['free', 'continued']);
-    // The free group is exactly what `freeBoard` gives: the website review, the first search and its email drafts.
-    expect(featureGroups[0].features.map((feature) => feature.title)).toEqual([
-      'It reads your app like a new customer.', 'It finds people your app could help.', 'It writes to each, in your voice.',
-    ]);
-    const featureWords = [featuresIntro.title, featuresIntro.text, ...featureGroups.flatMap((group) => [group.label, ...group.features.flatMap((feature) => [feature.title, feature.text])])].join('\n');
-    expect(featureWords).toMatch(/up to five businesses/);
+  it('says what Traction does as one loop: the first read, then six steps that end where they began', async () => {
+    // The order is the loop. Each id is an address a door on the board can open: /traction#<id>.
+    const ids = [firstRead, ...loop].map((step) => step.id);
+    expect(ids).toEqual(['first-read', 'intel', 'growth-manager', 'research', 'mailbox', 'analytics', 'next-move']);
+    // The last step hands back to the first; it promises no second market read, which a free board doesn't have.
+    expect(featuresIntro.again).toBe('Back to 01, with what you learned.');
+    expect(loop.at(-1)?.text).not.toMatch(/Intel|market/);
+    const features = await source('../components/TractionFeatures.tsx');
+    expect(features).toMatch(/<section id="features" /);
+    expect(features).toMatch(/<li id=\{step\.id\}>/);
+    // No step takes an address the page already uses.
+    const taken = [...(await source('../components/Traction.tsx')).matchAll(/ id="([^"]+)"/g)].map((match) => match[1]);
+    expect(taken.filter((id) => ids.includes(id))).toEqual([]);
+  });
+
+  it('marks where the free start stops and what the subscription adds, as the board does', () => {
+    const marks = (tier: 'free' | 'subscription') => Object.fromEntries([firstRead, ...loop].flatMap((step) => step[tier] ? [[step.id, step[tier]]] : []));
+    // The free start: one read of the website, one read of the market, one search, and drafts sent from the founder's own mail.
+    expect(marks('free')).toEqual({
+      'first-read': 'A first read of your website.',
+      intel: 'One read of your market.',
+      research: 'Your first search: up to five prospects or investors, each with a draft.',
+      mailbox: 'Each draft opens in your own mail, ready to send.',
+    });
+    // The subscription: one market read a day, the founder's mailbox with replies read back, Analytics on their own app.
+    // What only a connected mailbox does stays on the subscription line, never in the step every reader takes as theirs.
+    expect(loop.find((step) => step.id === 'mailbox')?.text).not.toMatch(/repl|follow-up/i);
+    expect(Object.keys(marks('subscription'))).toEqual(['intel', 'mailbox', 'analytics']);
+    expect(tiers).toEqual({ free: 'Free to start', subscription: 'With the subscription' });
+  });
+
+  it('keeps each claim to what the board does: no price, term or trial length, and no claim about demand', () => {
+    const featureWords = [...Object.values(featuresIntro), ...Object.values(tiers), ...[firstRead, ...loop].flatMap((step) => [step.title, step.text, step.free ?? '', step.subscription ?? ''])].join('\n');
+    expect(featuresIntro.title).toBe('The growth team your app doesn’t have yet.');
+    expect(featureWords).toMatch(/up to five/);
     expect(featureWords).toMatch(/only a reply confirms interest/);
-    expect(featureWords).toMatch(/Nothing is sent without you\./);
-    // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
+    expect(featureWords).toMatch(/nothing is sent without you\./);
+    expect(featureWords).toMatch(/Nothing leaves without your click\./);
+    // The research prepares outreach; it doesn't prove that anyone needs or would buy the app.
     expect(featureWords).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it|guarantee/i);
     expect(featureWords).not.toMatch(/[£$€]|\d+ ?%|\bper (?:month|week|year)\b|\b(?:limited|only \d|spots?|places left)\b/i);
+    // A trial has no clock and the subscription starts with a conversation: no length, and "sales" stays out of the name.
+    expect(featureWords).not.toMatch(/\b\d+[- ]days?\b|\bdays? (?:free|trial)\b|\bfree for\b|\bsales\b/i);
   });
 
   it('shows no invented company: the founder’s own app is the subject', async () => {

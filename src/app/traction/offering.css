@@ -46,11 +46,22 @@
 #traction[data-product] > #features > header > p:last-child { max-width: 44ch; margin: .9rem 0 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction [data-features] { grid-column: 2; display: grid; gap: 2.2rem; }
 #traction [data-features] > div > p { margin: 0 0 .5rem; font: .66rem/1.5 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
-#traction [data-features] ol { list-style: none; margin: 0; padding: 0; }
+#traction [data-features] :is(ol, ul) { list-style: none; margin: 0; padding: 0; }
 #traction [data-features] li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); column-gap: .5rem; margin: 0; padding: 1.1rem 0 1.2rem; border-top: 1px solid var(--line-hair); }
 #traction [data-features] li > span { grid-row: 1 / span 2; font: .72rem/1.9 var(--font-mono); letter-spacing: .08em; color: var(--gold); }
 #traction [data-features] h3 { margin: 0; font: 500 clamp(1.2rem, 1.8vw, 1.45rem)/1.25 var(--font-display); color: var(--cream); }
 #traction [data-features] li > p { margin: .45rem 0 0; max-width: 58ch; font: .95rem/1.65 var(--font-body); color: var(--cream-2); }
+/* The loop: the line under the title, each step at its own address, where the free start stops, and the turn back to 01. */
+#traction[data-product] > #features > header > [data-line] { margin: .7rem 0 0; font: italic 500 1.2rem/1.4 var(--font-display); color: var(--gold-light); }
+#traction :is(#features, [data-features] li) { scroll-margin-top: 6rem; }
+#traction [data-features] li > :is(h3, p) { grid-column: 2; }
+#traction [data-features] li > [data-tier] { margin: .7rem 0 0; padding-left: .8rem; border-left: 1px solid var(--gold-line); font-size: .88rem; line-height: 1.55; color: var(--cream); }
+#traction [data-features] li > [data-tier] + [data-tier] { margin-top: .4rem; }
+#traction [data-features] li > [data-tier='subscription'] { border-left-color: var(--line-firm); }
+#traction [data-features] [data-tier] > span { display: block; font: .62rem/1.7 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--gold-light); }
+#traction [data-features] [data-tier='subscription'] > span { color: var(--cream-3); }
+#traction [data-features] > div > [data-again] { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); column-gap: .5rem; margin: 0; padding: 1.1rem 0 0; border-top: 1px solid var(--line-hair); font: italic 500 1.15rem/1.4 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--cream); }
+#traction [data-features] [data-again] > span { font: 1rem/1.5 var(--font-mono); color: var(--gold); }
 /* The door's note sits under its button, in the small type it had beside the promise. */
 #traction[data-product] > footer[data-start] > p { max-width: 40ch; margin: .65rem 0 0; font: .88rem/1.5 var(--font-body); color: var(--cream-2); }
 #traction[data-product] > footer { align-items: center; row-gap: 0; }
