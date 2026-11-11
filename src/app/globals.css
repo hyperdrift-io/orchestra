@@ -29,7 +29,7 @@
   --shadow-text: 0 1px 2px rgb(0 0 0 / 0.45), 0 2px 22px rgb(0 0 0 / 0.4);
 
   /* — Type: next/font sets --nf-*; named fallbacks keep the character without it */
-  --font-display: var(--nf-display), 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-display: var(--nf-display), 'Bricolage Grotesque', 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--nf-body), 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--nf-mono), 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -40,7 +40,7 @@
   --fs-lead: clamp(1.25rem, 1.05rem + 0.8vw, 1.7rem);
   --fs-h3: clamp(1.5rem, 1.15rem + 1.4vw, 2.1rem);
   --fs-h2: clamp(2.2rem, 1.5rem + 2.6vw, 3.6rem);
-  --fs-h1: clamp(2.6rem, 1.4rem + 4.4vw, 5rem);
+  --fs-h1: clamp(2.1rem, 1.1rem + 3.4vw, 3.8rem);
   --fs-statement: clamp(2.3rem, 1.1rem + 3.3vw, 4.6rem);
   --fs-numeral: clamp(4rem, 2.5rem + 7vw, 8rem);
 
@@ -100,7 +100,7 @@ h1, h2, h3, h4 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   line-height: var(--lh-tight);
   color: var(--cream);
   text-wrap: balance;
@@ -108,7 +108,8 @@ h1, h2, h3, h4 {
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); }
-h1 em, h2 em, h3 em { font-style: italic; color: var(--gold-light); }
+/* The display face has no italic: the gold alone carries the emphasis. */
+h1 em, h2 em, h3 em { font-style: normal; color: var(--gold-light); }
 
 p {
   margin: 0;
@@ -203,8 +204,7 @@ section + section { border-block-start: 1px solid var(--line-hair); }
 /* — Movement numeral (the signature element) */
 .numeral {
   font-family: var(--font-display);
-  font-style: italic;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-style: normal;
   font-size: var(--fs-numeral);
   line-height: 0.9;
   color: transparent;
@@ -352,8 +352,7 @@ summary:hover { color: var(--gold); }
 summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 summary > span[aria-hidden] {
   flex: 0 0 3rem;
-  font-style: italic;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-style: normal;
   font-size: 0.85em;
   color: var(--cream-3);
 }
@@ -399,7 +398,9 @@ body > header nav a:hover { color: var(--gold-light); }
   line-height: 1;
   color: var(--cream);
 }
-.wordmark em { font-style: italic; color: var(--gold-light); }
+.wordmark em { font-style: normal; color: var(--gold-light); }
+/* The name in the masthead and the footer: the same rule, since the face has no italic. */
+body > header em, [data-site-footer] em { font-style: normal; }
 .wordmark .meta { display: block; margin-block-start: 0.35rem; color: var(--cream-2); text-shadow: var(--shadow-text); }
 
 /* — Art bands: the approved photographs, full bleed; text sits over them by the map's coordinates */

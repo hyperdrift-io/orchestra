@@ -8,12 +8,6 @@
       "preload": false
     },
     {
-      "file": "024ead497118aa23-s.woff2",
-      "sha256": "3512ad3b4ddd21fa75ab44296867da1f82948350ffba678a04afbb511015cb08",
-      "bytes": 11556,
-      "preload": false
-    },
-    {
       "file": "26d4368bf94c0ec4-s.p.woff2",
       "sha256": "056e4e2459f57a0033c8c9c844ff19d6e42ac8602027803d4345823bcc939818",
       "bytes": 40240,
@@ -32,18 +26,6 @@
       "preload": false
     },
     {
-      "file": "393d45a2251e223a-s.woff2",
-      "sha256": "d04439363ec805132dc6c6e6a925f76efe17646f9811af8e10e218ea3dba5335",
-      "bytes": 23408,
-      "preload": false
-    },
-    {
-      "file": "48410f3df60da620-s.woff2",
-      "sha256": "9dc38267bdee93a653200ef3c1e8060e3f1399073432c415c683b419d3b50464",
-      "bytes": 33740,
-      "preload": false
-    },
-    {
       "file": "58f386aa6b1a2a92-s.woff2",
       "sha256": "c6f09ee0e0a24b7c85ecb2a601eb99332f65b1f6b37c31e0bbe73fb307625eca",
       "bytes": 4348,
@@ -56,21 +38,9 @@
       "preload": false
     },
     {
-      "file": "7b89a4fd5e90ede0-s.p.woff2",
-      "sha256": "5d618c462b7a5b74f442e1548880086af71764d9cc7d35c16ab45353da934621",
-      "bytes": 37776,
-      "preload": true
-    },
-    {
       "file": "7ba5fb2a8c88521c-s.woff2",
       "sha256": "0a8b854cc18641bd1b8222afa7ec82a75e59bc6501f777744ec87db1b6cd7a2c",
       "bytes": 4000,
-      "preload": false
-    },
-    {
-      "file": "8715d2ed531152f4-s.woff2",
-      "sha256": "d81372bae1f872f1418c0b7eb412f8a92a156a950fda8d2383701c75d38969df",
-      "bytes": 21132,
       "preload": false
     },
     {
@@ -98,12 +68,6 @@
       "preload": false
     },
     {
-      "file": "c48b38fe8bb532f3-s.woff2",
-      "sha256": "826f73ca737feec0eb1004808629973d6b611fddc2bd2a689b5fe331f6be6427",
-      "bytes": 11264,
-      "preload": false
-    },
-    {
       "file": "c9c3823090ec8b55-s.woff2",
       "sha256": "a29d4e6345cdb7e2b6daabf4961a6dcafcbc7ed1eac26186ca4a004cd32d64d8",
       "bytes": 16296,
@@ -122,27 +86,9 @@
       "preload": true
     },
     {
-      "file": "e18f83c737786aa7-s.p.woff2",
-      "sha256": "e6d6d1d73858aa9b66f3a3539f9dec22faab2276e61ad1d813bc04dd59c9c122",
-      "bytes": 39304,
-      "preload": true
-    },
-    {
       "file": "e40af3453d7c920a-s.woff2",
       "sha256": "b2529fba93fd07a50ffb8fc3d103eb04b0c298d4f6564d2833c44fde286de7e4",
       "bytes": 4036,
-      "preload": false
-    },
-    {
-      "file": "e74f24ed7f0e4323-s.woff2",
-      "sha256": "06bc9a8c179afaf7dd5d3b4987ad2f4a82ca85a542c9e498b18bf32ad0257d8e",
-      "bytes": 34444,
-      "preload": false
-    },
-    {
-      "file": "ea896c3885e026c1-s.woff2",
-      "sha256": "3170a883f1968a2d1135259e40fd88508da70c20337e491f171f9405d0749053",
-      "bytes": 21264,
       "preload": false
     },
     {
@@ -152,10 +98,18 @@
       "preload": false
     },
     {
-      "file": "fd3893c623c32b6d-s.woff2",
-      "sha256": "919a7720ae1671f06ebdd4f65bb9c2f0d619f81f805d85aec025c89139536292",
-      "bytes": 25196,
-      "preload": false
+      "file": "bricolage-grotesque-latin.woff2",
+      "sha256": "85f55a58a31e61a2e19e8bb25fed503181bf2a6b4cab76c589992cfaac377447",
+      "bytes": 76868,
+      "preload": true,
+      "origin": "fonts.gstatic.com/s/bricolagegrotesque/v9, fetched 11 November 2026"
+    },
+    {
+      "file": "bricolage-grotesque-latin-ext.woff2",
+      "sha256": "1d04719f1325400ea4267e630dba29b02af87eb094d7d71d2e4d80a05479d07a",
+      "bytes": 30636,
+      "preload": false,
+      "origin": "fonts.gstatic.com/s/bricolagegrotesque/v9, fetched 11 November 2026"
     }
   ],
   "upstream_files": [

@@ -46,10 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="font-display font-body font-mono">
       <head>
         <link rel="preload" href="/fonts/26d4368bf94c0ec4-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/7b89a4fd5e90ede0-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/98e207f02528a563-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/d3ebbfd689654d3a-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/e18f83c737786aa7-s.p.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* In the layout, not metadata.alternates: every page sets its own canonical, which replaces that whole object. */}
         <link rel="alternate" type="application/feed+json" title="Orchestra AI by Hyperdrift" href="/feed.json" />
         <link rel="alternate" type="application/rss+xml" title="Orchestra AI by Hyperdrift" href="/feed.xml" />
