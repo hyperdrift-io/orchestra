@@ -48,7 +48,7 @@ export function EnquiryForm({ articleSlug, situation, firstRead = false, introdu
           ? <label><span>Your app <small>The link, who it’s for and what you want next</small></span><textarea name="message" required minLength={10} maxLength={5000} rows={5} /></label>
           : <label><span>Message</span><textarea name="message" required minLength={10} maxLength={5000} rows={4} /></label>}
       <div data-contact-actions="">
-        <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first read →' : introduce ? 'Introduce my app →' : 'Send message →'}</button>
+        <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first impression →' : introduce ? 'Introduce my app →' : 'Send message →'}</button>
         <p>We’ll use these details to reply to your enquiry.</p>
       </div>
     </fieldset>

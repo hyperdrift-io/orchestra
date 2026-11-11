@@ -22,7 +22,7 @@ Orchestra connects customer insight, distribution and AI engineering for founder
 
 ${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io${service.links[0].href}): ${service.text}`).join('\n')}
 
-- [Start free on Traction](https://orchestra.hyperdrift.io/traction#your-board): ${freeBoard.text} Then two ways on:
+- [Trial Traction](https://orchestra.hyperdrift.io/traction#your-board): ${freeBoard.text} Then two ways on:
 ${waysOn.map((way) => `- [${way.name}](https://orchestra.hyperdrift.io${way.slug === 'partnership' ? '/traction/partnership' : '/traction#subscription'}): ${way.text}`).join('\n')}
 - [How Traction works](https://orchestra.hyperdrift.io/traction/how-it-works): ${howItWorks.lead}
 

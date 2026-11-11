@@ -16,7 +16,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
   return <article id="traction" data-offering="" data-product="" data-trial-app={trialApp}>
     <TractionJourney />
     <header>
-      <p>Traction · Growth engine for your app</p>
+      <p>Traction · A growth team for your app</p>
       {trialApp ? <>
         <h1>Where would you like <em>help next?</em></h1>
         <p data-lead="">Tell us what you tried on your board and where you’d like a hand. We’ll work out the scope and price with you.</p>

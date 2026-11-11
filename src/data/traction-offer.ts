@@ -27,11 +27,11 @@ export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
  * The first read and search are free. Continued use and partnership start with a conversation.
  */
 export const freeBoard = {
-  text: 'Your website review, first search and email drafts are free.',
+  text: 'The trial gives you a review of your website, your first search with its email drafts and one read of your market.',
 };
 export interface WayOn { slug: 'subscription' | 'partnership'; name: string; text: string; link?: { href: string; label: string } }
 export const waysOn: WayOn[] = [
-  { slug: 'subscription', name: 'Keep using Traction', text: 'Tell us how you’d like to use Traction. We’ll agree what’s included and the price before you commit.', link: { href: continuedUseHref, label: 'Discuss continued use →' } },
+  { slug: 'subscription', name: 'Keep using Traction', text: 'Your mailbox connected, a market read a day and Analytics on your own app. We’re happy to give you a quote for the level of integration you want.', link: { href: continuedUseHref, label: 'Ask for a quote →' } },
   { slug: 'partnership', name: 'Work with us', text: 'We can do the customer research and outreach with you. We’ll start with the people you want to reach and agree who does what.', link: { href: partnershipHref, label: 'Explore the partnership →' } },
 ];
 
@@ -50,6 +50,6 @@ export const boardFilm = {
 /** A link with `introduce` opens the shared enquiry dialog as the Traction door, asking for the app. */
 export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean; situation?: string; introduce?: boolean }[] }
 export const services: Service[] = [
-  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth partner for your app. Start free: a first read of your app, your own board and an AI Growth Manager proposing your first customer move. Continue with a subscription, or bring us in for the customer work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: partnershipHref, label: 'How we work with you' }] },
+  { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth team for your app. Start with a trial: a first impression of your app, your own board and an AI Growth Manager proposing your first customer move. Continue with a subscription, or bring us in for the customer work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: partnershipHref, label: 'How we work with you' }] },
   { slug: 'orchestra-os', eyebrow: '02 · Orchestra OS', name: 'Embed your app on Orchestra OS.', text: 'Bring your app, or build it with us. Connect engineering, hosting, security maintenance and customer support, with growth work coordinated through Traction. We agree the scope and verify each connection with you.', links: [{ href: '/os', label: 'Explore Orchestra OS', primary: true }] },
 ];

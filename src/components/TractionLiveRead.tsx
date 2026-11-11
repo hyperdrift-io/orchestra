@@ -40,11 +40,11 @@ export function TractionLiveRead({ token, product, host, initial }: { token: str
 
   const read = live?.read;
   if (live?.state === 'failed') {
-    return <section id="read" data-journey="read" data-live="failed" aria-label={`First read of ${product}`}>
+    return <section id="read" data-journey="read" data-live="failed" aria-label={`First impression of ${product}`}>
       <p data-read-note="">{live.blocked ? `${host} didn’t let us read it just now. Your board reads it again when it opens.` : 'We couldn’t finish the read just now. Your board makes it again when it opens.'}</p>
     </section>;
   }
-  return <section id="read" data-journey="read" data-live={read ? 'ready' : 'reading'} aria-label={`First read of ${product}`} aria-busy={!read}>
+  return <section id="read" data-journey="read" data-live={read ? 'ready' : 'reading'} aria-label={`First impression of ${product}`} aria-busy={!read}>
     {!read && <div data-reading="">
       <p data-site=""><strong>{live?.site?.title || host}</strong>{live?.site?.description && <span>{live.site.description}</span>}</p>
       <ul aria-label={`Pages read on ${host}`}>
@@ -63,6 +63,6 @@ export function TractionLiveRead({ token, product, host, initial }: { token: str
         </> : <><span data-line="" /><span data-line="" data-short="" /></>}</div>
       </li>;
     })}</ol>
-    <p role="status" data-sr-only="">{read ? `First read of ${product} ready.` : ''}</p>
+    <p role="status" data-sr-only="">{read ? `First impression of ${product} ready.` : ''}</p>
   </section>;
 }

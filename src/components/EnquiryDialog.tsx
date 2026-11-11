@@ -33,7 +33,7 @@ export function EnquiryDialog({ articleSlug, situation, contact }: Props) {
   return <dialog id="enquire" ref={dialog} aria-labelledby="enquire-heading">
     <form method="dialog" data-dialog-close=""><button type="submit" aria-label="Close">×</button></form>
     <header>
-      <h2 id="enquire-heading" tabIndex={-1}>{intent.firstRead ? 'Ask for a first read' : intent.introduce ? 'Introduce your app' : 'Get in touch'}</h2>
+      <h2 id="enquire-heading" tabIndex={-1}>{intent.firstRead ? 'Ask for a first impression' : intent.introduce ? 'Introduce your app' : 'Get in touch'}</h2>
     </header>
     <EnquiryForm key={intent.firstRead ? 'first-read' : intent.introduce ? 'introduce' : 'conversation'} articleSlug={articleSlug} situation={intent.situation} firstRead={intent.firstRead} introduce={intent.introduce} contact={contact} />
   </dialog>;

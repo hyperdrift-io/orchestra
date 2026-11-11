@@ -17,7 +17,7 @@
  */
 export interface Step { id: string; name: string; title: string; text: string; free?: string; subscription?: string }
 
-export const tiers = { free: 'Free to start', subscription: 'With the subscription' };
+export const tiers = { free: 'In the trial', subscription: 'With the subscription' };
 export const howItWorksHref = '/traction/how-it-works';
 
 /** Day one, free: what a founder has on their board within minutes of signing up. */
@@ -67,7 +67,7 @@ export const after: Step[] = [
     name: 'Results',
     title: 'Analytics matches your numbers to your initiatives.',
     text: 'Visitors, trials and paying customers on one line, with each initiative marked on it, so you can judge what each one returned and put your effort where it pays.',
-    subscription: 'Analytics on your own app, connected with you. Running today on Traction’s own board.',
+    subscription: 'Analytics on your own app: the results of your growth, set against each initiative. Running today on Traction’s own board.',
   },
 ];
 
@@ -89,7 +89,7 @@ export const howItWorks = {
   lead: 'A whole team comes together around your app. On day one it reviews your website, finds people your app could help and writes a first email to each. Then it plans with you, reads your market and proposes the next move. It’s an AI team and you lead it: nothing is sent without you. We run Traction’s own launch on it.',
   all: 'How Traction works, step by step →',
   door: 'Make Traction work for you, now.',
-  doorNote: 'Your first search is free. Sign up with your name, website and email, then a passkey. Your board opens in a minute.',
+  doorNote: 'Sign up with your name, website and email, then a passkey. Your board opens in a minute.',
   back: 'Back to your board →',
   discuss: 'Discuss the next step →',
 };

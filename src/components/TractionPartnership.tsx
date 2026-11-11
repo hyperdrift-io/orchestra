@@ -27,7 +27,6 @@ export function TractionPartnership({ trialApp }: { trialApp?: string } = {}) {
       <header><h2 id="traction-partnership-title">What we ask.</h2></header>
       <ul>
         <li>A working product, and a sign that people value it: paying customers, people coming back, repeat work.</li>
-        <li>You own your customers.</li>
         <li>You act within the week.</li>
         <li>You tell us what doesn’t work.</li>
         <li>You help another founder when it fits.</li>
@@ -40,7 +39,7 @@ export function TractionPartnership({ trialApp }: { trialApp?: string } = {}) {
     <section id="joining" data-journey="joining" aria-labelledby="traction-joining-title">
       <header><h2 id="traction-joining-title">How it starts.</h2></header>
       <ol>
-        <li><span><strong>Your board, free.</strong> Your website review is ready the day you sign up. A board you already have carries over as it is.{!trialApp && <> <TractionStartLink href={startHref()} plain>Trial Traction →</TractionStartLink></>}</span></li>
+        <li><span><strong>Your trial board.</strong> Your website review is ready the day you sign up. A board you already have carries over as it is.{!trialApp && <> <TractionStartLink href={startHref()} plain>Trial Traction →</TractionStartLink></>}</span></li>
         <li><span><strong>A conversation.</strong> Scope, costs, ownership and terms are agreed before any work starts, and the conversation commits you to nothing.</span></li>
       </ol>
     </section>

@@ -10,11 +10,21 @@ const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]),
 describe('how Traction continues', () => {
   it('offers continued use and the Partnership through available conversation routes', () => {
     expect(waysOn.map((way) => way.slug)).toEqual(['subscription', 'partnership']);
-    expect(waysOn[0].text).toContain('price before you commit');
-    expect(waysOn[0].text).not.toContain('price on your board');
+    // The subscription says what it includes and how its price is set; it never leaves the scope to be agreed (founder, 11 November 2026).
+    expect(waysOn[0].text).toMatch(/mailbox connected, a market read a day and Analytics on your own app/);
+    expect(waysOn[0].text).toMatch(/quote for the level of integration you want/);
+    expect(waysOn[0].text).not.toMatch(/agree what’s included|price on your board/);
     expect(waysOn[0].link?.href).toBe('/traction?situation=subscription#enquire');
     expect(waysOn[1].link?.href).toBe(partnershipHref);
     expect(continueHref).toBe('/traction#continue');
+  });
+
+  it('never says free: the trial implies it (founder, 11 November 2026)', async () => {
+    const pages = ['./traction-features.ts', './traction-offer.ts', './situations.ts', '../components/Traction.tsx', '../components/TractionPartnership.tsx', '../components/TractionInvitation.tsx', '../components/TractionDoor.tsx', '../components/Proof.tsx', '../app/traction/page.tsx', '../app/llms.txt/route.ts'];
+    for (const path of pages) {
+      const strings = [...(await source(path)).matchAll(/'([^'\n]*)'|>([^<{}\n]+)</g)].map((match) => match[1] ?? match[2] ?? '').join('\n');
+      expect(strings, path).not.toMatch(/\bfree\b/i);
+    }
   });
 
   it('names no price, term, count or scarcity on a public page', () => {
@@ -168,7 +178,7 @@ describe('how Traction continues', () => {
     // What only a connected mailbox does stays on the subscription line, never in the step every reader takes as theirs.
     expect(steps.find((step) => step.id === 'email')?.text).not.toMatch(/repl|follow-up/i);
     expect(Object.keys(marks('subscription'))).toEqual(['email', 'market', 'results']);
-    expect(tiers).toEqual({ free: 'Free to start', subscription: 'With the subscription' });
+    expect(tiers).toEqual({ free: 'In the trial', subscription: 'With the subscription' });
     // Analytics is there to show what each initiative returned (founder, 10 November 2026). The board marks each one on
     // the line and computes no return, and it runs on Traction's own board only, so the step says both.
     expect(steps.find((step) => step.id === 'results')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/judge what each one returned/), subscription: expect.stringMatching(/Running today on Traction’s own board\.$/) });

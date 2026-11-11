@@ -39,10 +39,10 @@ export function Proof(): ReactElement {
     <nav aria-label="On this page"><a href="#work-traction">Traction ↓</a><a href="#open-source">Open source ↓</a><a href="#more-work">More work ↓</a></nav>
 
     <article id="work-traction" aria-labelledby="work-traction-title">
-      <p data-project-name>Traction · growth engine for your app</p>
+      <p data-project-name>Traction · a growth team for your app</p>
       <h2 id="work-traction-title">Work only on what lifts your business off the ground.</h2>
       <p>Traction is a new frontier for growth. It brings your initiatives, intel and CRM together to unlock your project’s growth potential. A whole team comes together to propose and track initiatives designed for your needs and your market. It takes you through every stage and helps you validate the best next step for growth, every time. Business success depends on clear communication and alignment with your vision at every step. That’s what Traction does for you.</p>
-      <p>Start free with a review of your website. Traction’s AI Growth Manager finds potential customers and drafts your first email. You choose who to contact, and we can do the research and outreach with you.</p>
+      <p>Start with a review of your website. Traction’s AI Growth Manager finds potential customers and drafts your first email. You choose who to contact, and we can do the research and outreach with you.</p>
       <Film film={boardFilm} />
       <p><a href="/traction">Explore Traction →</a></p>
     </article>

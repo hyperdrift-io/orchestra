@@ -9,7 +9,7 @@ import './offering.css';
 const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
 
 const title = 'Traction — Let’s find your next users';
-const description = 'Get a free review of your website, research potential customers and draft your first email with Traction. You choose who to contact.';
+const description = 'Trial Traction on your app: it reviews your website, researches potential customers and drafts your first email. You choose who to contact.';
 
 export const metadata: Metadata = {
   title, description,

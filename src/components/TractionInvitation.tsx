@@ -25,12 +25,12 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
           : `Traction reads ${product}’s website. You can then ask it to find potential customers and draft a first email for you to review.`}</p>
       <div id="your-board" data-start="" data-journey="contact">
         <TractionStartLink href={startHref(invitation.ref, url ? { url, product } : undefined)}>{`Open ${product}’s Traction board now →`}</TractionStartLink>
-        <p>{url ? 'Your first search is free. We’ve filled in the website. Add your name and email, then create a passkey.' : 'Your first search is free. Sign up with your name, website and email, then a passkey.'}</p>
+        <p>{url ? 'We’ve filled in the website. Add your name and email, then create a passkey.' : 'Sign up with your name, website and email, then a passkey.'}</p>
       </div>
     </header>
 
     {url ? <TractionLiveRead token={token} product={product} host={host} initial={live} />
-      : read && <section id="read" data-journey="read" aria-label={`First read of ${product}`}>
+      : read && <section id="read" data-journey="read" aria-label={`First impression of ${product}`}>
         <ol>{read.findings.map((finding) => <li key={finding.label}>
           <p>{finding.label}</p>
           <div>
@@ -48,7 +48,7 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
         <li>Choose a customer search. Traction shows you potential matches, why each might fit and a draft email. You decide who to contact.</li>
       </ol>
       <p>Prefer to talk it through? Reply to Yann’s email.</p>
-      <p><a href={continueHref}>How Traction continues after the free search →</a></p>
+      <p><a href={continueHref}>How Traction continues after the trial →</a></p>
     </section>
   </article>;
 }
