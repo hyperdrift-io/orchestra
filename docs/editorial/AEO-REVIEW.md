@@ -63,3 +63,7 @@ Both remain unpublished and noindex. Series evidence, voice and refresh requirem
 - Evidence: the public PR, issue #522, the merged README section, the attribute definition and the repository's reference reports read at upstream main 6f98aef (30 libraries; 11 of 43 library-span pairs record the ID).
 - Scope: Development-status conventions with no tagged release; the rule is optional; the trace visual is illustrative; reference scenarios show what each exercises, not full library capability. Orchestra runs no OpenTelemetry instrumentation of its own yet. Query demand and assistant citations are unmeasured.
 - Copy and slots: [OSS series record](oss-better-standards/README.md); `publishedAt` remains null.
+
+## Traction: motivation — 11 November 2026
+
+`give-motivated-founders-a-fair-chance` answers why Yann built Traction and what contribution remains with the founder. It is a personal position, grounded in his supplied experience and reviewed wording. No search-volume, ranking, independent adoption or growth claim. See [series record](traction-series/README.md). Discovery and commercial outcomes remain unmeasured until the authorised release and subsequent evidence.

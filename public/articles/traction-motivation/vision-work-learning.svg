@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="890" viewBox="0 0 720 890" role="img" aria-labelledby="title desc">
+<title id="title">Keep the work connected to your vision</title><desc id="desc">The founder’s vision guides the next initiative. The team carries it through and checks what changed for customers. The evidence informs the next move.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#d5aa66" stroke-width="1.5"/></marker></defs>
+<rect width="720" height="890" rx="18" fill="#151a19"/>
+<g font-family="Arial, sans-serif" fill="#f0eadf">
+<text x="54" y="58" font-size="15" letter-spacing="2" fill="#d5aa66">TRACTION / THE FOUNDER’S DIRECTION</text>
+<text x="54" y="108" font-size="32">Keep the work connected.</text>
+<path d="M340 306V349M340 486V529" stroke="#d5aa66" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M592 632H655V257H606" fill="none" stroke="#789b90" stroke-width="2" stroke-dasharray="5 6"/>
+<rect x="54" y="174" width="538" height="132" rx="12" fill="#232c28" stroke="#51645a"/>
+<text x="82" y="213" font-size="15" fill="#d5aa66">THE FOUNDER</text><text x="82" y="255" font-size="29">What are we trying to achieve?</text><text x="82" y="284" font-size="19" fill="#c9c4b9">The vision sets the direction.</text>
+<rect x="54" y="360" width="538" height="126" rx="12" fill="#232c28" stroke="#51645a"/>
+<text x="82" y="398" font-size="15" fill="#d5aa66">THE TEAM</text><text x="82" y="440" font-size="29">Which initiative serves it?</text><text x="82" y="469" font-size="19" fill="#c9c4b9">Choose the work and carry it through.</text>
+<rect x="54" y="540" width="538" height="164" rx="12" fill="#232c28" stroke="#51645a"/>
+<text x="82" y="578" font-size="15" fill="#d5aa66">THE CUSTOMER</text><text x="82" y="620" font-size="29">What changed for them?</text><text x="82" y="654" font-size="19" fill="#c9c4b9">Review the result. Learn what to improve.</text><text x="82" y="683" font-size="19" fill="#c9c4b9">Use that evidence to choose the next move.</text>
+<text x="54" y="766" font-size="20" fill="#d5aa66">Vision → initiative → action → learning</text>
+<text x="54" y="813" font-size="15" fill="#b5b9b1">Conceptual view · From Yann’s motivation for Traction</text>
+<text x="54" y="843" font-size="15" fill="#b5b9b1">orchestra.hyperdrift.io/articles</text>
+</g></svg>

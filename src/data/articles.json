@@ -1414,5 +1414,63 @@
       "width": 1200,
       "height": 160
     }
+  },
+  {
+    "slug": "give-motivated-founders-a-fair-chance",
+    "title": "Give motivated founders a fair chance",
+    "seoTitle": "Founder motivation: why we built Traction",
+    "excerpt": "Why I built Traction to give eager founders sustained help turning their vision into growth.",
+    "shareLine": "A founder’s potential deserves to be judged on more than their ability to pitch or who they know.",
+    "order": 21,
+    "topic": "Traction · Part one",
+    "example": "Motivation",
+    "tags": [
+      "agents",
+      "operations"
+    ],
+    "exampleStatus": "Founder perspective",
+    "ctaLabel": "Discuss your app",
+    "situation": "traction",
+    "invite": "Tell us about your app, the people it could help and what is getting in the way. We’ll explore where Traction could help.",
+    "readNext": "agent-driven-ui-intelligence-and-action",
+    "steps": [],
+    "proof": {
+      "heading": "Keep the work connected to your vision",
+      "description": "Explore Traction and its approach to app growth.",
+      "url": "https://orchestra.hyperdrift.io/traction",
+      "label": "Explore Traction"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/give-motivated-founders-a-fair-chance.svg",
+      "alt": "Connected wireframe target, conversation, chart forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "visualization": {
+      "kind": "editorial",
+      "title": "Keep the work connected",
+      "image": "/articles/traction-motivation/vision-work-learning.svg",
+      "alt": "The founder’s vision guides which initiative is worth doing. The team acts and checks what changed for customers. That evidence informs the next move.",
+      "takeaway": "The founder’s vision gives the work direction; customer evidence informs the next move.",
+      "description": "A conceptual view of the argument in this article. Choose work that serves the vision, carry it through and review what changed for customers before choosing the next initiative. It describes the intended way of working, not a measured growth result.",
+      "sources": [
+        {
+          "label": "Traction: how it works",
+          "url": "https://orchestra.hyperdrift.io/traction/how-it-works"
+        }
+      ],
+      "download": "/articles/traction-motivation/vision-work-learning.png",
+      "reviewed": "11 November 2026",
+      "evidenceLabel": "Founder’s proposed way of working."
+    },
+    "publishedAt": "2026-11-11",
+    "headerImage": {
+      "src": "/articles/mesh/give-motivated-founders-a-fair-chance.svg",
+      "alt": "Connected wireframe target, conversation, chart forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    }
   }
 ]
