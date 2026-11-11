@@ -1,6 +1,6 @@
 /**
  * How Traction works, told in the order a founder lives it, which is the order of the film on the start page: day one
- * (the review, the people, the emails), then every week after (the plan, the market, the results). The first five steps
+ * (the review, the people, the emails), then after day one (the plan, the market, the results). The first five steps
  * carry the film's chapter ids and titles, so the picture and the words tell one story; Results is the one step the
  * film does not show yet.
  *
@@ -24,7 +24,7 @@ export const howItWorksHref = '/traction/how-it-works';
 export const dayOne: Step[] = [
   {
     id: 'read',
-    name: 'Fresh eyes',
+    name: 'First impression',
     title: 'It reads your app like a new customer.',
     text: 'Your Growth Manager reads your public pages and says what works, what’s in the way and the move to make first. Each finding links to the pages it came from, so you can check it. It also names your market and the audience your pages point to.',
     free: 'A review of your website, the day you sign up.',
@@ -33,7 +33,7 @@ export const dayOne: Step[] = [
     id: 'customers',
     name: 'Customers',
     title: 'It finds people your app could help.',
-    text: 'Ask your Growth Manager for possible buyers or for investors. It reads their own pages and comes back with up to five, each with the public evidence that they may fit. A public page suggests a fit; only a reply confirms interest.',
+    text: 'Ask your Growth Manager for prospects or for investors. It reads their own pages and comes back with up to five, each with the public evidence that they may fit. A public page suggests a fit; only a reply confirms interest.',
     free: 'Your first search: up to five prospects or investors.',
   },
   {
@@ -42,11 +42,11 @@ export const dayOne: Step[] = [
     title: 'It writes to each, in your voice.',
     text: 'A first email for each, signed with your name, opening on a line from their own page. You read each one and decide. Approve them and they go to the CRM on your board with their drafts. Nothing leaves without your click.',
     free: 'Each draft opens in your own mail app, or copies in one click. You send it yourself.',
-    subscription: 'Your mailbox connected to the board: each email leaves from your address on your click, a reply lands on that person’s record, and a follow-up comes due a week later if they don’t answer.',
+    subscription: 'Connect your mailbox and each email leaves from your address, on your click. Replies land on that person’s record.',
   },
 ];
 
-/** Every week after: the work that keeps going once the first emails are out. */
+/** After day one: the work that keeps going once the first emails are out. */
 export const after: Step[] = [
   {
     id: 'plan',
@@ -58,16 +58,16 @@ export const after: Step[] = [
     id: 'market',
     name: 'Market',
     title: 'It keeps up with your market.',
-    text: 'Intel reads about fifteen sources for the market your pages named. You get each story once, with the outlets that carry it, beside your own work. Your Growth Manager then proposes up to three moves, each answering one story, with why now, your part and what will show it’s done. Take one and it becomes an initiative on your board.',
+    text: 'Intel reads about fifteen sources for the market your pages named and brings you what moved, with the outlets that carry it. Your Growth Manager then proposes up to three moves, each answering one story. Take one and it becomes an initiative on your board.',
     free: 'One read of your market.',
-    subscription: 'One fresh read a day.',
+    subscription: 'A fresh read each day you ask for one.',
   },
   {
     id: 'results',
     name: 'Results',
     title: 'Analytics matches your numbers to your initiatives.',
-    text: 'Visitors, trials and paying customers, each with its source and how fresh it is. Every initiative is marked on the same line, so you can measure the return on each one and put your effort where it pays.',
-    subscription: 'Analytics connected to your own app.',
+    text: 'Visitors, trials and paying customers on one line, with each initiative marked on it, so you see what each one returned and put your effort where it pays.',
+    subscription: 'Analytics connected to your own app. Running today on Traction’s own board.',
   },
 ];
 
@@ -75,11 +75,12 @@ export const steps: Step[] = [...dayOne, ...after];
 
 export const featuresIntro = {
   label: 'What it does',
-  title: 'The growth team your app doesn’t have yet.',
-  line: 'Dedicated to the growth of your app.',
-  text: 'A whole team comes together around your app, to propose each move and track it on your board. Each proposal starts from what your own pages say and what moved in your market. It’s an AI team and you lead it: you decide each move, and nothing is sent without you. We run Traction’s own launch on it.',
+  title: 'A whole team, dedicated to the growth of your app.',
+  line: 'It’s an AI team, and you lead it.',
   dayOne: 'Day one',
-  after: 'Every week after',
+  /** What a founder holds at the end of day one. */
+  dayOneGain: 'On day one you have a review of your website, up to five people to write to and a first email for each.',
+  after: 'After day one',
   again: 'Then the next move, from what you learned.',
 };
 
@@ -87,7 +88,7 @@ export const featuresIntro = {
 export const howItWorks = {
   eyebrow: 'Traction · How it works',
   title: 'How Traction works',
-  lead: 'Traction reviews your website on day one, finds people it could help and drafts your first emails. Then it works with you every week: a plan, your market, your results. Each step says what the free start includes and what the subscription adds.',
+  lead: 'A whole team comes together around your app. On day one it reviews your website, finds people your app could help and writes a first email to each. Then it plans with you, reads your market and proposes the next move. It’s an AI team and you lead it: nothing is sent without you.',
   all: 'How Traction works, step by step →',
   door: 'Make Traction work for you, now.',
   doorNote: 'Your first search is free. Sign up with your name, website and email, then a passkey. Your board opens in a minute.',
@@ -97,7 +98,7 @@ export const howItWorks = {
 
 /** The three pages about Traction, shown as one row on each of them. */
 export const tractionPages = [
-  { id: 'overview', label: 'Overview', href: '/traction' },
+  { id: 'overview', label: 'Traction', href: '/traction' },
   { id: 'how', label: 'How it works', href: howItWorksHref },
-  { id: 'partnership', label: 'Work with us', href: '/traction/partnership' },
+  { id: 'partnership', label: 'Partnership', href: '/traction/partnership' },
 ] as const;

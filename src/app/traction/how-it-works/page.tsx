@@ -8,7 +8,7 @@ import { howItWorks } from '@/data/traction-features';
 import '../offering.css';
 
 const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
-const title = 'How Traction works: day one, then every week after';
+const title = 'How Traction works: an AI growth team for your app';
 const description = howItWorks.lead;
 
 export const metadata: Metadata = {

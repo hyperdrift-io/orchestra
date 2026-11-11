@@ -236,3 +236,11 @@
   #traction[data-product]:not([data-how]) > header > :is(h1, [data-lead], [data-start]) { grid-column: 1; }
   #traction[data-product]:not([data-how]) > header > h1 { margin-bottom: 1.2rem; }
 }
+/* The steps on their own page: two columns, day one beside what follows, with no second header above them. */
+#traction[data-product][data-how] > #features { display: block; }
+#traction[data-how] [data-features] { grid-column: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 5.5rem); align-items: start; }
+#traction[data-how] [data-features] li > h2 { grid-column: 2; margin: 0; max-width: none; font: 500 clamp(1.2rem, 1.8vw, 1.45rem)/1.25 var(--font-display); color: var(--cream); }
+#traction [data-features] li > span { grid-row: 1 / span 3; }
+#traction [data-features] li > [data-step-name] { grid-column: 2; margin: 0 0 .2rem; max-width: none; font: .62rem/1.9 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); }
+#traction [data-features] > div > [data-gain] { margin: 0 0 .9rem; max-width: 46ch; font: italic 500 1.1rem/1.45 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--cream); }
+@media (max-width: 860px) { #traction[data-how] [data-features] { grid-template-columns: minmax(0, 1fr); } }

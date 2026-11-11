@@ -84,8 +84,9 @@ describe('how Traction continues', () => {
     expect(after.map((step) => step.id)).toEqual(['plan', 'market', 'results']);
     expect(steps.slice(0, 5).map((step) => step.id)).toEqual(tour.chapters.map((chapter) => chapter.id));
     expect(steps.slice(0, 5).map((step) => step.title)).toEqual(tour.chapters.map((chapter) => chapter.title));
-    expect(steps.map((step) => step.name)).toEqual(['Fresh eyes', 'Customers', 'Email', 'Plan', 'Market', 'Results']);
-    expect([featuresIntro.dayOne, featuresIntro.after]).toEqual(['Day one', 'Every week after']);
+    expect(steps.map((step) => step.name)).toEqual(['First impression', 'Customers', 'Email', 'Plan', 'Market', 'Results']);
+    // The product runs no weekly rhythm by itself, so the second act is named for what it follows.
+    expect([featuresIntro.dayOne, featuresIntro.after]).toEqual(['Day one', 'After day one']);
     // The last step hands on to the next move; it promises no second market read, which a free board doesn't have.
     expect(featuresIntro.again).toBe('Then the next move, from what you learned.');
   });
@@ -166,13 +167,16 @@ describe('how Traction continues', () => {
     expect(steps.find((step) => step.id === 'email')?.text).not.toMatch(/repl|follow-up/i);
     expect(Object.keys(marks('subscription'))).toEqual(['email', 'market', 'results']);
     expect(tiers).toEqual({ free: 'Free to start', subscription: 'With the subscription' });
-    // Analytics is there to measure what each initiative returned (founder, 10 November 2026).
-    expect(steps.find((step) => step.id === 'results')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/measure the return on each one/) });
+    // Analytics is there to show what each initiative returned (founder, 10 November 2026). The board marks each one on
+    // the line and computes no return, and it runs on Traction's own board only, so the step says both.
+    expect(steps.find((step) => step.id === 'results')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/what each one returned/), subscription: expect.stringMatching(/Running today on Traction’s own board\.$/) });
+    // A subscribed board reads its market when its founder asks, once a day.
+    expect(marks('subscription').market).toBe('A fresh read each day you ask for one.');
   });
 
   it('keeps each claim to what the board does: no price, term or trial length, and no claim about demand', () => {
-    const featureWords = [...Object.values(featuresIntro), ...Object.values(tiers), ...steps.flatMap((step) => [step.title, step.text, step.free ?? '', step.subscription ?? ''])].join('\n');
-    expect(featuresIntro.title).toBe('The growth team your app doesn’t have yet.');
+    const featureWords = [...Object.values(featuresIntro), howItWorks.lead, ...Object.values(tiers), ...steps.flatMap((step) => [step.title, step.text, step.free ?? '', step.subscription ?? ''])].join('\n');
+    expect(featuresIntro.title).toBe('A whole team, dedicated to the growth of your app.');
     expect(featureWords).toMatch(/up to five/);
     expect(featureWords).toMatch(/only a reply confirms interest/);
     expect(featureWords).toMatch(/nothing is sent without you\./);
