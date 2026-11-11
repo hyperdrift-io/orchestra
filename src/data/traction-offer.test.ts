@@ -1,7 +1,8 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
-import { featuresIntro, firstRead, howItWorks, howItWorksHref, loop, tiers, tractionPages } from './traction-features';
+import { after, dayOne, featuresIntro, howItWorks, howItWorksHref, steps, tiers, tractionPages } from './traction-features';
+import { tour } from './traction-tour';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
 const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
@@ -66,31 +67,68 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('gives the start page one job: the engine at work, the loop by name, how it continues, then the one door', async () => {
+  it('gives the start page one job: the film of Traction at work, its steps by name, how it continues, then the one door', async () => {
     const product = await source('../components/Traction.tsx');
-    const order = ['<TractionWalkthrough ', 'id="loop"', 'id="continue"', '<TractionDoor />'].map((mark) => product.indexOf(mark));
+    const order = ['<TractionTour ', 'id="loop"', 'id="continue"', '<TractionDoor />'].map((mark) => product.indexOf(mark));
     expect(order.every((at) => at > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
-    // The loop's words live on their own page; the start page names the steps and links to each.
+    // The steps' words live on their own page; the start page names the steps and links to each.
     expect(product).not.toMatch(/<TractionFeatures/);
     expect(product).toMatch(/\$\{howItWorksHref\}\$\{from\}#\$\{step\.id\}/);
     expect((await source('../components/TractionDoor.tsx')).match(/Trial Traction →/g)).toHaveLength(1);
   });
 
-  it('cycles the walkthrough through the loop itself: the same steps, names and order, Intel included', async () => {
-    const steps = [firstRead, ...loop];
-    expect(steps.map((step) => step.name)).toEqual(['First read', 'Intel', 'The move', 'Research', 'Your email', 'Analytics', 'Next move']);
-    const walkthrough = await source('../components/TractionWalkthrough.tsx');
-    expect(walkthrough).toMatch(/const steps = \[firstRead, \.\.\.loop\];/);
-    // It moves on by itself, and a visitor can stop it; a system asking for less motion never starts it.
-    expect(walkthrough).toMatch(/prefers-reduced-motion: reduce/);
-    expect(walkthrough).toMatch(/howItWorks\.pause/);
-    // Every picture named is in public/, and each says where it came from. A step with none says it is to record.
-    for (const { picture } of steps) {
-      expect(picture.kept).toMatch(/^(Example data|Preview still|To record on our own board)$/);
-      for (const file of [picture.clip, picture.poster]) if (file) await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
-    }
+  it('tells one story in the picture and in the words: the film’s chapters, in the film’s order, then the results', () => {
+    // Day one, then every week after. The first five steps are the film's chapters, with the film's own titles.
+    expect(dayOne.map((step) => step.id)).toEqual(['read', 'customers', 'email']);
+    expect(after.map((step) => step.id)).toEqual(['plan', 'market', 'results']);
+    expect(steps.slice(0, 5).map((step) => step.id)).toEqual(tour.chapters.map((chapter) => chapter.id));
+    expect(steps.slice(0, 5).map((step) => step.title)).toEqual(tour.chapters.map((chapter) => chapter.title));
+    expect(steps.map((step) => step.name)).toEqual(['Fresh eyes', 'Customers', 'Email', 'Plan', 'Market', 'Results']);
+    expect([featuresIntro.dayOne, featuresIntro.after]).toEqual(['Day one', 'Every week after']);
+    // The last step hands on to the next move; it promises no second market read, which a free board doesn't have.
+    expect(featuresIntro.again).toBe('Then the next move, from what you learned.');
   });
+
+  it('opens on the engine at work: Traction itself as one film, a question, five chapters in order, then the close and the door', async () => {
+    expect(tour.chapters.map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email', 'plan', 'market']);
+    // The opening question plays first; the chapters start in order; the close follows the last, the door shows inside it.
+    const starts = tour.chapters.map((chapter) => chapter.start);
+    expect(starts[0]).toBeGreaterThan(0);
+    expect([...starts].sort((a, b) => a - b)).toEqual(starts);
+    expect(tour.close).toBeGreaterThan(starts.at(-1)!);
+    expect(tour.door.at).toBeGreaterThan(tour.close);
+    expect(tour.duration).toBeGreaterThan(tour.door.at);
+    expect(tour.end.title).toBe('Make Traction work for you, now.');
+    expect(tour.end.line).toBe(freeBoard.text);
+    // Each chapter is narrated: its lines come in order inside the chapter, and the page carries them under the picture.
+    tour.chapters.forEach((chapter, index) => {
+      const next = tour.chapters[index + 1]?.start ?? tour.close;
+      expect(chapter.says.length, chapter.id).toBeGreaterThan(1);
+      expect(chapter.says.map((say) => say.at), chapter.id).toEqual([...chapter.says.map((say) => say.at)].sort((a, b) => a - b));
+      for (const say of chapter.says) expect(say.at > chapter.start && say.at < next, `${chapter.id}: ${say.text}`).toBe(true);
+    });
+    expect(await source('../components/TractionTour.tsx')).toMatch(/chapters\[scene\]\.says\[say\]\.text/);
+    // The film, its phone copy and its still are in public/, and the page says what the recording is.
+    for (const file of [tour.src, tour.small, tour.poster]) {
+      await expect(stat(new URL(`../../public${file}`, import.meta.url)), file).resolves.toBeTruthy();
+    }
+    expect(tour.labels.recorded).toMatch(/renamed Yourapp/);
+    expect(tour.labels.recorded).toMatch(/blurred/);
+    // Chapters replayed from saved research on later screens say so under the picture; the market says whose board it is.
+    expect(tour.labels.replayed).toMatch(/5 November 2026 run, replayed/);
+    expect(tour.chapters.filter((chapter) => chapter.label === 'replayed').map((chapter) => chapter.id)).toEqual(['read', 'customers', 'email']);
+    expect(tour.labels.market).toMatch(/Traction’s own board/);
+    // The film stays agnostic: the stand-in's field is blurred on screen and never named in the page's words.
+    expect(tour.labels.replayed).toMatch(/its field and the businesses blurred/);
+    for (const path of ['./traction-tour.ts', '../components/Traction.tsx', '../components/TractionTour.tsx']) {
+      expect(await source(path), path).not.toMatch(/\bCVs?\b|r[ée]sum[ée]|\bjobs?\b|career|recruit/i);
+    }
+    expect(await source('./traction-tour.ts')).not.toMatch(/Example data|invented|Free trial/i);
+    // The search researches prospects; it doesn't prove that anyone needs or would buy the app.
+    expect(await source('./traction-tour.ts')).not.toMatch(/\bproofs?\b|\bproves?\b|would buy|needs? it/i);
+  });
+
 
   it('answers how Traction works on a page of its own, one click from the other two', async () => {
     expect(howItWorksHref).toBe('/traction/how-it-works');
@@ -101,47 +139,39 @@ describe('how Traction continues', () => {
     const component = await source('../components/TractionHowItWorks.tsx');
     expect(component).toMatch(/<h1>\{howItWorks\.title\}<\/h1>/);
     expect(component.indexOf('<TractionFeatures />')).toBeLessThan(component.indexOf('<TractionDoor '));
+    // Each step is an address a door on the board can open, and none takes one the page already uses.
+    const features = await source('../components/TractionFeatures.tsx');
+    expect(features).toMatch(/<section id="features" /);
+    expect(features).toMatch(/<li id=\{step\.id\}>/);
+    expect(steps.map((step) => step.id).filter((id) => ['features', 'traction', 'your-board'].includes(id))).toEqual([]);
     expect(await source('../app/sitemap.ts')).toMatch(/'traction\/how-it-works'/);
     expect(await source('../app/llms.txt/route.ts')).toMatch(/\/traction\/how-it-works\)/);
     expect(tractionPages.map((entry) => entry.href)).toEqual(['/traction', '/traction/how-it-works', '/traction/partnership']);
     for (const file of ['../app/traction/page.tsx', '../app/traction/how-it-works/page.tsx', '../app/traction/partnership/page.tsx']) expect(await source(file), file).toMatch(/<TractionPages current="/);
   });
 
-  it('says what Traction does as one loop: the first read, then six steps that end where they began', async () => {
-    // The order is the loop. Each id is an address a door on the board can open: /traction/how-it-works#<id>.
-    const ids = [firstRead, ...loop].map((step) => step.id);
-    expect(ids).toEqual(['first-read', 'intel', 'growth-manager', 'research', 'mailbox', 'analytics', 'next-move']);
-    // The last step hands back to the first; it promises no second market read, which a free board doesn't have.
-    expect(featuresIntro.again).toBe('Back to 01, with what you learned.');
-    expect(loop.at(-1)?.text).not.toMatch(/Intel|market/);
-    const features = await source('../components/TractionFeatures.tsx');
-    expect(features).toMatch(/<section id="features" /);
-    expect(features).toMatch(/<li id=\{step\.id\}>/);
-    // No step takes an address the page already uses.
-    const taken = [...(await source('../components/Traction.tsx')).matchAll(/ id="([^"]+)"/g)].map((match) => match[1]);
-    expect(taken.filter((id) => ids.includes(id))).toEqual([]);
-  });
-
   it('marks where the free start stops and what the subscription adds, as the board does', () => {
-    const marks = (tier: 'free' | 'subscription') => Object.fromEntries([firstRead, ...loop].flatMap((step) => step[tier] ? [[step.id, step[tier]]] : []));
-    // The free start: one read of the website, one read of the market, one search, and drafts sent from the founder's own mail.
+    const marks = (tier: 'free' | 'subscription') => Object.fromEntries(steps.flatMap((step) => step[tier] ? [[step.id, step[tier]]] : []));
+    // The free start: a review of the website, one search, drafts the founder sends from their own mail, one market read.
     expect(marks('free')).toEqual({
-      'first-read': 'A first read of your website.',
-      intel: 'One read of your market.',
-      research: 'Your first search: up to five prospects or investors, each with a draft.',
-      mailbox: 'Each draft opens in your own mail, ready to send.',
+      read: 'A review of your website, the day you sign up.',
+      customers: 'Your first search: up to five prospects or investors.',
+      email: 'Each draft opens in your own mail app, or copies in one click. You send it yourself.',
+      market: 'One read of your market.',
     });
-    // The subscription: one market read a day, the founder's mailbox with replies read back, Analytics on their own app.
+    // A free board sends nothing: the line never says a draft is ready to send, or that Traction sends it.
+    expect(marks('free').email).not.toMatch(/ready to send|sends? (?:it|them) for you/i);
+    // The subscription: the founder's mailbox with replies read back, one market read a day, Analytics on their own app.
     // What only a connected mailbox does stays on the subscription line, never in the step every reader takes as theirs.
-    expect(loop.find((step) => step.id === 'mailbox')?.text).not.toMatch(/repl|follow-up/i);
-    expect(Object.keys(marks('subscription'))).toEqual(['intel', 'mailbox', 'analytics']);
+    expect(steps.find((step) => step.id === 'email')?.text).not.toMatch(/repl|follow-up/i);
+    expect(Object.keys(marks('subscription'))).toEqual(['email', 'market', 'results']);
     expect(tiers).toEqual({ free: 'Free to start', subscription: 'With the subscription' });
     // Analytics is there to measure what each initiative returned (founder, 10 November 2026).
-    expect(loop.find((step) => step.id === 'analytics')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/measure the return on each one/) });
+    expect(steps.find((step) => step.id === 'results')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/measure the return on each one/) });
   });
 
   it('keeps each claim to what the board does: no price, term or trial length, and no claim about demand', () => {
-    const featureWords = [...Object.values(featuresIntro), ...Object.values(tiers), ...[firstRead, ...loop].flatMap((step) => [step.title, step.text, step.free ?? '', step.subscription ?? ''])].join('\n');
+    const featureWords = [...Object.values(featuresIntro), ...Object.values(tiers), ...steps.flatMap((step) => [step.title, step.text, step.free ?? '', step.subscription ?? ''])].join('\n');
     expect(featuresIntro.title).toBe('The growth team your app doesn’t have yet.');
     expect(featureWords).toMatch(/up to five/);
     expect(featureWords).toMatch(/only a reply confirms interest/);

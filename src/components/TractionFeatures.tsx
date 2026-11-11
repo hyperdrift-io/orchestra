@@ -1,7 +1,7 @@
-import { featuresIntro, firstRead, loop, tiers, type LoopStep } from '@/data/traction-features';
+import { after, dayOne, featuresIntro, tiers, type Step } from '@/data/traction-features';
 
-/** One part of the loop at its own address, with where the free start stops and what the subscription adds. */
-function Step({ step, mark }: { step: LoopStep; mark: string }) {
+/** One step at its own address, with where the free start stops and what the subscription adds. */
+function StepItem({ step, mark }: { step: Step; mark: string }) {
   return <li id={step.id}>
     <span aria-hidden="true">{mark}</span>
     <h3>{step.title}</h3>
@@ -11,7 +11,9 @@ function Step({ step, mark }: { step: LoopStep; mark: string }) {
   </li>;
 }
 
-/** What Traction does, under the engine at work: the header holds on the left while the loop reads on the right. */
+const mark = (at: number) => String(at + 1).padStart(2, '0');
+
+/** How Traction works, in the film's order: day one, then every week after. The header holds on the left while the steps read on the right. */
 export function TractionFeatures() {
   return <section id="features" data-journey="features" aria-labelledby="traction-features-title">
     <header>
@@ -22,13 +24,15 @@ export function TractionFeatures() {
     </header>
     <div data-features="">
       <div>
-        <p id="traction-features-start">{featuresIntro.start}</p>
-        <ul role="list" aria-labelledby="traction-features-start"><Step step={firstRead} mark="○" /></ul>
+        <p id="traction-features-day-one">{featuresIntro.dayOne}</p>
+        <ol role="list" aria-labelledby="traction-features-day-one">
+          {dayOne.map((step, at) => <StepItem key={step.id} step={step} mark={mark(at)} />)}
+        </ol>
       </div>
       <div>
-        <p id="traction-features-loop">{featuresIntro.loop}</p>
-        <ol role="list" aria-labelledby="traction-features-loop">
-          {loop.map((step, at) => <Step key={step.id} step={step} mark={String(at + 1).padStart(2, '0')} />)}
+        <p id="traction-features-after">{featuresIntro.after}</p>
+        <ol role="list" start={dayOne.length + 1} aria-labelledby="traction-features-after">
+          {after.map((step, at) => <StepItem key={step.id} step={step} mark={mark(dayOne.length + at)} />)}
         </ol>
         <p data-again=""><span aria-hidden="true">↻</span> {featuresIntro.again}</p>
       </div>

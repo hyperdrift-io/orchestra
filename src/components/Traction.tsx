@@ -1,12 +1,12 @@
-import { TractionWalkthrough } from '@/components/TractionWalkthrough';
+import { TractionTour } from '@/components/TractionTour';
 import { TractionDoor } from '@/components/TractionDoor';
 import { TractionJourney } from '@/components/TractionJourney';
-import { boardHref, continuedUseHref, freeBoard, partnershipHref, waysOn } from '@/data/traction-offer';
-import { featuresIntro, firstRead, howItWorks, howItWorksHref, loop } from '@/data/traction-features';
+import { boardHref, continuedUseHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
+import { featuresIntro, howItWorks, howItWorksHref, steps } from '@/data/traction-features';
 
 /**
- * The start page has one job: start. The promise beside the engine at work, cycling through the loop's steps; the
- * steps by name, each a link to its words on the page that explains them; how it continues and one door at the end. A
+ * The start page has one purpose: start. The promise, then the film of Traction at work, full width; the film's steps by
+ * name, each a link to its words on the page that explains them; how it continues and one door at the end. A
  * visitor reads the proposal before the ask (founder, 7 November 2026). The masthead carries the same door for a reader who has
  * already decided. A founder coming back from a free board has used it already, so their door stays beside their question.
  */
@@ -30,7 +30,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       </>}
     </header>
     <section id="value" data-journey="value" aria-label="Traction at work">
-      <TractionWalkthrough from={from} />
+      <TractionTour door={trialApp ? { href: enquiry, label: howItWorks.discuss } : { href: startHref(), label: 'Trial Traction →' }} />
     </section>
     <section id="loop" data-journey="features" aria-labelledby="traction-loop-title">
       <header>
@@ -39,8 +39,8 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
         <p data-line="">{featuresIntro.line}</p>
       </header>
       <div>
-        <ol role="list">{[firstRead, ...loop].map((step, at) => <li key={step.id}>
-          <span aria-hidden="true">{at ? String(at).padStart(2, '0') : '○'}</span><a href={`${howItWorksHref}${from}#${step.id}`}>{step.title}</a>
+        <ol role="list">{steps.map((step, at) => <li key={step.id}>
+          <span aria-hidden="true">{String(at + 1).padStart(2, '0')}</span><a href={`${howItWorksHref}${from}#${step.id}`}>{step.title}</a>
         </li>)}</ol>
         <p><a href={`${howItWorksHref}${from}`}>{howItWorks.all}</a></p>
       </div>

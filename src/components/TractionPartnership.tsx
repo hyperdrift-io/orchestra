@@ -43,7 +43,6 @@ export function TractionPartnership({ trialApp }: { trialApp?: string } = {}) {
     <section id="why" data-journey="why" aria-labelledby="traction-why-title">
       <header><h2 id="traction-why-title">{tractionWhyTitle}</h2></header>
       <p>Worthwhile products deserve a chance to reach the people they were made for. Keeping Traction small lets us stay close to that work, learn with each founder and improve the product together.</p>
-      <p><LinkPreview href="/about">See who’s behind Orchestra →</LinkPreview></p>
       <details><summary>Our purpose, in full</summary><TractionWhy /></details>
     </section>
     {/* The one door, after the proposal: a visitor reads how we work before being asked anything. */}

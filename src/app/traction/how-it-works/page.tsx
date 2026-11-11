@@ -8,7 +8,7 @@ import { howItWorks } from '@/data/traction-features';
 import '../offering.css';
 
 const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
-const title = 'How Traction works: from your first read to your next move';
+const title = 'How Traction works: day one, then every week after';
 const description = howItWorks.lead;
 
 export const metadata: Metadata = {

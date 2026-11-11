@@ -88,18 +88,64 @@
   #traction[data-product] h1 { margin-block: .9rem; }
   #traction[data-product] > header > [data-lead] { line-height: 1.5; }
 }
-/* The engine at work: four areas, one clip at a time. Tabs in the home page's underline grammar; the clip is the page's one picture. */
-#traction [data-traction-walkthrough] > [role='group'] { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .4rem; margin: 0 0 1rem; }
-#traction [data-traction-walkthrough] button { min-height: 44px; padding: .55rem .2rem; border: 0; border-bottom: 1px solid var(--line-soft); background: none; color: var(--cream-3); font: .8rem/1.3 var(--font-body); cursor: pointer; transition: color .2s ease, border-color .2s ease; }
-#traction [data-traction-walkthrough] button:hover { color: var(--cream); border-bottom-color: var(--cream-3); }
-#traction [data-traction-walkthrough] button[aria-pressed='true'] { color: var(--gold-light); border-bottom: 2px solid var(--gold); }
-#traction [data-traction-walkthrough] button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
-#traction [data-in-action] { margin: 0; }
-#traction [data-in-action] video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #02050a; border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); border-radius: 4px; box-shadow: 0 28px 70px rgb(0 0 0 / .55), 0 0 0 6px color-mix(in srgb, var(--gold) 5%, transparent); }
-#traction [data-in-action] figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: 1rem; letter-spacing: 0; }
-#traction [data-in-action] figcaption > span { font: 500 clamp(1.2rem, 1.8vw, 1.55rem)/1.3 var(--font-display); color: var(--cream); }
-#traction [data-in-action] figcaption > small { flex: none; font: .62rem/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
-@media (max-width: 420px) { #traction [data-traction-walkthrough] button { font-size: .74rem; } }
+/* Traction at work: one film of the real app, full width under the promise. Orchestra's grammar around the picture;
+   inside it, Traction's own screen. The chapters run under it like a timeline, each filling as it plays. */
+#traction [data-traction-tour] { --p: 0; display: grid; gap: .8rem; }
+#traction [data-tour-window] {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #02050a; border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); border-radius: 12px;
+  box-shadow: 0 28px 70px rgb(0 0 0 / .55), 0 0 0 6px color-mix(in srgb, var(--gold) 5%, transparent);
+}
+#traction [data-tour-window] video { display: block; width: 100%; height: 100%; object-fit: cover; background: #02050a; cursor: pointer; }
+#traction [data-traction-tour][data-ended] [data-tour-window] video { cursor: default; }
+/* The door on the film's last frame, laid over the one the film draws; under the picture on a narrow screen. */
+#traction [data-tour-stage] { position: relative; }
+#traction [data-tour-door] {
+  position: absolute; z-index: 1; transform: translate(-50%, -50%); min-width: 13.5rem; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0 1.3rem; border-radius: 999px; background: var(--gold); color: var(--ink); font: 500 clamp(.9rem, 1.4vw, 1.05rem)/1.2 var(--font-body); text-decoration: none; white-space: nowrap;
+  box-shadow: 0 14px 40px rgb(227 168 87 / .25); animation: tour-land .45s ease both;
+}
+#traction[data-offering] > #value [data-tour-door] { color: var(--ink); }
+#traction [data-tour-door]:hover { background: var(--gold-light); }
+#traction [data-tour-door]:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+#traction [data-tour-bar] { display: flex; align-items: flex-start; gap: .8rem; }
+#traction [data-chapters] { flex: 1; min-width: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: .3rem; }
+#traction [data-chapters] button { position: relative; min-height: 40px; padding: .55rem 0 .45rem; border: 0; border-top: 1px solid var(--line-soft); background: none; color: var(--cream-3); font: .8rem/1.2 var(--font-body); text-align: left; cursor: pointer; transition: color .2s ease; }
+#traction [data-chapters] button::after { content: ''; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; }
+#traction [data-chapters] button:hover { color: var(--cream); }
+#traction [data-chapters] button[data-done] { color: var(--cream-2); }
+#traction [data-chapters] button[data-done]::after { transform: scaleX(1); background: color-mix(in srgb, var(--gold) 45%, transparent); }
+#traction [data-chapters] button[aria-pressed='true'] { color: var(--gold-light); }
+#traction [data-chapters] button[aria-pressed='true']::after { transform: scaleX(var(--p)); }
+#traction [data-chapters] button:focus-visible, #traction [data-tour-toggle]:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+#traction [data-tour-toggle] { flex: none; display: grid; place-items: center; width: 40px; height: 40px; margin-top: .2rem; padding: 0; border: 1px solid var(--line-soft); border-radius: 50%; background: none; color: var(--cream); cursor: pointer; transition: border-color .2s ease; }
+#traction [data-tour-toggle]:hover { border-color: var(--gold); }
+#traction [data-tour-toggle] svg { display: block; fill: currentColor; }
+
+/* Under the picture: where the footage comes from. The film carries its own words; a narrow screen reads them here, and a
+   screen reader always does. */
+#traction [data-tour-caption] { display: grid; gap: .35rem; }
+#traction [data-tour-caption] h3 { margin: 0; font: 500 clamp(1.3rem, 2vw, 1.65rem)/1.2 var(--font-display); color: var(--cream); }
+#traction [data-tour-caption] p { margin: 0; max-width: 54ch; font: .95rem/1.6 var(--font-body); color: var(--cream-2); }
+#traction [data-tour-caption] dl { margin: .2rem 0 0; display: grid; gap: .5rem; font: .85rem/1.5 var(--font-body); color: var(--cream-2); }
+#traction [data-tour-caption] dt { font: .62rem/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+#traction [data-tour-caption] dd { margin: 0; }
+#traction [data-tour-caption] small { font: .6rem/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+@media (max-width: 760px) {
+  #traction [data-tour-door] { position: static; transform: none; display: flex; width: 100% !important; height: auto !important; margin-top: .8rem; font-size: .95rem; }
+}
+@media (min-width: 761px) {
+  #traction [data-tour-caption] :is(h3, p, dl) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
+
+@keyframes tour-land { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 620px) {
+  #traction [data-chapters] { grid-auto-columns: auto; gap: .55rem; }
+  #traction [data-chapters] button { font-size: .74rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #traction [data-traction-tour] *, #traction [data-traction-tour] *::before, #traction [data-traction-tour] *::after { animation: none !important; transition: none !important; }
+}
 /* How it continues: the free day one, then two ways on side by side. No button here; the door follows. */
 #traction[data-offering] #continue > header > p:last-child { max-width: 62ch; margin: .6rem 0 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction[data-offering] #continue > ul { list-style: none; max-width: none; margin: 1.6rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
@@ -163,15 +209,7 @@
 [data-traction-pages] a:hover { color: var(--cream); }
 [data-traction-pages] a[aria-current='page'] { color: var(--gold-light); border-bottom-color: var(--gold); }
 [data-traction-pages] a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
-/* The walkthrough cycles the loop's seven steps: a numeral over each name, a link to the step's own words, a pause. */
-#traction [data-traction-walkthrough] button > span { display: block; font: .6rem/1.6 var(--font-mono); letter-spacing: .1em; color: var(--gold); }
-#traction [data-in-action] img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: #02050a; border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); border-radius: 4px; }
-#traction [data-to-record] { display: grid; place-items: center; aspect-ratio: 16 / 9; padding: 2rem; border: 1px dashed var(--line-firm); border-radius: 4px; }
-#traction [data-to-record] > p { max-width: 22ch; margin: 0; font: italic 500 clamp(1.3rem, 2.2vw, 1.8rem)/1.3 var(--font-display); color: var(--cream-3); text-align: center; }
-#traction [data-walkthrough-more] { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: .5rem 0 0; }
-#traction [data-walkthrough-more] > a { display: inline-flex; align-items: center; min-height: 44px; font: .88rem/1.4 var(--font-body); color: var(--gold-light); }
-#traction [data-traction-walkthrough] [data-walkthrough-more] > button { min-height: 44px; padding: 0 .2rem; border: 0; background: none; font: .62rem/1.4 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
-/* The loop by name on the start page: seven links, each to its own words. */
+/* The steps by name on the start page: six links, each to its own words. */
 #traction[data-product] > #loop > div { grid-column: 2; }
 #traction #loop ol { list-style: none; margin: 0; padding: 0; }
 #traction #loop li { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); column-gap: .5rem; align-items: baseline; margin: 0; border-top: 1px solid var(--line-hair); }
@@ -185,6 +223,16 @@
 #traction[data-product][data-how] h1 { max-width: 18ch; }
 #traction[data-product][data-how] > header > [data-lead] { max-width: 58ch; }
 @media (max-width: 700px) {
-  #traction [data-traction-walkthrough] > [role='group'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   #traction[data-product] > #loop > div { grid-column: 1; margin-top: 1.4rem; }
+}
+/* The start page: the promise across the top in two columns, then the film at full width (decision of 6 November). */
+#traction[data-product]:not([data-how]) > header { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: clamp(2rem, 5vw, 5.5rem); align-items: end; }
+#traction[data-product]:not([data-how]) > header > p:first-child { grid-column: 1 / -1; }
+#traction[data-product]:not([data-how]) > header > h1 { grid-column: 1; margin-bottom: 0; }
+#traction[data-product]:not([data-how]) > header > :is([data-lead], [data-start]) { grid-column: 2; max-width: 46ch; }
+#traction[data-product] > #value { grid-column: 1 / -1; grid-row: auto; margin: clamp(1.8rem, 3.5vw, 2.8rem) 0 0; }
+@media (max-width: 860px) {
+  #traction[data-product]:not([data-how]) > header { grid-template-columns: minmax(0, 1fr); }
+  #traction[data-product]:not([data-how]) > header > :is(h1, [data-lead], [data-start]) { grid-column: 1; }
+  #traction[data-product]:not([data-how]) > header > h1 { margin-bottom: 1.2rem; }
 }
