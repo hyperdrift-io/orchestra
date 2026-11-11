@@ -1,56 +1,51 @@
-import { LinkPreview } from '@/components/LinkPreview';
 import { TractionWhy, tractionWhyTitle } from '@/components/TractionWhy';
 import { TractionJourney } from '@/components/TractionJourney';
 
-/** How we work with a founder: the question prospects ask first, answered in full, with one door at the end. */
+/** How we work with a founder, said once: what we do together, what we ask, why, how it starts, then one door.
+ * Traction gives an app its growth team; the Partnership adds ours beside it, on the same board. */
 export function TractionPartnership({ trialApp }: { trialApp?: string } = {}) {
   return <article id="traction" data-offering="" data-partnership="" data-trial-app={trialApp}>
     <TractionJourney />
     <header>
       <p>The Traction Partnership</p>
       <h1>How we work <em>with you.</em></h1>
-      <p data-lead="">We do the customer work with you, move by move, from the first conversation to paying customers, on your Traction board. Here is what that looks like, how it starts and what we ask.</p>
+      <p data-lead="">Traction gives your app a growth team. The Partnership adds ours: people who work in strategy, customer relationships and AI engineering, beside you on your board.</p>
     </header>
-    <div data-founder-note>
-      <p>We work with a few founders at a time, because a person does the work with each one.</p>
-      <p>We’ll agree the next useful move for your app and put it into action together. You know your product. We’ll help you find the people who need it and learn from what happens when they use it.</p>
-      <p>Your feedback will shape Traction as we go. <a href="#why">Why we’re doing this</a></p>
-      <div id="joining" data-joining>
-        <h2>How it starts</h2>
-        <ol>
-          <li><strong>Introduce your app.</strong> We read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.</li>
-          <li><strong>A conversation.</strong> We choose one customer opportunity and agree how to judge the result. Scope, costs, ownership and terms are agreed before work starts; the conversation itself commits you to nothing.</li>
-          <li><strong>Then</strong> one move at a time, on your board. You decide; we do the work with you.</li>
-        </ol>
-        <h2>What we ask</h2>
-        <ul>
-          <li>You own your customers.</li>
-          <li>You act within the week.</li>
-          <li>You tell us what doesn’t work.</li>
-          <li>You help another founder when it fits.</li>
-        </ul>
-      </div>
-    </div>
     <section id="value" data-journey="value" aria-labelledby="traction-work-title">
-      <header><h2 id="traction-work-title">What we work on with you.</h2></header>
-      <p>Direction, customers, first use and lasting value: the four areas your Traction board holds. AI prepares research, drafts and recommendations; we agree the work together and you decide.</p>
+      <header><h2 id="traction-work-title">What we do together.</h2></header>
+      <ul>
+        <li><strong>Choose the move.</strong> One customer opportunity at a time, picked from the evidence on your board. We agree how to judge it and who does what before we start.</li>
+        <li><strong>Do the work.</strong> Research, outreach and customer conversations, done with you. Engineering when a move needs your product to change.</li>
+        <li><strong>Measure it.</strong> Every move and its result sit on the same board, so the outcome is yours to inspect.</li>
+      </ul>
+      <p>AI prepares the research, the drafts and the recommendations. People agree the work with you, and you decide.</p>
     </section>
     <section id="partnership" data-journey="partnership" aria-labelledby="traction-partnership-title">
-      <header><h2 id="traction-partnership-title">What you bring, and what you get.</h2></header>
-      <p>Bring a working product and a sign that people value it: paying customers, people returning, repeat work, or another credible signal of demand. You bring product knowledge, customer feedback and the decisions.</p>
-      <p>We bring strategy, customer relationships and AI engineering, and we measure every move on the same board, so the result is yours to inspect. Already on a free board? It carries over as it is.</p>
+      <header><h2 id="traction-partnership-title">What we ask.</h2></header>
+      <ul>
+        <li>A working product, and a sign that people value it: paying customers, people coming back, repeat work.</li>
+        <li>You own your customers.</li>
+        <li>You act within the week.</li>
+        <li>You tell us what doesn’t work.</li>
+        <li>You help another founder when it fits.</li>
+      </ul>
     </section>
     <section id="why" data-journey="why" aria-labelledby="traction-why-title">
       <header><h2 id="traction-why-title">{tractionWhyTitle}</h2></header>
-      <p>Worthwhile products deserve a chance to reach the people they were made for. Keeping Traction small lets us stay close to that work, learn with each founder and improve the product together.</p>
-      <details><summary>Our purpose, in full</summary><TractionWhy /></details>
+      <TractionWhy />
+    </section>
+    <section id="joining" data-journey="joining" aria-labelledby="traction-joining-title">
+      <header><h2 id="traction-joining-title">How it starts.</h2></header>
+      <ol>
+        <li><span><strong>Your board, free.</strong> Your website review is ready the day you sign up. A board you already have carries over as it is.</span></li>
+        <li><span><strong>A conversation.</strong> Scope, costs, ownership and terms are agreed before any work starts, and the conversation commits you to nothing.</span></li>
+      </ol>
     </section>
     {/* The one door, after the proposal: a visitor reads how we work before being asked anything. */}
     <footer id="contact" data-journey="contact" aria-labelledby="traction-contact-title">
       <h2 id="traction-contact-title">{trialApp ? 'Build on your first move.' : 'Introduce your app.'}</h2>
-      <p>{trialApp ? 'Tell us what the first move showed and where you want help. We’ll agree which customers to approach and how we can help.' : 'Send us the link, who it’s for and what you want next. We’ll read it the way a new customer meets it and come back with one strength, one constraint and the next customer move.'}</p>
+      <p>{trialApp ? 'Tell us what the first move showed and where you want help. We’ll agree which customers to approach and how we can help.' : 'Send us the link, who it’s for and what you want next. We’ll reply within one working day to arrange the conversation.'}</p>
       <a href="#enquire" data-enquiry="" data-situation="partnership" data-introduce={trialApp ? undefined : ''} data-primary="">{trialApp ? 'Discuss working together →' : 'Introduce your app →'}</a>
-      <p data-samples=""><a href="/traction">What Traction is →</a></p>
     </footer>
   </article>;
 }

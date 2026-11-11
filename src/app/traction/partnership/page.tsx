@@ -8,7 +8,7 @@ import '../offering.css';
 
 const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
 const title = 'How we work with you — The Traction Partnership';
-const description = 'How working with Orchestra works: we do the customer work with you, move by move, from the first conversation to paying customers, measured on your Traction board. What you bring, how it starts and what we ask.';
+const description = 'The Traction Partnership: our people work beside you on your Traction board, in strategy, customer relationships and AI engineering. What we do together, what we ask and how it starts.';
 
 export const metadata: Metadata = {
   title,
