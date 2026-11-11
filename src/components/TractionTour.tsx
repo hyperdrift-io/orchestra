@@ -122,7 +122,7 @@ export function TractionTour({ door }: { door: { href: string; label: string } }
           <source src={tour.src} type="video/mp4" />
         </video>
       </div>
-      {doorOpen && <a data-tour-door="" href={door.href} onClick={() => trackEvent('tour_door', { href: door.href })}
+      {doorOpen && <a data-tour-door="" data-placement="tour_door" href={door.href} onClick={() => trackEvent('tour_door', { href: door.href })}
         style={{ left: `${(tour.door.left + tour.door.width / 2) * 100}%`, top: `${(tour.door.top + tour.door.height / 2) * 100}%`, width: `${tour.door.width * 100}%`, height: `${tour.door.height * 100}%` }}>{door.label}</a>}
     </div>
     <div data-tour-bar="">

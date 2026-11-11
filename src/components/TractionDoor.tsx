@@ -8,7 +8,7 @@ export function TractionDoor({ trialApp, enquiry }: { trialApp?: string; enquiry
     {enquiry && <a href={enquiry} data-primary="">{howItWorks.discuss}</a>}
     <p><a href={boardHref(trialApp)}>{howItWorks.back}</a></p>
   </footer>;
-  return <footer id="your-board" data-start="" data-journey="contact" aria-labelledby="traction-door-title">
+  return <footer id="your-board" data-start="" data-placement="page_door" data-journey="contact" aria-labelledby="traction-door-title">
     <h2 id="traction-door-title">{howItWorks.door}</h2>
     <TractionStartLink href={startHref()}>Trial Traction →</TractionStartLink>
     <p>{howItWorks.doorNote}</p>

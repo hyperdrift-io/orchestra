@@ -8,7 +8,7 @@ Offer, audience and register: `MISSION.md`. History: `docs/RELEASES.md`, `docs/d
 
 Promoted: Orchestra is no longer a POC. The canonical host is `orchestra.hyperdrift.io`. `ai.hyperdrift.io` stays as a permanent 301 that keeps path and query (nginx alias in `infra/group_vars/apps.yml`), so every link ever sent still works. Code, canonicals, sitemap, `llms.txt`, feeds and share cards name the new host. Every page carries Organization and WebSite JSON-LD naming Orchestra AI, with Hyperdrift as the parent organisation.
 
-Analytics: PostHog project 206943 (EU). Filter on `app=orchestra` and both hostnames when reading across the 9 October 2026 move. No session replay, form autocapture, contact text or person profiles. Capture runs only on the production host, so previews send nothing.
+Analytics: PostHog project 206943 (EU). Filter on `app=orchestra` and both hostnames when reading across the 9 October 2026 move. No session replay, form autocapture, contact text or person profiles. Capture runs only on the production host, so previews send nothing. The script makes none of its own start-up requests (`advanced_disable_flags` in `src/lib/analytics-clean.ts`): its flags request carries the page's full address, which on a personal invitation holds the token, and `before_send` never sees it. So no feature flag, survey or remote setting works here; whatever needs one later must first keep that address out another way. Sign-up door clicks are `cta_clicked` with `destination = start_free`; `placement` says which door (`invitation_door`, `page_door`, `tour_door`, set with `data-placement`), and other counted links keep `header`, `footer` or `body`.
 
 ## The site now
 
