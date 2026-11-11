@@ -242,5 +242,4 @@
 #traction[data-how] [data-features] li > h2 { grid-column: 2; margin: 0; max-width: none; font: 500 clamp(1.2rem, 1.8vw, 1.45rem)/1.25 var(--font-display); color: var(--cream); }
 #traction [data-features] li > span { grid-row: 1 / span 3; }
 #traction [data-features] li > [data-step-name] { grid-column: 2; margin: 0 0 .2rem; max-width: none; font: .62rem/1.9 var(--font-mono); letter-spacing: .13em; text-transform: uppercase; color: var(--cream-3); }
-#traction [data-features] > div > [data-gain] { margin: 0 0 .9rem; max-width: 46ch; font: italic 500 1.1rem/1.45 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--cream); }
 @media (max-width: 860px) { #traction[data-how] [data-features] { grid-template-columns: minmax(0, 1fr); } }

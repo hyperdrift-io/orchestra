@@ -169,7 +169,7 @@ describe('how Traction continues', () => {
     expect(tiers).toEqual({ free: 'Free to start', subscription: 'With the subscription' });
     // Analytics is there to show what each initiative returned (founder, 10 November 2026). The board marks each one on
     // the line and computes no return, and it runs on Traction's own board only, so the step says both.
-    expect(steps.find((step) => step.id === 'results')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/what each one returned/), subscription: expect.stringMatching(/Running today on Traction’s own board\.$/) });
+    expect(steps.find((step) => step.id === 'results')).toMatchObject({ title: 'Analytics matches your numbers to your initiatives.', text: expect.stringMatching(/judge what each one returned/), subscription: expect.stringMatching(/Running today on Traction’s own board\.$/) });
     // A subscribed board reads its market when its founder asks, once a day.
     expect(marks('subscription').market).toBe('A fresh read each day you ask for one.');
   });

@@ -21,7 +21,6 @@ export function TractionFeatures() {
     <div data-features="">
       <div>
         <p id="traction-features-day-one">{featuresIntro.dayOne}</p>
-        <p data-gain="">{featuresIntro.dayOneGain}</p>
         <ol role="list" aria-labelledby="traction-features-day-one">
           {dayOne.map((step, at) => <StepItem key={step.id} step={step} mark={mark(at)} />)}
         </ol>

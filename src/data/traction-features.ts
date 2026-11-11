@@ -66,8 +66,8 @@ export const after: Step[] = [
     id: 'results',
     name: 'Results',
     title: 'Analytics matches your numbers to your initiatives.',
-    text: 'Visitors, trials and paying customers on one line, with each initiative marked on it, so you see what each one returned and put your effort where it pays.',
-    subscription: 'Analytics connected to your own app. Running today on Traction’s own board.',
+    text: 'Visitors, trials and paying customers on one line, with each initiative marked on it, so you can judge what each one returned and put your effort where it pays.',
+    subscription: 'Analytics on your own app, connected with you. Running today on Traction’s own board.',
   },
 ];
 
@@ -78,8 +78,6 @@ export const featuresIntro = {
   title: 'A whole team, dedicated to the growth of your app.',
   line: 'It’s an AI team, and you lead it.',
   dayOne: 'Day one',
-  /** What a founder holds at the end of day one. */
-  dayOneGain: 'On day one you have a review of your website, up to five people to write to and a first email for each.',
   after: 'After day one',
   again: 'Then the next move, from what you learned.',
 };
@@ -88,7 +86,7 @@ export const featuresIntro = {
 export const howItWorks = {
   eyebrow: 'Traction · How it works',
   title: 'How Traction works',
-  lead: 'A whole team comes together around your app. On day one it reviews your website, finds people your app could help and writes a first email to each. Then it plans with you, reads your market and proposes the next move. It’s an AI team and you lead it: nothing is sent without you.',
+  lead: 'A whole team comes together around your app. On day one it reviews your website, finds people your app could help and writes a first email to each. Then it plans with you, reads your market and proposes the next move. It’s an AI team and you lead it: nothing is sent without you. We run Traction’s own launch on it.',
   all: 'How Traction works, step by step →',
   door: 'Make Traction work for you, now.',
   doorNote: 'Your first search is free. Sign up with your name, website and email, then a passkey. Your board opens in a minute.',
