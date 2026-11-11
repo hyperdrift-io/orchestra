@@ -19,7 +19,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       <p>Traction · A growth team for your app</p>
       {trialApp ? <>
         <h1>Where would you like <em>help next?</em></h1>
-        <p data-lead="">Tell us what you tried on your board and where you’d like a hand. We’ll work out the scope and price with you.</p>
+        <p data-lead="">Tell us what you tried on your board and where you’d like a hand. We’ll give you a quote for the level of integration you want.</p>
         <div id="your-board" data-start="" data-journey="contact">
           <a href={enquiry} data-primary="">Discuss the next step →</a>
           <p><a href={boardHref(trialApp)}>Back to your board →</a></p>

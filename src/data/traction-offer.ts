@@ -31,7 +31,7 @@ export const freeBoard = {
 };
 export interface WayOn { slug: 'subscription' | 'partnership'; name: string; text: string; link?: { href: string; label: string } }
 export const waysOn: WayOn[] = [
-  { slug: 'subscription', name: 'Keep using Traction', text: 'Your mailbox connected, a market read a day and Analytics on your own app. We’re happy to give you a quote for the level of integration you want.', link: { href: continuedUseHref, label: 'Ask for a quote →' } },
+  { slug: 'subscription', name: 'Keep using Traction', text: 'Your mailbox connected, so replies land on each person’s record. A market read each day you ask. Analytics on your own app. We’re happy to give you a quote for the level of integration you want.', link: { href: continuedUseHref, label: 'Ask for a quote →' } },
   { slug: 'partnership', name: 'Work with us', text: 'We can do the customer research and outreach with you. We’ll start with the people you want to reach and agree who does what.', link: { href: partnershipHref, label: 'Explore the partnership →' } },
 ];
 

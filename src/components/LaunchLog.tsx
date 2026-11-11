@@ -11,7 +11,7 @@ export async function LaunchLog() {
       <p>Traction · launched {launched}</p>
       <h1 id="launch-title">We’re launching it on itself. <em>From zero, in public.</em></h1>
       <p>An AI operator runs the launch on Traction’s own board. A human signs every word. The first three founders with a live app get on the board with us; the count is real and moves only on evidence. This page changes when something moves: a gate, a founder, a miss worth owning.</p>
-      <p><a href="/traction">What Traction is →</a> · <a href="/traction#first-read">Ask for a first read →</a></p>
+      <p><a href="/traction">What Traction is →</a> · <a href="/traction#first-read">Ask for a first impression →</a></p>
     </header>
     <figure>
       <video controls playsInline preload="none" poster="/traction/poster.jpg" aria-label="The Traction trailer, 46 seconds, with captions">

@@ -11,7 +11,7 @@ describe('how Traction continues', () => {
   it('offers continued use and the Partnership through available conversation routes', () => {
     expect(waysOn.map((way) => way.slug)).toEqual(['subscription', 'partnership']);
     // The subscription says what it includes and how its price is set; it never leaves the scope to be agreed (founder, 11 November 2026).
-    expect(waysOn[0].text).toMatch(/mailbox connected, a market read a day and Analytics on your own app/);
+    expect(waysOn[0].text).toMatch(/mailbox connected.*market read each day you ask.*Analytics on your own app/);
     expect(waysOn[0].text).toMatch(/quote for the level of integration you want/);
     expect(waysOn[0].text).not.toMatch(/agree what’s included|price on your board/);
     expect(waysOn[0].link?.href).toBe('/traction?situation=subscription#enquire');
