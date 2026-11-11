@@ -59,7 +59,7 @@ export const after: Step[] = [
     name: 'Market',
     title: 'It keeps up with your market.',
     text: 'Intel reads about fifteen sources for the market your pages named and brings you what moved, with the outlets that carry it. Your Growth Manager then proposes up to three moves, each answering one story. Take one and it becomes an initiative on your board.',
-    free: 'One read of your market.',
+    free: 'Three reads of your market, one a day at most.',
     subscription: 'A fresh read each day you ask for one.',
   },
   {

@@ -163,14 +163,20 @@ describe('how Traction continues', () => {
     for (const file of ['../app/traction/page.tsx', '../app/traction/how-it-works/page.tsx', '../app/traction/partnership/page.tsx']) expect(await source(file), file).toMatch(/<TractionPages current="/);
   });
 
+  it('says how long the trial lasts, what it gives and what stays when it ends', () => {
+    expect(freeBoard.text).toMatch(/lasts seven days/);
+    expect(freeBoard.text).toMatch(/three reads of your market/);
+    expect(freeBoard.text).toMatch(/everything on your board stays there to read/);
+  });
+
   it('marks where the free start stops and what the subscription adds, as the board does', () => {
     const marks = (tier: 'free' | 'subscription') => Object.fromEntries(steps.flatMap((step) => step[tier] ? [[step.id, step[tier]]] : []));
-    // The free start: a review of the website, one search, drafts the founder sends from their own mail, one market read.
+    // The free start: a review of the website, one search, drafts the founder sends from their own mail, three market reads.
     expect(marks('free')).toEqual({
       read: 'A review of your website, the day you sign up.',
       customers: 'Your first search: up to five prospects or investors.',
       email: 'Each draft opens in your own mail app, or copies in one click. You send it yourself.',
-      market: 'One read of your market.',
+      market: 'Three reads of your market, one a day at most.',
     });
     // A free board sends nothing: the line never says a draft is ready to send, or that Traction sends it.
     expect(marks('free').email).not.toMatch(/ready to send|sends? (?:it|them) for you/i);
