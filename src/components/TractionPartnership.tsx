@@ -1,8 +1,11 @@
 import { TractionWhy, tractionWhyTitle } from '@/components/TractionWhy';
 import { TractionJourney } from '@/components/TractionJourney';
+import { TractionStartLink } from '@/components/TractionStartLink';
+import { startHref } from '@/data/traction-offer';
 
 /** How we work with a founder, said once: what we do together, what we ask, why, how it starts, then one door.
- * Traction gives an app its growth team; the Partnership adds ours beside it, on the same board. */
+ * Traction gives an app its growth team; the Partnership adds ours beside it, on the same board. The page's one button
+ * is the introduction; a founder with no board yet finds the free start as a line of text in step one (founder, 11 November 2026). */
 export function TractionPartnership({ trialApp }: { trialApp?: string } = {}) {
   return <article id="traction" data-offering="" data-partnership="" data-trial-app={trialApp}>
     <TractionJourney />
@@ -37,7 +40,7 @@ export function TractionPartnership({ trialApp }: { trialApp?: string } = {}) {
     <section id="joining" data-journey="joining" aria-labelledby="traction-joining-title">
       <header><h2 id="traction-joining-title">How it starts.</h2></header>
       <ol>
-        <li><span><strong>Your board, free.</strong> Your website review is ready the day you sign up. A board you already have carries over as it is.</span></li>
+        <li><span><strong>Your board, free.</strong> Your website review is ready the day you sign up. A board you already have carries over as it is.{!trialApp && <> <TractionStartLink href={startHref()} plain>Trial Traction →</TractionStartLink></>}</span></li>
         <li><span><strong>A conversation.</strong> Scope, costs, ownership and terms are agreed before any work starts, and the conversation commits you to nothing.</span></li>
       </ol>
     </section>

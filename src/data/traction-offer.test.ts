@@ -43,6 +43,8 @@ describe('how Traction continues', () => {
     expect(product).not.toContain('Both ways on are there, with the price');
     const partnership = await source('../components/TractionPartnership.tsx');
     expect(partnership.match(/data-primary=""/g)).toHaveLength(1);
+    // A founder with no board yet finds the free start in step one, as text in the door's own words, never a second button.
+    expect(partnership).toMatch(/<TractionStartLink href=\{startHref\(\)\} plain>Trial Traction →<\/TractionStartLink>/);
     expect(partnership).toMatch(/data-introduce/);
   });
 
