@@ -27,7 +27,9 @@ export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
  * The first read and search are free. Continued use and partnership start with a conversation.
  */
 export const freeBoard = {
-  text: 'The trial lasts seven days: a review of your website, your first search with its email drafts and three reads of your market. When it ends, everything on your board stays there to read.',
+  text: 'The trial lasts seven days and gives you a review of your website, your first search with its email drafts and three reads of your market.',
+  /** What the end of the trial leaves. The page and llms.txt say it; the film's closing card keeps the first sentence. */
+  after: 'When it ends, everything on your board stays there to read.',
 };
 export interface WayOn { slug: 'subscription' | 'partnership'; name: string; text: string; link?: { href: string; label: string } }
 export const waysOn: WayOn[] = [

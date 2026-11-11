@@ -5,7 +5,7 @@ import { after, dayOne, featuresIntro, howItWorks, howItWorksHref, steps, tiers,
 import { tour } from './traction-tour';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
-const words = [freeBoard.text, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
+const words = [freeBoard.text, freeBoard.after, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
 
 describe('how Traction continues', () => {
   it('offers continued use and the Partnership through available conversation routes', () => {
@@ -164,9 +164,11 @@ describe('how Traction continues', () => {
   });
 
   it('says how long the trial lasts, what it gives and what stays when it ends', () => {
-    expect(freeBoard.text).toMatch(/lasts seven days/);
-    expect(freeBoard.text).toMatch(/three reads of your market/);
-    expect(freeBoard.text).toMatch(/everything on your board stays there to read/);
+    expect(freeBoard.text).toMatch(/lasts seven days and gives you/);
+    expect(freeBoard.text).toMatch(/three reads of your market\.$/);
+    expect(freeBoard.after).toBe('When it ends, everything on your board stays there to read.');
+    // The film's closing card keeps the first sentence; the page and llms.txt say both.
+    expect(tour.end.line).toBe(freeBoard.text);
   });
 
   it('marks where the free start stops and what the subscription adds, as the board does', () => {
