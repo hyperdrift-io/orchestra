@@ -47,6 +47,7 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
         <li>{url ? `Your board uses the review of ${product}’s website. You can open it while the review runs.` : `Your board starts with a fresh read of ${product}’s website.`}</li>
         <li>Choose a customer search. Traction shows you potential matches, why each might fit and a draft email. You decide who to contact.</li>
       </ol>
+      <p data-signed="">My invitation to you was drafted in Traction, the way your board will draft yours. <span>Yann</span></p>
       <p>Prefer to talk it through? Reply to Yann’s email.</p>
       <p><a href={continueHref}>How Traction continues after the trial →</a></p>
     </section>
