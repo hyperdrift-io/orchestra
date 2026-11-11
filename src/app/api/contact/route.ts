@@ -69,7 +69,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         name: name || 'Website enquiry',
         email,
-        message: context.length ? `${context.join('\n')}\n\n${message}` : message,
+        message: [context.join('\n'), message].filter(Boolean).join('\n\n'),
         source: 'orchestra_ai',
       }),
       signal: AbortSignal.timeout(10_000),

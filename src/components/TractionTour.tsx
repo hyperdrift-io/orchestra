@@ -8,7 +8,8 @@ import { tour } from '@/data/traction-tour';
  * Traction at work: one continuous film of the real app (`@/data/traction-tour`), an opening question, five narrated
  * chapters and the close. It plays muted once it scrolls into view and pauses when it leaves; a click on the picture or
  * the button pauses it, a chapter jumps to its start and fills as it plays. Its last frame carries the page's door,
- * handed in by the page in the page's own words; on a narrow screen the door sits under the picture instead. Reduced
+ * handed in by the page in the page's own words; on a narrow screen the door sits under the film and its words from
+ * the start, so a phone reaches it on the second screen. Reduced
  * motion: no autoplay; the poster waits for the visitor. Narrow screens get the 720p copy and read the film's narration,
  * line by line, under the picture, as screen readers do.
  */
@@ -122,8 +123,8 @@ export function TractionTour({ door }: { door: { href: string; label: string } }
           <source src={tour.src} type="video/mp4" />
         </video>
       </div>
-      {doorOpen && <a data-tour-door="" data-placement="tour_door" href={door.href} onClick={() => trackEvent('tour_door', { href: door.href })}
-        style={{ left: `${(tour.door.left + tour.door.width / 2) * 100}%`, top: `${(tour.door.top + tour.door.height / 2) * 100}%`, width: `${tour.door.width * 100}%`, height: `${tour.door.height * 100}%` }}>{door.label}</a>}
+      <a data-tour-door="" data-open={doorOpen || undefined} data-placement="tour_door" href={door.href} onClick={() => trackEvent('tour_door', { href: door.href })}
+        style={{ left: `${(tour.door.left + tour.door.width / 2) * 100}%`, top: `${(tour.door.top + tour.door.height / 2) * 100}%`, width: `${tour.door.width * 100}%`, height: `${tour.door.height * 100}%` }}>{door.label}</a>
     </div>
     <div data-tour-bar="">
       <div data-chapters="" role="group" aria-label={tour.labels.chapters}>

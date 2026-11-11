@@ -48,6 +48,7 @@
 #traction [data-features] li > p { margin: .45rem 0 0; max-width: 58ch; font: .95rem/1.65 var(--font-body); color: var(--cream-2); }
 /* The loop: the line under the title, each step at its own address, where the free start stops, and the turn back to 01. */
 #traction[data-product] > :is(#features, #loop) > header > [data-line] { margin: .7rem 0 0; font: 500 1.15rem/1.4 var(--font-display); color: var(--gold-light); }
+#traction[data-product] > #loop > header > [data-trial] { max-width: 44ch; margin: .9rem 0 0; font: .98rem/1.7 var(--font-body); color: var(--cream-2); }
 #traction :is(#features, [data-features] li) { scroll-margin-top: 6rem; }
 #traction [data-features] li > :is(h3, p) { grid-column: 2; }
 #traction [data-features] li > [data-tier] { margin: .7rem 0 0; padding-left: .8rem; border-left: 1px solid var(--gold-line); font-size: .88rem; line-height: 1.55; color: var(--cream); }
@@ -125,10 +126,15 @@
 #traction [data-tour-caption] dt { font: .62rem/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
 #traction [data-tour-caption] dd { margin: 0; }
 #traction [data-tour-caption] small { font: .6rem/1.5 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cream-3); }
+/* A narrow screen has no room for a door on the picture: it sits under the film and its words from the start. */
 @media (max-width: 760px) {
-  #traction [data-tour-door] { position: static; transform: none; display: flex; width: 100% !important; height: auto !important; margin-top: .8rem; font-size: .95rem; }
+  #traction [data-tour-stage] { display: contents; }
+  /* The film's words change length as it plays; the door under them keeps its place. */
+  #traction [data-tour-caption] { min-height: 10.5rem; align-content: start; }
+  #traction [data-tour-door] { order: 1; position: static; transform: none; display: flex; width: 100% !important; height: auto !important; margin-top: .4rem; font-size: .95rem; animation: none; }
 }
 @media (min-width: 761px) {
+  #traction [data-tour-door]:not([data-open]) { display: none; }
   #traction [data-tour-caption] :is(h3, p, dl) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 

@@ -30,6 +30,14 @@ describe('contactSchema', () => {
     expect(result.success).toBe(false);
   });
 
+  it('takes a quote request with no message, and still asks a conversation for one', () => {
+    const quote = contactSchema.safeParse({ name: 'Ada', email: 'ada@example.com', situation: 'Continued use of Traction' });
+    expect(quote.success && quote.data.message).toBe('');
+    expect(contactSchema.safeParse({ name: 'Ada', email: 'ada@example.com', situation: 'Continued use of Traction', message: 'Mailbox' }).success).toBe(true);
+    expect(contactSchema.safeParse({ name: 'Ada', email: 'ada@example.com', situation: 'The Traction Partnership' }).success).toBe(false);
+    expect(contactSchema.safeParse({ name: 'Ada', email: 'ada@example.com' }).success).toBe(false);
+  });
+
   it('treats company as optional', () => {
     const result = contactSchema.safeParse({
       name: 'Ada',

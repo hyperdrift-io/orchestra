@@ -59,6 +59,13 @@ describe('POST /api/contact', () => {
     expect(JSON.parse(await readFile(join(enquiryDir, file!), 'utf8'))).toMatchObject({ id, email: 'ada@analytical.engines', delivery: 'sent' });
   });
 
+  it('relays a quote request that carries no message', async () => {
+    const res = await callRoute({ name: 'Ada', email: 'ada@analytical.engines', situation: 'Continued use of Traction', traction_board: 'analytical' });
+    expect(res.status).toBe(200);
+    const { id } = await res.json();
+    expect(relayed().message).toBe(`Enquiry ID: ${id}\nWhere you are: Continued use of Traction\nTraction board (visitor supplied): analytical`);
+  });
+
   it('joins a received enquiry to its stored ID and source without leaking the browser session', async () => {
     const session = crypto.randomUUID();
     const res = await callRoute({ name: 'Ada', email: 'ada@analytical.engines', message: 'A reasonable length message.', session, campaign: { utm_source: 'editorial', utm_campaign: 'integration', validation_run: 'preview-check' } });

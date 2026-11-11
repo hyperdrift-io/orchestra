@@ -37,6 +37,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
         <p>{featuresIntro.label}</p>
         <h2 id="traction-loop-title">{featuresIntro.title}</h2>
         <p data-line="">{featuresIntro.line}</p>
+        <p data-trial="">{freeBoard.text} {freeBoard.after}</p>
       </header>
       <div>
         <ol role="list">{steps.map((step, at) => <li key={step.id}>
@@ -48,7 +49,6 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
       <header>
         <h2 id="traction-continue-title">After your first search</h2>
-        <p>{freeBoard.text} {freeBoard.after}</p>
         <a href={`${partnershipHref}#why`}>Why we’re building Traction →</a>
       </header>
       <ul>{waysOn.map(way => <li key={way.slug} id={way.slug} data-journey={way.slug === 'partnership' ? 'partnership' : undefined}>

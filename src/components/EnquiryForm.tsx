@@ -28,12 +28,13 @@ function BoardContext() {
   return board ? <label><span>Traction board <small>Optional</small></span><input name="traction_board" defaultValue={board} maxLength={64} /><small>This links the conversation to the board you came from. It does not grant access.</small></label> : null;
 }
 
-/** `introduce` is the Traction door: the same fields and delivery, with the open field asking for the app. */
-export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; contact?: ContactPrefill }) {
+/** `introduce` is the Traction door: the same fields and delivery, with the open field asking for the app.
+ *  `quote` is the subscription's door: the request is the ask, so the open field is optional. */
+export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, quote = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; quote?: boolean; contact?: ContactPrefill }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
   return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Contact us">
     <fieldset disabled={status === 'sending'} hidden={status === 'sent' || status === 'preview'}>
-      {firstRead || introduce || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
+      {firstRead || introduce || quote || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : quote ? 'subscription' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
       <Suspense fallback={null}><BoardContext /></Suspense>
       <div data-contact-details="">
         <label><span>Name</span><input name="name" defaultValue={contact?.name} required maxLength={120} autoComplete="name" /></label>
@@ -46,9 +47,11 @@ export function EnquiryForm({ articleSlug, situation, firstRead = false, introdu
         ? <label><span>Your app’s website</span><input name="message" type="url" required minLength={10} maxLength={5000} placeholder="https://your-app.com" /></label>
         : introduce
           ? <label><span>Your app <small>The link, who it’s for and what you want next</small></span><textarea name="message" required minLength={10} maxLength={5000} rows={5} /></label>
-          : <label><span>Message</span><textarea name="message" required minLength={10} maxLength={5000} rows={4} /></label>}
+          : quote
+            ? <label><span>What you’d like Traction to do <small>Optional</small></span><textarea name="message" maxLength={5000} rows={4} /></label>
+            : <label><span>Message</span><textarea name="message" required minLength={10} maxLength={5000} rows={4} /></label>}
       <div data-contact-actions="">
-        <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first impression →' : introduce ? 'Introduce my app →' : 'Send message →'}</button>
+        <button type="submit">{status === 'sending' ? 'Sending…' : firstRead ? 'Ask for a first impression →' : introduce ? 'Introduce my app →' : quote ? 'Ask for a quote →' : 'Send message →'}</button>
         <p>We’ll use these details to reply to your enquiry.</p>
       </div>
     </fieldset>
