@@ -20,9 +20,10 @@ export const brandShareImage = {
 };
 
 export function articleShareImage(article: ArticleSummary) {
-  const version = digest(identity + JSON.stringify([article.title, article.shareLine, article.order, article.steps, article.example, article.exampleStatus]));
+  const artwork = article.heroImage ? article.topic + JSON.stringify(article.heroImage) + readFileSync(join(process.cwd(), 'public', article.heroImage.src)).toString('base64') : '';
+  const version = digest(identity + JSON.stringify([article.title, article.shareLine, article.order, article.steps, article.example, article.exampleStatus]) + artwork);
   const url = `https://orchestra.hyperdrift.io/articles/${article.slug}/opengraph-image?v=${version}`;
-  return { url, secureUrl: url, width: 1200, height: 630, type: 'image/png', alt: `${article.title}. ${article.shareLine}` };
+  return { url, secureUrl: url, width: 1200, height: 630, type: 'image/png', alt: `${article.title}. ${article.heroImage?.alt ?? article.shareLine}` };
 }
 
 export const websiteOpenGraph = {

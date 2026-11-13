@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og';
 import { visibleArticles } from '@/lib/article-catalogue';
 import { meshLogoImage } from '@/lib/share-brand';
+import { readFile } from 'node:fs/promises';
+import { extname, join } from 'node:path';
 
 export const alt = 'The AI-native organisation — an idea from Hyperdrift';
 export const size = { width: 1200, height: 630 };
@@ -12,6 +14,21 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const entry = visibleArticles().find((item) => item.slug === slug);
   if (!entry) return new Response('Not found', { status: 404 });
   const logo = await meshLogoImage(true);
+  if (entry.heroImage) {
+    const artwork = await readFile(join(process.cwd(), 'public', entry.heroImage.src));
+    const type = ({ '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg' } as Record<string, string>)[extname(entry.heroImage.src)];
+    if (!type) throw new Error(`Unsupported article hero format: ${entry.heroImage.src}`);
+    return new ImageResponse(
+      <div style={{ display: 'flex', width: '100%', height: '100%', position: 'relative', background: '#181510', color: '#f6eee1' }}>
+        <img src={`data:${type};base64,${artwork.toString('base64')}`} alt="" width={1200} height={630} style={{ position: 'absolute', inset: 0, objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(24,21,16,0.25) 0%, rgba(24,21,16,0) 45%, rgba(24,21,16,0.94) 100%)' }} />
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%', padding: '34px 46px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, fontSize: 19, letterSpacing: 2, color: '#f6eee1' }}><img src={logo} width={38} height={38} alt="" /><span>ORCHESTRA / HYPERDRIFT</span></div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}><div style={{ display: 'flex', fontSize: 57, lineHeight: 1.06, maxWidth: 1000 }}>{entry.title}</div><span style={{ fontSize: 18, color: '#dcc5a8' }}>{entry.topic}</span></div>
+        </div>
+      </div>, size,
+    );
+  }
   return new ImageResponse(
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', padding: 55, background: '#181510', color: '#f6eee1' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 18, color: '#e3a857', letterSpacing: 2 }}><div style={{ display: 'flex', alignItems: 'center', gap: 16 }}><img src={logo} width={48} height={48} alt="" /><span>{entry.oss ? `OPEN SOURCE · ${entry.oss.project.toUpperCase()}` : 'THE AI-NATIVE ORGANISATION'}</span></div><span>{String(entry.order).padStart(2, '0')} / HYPERDRIFT</span></div>
