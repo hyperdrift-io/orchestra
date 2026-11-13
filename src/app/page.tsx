@@ -4,6 +4,7 @@ import { System } from '@/components/System';
 import { Enquiry } from '@/components/Enquiry';
 import { Footer } from '@/components/Footer';
 import { Services } from '@/components/Services';
+import { TractionFeature } from '@/components/TractionFeature';
 
 export const metadata: Metadata = { alternates: { canonical: '/' }, openGraph: homepageOpenGraph };
 
@@ -12,6 +13,7 @@ export default function Page() {
   return (
     <>
       <System />
+      <TractionFeature />
       <Services />
       <Enquiry />
       <Footer />

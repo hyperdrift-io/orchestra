@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { websiteOpenGraph } from '@/lib/share-metadata';
+import { websiteOpenGraph, tractionShareImage, tractionIcons } from '@/lib/share-metadata';
 import { TractionHowItWorks } from '@/components/TractionHowItWorks';
 import { TractionPages } from '@/components/TractionPages';
 import { Footer } from '@/components/Footer';
@@ -7,11 +7,12 @@ import { trialAppFrom } from '@/lib/campaign';
 import { howItWorks } from '@/data/traction-features';
 import '../offering.css';
 
-const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
+const shareImage = tractionShareImage;
 const title = 'How Traction works: an AI growth team for your app';
 const description = howItWorks.lead;
 
 export const metadata: Metadata = {
+  icons: tractionIcons,
   title,
   description,
   alternates: { canonical: '/traction/how-it-works' },

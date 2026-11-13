@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { websiteOpenGraph } from '@/lib/share-metadata';
+import { websiteOpenGraph, tractionShareImage, tractionIcons } from '@/lib/share-metadata';
 import { LaunchLog } from '@/components/LaunchLog';
 import { Footer } from '@/components/Footer';
 
-const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
+const shareImage = tractionShareImage;
 
 export const metadata: Metadata = {
+  icons: tractionIcons,
   title: 'Traction launches itself, from zero, in public',
   description: 'The launch log of a growth board launching on its own board: the trailer, the count of founders on the board, the evidence gates and every day on the record, misses included.',
   alternates: { canonical: '/articles/traction-from-zero' },

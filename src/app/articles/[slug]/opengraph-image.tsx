@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { visibleArticles } from '@/lib/article-catalogue';
+import { isTractionArticle } from '@/lib/traction-brand';
 import { meshLogoImage } from '@/lib/share-brand';
 import { readFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
@@ -13,7 +14,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const slug = (await params).slug;
   const entry = visibleArticles().find((item) => item.slug === slug);
   if (!entry) return new Response('Not found', { status: 404 });
-  const logo = await meshLogoImage(true);
+  const traction = isTractionArticle(slug);
+  const logo = traction ? `data:image/png;base64,${(await readFile(join(process.cwd(), 'public/brand/traction/lockup-share.png'))).toString('base64')}` : await meshLogoImage(true);
   if (entry.heroImage) {
     const artwork = await readFile(join(process.cwd(), 'public', entry.heroImage.src));
     const type = ({ '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg' } as Record<string, string>)[extname(entry.heroImage.src)];
@@ -23,7 +25,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         <img src={`data:${type};base64,${artwork.toString('base64')}`} alt="" width={1200} height={630} style={{ position: 'absolute', inset: 0, objectFit: 'cover' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(24,21,16,0.25) 0%, rgba(24,21,16,0) 45%, rgba(24,21,16,0.94) 100%)' }} />
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%', padding: '34px 46px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14, fontSize: 19, letterSpacing: 2, color: '#f6eee1' }}><img src={logo} width={38} height={38} alt="" /><span>ORCHESTRA / HYPERDRIFT</span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, fontSize: 19, letterSpacing: 2, color: '#f6eee1' }}><img src={logo} width={traction ? 260 : 38} height={traction ? 44 : 38} alt="" /><span>ORCHESTRA / HYPERDRIFT</span></div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}><div style={{ display: 'flex', fontSize: 57, lineHeight: 1.06, maxWidth: 1000 }}>{entry.title}</div><span style={{ fontSize: 18, color: '#dcc5a8' }}>{entry.topic}</span></div>
         </div>
       </div>, size,
@@ -31,7 +33,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   }
   return new ImageResponse(
     <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', padding: 55, background: '#181510', color: '#f6eee1' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 18, color: '#e3a857', letterSpacing: 2 }}><div style={{ display: 'flex', alignItems: 'center', gap: 16 }}><img src={logo} width={48} height={48} alt="" /><span>{entry.oss ? `OPEN SOURCE · ${entry.oss.project.toUpperCase()}` : 'THE AI-NATIVE ORGANISATION'}</span></div><span>{String(entry.order).padStart(2, '0')} / HYPERDRIFT</span></div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 18, color: '#e3a857', letterSpacing: 2 }}><div style={{ display: 'flex', alignItems: 'center', gap: 16 }}><img src={logo} width={traction ? 260 : 48} height={traction ? 44 : 48} alt="" /><span>{traction ? 'ORCHESTRA / HYPERDRIFT' : entry.oss ? `OPEN SOURCE · ${entry.oss.project.toUpperCase()}` : 'THE AI-NATIVE ORGANISATION'}</span></div><span>{String(entry.order).padStart(2, '0')} / HYPERDRIFT</span></div>
       <div style={{ display: 'flex', fontSize: 55, lineHeight: 1.08, marginTop: 40, maxWidth: 1000 }}>{entry.shareLine}</div>
       <div style={{ display: 'flex', gap: 24, marginTop: 'auto', marginBottom: 36 }}>{entry.steps.map((step, index) => <div key={step} style={{ display: 'flex', flexDirection: 'column', width: 250, borderTop: '1px solid #a4753e', paddingTop: 18, fontSize: 23 }}><span style={{ fontSize: 15, color: '#e3a857', marginBottom: 12 }}>0{index + 1}</span><span>{step}</span></div>)}</div>
       <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #584633', paddingTop: 18, fontSize: 16, color: '#dcc5a8' }}><span>{entry.example} · {entry.exampleStatus}</span><span>orchestra.hyperdrift.io/articles</span></div>

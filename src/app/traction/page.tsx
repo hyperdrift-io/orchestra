@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
-import { websiteOpenGraph } from '@/lib/share-metadata';
+import { websiteOpenGraph, tractionShareImage, tractionIcons } from '@/lib/share-metadata';
 import { Traction } from '@/components/Traction';
 import { TractionPages } from '@/components/TractionPages';
 import { Footer } from '@/components/Footer';
 import { trialAppFrom } from '@/lib/campaign';
 import './offering.css';
 
-const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
+const shareImage = tractionShareImage;
 
 const title = 'Traction — Let’s find your next users';
 const description = 'Trial Traction on your app: it reviews your website, researches potential customers and drafts your first email. You choose who to contact.';
 
 export const metadata: Metadata = {
+  icons: tractionIcons,
   title, description,
   alternates: { canonical: '/traction' },
   openGraph: { ...websiteOpenGraph, title, description, url: 'https://orchestra.hyperdrift.io/traction', images: [shareImage] },
