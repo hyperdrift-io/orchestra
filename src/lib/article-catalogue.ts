@@ -37,6 +37,8 @@ export interface ArticleSummary {
   media: { kind: 'image' | 'youtube' | 'video'; src?: string; id?: string; alt?: string; caption: string; poster?: string; transcript?: { intro: string; turns: { speaker: string; text: string }[] } } | null;
   image: { src: string; alt: string; caption: string; width: number; height: number };
   headerImage?: { src: string; alt: string; width: number; height: number };
+  /** Subject-specific editorial artwork used by the opening and Open Graph card. */
+  heroImage?: { src: string; alt: string; width: number; height: number };
   visualization?: ArticleVisual;
   /** Further visuals, placed in the body where `{{visual:<kind>}}` stands on its own line. */
   figures?: ArticleVisual[];

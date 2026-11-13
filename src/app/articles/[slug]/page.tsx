@@ -51,11 +51,12 @@ export default async function ArticlePage({ params }: Props) {
       <nav aria-label="Breadcrumb"><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? 'The future of UI and accessibility' : 'The AI-native organisation'}</a><span>/ {String(article.seriesOrder ?? article.order).padStart(2, '0')}</span></nav>
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}
       <p>{article.oss && <OssFlag oss={article.oss} />}{article.topic} / {article.example}</p>
-      <div data-article-heading=""><h1>{article.title}</h1>
-        <div data-article-orb=""><MeshArtwork key={article.slug} kind="article" fallbackSvg={meshFallbackSvg('article', article.slug)} slug={article.slug} fallback={headerImage.src} layout="title" animated /></div>
+      <div data-article-heading="" data-has-hero={article.heroImage ? 'true' : undefined}><h1>{article.title}</h1>
+        {!article.heroImage && <div data-article-orb=""><MeshArtwork key={article.slug} kind="article" fallbackSvg={meshFallbackSvg('article', article.slug)} slug={article.slug} fallback={headerImage.src} layout="title" animated /></div>}
       </div>
       <p>{article.excerpt}</p>
       <div data-article-meta=""><span>By Yann VR · {article.minutes} min read{article.publishedAt && <> · Published <time dateTime={article.publishedAt}>{articleDateLabel(article.publishedAt)}</time></>}{article.updatedAt && article.updatedAt !== article.publishedAt && <> · Updated <time dateTime={article.updatedAt}>{articleDateLabel(article.updatedAt)}</time></>}</span><a href="#article-share">Share article ↓</a></div>
+      {article.heroImage && <figure data-article-hero=""><img src={article.heroImage.src} alt={article.heroImage.alt} width={article.heroImage.width} height={article.heroImage.height} fetchPriority="high" /></figure>}
       <ArticleTags tags={tagsOf(article)} />
       {article.reviewedAt && <small data-reviewed="">Evidence reviewed {articleDateLabel(article.reviewedAt)} · <a href="/articles/ui-accessibility#method">Method and maintenance</a></small>}
     </header>
