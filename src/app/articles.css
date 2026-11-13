@@ -523,3 +523,6 @@ form[aria-label='Contact us'] [role='alert'] { color: #ffb3a1; }
 #article > header > p:first-of-type > [data-oss-flag] { display: flex; flex-wrap: wrap; width: fit-content; max-width: 100%; margin: 0 0 .65rem; }
 [data-oss-flag="compact"] { gap: .3rem; margin-right: .6rem; padding: .12rem .45rem .12rem .35rem; font-size: .62rem; }
 [data-oss-flag="compact"] svg { width: 12px; height: 12px; }
+
+#article [data-article-brand] { display: inline-flex; align-items: center; min-height: 44px; margin: .5rem 0 1rem; }
+#article [data-article-brand] img { display: block; width: 236px; max-width: 100%; height: auto; }

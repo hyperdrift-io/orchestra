@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
-import { websiteOpenGraph } from '@/lib/share-metadata';
+import { websiteOpenGraph, tractionShareImage, tractionIcons } from '@/lib/share-metadata';
 import { TractionPartnership } from '@/components/TractionPartnership';
 import { TractionPages } from '@/components/TractionPages';
 import { Footer } from '@/components/Footer';
 import { trialAppFrom } from '@/lib/campaign';
 import '../offering.css';
 
-const shareImage = { url: '/traction/og.jpg', width: 1200, height: 630, alt: 'The Traction title card from the trailer' };
+const shareImage = tractionShareImage;
 const title = 'How we work with you — The Traction Partnership';
 const description = 'The Traction Partnership: our people work beside you on your Traction board, in strategy, customer relationships and AI engineering. What we do together, what we ask and how it starts.';
 
 export const metadata: Metadata = {
+  icons: tractionIcons,
   title,
   description,
   alternates: { canonical: '/traction/partnership' },

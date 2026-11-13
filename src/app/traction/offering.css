@@ -211,6 +211,9 @@
 [data-traction-pages] a:hover { color: var(--cream); }
 [data-traction-pages] a[aria-current='page'] { color: var(--gold-light); border-bottom-color: var(--gold); }
 [data-traction-pages] a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+[data-traction-brand] { padding: 1.25rem var(--edge) .25rem; }
+[data-traction-brand] a { display: inline-flex; align-items: center; min-height: 44px; }
+[data-traction-brand] img { display: block; width: 236px; max-width: 100%; height: auto; }
 /* The steps by name on the start page: six links, each to its own words. */
 #traction[data-product] > #loop > div { grid-column: 2; }
 #traction #loop ol { list-style: none; margin: 0; padding: 0; }

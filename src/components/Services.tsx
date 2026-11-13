@@ -5,7 +5,7 @@ export function Services() {
   return <section id="services" aria-labelledby="services-title">
     <header><p>Two ways to work with Orchestra</p><h2 id="services-title">Grow your app. Give it a home.</h2></header>
     <ul>{services.map((service) => <li key={service.slug} id={`service-${service.slug}`} data-service={service.slug}>
-      <p>{service.eyebrow}</p>
+      <p>{service.slug === 'traction' ? <img src="/brand/traction/lockup-dark.svg" alt="Traction" width="180" height="31" /> : service.eyebrow}</p>
       <h3>{service.name}</h3>
       <p>{service.text}</p>
       <p>{service.links.map((link) => <a key={link.href} href={link.href} data-primary={link.primary ? '' : undefined} data-situation={link.situation} data-introduce={link.introduce ? '' : undefined}>{link.label} →</a>)}</p>

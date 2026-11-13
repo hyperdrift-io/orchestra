@@ -8,10 +8,11 @@ export async function LaunchLog() {
   const { count, gates, record, live, readAt } = await tractionBoard();
   return <section id="launch" aria-labelledby="launch-title">
     <header>
+      <img src="/brand/traction/lockup-dark.svg" alt="Traction" width="236" height="40" />
       <p>Traction · launched {launched}</p>
       <h1 id="launch-title">We’re launching it on itself. <em>From zero, in public.</em></h1>
-      <p>An AI operator runs the launch on Traction’s own board. A human signs every word. The first three founders with a live app get on the board with us; the count is real and moves only on evidence. This page changes when something moves: a gate, a founder, a miss worth owning.</p>
-      <p><a href="/traction">What Traction is →</a> · <a href="/traction#first-read">Ask for a first impression →</a></p>
+      <p>Traction’s launch began on its own board in October 2026, with a target of three founders. The trailers and record below show that launch.</p>
+      <p><a href="/traction">Explore Traction →</a></p>
     </header>
     <figure>
       <video controls playsInline preload="none" poster="/traction/poster.jpg" aria-label="The Traction trailer, 46 seconds, with captions">
@@ -23,13 +24,14 @@ export async function LaunchLog() {
     </figure>
     <div>
       <div>
-        <h2><span className="numeral">{count.founders}/{count.of}</span> founders on the board</h2>
+        {!live && <p>Historical snapshot · {updated}</p>}
+        <h2><span className="numeral">{count.founders}/{count.of}</span> founders on the launch board</h2>
         <ol>{gates.map((gate) => <li key={gate.label} aria-current={gate.current ? 'step' : undefined} data-passed={gate.passed || undefined}><span>{gate.label}</span>{gate.text}{gate.progress && <small>{gate.progress}</small>}</li>)}</ol>
         <p>Each gate opens on evidence, never on a date.</p>
-        <a href="/traction#first-read">Be one of the three founders →</a>
+        <a href="/traction">Explore Traction →</a>
       </div>
       <table>
-        <caption>Every day goes on the record. Misses too.<small>{live && readAt ? <>Read from Traction’s own board · {stamp(readAt)}</> : <>Updated {updated} · copied by hand from Traction’s own board</>}</small></caption>
+        <caption>The launch record<small>{live && readAt ? <>Read from Traction’s own board · {stamp(readAt)}</> : <>Historical snapshot · {updated} · copied by hand from Traction’s own board</>}</small></caption>
         <tbody>{record.map((row) => <tr key={`${row.date}-${row.entry}`}><td>{row.date}</td><td>{row.entry}</td><td data-status={row.status}>{row.status}</td></tr>)}</tbody>
       </table>
     </div>

@@ -16,9 +16,10 @@ import { ArticleTracker } from '@/components/ArticleTracker';
 import { ArticleShare } from '@/components/ArticleShare';
 import { ArticleTags } from '@/components/ArticleTags';
 import { ReadNudge } from '@/components/ReadNudge';
-import { articleShareImage } from '@/lib/share-metadata';
+import { articleShareImage, tractionIcons } from '@/lib/share-metadata';
 import { tagsOf } from '@/lib/article-tags';
 import { OssFlag } from '@/components/OssFlag';
+import { isTractionArticle } from '@/lib/traction-brand';
 
 type Props = { params: Promise<{ slug: string }> };
 export const generateStaticParams = () => visibleArticles().map(({ slug }) => ({ slug }));
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {};
   const image = articleShareImage(article);
   return {
+    ...(isTractionArticle(article.slug) ? { icons: tractionIcons } : {}),
     title: article.seoTitle ?? article.title, description: article.excerpt, alternates: { canonical: articleUrl(article.slug) },
     robots: article.publishedAt && Date.parse(article.publishedAt) <= Date.now() ? undefined : { index: false, follow: false },
     openGraph: { title: article.title, description: article.excerpt, type: 'article', url: articleUrl(article.slug), siteName: 'Orchestra AI by Hyperdrift', locale: 'en_GB', authors: ['Yann VR'], ...(article.publishedAt ? { publishedTime: article.publishedAt } : {}), ...(article.updatedAt ? { modifiedTime: article.updatedAt } : {}), images: [image] },
@@ -51,6 +53,7 @@ export default async function ArticlePage({ params }: Props) {
       <nav aria-label="Breadcrumb"><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? 'The future of UI and accessibility' : 'The AI-native organisation'}</a><span>/ {String(article.seriesOrder ?? article.order).padStart(2, '0')}</span></nav>
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}
       <p>{article.oss && <OssFlag oss={article.oss} />}{article.topic} / {article.example}</p>
+      {isTractionArticle(article.slug) && <a data-article-brand="" href="/traction" aria-label="Explore Traction"><img src="/brand/traction/lockup-dark.svg" alt="Traction" width="236" height="40" /></a>}
       <div data-article-heading="" data-has-hero={article.heroImage ? 'true' : undefined}><h1>{article.title}</h1>
         {!article.heroImage && <div data-article-orb=""><MeshArtwork key={article.slug} kind="article" fallbackSvg={meshFallbackSvg('article', article.slug)} slug={article.slug} fallback={headerImage.src} layout="title" animated /></div>}
       </div>
