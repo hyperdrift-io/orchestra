@@ -4,12 +4,13 @@ import { Traction } from '@/components/Traction';
 import { TractionPages } from '@/components/TractionPages';
 import { Footer } from '@/components/Footer';
 import { trialAppFrom } from '@/lib/campaign';
+import { overview } from '@/data/traction-overview';
 import './offering.css';
 
 const shareImage = tractionShareImage;
 
-const title = 'Traction — Let’s find your next users';
-const description = 'Trial Traction on your app: it reviews your website, researches potential customers and drafts your first email. You choose who to contact.';
+const title = 'Traction — A growth team for your app';
+const description = overview.description;
 
 export const metadata: Metadata = {
   icons: tractionIcons,

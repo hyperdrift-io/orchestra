@@ -2,21 +2,23 @@ import { TractionTour } from '@/components/TractionTour';
 import { TractionDoor } from '@/components/TractionDoor';
 import { TractionJourney } from '@/components/TractionJourney';
 import { boardHref, continuedUseHref, freeBoard, partnershipHref, startHref, waysOn } from '@/data/traction-offer';
-import { featuresIntro, howItWorks, howItWorksHref, steps } from '@/data/traction-features';
+import { featuresIntro, howItWorks, howItWorksHref } from '@/data/traction-features';
+import { overview } from '@/data/traction-overview';
+import { TractionStartLink } from '@/components/TractionStartLink';
 
 /**
- * The start page has one purpose: start. The promise, then the film of Traction at work, full width; the film's steps by
- * name, each a link to its words on the page that explains them; how it continues and one door at the end. A
- * visitor reads the proposal before the ask (founder, 7 November 2026). The masthead carries the same door for a reader who has
- * already decided. A founder coming back from a free board has used it already, so their door stays beside their question.
+ * The start page tells one story, the film's: the promise, the film full width under the title (founder, 6 November 2026),
+ * the team and what it does, outreach as one worked example, Orchestra OS for the demand that follows, how it continues
+ * and one door at the end. A founder coming back from a free board keeps the tour beside their question.
  */
 export function Traction({ trialApp }: { trialApp?: string } = {}) {
   const from = trialApp ? `?from=${encodeURIComponent(trialApp)}` : '';
   const enquiry = trialApp ? `/traction?from=${encodeURIComponent(trialApp)}&situation=subscription#enquire` : continuedUseHref;
+  const tourDoor = trialApp ? { href: enquiry, label: howItWorks.discuss } : { href: startHref(), label: 'Trial Traction →' };
   return <article id="traction" data-offering="" data-product="" data-trial-app={trialApp}>
     <TractionJourney />
     <header>
-      <p>Traction · A growth team for your app</p>
+      <p>{trialApp ? `Traction · ${overview.eyebrow}` : overview.eyebrow}</p>
       {trialApp ? <>
         <h1>Where would you like <em>help next?</em></h1>
         <p data-lead="">Tell us what you tried on your board and where you’d like a hand. We’ll give you a quote for the level of integration you want.</p>
@@ -25,29 +27,67 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
           <p><a href={boardHref(trialApp)}>Back to your board →</a></p>
         </div>
       </> : <>
-        <h1>Let’s find your <em>next users.</em></h1>
-        <p data-lead="">Traction reviews your website. Ask it to find potential customers and draft your first email. You choose who to contact.</p>
+        <h1>{overview.title}</h1>
+        <p data-lead="">{overview.description}</p>
       </>}
     </header>
-    <section id="value" data-journey="value" aria-label="Traction at work">
-      <TractionTour door={trialApp ? { href: enquiry, label: howItWorks.discuss } : { href: startHref(), label: 'Trial Traction →' }} />
+    <section id="value" data-journey="value" aria-label={overview.film.title}>
+      {trialApp ? <TractionTour door={tourDoor} /> : <>
+        <figure data-growth-film="">
+          <video aria-label={overview.film.title} controls playsInline preload="none"
+            width="1920" height="1080" poster="/traction/growth-film.jpg">
+            <source src="/traction/growth-film-720.mp4" type="video/mp4" media="(max-width: 760px)" />
+            <source src="/traction/growth-film.mp4" type="video/mp4" />
+            <track kind="captions" srcLang="en" label="English" src="/traction/growth-film.en.vtt" />
+          </video>
+          <figcaption>{overview.film.caption}</figcaption>
+        </figure>
+        <div data-film-actions="">
+          <div data-placement="tour_door"><TractionStartLink href={tourDoor.href}>{tourDoor.label}</TractionStartLink></div>
+          <details>
+            <summary>Read the film transcript</summary>
+            {overview.film.transcript.map(line => <p key={line}>{line}</p>)}
+          </details>
+        </div>
+      </>}
     </section>
     <section id="loop" data-journey="features" aria-labelledby="traction-loop-title">
       <header>
-        <p>{featuresIntro.label}</p>
         <h2 id="traction-loop-title">{featuresIntro.title}</h2>
         <p data-line="">{featuresIntro.line}</p>
       </header>
       <div>
-        <ol role="list">{steps.map((step, at) => <li key={step.id}>
-          <span aria-hidden="true">{String(at + 1).padStart(2, '0')}</span><a href={`${howItWorksHref}${from}#${step.id}`}>{step.title}</a>
-        </li>)}</ol>
+        <ul data-growth-capabilities="">
+          {overview.capabilities.map(item => <li key={item.href}>
+            <h3><a href={`${howItWorksHref}${from}#${item.href}`}>{item.title}</a></h3>
+            <p>{item.text}</p>
+          </li>)}
+        </ul>
         <p><a href={`${howItWorksHref}${from}`}>{howItWorks.all}</a></p>
       </div>
     </section>
+    {!trialApp && <section id="outreach" data-journey="outreach" aria-labelledby="outreach-title">
+      <header>
+        <p>One way to use Traction</p>
+        <h2 id="outreach-title">{overview.useCase.title}</h2>
+        <p>{overview.useCase.lead}</p>
+      </header>
+      <details>
+        <summary>{overview.useCase.action}</summary>
+        <TractionTour door={tourDoor} preload="none" />
+      </details>
+    </section>}
+    {!trialApp && <section id="os" data-journey="os" aria-labelledby="os-title">
+      <header>
+        <p>{overview.os.eyebrow}</p>
+        <h2 id="os-title">{overview.os.title}</h2>
+        <p>{overview.os.text}</p>
+        <a href="/os">{overview.os.link}</a>
+      </header>
+    </section>}
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
       <header>
-        <h2 id="traction-continue-title">After your first search</h2>
+        <h2 id="traction-continue-title">Start with your app</h2>
         <p>{freeBoard.text} {freeBoard.after}</p>
         <a href={`${partnershipHref}#why`}>Why we’re building Traction →</a>
       </header>

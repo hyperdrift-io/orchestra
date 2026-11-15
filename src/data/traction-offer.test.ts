@@ -79,14 +79,15 @@ describe('how Traction continues', () => {
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
-  it('gives the start page one job: the film of Traction at work, its steps by name, how it continues, then the one door', async () => {
+  it('tells the film’s story: the team, outreach as one example, Orchestra OS, then the trial offer', async () => {
     const product = await source('../components/Traction.tsx');
-    const order = ['<TractionTour ', 'id="loop"', 'id="continue"', '<TractionDoor />'].map((mark) => product.indexOf(mark));
+    const order = ['data-growth-film=', 'id="loop"', 'id="outreach"', 'id="os"', 'id="continue"', '<TractionDoor />'].map((mark) => product.indexOf(mark));
     expect(order.every((at) => at > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
-    // The steps' words live on their own page; the start page names the steps and links to each.
     expect(product).not.toMatch(/<TractionFeatures/);
-    expect(product).toMatch(/\$\{howItWorksHref\}\$\{from\}#\$\{step\.id\}/);
+    expect(product).toContain('${howItWorksHref}${from}#${item.href}');
+    expect(product.slice(order[2], order[3])).toMatch(/<details>[\s\S]*<TractionTour/);
+    expect(product).not.toMatch(/draft=direct|overview\.direct/);
     expect((await source('../components/TractionDoor.tsx')).match(/Trial Traction →/g)).toHaveLength(1);
   });
 
