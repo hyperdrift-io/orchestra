@@ -196,3 +196,16 @@ The new gallery includes an appeal review with each article’s useful next step
 
 
 Batch-three checks: all candidate images decoded; index captures at 1440 and 390px and phone article captures preserve the subject without horizontal overflow. The three approved batch-two assets returned their expected hero sources and versioned 1200 × 630 sharing images. All three batch-three invitations opened the existing enquiry dialog with the correct article selected; no form was submitted. Typecheck, production build, copy and whitespace checks passed. The local preview runtime was restarted after a stale development chunk caused transient failures; final route and browser checks passed after recovery.
+
+
+## Complete catalogue — 15 November 2026
+
+The founder approved batch three, then authorised all remaining covers without another batch pause. All 21 catalogue articles now use original subject-specific wordless artwork, with the same image in the compact hero, article index and unobscured share card. Five drafts remain unpublished. The separate Traction launch log retains its relevant recorded-film poster.
+
+The twelve remaining bodies received an independent editorial read: eleven pass unchanged; security maintenance has bounded corrections and an illustrative figure label. The lead read the corrected body and accepted the image/content fit. New copy corrections remain on main for review; the artwork-only release preserves installed bodies. See `remaining-editorial-review.md`.
+
+A security concept was rejected because its appliance silhouette suggested a coffee machine. The replacement uses recognisable servers. The reusable lesson is to judge subject recognition before accepting polished materials. All exact prompts, source adaptations, selected files and appeal assessments are in `approved-remaining.json`. Original generations and the gallery remain in the active preview checkout; the delivery JPEGs are in `public/articles/orchestra/`.
+
+Main typecheck and 82 tests pass; the isolated artwork release on the installed base passes typecheck and 70 tests. All 21 preview article routes, hero decodes, 1200 × 630 share exports and preselected enquiry contexts pass; no form was sent. The desktop and 390px indexes contain all 21 preview covers without horizontal overflow. Live deployment evidence follows separately.
+
+Review: http://127.0.0.1:3045/all-covers.html. Preview runtime and gallery remain owned by this work until review is complete; these are the only task runtimes retained.

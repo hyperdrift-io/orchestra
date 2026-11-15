@@ -31,7 +31,7 @@ body:has(#articles, #article) { background: radial-gradient(ellipse at 80% 0, #3
 #articles > ol { list-style: none; margin: 0; padding: 0; }
 #articles > ol > li { display: grid; grid-template-columns: minmax(0, 1fr) 5rem; gap: 2rem; align-items: start; padding: 3rem 0; border-bottom: 1px solid var(--line-hair); }
 #articles > ol > li[data-with-artwork] { grid-template-columns: clamp(10rem, 24vw, 16.875rem) minmax(0, 1fr) 5rem; }
-#articles [data-index-artwork] { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border: 1px solid var(--line-soft); }
+#articles [data-index-artwork] { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; border: 1px solid var(--line-soft); }
 @media (max-width: 700px) {
   #articles > ol > li[data-with-artwork] { grid-template-columns: minmax(0, 1fr); }
   #articles > ol > li { gap: 1rem; }

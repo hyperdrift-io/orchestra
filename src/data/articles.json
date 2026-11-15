@@ -111,7 +111,7 @@
       "caption": "Standup is a public project. Its historical example output is linked in the article."
     },
     "publishedAt": "2026-09-23T00:00:00Z",
-    "updatedAt": "2026-11-02T12:00:00Z",
+    "updatedAt": "2026-11-15T21:15:44Z",
     "image": {
       "src": "/articles/mesh/evidence-that-starts-work.svg",
       "alt": "Connected wireframe magnifier, signpost, target forms in Orchestra's mesh style.",
@@ -141,7 +141,14 @@
       "width": 1200,
       "height": 160
     },
-    "invite": "Bring the recurring question and the sources your team reads. We'll define what should come first and how to check it."
+    "invite": "Bring the recurring question and the sources your team reads. We'll define what should come first and how to check it.",
+    "heroImage": {
+      "src": "/articles/orchestra/brief-v1.jpg",
+      "alt": "One conversation request rises above routine activity, still linked to its supporting records.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true
   },
   {
     "slug": "lakebase-vs-document-databases",
@@ -172,7 +179,7 @@
     },
     "media": null,
     "publishedAt": "2026-09-24T20:10:00Z",
-    "updatedAt": "2026-11-15T20:58:00Z",
+    "updatedAt": "2026-11-15T21:15:44Z",
     "image": {
       "src": "/articles/mesh/lakebase-vs-document-databases.svg",
       "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
@@ -214,7 +221,14 @@
       "kind": "transaction",
       "download": "/articles/databricks/transaction-visual.png"
     },
-    "invite": "Bring your current stack and one operation whose records must stay consistent."
+    "invite": "Bring your current stack and one operation whose records must stay consistent.",
+    "heroImage": {
+      "src": "/articles/orchestra/databases-v1.jpg",
+      "alt": "Linked data tables stand beside a self-contained folder of case records.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true
   },
   {
     "slug": "langchain-databricks-appkit-sse",
@@ -339,7 +353,14 @@
     },
     "readNext": "agent-driven-ui-intelligence-and-action",
     "invite": "Bring one operating decision and the evidence it needs. We'll discuss what speech could simplify.",
-    "updatedAt": "2026-11-15T20:58:00Z"
+    "updatedAt": "2026-11-15T21:15:44Z",
+    "heroImage": {
+      "src": "/articles/orchestra/officer-v1.jpg",
+      "alt": "A microphone sends a command to one visible service, with a separate return signal carrying its result.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true
   },
   {
     "slug": "is-ui-holding-us-back",
@@ -396,7 +417,15 @@
           "url": "https://www.ece.uvic.ca/~aalbu/CENG%20412%202009/bewley83.pdf"
         }
       ]
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/ui-effort-v1.jpg",
+      "alt": "Application panels open to reveal the project folder behind the controls.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "web-accessibility-can-people-finish",
@@ -452,7 +481,15 @@
           "url": "https://www.w3.org/TR/WCAG22/#cc3"
         }
       ]
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/accessible-finish-v1.jpg",
+      "alt": "A calendar, editable appointment and retained ticket share keyboard and speaker connections.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "webmcp-actions-on-the-page",
@@ -632,7 +669,15 @@
           "url": "https://github.com/hyperdrift-io/bridge-voice"
         }
       ]
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/checked-voice-v1.jpg",
+      "alt": "A voice command reaches a service, whose result passes through two checks before returning.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "voice-through-mcp",
@@ -686,7 +731,14 @@
         }
       ]
     },
-    "updatedAt": "2026-11-02T12:00:00Z"
+    "updatedAt": "2026-11-15T21:15:44Z",
+    "heroImage": {
+      "src": "/articles/orchestra/voice-across-apps-v1.jpg",
+      "alt": "A spoken request connects two apps to a prepared draft beside a closed outbox.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true
   },
   {
     "slug": "future-ui-keep-your-place",
@@ -739,7 +791,15 @@
           "url": "https://www.w3.org/TR/naur/"
         }
       ]
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/keep-your-place-v1.jpg",
+      "alt": "One retained shortlist remains connected to a microphone, keyboard and speaker.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "production-led-security-maintenance",
@@ -825,7 +885,15 @@
         "reviewed": "13 October 2026"
       }
     ],
-    "invite": "Bring your deployment flow, who patches today and the evidence you use to call a repair done. We’ll work out which maintenance can run on its own and which decisions stay with your team."
+    "invite": "Bring your deployment flow, who patches today and the evidence you use to call a repair done. We’ll work out which maintenance can run on its own and which decisions stay with your team.",
+    "heroImage": {
+      "src": "/articles/orchestra/lasting-security-fix-v1.jpg",
+      "alt": "The same repaired component appears in a running server and its next assembly.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "app-operations-after-launch",
@@ -949,7 +1017,15 @@
       "alt": "Connected wireframe eye, wrench, book forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/intel-and-action-v1.jpg",
+      "alt": "An observation board shows work moving through a mechanism beside a manual approval control.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "dspy-programmes-you-can-improve",
@@ -1030,7 +1106,15 @@
       "alt": "Connected wireframe checklist, chart, decision forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/dspy-test-bench-v1.jpg",
+      "alt": "An adjustable programme compares outputs with reference examples, with one mismatch still visible.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "dspy-reasoning-continuity",
@@ -1094,7 +1178,15 @@
       "alt": "Connected wireframe conversation, book, signpost forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/resume-the-work-v1.jpg",
+      "alt": "An open case retains an unfinished structure and its sources beside a disconnected processor.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "clear-mermaid-diagrams-people-can-follow",
@@ -1162,7 +1254,15 @@
       "alt": "Connected wireframe eye, signpost, conversation forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/follow-the-diagram-v1.jpg",
+      "alt": "One selected route remains visible through a branching diagram.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "opentelemetry-genai-conversation-id",
@@ -1374,7 +1474,15 @@
       "alt": "Connected wireframe wrench, signpost, eye forms in Orchestra's mesh style.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/edit-the-architecture-v1.jpg",
+      "alt": "A connected service moves between nested transparent boundaries beside an exportable diagram.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
     "slug": "clear-mermaid-in-your-ai-assistant",
@@ -1503,10 +1611,12 @@
       "height": 160
     },
     "heroImage": {
-      "src": "/articles/traction-motivation/founder-bridge-v1.jpg",
-      "alt": "Conceptual illustration of a founder guiding an unfinished brass bridge across a gap, supported by an open framework.",
-      "width": 1672,
-      "height": 941
-    }
+      "src": "/articles/orchestra/founder-fair-chance-v1.jpg",
+      "alt": "An unfinished product sits in a supporting structure between building tools and customer conversations.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T21:15:44Z"
   }
 ]

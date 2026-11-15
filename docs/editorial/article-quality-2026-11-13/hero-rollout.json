@@ -1,6 +1,6 @@
 {
   "scope": "All 21 catalogue articles, including five drafts. /articles/ui-accessibility is a series index; /articles/traction-from-zero is a separate launch log with an existing trailer poster, retained for review.",
-  "review_url": "http://127.0.0.1:3045/batch-03.html",
+  "review_url": "http://127.0.0.1:3045/all-covers.html",
   "articles": [
     {
       "slug": "delegation-with-boundaries",
@@ -15,16 +15,16 @@
       "title": "AI daily briefs: turn activity into useful priorities",
       "published": true,
       "batch": 3,
-      "status": "awaiting founder feedback",
-      "hero": null
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/brief-v1.jpg"
     },
     {
       "slug": "lakebase-vs-document-databases",
       "title": "Lakebase vs MongoDB and Cosmos DB: which approach fits?",
       "published": true,
       "batch": 3,
-      "status": "awaiting founder feedback",
-      "hero": null
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/databases-v1.jpg"
     },
     {
       "slug": "langchain-databricks-appkit-sse",
@@ -39,24 +39,24 @@
       "title": "The dashboard that speaks first",
       "published": true,
       "batch": 3,
-      "status": "awaiting founder feedback",
-      "hero": null
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/officer-v1.jpg"
     },
     {
       "slug": "is-ui-holding-us-back",
       "title": "Is UI holding us back?",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 4,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/ui-effort-v1.jpg"
     },
     {
       "slug": "web-accessibility-can-people-finish",
       "title": "Web accessibility: can people finish the job?",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 4,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/accessible-finish-v1.jpg"
     },
     {
       "slug": "webmcp-actions-on-the-page",
@@ -70,33 +70,33 @@
       "slug": "hands-free-app-control",
       "title": "A spoken promise is not a completed action",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 4,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/checked-voice-v1.jpg"
     },
     {
       "slug": "voice-through-mcp",
       "title": "Say the job once. Keep control of the result.",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 5,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/voice-across-apps-v1.jpg"
     },
     {
       "slug": "future-ui-keep-your-place",
       "title": "Your work should survive a change of interface",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 5,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/keep-your-place-v1.jpg"
     },
     {
       "slug": "production-led-security-maintenance",
       "title": "Should a security fix wait for the next feature release?",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 5,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/lasting-security-fix-v1.jpg"
     },
     {
       "slug": "app-operations-after-launch",
@@ -110,33 +110,33 @@
       "slug": "agent-driven-ui-intelligence-and-action",
       "title": "Here’s the new deal. UI is for intel. Agents are for operating.",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 6,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/intel-and-action-v1.jpg"
     },
     {
       "slug": "dspy-programmes-you-can-improve",
       "title": "DSPy: build AI programmes you can improve",
       "published": false,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 6,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/dspy-test-bench-v1.jpg"
     },
     {
       "slug": "dspy-reasoning-continuity",
       "title": "Helping agents pick up where they left off",
       "published": false,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 6,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/resume-the-work-v1.jpg"
     },
     {
       "slug": "clear-mermaid-diagrams-people-can-follow",
       "title": "Clear Mermaid: diagrams people can follow",
       "published": false,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 7,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/follow-the-diagram-v1.jpg"
     },
     {
       "slug": "opentelemetry-genai-conversation-id",
@@ -150,9 +150,9 @@
       "slug": "clear-mermaid-in-action",
       "title": "Clear Mermaid in action",
       "published": false,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 7,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/edit-the-architecture-v1.jpg"
     },
     {
       "slug": "clear-mermaid-in-your-ai-assistant",
@@ -166,9 +166,10 @@
       "slug": "give-motivated-founders-a-fair-chance",
       "title": "Give motivated founders a fair chance",
       "published": true,
-      "batch": null,
-      "status": "pending",
-      "hero": null
+      "batch": 7,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/founder-fair-chance-v1.jpg"
     }
-  ]
+  ],
+  "approval": "Founder approved batch three, then authorised all remaining covers on 15 November 2026. Visual and editorial review remain required; no further batch approval pause."
 }

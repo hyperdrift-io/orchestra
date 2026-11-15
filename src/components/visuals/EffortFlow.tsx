@@ -22,7 +22,7 @@ const ROWS = 8;
 
 const flows: readonly Flow[] = [
   {
-    id: 'loop', mark: 'A', name: 'Through the dev loop', short: 'Dev loop', lede: 'How most teams are set up',
+    id: 'loop', mark: 'A', name: 'Through the dev loop', short: 'Dev loop', lede: 'Illustrative feature-release path',
     steps: [
       { kind: 'auto', kicker: 'Automated · 4 alerts', title: 'Scan every environment', detail: 'Three on servers no customer touches', alerts: 4 },
       { kind: 'hands', kicker: 'Hands-on ×4', title: 'Triage four alerts', detail: 'Which is real, and who owns it?' },
