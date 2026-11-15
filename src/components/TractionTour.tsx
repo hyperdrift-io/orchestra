@@ -33,7 +33,7 @@ function useReducedMotion() {
   return calm;
 }
 
-export function TractionTour({ door }: { door: { href: string; label: string } }) {
+export function TractionTour({ door, preload = 'metadata' }: { door: { href: string; label: string }; preload?: 'none' | 'metadata' }) {
   const root = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [scene, setScene] = useState(-1);
@@ -116,7 +116,7 @@ export function TractionTour({ door }: { door: { href: string; label: string } }
   return <div ref={root} data-traction-tour="" data-running={running || undefined} data-ended={ended || undefined}>
     <div data-tour-stage="">
       <div data-tour-window="">
-        <video ref={video} poster={tour.poster} muted playsInline preload="metadata" aria-label={tour.labels.film}
+        <video ref={video} poster={tour.poster} muted playsInline preload={preload} aria-label={tour.labels.film}
           onClick={() => { if (!ended) press(); }} onSeeked={sync}
           onEnded={() => { setEnded(true); sync(); trackEvent('tour_completed', { how: how.current }); }}>
           <source src={tour.small} type="video/mp4" media="(max-width: 760px)" />
