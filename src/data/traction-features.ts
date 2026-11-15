@@ -1,3 +1,5 @@
+import { freeBoard } from './traction-offer';
+
 /**
  * How Traction works, told in the order a founder lives it, which is the order of the film on the start page: day one
  * (the review, the people, the emails), then after day one (the plan, the market, the results). The first five steps
@@ -59,7 +61,7 @@ export const after: Step[] = [
     name: 'Market',
     title: 'It keeps up with your market.',
     text: 'Intel reads about fifteen sources for the market your pages named and brings you what moved, with the outlets that carry it. Your Growth Manager then proposes up to three moves, each answering one story. Take one and it becomes an initiative on your board.',
-    free: 'Three reads of your market, one a day at most.',
+    free: freeBoard.market,
     subscription: 'A fresh read each day you ask for one.',
   },
   {

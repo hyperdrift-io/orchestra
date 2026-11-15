@@ -7,9 +7,8 @@ import { overview } from '@/data/traction-overview';
 import { TractionStartLink } from '@/components/TractionStartLink';
 
 /**
- * The start page tells one story, the film's: the promise, the film full width under the title (founder, 6 November 2026),
- * the team and what it does, outreach as one worked example, Orchestra OS for the demand that follows, how it continues
- * and one door at the end. A founder coming back from a free board keeps the tour beside their question.
+ * The trial starts beside the opening promise, above the film. Founders coming back from a trial board
+ * see continued use and a link back to their own board.
  */
 export function Traction({ trialApp }: { trialApp?: string } = {}) {
   const from = trialApp ? `?from=${encodeURIComponent(trialApp)}` : '';
@@ -29,6 +28,9 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
       </> : <>
         <h1>{overview.title}</h1>
         <p data-lead="">{overview.description}</p>
+        <div id="trial" data-start="" data-placement="hero_door">
+          <TractionStartLink href={tourDoor.href}>{tourDoor.label}</TractionStartLink>
+        </div>
       </>}
     </header>
     <section id="value" data-journey="value" aria-label={overview.film.title}>
@@ -42,13 +44,10 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
           </video>
           <figcaption>{overview.film.caption}</figcaption>
         </figure>
-        <div data-film-actions="">
-          <div data-placement="tour_door"><TractionStartLink href={tourDoor.href}>{tourDoor.label}</TractionStartLink></div>
-          <details>
-            <summary>Read the film transcript</summary>
-            {overview.film.transcript.map(line => <p key={line}>{line}</p>)}
-          </details>
-        </div>
+        <details data-film-transcript="">
+          <summary>Read the film transcript</summary>
+          {overview.film.transcript.map(line => <p key={line}>{line}</p>)}
+        </details>
       </>}
     </section>
     <section id="loop" data-journey="features" aria-labelledby="traction-loop-title">
@@ -88,7 +87,7 @@ export function Traction({ trialApp }: { trialApp?: string } = {}) {
     <section id="continue" data-journey="continue" aria-labelledby="traction-continue-title">
       <header>
         <h2 id="traction-continue-title">Start with your app</h2>
-        <p>{freeBoard.text} {freeBoard.after}</p>
+        <p>{freeBoard.text} {freeBoard.market} {freeBoard.after}</p>
         <a href={`${partnershipHref}#why`}>Why we’re building Traction →</a>
       </header>
       <ul>{waysOn.map(way => <li key={way.slug} id={way.slug} data-journey={way.slug === 'partnership' ? 'partnership' : undefined}>
