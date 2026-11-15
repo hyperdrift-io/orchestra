@@ -209,3 +209,6 @@ A security concept was rejected because its appliance silhouette suggested a cof
 Main typecheck and 82 tests pass; the isolated artwork release on the installed base passes typecheck and 70 tests. All 21 preview article routes, hero decodes, 1200 × 630 share exports and preselected enquiry contexts pass; no form was sent. The desktop and 390px indexes contain all 21 preview covers without horizontal overflow. Live deployment evidence follows separately.
 
 Review: http://127.0.0.1:3045/all-covers.html. Preview runtime and gallery remain owned by this work until review is complete; these are the only task runtimes retained.
+
+
+The artwork-only release is live as `ffd1336`, verified on 16 published articles and the index. All 21 image assets match source hashes; five article drafts remain publicly unavailable. See [release evidence](RELEASE.md). Four article wording corrections remain in review at http://127.0.0.1:3045/copy-review.html; the released bodies are unchanged.

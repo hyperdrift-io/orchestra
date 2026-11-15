@@ -7,7 +7,7 @@
       "title": "AI agent permissions: how much authority should you delegate?",
       "published": true,
       "batch": 2,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/agent-permissions-v1.jpg"
     },
     {
@@ -15,7 +15,7 @@
       "title": "AI daily briefs: turn activity into useful priorities",
       "published": true,
       "batch": 3,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/brief-v1.jpg"
     },
     {
@@ -23,7 +23,7 @@
       "title": "Lakebase vs MongoDB and Cosmos DB: which approach fits?",
       "published": true,
       "batch": 3,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/databases-v1.jpg"
     },
     {
@@ -31,7 +31,7 @@
       "title": "LangChain vs Databricks AppKit for agent streaming",
       "published": true,
       "batch": 1,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/agent-streaming-builds-v1.jpg"
     },
     {
@@ -39,7 +39,7 @@
       "title": "The dashboard that speaks first",
       "published": true,
       "batch": 3,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/officer-v1.jpg"
     },
     {
@@ -47,7 +47,7 @@
       "title": "Is UI holding us back?",
       "published": true,
       "batch": 4,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/ui-effort-v1.jpg"
     },
     {
@@ -55,7 +55,7 @@
       "title": "Web accessibility: can people finish the job?",
       "published": true,
       "batch": 4,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/accessible-finish-v1.jpg"
     },
     {
@@ -63,7 +63,7 @@
       "title": "Stop making agents hunt for buttons",
       "published": true,
       "batch": 2,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/webmcp-direct-action-v1.jpg"
     },
     {
@@ -71,7 +71,7 @@
       "title": "A spoken promise is not a completed action",
       "published": true,
       "batch": 4,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/checked-voice-v1.jpg"
     },
     {
@@ -79,7 +79,7 @@
       "title": "Say the job once. Keep control of the result.",
       "published": true,
       "batch": 5,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/voice-across-apps-v1.jpg"
     },
     {
@@ -87,7 +87,7 @@
       "title": "Your work should survive a change of interface",
       "published": true,
       "batch": 5,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/keep-your-place-v1.jpg"
     },
     {
@@ -95,7 +95,7 @@
       "title": "Should a security fix wait for the next feature release?",
       "published": true,
       "batch": 5,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/lasting-security-fix-v1.jpg"
     },
     {
@@ -103,7 +103,7 @@
       "title": "Your app works. Who runs it now?",
       "published": true,
       "batch": 2,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/app-operations-v1.jpg"
     },
     {
@@ -111,7 +111,7 @@
       "title": "Here’s the new deal. UI is for intel. Agents are for operating.",
       "published": true,
       "batch": 6,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/intel-and-action-v1.jpg"
     },
     {
@@ -119,7 +119,7 @@
       "title": "DSPy: build AI programmes you can improve",
       "published": false,
       "batch": 6,
-      "status": "approved and integrated",
+      "status": "integrated; draft remains unpublished",
       "hero": "/articles/orchestra/dspy-test-bench-v1.jpg"
     },
     {
@@ -127,7 +127,7 @@
       "title": "Helping agents pick up where they left off",
       "published": false,
       "batch": 6,
-      "status": "approved and integrated",
+      "status": "integrated; draft remains unpublished",
       "hero": "/articles/orchestra/resume-the-work-v1.jpg"
     },
     {
@@ -135,7 +135,7 @@
       "title": "Clear Mermaid: diagrams people can follow",
       "published": false,
       "batch": 7,
-      "status": "approved and integrated",
+      "status": "integrated; draft remains unpublished",
       "hero": "/articles/orchestra/follow-the-diagram-v1.jpg"
     },
     {
@@ -143,7 +143,7 @@
       "title": "We got our first PR merged into OpenTelemetry",
       "published": true,
       "batch": 1,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/otel-conversation-path-v1.jpg"
     },
     {
@@ -151,7 +151,7 @@
       "title": "Clear Mermaid in action",
       "published": false,
       "batch": 7,
-      "status": "approved and integrated",
+      "status": "integrated; draft remains unpublished",
       "hero": "/articles/orchestra/edit-the-architecture-v1.jpg"
     },
     {
@@ -159,7 +159,7 @@
       "title": "Clear Mermaid in your AI assistant",
       "published": false,
       "batch": 1,
-      "status": "approved and integrated",
+      "status": "integrated; draft remains unpublished",
       "hero": "/articles/orchestra/clear-mermaid-conversation-v1.jpg"
     },
     {
@@ -167,9 +167,16 @@
       "title": "Give motivated founders a fair chance",
       "published": true,
       "batch": 7,
-      "status": "approved and integrated",
+      "status": "live",
       "hero": "/articles/orchestra/founder-fair-chance-v1.jpg"
     }
   ],
-  "approval": "Founder approved batch three, then authorised all remaining covers on 15 November 2026. Visual and editorial review remain required; no further batch approval pause."
+  "approval": "Founder approved batch three, then authorised all remaining covers on 15 November 2026. Visual and editorial review remain required; no further batch approval pause.",
+  "release": {
+    "source": "ffd13363dc5ea4835ec85caca714eb9904cd9e00",
+    "tag": "release/orchestra-article-heroes-20261115",
+    "live_public_articles": 16,
+    "unpublished_drafts": 5,
+    "verified_at": "2026-11-15T21:25:11+00:00"
+  }
 }

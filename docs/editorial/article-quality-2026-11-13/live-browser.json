@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-11-15T21:25:14.151Z",
+  "result": [
+    {
+      "route": "/articles",
+      "width": 1440,
+      "covers": 16,
+      "status": 200
+    },
+    {
+      "route": "/articles",
+      "width": 390,
+      "covers": 16,
+      "status": 200
+    },
+    {
+      "route": "/articles/web-accessibility-can-people-finish",
+      "width": 390,
+      "status": 200,
+      "enquiryContext": true
+    },
+    {
+      "route": "/articles/production-led-security-maintenance",
+      "width": 390,
+      "status": 200,
+      "enquiryContext": true
+    },
+    {
+      "route": "/articles/give-motivated-founders-a-fair-chance",
+      "width": 390,
+      "status": 200,
+      "enquiryContext": true
+    },
+    {
+      "route": "/articles/traction-from-zero",
+      "status": 200,
+      "retainedPoster": true
+    }
+  ]
+}
