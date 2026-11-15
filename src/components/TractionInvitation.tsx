@@ -23,7 +23,7 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
         : read
           ? `We read ${product}’s website on ${read.on}. Here’s what works, what might put a customer off and what we’d try next.`
           : `Traction reads ${product}’s website. You can then ask it to find potential customers and draft a first email for you to review.`}</p>
-      <div id="your-board" data-start="" data-journey="contact">
+      <div id="your-board" data-start="" data-placement="invitation_door" data-journey="contact">
         <TractionStartLink href={startHref(invitation.ref, url ? { url, product } : undefined)}>{`Open ${product}’s Traction board now →`}</TractionStartLink>
         <p>{url ? 'It opens as a trial board. We’ve filled in the website. Add your name and email, then create a passkey.' : 'It opens as a trial board. Sign up with your name, website and email, then a passkey.'}</p>
       </div>

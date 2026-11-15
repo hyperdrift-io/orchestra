@@ -27,7 +27,8 @@ export const boardHref = (app: string) => `${tractionOrigin()}/app/${app}`;
  * The first read and search are free. Continued use and partnership start with a conversation.
  */
 export const freeBoard = {
-  text: 'The trial lasts seven days and gives you a review of your website, your first search with its email drafts and three reads of your market.',
+  text: 'The trial lasts seven days. It includes a first impression of your website and one search for potential customers, with email drafts for the people you find.',
+  market: 'Up to three market reads, one a day, when we have coverage.',
   /** What the end of the trial leaves. The page and llms.txt say it; the film's closing card keeps the first sentence. */
   after: 'When it ends, everything on your board stays there to read.',
 };

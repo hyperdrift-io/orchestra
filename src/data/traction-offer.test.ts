@@ -5,7 +5,7 @@ import { after, dayOne, featuresIntro, howItWorks, howItWorksHref, steps, tiers,
 import { tour } from './traction-tour';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
-const words = [freeBoard.text, freeBoard.after, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
+const words = [freeBoard.text, freeBoard.market, freeBoard.after, ...waysOn.flatMap((way) => [way.name, way.text]), ...services.map((service) => service.text)].join('\n');
 
 describe('how Traction continues', () => {
   it('offers continued use and the Partnership through available conversation routes', () => {
@@ -63,7 +63,7 @@ describe('how Traction continues', () => {
     expect(await source('../components/TractionDoor.tsx')).toMatch(/Trial Traction →/);
     expect(product).not.toMatch(/See Traction in action|Start free|Get your first read/);
     // The masthead carries the same door, in the same words, for a reader who has already decided.
-    expect(await source('../components/SiteContactLink.tsx')).toMatch(/<a href="#your-board">Trial Traction<\/a>/);
+    expect(await source('../components/SiteContactLink.tsx')).toContain("pathname === '/traction' ? '#trial' : '#your-board'");
     expect(howItWorks.doorNote).toMatch(/email, then a passkey/);
     expect(product).not.toMatch(/\/traction\/first-read/);
     expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
@@ -81,12 +81,12 @@ describe('how Traction continues', () => {
 
   it('tells the film’s story: the team, outreach as one example, Orchestra OS, then the trial offer', async () => {
     const product = await source('../components/Traction.tsx');
-    const order = ['data-growth-film=', 'id="loop"', 'id="outreach"', 'id="os"', 'id="continue"', '<TractionDoor />'].map((mark) => product.indexOf(mark));
+    const order = ['id="trial"', 'data-growth-film=', 'id="loop"', 'id="outreach"', 'id="os"', 'id="continue"', '<TractionDoor />'].map((mark) => product.indexOf(mark));
     expect(order.every((at) => at > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
     expect(product).not.toMatch(/<TractionFeatures/);
     expect(product).toContain('${howItWorksHref}${from}#${item.href}');
-    expect(product.slice(order[2], order[3])).toMatch(/<details>[\s\S]*<TractionTour/);
+    expect(product.slice(order[3], order[4])).toMatch(/<details>[\s\S]*<TractionTour/);
     expect(product).not.toMatch(/draft=direct|overview\.direct/);
     expect((await source('../components/TractionDoor.tsx')).match(/Trial Traction →/g)).toHaveLength(1);
   });
@@ -165,8 +165,8 @@ describe('how Traction continues', () => {
   });
 
   it('says how long the trial lasts, what it gives and what stays when it ends', () => {
-    expect(freeBoard.text).toMatch(/lasts seven days and gives you/);
-    expect(freeBoard.text).toMatch(/three reads of your market\.$/);
+    expect(freeBoard.text).toMatch(/trial lasts seven days.*website.*search.*email drafts/);
+    expect(freeBoard.market).toBe('Up to three market reads, one a day, when we have coverage.');
     expect(freeBoard.after).toBe('When it ends, everything on your board stays there to read.');
     // The film's closing card keeps the first sentence; the page and llms.txt say both.
     expect(tour.end.line).toBe(freeBoard.text);
@@ -179,7 +179,7 @@ describe('how Traction continues', () => {
       read: 'A review of your website, the day you sign up.',
       customers: 'Your first search: up to five prospects or investors.',
       email: 'Each draft opens in your own mail app, or copies in one click. You send it yourself.',
-      market: 'Three reads of your market, one a day at most.',
+      market: freeBoard.market,
     });
     // A free board sends nothing: the line never says a draft is ready to send, or that Traction sends it.
     expect(marks('free').email).not.toMatch(/ready to send|sends? (?:it|them) for you/i);
