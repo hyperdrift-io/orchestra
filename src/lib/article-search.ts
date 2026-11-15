@@ -9,9 +9,9 @@ export type SearchEntry = {
   topic: string;
   example: string;
   exampleStatus: string;
-  order: number;
   tags: ArticleTag[];
   oss?: ArticleSummary['oss'];
+  heroImage?: ArticleSummary['heroImage'];
   text: string;
 };
 

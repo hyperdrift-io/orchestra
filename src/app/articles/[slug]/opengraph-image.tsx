@@ -20,6 +20,11 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     const artwork = await readFile(join(process.cwd(), 'public', entry.heroImage.src));
     const type = ({ '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg' } as Record<string, string>)[extname(entry.heroImage.src)];
     if (!type) throw new Error(`Unsupported article hero format: ${entry.heroImage.src}`);
+    if (entry.shareArtworkOnly) return new ImageResponse(
+      <div style={{ display: 'flex', width: '100%', height: '100%', background: '#14120e', alignItems: 'center', justifyContent: 'center' }}>
+        <img src={`data:${type};base64,${artwork.toString('base64')}`} alt="" width={1200} height={630} style={{ objectFit: 'contain' }} />
+      </div>, size,
+    );
     return new ImageResponse(
       <div style={{ display: 'flex', width: '100%', height: '100%', position: 'relative', background: '#181510', color: '#f6eee1' }}>
         <img src={`data:${type};base64,${artwork.toString('base64')}`} alt="" width={1200} height={630} style={{ position: 'absolute', inset: 0, objectFit: 'cover' }} />

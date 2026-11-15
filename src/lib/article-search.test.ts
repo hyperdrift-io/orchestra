@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { highlight, indexEntries, plainText, searchArticles, snippet, tokens, type SearchEntry } from './article-search';
 
 const entry = (slug: string, title: string, tags: string[] = [], text = ''): SearchEntry => ({
-  slug, title, excerpt: '', topic: '', example: '', exampleStatus: '', order: 0,
+  slug, title, excerpt: '', topic: '', example: '', exampleStatus: '',
   tags: tags.map((tag) => ({ slug: tag, label: tag, description: '' })),
   text,
 });
