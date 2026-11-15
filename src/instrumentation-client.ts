@@ -1,34 +1,16 @@
 import posthog from 'posthog-js';
-import { analyticsEnabled, analyticsPath, trackEvent } from './lib/analytics';
+import { analyticsEnabled, trackEvent } from './lib/analytics';
+import { analyticsOptions, cleanProperties, ctaDestination, ctaPlacement } from './lib/analytics-clean';
 import { campaignAttribution, visitorSession } from './lib/campaign';
 
 if (analyticsEnabled()) {
   // Only explicit engagement events; no replay, form autocapture or person profiles.
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-    api_host: '/ingest', ui_host: 'https://eu.posthog.com',
-    defaults: '2026-01-30',
+    ...analyticsOptions,
     bootstrap: { distinctID: visitorSession(), isIdentifiedID: false },
-    persistence: 'memory', person_profiles: 'never',
-    autocapture: false, capture_dead_clicks: false, capture_exceptions: false,
-    disable_session_recording: true, capture_pageview: 'history_change',
     before_send: (event) => {
       if (!event || !analyticsEnabled()) return null;
-      // URL queries can contain personal information. Keep paths and bounded campaign tags only.
-      const clean = (properties: Record<string, unknown>) => {
-        for (const key of Object.keys(properties)) {
-          if (/url|referrer/i.test(key) && typeof properties[key] === 'string') {
-            try { const url = new URL(properties[key] as string); properties[key] = url.origin + analyticsPath(url.pathname); }
-            catch { delete properties[key]; }
-          }
-          if (/utm_|initial_utm_|search_keyword/i.test(key)) delete properties[key];
-          if (/pathname/i.test(key) && typeof properties[key] === 'string') properties[key] = analyticsPath(properties[key] as string);
-        }
-      };
-      clean(event.properties);
-      for (const key of ['$set', '$set_once']) {
-        const value = event.properties[key];
-        if (value && typeof value === 'object') clean(value);
-      }
+      cleanProperties(event.properties);
       Object.assign(event.properties, campaignAttribution(), { app: 'orchestra', env: 'production', hostname: 'orchestra.hyperdrift.io' });
       return event;
     },
@@ -37,9 +19,7 @@ if (analyticsEnabled()) {
     if (!(event.target instanceof Element)) return;
     const link = event.target.closest<HTMLAnchorElement>('a[href]');
     if (!link) return;
-    const destination = link.origin === window.location.origin
-      ? link.hash === '#first-read' ? 'first_read' : ['#contact', '#enquire'].includes(link.hash) ? 'enquiry' : (link.pathname === '/partnership' || link.pathname === '/traction/partnership' || (link.pathname === '/traction' && link.hash === '#partnership')) ? 'partnership' : link.pathname === '/work' ? 'work' : link.pathname === '/traction' && link.hash === '#continue' ? 'continue' : link.pathname === '/traction' ? 'traction' : link.pathname === '/articles/traction-from-zero' ? 'launch_log' : null
-      : link.hostname === 'nextrole.site' ? 'nextrole' : !(link.hostname === 'traction.hyperdrift.io' || link.hostname === 'localhost') ? null : link.pathname === '/start' ? 'start_free' : link.pathname.startsWith('/app/') ? 'board' : null;
-    if (destination) trackEvent('cta_clicked', { destination, offer: link.dataset.offer === 'mcp' ? 'mcp' : undefined, placement: link.closest('header') ? 'header' : link.closest('footer') ? 'footer' : 'body' });
+    const destination = ctaDestination(link, window.location.origin);
+    if (destination) trackEvent('cta_clicked', { destination, offer: link.dataset.offer === 'mcp' ? 'mcp' : undefined, placement: ctaPlacement(link) });
   });
 }
