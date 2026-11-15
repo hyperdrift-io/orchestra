@@ -1,0 +1,174 @@
+{
+  "scope": "All 21 catalogue articles, including five drafts. /articles/ui-accessibility is a series index; /articles/traction-from-zero is a separate launch log with an existing trailer poster, retained for review.",
+  "review_url": "http://127.0.0.1:3045/batch-02.html",
+  "articles": [
+    {
+      "slug": "delegation-with-boundaries",
+      "title": "AI agent permissions: how much authority should you delegate?",
+      "published": true,
+      "batch": 2,
+      "status": "awaiting founder feedback",
+      "hero": null
+    },
+    {
+      "slug": "evidence-that-starts-work",
+      "title": "AI daily briefs: turn activity into useful priorities",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "lakebase-vs-document-databases",
+      "title": "Lakebase vs MongoDB and Cosmos DB: which approach fits?",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "langchain-databricks-appkit-sse",
+      "title": "LangChain vs Databricks AppKit for agent streaming",
+      "published": true,
+      "batch": 1,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/agent-streaming-builds-v1.jpg"
+    },
+    {
+      "slug": "the-first-officer",
+      "title": "The dashboard that speaks first",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "is-ui-holding-us-back",
+      "title": "Is UI holding us back?",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "web-accessibility-can-people-finish",
+      "title": "Web accessibility: can people finish the job?",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "webmcp-actions-on-the-page",
+      "title": "Stop making agents hunt for buttons",
+      "published": true,
+      "batch": 2,
+      "status": "awaiting founder feedback",
+      "hero": null
+    },
+    {
+      "slug": "hands-free-app-control",
+      "title": "A spoken promise is not a completed action",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "voice-through-mcp",
+      "title": "Say the job once. Keep control of the result.",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "future-ui-keep-your-place",
+      "title": "Your work should survive a change of interface",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "production-led-security-maintenance",
+      "title": "Should a security fix wait for the next feature release?",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "app-operations-after-launch",
+      "title": "Your app works. Who runs it now?",
+      "published": true,
+      "batch": 2,
+      "status": "awaiting founder feedback",
+      "hero": null
+    },
+    {
+      "slug": "agent-driven-ui-intelligence-and-action",
+      "title": "Here’s the new deal. UI is for intel. Agents are for operating.",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "dspy-programmes-you-can-improve",
+      "title": "DSPy: build AI programmes you can improve",
+      "published": false,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "dspy-reasoning-continuity",
+      "title": "Helping agents pick up where they left off",
+      "published": false,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "clear-mermaid-diagrams-people-can-follow",
+      "title": "Clear Mermaid: diagrams people can follow",
+      "published": false,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "opentelemetry-genai-conversation-id",
+      "title": "We got our first PR merged into OpenTelemetry",
+      "published": true,
+      "batch": 1,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/otel-conversation-path-v1.jpg"
+    },
+    {
+      "slug": "clear-mermaid-in-action",
+      "title": "Clear Mermaid in action",
+      "published": false,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    },
+    {
+      "slug": "clear-mermaid-in-your-ai-assistant",
+      "title": "Clear Mermaid in your AI assistant",
+      "published": false,
+      "batch": 1,
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/clear-mermaid-conversation-v1.jpg"
+    },
+    {
+      "slug": "give-motivated-founders-a-fair-chance",
+      "title": "Give motivated founders a fair chance",
+      "published": true,
+      "batch": null,
+      "status": "pending",
+      "hero": null
+    }
+  ]
+}

@@ -50,7 +50,7 @@ export default async function ArticlePage({ params }: Props) {
     <ArticleTracker slug={article.slug} />
     <ArticleExperienceTracker slug={article.slug} />
     <header>
-      <nav aria-label="Breadcrumb"><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? 'The future of UI and accessibility' : 'The AI-native organisation'}</a><span>/ {String(article.seriesOrder ?? article.order).padStart(2, '0')}</span></nav>
+      <nav aria-label="Breadcrumb"><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? 'The future of UI and accessibility' : 'The AI-native organisation'}</a></nav>
       {!article.publishedAt && <small>Editorial preview · not yet published</small>}
       <p>{article.oss && <OssFlag oss={article.oss} />}{article.topic} / {article.example}</p>
       {isTractionArticle(article.slug) && <a data-article-brand="" href="/traction" aria-label="Explore Traction"><img src="/brand/traction/lockup-dark.svg" alt="Traction" width="236" height="40" /></a>}

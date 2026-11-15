@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode } from 'react';
+import Image from 'next/image';
 import { ArticleTags } from '@/components/ArticleTags';
 import { OssFlag } from '@/components/OssFlag';
 import { trackEvent } from '@/lib/analytics';
@@ -85,8 +86,9 @@ export function ArticleFinder({ entries, tags, initialTag = null, children }: Pr
       {current && <p>{current.description}</p>}
     </form>
     {!active && children}
-    <ol start={active || !children ? 1 : 2} onClick={onTagClick}>{listed.map((entry) => <li key={entry.slug}>
-      <span>{String(entry.order).padStart(2, '0')}</span><div><p>{entry.oss && <OssFlag oss={entry.oss} compact />}{entry.topic} / {entry.example}</p><h2><a href={`/articles/${entry.slug}`}>{mark(entry.title)}</a></h2><p>{mark(entry.excerpt)}</p>{reason(entry) && <p data-snippet="">{mark(reason(entry)!)}</p>}<ArticleTags tags={entry.tags} current={tag} /><small>{entry.exampleStatus}</small></div><a href={`/articles/${entry.slug}`} aria-label={`Read ${entry.title}`}>Read →</a>
+    <ol onClick={onTagClick}>{listed.map((entry, index) => <li key={entry.slug} data-with-artwork={entry.heroImage ? '' : undefined}>
+      {entry.heroImage
+        && <Image data-index-artwork="" {...entry.heroImage} loading={index === 0 ? 'eager' : 'lazy'} sizes="(max-width: 700px) calc(100vw - 3rem), (max-width: 1000px) 25vw, 270px" />}<div><p>{entry.oss && <OssFlag oss={entry.oss} compact />}{entry.topic} / {entry.example}</p><h2><a href={`/articles/${entry.slug}`}>{mark(entry.title)}</a></h2><p>{mark(entry.excerpt)}</p>{reason(entry) && <p data-snippet="">{mark(reason(entry)!)}</p>}<ArticleTags tags={entry.tags} current={tag} /><small>{entry.exampleStatus}</small></div><a href={`/articles/${entry.slug}`} aria-label={`Read ${entry.title}`}>Read →</a>
     </li>)}</ol>
   </>;
 }

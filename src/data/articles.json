@@ -237,7 +237,7 @@
     },
     "media": null,
     "publishedAt": "2026-09-24T20:10:00Z",
-    "updatedAt": "2026-09-29T21:42:13Z",
+    "updatedAt": "2026-11-15T16:51:00Z",
     "image": {
       "src": "/articles/mesh/langchain-databricks-appkit-sse.svg",
       "alt": "Connected wireframe response, shield, checklist forms in Orchestra's mesh style.",
@@ -274,7 +274,14 @@
       ],
       "kind": "streaming",
       "download": "/articles/databricks/streaming-visual.png"
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/agent-streaming-builds-v1.jpg",
+      "alt": "A modular assembly and an integrated assembly each build a response bubble from arriving fragments.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true
   },
   {
     "slug": "the-first-officer",
@@ -865,24 +872,10 @@
       "reviewed": "13 October 2026"
     },
     "publishedAt": "2026-10-13T21:16:00Z",
-    "figures": [
-      {
-        "kind": "fleet",
-        "title": "One fix, every app",
-        "takeaway": "What one app learns, every app on the platform gets.",
-        "description": "Orchestra OS at the centre, our apps on a ring around it. When a React bug left pages blank on one app, it was found and investigated there once, on 17 September; on 8 October the fix went into all six apps on that stack the same day, while on their own each app would hunt the same bug separately and one that hasn't noticed still shows a blank page. The same pattern holds for a compromised npm package (a malicious-package gate in our deploy pipelines the next day), a reading feature built once and synced to three article sites, and a new app that outside monitoring checks every five minutes from the registry with nothing to set up.",
-        "sources": [
-          {
-            "label": "React fix for the stylesheet stall (facebook/react#34760)",
-            "url": "https://github.com/facebook/react/pull/34760"
-          }
-        ],
-        "download": "/articles/orchestra-os/fleet-compound.png",
-        "reviewed": "13 October 2026"
-      }
-    ],
+    "figures": [],
     "invite": "Tell us about your app, who runs it today and the job you’d hand over first. We’ll agree what to connect, who owns it and the evidence that shows it’s working.",
-    "readNext": "agent-driven-ui-intelligence-and-action"
+    "readNext": "agent-driven-ui-intelligence-and-action",
+    "updatedAt": "2026-11-15T16:59:00Z"
   },
   {
     "slug": "agent-driven-ui-intelligence-and-action",
@@ -1293,7 +1286,14 @@
       "width": 1200,
       "height": 160
     },
-    "updatedAt": "2026-11-02T12:00:00Z"
+    "updatedAt": "2026-11-15T16:51:00Z",
+    "heroImage": {
+      "src": "/articles/orchestra/otel-conversation-path-v1.jpg",
+      "alt": "One mint conversation signal runs through a processor and tool inside an opened computing machine.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true
   },
   {
     "slug": "clear-mermaid-in-action",
@@ -1413,7 +1413,15 @@
       "alt": "A conversation, signpost and eye: ask for a diagram and inspect its connections.",
       "width": 1200,
       "height": 160
-    }
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/clear-mermaid-conversation-v1.jpg",
+      "alt": "A branching diagram unfolds from a translucent conversation bubble.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T16:51:00Z"
   },
   {
     "slug": "give-motivated-founders-a-fair-chance",

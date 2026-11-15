@@ -58,3 +58,12 @@ Reuse the existing funnel: `article_viewed` → `article_cta_clicked` → `enqui
 At low volume, use actual enquiries and reader feedback before A/B tests. When sufficient traffic supports an experiment, predefine one hypothesis, primary metric, downstream qualification guardrail and sample requirement. If evidence is sparse, report uncertainty and improve exposure or measurement; do not declare a winner from a date or a handful of clicks.
 
 Research and the first series: [Databricks series](databricks-series/README.md).
+
+
+## Approved article artwork — 15 November 2026
+
+Use the shared `create-designs` article-artwork method with `hd-writer` and `designer`. Read the article and its quality review, research a useful prompt-library composition, then depict a recognisable subject doing something. The image must carry its idea without titles or labels. Keep Orchestra’s ink, ivory, gold and restrained mint identity while varying the concept. Never use hands, cursors or mouse pointers.
+
+The first three wordless covers are approved: Clear Mermaid in your AI assistant, OpenTelemetry conversation ID and LangChain vs Databricks streaming. They supply the hero, index and unobscured sharing artwork. Keep heroes shallow and show the whole subject; omit article numbering. Artwork approval does not publish a draft.
+
+Continue the catalogue in batches of three, with founder feedback before generating the next batch. Keep asset approval, editorial quality and publication state separate in [the rollout record](article-quality-2026-11-13/hero-rollout.json). Record feedback and improve the next batch; do not replace the approved images merely to match a later layout.

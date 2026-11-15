@@ -39,6 +39,8 @@ export interface ArticleSummary {
   headerImage?: { src: string; alt: string; width: number; height: number };
   /** Subject-specific editorial artwork used by the opening and Open Graph card. */
   heroImage?: { src: string; alt: string; width: number; height: number };
+  /** Keep accepted wordless artwork unobscured; title stays in sharing metadata. */
+  shareArtworkOnly?: boolean;
   visualization?: ArticleVisual;
   /** Further visuals, placed in the body where `{{visual:<kind>}}` stands on its own line. */
   figures?: ArticleVisual[];
