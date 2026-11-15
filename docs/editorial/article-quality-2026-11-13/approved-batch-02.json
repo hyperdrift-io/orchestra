@@ -1,0 +1,41 @@
+[
+  {
+    "id": "webmcp",
+    "title": "Stop making agents hunt for buttons",
+    "slug": "webmcp-actions-on-the-page",
+    "file": "exec-4534aded-2160-4553-b1a0-b549cb23b91a.png",
+    "alt": "A computing module plugs directly into the same selected browser action available through a visible button.",
+    "source": "https://aidreamhub.com/prompts/isometric-saas-interface-mockup-prompt",
+    "adaptation": "Interface depth and clear focal point; replaced people and labels with one direct tool connection.",
+    "prompt": "Create an original wide 16:9 wordless editorial CGI hero for Orchestra's article about WebMCP: a web page exposes the same actions to a person and an AI agent, so the agent does not need to hunt for buttons. Main subject is one elegant ivory browser window in three-quarter view, with three large blank shortlist cards and the middle card selected in mint. That middle card has a raised gold action button built into its face. The browser's right edge opens to reveal a large precisely shaped tool socket connected physically to that SAME middle card. A single gold connector from a small dark faceted computing module plugs directly into the socket. The visible button and the tool socket both operate the same card; one shared workspace, no duplicated window. Make the direct connection obvious, with a short clean mint-lit path from socket to the card. Large recognisable browser silhouette, simple chrome with three tiny dots only, no content bars imitating text. Premium stylised editorial CGI, warm ink #14120E empty backdrop, ivory #FFF0D7 forms, gold #F5BC67 edges and restrained mint selected state; soft luminous translucent material and precise structural vertices recalling Orchestra's WebGL identity. Strong asymmetric composition and clean silhouette at thumbnail size. Keep every meaningful object in central 80% with breathing room. No words, labels, numbers, letters, logos, pseudo-writing, title or explanatory text. No hands, people, cursors, mouse pointers, robot faces, brains, locks, shields, lenses, rings, decorative mesh or particle background. This is an original conceptual illustration, not a screenshot of a real product.",
+    "engine": "Built-in image generation; exact model not exposed",
+    "status": "approved 15 November 2026",
+    "deployment": "source and preview; not yet deployed"
+  },
+  {
+    "id": "delegation",
+    "title": "AI agent permissions: how much authority should you delegate?",
+    "slug": "delegation-with-boundaries",
+    "file": "exec-e58491a3-ccc9-4f81-a798-9c34e3bba45c.png",
+    "alt": "A processor's key opens one tool compartment while the other compartments remain locked.",
+    "source": "https://promptsmint.com/prompts/padlock-key-3d-illustration/",
+    "adaptation": "Key and lock as recognisable objects; changed a generic security icon into selective access to one tool.",
+    "prompt": "Create an original wide 16:9 wordless editorial CGI illustration about giving an AI agent only the tools it is authorised to use. A small ink-black processor module at left carries one distinctive gold key. It faces a beautiful ivory three-compartment tool cabinet. The key fits ONLY the central compartment, which is visibly open and contains one simple substantial gold wrench. The other two compartments remain visibly closed with different-shaped keyholes. A short illuminated mint route links the processor, the matching key and the single accessible wrench. Make the visual story unmistakable: one assigned tool, limited authority; not a general padlock security advert. Clear physical distinction between the one open compartment and the two locked ones; all three easy to see. No robot or human character, the processor is simply a faceted computing module with a few fine gold circuit lines. Warm ivory #FFF0D7 studio backdrop, ink #14120E cabinet recesses, warm gold #F5BC67 key and tool, restrained mint authorised route. Sophisticated original stylised 3D editorial art, matte ivory and smoked translucent material, precise edges, soft shadows, elegant asymmetric composition, not a photograph. Large objects, central 80% of frame and wide margins, readable at thumbnail size. No words, letters, numbers, labels, pseudo text, title, logos or watermarks. No hands, people, cursor, mouse pointer, robot face, brain, shield, halo, lens, rings or decorative mesh. No checkmarks or claims that the agent is infallible. Conceptual illustration, not a real product.",
+    "engine": "Built-in image generation; exact model not exposed",
+    "status": "approved 15 November 2026",
+    "deployment": "source and preview; not yet deployed"
+  },
+  {
+    "id": "operations",
+    "title": "Your app works. Who runs it now?",
+    "slug": "app-operations-after-launch",
+    "file": "exec-6f0dfd12-8162-48bf-b100-9d7e66a69a45.png",
+    "alt": "A working app sits on a maintenance cradle with an accessible component, backup cartridge and control dial.",
+    "source": "https://www.thinkwithprompt.com/prompts/create-a-3d-isometric-icon-or-scene-prompt",
+    "adaptation": "Miniature scene with purposeful objects; ongoing maintenance replaces an isolated feature icon.",
+    "prompt": "Create an original wide 16:9 wordless editorial hero for Orchestra's article 'Your app works. Who runs it now?' The idea is the ongoing work needed to keep a live app useful after launch. Show a large upright ivory application window on an open futuristic maintenance cradle, its three simple blank booking cards still glowing warmly while the machinery beneath is accessible. One small gold component has slid halfway out of a service bay, beside a single neatly placed wrench; the remaining power and signal connections are intact and a restrained mint pulse continues into the live window. A small transparent backup cartridge sits securely in a neighbouring bay. The visual reads as an app continuing to run while it is maintained, not as a finished boxed product or a broken computer. Include one visible physical control dial on the outer edge to suggest retained oversight; no agent character and no hands. A thoughtful service scene with believable purposeful parts, rather than an icon collage. Elegant original editorial CGI, sophisticated matte ivory #FFF0D7, ink #14120E chassis and background, warm gold #F5BC67 structural edges, restrained mint active signal. Three-quarter view, generous empty ink space, precise geometry, clean soft light, subtle structural vertices. Keep the app and its support structure equally visible and within central 80% for crops. Large, simple, recognisable at thumbnail size; fewer objects and no dense details. No text of any kind, letters, numbers, labels, pseudo writing, logos, title or watermark. No hands, people, cursors, mouse pointers, robots, brain, lens, rings, decorative mesh or photorealistic stock imagery. This is a conceptual maintenance scene, not a real product screenshot or a claim of complete autonomous operation.",
+    "engine": "Built-in image generation; exact model not exposed",
+    "status": "approved 15 November 2026",
+    "deployment": "source and preview; not yet deployed"
+  }
+]

@@ -1,29 +1,29 @@
 {
   "scope": "All 21 catalogue articles, including five drafts. /articles/ui-accessibility is a series index; /articles/traction-from-zero is a separate launch log with an existing trailer poster, retained for review.",
-  "review_url": "http://127.0.0.1:3045/batch-02.html",
+  "review_url": "http://127.0.0.1:3045/batch-03.html",
   "articles": [
     {
       "slug": "delegation-with-boundaries",
       "title": "AI agent permissions: how much authority should you delegate?",
       "published": true,
       "batch": 2,
-      "status": "awaiting founder feedback",
-      "hero": null
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/agent-permissions-v1.jpg"
     },
     {
       "slug": "evidence-that-starts-work",
       "title": "AI daily briefs: turn activity into useful priorities",
       "published": true,
-      "batch": null,
-      "status": "pending",
+      "batch": 3,
+      "status": "awaiting founder feedback",
       "hero": null
     },
     {
       "slug": "lakebase-vs-document-databases",
       "title": "Lakebase vs MongoDB and Cosmos DB: which approach fits?",
       "published": true,
-      "batch": null,
-      "status": "pending",
+      "batch": 3,
+      "status": "awaiting founder feedback",
       "hero": null
     },
     {
@@ -38,8 +38,8 @@
       "slug": "the-first-officer",
       "title": "The dashboard that speaks first",
       "published": true,
-      "batch": null,
-      "status": "pending",
+      "batch": 3,
+      "status": "awaiting founder feedback",
       "hero": null
     },
     {
@@ -63,8 +63,8 @@
       "title": "Stop making agents hunt for buttons",
       "published": true,
       "batch": 2,
-      "status": "awaiting founder feedback",
-      "hero": null
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/webmcp-direct-action-v1.jpg"
     },
     {
       "slug": "hands-free-app-control",
@@ -103,8 +103,8 @@
       "title": "Your app works. Who runs it now?",
       "published": true,
       "batch": 2,
-      "status": "awaiting founder feedback",
-      "hero": null
+      "status": "approved and integrated",
+      "hero": "/articles/orchestra/app-operations-v1.jpg"
     },
     {
       "slug": "agent-driven-ui-intelligence-and-action",

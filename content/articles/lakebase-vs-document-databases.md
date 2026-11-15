@@ -22,9 +22,9 @@ Lakebase is a particular service; document databases are a category. MongoDB and
 
 ## When is the relational approach a better fit?
 
-Consider a £40 refund. The application must update a customer balance, record the refund, retain its approval and recognise a repeated request. Those records share rules even though they represent different things. **I would start with Postgres for this design**, keeping the related database changes inside one transaction. The diagram illustrates that boundary.
+Consider a £40 refund. The application must update a customer balance, record the refund, retain its approval and recognise a repeated request. Those records share rules even though they represent different things. **We would start with Postgres for this design**, keeping the related database changes inside one transaction. The diagram illustrates that boundary.
 
-A payment provider remains outside the database transaction. Use its idempotency mechanism and a recoverable workflow so a lost response cannot trigger a second payment. The [streaming and recovery guide](/articles/langchain-databricks-appkit-sse) follows this failure through the interface.
+A payment provider remains outside the database transaction. Use its idempotency mechanism and a recoverable workflow, and verify that retrying after a lost response does not repeat the payment. The [streaming and recovery guide](/articles/langchain-databricks-appkit-sse) follows this failure through the interface.
 
 ## When is a document database a better fit?
 
