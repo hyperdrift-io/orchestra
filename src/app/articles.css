@@ -226,7 +226,7 @@ form[aria-label='Contact us'] [role='alert'] { color: #ffb3a1; }
 #article [data-article-heading] h1 { min-width: 0; }
 #article [data-article-heading][data-has-hero] { grid-template-columns: 1fr; }
 #article [data-article-hero] { margin: 1.25rem 0 1rem; }
-#article [data-article-hero] img { display: block; width: 100%; height: clamp(7.5rem, 25vw, 13.5rem); object-fit: contain; object-position: center; background: var(--ink); }
+#article [data-article-hero] img { display: block; width: auto; max-width: 100%; height: clamp(7.5rem, 25vw, 13.5rem); margin-inline: auto; object-fit: contain; }
 #article [data-article-orb] { position: relative; min-width: 0; }
 #article [data-article-orb] [data-mesh-artwork] { position: absolute; inset: 0; width: 100%; height: 100%; }
 #article [data-article-orb] [data-mesh-motion] { position: absolute; right: -.5rem; bottom: -.3rem; }

@@ -212,3 +212,8 @@ Review: http://127.0.0.1:3045/all-covers.html. Preview runtime and gallery remai
 
 
 The artwork-only release is live as `ffd1336`, verified on 16 published articles and the index. All 21 image assets match source hashes; five article drafts remain publicly unavailable. See [release evidence](RELEASE.md). Four article wording corrections remain in review at http://127.0.0.1:3045/copy-review.html; the released bodies are unchanged.
+
+
+## Article framing correction — 16 November 2026
+
+Founder rejected the page-wide black strip around the contained cover. The image now uses its natural proportional width, a transparent CSS background and centred margins, retaining the compact height. Preview checks at 1440, 390 and 320 px confirm the 16:9 image is intact and no horizontal overflow appears. The source images, index and share cards are unchanged. Preview: http://127.0.0.1:3044/articles/delegation-with-boundaries. Deployment awaits the founder’s UI preview approval; the separate four-article wording review remains pending.
