@@ -10,7 +10,7 @@ export const enquiryHandoffSchema = z.object({
 export type EnquiryHandoff = z.infer<typeof enquiryHandoffSchema>;
 
 export function parseEnquiryHandoff(query: URLSearchParams): EnquiryHandoff | undefined {
-  if (query.get('from') !== 'hyperdrift') return undefined;
+  if (query.get('from') !== 'hyperdrift' && !query.has('source_path')) return undefined;
   const parsed = enquiryHandoffSchema.safeParse({
     source_site: 'hyperdrift', source_path: query.get('source_path') || '/',
     source_project: query.get('source_project') || undefined,

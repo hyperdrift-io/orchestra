@@ -38,7 +38,11 @@ For a client: an agreed improvement in conversion, retention, cost to serve, mar
 
 For this site: qualified conversations with founders who have a concrete workflow and plausible fit. Measure confirmed enquiries and their human qualification, not just clicks. Our analytics project is still a publication prerequisite; local comparisons do not establish a conversion winner.
 
-## Identity and delivery
+## Identity and delivery — current preparation, 17 November 2026
+
+The founder has chosen to bring the commercial offer directly under Hyperdrift at `hyperdrift.io`, retaining the existing HD site as a separate Projects & writing destination (working host `studio.hyperdrift.io`). Orchestra remains the underlying app repository during this migration; clients work directly with Hyperdrift. Traction authentication stays on `traction.hyperdrift.io`. The design, migration and campaign remapping remain held for final preview approval. See [migration contract](docs/MIGRATION-2026-11-17.md).
+
+### Historical identity decision — 9–10 October 2026
 
 `orchestra.hyperdrift.io` is the commercial destination, named Orchestra by the founder on 9 October 2026. `ai.hyperdrift.io` permanently redirects there. Hyperdrift is the company behind Orchestra; existing articles and historical work retain their URLs on `hyperdrift.io`. On 10 October the founder approved a clearer offer and simpler HD homepage: the offer and enquiry route lead, while the existing graph supplies optional exploration. The shared Confluence goal is qualified enquiries, with customer insight, distribution and AI engineering serving the same customer opportunity. The September naming exploration is superseded.
 

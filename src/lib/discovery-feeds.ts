@@ -2,7 +2,7 @@ import { articleUrl, publishedArticles, type ArticleSummary } from './article-ca
 import { tagsOf } from './article-tags';
 import { articleShareImage } from './share-metadata';
 
-const BASE_URL = 'https://orchestra.hyperdrift.io';
+const BASE_URL = 'https://hyperdrift.io';
 const tagUrlOf = (slug: string) => `${BASE_URL}/articles/tag/${slug}`;
 
 const escapeXml = (text: string): string =>
@@ -24,7 +24,7 @@ export function buildRssXml(catalogue: ArticleSummary[], now = Date.now()): stri
     return `    <item>
       <title>${escapeXml(article.title)}</title>
       <link>${url}</link>
-      <guid isPermaLink="true">${url}</guid>
+      <guid isPermaLink="true">https://orchestra.hyperdrift.io/articles/${article.slug}</guid>
       <pubDate>${date.toUTCString()}</pubDate>
       <description>${escapeXml(article.excerpt)}</description>
       <category>${escapeXml(article.topic)}</category>
@@ -37,9 +37,9 @@ ${tagsOf(article).map((tag) => `      <category domain="${tagUrlOf(tag.slug)}">$
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Orchestra AI by Hyperdrift</title>
+    <title>Hyperdrift</title>
     <link>${BASE_URL}/articles</link>
-    <atom:link href="${BASE_URL}/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="${BASE_URL}/articles/feed.xml" rel="self" type="application/rss+xml" />
     <description>AI engineering for founders with customers, active users or clear demand. We connect AI to existing business workflows and measure what changes.</description>
     <language>en-gb</language>
     <lastBuildDate>${newest}</lastBuildDate>

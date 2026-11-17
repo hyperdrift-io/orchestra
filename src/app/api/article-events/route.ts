@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   // Next's internal request URL can use localhost behind a proxy; Host is the public request authority.
   if (origin) {
     try {
-      if (new URL(origin).host !== request.headers.get('host')) return new Response(null, { status: 403 });
+      if (!['https://hyperdrift.io', 'https://orchestra.hyperdrift.io', 'https://ai.hyperdrift.io'].includes(origin) && !(process.env.NODE_ENV === 'development' && new URL(origin).host === request.headers.get('host'))) return new Response(null, { status: 403 });
     } catch { return new Response(null, { status: 403 }); }
   }
   const text = await request.text();

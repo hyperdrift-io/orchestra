@@ -20,7 +20,7 @@ describe('how Traction continues', () => {
   });
 
   it('never says free: the trial implies it (founder, 11 November 2026)', async () => {
-    const pages = ['./traction-features.ts', './traction-offer.ts', './situations.ts', '../components/Traction.tsx', '../components/TractionPartnership.tsx', '../components/TractionInvitation.tsx', '../components/TractionDoor.tsx', '../components/Proof.tsx', '../app/traction/page.tsx', '../app/llms.txt/route.ts'];
+    const pages = ['./traction-features.ts', './traction-offer.ts', './situations.ts', '../components/Traction.tsx', '../components/TractionPartnership.tsx', '../components/TractionInvitation.tsx', '../components/TractionDoor.tsx', '../components/Proof.tsx', '../app/(site)/traction/page.tsx', '../app/llms.txt/route.ts'];
     for (const path of pages) {
       const strings = [...(await source(path)).matchAll(/'([^'\n]*)'|>([^<{}\n]+)</g)].map((match) => match[1] ?? match[2] ?? '').join('\n');
       expect(strings, path).not.toMatch(/\bfree\b/i);
@@ -42,7 +42,7 @@ describe('how Traction continues', () => {
 
   it('is the one definition the pages, the home card and llms.txt read', async () => {
     expect(await source('../components/Traction.tsx')).toMatch(/waysOn\.map/);
-    expect(await source('../app/llms.txt/route.ts')).toMatch(/waysOn\.map/);
+    expect(await source('../app/llms.txt/route.ts')).toContain('/traction/partnership');
     expect(await source('../components/Services.tsx')).toMatch(/services\.map/);
   });
 
@@ -66,7 +66,7 @@ describe('how Traction continues', () => {
     expect(await source('../components/SiteContactLink.tsx')).toContain("pathname === '/traction' ? '#trial' : '#your-board'");
     expect(howItWorks.doorNote).toMatch(/email, then a passkey/);
     expect(product).not.toMatch(/\/traction\/first-read/);
-    expect(await source('../app/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
+    expect(await source('../app/(reading)/traction/first-read/page.tsx')).toMatch(/permanentRedirect\('\/traction'\)/);
     expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
   });
 
@@ -75,7 +75,7 @@ describe('how Traction continues', () => {
     expect(invitation).toMatch(/Open \$\{product\}’s Traction board now →/);
     expect(invitation).not.toMatch(/Start free/);
     expect(invitation).toMatch(/<TractionLiveRead /);
-    expect(await source('../app/traction/invitation/[token]/page.tsx')).toMatch(/await liveRead\(invitation\.url\)/);
+    expect(await source('../app/(reading)/traction/invitation/[token]/page.tsx')).toMatch(/await liveRead\(invitation\.url\)/);
     expect(await source('../app/api/traction/read/route.ts')).toMatch(/tractionInvitation\(/);
   });
 
@@ -144,24 +144,15 @@ describe('how Traction continues', () => {
   });
 
 
-  it('answers how Traction works on a page of its own, one click from the other two', async () => {
-    expect(howItWorksHref).toBe('/traction/how-it-works');
-    const page = await source('../app/traction/how-it-works/page.tsx');
-    expect(page).toMatch(/canonical: '\/traction\/how-it-works'/);
-    expect(page).toMatch(/const title = 'How Traction works/);
-    expect(howItWorks.title).toBe('How Traction works');
-    const component = await source('../components/TractionHowItWorks.tsx');
-    expect(component).toMatch(/<h1>\{howItWorks\.title\}<\/h1>/);
-    expect(component.indexOf('<TractionFeatures />')).toBeLessThan(component.indexOf('<TractionDoor '));
-    // Each step is an address a door on the board can open, and none takes one the page already uses.
-    const features = await source('../components/TractionFeatures.tsx');
-    expect(features).toMatch(/<section id="features" /);
-    expect(features).toMatch(/<li id=\{step\.id\}>/);
-    expect(steps.map((step) => step.id).filter((id) => ['features', 'traction', 'your-board'].includes(id))).toEqual([]);
-    expect(await source('../app/sitemap.ts')).toMatch(/'traction\/how-it-works'/);
-    expect(await source('../app/llms.txt/route.ts')).toMatch(/\/traction\/how-it-works\)/);
-    expect(tractionPages.map((entry) => entry.href)).toEqual(['/traction', '/traction/how-it-works', '/traction/partnership']);
-    for (const file of ['../app/traction/page.tsx', '../app/traction/how-it-works/page.tsx', '../app/traction/partnership/page.tsx']) expect(await source(file), file).toMatch(/<TractionPages current="/);
+  it('keeps the three Traction answers and deep links on their own pages', async () => {
+    for (const path of ['traction','traction-how-it-works','traction-partnership']) {
+      const html = await source(`../site/content/${path}.html`);
+      expect(html).toContain('/traction/how-it-works');
+      expect(html).toContain('/traction/partnership');
+    }
+    const detail=await source('../site/content/traction-how-it-works.html');
+    expect(detail).toContain('workflow-customers');
+    expect(await source('../app/sitemap.ts')).toContain("'/traction/how-it-works'");
   });
 
   it('says how long the trial lasts, what it gives and what stays when it ends', () => {

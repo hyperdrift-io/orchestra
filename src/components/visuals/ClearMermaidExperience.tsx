@@ -44,10 +44,12 @@ function ClearDiagram({ source, selected, onNode, comparison = false, selectedDo
   const selectedRef = useRef(selected);
   const domainRef = useRef(selectedDomain);
   const onDomainRef = useRef(onDomain);
-  domainRef.current = selectedDomain;
-  onDomainRef.current = onDomain;
-  onNodeRef.current = onNode;
-  selectedRef.current = selected;
+  useEffect(() => {
+    domainRef.current = selectedDomain;
+    onDomainRef.current = onDomain;
+    onNodeRef.current = onNode;
+    selectedRef.current = selected;
+  }, [selectedDomain, onDomain, onNode, selected]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   useEffect(() => {

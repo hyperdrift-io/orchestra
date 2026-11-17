@@ -4,7 +4,7 @@ import { useState, type CSSProperties } from 'react';
 
 /*
  * One fix, every app: what one app learns, every app on the platform gets.
- * Orchestra OS sits at the centre as a flat echo of the /os mesh; our apps sit on a ring
+ * HD OS sits at the centre as a flat echo of the /os mesh; our apps sit on a ring
  * around it as small app windows, with no names because some are partner ventures. Four events from
  * our repositories, carried two ways. The server render is the React fix on one platform with all
  * six apps lit, so the static export and readers without JavaScript get the insight. Motion plays
@@ -59,7 +59,7 @@ const events: readonly FleetEvent[] = [
       platform: {
         count: 'Investigated once', title: 'Investigated once. Six apps fixed the same day.',
         text: 'Pages went blank on one of our apps. The bug was found and investigated there, once, on 17 September. On 8 October the fix went into all six apps on that stack the same day.',
-        picture: 'Orchestra OS at the centre, our apps on a ring around it. The bug travels in once from the app that found it on 17 September; the fix travels out to the six apps on that stack, each marked React 19.3, 8 October. Apps on other stacks stay dim.',
+        picture: 'HD OS at the centre, our apps on a ring around it. The bug travels in once from the app that found it on 17 September; the fix travels out to the six apps on that stack, each marked React 19.3, 8 October. Apps on other stacks stay dim.',
         key: [{ mark: 'origin', text: 'Found on one app · 17 Sep' }, { mark: 'lit', text: 'All six apps on that stack · React 19.3 · 8 Oct' }, { mark: 'ghost', text: 'Other apps · a different stack' }],
       },
     },
@@ -79,7 +79,7 @@ const events: readonly FleetEvent[] = [
       platform: {
         count: 'Read once', title: 'Read once. Guarded the next day.',
         text: 'A widely used npm package was compromised on 4 August. On 5 August a gate that blocks known malicious packages went into our deploy pipelines.',
-        picture: 'A compromised npm package reaches Orchestra OS once, from outside the fleet, on 4 August. A gate ring forms around the centre: a gate against known malicious packages in our deploy pipelines, 5 August.',
+        picture: 'A compromised npm package reaches HD OS once, from outside the fleet, on 4 August. A gate ring forms around the centre: a gate against known malicious packages in our deploy pipelines, 5 August.',
         key: [{ mark: 'origin', text: 'A widely used npm package is compromised · 4 Aug' }, { mark: 'gate', text: 'A gate against known malicious packages goes into our deploy pipelines · 5 Aug' }],
       },
     },
@@ -300,7 +300,7 @@ export function FleetCompound() {
           </g>}
         </g>
       </svg>
-      <p key={`core-${run}`} data-core="" aria-hidden="true"><strong>{platform ? 'Orchestra OS' : 'Nothing shared'}</strong>{platform && <span>{event.core}</span>}</p>
+      <p key={`core-${run}`} data-core="" aria-hidden="true"><strong>{platform ? 'HD OS' : 'Nothing shared'}</strong>{platform && <span>{event.core}</span>}</p>
     </div>
     <ul data-key="" aria-label="What the drawing shows">{telling.key.map((item) => <li key={item.mark} data-mark={item.mark}>{item.text}</li>)}</ul>
     <p data-outcome="" role="status"><strong>{telling.title}</strong>{telling.text}</p>

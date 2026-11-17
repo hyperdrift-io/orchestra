@@ -1,54 +1,24 @@
-import { articleUrl, visibleArticles } from '@/lib/article-catalogue';
-import { freeBoard, services, waysOn } from '@/data/traction-offer';
-import { howItWorks } from '@/data/traction-features';
-import { indexableTags, tagUrl } from '@/lib/article-tags';
+import {archiveOrigin} from '@/site/archive';
+import {allArticles} from '@/site/catalogue';
+export const revalidate=60;
+export function GET(){return new Response(`# Hyperdrift
 
-export const dynamic = 'force-static';
+> Hyperdrift helps founders build, operate and grow their apps. Traction provides an AI growth team; founders approve consequential work. HD OS connects the engineering and operating work.
 
-export function GET() {
-  const visible = visibleArticles();
-  const articles = visible
-    .map((article) => `- [${article.title}](${articleUrl(article.slug)}): ${article.excerpt}`)
-    .join('\n');
-  const topics = indexableTags(visible)
-    .map((tag) => `- [${tag.label}](${tagUrl(tag.slug)}): ${tag.description}`)
-    .join('\n');
+## Start here
 
-  const body = `# Orchestra AI by Hyperdrift
+- [Traction](https://hyperdrift.io/traction): a seven-day trial with a website review, one customer search and email drafts.
+- [How it works](https://hyperdrift.io/traction/how-it-works): research, context, market evidence, delivery and measurement.
+- [Partnership](https://hyperdrift.io/traction/partnership): agree the scope and work with Hyperdrift.
+- [HD OS](https://hyperdrift.io/os): how operating capabilities connect around an app.
+- [Custom AI workflows](https://hyperdrift.io/workflows): useful work with people in control.
+- [About](https://hyperdrift.io/about)
+- [Work](https://hyperdrift.io/work)
+- [Contact](https://hyperdrift.io/contact)
+- [Projects & writing](${archiveOrigin}): earlier projects and articles.
+- [Blog](https://hyperdrift.io/articles) · [RSS](https://hyperdrift.io/articles/feed.xml) · [JSON Feed](https://hyperdrift.io/feed.json)
 
-Orchestra connects customer insight, distribution and AI engineering for founders with a working product and evidence of demand. Start with one measurable opportunity to reach customers, help them use the product or improve delivery. Hyperdrift is the company behind Orchestra.
+## Published articles
 
-## Work with Orchestra
-
-${services.map((service) => `- [${service.name}](https://orchestra.hyperdrift.io${service.links[0].href}): ${service.text}`).join('\n')}
-
-- [Trial Traction](https://orchestra.hyperdrift.io/traction#trial): ${freeBoard.text} ${freeBoard.market} ${freeBoard.after} Then two ways on:
-${waysOn.map((way) => `- [${way.name}](https://orchestra.hyperdrift.io${way.slug === 'partnership' ? '/traction/partnership' : '/traction#subscription'}): ${way.text}`).join('\n')}
-- [How Traction works](https://orchestra.hyperdrift.io/traction/how-it-works): ${howItWorks.lead}
-
-- [Run a first read on your own app](https://github.com/hyperdrift-io/first-read): The same method as an open Agent Skill made by Orchestra, for Claude Code, Codex and any client that reads Agent Skills. Public pages only; one strength, one constraint and the next customer move, each with its evidence. Install with npx skills add hyperdrift-io/first-read.
-
-## Evidence you can inspect
-
-- [Work](https://orchestra.hyperdrift.io/work): Traction on our own launch, our open-source First read skill, our merged OpenTelemetry contribution, then NextRole and four challenge entries. These demonstrations do not establish client outcomes.
-- [NextRole MCP check](https://orchestra.hyperdrift.io/proof/nextrole-mcp-corrected-2026-10-04.json): A synthetic CV and job, the scoring response and verification limits. One example of making a product usable from an assistant.
-
-## Articles
-
-Newest first, with publication dates: [RSS feed](https://orchestra.hyperdrift.io/feed.xml).
-
-${articles}
-
-## Topics
-
-Each topic page lists the articles that carry it, with a one-line answer to what the topic covers.
-
-${topics}
-
-## Get in touch
-
-- [Discuss your app](https://orchestra.hyperdrift.io/#contact): Bring the people you want to reach, or one workflow you want to improve. We agree the next step together.
-`;
-
-  return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
-}
+${allArticles().map(a=>`- [${a.title}](https://hyperdrift.io${a.href}): ${a.excerpt}`).join('\n')}
+`,{headers:{'Content-Type':'text/plain; charset=utf-8'}})}

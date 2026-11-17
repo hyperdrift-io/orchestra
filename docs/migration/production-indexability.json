@@ -1,0 +1,223 @@
+{
+  "mode": "production fixture",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": "https://hyperdrift.io",
+      "noindex": false
+    },
+    {
+      "path": "/articles",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles",
+      "noindex": false
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/about",
+      "noindex": false
+    },
+    {
+      "path": "/work",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/work",
+      "noindex": false
+    },
+    {
+      "path": "/workflows",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/workflows",
+      "noindex": false
+    },
+    {
+      "path": "/os",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/os",
+      "noindex": false
+    },
+    {
+      "path": "/traction",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/traction",
+      "noindex": false
+    },
+    {
+      "path": "/traction/how-it-works",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/traction/how-it-works",
+      "noindex": false
+    },
+    {
+      "path": "/traction/partnership",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/traction/partnership",
+      "noindex": false
+    },
+    {
+      "path": "/how-it-works?view=business",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/how-it-works?view=business",
+      "noindex": false
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/contact",
+      "noindex": false
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/privacy",
+      "noindex": false
+    },
+    {
+      "path": "/articles/ui-accessibility",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/ui-accessibility",
+      "noindex": false
+    },
+    {
+      "path": "/articles/traction-from-zero",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/traction-from-zero",
+      "noindex": false
+    },
+    {
+      "path": "/articles/tag/agents",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/tag/agents",
+      "noindex": false
+    },
+    {
+      "path": "/articles/tag/voice",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/tag/voice",
+      "noindex": false
+    },
+    {
+      "path": "/articles/tag/accessibility",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/tag/accessibility",
+      "noindex": false
+    },
+    {
+      "path": "/articles/tag/ui",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/tag/ui",
+      "noindex": false
+    },
+    {
+      "path": "/articles/tag/operations",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/tag/operations",
+      "noindex": false
+    },
+    {
+      "path": "/articles/tag/permissions",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/tag/permissions",
+      "noindex": false
+    },
+    {
+      "path": "/articles/delegation-with-boundaries",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/delegation-with-boundaries",
+      "noindex": false
+    },
+    {
+      "path": "/articles/evidence-that-starts-work",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/evidence-that-starts-work",
+      "noindex": false
+    },
+    {
+      "path": "/articles/lakebase-vs-document-databases",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/lakebase-vs-document-databases",
+      "noindex": false
+    },
+    {
+      "path": "/articles/langchain-databricks-appkit-sse",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/langchain-databricks-appkit-sse",
+      "noindex": false
+    },
+    {
+      "path": "/articles/the-first-officer",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/the-first-officer",
+      "noindex": false
+    },
+    {
+      "path": "/articles/is-ui-holding-us-back",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/is-ui-holding-us-back",
+      "noindex": false
+    },
+    {
+      "path": "/articles/web-accessibility-can-people-finish",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/web-accessibility-can-people-finish",
+      "noindex": false
+    },
+    {
+      "path": "/articles/webmcp-actions-on-the-page",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/webmcp-actions-on-the-page",
+      "noindex": false
+    },
+    {
+      "path": "/articles/hands-free-app-control",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/hands-free-app-control",
+      "noindex": false
+    },
+    {
+      "path": "/articles/voice-through-mcp",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/voice-through-mcp",
+      "noindex": false
+    },
+    {
+      "path": "/articles/future-ui-keep-your-place",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/future-ui-keep-your-place",
+      "noindex": false
+    },
+    {
+      "path": "/articles/production-led-security-maintenance",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/production-led-security-maintenance",
+      "noindex": false
+    },
+    {
+      "path": "/articles/app-operations-after-launch",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/app-operations-after-launch",
+      "noindex": false
+    },
+    {
+      "path": "/articles/agent-driven-ui-intelligence-and-action",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/agent-driven-ui-intelligence-and-action",
+      "noindex": false
+    },
+    {
+      "path": "/articles/opentelemetry-genai-conversation-id",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/opentelemetry-genai-conversation-id",
+      "noindex": false
+    },
+    {
+      "path": "/articles/give-motivated-founders-a-fair-chance",
+      "status": 200,
+      "canonical": "https://hyperdrift.io/articles/give-motivated-founders-a-fair-chance",
+      "noindex": false
+    }
+  ],
+  "article_og_count": 16,
+  "feed_count": 16
+}

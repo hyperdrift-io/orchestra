@@ -1,0 +1,21 @@
+import '@/app/fonts.css';
+import '@/app/globals.css';
+import '@/app/link-preview.css';
+import '@/app/mesh-artwork.css';
+import '@/app/org.css';
+import '@/app/articles.css';
+import '@/app/visual-repair.css';
+import '@/app/visual-operating-week.css';
+import '@/app/visual-effort.css';
+import '@/app/visual-fleet.css';
+import '@/app/visual-traction-peek.css';
+import '@/app/visual-conversation-trace.css';
+import '@/app/visual-conventions-reach.css';
+import '@/app/visual-review-timeline.css';
+import '@/app/constellation.css';
+import '@/app/migration.css';
+import {SiteHeader,SiteFooter,PreviewNotice} from '@/site/Chrome';
+import {organisation} from '@/site/metadata';
+import {SiteEnquiryDialog} from '@/components/SiteEnquiryDialog';
+export {metadata} from '@/site/metadata';
+export default function Layout({children}:{children:React.ReactNode}) {return <html lang="en" className="font-display font-body font-mono"><head><link rel="alternate" type="application/rss+xml" href="/articles/feed.xml"/><link rel="alternate" type="application/feed+json" href="/feed.json"/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:organisation}}/></head><body><PreviewNotice/><SiteHeader/><main>{children}</main><SiteEnquiryDialog paused={process.env.MIGRATION_PREVIEW === 'true'}/><SiteFooter/></body></html>}

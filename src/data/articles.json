@@ -221,7 +221,6 @@
       "kind": "transaction",
       "download": "/articles/databricks/transaction-visual.png"
     },
-    "invite": "Bring your current stack and one operation whose records must stay consistent.",
     "heroImage": {
       "src": "/articles/orchestra/databases-v1.jpg",
       "alt": "Linked data tables stand beside a self-contained folder of case records.",
@@ -955,17 +954,32 @@
       "reviewed": "13 October 2026"
     },
     "publishedAt": "2026-10-13T21:16:00Z",
-    "figures": [],
+    "figures": [
+      {
+        "kind": "fleet",
+        "title": "One fix, every app",
+        "takeaway": "What one app learns, every app on the platform gets.",
+        "description": "Orchestra OS at the centre, our apps on a ring around it. When a React bug left pages blank on one app, it was found and investigated there once, on 17 September; on 8 October the fix went into all six apps on that stack the same day, while on their own each app would hunt the same bug separately and one that hasn't noticed still shows a blank page. The same pattern holds for a compromised npm package (a malicious-package gate in our deploy pipelines the next day), a reading feature built once and synced to three article sites, and a new app that outside monitoring checks every five minutes from the registry with nothing to set up.",
+        "sources": [
+          {
+            "label": "React fix for the stylesheet stall (facebook/react#34760)",
+            "url": "https://github.com/facebook/react/pull/34760"
+          }
+        ],
+        "download": "/articles/orchestra-os/fleet-compound.png",
+        "reviewed": "13 October 2026"
+      }
+    ],
     "invite": "Tell us about your app, who runs it today and the job you’d hand over first. We’ll agree what to connect, who owns it and the evidence that shows it’s working.",
     "readNext": "agent-driven-ui-intelligence-and-action",
-    "updatedAt": "2026-11-15T20:52:00Z",
     "heroImage": {
       "src": "/articles/orchestra/app-operations-v1.jpg",
       "alt": "A working app sits on a maintenance cradle with an accessible component, backup cartridge and control dial.",
       "width": 1600,
       "height": 900
     },
-    "shareArtworkOnly": true
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-15T20:52:00Z"
   },
   {
     "slug": "agent-driven-ui-intelligence-and-action",
@@ -1021,243 +1035,6 @@
     "heroImage": {
       "src": "/articles/orchestra/intel-and-action-v1.jpg",
       "alt": "An observation board shows work moving through a mechanism beside a manual approval control.",
-      "width": 1600,
-      "height": 900
-    },
-    "shareArtworkOnly": true,
-    "updatedAt": "2026-11-15T21:15:44Z"
-  },
-  {
-    "slug": "dspy-programmes-you-can-improve",
-    "title": "DSPy: build AI programmes you can improve",
-    "seoTitle": "DSPy introduction: signatures, modules, metrics and RLM",
-    "excerpt": "DSPy gives repeatable AI tasks a structure for evaluation and improvement. Start with one workflow, a baseline and examples your team can judge.",
-    "shareLine": "Give the programme a clear job and a useful measure of success. Improve it against real examples.",
-    "order": 15,
-    "topic": "DSPy",
-    "example": "DSPy research",
-    "tags": [
-      "agents",
-      "operations"
-    ],
-    "exampleStatus": "Source research · illustrative workflow",
-    "ctaLabel": "Discuss your AI evaluation",
-    "invite": "Bring a repeatable task and examples of a useful result. We can help define the first measurable improvement.",
-    "readNext": "dspy-reasoning-continuity",
-    "steps": [
-      "Define the task",
-      "Measure the baseline",
-      "Compare a change",
-      "Review useful outcomes"
-    ],
-    "proof": {
-      "heading": "The useful boundary",
-      "description": "Source research and an illustrative design; no production benchmark or accepted DSPy contribution.",
-      "url": "https://github.com/stanfordnlp/dspy/issues/10675",
-      "label": "Read the DSPy issue"
-    },
-    "media": null,
-    "image": {
-      "src": "/articles/mesh/dspy-programmes-you-can-improve.svg",
-      "alt": "Connected wireframe checklist, chart, decision forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "visualization": {
-      "kind": "editorial",
-      "image": "/articles/dspy/dspy-programmes-you-can-improve.svg",
-      "alt": "A loop connects a defined task, representative examples, measured results and a reviewed change.",
-      "takeaway": "Improve a repeatable task against examples people can judge.",
-      "description": "The diagram shows our recommended evaluation loop. Define useful output, establish a baseline, compare a candidate on held-out examples and review quality, latency and cost. It is an illustrative workflow, not benchmark data.",
-      "sources": [
-        {
-          "label": "DSPy signatures",
-          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/programming/signatures.md"
-        },
-        {
-          "label": "DSPy modules",
-          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/programming/modules.md"
-        },
-        {
-          "label": "DSPy metrics",
-          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/evaluation/metrics.md"
-        },
-        {
-          "label": "Optimisation overview",
-          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/learn/optimization/overview.md"
-        },
-        {
-          "label": "DSPy RLM guide",
-          "url": "https://github.com/stanfordnlp/dspy/blob/98830391be6fbf81523757271432bba1c6c4eb80/docs/docs/diving-deeper/rlm.md"
-        },
-        {
-          "label": "reasoning-continuity issue",
-          "url": "https://github.com/stanfordnlp/dspy/issues/10675"
-        }
-      ],
-      "reviewed": "23 October 2026",
-      "download": "/articles/dspy/dspy-programmes-you-can-improve.png"
-    },
-    "reviewedAt": "2026-10-23",
-    "publishedAt": null,
-    "headerImage": {
-      "src": "/articles/mesh/dspy-programmes-you-can-improve.svg",
-      "alt": "Connected wireframe checklist, chart, decision forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    },
-    "heroImage": {
-      "src": "/articles/orchestra/dspy-test-bench-v1.jpg",
-      "alt": "An adjustable programme compares outputs with reference examples, with one mismatch still visible.",
-      "width": 1600,
-      "height": 900
-    },
-    "shareArtworkOnly": true,
-    "updatedAt": "2026-11-15T21:15:44Z"
-  },
-  {
-    "slug": "dspy-reasoning-continuity",
-    "title": "Helping agents pick up where they left off",
-    "seoTitle": "DSPy reasoning continuity: history, model state and handoffs",
-    "excerpt": "An agent should resume a job without making you explain it again. What our DSPy example taught us about keeping progress usable after a pause.",
-    "shareLine": "Your sources, decisions and next action should survive a change of agent.",
-    "order": 16,
-    "topic": "DSPy",
-    "example": "DSPy research",
-    "tags": [
-      "agents",
-      "operations"
-    ],
-    "exampleStatus": "Tested offline example",
-    "ctaLabel": "Discuss an agent handoff",
-    "invite": "Bring a workflow that needs to resume after a pause or model change. We can examine what must survive.",
-    "readNext": "dspy-programmes-you-can-improve",
-    "steps": [
-      "Keep the goal",
-      "Save the evidence",
-      "Record decisions",
-      "Resume the work"
-    ],
-    "proof": {
-      "heading": "Keep the work usable",
-      "description": "Our saved-conversation example preserved information through a save and reload. Tested offline on 30 October; no live model result or accepted upstream change.",
-      "url": "https://github.com/stanfordnlp/dspy/issues/10675",
-      "label": "Read the continuity proposal"
-    },
-    "media": null,
-    "image": {
-      "src": "/articles/mesh/dspy-reasoning-continuity.svg",
-      "alt": "Connected wireframe conversation, book, signpost forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "visualization": {
-      "kind": "editorial",
-      "image": "/articles/dspy/readable-handoff.svg",
-      "alt": "Do the work, save the findings and decisions, then let the next person or agent inspect and continue them.",
-      "takeaway": "Keep a readable record of the work, with the evidence and next action.",
-      "description": "The work record should remain useful after a pause or model change. Extra continuation information may help compatible models, but does not replace the readable record.",
-      "sources": [
-        {
-          "label": "DSPy continuity proposal",
-          "url": "https://github.com/stanfordnlp/dspy/issues/10675"
-        },
-        {
-          "label": "The DSPy version tested on 30 October",
-          "url": "https://github.com/stanfordnlp/dspy/tree/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007"
-        }
-      ],
-      "reviewed": "Offline example checked 30 October 2026; explanation revised 2 November"
-    },
-    "reviewedAt": "2026-10-30",
-    "publishedAt": null,
-    "headerImage": {
-      "src": "/articles/mesh/dspy-reasoning-continuity.svg",
-      "alt": "Connected wireframe conversation, book, signpost forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    },
-    "heroImage": {
-      "src": "/articles/orchestra/resume-the-work-v1.jpg",
-      "alt": "An open case retains an unfinished structure and its sources beside a disconnected processor.",
-      "width": 1600,
-      "height": 900
-    },
-    "shareArtworkOnly": true,
-    "updatedAt": "2026-11-15T21:15:44Z"
-  },
-  {
-    "slug": "clear-mermaid-diagrams-people-can-follow",
-    "title": "Clear Mermaid: diagrams people can follow",
-    "seoTitle": "Clear Mermaid: a browser reader for Mermaid flowcharts",
-    "excerpt": "Keep Mermaid source and make its relationships easier to follow. What eight prototype rounds taught us about layout, connections and accessible reading.",
-    "shareLine": "A diagram should make its relationships easy to follow.",
-    "order": 17,
-    "topic": "Clear Mermaid",
-    "example": "Compare the same diagram",
-    "tags": [
-      "ui",
-      "accessibility"
-    ],
-    "exampleStatus": "Interactive comparison",
-    "ctaLabel": "Discuss a diagram people need to read",
-    "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
-    "readNext": "clear-mermaid-in-action",
-    "steps": [
-      "Preserve the source",
-      "Check the meaning",
-      "Follow the connections",
-      "Test the reading"
-    ],
-    "proof": {
-      "heading": "Same source, two ways to read it",
-      "description": "Try decisions, retries and shared dependencies with the same Mermaid source in both renderers.",
-      "url": "https://mermaid.js.org/config/accessibility.html",
-      "label": "Read Mermaid accessibility guidance"
-    },
-    "media": null,
-    "image": {
-      "src": "/articles/mesh/clear-mermaid-diagrams-people-can-follow.svg",
-      "alt": "Connected wireframe eye, signpost, conversation forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "visualization": {
-      "kind": "mermaid-comparison",
-      "alt": "Choose a decision, retry or shared dependency and compare the same source in Mermaid and Clear Mermaid.",
-      "evidenceLabel": "Interactive comparison using the same source",
-      "takeaway": "Follow the same connection in both renderers, then inspect it as text.",
-      "description": "Choose one of four examples. Both renderers receive the same source. Clear Mermaid adds node selection, relationship reading and exploration; Mermaid provides the standard drawing. No independent comprehension benchmark is claimed.",
-      "sources": [
-        {
-          "label": "Beautiful Mermaid",
-          "url": "https://github.com/lukilabs/beautiful-mermaid"
-        },
-        {
-          "label": "Mermaid accessibility",
-          "url": "https://mermaid.js.org/config/accessibility.html"
-        },
-        {
-          "label": "WCAG: use of colour",
-          "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
-        }
-      ],
-      "reviewed": "2 November 2026"
-    },
-    "reviewedAt": "2026-11-02",
-    "publishedAt": null,
-    "headerImage": {
-      "src": "/articles/mesh/clear-mermaid-diagrams-people-can-follow.svg",
-      "alt": "Connected wireframe eye, signpost, conversation forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    },
-    "heroImage": {
-      "src": "/articles/orchestra/follow-the-diagram-v1.jpg",
-      "alt": "One selected route remains visible through a branching diagram.",
       "width": 1600,
       "height": 900
     },
@@ -1418,142 +1195,6 @@
     "shareArtworkOnly": true
   },
   {
-    "slug": "clear-mermaid-in-action",
-    "title": "Clear Mermaid in action",
-    "seoTitle": "Clear Mermaid in action: edit nested diagrams and compare Mermaid",
-    "excerpt": "Explore nested domains, trace a cross-boundary request and follow its retry. Edit the architecture and compare the same source with basic Mermaid.",
-    "shareLine": "Follow the boundary, the request and the retry. Then change the diagram.",
-    "order": 19,
-    "topic": "Clear Mermaid",
-    "example": "Edit a diagram",
-    "tags": [
-      "ui",
-      "accessibility"
-    ],
-    "exampleStatus": "Interactive browser editor",
-    "ctaLabel": "Discuss a diagram people need to read",
-    "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
-    "readNext": "clear-mermaid-in-your-ai-assistant",
-    "steps": [
-      "Find the boundary",
-      "Trace the request",
-      "Edit and compare",
-      "Export the source"
-    ],
-    "proof": {
-      "heading": "Edit the explanation",
-      "description": "Four local examples, led by a nested architecture: inspect domain membership, move steps, edit connections and compare the same source with basic Mermaid.",
-      "url": "https://hyperdrift.io/blog/own-your-stack-types-all-the-way-down",
-      "label": "See Clear Mermaid on the HD blog"
-    },
-    "media": null,
-    "image": {
-      "src": "/articles/mesh/clear-mermaid-in-action.svg",
-      "alt": "Connected wireframe wrench, signpost, eye forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "visualization": {
-      "kind": "clear-mermaid-editor",
-      "title": "Explore and edit a nested architecture",
-      "takeaway": "Find a boundary, follow a request, edit the architecture and compare the same source.",
-      "description": "A browser-only editor with four examples. The default architecture has 13 steps, 6 domains across 3 levels and 14 connections, including a two-way payment request and response. Both renderers receive the same source and viewport. Change labels, move a step between existing domains, add steps and connections, undo and export the source with its nested groups. Keyboard controls provide alternatives to diagram selection.",
-      "sources": [
-        {
-          "label": "Mermaid flowcharts",
-          "url": "https://mermaid.js.org/syntax/flowchart.html"
-        }
-      ],
-      "evidenceLabel": "Interactive local example; changes stay in this browser"
-    },
-    "reviewedAt": "2026-11-02",
-    "publishedAt": null,
-    "headerImage": {
-      "src": "/articles/mesh/clear-mermaid-in-action.svg",
-      "alt": "Connected wireframe wrench, signpost, eye forms in Orchestra's mesh style.",
-      "width": 1200,
-      "height": 160
-    },
-    "heroImage": {
-      "src": "/articles/orchestra/edit-the-architecture-v1.jpg",
-      "alt": "A connected service moves between nested transparent boundaries beside an exportable diagram.",
-      "width": 1600,
-      "height": 900
-    },
-    "shareArtworkOnly": true,
-    "updatedAt": "2026-11-15T21:15:44Z"
-  },
-  {
-    "slug": "clear-mermaid-in-your-ai-assistant",
-    "title": "Clear Mermaid in your AI assistant",
-    "seoTitle": "Clear Mermaid for ChatGPT and Claude: connect without a local server",
-    "excerpt": "Connect by URL, ask for an architecture diagram and inspect its connections. No Node.js or local server. Keep the Mermaid source for your next change.",
-    "shareLine": "Ask for a diagram you can inspect and change.",
-    "order": 20,
-    "topic": "Clear Mermaid",
-    "example": "A diagram from your assistant",
-    "tags": [
-      "ui",
-      "accessibility"
-    ],
-    "exampleStatus": "Hosted MCP connector",
-    "ctaLabel": "Discuss a diagram people need to read",
-    "invite": "Bring a diagram that people struggle to follow. We can examine the reading task and its connections.",
-    "readNext": "clear-mermaid-in-action",
-    "steps": [
-      "Connect by URL",
-      "Describe the system",
-      "Inspect the diagram",
-      "Keep the source"
-    ],
-    "proof": {
-      "heading": "A diagram returned by the connector",
-      "description": "A real connector call and browser render of a fictional web application. Desktop and phone checks; no claim of compatibility with every AI client.",
-      "url": "https://github.com/hyperdrift-io/clear-mermaid#install-the-connector",
-      "label": "Connect Clear Mermaid"
-    },
-    "media": null,
-    "image": {
-      "src": "/articles/mesh/clear-mermaid-in-your-ai-assistant.svg",
-      "alt": "A conversation, signpost and eye: ask for a diagram and inspect its connections.",
-      "width": 1200,
-      "height": 160,
-      "caption": "Editorial mesh illustration · Explore the workflow in the article."
-    },
-    "visualization": {
-      "kind": "editorial",
-      "image": "/articles/clear-mermaid/connector-example.png",
-      "alt": "A web application flowchart created through the Clear Mermaid connector, with a sign-in decision and a retry path.",
-      "evidenceLabel": "Actual local connector output; fictional architecture example",
-      "takeaway": "Ask for the architecture, then follow the connections yourself.",
-      "description": "The connector returns an interactive diagram and its Mermaid source. Select nodes, inspect relationships and save the source. This capture shows the same reader through the original local connector, using a fictional architecture.",
-      "sources": [
-        {
-          "label": "Clear Mermaid source and installation",
-          "url": "https://github.com/hyperdrift-io/clear-mermaid"
-        }
-      ],
-      "reviewed": "2 November 2026"
-    },
-    "reviewedAt": "2026-11-02",
-    "publishedAt": null,
-    "headerImage": {
-      "src": "/articles/mesh/clear-mermaid-in-your-ai-assistant.svg",
-      "alt": "A conversation, signpost and eye: ask for a diagram and inspect its connections.",
-      "width": 1200,
-      "height": 160
-    },
-    "heroImage": {
-      "src": "/articles/orchestra/clear-mermaid-conversation-v1.jpg",
-      "alt": "A branching diagram unfolds from a translucent conversation bubble.",
-      "width": 1600,
-      "height": 900
-    },
-    "shareArtworkOnly": true,
-    "updatedAt": "2026-11-15T16:51:00Z"
-  },
-  {
     "slug": "give-motivated-founders-a-fair-chance",
     "title": "Give motivated founders a fair chance",
     "seoTitle": "Founder motivation: why we built Traction",
@@ -1575,7 +1216,7 @@
     "proof": {
       "heading": "Keep the work connected to your vision",
       "description": "Explore Traction and its approach to app growth.",
-      "url": "https://orchestra.hyperdrift.io/traction",
+      "url": "https://hyperdrift.io/traction",
       "label": "Explore Traction"
     },
     "media": null,
@@ -1596,7 +1237,7 @@
       "sources": [
         {
           "label": "Traction: how it works",
-          "url": "https://orchestra.hyperdrift.io/traction/how-it-works"
+          "url": "https://hyperdrift.io/traction/how-it-works"
         }
       ],
       "download": "/articles/traction-motivation/vision-work-learning.png",

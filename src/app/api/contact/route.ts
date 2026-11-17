@@ -11,7 +11,7 @@ export const runtime = 'nodejs';
 // Enquiries relay through the flagship's contact endpoint: one mail transport
 // for the fleet, monitored by the hyperdrift deploy health check, instead of
 // per-app SMTP/Resend credentials that silently rot.
-const RELAY_URL = process.env.CONTACT_RELAY_URL ?? 'https://hyperdrift.io/api/contact';
+const RELAY_URL = process.env.CONTACT_RELAY_URL ?? 'http://127.0.0.1:3000/api/contact';
 
 // A scanner sent about 80 enquiries in five minutes on 2 Nov 2026. Every post counts against its
 // connection; only enquiries that would reach the inbox count against the hourly ceiling.
@@ -20,10 +20,17 @@ const deliveries = createRateGate({ windowMs: 60 * 60_000, perClient: Infinity, 
 const tooMany = () => NextResponse.json({ error: 'Too many messages. Please try again in a few minutes.' }, { status: 429 });
 
 export async function POST(req: Request) {
+  if (process.env.MIGRATION_PREVIEW === 'true') return NextResponse.json({ error: 'Enquiries are paused in this preview. No message was sent.' }, { status: 503 });
+  const origin = req.headers.get('origin');
+  const allowed = new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://hyperdrift.io').origin;
+  if (origin && ![allowed, 'https://orchestra.hyperdrift.io', 'https://ai.hyperdrift.io'].includes(origin) && !(process.env.NODE_ENV === 'development' && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin))) return NextResponse.json({ error: 'Forbidden' }, {status:403});
+  if (!req.headers.get('content-type')?.startsWith('application/json')) return NextResponse.json({error:'JSON required'},{status:415});
   if (!perConnection(req)) return tooMany();
   let body: unknown;
   try {
-    body = await req.json();
+    const text = await req.text();
+    if (text.length > 16000) return NextResponse.json({error:'Submission too large'},{status:413});
+    body = JSON.parse(text);
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
@@ -32,7 +39,7 @@ export async function POST(req: Request) {
   // The client shows only `error`; the field list stays out of a scanner's reach.
   if (!parsed.success) return NextResponse.json({ error: 'Invalid submission' }, { status: 400 });
 
-  const { name, email, company, situation, message, article, session, campaign, handoff, product_url, website, traction_board } = parsed.data;
+  const { name, email, company, situation, message, article, session, campaign, handoff, product_url, website, traction_board, workflow_example } = parsed.data;
   const id = crypto.randomUUID();
   // A filled honeypot, or a real delivery from a domain no one receives mail at, gets the normal
   // answer and goes nowhere: no record, no relay, no mail.
@@ -57,20 +64,23 @@ export async function POST(req: Request) {
     handoff && `From Hyperdrift: https://hyperdrift.io${handoff.source_path}`,
     handoff?.source_project && `Project: ${handoff.source_project}`,
     handoff?.referring_domain && `Original referring domain: ${handoff.referring_domain}`,
+    workflow_example && `Workflow example: ${workflow_example}`,
     company && `Company: ${company}`,
     product_url && `Product: ${product_url}`,
     traction_board && `Traction board (visitor supplied): ${traction_board}`,
     ...(campaign ? Object.entries(campaign).filter(([, value]) => value).map(([key, value]) => `${key}: ${value}`) : []),
   ].filter(Boolean);
   try {
+    if (new URL(RELAY_URL).pathname !== '/api/contact') throw new Error('Invalid contact relay route');
     const relay = await fetch(RELAY_URL, {
+      redirect: 'error',
       method: 'POST',
       headers: { 'content-type': 'application/json', ...(process.env.CONTACT_RELAY_KEY ? { 'x-contact-relay-key': process.env.CONTACT_RELAY_KEY } : {}) },
       body: JSON.stringify({
         name: name || 'Website enquiry',
         email,
         message: [context.join('\n'), message].filter(Boolean).join('\n\n'),
-        source: 'orchestra_ai',
+        source: 'hyperdrift',
       }),
       signal: AbortSignal.timeout(10_000),
     });

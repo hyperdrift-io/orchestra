@@ -42,4 +42,4 @@ Choose a task where navigation gets in the way of judgement. Define the action c
 
 The next article examines [hands-free control through First Officer](/articles/hands-free-app-control). It brings speech into the picture and asks how the person knows that an instruction actually worked.
 
-[Discuss an app your users should be able to direct.](https://orchestra.hyperdrift.io/?article=webmcp-actions-on-the-page#contact)
+[Discuss an app your users should be able to direct.](https://hyperdrift.io/?article=webmcp-actions-on-the-page#contact)

@@ -22,7 +22,7 @@ describe('buildRssXml', () => {
   it('escapes text and carries the article share image', () => {
     const xml = buildRssXml([entry('escaped', '2026-10-01T00:00:00Z', 'Agents & <tools>')], now);
     expect(xml).toContain('<title>Agents &amp; &lt;tools&gt;</title>');
-    expect(xml).toMatch(/<enclosure url="https:\/\/orchestra\.hyperdrift\.io\/articles\/escaped\/opengraph-image\?v=[0-9a-f]{12}" type="image\/png" length="0" \/>/);
+    expect(xml).toMatch(/<enclosure url="https:\/\/hyperdrift\.io\/articles\/escaped\/opengraph-image\?v=[0-9a-f]{12}" type="image\/png" length="0" \/>/);
   });
 
   it('never lists a catalogue entry without a past publication date', () => {

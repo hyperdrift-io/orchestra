@@ -1,27 +1,3 @@
-import { articles, articleUrl, publishedArticles } from '@/lib/article-catalogue';
-import { articleShareImage } from '@/lib/share-metadata';
-
-// Same catalogue and publication gate as RSS, for HD's digest and agent consumers.
-export const revalidate = 60;
-
-export function GET(): Response {
-  const items = publishedArticles(articles)
-    .sort((a, b) => Date.parse(b.publishedAt!) - Date.parse(a.publishedAt!))
-    .map((article) => ({
-      id: articleUrl(article.slug),
-      url: articleUrl(article.slug),
-      title: article.title,
-      summary: article.shareLine || article.excerpt,
-      content_text: article.excerpt,
-      date_published: article.publishedAt,
-      image: articleShareImage(article).url,
-      tags: article.tags ?? [],
-    }));
-  return Response.json({
-    version: 'https://jsonfeed.org/version/1.1',
-    title: 'Orchestra AI by Hyperdrift',
-    home_page_url: 'https://orchestra.hyperdrift.io/articles',
-    feed_url: 'https://orchestra.hyperdrift.io/feed.json',
-    items,
-  }, { headers: { 'Content-Type': 'application/feed+json; charset=utf-8' } });
-}
+import {allArticles} from '@/site/catalogue';
+export const revalidate=60;
+export function GET(){return Response.json({version:'https://jsonfeed.org/version/1.1',title:'Hyperdrift',home_page_url:'https://hyperdrift.io/articles',feed_url:'https://hyperdrift.io/feed.json',items:allArticles().map(a=>({id:a.guid,url:'https://hyperdrift.io'+a.href,title:a.title,summary:a.excerpt,content_text:a.excerpt,date_published:a.date,date_modified:new Date(a.updated).toISOString(),tags:a.tags,...(a.image?{image:'https://hyperdrift.io'+a.image.src}:{})}))})}

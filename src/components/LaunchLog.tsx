@@ -43,6 +43,6 @@ export async function LaunchLog() {
       <figcaption>The walkthrough · 45 s · a first read, your board, the partnership, on Traction’s own board. Voice and score made with ElevenLabs.</figcaption>
       <details><summary>Read the walkthrough</summary><p>You’ve got a live app. Here’s what a first read gives you. We read what it already shows, and come back with one strength, one constraint, and your next customer move. Prepared by an AI. Signed by a human.</p><p>Then the move goes on a board. Like this one. Every move has an owner, and a time. What slips stays on the record. What lands carries its result. And the count moves only on evidence.</p><p>When your board shows demand, we build the next step with you. That’s the Traction Partnership. This launch runs on the board. From zero. In public. Ask for a first read.</p></details>
     </figure>
-    <footer><a href="/articles">← All Orchestra articles</a></footer>
+    <footer><a href="/articles">← All articles</a></footer>
   </section>;
 }

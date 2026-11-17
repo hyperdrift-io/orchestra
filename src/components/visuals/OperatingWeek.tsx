@@ -18,7 +18,7 @@ interface WeekEvent {
   decision?: { question: string; basis: string };
 }
 
-/** One illustrative week of a live booking app, in the order it happens. Capability names and colours are Orchestra OS's own. */
+/** One illustrative week of a live booking app, in the order it happens. Capability names and colours are HD OS's own. */
 const week: WeekEvent[] = [
   { id: 'protect', day: 'Mon', time: '07:30', capability: 'Protect & reconcile', event: 'A security advisory names a library the app ships', job: 'Find the fix, test it, deploy it', record: 'In a terminal tab', owner: 'Security owner', agent: 'patches, verifies', receipt: 'Repair verified in production · fix carried to development' },
   { id: 'reach', day: 'Tue', time: '11:00', capability: 'Reach & serve', event: 'A customer can’t finish a booking', job: 'Reproduce, reply, fix', record: 'In your inbox', owner: 'Customer-success owner', agent: 'reproduces, drafts the reply', receipt: 'Reply sent · booking completed', decision: { question: 'Offer the customer a refund?', basis: 'Policy says ask you.' } },
@@ -29,7 +29,7 @@ const week: WeekEvent[] = [
 
 const modes = {
   self: { label: 'Run it yourself', count: '5 jobs on you', lane: 'every job', title: 'Five jobs, one person. It works.', text: 'Plenty of founders run a live app exactly like this. The cost is where the week goes: to upkeep instead of customers, with the record of what happened in an inbox, a tab or your head.' },
-  os: { label: 'On Orchestra OS', count: '2 decisions for you', lane: 'direction and decisions', title: 'Five jobs handled. Two decisions come back to you.', text: 'Each job has a named owner: an agent does the routine part, a person answers for it, and every action leaves a receipt. What reaches you is the refund and the form, with the evidence attached.' },
+  os: { label: 'On HD OS', count: '2 decisions for you', lane: 'direction and decisions', title: 'Five jobs handled. Two decisions come back to you.', text: 'Each job has a named owner: an agent does the routine part, a person answers for it, and every action leaves a receipt. What reaches you is the refund and the form, with the evidence attached.' },
 } as const;
 
 const flightEasing = 'cubic-bezier(.22, 1, .36, 1)';
@@ -65,13 +65,13 @@ function useCardFlight(mode: Mode) {
   return { root, capture };
 }
 
-/** One week of operating a live app, carried alone or on Orchestra OS. */
+/** One week of operating a live app, carried alone or on HD OS. */
 export function OperatingWeek() {
   const [mode, setMode] = useState<Mode>('os');
-  const flight = useCardFlight(mode);
-  const choose = (next: Mode) => { if (next !== mode) { flight.capture(); setMode(next); } };
+  const { root, capture } = useCardFlight(mode);
+  const choose = (next: Mode) => { if (next !== mode) { capture(); setMode(next); } };
   const copy = modes[mode];
-  return <section ref={flight.root} data-visual="operating-week" data-mode={mode} aria-label="One week of a live app, run yourself or on Orchestra OS">
+  return <section ref={root} data-visual="operating-week" data-mode={mode} aria-label="One week of a live app, run yourself or on HD OS">
     <header><p>WORKED EXAMPLE / ONE WEEK OF A LIVE APP</p><h3>Who carries <em>this week?</em></h3><p>A booking app with paying customers, and five things that happen in one week. Compare who carries them.</p></header>
     <nav aria-label="Choose who carries the week">{(['self', 'os'] as const).map((key) => <button key={key} type="button" aria-pressed={mode === key} onClick={() => choose(key)}>{modes[key].label}<small>{modes[key].count}</small></button>)}</nav>
     <div data-week="">

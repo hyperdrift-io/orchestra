@@ -15,7 +15,7 @@ function Inline({ text, sourceNotes = true }: { text: string; sourceNotes?: bool
   return parts.map((part, index) => {
     const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (link) {
-      const href = link[2].startsWith('https://orchestra.hyperdrift.io/?article=') ? '#enquire' : link[2];
+      const href = link[2].startsWith('https://hyperdrift.io/?article=') ? '#enquire' : link[2];
       if (!/^(https:\/\/|\/(?!\/)|#)/.test(href)) return <Fragment key={index}>{link[1]}</Fragment>;
       if (sourceNotes && citationStaysText(href)) return <span key={index} data-citation-text="">{link[1]}</span>;
       return <ArticleSourceLink key={index} href={href} note={sourceNotes ? articleSourceNote(href.split('#')[0]) : undefined} labels={articleLabels} intent={sourceNotes ? 'preview' : 'navigate'} data-enquiry={href === '#enquire' ? '' : undefined}>{link[1]}</ArticleSourceLink>;

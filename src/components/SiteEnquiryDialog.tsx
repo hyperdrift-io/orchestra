@@ -5,9 +5,9 @@ import { articleBySlug } from '@/lib/article-catalogue';
 import { EnquiryDialog } from './EnquiryDialog';
 
 /** Articles and private invitations supply their own context to the same dialog. */
-export function SiteEnquiryDialog() {
+export function SiteEnquiryDialog({paused=false}:{paused?:boolean}) {
   const pathname = usePathname();
   if (pathname.startsWith('/traction/invitation/')) return null;
   if (pathname.startsWith('/articles/') && articleBySlug(pathname.slice('/articles/'.length))) return null;
-  return <EnquiryDialog />;
+  return <EnquiryDialog paused={paused} />;
 }

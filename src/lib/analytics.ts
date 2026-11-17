@@ -7,7 +7,7 @@ export { analyticsPath };
 
 export function analyticsEnabled() {
   return process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
-    && window.location.hostname === 'orchestra.hyperdrift.io' && Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY) && measurementAllowed();
+    && window.location.hostname === 'hyperdrift.io' && Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY) && measurementAllowed();
 }
 
 

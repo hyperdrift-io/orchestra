@@ -1,10 +1,11 @@
 import type { ArticleEvent } from './article-events';
 
 import { visitorSession } from './campaign';
-import { trackEvent } from './analytics';
+import { analyticsEnabled, trackEvent } from './analytics';
 export const articleSession = visitorSession;
 
 export function trackArticle(article: string, event: ArticleEvent['event']) {
+  if (!analyticsEnabled()) return;
   if (event !== 'enquiry_started') trackEvent(event, { article });
   const payload = JSON.stringify({ article, event, session: articleSession() });
   const blob = new Blob([payload], { type: 'application/json' });

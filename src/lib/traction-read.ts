@@ -29,6 +29,7 @@ export type LiveRead = {
 };
 
 export async function liveRead(url: string): Promise<LiveRead | undefined> {
+  if (process.env.MIGRATION_PREVIEW === 'true') return undefined;
   try {
     const response = await fetch(`${tractionOrigin()}/api/read`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url }),

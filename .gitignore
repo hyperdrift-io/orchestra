@@ -13,3 +13,6 @@ tsconfig.tsbuildinfo
 
 # Local invitation copy, tokens and preview receipts
 .local/
+
+.next-production
+.next-preview

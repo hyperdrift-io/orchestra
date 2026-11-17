@@ -22,9 +22,9 @@ Lakebase is a particular service; document databases are a category. MongoDB and
 
 ## When is the relational approach a better fit?
 
-Consider a £40 refund. The application must update a customer balance, record the refund, retain its approval and recognise a repeated request. Those records share rules even though they represent different things. **We would start with Postgres for this design**, keeping the related database changes inside one transaction. The diagram illustrates that boundary.
+Consider a £40 refund. The application must update a customer balance, record the refund, retain its approval and recognise a repeated request. Those records share rules even though they represent different things. **I would start with Postgres for this design**, keeping the related database changes inside one transaction. The diagram illustrates that boundary.
 
-A payment provider remains outside the database transaction. Use its idempotency mechanism and a recoverable workflow, and verify that retrying after a lost response does not repeat the payment. The [streaming and recovery guide](/articles/langchain-databricks-appkit-sse) follows this failure through the interface.
+A payment provider remains outside the database transaction. Use its idempotency mechanism and a recoverable workflow so a lost response cannot trigger a second payment. The [streaming and recovery guide](/articles/langchain-databricks-appkit-sse) follows this failure through the interface.
 
 ## When is a document database a better fit?
 
@@ -38,4 +38,4 @@ This is a fit recommendation, not proof that documents are faster. If the organi
 
 **Choose Lakebase specifically** when Postgres fits and Databricks integration removes meaningful work. Otherwise, include ordinary managed Postgres in the service comparison. Regional availability, authentication, recovery and connection behaviour still need checking; no universal cost or performance winner follows from the data model.
 
-Bring the question back to the application: which facts must stay consistent together, and what does it usually retrieve? Send this comparison to the engineer choosing the data store. Bring your current stack and one operation to [discuss your agent data model](https://orchestra.hyperdrift.io/?article=lakebase-vs-document-databases#contact).
+Bring the question back to the application: which facts must stay consistent together, and what does it usually retrieve? Send this comparison to the engineer choosing the data store. Bring your current stack and one operation to [discuss your agent data model](https://hyperdrift.io/?article=lakebase-vs-document-databases#contact).

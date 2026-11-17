@@ -1,0 +1,135 @@
+.experience-strip {
+  min-width: 0;
+  background: transparent;
+  --name-gap: clamp(2.25rem, 4.5vw, 4rem);
+}
+
+.experience-window {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 1rem), transparent);
+}
+
+.experience-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: 200%;
+  animation: experience-scroll 38s linear infinite;
+}
+
+.experience-names {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--name-gap);
+  margin: 0;
+  padding: 0.5rem var(--name-gap) 0.5rem 0;
+  list-style: none;
+  color: var(--gold);
+  font: 600 clamp(1.25rem, 2.25vw, 1.75rem)/1.15 'Bricolage Grotesque', sans-serif;
+}
+
+.experience-names li {
+  display: grid;
+  place-items: center;
+  width: clamp(7.5rem, 13vw, 9.75rem);
+  min-height: 4rem;
+}
+
+.experience-mark {
+  display: block;
+  width: 100%;
+  height: 2.75rem;
+  background: var(--gold);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
+}
+
+.experience-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  font-size: 0.85rem;
+}
+
+.experience-caption p {
+  margin: 0;
+}
+
+.experience-toggle {
+  display: block;
+  min-height: 44px;
+  margin-inline-start: auto;
+  padding-inline: 0.5rem;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.experience-toggle[hidden] {
+  display: none;
+}
+
+.experience-toggle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.experience-strip[data-static] .experience-window {
+  mask-image: none;
+}
+
+.experience-strip[data-static] .experience-track {
+  width: 100%;
+  min-width: 0;
+  animation: none;
+}
+
+.experience-strip[data-static] .experience-names {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.8rem 2rem;
+  padding-inline-end: 0;
+}
+
+.experience-strip[data-static] .experience-names[aria-hidden="true"] {
+  display: none;
+}
+
+@keyframes experience-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-names[aria-hidden="true"],
+  .experience-toggle {
+    display: none;
+  }
+
+  .experience-window {
+    mask-image: none;
+  }
+
+  .experience-track {
+    width: 100%;
+    min-width: 0;
+    animation: none;
+  }
+
+  .experience-names {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.8rem 2rem;
+    padding-inline-end: 0;
+  }
+}

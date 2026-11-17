@@ -53,7 +53,7 @@ describe('POST /api/contact', () => {
       name: 'Ada',
       email: 'ada@analytical.engines',
       message: `Enquiry ID: ${id}\nWhere you are: Automating a workflow\nCompany: Analytical Engines\n\nA reasonable length message about agents.`,
-      source: 'orchestra_ai',
+      source: 'hyperdrift',
     });
     const [file] = await readdir(enquiryDir);
     expect(JSON.parse(await readFile(join(enquiryDir, file!), 'utf8'))).toMatchObject({ id, email: 'ada@analytical.engines', delivery: 'sent' });

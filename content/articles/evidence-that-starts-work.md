@@ -32,4 +32,4 @@ Then agree the ordering rule with that owner. Read the permitted sources. Show t
 
 Generating a summary is easy now. A useful service still needs a clear definition of what deserves attention. Compare one proposed brief with the decisions your team actually makes; disagreements show where the context or ordering needs work.
 
-[Discuss your team's daily brief →](https://orchestra.hyperdrift.io/?article=evidence-that-starts-work#contact)
+[Discuss your team's daily brief →](https://hyperdrift.io/?article=evidence-that-starts-work#contact)

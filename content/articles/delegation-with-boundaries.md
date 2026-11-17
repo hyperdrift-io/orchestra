@@ -34,4 +34,4 @@ Before an agent touches real tools, ask to see one allowed action, one refused a
 
 The [technical account](https://hyperdrift.io/blog/your-error-page-is-a-prompt) has the detail for whoever will own the integration.
 
-[Discuss an agent workflow →](https://orchestra.hyperdrift.io/?article=delegation-with-boundaries#contact)
+[Discuss an agent workflow →](https://hyperdrift.io/?article=delegation-with-boundaries#contact)

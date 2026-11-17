@@ -34,6 +34,7 @@ function shape(p: Projection): Board {
 
 /** The live board, or null when the app did not opt in or the engine is out of reach. */
 export async function readBoard(app: string): Promise<Board | null> {
+  if (process.env.MIGRATION_PREVIEW === 'true') return null;
   if (!/^[a-z0-9][a-z0-9-]{0,63}$/.test(app)) return null;
   try {
     const res = await fetch(`${ENGINE}/public/boards/${app}`, { next: { revalidate: 300 }, signal: AbortSignal.timeout(2500) });

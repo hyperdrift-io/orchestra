@@ -16,6 +16,7 @@ export const tractionOrigin = () => process.env.TRACTION_URL || 'https://tractio
  * TRACTION_START_URL still overrides the whole address for a local preview.
  */
 export const startHref = (from?: string, app?: { url: string; product: string }) => {
+  if(process.env.MIGRATION_PREVIEW === 'true') return '/preview/trial';
   const query = new URLSearchParams({ ...(from ? { from } : {}), ...(app ? { app: app.url, product: app.product } : {}) }).toString();
   return `${process.env.TRACTION_START_URL || `${tractionOrigin()}/start`}${query ? `?${query}` : ''}`;
 };
@@ -54,5 +55,5 @@ export const boardFilm = {
 export interface Service { slug: string; eyebrow: string; name: string; text: string; links: { href: string; label: string; primary?: boolean; situation?: string; introduce?: boolean }[] }
 export const services: Service[] = [
   { slug: 'traction', eyebrow: '01 · Traction', name: 'Find your next customers.', text: 'A growth team for your app. Start with a trial: a first impression of your app, your own board and an AI Growth Manager proposing your first customer move. Continue with a subscription, or bring us in for the customer work.', links: [{ href: '/traction', label: 'Explore Traction', primary: true }, { href: partnershipHref, label: 'How we work with you' }] },
-  { slug: 'orchestra-os', eyebrow: '02 · Orchestra OS', name: 'Embed your app on Orchestra OS.', text: 'Bring your app, or build it with us. Connect engineering, hosting, security maintenance and customer support, with growth work coordinated through Traction. We agree the scope and verify each connection with you.', links: [{ href: '/os', label: 'Explore Orchestra OS', primary: true }] },
+  { slug: 'orchestra-os', eyebrow: '02 · HD OS', name: 'Embed your app on HD OS.', text: 'Bring your app, or build it with us. Connect engineering, hosting, security maintenance and customer support, with growth work coordinated through Traction. We agree the scope and verify each connection with you.', links: [{ href: '/os', label: 'Explore HD OS', primary: true }] },
 ];

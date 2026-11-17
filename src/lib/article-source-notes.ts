@@ -77,7 +77,7 @@ const notes: Record<string, SourceNote> = {
   'https://youtu.be/JB2O3WSwH90': { preview: 'unavailable', title: 'Helm demonstration', by: 'Hyperdrift · YouTube' },
   'https://hyperdrift.io/blog/your-error-page-is-a-prompt': { preview: 'unavailable', title: 'Your Error Page Is a Prompt', by: 'Yann VR · Hyperdrift' },
   'https://hyperdrift.io/blog/the-agent-is-the-session': { preview: 'unavailable', title: 'The Agent Is the Session', by: 'Yann VR · Hyperdrift · August 2026' },
-  // Orchestra OS articles, reviewed 13 October 2026. Page previews only where the destination permits framing.
+  // HD OS articles, reviewed 13 October 2026. Page previews only where the destination permits framing.
   'https://dora.dev/capabilities/streamlining-change-approval/': { title: 'Streamlining change approval', by: 'DORA · capability research' },
   'https://docs.gitlab.com/ci/environments/deployment_safety/': { title: 'Deployment safety', by: 'GitLab documentation · CI/CD environments' },
   'https://git-scm.com/docs/gitworkflows': { title: 'gitworkflows: merging upwards', by: 'Git documentation' },
@@ -91,7 +91,7 @@ const notes: Record<string, SourceNote> = {
 
 export function articleSourceNote(url: string): SourceNote | undefined { if (notes[url]) return notes[url];
   const article = url.startsWith('/articles/') && visibleArticles().find((item) => `/articles/${item.slug}` === url);
-  return article ? { title: article.title, by: article.publishedAt ? 'Orchestra · related article' : 'Orchestra · editorial preview' } : undefined; }
+  return article ? { title: article.title, by: article.publishedAt ? 'Hyperdrift · related article' : 'Hyperdrift · editorial preview' } : undefined; }
 
 /** Founder rule, 13 October 2026: an external citation that cannot open in place reads as text, so the reader never leaves the article. Same on every screen size. */
 export function citationStaysText(href: string): boolean {

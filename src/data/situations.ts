@@ -4,7 +4,7 @@ export const enquiryChoices: { value: string; label: string }[] = [
   { value: 'workflow', label: 'Automating a workflow' },
   { value: 'prototype', label: 'Taking a prototype live' },
   { value: 'live', label: 'Improving a live product' },
-  { value: 'orchestra-os', label: 'Embedding my app on Orchestra OS' },
+  { value: 'orchestra-os', label: 'Embedding my app on HD OS' },
   { value: 'mcp', label: 'Making my product usable by agents' },
   { value: 'partnership', label: 'The Traction Partnership' },
   { value: 'subscription', label: 'Continued use of Traction' },

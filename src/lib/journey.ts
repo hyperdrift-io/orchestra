@@ -27,6 +27,7 @@ export function journeyId(): string | undefined {
 
 /** Fragments stay out of request logs. A forwarded link still proves no identity. */
 export function journeyStartHref(href: string): string {
+  if (!/^https?:/.test(href)) return href;
   const url = new URL(href);
   if (url.pathname !== '/start' || !['traction.hyperdrift.io', 'localhost', '127.0.0.1'].includes(url.hostname)) return href;
   const id = journeyId();

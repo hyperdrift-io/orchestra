@@ -1,16 +1,16 @@
 No. A live app needs a repair path that runs without the feature backlog. Check what is actually running every day, patch from the release in production, carry the fix back to development, and refuse any later release that would undo it. We call this production-led security maintenance. Most of its parts already exist; what's usually missing is the agreement that joins them.
 
-Consider an illustrative booking service that shipped in the spring. Customers reserve tables, it does its job, and the team has moved on to a new checkout flow on the development branch. One Tuesday an advisory lands for the HTTP parser the booking API bundles. In this example, the fix is a dependency update in a lockfile.
+Picture a booking service that shipped in the spring. Customers reserve tables, it does its job, and the team has moved on to a new checkout flow on the development branch. One Tuesday an advisory lands for the HTTP parser the booking API bundles. The fix is a single line in a lockfile.
 
-That lockfile lives on a branch halfway through a feature nobody wants to ship yet. The team faces a choice: wait for the feature, or repair the running release and make sure the fix reaches development too.
+That lockfile lives on a branch halfway through a feature nobody wants to ship yet. So the team meets the choice every small team meets eventually: wait for the feature, or patch production directly and hope the next release doesn't bring the old parser back.
 
 > A security fix is finished when it survives the next release.
 
 ## Why waiting and hot-fixing both fail
 
-Waiting ties the repair to feature work, and a finished app may have no new feature planned. Review, staging sign-off and a separate change approval can add further delay. [DORA's research](https://dora.dev/capabilities/streamlining-change-approval/) found that heavyweight external approval slows delivery, with no evidence that it lowers the rate of failed changes.
+Waiting ties security to feature work. The app is only as safe as the next reason someone has to develop it, and a finished app may never get one. The wait is long by design, too: in most teams a production release passes review, staging sign-off and a change approval. [DORA's research](https://dora.dev/capabilities/streamlining-change-approval/) found that heavyweight external approval slows delivery without lowering the rate of failed changes.
 
-Patching the live server by hand can be fast and fragile. A release rebuilt from version-controlled source can overwrite a fix that exists only on the running machine. Unless the release checks for that fix, the regression can pass unnoticed.
+Patching the live server by hand is fast and fragile. Most pipelines, ours included, rebuild an app from its main branch and clean the directory before each release. A fix that exists only on the running machine disappears with the next deploy, and nobody gets an alert when it does.
 
 The working answer keeps the speed of the hot fix and the record of the normal release.
 
@@ -34,27 +34,27 @@ Each layer has its own repair route. Host packages follow the operating system's
 
 ## Spend the scanning where customers are
 
-A pipeline may scan the same image in development, preview, staging and production. If each scan raises a separate alert for the same finding, the team has duplicate triage to resolve before it can repair every affected deployment.
+A typical pipeline scans development, every preview, staging and production. One advisory becomes four alerts about the same library, three of them on servers no customer touches, and each needs triage before the one fix that matters starts its trip through the gated release.
 
-Prioritise runtime monitoring where exposure and impact are greatest, including live services. Source, secret and dependency checks stay before release, because a build runner holding production credentials is a target in its own right. When the same image runs in several places, reuse its image assessment while the image, the scanner rules and the advisory data are unchanged; assess each deployment's configuration and exposure separately. [Amazon Inspector supports continuous rescanning](https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html) when new vulnerabilities appear, within its configured coverage, and maps images to running workloads.
+Deep runtime monitoring belongs on live, exposed services. Source, secret and dependency checks stay before release, because a build runner holding production credentials is a target in its own right. When the same image runs in several places, reuse its assessment while the image, the scanner rules and the advisory data are unchanged. [Amazon Inspector already rescans images](https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html) when new vulnerabilities appear and maps them to running workloads.
 
 {{visual:effort}}
 
-Repeated read-only scans don't cause drift between environments. Competing patch writers can. Give each finding one owner and keep the evidence for every place it runs.
+Repeated read-only scans don't cause drift between environments. Competing patch writers do. Give each finding one owner and keep the evidence for every place it runs.
 
 ## None of the parts is new
 
-[AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html) offers automatic managed-runtime updates. [Cloud Run](https://docs.cloud.google.com/run/docs/configuring/services/automatic-base-image-updates) can update compatible base images without a feature release when automatic updates are enabled. [Ubuntu's unattended upgrades](https://ubuntu.com/server/docs/how-to/software/automatic-updates/) run daily by default. [Git's own workflow](https://git-scm.com/docs/gitworkflows#_merging_upwards) merges fixes upward from the oldest supported branch. [Flux](https://fluxcd.io/flux/components/image/imageupdateautomations/) commits image updates back to Git.
+[AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html) and [Cloud Run](https://docs.cloud.google.com/run/docs/configuring/services/automatic-base-image-updates) already patch managed runtimes without a feature release. Ubuntu applies security updates daily. [Git's own workflow](https://git-scm.com/docs/gitworkflows#_merging_upwards) merges fixes upward from the oldest supported branch. [Flux](https://fluxcd.io/flux/components/image/imageupdateautomations/) commits image updates back to Git.
 
 What is usually missing is the agreement between them: who maintains the live service, what automation may change, how a repair is proven and what stops the next release undoing it. We are naming that combination, not claiming its parts.
 
 ## Where we stand
 
-We checked our platform against these rules. Its maintenance configuration includes a daily dependency audit. The outside monitor is scheduled every five minutes for enabled apps in the registry; the scheduler can delay a run. Applying a dependency patch remains an authorised decision. The complete repair, carry-back and regression-gate sequence above is a proposed operating model, part of our work on [running a client's app on Orchestra OS](/articles/app-operations-after-launch).
+We run our own fleet of apps on the platform we offer to clients, so we checked it against these rules. A daily dependency audit runs and an outside monitor checks every app every few minutes. Applying a patch is still a person's call, and the carry-back and release gate are what we are building next, on our own apps first. That work is part of [running a client's app on Orchestra OS](/articles/app-operations-after-launch).
 
 ## Start with one service
 
-Choose one live service whose deploy and recovery paths you understand. Name its maintenance owner and the repairs automation may make alone. Then rehearse the booking story somewhere safe: a repair, a conflicting branch, a feature build that would regress it and a rollback to an affected older image. Verify that the repair passes and the regressions are refused before widening the authority.
+Choose one live service whose deploy and recovery paths you understand. Name its maintenance owner and the repairs automation may make alone. Then rehearse the booking story somewhere safe: a repair, a conflicting branch, a feature build that would regress it and a rollback to an affected older image. When the gate catches all four, widen the authority.
 
 Measure the time from exposure to a verified repair, the carry-back obligations still open and the regressions refused against those that escaped. Scan counts and merged pull requests describe activity; repairs that survive releases describe the outcome.
 
@@ -62,4 +62,4 @@ Should a security fix wait for the next feature release? Not when people depend 
 
 **Which of your apps would lose its last fix on the next deploy?**
 
-[Discuss your security maintenance →](https://orchestra.hyperdrift.io/?article=production-led-security-maintenance#contact)
+[Discuss your security maintenance →](https://hyperdrift.io/?article=production-led-security-maintenance#contact)

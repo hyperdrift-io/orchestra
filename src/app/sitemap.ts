@@ -1,19 +1,9 @@
-import type { MetadataRoute } from 'next';
-import { publishedArticles, articleUrl } from '@/lib/article-catalogue';
-import { indexableTags, tagUrl } from '@/lib/article-tags';
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const published = publishedArticles();
-  return [
-    {
-      url: 'https://orchestra.hyperdrift.io',
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    ...['os','work','traction','traction/how-it-works','traction/partnership','articles/traction-from-zero','privacy'].map(path=>({url:`https://orchestra.hyperdrift.io/${path}`,changeFrequency:'monthly' as const,priority:path==='os'?.9:path==='privacy'?.3:.8})),
-    ...(published.length ? [{ url: 'https://orchestra.hyperdrift.io/articles', changeFrequency: 'weekly' as const, priority: 0.8 }] : []),
-    ...(published.some((article) => article.series === 'ui-accessibility') ? [{ url: 'https://orchestra.hyperdrift.io/articles/ui-accessibility', changeFrequency: 'monthly' as const, priority: 0.8 }] : []),
-    ...published.map((article) => ({ url: articleUrl(article.slug), lastModified: new Date(article.updatedAt ?? article.publishedAt!), changeFrequency: 'monthly' as const, priority: 0.7 })),
-    ...indexableTags(published).map((tag) => ({ url: tagUrl(tag.slug), changeFrequency: 'weekly' as const, priority: 0.6 })),
-  ];
-}
+import {indexableTags,tagUrl} from '@/lib/article-tags';
+import {publishedArticles} from '@/lib/article-catalogue';
+export const revalidate=60;
+const origin='https://hyperdrift.io';
+export default function sitemap(){return [
+ ...['/','/articles','/about','/work','/workflows','/os','/traction','/traction/how-it-works','/traction/partnership','/how-it-works?view=business','/contact','/privacy','/articles/ui-accessibility','/articles/traction-from-zero'].map(path=>({url:origin+path,lastModified:new Date('2026-11-17')})),
+ ...indexableTags().map(tag=>({url:tagUrl(tag.slug)})),
+ ...publishedArticles().map(article=>({url:origin+'/articles/'+article.slug,lastModified:new Date(article.updatedAt||article.publishedAt!)})),
+]}

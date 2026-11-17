@@ -1,6 +1,6 @@
 ---
 app: orchestra
-url: https://orchestra.hyperdrift.io
+url: https://hyperdrift.io
 growth_stage: activation
 primary_channel: organic
 posthog:
@@ -24,7 +24,7 @@ web_review:
       url: /partnership
       funnel_step: enquiry_started
     - name: Evidence and decisions
-      url: /articles/the-bridge
+      url: /articles/evidence-that-starts-work
       funnel_step: article_viewed
   review_questions:
     - Can a founder recognise their business opportunity before interpreting the technology?
@@ -44,7 +44,9 @@ cadence:
     - bluesky
 ---
 
-# Growth — Orchestra AI by Hyperdrift
+# Growth — Hyperdrift
+
+17 November 2026: the rebrand is prepared, not deployed. Campaign and newsletter sends remain paused. The commercial Blog stays at `/articles`; the earlier HD site remains separate at a configurable Projects & writing destination. Release requires founder preview approval. [Migration contract](docs/MIGRATION-2026-11-17.md). Historical operating notes below describe the preceding Orchestra site.
 
 Help founders with customers, active users or credible demand turn an existing opportunity into sustainable growth and profit. The primary conversion is an enquiry about a concrete business workflow. A form submission is not a qualified lead, and a qualified lead is not revenue.
 

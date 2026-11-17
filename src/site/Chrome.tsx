@@ -1,0 +1,5 @@
+import {archiveOrigin} from './archive';
+export function SiteHeader(){return <header className="preview-header"><a className="brand preview-brand" href="/"><img src="/assets/hyperdrift-logo.svg" alt="" width="40" height="40"/>Hyperdrift</a><nav aria-label="Main"><a href="/traction">Traction</a><a href="/workflows">Custom AI workflows</a><a href="/articles">Blog</a><a href="/about">About</a></nav></header>}
+export function SiteFooter(){return <footer className="site-footer"><nav aria-label="Footer"><a href="/about">About Hyperdrift</a><a href="/work">Our work</a><a href="/os">HD OS</a><a href={archiveOrigin}>Projects &amp; writing</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></nav><p>© {new Date().getFullYear()} Hyperdrift Limited · Registered in England and Wales, company 16638188.</p></footer>}
+
+export function PreviewNotice(){return process.env.MIGRATION_PREVIEW === "true" ? <aside className="preview-notice">Private preview · Enquiries and account actions are paused.</aside> : null}

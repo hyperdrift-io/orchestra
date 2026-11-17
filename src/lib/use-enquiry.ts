@@ -28,11 +28,12 @@ export function useEnquiry() {
     const article = String(form.get('article') || '') || undefined;
     setStatus('sending'); setError('');
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/enquiry', {
         method: 'POST', headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
           name: String(form.get('name') || ''), email: String(form.get('email') || ''),
           company: String(form.get('company') || '') || undefined,
+          workflow_example: String(form.get('workflow_example') || '') || undefined,
           situation: enquiryChoices.find((choice) => choice.value === form.get('situation'))?.label,
           traction_board: String(form.get('traction_board') || '') || undefined,
           message: String(form.get('message') || ''), website: String(form.get('website') || '') || undefined, article, session: articleSession(), campaign: campaignAttribution(), handoff: enquiryHandoff(),

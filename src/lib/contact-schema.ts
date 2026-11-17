@@ -9,6 +9,7 @@ export const quoteSituation = 'Continued use of Traction';
 const contactFields = z.object({
   name: z.string().trim().max(120).default(''),
   email: z.string().trim().email('Valid email required'),
+  workflow_example: z.enum(['pipeline','crm','delivery','market','learning']).optional(),
   company: z.string().trim().max(200).optional(),
   product_url: z.string().trim().url().max(2000).refine(value => /^https?:\/\//i.test(value), 'Use an http or https link').optional(),
   /** The situation the visitor chose on the front door, as its label. Optional and editable. */

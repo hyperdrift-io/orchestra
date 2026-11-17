@@ -2,6 +2,8 @@ import type { NextConfig } from 'next';
 
 const config: NextConfig = {
   reactStrictMode: true,
+  // Bake the hold into the preview artifact; dropping a runtime flag cannot enable writes.
+  env: { MIGRATION_PREVIEW: process.env.MIGRATION_PREVIEW === 'true' ? 'true' : 'false' },
   async headers() {
     return [{ source: '/traction/invitation/:token', headers: [
       { key: 'Cache-Control', value: 'private, no-store' },
@@ -19,7 +21,7 @@ const config: NextConfig = {
       { source: '/articles/expertise-agents-can-use', destination: '/articles', permanent: true },
       { source: '/articles/connect-agents-to-existing-work', destination: '/articles/webmcp-actions-on-the-page', permanent: true },
       // Orchestra OS has its own page (17 October 2026); the business loop stays at /how-it-works?view=business.
-      { source: '/how-it-works', missing: [{ type: 'query', key: 'view' }], destination: '/os', permanent: true },
+      { source: '/how-it-works', missing: [{ type: 'query', key: 'view', value: 'business' }], destination: '/traction/how-it-works', permanent: true },
       // Traction's public board was a launch-campaign page (removed 9 October 2026); /traction is the one Traction page.
       { source: '/boards/:app*', destination: '/traction', permanent: true },
     ];

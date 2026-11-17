@@ -5,8 +5,7 @@ import type { ArticleSummary } from './article-catalogue';
 import { isTractionArticle } from './traction-brand';
 
 // A logo or card-copy change produces a fresh image URL for social-preview caches.
-const identity = ['orchestra-mesh.svg', 'orchestra-mesh-compact.svg']
-  .map((name) => readFileSync(join(process.cwd(), 'public/brand', name), 'utf8')).join('');
+const identity = readFileSync(join(process.cwd(), 'public/assets/hyperdrift-logo.svg'), 'utf8');
 const digest = (value: string) => createHash('sha256').update(value).digest('hex').slice(0, 12);
 const tractionIdentity = readFileSync(join(process.cwd(), 'public/brand/traction/lockup-share.png')).toString('base64');
 export const tractionIcons = {
@@ -18,8 +17,8 @@ export const tractionShareImage = {
   url: `/brand/traction/og-dark.jpg?v=${digest(readFileSync(join(process.cwd(), 'public/brand/traction/og-dark.jpg')).toString('base64'))}`,
   width: 1200, height: 630, alt: 'Traction: a sail with a T in negative space and a flowing wordmark.',
 };
-const brandAlt = 'Orchestra AI by Hyperdrift. Grow your business. Keep more of the upside.';
-const brandUrl = `https://orchestra.hyperdrift.io/opengraph-image?v=${digest(identity + brandAlt)}`;
+const brandAlt = 'Hyperdrift. A team behind your app.';
+const brandUrl = `https://hyperdrift.io/opengraph-image?v=${digest(identity + brandAlt)}`;
 
 export const brandShareImage = {
   url: brandUrl,
@@ -33,20 +32,20 @@ export const brandShareImage = {
 export function articleShareImage(article: ArticleSummary) {
   const artwork = article.heroImage ? article.topic + JSON.stringify(article.heroImage) + readFileSync(join(process.cwd(), 'public', article.heroImage.src)).toString('base64') : '';
   const version = digest(identity + (isTractionArticle(article.slug) ? tractionIdentity : '') + JSON.stringify(['article-card-v3', article.shareArtworkOnly, article.title, article.shareLine, article.steps, article.example, article.exampleStatus]) + artwork);
-  const url = `https://orchestra.hyperdrift.io/articles/${article.slug}/opengraph-image?v=${version}`;
+  const url = `https://hyperdrift.io/articles/${article.slug}/opengraph-image?v=${version}`;
   return { url, secureUrl: url, width: 1200, height: 630, type: 'image/png', alt: `${article.title}. ${article.heroImage?.alt ?? article.shareLine}` };
 }
 
 export const websiteOpenGraph = {
   type: 'website' as const,
-  siteName: 'Orchestra AI by Hyperdrift',
+  siteName: 'Hyperdrift',
   locale: 'en_GB',
   images: [brandShareImage],
 };
 
 export const homepageOpenGraph = {
   ...websiteOpenGraph,
-  title: 'Orchestra AI by Hyperdrift — Customer growth and AI engineering',
+  title: 'Hyperdrift — Customer growth and AI engineering',
   description: 'Connect customer insight, distribution and AI engineering. Start with one measurable opportunity to reach customers, help them use your product or improve delivery.',
-  url: 'https://orchestra.hyperdrift.io',
+  url: 'https://hyperdrift.io',
 };

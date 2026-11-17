@@ -1,0 +1,108 @@
+{
+  "source_ref": "release/orchestra-traction-trial-20261116",
+  "source_commit": "be4e469372bb44e3eb804440ed676df99c7a0b8c",
+  "permitted_substitution": {
+    "from": "https://orchestra.hyperdrift.io",
+    "to": "https://hyperdrift.io"
+  },
+  "published_count": 16,
+  "articles": [
+    {
+      "slug": "delegation-with-boundaries",
+      "source_sha256": "9fe37dd5749e81cbd735cfd4cf9f04e53e6ab023a1ca826a205c4325fdb57a3d",
+      "candidate_sha256": "48bb07821207a6afc6857f2d571e9036b8edd5b5b38eb173a4e65200beb2bb3e",
+      "substitution_count": 1
+    },
+    {
+      "slug": "evidence-that-starts-work",
+      "source_sha256": "504b6ce2c01791b48e2448a7f48a8818e30fc05627597841b7f6b96968871481",
+      "candidate_sha256": "353fb7f50ca0302bc68a3bb5b41b6ff4881f8d109b4ec62c05bbbfcb71ec3c55",
+      "substitution_count": 1
+    },
+    {
+      "slug": "lakebase-vs-document-databases",
+      "source_sha256": "9207e7ed98c6a75b8932bf2432e65fdf84c3e3079125c3b3f006c3d1081770e4",
+      "candidate_sha256": "03e94d3edaa41f27d023867e9c0446d263a7ea2ea66b0cc9576f7f9cca103d80",
+      "substitution_count": 1
+    },
+    {
+      "slug": "langchain-databricks-appkit-sse",
+      "source_sha256": "e9ac91215bf23ed7a987002c36c4d9caa37fea632911565a504fd4b4594b3abd",
+      "candidate_sha256": "33e3c2b7bc02eaa1cbfafd3161ed69b0c7196246db0795bb8ebab984bfd43fa3",
+      "substitution_count": 1
+    },
+    {
+      "slug": "the-first-officer",
+      "source_sha256": "47f58b14c1b663e89d83a3c34684b66e29127ca746f648aec9bd9c707e833d5b",
+      "candidate_sha256": "113b61a38bfbbed6197ec48096c0715d080064b68e5fb7a5a2bb24dcf56f271e",
+      "substitution_count": 1
+    },
+    {
+      "slug": "is-ui-holding-us-back",
+      "source_sha256": "744b9815120c76bf19967ce834a46525b40be65c59ad1e25f6ae6bda9d65925c",
+      "candidate_sha256": "c855fb1617bf44e4a9ff157809402506844f3904994613e52327ec05268af1e9",
+      "substitution_count": 1
+    },
+    {
+      "slug": "web-accessibility-can-people-finish",
+      "source_sha256": "6ab19d912be2c0ffedecc0929b93faf8fe279fd2f207cd12ee278f7988b72bf5",
+      "candidate_sha256": "f8a94bc30f6cc789c5e54dd94efa73ac563c7c476302b48dafb5d76f0492eedc",
+      "substitution_count": 1
+    },
+    {
+      "slug": "webmcp-actions-on-the-page",
+      "source_sha256": "81b303a7816b3e3cdcd92d078f84aa8af972411bbdc95453438a241842c9694b",
+      "candidate_sha256": "2f7aaf25ad17979a9dad9b39377822637744626ea26f48009a59a83f39c23579",
+      "substitution_count": 1
+    },
+    {
+      "slug": "hands-free-app-control",
+      "source_sha256": "41e645c5e944be54ef39fb8d7e3304de2ad658c70725eaefeabcc5d674aed8e4",
+      "candidate_sha256": "fd73a7dfcbd4cb363367018ae38f85fe1d2fa9e79db98790ba4be887be7f31ac",
+      "substitution_count": 1
+    },
+    {
+      "slug": "voice-through-mcp",
+      "source_sha256": "8066459cdd922b1636e8b9f6926a9f123f2d601cd09916e23c35c835067efaa0",
+      "candidate_sha256": "147eea768e08d3689a6d954a22afd9f5d597ee06342cec264a6c7d4094c15b92",
+      "substitution_count": 1
+    },
+    {
+      "slug": "future-ui-keep-your-place",
+      "source_sha256": "b05836e08f0f1eb3b990b7107e24e09ea3537460c217b1a81c0c4c0432951a4e",
+      "candidate_sha256": "5f9bde17e7c90dcfcf05f483b5d58ff6780c75957b268b9ba4440805d59a2fcd",
+      "substitution_count": 1
+    },
+    {
+      "slug": "production-led-security-maintenance",
+      "source_sha256": "c3e990366e191cdbf3f5deb47bffd36eee8981ca67be30f1e4cbebfc8d8b0875",
+      "candidate_sha256": "88d56fe66ca2f492ed0273e6a00d45c29078cff3905fdc3ebbdfdfd4367489ca",
+      "substitution_count": 1
+    },
+    {
+      "slug": "app-operations-after-launch",
+      "source_sha256": "d50b577cee3d8863fce6191697a88efae63c91470a928eb4f3bde4a5ca19c392",
+      "candidate_sha256": "e53852b1b265c2876edf0c7353de5c1ccf364fdeb6ed3aa4a54bd685db952c41",
+      "substitution_count": 1
+    },
+    {
+      "slug": "agent-driven-ui-intelligence-and-action",
+      "source_sha256": "4fb325e3fe9a889f836005612c0d7ce4479997be8b1b24de9d0416649998ce4a",
+      "candidate_sha256": "4fb325e3fe9a889f836005612c0d7ce4479997be8b1b24de9d0416649998ce4a",
+      "substitution_count": 0
+    },
+    {
+      "slug": "opentelemetry-genai-conversation-id",
+      "source_sha256": "8931081cbd3b454f596553adb2aa44139215cbc3f6742561ff2749554b106496",
+      "candidate_sha256": "8931081cbd3b454f596553adb2aa44139215cbc3f6742561ff2749554b106496",
+      "substitution_count": 0
+    },
+    {
+      "slug": "give-motivated-founders-a-fair-chance",
+      "source_sha256": "6e29af3fd8fcce7ee462d94fe3db938539fac16e95aa1dc5383e939d87ece69b",
+      "candidate_sha256": "6e29af3fd8fcce7ee462d94fe3db938539fac16e95aa1dc5383e939d87ece69b",
+      "substitution_count": 0
+    }
+  ],
+  "source_catalogue_sha256": "d2cebf25a7ba169ce3c9337543b6fd4ac404b49cdd88af7a9b7fe6fb01f6367c"
+}

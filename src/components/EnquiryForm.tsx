@@ -15,7 +15,9 @@ function ContextFields({ articleSlug, situation: preset }: { articleSlug?: strin
   const wanted = preset || query.get('situation') || '';
   const situation = enquiryChoices.some((choice) => choice.value === wanted) ? wanted : '';
   const handoff = parseEnquiryHandoff(new URLSearchParams(query.toString()));
+  const example = query.get('example') || '';
   return <>
+    {['pipeline','crm','delivery','market','learning'].includes(example) && <><input type="hidden" name="workflow_example" value={example}/><p>About the {example === 'crm' ? 'customer conversations' : example} workflow. You can add context in your message.</p></>}
     {handoff && <p>Continuing from <a href={`https://hyperdrift.io${handoff.source_path}`}>Hyperdrift</a>. The page you came from will accompany your enquiry.</p>}
     {article && <label><span>About this article <small>Optional</small></span><select name="article" key={article} defaultValue={article}><option value="">A different question</option>{articles.map((entry) => <option key={entry.slug} value={entry.slug}>{entry.title}</option>)}</select></label>}
     <label><span>Where you are <small>Optional</small></span><select name="situation" key={situation} defaultValue={situation}><option value="">Choose one, or leave it open</option>{enquiryChoices.map((choice) => <option key={choice.value} value={choice.value}>{choice.label}</option>)}</select></label>
@@ -30,10 +32,11 @@ function BoardContext() {
 
 /** `introduce` is the Traction door: the same fields and delivery, with the open field asking for the app.
  *  `quote` is the subscription's door: the request is the ask, so the open field is optional. */
-export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, quote = false, contact }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; quote?: boolean; contact?: ContactPrefill }) {
+export function EnquiryForm({ articleSlug, situation, firstRead = false, introduce = false, quote = false, contact, paused = false }: { articleSlug?: string; situation?: string; firstRead?: boolean; introduce?: boolean; quote?: boolean; contact?: ContactPrefill; paused?: boolean }) {
   const { status, error, onFocus, onSubmit } = useEnquiry();
   return <form onSubmit={onSubmit} onFocus={onFocus} aria-label="Contact us">
-    <fieldset disabled={status === 'sending'} hidden={status === 'sent' || status === 'preview'}>
+    {paused && <p role="status">This form is paused for review. No enquiry can be sent from this preview.</p>}
+    <fieldset disabled={paused || status === 'sending'} hidden={status === 'sent' || status === 'preview'}>
       {firstRead || introduce || quote || contact ? <><input type="hidden" name="situation" value={firstRead ? 'traction' : quote ? 'subscription' : 'partnership'} />{articleSlug && <input type="hidden" name="article" value={articleSlug} />}</> : <Suspense fallback={articleSlug ? <input type="hidden" name="article" value={articleSlug} /> : null}><ContextFields articleSlug={articleSlug} situation={situation} /></Suspense>}
       <Suspense fallback={null}><BoardContext /></Suspense>
       <div data-contact-details="">
