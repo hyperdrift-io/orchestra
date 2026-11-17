@@ -1,0 +1,22 @@
+.home-trust {
+  padding-block: clamp(2rem, 5vw, 4rem) 2rem;
+  border-bottom: 0;
+  background: radial-gradient(ellipse at 10% 20%, #e3a8570c, transparent 65%);
+}
+.home-trust-intro {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-bottom: 2rem;
+}
+.home-trust h2 { max-width: 13ch; font-size: clamp(2rem, 3.5vw, 3rem); }
+.home-trust h2 span { color: var(--gold); }
+.home-trust-intro > div > p:first-child { margin-top: 0; }
+.home-trust-intro > div > p { color: var(--muted); }
+.home-trust-intro > div > .eyebrow, .home-trust-intro a { color: var(--gold); }
+.home-trust .experience-caption, .home-trust-insurance { color: var(--muted); }
+.home-trust-insurance { font-size: .8rem; max-width: none; margin-bottom: 0; }
+@media (max-width: 700px) {
+  .home-trust-intro { grid-template-columns: 1fr; gap: 1.25rem; }
+  .home-trust h2 { max-width: 20ch; }
+}
