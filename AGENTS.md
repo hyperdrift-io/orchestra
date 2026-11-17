@@ -4,13 +4,13 @@
 
 Offer, audience and register: `MISSION.md`. History: `docs/RELEASES.md`, `docs/decisions/`.
 
-## Current migration candidate — 17 November 2026
+## Live commercial identity — 17 November 2026
 
-This repository supplies the rebranded commercial site at `https://hyperdrift.io`: Traction, custom AI workflows, HD OS, About, Work and Blog (`/articles`). The previous HD site is a separate app at the selected archive address `https://labs.hyperdrift.io`; its public label is **Projects & writing**. `src/site/archive.ts` owns that configurable address. This is prepared work, not a live release. Founder approval of the final preview remains required. No deployment or outbound communication is authorised by this record.
+This repository supplies the rebranded commercial site at `https://hyperdrift.io`: Traction, custom AI workflows, HD OS, About, Work and Blog (`/articles`). The previous HD site is a separate app at the selected archive address `https://labs.hyperdrift.io`; its public label is **Projects & writing**. `src/site/archive.ts` owns that configurable address. The approved migration is live. Later UI changes retain their own preview approval; outbound communication follows its separate campaign authority.
 
 The existing Orchestra application and storage stay in place. `/api/enquiry` is the public saved-enquiry endpoint; its handler is also available internally at `/api/contact`. The mail relay targets the legacy HD transport on loopback port 3000; it must never call this app's own receiver. Infra owns the apex API exceptions and old-host redirects. See [migration contract](docs/MIGRATION-2026-11-17.md).
 
-PostHog remains project 206943 (EU). The new public site emits `app=hyper-drift`, `hostname=hyperdrift.io`; include historical `app=orchestra` for pre-migration comparisons. One SDK, no session replay, form autocapture, contact text or person profiles. Capture requires the production host, a configured key and permitted measurement. Private URL redaction, disabled flag requests, DNT/GPC and opt-out remain mandatory.
+PostHog remains project 206943 (EU). The public site retains `app=orchestra` and emits `hostname=hyperdrift.io`; include the historical commercial hostnames for comparisons across the migration. One SDK, no session replay, form autocapture, contact text or person profiles. Capture requires the production host, a configured key and permitted measurement. Private URL redaction, disabled flag requests, DNT/GPC and opt-out remain mandatory.
 
 ## Public pages
 
