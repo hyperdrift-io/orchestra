@@ -35,6 +35,6 @@ export default async function TagPage({ params }: Props) {
       <a href="/articles">← All field notes</a>
     </header>
     <ArticleFinder entries={articleSearchEntries()} tags={tagsIn(articles)} initialTag={tag.slug} />
-    <footer><h2>Where could this help you?</h2><p>Bring one workflow, a question or a product you want to improve. We’ll work out a useful first step together.</p><a href="/#contact">Describe your workflow →</a></footer>
+    <footer><h2>Where could this help you?</h2><p>Bring one workflow, a question or a product you want to improve. We’ll work out a useful first step together.</p><a href="/contact">Describe your workflow →</a></footer>
   </section>;
 }

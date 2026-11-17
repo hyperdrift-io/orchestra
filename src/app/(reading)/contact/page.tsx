@@ -1,3 +1,4 @@
+import {metadata as siteMetadata} from '@/site/metadata';
 import {EnquiryForm} from '@/components/EnquiryForm';
-export const metadata={title:'Contact Hyperdrift',description:'Talk to Hyperdrift about your app, growth or an AI workflow.',alternates:{canonical:'/contact'}};
+export const metadata={title:'Contact Hyperdrift',description:'Talk to Hyperdrift about your app, growth or an AI workflow.',openGraph:{...siteMetadata.openGraph,url:'https://hyperdrift.io/contact'},alternates:{canonical:'/contact'}};
 export default async function Page({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}){const params=await searchParams;const situation=typeof params.situation==='string'?params.situation:undefined;return <section id="contact"><h1>What would move your business forward?</h1><p>Tell us about your app, your customers or a workflow you want to improve. We’ll work out a useful next step together.</p><EnquiryForm paused={process.env.MIGRATION_PREVIEW === 'true'} situation={situation} quote={situation==='subscription'} introduce={situation==='partnership'}/></section>}
