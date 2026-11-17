@@ -51,7 +51,7 @@ const pages = [
     width: 900,
     html: head('Who carries this week? Orchestra OS', `body{padding:24px}
 body>p{margin:14px 2px 0;font:12px/1.5 var(--font-body);color:var(--cream-3)}
-body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>Keep the decisions. Hand over the jobs.</b> Orchestra AI · orchestra.hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`,
+body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>Keep the decisions. Hand over the jobs.</b> Hyperdrift · hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`,
   },
   {
     name: 'operating-week-linkedin',
@@ -61,7 +61,7 @@ body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>Keep the 
 body>h1{margin:0;font:500 70px/1.02 var(--font-display);letter-spacing:-.01em;color:var(--cream)}
 body>h1 em{color:var(--gold-light)}
 body>[data-visual]{zoom:1.08}
-body>p{margin:0;font:18px/1 var(--font-mono);letter-spacing:.06em;color:var(--cream-3)}`) + `<body><h1>Keep the decisions.<br><em>Hand over the jobs.</em></h1>${visual}<p>orchestra.hyperdrift.io/articles</p>${measure}</body></html>`,
+body>p{margin:0;font:18px/1 var(--font-mono);letter-spacing:.06em;color:var(--cream-3)}`) + `<body><h1>Keep the decisions.<br><em>Hand over the jobs.</em></h1>${visual}<p>hyperdrift.io/articles</p>${measure}</body></html>`,
   },
 ];
 

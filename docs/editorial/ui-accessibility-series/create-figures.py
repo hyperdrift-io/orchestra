@@ -154,7 +154,7 @@ def frame(name, w, h, part, title_rows, deck_rows, body, evidence, slug, label, 
     foot = h - (92 if mobile else 88)
     s += line(x, foot, w - x, foot, HAIR, 1)
     s += t(x, foot + 30, escape(evidence), 14 if mobile else 13, CREAM3, 'm')
-    s += t(x, foot + 58, escape(f'ai.hyperdrift.io/articles/{slug}'), 14 if mobile else 13, GOLD, 'm')
+    s += t(x, foot + 58, escape(f'hyperdrift.io/articles/{slug}'), 14 if mobile else 13, GOLD, 'm')
     return s + '</svg>'
 
 

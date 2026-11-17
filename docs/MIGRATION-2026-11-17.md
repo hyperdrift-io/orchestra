@@ -1,6 +1,6 @@
 # Hyperdrift apex migration candidate
 
-Prepared only. No deployment or outbound communication. The founder must approve the final preview before release. This supersedes the unified HD-app candidate `a72759f`; that source is retained in a local recovery bundle. The root coordinated migration record owns the current split preview links.
+The founder approved the final Hyperdrift and Labs previews on 17 November. Deployment is authorised and in progress; outbound communication remains paused. This supersedes the unified HD-app candidate `a72759f`; that source is retained in a local recovery bundle. The root coordinated migration record owns the current split preview links.
 
 The commercial site uses the existing Orchestra Next 15 application at `hyperdrift.io`. The earlier HD app stays separate at the selected address `labs.hyperdrift.io`, labelled Projects & writing. Its address is configurable through `NEXT_PUBLIC_ARCHIVE_ORIGIN` in `src/site/archive.ts`. This source makes no DNS or host change.
 
@@ -12,7 +12,7 @@ The approved home, About, Work, workflows, HD OS and three Traction pages are in
 
 ## Publication boundary
 
-[The manifest](migration/publication-manifest.json) records the deployed `be4e469` baseline. All 16 bodies are byte-equal after the documented host substitution. The catalogue preserves deployed fields apart from the two existing host substitutions. Five unpublished draft bodies remain in source but have no public catalogue entries. Four wording corrections from newer main are held. Artwork is already approved. No private case study is published by this migration.
+[The manifest](migration/publication-manifest.json) records the deployed `be4e469` baseline. All 16 bodies are byte-equal after the documented commercial-host and Labs-blog URL substitutions. The catalogue preserves deployed fields apart from canonical host and Labs-blog URL substitutions. Five unpublished draft bodies remain in source but have no public catalogue entries. Four wording corrections from newer main are held. Artwork is already approved. No private case study is published by this migration.
 
 ## Enquiries and data
 

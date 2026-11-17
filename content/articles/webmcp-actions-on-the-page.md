@@ -2,7 +2,7 @@ An app knows what its buttons do. Making an agent rediscover that from the scree
 
 [WebMCP](https://webmachinelearning.github.io/webmcp/) proposes a more direct route: a web page exposes structured actions that a compatible browser agent can call. The page can remain a place where a person sees the work and intervenes. This is a Draft Community Group Report, not a finished W3C standard or a promise of support in every browser.
 
-Our [earlier account, The Agent Is the Session](https://hyperdrift.io/blog/the-agent-is-the-session), explored this through uk.gov Radar. The enduring idea is shared work: an agent can help operate the page without making the person abandon it.
+Our [earlier account, The Agent Is the Session](https://labs.hyperdrift.io/blog/the-agent-is-the-session), explored this through uk.gov Radar. The enduring idea is shared work: an agent can help operate the page without making the person abandon it.
 
 > The page can explain what it does before an agent starts guessing.
 

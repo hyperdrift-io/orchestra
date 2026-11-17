@@ -54,7 +54,7 @@ const pages = [
     width: 900,
     html: head('Where does the effort go? Orchestra OS', `body{padding:24px}
 body>p{margin:14px 2px 0;font:12px/1.5 var(--font-body);color:var(--cream-3)}
-body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>Scan what customers use. Repair it there first.</b> Orchestra AI · orchestra.hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`,
+body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>Scan what customers use. Repair it there first.</b> Hyperdrift · hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`,
   },
   {
     name: 'effort-flow-linkedin',
@@ -71,7 +71,7 @@ body>[data-visual] [data-flow] li{min-height:0;padding-block:.3rem}
 body>[data-visual]>[data-tally]{margin:1.3rem 1.8rem .9rem}
 body>[data-visual] [data-tally] td{padding-block:.2rem}
 body>[data-visual] > header > p:last-child, body>[data-visual] [data-outcome]{display:none}
-body>p{margin:0;font:18px/1 var(--font-mono);letter-spacing:.06em;color:var(--cream-3)}`) + `<body><h1>Scan what customers use.<br><em>Repair it there first.</em></h1>${visual}<p>orchestra.hyperdrift.io/articles</p>${measure}</body></html>`,
+body>p{margin:0;font:18px/1 var(--font-mono);letter-spacing:.06em;color:var(--cream-3)}`) + `<body><h1>Scan what customers use.<br><em>Repair it there first.</em></h1>${visual}<p>hyperdrift.io/articles</p>${measure}</body></html>`,
   },
 ];
 

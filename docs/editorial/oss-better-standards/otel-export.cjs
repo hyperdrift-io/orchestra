@@ -64,7 +64,7 @@ body>p{margin:14px 2px 0;font:12px/1.5 var(--font-body);color:var(--cream-3)}
 body>p b{font-weight:400;color:var(--cream)}
 [data-visual] button{pointer-events:none}
 [data-visual] *{animation-play-state:paused!important}
-</style><body>${markup}<p><b>${visual.takeaway}</b> Orchestra AI · orchestra.hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`;
+</style><body>${markup}<p><b>${visual.takeaway}</b> Hyperdrift · hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`;
   const page = path.join(scratch, `${visual.name}.html`);
   fs.writeFileSync(page, html);
   const url = `file://${page}`;

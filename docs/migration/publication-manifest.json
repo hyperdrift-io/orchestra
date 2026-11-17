@@ -1,17 +1,13 @@
 {
   "source_ref": "release/orchestra-traction-trial-20261116",
   "source_commit": "be4e469372bb44e3eb804440ed676df99c7a0b8c",
-  "permitted_substitution": {
-    "from": "https://orchestra.hyperdrift.io",
-    "to": "https://hyperdrift.io"
-  },
   "published_count": 16,
   "articles": [
     {
       "slug": "delegation-with-boundaries",
       "source_sha256": "9fe37dd5749e81cbd735cfd4cf9f04e53e6ab023a1ca826a205c4325fdb57a3d",
-      "candidate_sha256": "48bb07821207a6afc6857f2d571e9036b8edd5b5b38eb173a4e65200beb2bb3e",
-      "substitution_count": 1
+      "candidate_sha256": "81ddb6cd3e3a41b38ae680f6ab4394c4ccfc001f9bbf9a48cd1b1609795ae0a3",
+      "substitution_count": 2
     },
     {
       "slug": "evidence-that-starts-work",
@@ -52,8 +48,8 @@
     {
       "slug": "webmcp-actions-on-the-page",
       "source_sha256": "81b303a7816b3e3cdcd92d078f84aa8af972411bbdc95453438a241842c9694b",
-      "candidate_sha256": "2f7aaf25ad17979a9dad9b39377822637744626ea26f48009a59a83f39c23579",
-      "substitution_count": 1
+      "candidate_sha256": "083739ca5da856548f2b6041ea80e4bd373823d0f42ae680b50d6a842639cae5",
+      "substitution_count": 2
     },
     {
       "slug": "hands-free-app-control",
@@ -104,5 +100,15 @@
       "substitution_count": 0
     }
   ],
-  "source_catalogue_sha256": "d2cebf25a7ba169ce3c9337543b6fd4ac404b49cdd88af7a9b7fe6fb01f6367c"
+  "source_catalogue_sha256": "d2cebf25a7ba169ce3c9337543b6fd4ac404b49cdd88af7a9b7fe6fb01f6367c",
+  "permitted_substitutions": [
+    {
+      "from": "https://hyperdrift.io/blog",
+      "to": "https://labs.hyperdrift.io/blog"
+    },
+    {
+      "from": "https://orchestra.hyperdrift.io",
+      "to": "https://hyperdrift.io"
+    }
+  ]
 }

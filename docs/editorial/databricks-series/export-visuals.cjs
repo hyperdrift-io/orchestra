@@ -11,16 +11,42 @@ const compiled = ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compile
 const loaded = new Module(filename, module);
 loaded.filename = filename;
 loaded.paths = Module._nodeModulePaths(path.dirname(filename));
+const originalRequire = loaded.require.bind(loaded);
+// These imports belong to other article kinds and must never enter these exports.
+const unusedComponents = new Set([
+  '@/components/InterfaceFigure',
+  '@/components/visuals/RepairSurvival',
+  '@/components/visuals/OperatingWeek',
+  '@/components/visuals/EffortFlow',
+  '@/components/visuals/FleetCompound',
+  '@/components/visuals/TractionPeek',
+  '@/components/visuals/ConversationTrace',
+  '@/components/visuals/ConventionsReach',
+  '@/components/visuals/ReviewTimeline',
+  '@/components/visuals/ClearMermaidExperience',
+]);
+loaded.require = (id) => {
+  if (id === '@/components/LinkPreview') {
+    return { LinkPreview: ({ href, children }) => React.createElement('a', { href }, children) };
+  }
+  if (unusedComponents.has(id)) {
+    return new Proxy({}, { get: (_, name) => () => {
+      throw new Error(`Databricks export unexpectedly uses ${id}.${String(name)}`);
+    } });
+  }
+  if (id.startsWith('@/')) throw new Error(`Unsupported Databricks export import: ${id}`);
+  return originalRequire(id);
+};
 loaded._compile(compiled.outputText, filename);
 const css = fs.readFileSync('src/app/articles.css', 'utf8');
 const catalogue = JSON.parse(fs.readFileSync('src/data/articles.json', 'utf8'));
-for (const article of catalogue.filter((entry) => entry.visualization)) {
+for (const article of catalogue.filter((entry) => ['transaction', 'streaming'].includes(entry.visualization?.kind))) {
   const html = renderToStaticMarkup(React.createElement(loaded.exports.ArticleVisualization, { article }));
   const visual = html.match(/<section data-visual=[\s\S]*<\/section>/)[0];
   const page = `<!doctype html><meta charset="utf-8"><title>${article.title}</title><style>
 :root{--ink:#14120e;--cream:#f6eee1;--cream-2:#e2d8c8;--cream-3:#c8beae;--gold:#e3a857;--gold-light:#f4cd92;--gold-soft:#e3a85716;--gold-line:#e3a85766;--line-hair:#c8beae33;--line-soft:#c8beae44;--font-display:Georgia,serif;--font-body:Arial,sans-serif;--font-mono:Menlo,monospace;}
 *{box-sizing:border-box}body{margin:0;padding:24px;background:#14120e;color:#f6eee1;font:16px/1.5 Arial,sans-serif}p{margin:0} ${css}
 #article-proof[data-article-visual]{margin:0;max-width:none}body>p{font:12px Arial;color:#c8beae;margin-top:14px;line-height:1.5} [data-visual] button{pointer-events:none}
-</style><figure id="article-proof" data-article-visual>${visual}</figure><p>${article.visualization.takeaway}<br>Orchestra AI · ai.hyperdrift.io/articles · Primary sources and interactive version in the article</p>`;
+</style><figure id="article-proof" data-article-visual>${visual}</figure><p>${article.visualization.takeaway}<br>Hyperdrift · hyperdrift.io/articles · Primary sources and interactive version in the article</p>`;
   fs.writeFileSync(`docs/editorial/databricks-series/${article.visualization.kind}-visual.html`, page);
 }

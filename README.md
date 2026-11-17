@@ -1,6 +1,6 @@
-# Orchestra AI — orchestra.hyperdrift.io
+# Hyperdrift — hyperdrift.io
 
-Agent orchestration for production AI workflows. An offspring of Hyperdrift.
+The Hyperdrift commercial site: Traction and AI workflows for founders. The repository and service keep the `orchestra` identifier.
 
 - [MISSION.md](./MISSION.md) — what we exist to do.
 - [ROADMAP.md](./ROADMAP.md) — phased plan from launch to standalone graduation.
@@ -20,7 +20,7 @@ npm run start        # serves the production build on port 3008
 
 | Environment | Port | URL |
 |---|---|---|
-| Production | 3008 | https://orchestra.hyperdrift.io |
+| Production | 3008 | https://hyperdrift.io |
 | Development | 3108 | http://localhost:3108 |
 
 Convention: `prod_port + 100 = dev_port` (see `infra/PORTS.md`).
@@ -33,11 +33,11 @@ See [`.env.example`](./.env.example). The contact form uses the existing Hyperdr
 
 Hyperdrift self-hosts on a Hostinger VPS. There is no Vercel / Netlify / managed Next.js host in the stack.
 
-- **Process manager**: PM2. Infra generates the process entry from `infra/group_vars/apps.yml` (`npm start`, port `3008`); this repo carries no ecosystem file, so nothing here can override it.
-- **Reverse proxy + TLS**: nginx on the VPS, terminating `orchestra.hyperdrift.io`.
+- **Runtime**: `hd-app@orchestra` under systemd on the rebuilt host, port `3008`.
+- **Reverse proxy + TLS**: nginx on the VPS, terminating `hyperdrift.io`.
 - **CI**: GitHub Actions (`.github/workflows/deploy.yml`) runs the test gate (`npm run test:ci`) and the production build on every push to `main`. It verifies only; deploy the approved revision separately through infra after CI passes.
 - **Server-side deploy**: managed by the `hyperdrift-infra` repo (ansible). The app entry lives in `infra/group_vars/apps.yml` under `deploy_apps[name=orchestra]` with port `3008`.
-- **DNS**: `orchestra.hyperdrift.io` resolves to the Hostinger VPS via an A record.
+- **DNS**: `hyperdrift.io` resolves to the Hostinger VPS via an A record.
 
 To register a new env var or change port behaviour, edit `infra/group_vars/apps.yml` in the `hyperdrift-infra` repo and run the deploy from there.
 
@@ -52,4 +52,4 @@ Semantic CSS only — no Tailwind, no CSS-in-JS. The system is described in `src
 
 ## Repository
 
-This is an independent git repository under the `hyperdrift-io` GitHub organisation, federated via `meta/mani.yaml` in the parent Hyperdrift monorepo. Remote: `git@github.com:hyperdrift-io/orchestra.git` (to be created at launch time).
+This is an independent git repository under the `hyperdrift-io` GitHub organisation, federated via `meta/mani.yaml` in the parent Hyperdrift monorepo. Remote: `git@github.com:hyperdrift-io/orchestra.git` (existing repository).

@@ -47,7 +47,7 @@ export const caseStudies: CaseStudy[] = [
     link: 'https://standup.hyperdrift.io',
     linkLabel: 'Try the agent',
     repo: 'https://github.com/hyperdrift-io/standup',
-    article: 'https://hyperdrift.io/blog/one-evening-who-is-waiting-on-you',
+    article: 'https://labs.hyperdrift.io/blog/one-evening-who-is-waiting-on-you',
     challenge: {
       organiser: 'Amazon Web Services',
       name: 'Agents for Humans Hackathon',
@@ -67,7 +67,7 @@ export const caseStudies: CaseStudy[] = [
     link: 'https://helm-294160018950.europe-west1.run.app',
     linkLabel: 'Try fleet diagnosis',
     repo: 'https://github.com/hyperdrift-io/helm',
-    article: 'https://hyperdrift.io/blog/your-error-page-is-a-prompt',
+    article: 'https://labs.hyperdrift.io/blog/your-error-page-is-a-prompt',
     challenge: {
       organiser: 'Google',
       name: 'All Things Agentic Hackathon',
@@ -87,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
     link: 'https://radar.hyperdrift.io/explore',
     linkLabel: 'Try with your agent',
     repo: 'https://github.com/hyperdrift-io/uk-ai-radar',
-    article: 'https://hyperdrift.io/blog/the-agent-is-the-session',
+    article: 'https://labs.hyperdrift.io/blog/the-agent-is-the-session',
     challenge: {
       organiser: 'OpenAI',
       name: 'The WebMCP Challenge',
@@ -107,7 +107,7 @@ export const caseStudies: CaseStudy[] = [
     link: 'https://unanswered.hyperdrift.io',
     linkLabel: 'Find someone to help',
     repo: 'https://github.com/hyperdrift-io/unanswered',
-    article: 'https://hyperdrift.io/blog/open-source-routing-problem-unanswered-asks',
+    article: 'https://labs.hyperdrift.io/blog/open-source-routing-problem-unanswered-asks',
     challenge: {
       organiser: 'DEV Community',
       name: 'Weekend Challenge: Generosity Edition · Google AI category',

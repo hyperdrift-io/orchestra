@@ -75,8 +75,8 @@ const notes: Record<string, SourceNote> = {
   'https://github.com/hyperdrift-io/helm': { preview: 'unavailable', title: 'Helm', by: 'Hyperdrift · public repository' },
   'https://github.com/hyperdrift-io/standup': { preview: 'unavailable', title: 'Standup', by: 'Hyperdrift · public repository' },
   'https://youtu.be/JB2O3WSwH90': { preview: 'unavailable', title: 'Helm demonstration', by: 'Hyperdrift · YouTube' },
-  'https://hyperdrift.io/blog/your-error-page-is-a-prompt': { preview: 'unavailable', title: 'Your Error Page Is a Prompt', by: 'Yann VR · Hyperdrift' },
-  'https://hyperdrift.io/blog/the-agent-is-the-session': { preview: 'unavailable', title: 'The Agent Is the Session', by: 'Yann VR · Hyperdrift · August 2026' },
+  'https://labs.hyperdrift.io/blog/your-error-page-is-a-prompt': { preview: 'unavailable', title: 'Your Error Page Is a Prompt', by: 'Yann VR · Hyperdrift' },
+  'https://labs.hyperdrift.io/blog/the-agent-is-the-session': { preview: 'unavailable', title: 'The Agent Is the Session', by: 'Yann VR · Hyperdrift · August 2026' },
   // HD OS articles, reviewed 13 October 2026. Page previews only where the destination permits framing.
   'https://dora.dev/capabilities/streamlining-change-approval/': { title: 'Streamlining change approval', by: 'DORA · capability research' },
   'https://docs.gitlab.com/ci/environments/deployment_safety/': { title: 'Deployment safety', by: 'GitLab documentation · CI/CD environments' },

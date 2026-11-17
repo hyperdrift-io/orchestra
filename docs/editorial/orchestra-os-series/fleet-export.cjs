@@ -53,7 +53,7 @@ const pages = [
     width: 900,
     html: head('One fix, every app · Orchestra OS', `body{padding:24px}
 body>p{margin:14px 2px 0;font:12px/1.5 var(--font-body);color:var(--cream-3)}
-body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>What one app learns, every app on the platform gets.</b> Orchestra AI · orchestra.hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`,
+body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>What one app learns, every app on the platform gets.</b> Hyperdrift · hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`,
   },
   {
     name: 'fleet-compound-linkedin',
@@ -63,7 +63,7 @@ body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>What one 
 body>h1{margin:0;font:500 66px/1.02 var(--font-display);letter-spacing:-.01em;color:var(--cream)}
 body>h1 em{color:var(--gold-light)}
 body>[data-visual]{zoom:1.02}
-body>p{margin:0;font:18px/1 var(--font-mono);letter-spacing:.06em;color:var(--cream-3)}`) + `<body><h1>What one app learns,<br><em>every app gets.</em></h1>${visual}<p>orchestra.hyperdrift.io/articles</p>${measure}</body></html>`,
+body>p{margin:0;font:18px/1 var(--font-mono);letter-spacing:.06em;color:var(--cream-3)}`) + `<body><h1>What one app learns,<br><em>every app gets.</em></h1>${visual}<p>hyperdrift.io/articles</p>${measure}</body></html>`,
   },
 ];
 

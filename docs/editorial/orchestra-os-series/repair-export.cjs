@@ -76,7 +76,7 @@ const download = `<!doctype html><html lang="en"><meta charset="utf-8"><title>Wi
 body { width: 900px; padding: 24px; }
 body > p { margin-top: 16px; font: 13px/1.55 var(--font-body); color: var(--cream-3); }
 body > p b { font-weight: 500; color: var(--gold-light); }
-</style><body>${visual}<p><b>${takeaway}</b><br>Orchestra · orchestra.hyperdrift.io/articles · interactive version and primary sources in the article</p>${measure}</body></html>`;
+</style><body>${visual}<p><b>${takeaway}</b><br>Hyperdrift · hyperdrift.io/articles · interactive version and primary sources in the article</p>${measure}</body></html>`;
 
 const card = `<!doctype html><html lang="en"><meta charset="utf-8"><title>Will the repair survive the next release?</title><style>${styles}
 html, body { width: 1080px; height: 1350px; overflow: hidden; }
@@ -87,7 +87,7 @@ body > div { display: grid; gap: 22px; }
 body > div h2 { font: 500 54px/1.08 var(--font-display); color: var(--cream); letter-spacing: -.005em; }
 body > div h2 em { color: var(--gold-light); }
 body > div p { font: 17px var(--font-mono); letter-spacing: .04em; color: var(--cream-3); }
-</style><body><p>ORCHESTRA · FIELD NOTES</p>${visual}<div><h2>A security fix is finished when it <em>survives the next release.</em></h2><p>orchestra.hyperdrift.io/articles</p></div></body></html>`;
+</style><body><p>HYPERDRIFT · FIELD NOTES</p>${visual}<div><h2>A security fix is finished when it <em>survives the next release.</em></h2><p>hyperdrift.io/articles</p></div></body></html>`;
 
 function render(html, name, width, fixedHeight) {
   const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'repair-export-'));

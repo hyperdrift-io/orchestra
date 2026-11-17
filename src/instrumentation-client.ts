@@ -11,7 +11,7 @@ if (analyticsEnabled()) {
     before_send: (event) => {
       if (!event || !analyticsEnabled()) return null;
       cleanProperties(event.properties);
-      Object.assign(event.properties, campaignAttribution(), { app: 'hyper-drift', env: 'production', hostname: 'hyperdrift.io' });
+      Object.assign(event.properties, campaignAttribution(), { app: 'orchestra', env: 'production', hostname: 'hyperdrift.io' });
       return event;
     },
   });

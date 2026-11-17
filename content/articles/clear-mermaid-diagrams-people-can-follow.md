@@ -32,6 +32,6 @@ Before drawing it, we check that its steps and connections agree with Mermaid. U
 
 The next article, [Clear Mermaid in action](/articles/clear-mermaid-in-action), lets you edit a step and connect it to another without writing syntax. The Mermaid source updates with your changes, so you can take the result with you.
 
-Clear Mermaid already renders [two diagrams on the HD blog](https://hyperdrift.io/blog/own-your-stack-types-all-the-way-down). It supports a checked flowchart subset, not every Mermaid diagram family. Our reviews and automated checks support this release; they do not establish full accessibility conformance or independent gains in comprehension.
+Clear Mermaid already renders [two diagrams on the HD blog](https://labs.hyperdrift.io/blog/own-your-stack-types-all-the-way-down). It supports a checked flowchart subset, not every Mermaid diagram family. Our reviews and automated checks support this release; they do not establish full accessibility conformance or independent gains in comprehension.
 
 This is part of Orchestra's work on open source and better standards: keep what people already use, improve a specific experience and give them enough evidence to judge the result.

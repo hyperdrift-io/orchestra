@@ -1,4 +1,4 @@
-# Orchestra AI — Mission
+# Hyperdrift — Commercial site mission
 
 ## The founder’s next level
 
@@ -14,7 +14,7 @@ Founders and leadership teams with a promising product, service or consultancy b
 
 ## What we do
 
-Two offerings give founders a clear entrance: Traction connects customer evidence, accepted commitments and results; Orchestra OS connects the app’s development, hosting, maintenance and support to that growth work. The client-facing invitation is “Embed your app on Orchestra OS.” Scope and readiness are agreed per app; a configured capability is not yet evidence of verified operation.
+Two offerings give founders a clear entrance: Traction connects customer evidence, accepted commitments and results; HD OS connects the app’s development, hosting, maintenance and support to that growth work. The client-facing invitation is “Embed your app on HD OS.” Scope and readiness are agreed per app; a configured capability is not yet evidence of verified operation.
 
 Start with one workflow worth improving. Connect existing tools, knowledge and customer evidence. Agree a useful scope and the decisions that remain with people. Build the work so it can be inspected, operated and improved. Compare its effect against a baseline and the cost of delivery.
 
@@ -24,11 +24,11 @@ The operating pattern is notice → choose → improve → release → learn. Th
 
 Traction’s founder invitation is personal. Yann has spent 25 years building and has seen good ideas, including his own, fail to reach the people they could help. He wants founders to help each other give worthwhile apps their chance. Invite involvement and honest feedback; keep money and defensive sales disclaimers out of this introduction. Speak founder to founder, connecting that experience to the recipient’s work and hopes. The purpose section at `/traction#why` carries the full story; the welcome and email should express it without repeating a biography. Avoid corporate pitches, manufactured urgency and invented exclusivity. Feedback can shape Traction; never promise unlimited custom work.
 
-Orchestra speaks as **we**. About and service pages show what the team can do for the reader. Keep the people, organisations and actual relationships behind past work in the evidence record. Present that work as experience the team brings and name a team member in copy or metadata when the founder asks. Preserve the distinction between prior roles, client engagements and Hyperdrift partner ventures. Personal emails and signed articles keep their actual authors.
+Hyperdrift speaks as **we**. About and service pages show what the team can do for the reader. Keep the people, organisations and actual relationships behind past work in the evidence record. Present that work as experience the team brings and name a team member in copy or metadata when the founder asks. Preserve the distinction between prior roles, client engagements and Hyperdrift partner ventures. Personal emails and signed articles keep their actual authors.
 
 `/traction#why` explains our belief that this is a short window to help great ideas reach their market and our choice to work closely with a select few founders who act today. The private invitation page recognises the recipient as invited and moves to working together. The public offer explains who Traction is for.
 
-The landing page leads with the Orchestra offer, who it serves and a direct enquiry. Optional interactive scenarios connect the work to business outcomes. It avoids framework lists and technical catalogues. The article series provides that depth, supported by real Hyperdrift work. Public examples, prototypes, internal systems and client results remain clearly distinguished. Illustrative scenarios never masquerade as measured client outcomes.
+The landing page leads with the Hyperdrift offer, who it serves and a direct enquiry. Optional interactive scenarios connect the work to business outcomes. It avoids framework lists and technical catalogues. The article series provides that depth, supported by real Hyperdrift work. Public examples, prototypes, internal systems and client results remain clearly distinguished. Illustrative scenarios never masquerade as measured client outcomes.
 
 The founder selected WebGL, removed the giant and requested a living interactive mesh on 22 September 2026. The mesh now opens into five coloured domains. The founder selected Living constellation A for the organisation exploration at `/how-it-works`: branching signals and retained learning across illustrative successful iterations. The homepage is the offer and experience, one optional interactive example, scoped ways to work together, inspectable builds, a prominent Traction Partnership invitation and an enquiry; deeper work, reading and partnership terms have their own destinations. The partnership invitation and hero link are explicitly requested in the latest refinement. Preserve the existing ink, cream and gold identity. Article illustrations support the idea; real evidence remains in the proof sections. All copy follows `meta/PHILOSOPHY.md` §8, Speak to Enable.
 
@@ -38,9 +38,9 @@ For a client: an agreed improvement in conversion, retention, cost to serve, mar
 
 For this site: qualified conversations with founders who have a concrete workflow and plausible fit. Measure confirmed enquiries and their human qualification, not just clicks. Our analytics project is still a publication prerequisite; local comparisons do not establish a conversion winner.
 
-## Identity and delivery — current preparation, 17 November 2026
+## Identity and delivery — approved migration, 17 November 2026
 
-The founder has chosen to bring the commercial offer directly under Hyperdrift at `hyperdrift.io`, retaining the existing HD site as a separate Projects & writing destination (selected host `labs.hyperdrift.io`). Orchestra remains the underlying app repository during this migration; clients work directly with Hyperdrift. Traction authentication stays on `traction.hyperdrift.io`. The design, migration and campaign remapping remain held for final preview approval. See [migration contract](docs/MIGRATION-2026-11-17.md).
+The founder has chosen to bring the commercial offer directly under Hyperdrift at `hyperdrift.io`, retaining the existing HD site as a separate Projects & writing destination (selected host `labs.hyperdrift.io`). Orchestra remains the underlying app repository during this migration; clients work directly with Hyperdrift. Traction authentication stays on `traction.hyperdrift.io`. The founder approved both previews and the 88 held CRM link changes. Deployment is authorised; campaign sending remains paused until a separate restart decision. See [migration contract](docs/MIGRATION-2026-11-17.md).
 
 ### Historical identity decision — 9–10 October 2026
 

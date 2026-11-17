@@ -1,6 +1,8 @@
-# Orchestra AI — Roadmap
+# Hyperdrift commercial roadmap
 
-## Current priority — 14 September 2026
+Current direction and release state: [approved apex migration](docs/MIGRATION-2026-11-17.md). The commercial site moves to `hyperdrift.io`; the legacy site lives at `labs.hyperdrift.io`. Campaigns stay paused. The plans below are historical, not a deployment queue.
+
+## Historical direction — 14 September 2026
 
 Promote `ai.hyperdrift.io` as Hyperdrift's primary business destination. Preserve its existing design; feature the anniversary and current AI/MCP work here. The historical Phase 1 plan below to keep legacy products primary is superseded. Do not implement an AI-to-legacy redirect or another legacy homepage redesign.
 
