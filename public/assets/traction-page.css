@@ -98,16 +98,16 @@
  place-content: center;
  position: relative;
  min-width: 0;
- min-height: 6rem;
+ min-height: 3rem;
  margin: 0;
- padding: .85rem .5rem;
+ padding: .6rem .65rem;
  border: 1px solid #e3a85790;
+ border-radius: 3px;
  background: #e3a85706;
- font-size: .8rem;
- line-height: 1.45;
+ font-size: .9rem;
+ line-height: 1.35;
  color: var(--cream);
  text-align: center;
- text-wrap: balance;
 }
 .agent-flow > li:last-child { border-color: var(--gold); background: #e3a85712; }
 .agent-flow > li + li::before {
@@ -133,9 +133,9 @@
 }
 .growth-workflow-result ul { padding-left: 1.1rem; margin-block: .5rem; }
 .growth-workflow-result ul > li + li { margin-top: .35rem; }
-@container(max-width:440px) {
+@container(max-width:500px) {
  .agent-flow { grid-template-columns: 1fr; }
- .agent-flow > li { min-height: 3.5rem; padding: .85rem 1rem; font-size: .9rem; }
+ .agent-flow > li { padding: .6rem 1rem; }
  .agent-flow > li + li::before {
   top: auto;
   bottom: 100%;
