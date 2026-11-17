@@ -1,6 +1,6 @@
 # Hyperdrift apex migration candidate
 
-Prepared only. No deployment or outbound communication. The founder must approve the final preview before release. This supersedes the unified HD-app candidate `a72759f`; that comparison and its protected preview are preserved separately.
+Prepared only. No deployment or outbound communication. The founder must approve the final preview before release. This supersedes the unified HD-app candidate `a72759f`; that source is retained in a local recovery bundle. The root coordinated migration record owns the current split preview links.
 
 The commercial site uses the existing Orchestra Next 15 application at `hyperdrift.io`. The earlier HD app stays separate at the selected address `labs.hyperdrift.io`, labelled Projects & writing. Its address is configurable through `NEXT_PUBLIC_ARCHIVE_ORIGIN` in `src/site/archive.ts`. This source makes no DNS or host change.
 
