@@ -6,7 +6,7 @@ Offer, audience and register: `MISSION.md`. History: `docs/RELEASES.md`, `docs/d
 
 ## Current migration candidate — 17 November 2026
 
-This repository supplies the rebranded commercial site at `https://hyperdrift.io`: Traction, custom AI workflows, HD OS, About, Work and Blog (`/articles`). The previous HD site is a separate app at the working archive address `https://studio.hyperdrift.io`; its public label is **Projects & writing**. `src/site/archive.ts` owns that configurable address. This is prepared work, not a live release. Founder approval of the final preview remains required. No deployment or outbound communication is authorised by this record.
+This repository supplies the rebranded commercial site at `https://hyperdrift.io`: Traction, custom AI workflows, HD OS, About, Work and Blog (`/articles`). The previous HD site is a separate app at the selected archive address `https://labs.hyperdrift.io`; its public label is **Projects & writing**. `src/site/archive.ts` owns that configurable address. This is prepared work, not a live release. Founder approval of the final preview remains required. No deployment or outbound communication is authorised by this record.
 
 The existing Orchestra application and storage stay in place. `/api/enquiry` is the public saved-enquiry endpoint; its handler is also available internally at `/api/contact`. The mail relay targets the legacy HD transport on loopback port 3000; it must never call this app's own receiver. Infra owns the apex API exceptions and old-host redirects. See [migration contract](docs/MIGRATION-2026-11-17.md).
 

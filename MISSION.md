@@ -40,7 +40,7 @@ For this site: qualified conversations with founders who have a concrete workflo
 
 ## Identity and delivery — current preparation, 17 November 2026
 
-The founder has chosen to bring the commercial offer directly under Hyperdrift at `hyperdrift.io`, retaining the existing HD site as a separate Projects & writing destination (working host `studio.hyperdrift.io`). Orchestra remains the underlying app repository during this migration; clients work directly with Hyperdrift. Traction authentication stays on `traction.hyperdrift.io`. The design, migration and campaign remapping remain held for final preview approval. See [migration contract](docs/MIGRATION-2026-11-17.md).
+The founder has chosen to bring the commercial offer directly under Hyperdrift at `hyperdrift.io`, retaining the existing HD site as a separate Projects & writing destination (selected host `labs.hyperdrift.io`). Orchestra remains the underlying app repository during this migration; clients work directly with Hyperdrift. Traction authentication stays on `traction.hyperdrift.io`. The design, migration and campaign remapping remain held for final preview approval. See [migration contract](docs/MIGRATION-2026-11-17.md).
 
 ### Historical identity decision — 9–10 October 2026
 

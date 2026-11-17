@@ -16,3 +16,6 @@ tsconfig.tsbuildinfo
 
 .next-production
 .next-preview
+
+.next-labs-preview
+.next-labs-production
