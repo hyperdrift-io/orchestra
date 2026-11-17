@@ -39,9 +39,11 @@ export function campaignAttribution(): Campaign {
   try {
     const saved = sessionStorage.getItem('ai-campaign');
     const campaign: Campaign = saved ? campaignSchema.parse(JSON.parse(saved)) : {};
-    if (!saved) {
+    // A direct visit stores an empty object; it must not hide the first later campaign.
+    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'validation_run'] as const;
+    if (!keys.some((key) => campaign[key])) {
       const query = new URLSearchParams(window.location.search);
-      for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'validation_run'] as const) {
+      for (const key of keys) {
         const value = query.get(key === 'validation_run' ? 'analytics_check' : key);
         if (value && tag.safeParse(value).success) campaign[key] = value;
       }

@@ -50,3 +50,11 @@ body > header.preview-header { position: relative; display: flex; justify-conten
 @media(max-width:600px){body>header.preview-header{display:flex;flex-direction:column;align-items:stretch;gap:14px;padding:18px 5%}body>header.preview-header nav{display:flex;max-width:none;width:100%;flex-wrap:nowrap;justify-content:space-between;gap:10px}.preview-header nav a{font-size:12px;white-space:nowrap}.preview-header .brand{font-size:23px}.preview-header .brand img{width:32px;height:32px}}
 
 .preview-notice{padding:7px 5%;background:#2b261f;color:#c8beae;font:12px/1.4 sans-serif;text-align:center}
+
+/* The reading layout shares the rebrand footer and its standalone enquiry door. */
+body > .site-footer { max-width: 1320px; margin: auto; padding: 25px 5%; display: flex; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid var(--line-hair); color: var(--cream-2); }
+body > .site-footer nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .875rem; }
+body > .site-footer p { margin: 0; font-size: .8rem; }
+main > section#contact:has(> h1) { max-width: 900px; margin: auto; padding: clamp(2rem, 5vw, 4rem) 5%; }
+main > section#contact > h1 { max-width: 22ch; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+main > section#contact > h1 + p { max-width: 42rem; margin: 1.5rem 0 2rem; line-height: 1.6; }
