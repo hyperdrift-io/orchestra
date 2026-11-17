@@ -81,11 +81,79 @@
 .example-brief { padding: 1rem 1.2rem; margin-block: 1.5rem; background: #201c16; border-left: 2px solid var(--gold); }
 .example-brief span { color: var(--muted); font-size: .75rem; }
 .example-brief p { margin: .4rem 0 0; color: var(--cream); }
-.agent-flow { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); list-style: none; padding: 0; margin: 0; gap: .75rem; }
-.agent-flow li { display: grid; align-content: center; position: relative; padding: .7rem .45rem; min-height: 4.2rem; border: 1px solid #e3a85770; font-size: .75rem; line-height: 1.4; color: var(--cream); text-align: center; }
-.agent-flow li + li::before { content: '→'; position: absolute; right: 100%; width: .75rem; color: var(--gold); }
+/* The connectors span the grid gap; list typography cannot move the steps. */
+.growth-workflow-result { min-width: 0; container-type: inline-size; }
+.agent-flow {
+ --flow-gap: 1.5rem;
+ display: grid;
+ grid-template-columns: repeat(4,minmax(0,1fr));
+ align-items: stretch;
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ gap: var(--flow-gap);
+}
+.agent-flow > li {
+ display: grid;
+ place-content: center;
+ position: relative;
+ min-width: 0;
+ min-height: 6rem;
+ margin: 0;
+ padding: .85rem .5rem;
+ border: 1px solid #e3a85790;
+ background: #e3a85706;
+ font-size: .8rem;
+ line-height: 1.45;
+ color: var(--cream);
+ text-align: center;
+ text-wrap: balance;
+}
+.agent-flow > li:last-child { border-color: var(--gold); background: #e3a85712; }
+.agent-flow > li + li::before {
+ content: '';
+ position: absolute;
+ top: 50%;
+ right: 100%;
+ width: calc(var(--flow-gap) + 1px);
+ height: 2px;
+ background: var(--gold);
+ transform: translateY(-50%);
+}
+.agent-flow > li + li::after {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: -6px;
+ width: 6px;
+ height: 10px;
+ background: var(--gold);
+ clip-path: polygon(0 0,100% 50%,0 100%);
+ transform: translateY(-50%);
+}
 .growth-workflow-result ul { padding-left: 1.1rem; margin-block: .5rem; }
-.growth-workflow-result li + li { margin-top: .35rem; }
+.growth-workflow-result ul > li + li { margin-top: .35rem; }
+@container(max-width:440px) {
+ .agent-flow { grid-template-columns: 1fr; }
+ .agent-flow > li { min-height: 3.5rem; padding: .85rem 1rem; font-size: .9rem; }
+ .agent-flow > li + li::before {
+  top: auto;
+  bottom: 100%;
+  right: auto;
+  left: 50%;
+  width: 2px;
+  height: calc(var(--flow-gap) + 1px);
+  transform: translateX(-50%);
+ }
+ .agent-flow > li + li::after {
+  top: -6px;
+  left: 50%;
+  width: 10px;
+  height: 6px;
+  clip-path: polygon(0 0,100% 0,50% 100%);
+  transform: translateX(-50%);
+ }
+}
 .growth-workflow .workflow-availability { border-top: 1px solid var(--line); padding-top: 1rem; font-size: .8rem; line-height: 1.6; }
 .capability-details { padding-block: 1rem; }
 .capability-details > summary { font-size: .9rem; }
