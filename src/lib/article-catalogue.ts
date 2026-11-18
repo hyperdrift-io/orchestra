@@ -66,11 +66,6 @@ export function publishedArticles(list = articles, now = Date.now()) {
   return list.filter((article) => article.publishedAt && Date.parse(article.publishedAt) <= now);
 }
 
-export function isScheduledArticle(slug: string, now = Date.now()) {
-  const publishedAt = articles.find((article) => article.slug === slug)?.publishedAt;
-  return Boolean(publishedAt && Date.parse(publishedAt) > now);
-}
-
 export function visibleArticles() {
   return isArticlePreview() ? articles : publishedArticles();
 }
