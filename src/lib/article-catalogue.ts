@@ -33,7 +33,7 @@ export interface ArticleSummary {
   /** Slug shown as Read next; defaults to the next article by order. */
   readNext?: string;
   steps: string[];
-  proof: { description: string; url: string; label: string; heading?: string };
+  proof: { description: string; url: string; label: string; heading?: string; related?: { url: string; label: string } };
   media: { kind: 'image' | 'youtube' | 'video'; src?: string; id?: string; alt?: string; caption: string; poster?: string; transcript?: { intro: string; turns: { speaker: string; text: string }[] } } | null;
   image: { src: string; alt: string; caption: string; width: number; height: number };
   headerImage?: { src: string; alt: string; width: number; height: number };
@@ -64,6 +64,11 @@ export function isArticlePreview() {
 /** Articles whose publication date has arrived. Drafts (no date) and scheduled pieces never qualify, preview build or not. */
 export function publishedArticles(list = articles, now = Date.now()) {
   return list.filter((article) => article.publishedAt && Date.parse(article.publishedAt) <= now);
+}
+
+export function isScheduledArticle(slug: string, now = Date.now()) {
+  const publishedAt = articles.find((article) => article.slug === slug)?.publishedAt;
+  return Boolean(publishedAt && Date.parse(publishedAt) > now);
 }
 
 export function visibleArticles() {
