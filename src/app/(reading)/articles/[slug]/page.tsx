@@ -4,9 +4,8 @@ import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import { MeshArtwork } from '@/components/MeshArtwork';
 import type { Metadata } from 'next/types';
 import { notFound } from 'next/navigation';
-import { unstable_noStore as noStore } from 'next/cache';
 import { getArticle, articleJsonLd, articleSections, figureId } from '@/lib/articles';
-import { visibleArticles, publishedArticles, articleUrl, articleDateLabel, isScheduledArticle } from '@/lib/article-catalogue';
+import { visibleArticles, publishedArticles, articleUrl, articleDateLabel } from '@/lib/article-catalogue';
 import { ArticleContents } from '@/components/ArticleContents';
 import { ArticleBody } from '@/components/ArticleBody';
 import { ArticleVisualization } from '@/components/ArticleVisualization';
@@ -39,9 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ArticlePage({ params }: Props) {
-  const { slug } = await params;
-  if (isScheduledArticle(slug)) noStore();
-  const article = getArticle(slug);
+  const article = getArticle((await params).slug);
   if (!article) notFound();
   const image = new URL(articleShareImage(article).url);
   const headerImage = article.headerImage ?? article.image;
