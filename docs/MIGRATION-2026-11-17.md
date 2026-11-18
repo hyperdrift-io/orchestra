@@ -12,7 +12,7 @@ The approved home, About, Work, workflows, HD OS and three Traction pages are in
 
 ## Publication boundary
 
-[The manifest](migration/publication-manifest.json) records the deployed `be4e469` baseline. All 16 bodies are byte-equal after the documented commercial-host and Labs-blog URL substitutions. The catalogue preserves deployed fields apart from canonical host and Labs-blog URL substitutions. Five unpublished draft bodies remain in source but have no public catalogue entries. Four wording corrections from newer main are held. Artwork is already approved. No private case study is published by this migration.
+[The manifest](migration/publication-manifest.json) records the deployed `be4e469` baseline. All 16 bodies are byte-equal after the documented commercial-host and Labs-blog URL substitutions. The catalogue preserves deployed fields apart from canonical host and Labs-blog URL substitutions. Five unpublished draft bodies remain in source but have no public catalogue entries. Four wording corrections were held during migration; the founder approved applying them on 18 November. See [editorial release](editorial/article-quality-2026-11-13/CORRECTIONS-2026-11-18.md). Artwork is already approved. No private case study is published by this migration.
 
 ## Enquiries and data
 
@@ -36,4 +36,4 @@ The coordinated public check passed all 100 mapped destinations, both sitemap se
 
 The final acceptance repair restores the standalone contact page and shared reading footer spacing. It also captures the first tagged campaign after an earlier direct visit while preserving first-touch attribution and privacy refusal. Tests and desktop/phone browser inspection passed. The internal live enquiry had empty campaign tags; no second enquiry was sent, so the repair does not claim a newly observed attributed live conversion.
 
-Final runtime revision and receipts are recorded under `~/.hd/releases/public-migration-20261117/`. The root [coordinated migration record](https://github.com/hyperdrift-io/hyperdrift/blob/main/docs/previews/hd-rebrand-2026-11-16/PREPARATION.md) owns campaign holds, SEO submissions and recovery. All four held wording corrections and five unpublished articles remain held.
+Final runtime revision and receipts are recorded under `~/.hd/releases/public-migration-20261117/`. The root [coordinated migration record](https://github.com/hyperdrift-io/hyperdrift/blob/main/docs/previews/hd-rebrand-2026-11-16/PREPARATION.md) owns campaign holds, SEO submissions and recovery. The five unpublished articles remain held. The four wording corrections were approved on 18 November and are tracked in the editorial release record linked above.

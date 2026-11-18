@@ -179,7 +179,7 @@
     },
     "media": null,
     "publishedAt": "2026-09-24T20:10:00Z",
-    "updatedAt": "2026-11-15T21:15:44Z",
+    "updatedAt": "2026-11-18T00:00:00Z",
     "image": {
       "src": "/articles/mesh/lakebase-vs-document-databases.svg",
       "alt": "Connected wireframe library, coins, shield forms in Orchestra's mesh style.",
@@ -227,7 +227,8 @@
       "width": 1600,
       "height": 900
     },
-    "shareArtworkOnly": true
+    "shareArtworkOnly": true,
+    "invite": "Bring your current stack and one operation whose records must stay consistent."
   },
   {
     "slug": "langchain-databricks-appkit-sse",
@@ -352,7 +353,7 @@
     },
     "readNext": "agent-driven-ui-intelligence-and-action",
     "invite": "Bring one operating decision and the evidence it needs. We'll discuss what speech could simplify.",
-    "updatedAt": "2026-11-15T21:15:44Z",
+    "updatedAt": "2026-11-18T00:00:00Z",
     "heroImage": {
       "src": "/articles/orchestra/officer-v1.jpg",
       "alt": "A microphone sends a command to one visible service, with a separate return signal carrying its result.",
@@ -892,7 +893,7 @@
       "height": 900
     },
     "shareArtworkOnly": true,
-    "updatedAt": "2026-11-15T21:15:44Z"
+    "updatedAt": "2026-11-18T00:00:00Z"
   },
   {
     "slug": "app-operations-after-launch",
@@ -954,22 +955,7 @@
       "reviewed": "13 October 2026"
     },
     "publishedAt": "2026-10-13T21:16:00Z",
-    "figures": [
-      {
-        "kind": "fleet",
-        "title": "One fix, every app",
-        "takeaway": "What one app learns, every app on the platform gets.",
-        "description": "Orchestra OS at the centre, our apps on a ring around it. When a React bug left pages blank on one app, it was found and investigated there once, on 17 September; on 8 October the fix went into all six apps on that stack the same day, while on their own each app would hunt the same bug separately and one that hasn't noticed still shows a blank page. The same pattern holds for a compromised npm package (a malicious-package gate in our deploy pipelines the next day), a reading feature built once and synced to three article sites, and a new app that outside monitoring checks every five minutes from the registry with nothing to set up.",
-        "sources": [
-          {
-            "label": "React fix for the stylesheet stall (facebook/react#34760)",
-            "url": "https://github.com/facebook/react/pull/34760"
-          }
-        ],
-        "download": "/articles/orchestra-os/fleet-compound.png",
-        "reviewed": "13 October 2026"
-      }
-    ],
+    "figures": [],
     "invite": "Tell us about your app, who runs it today and the job you’d hand over first. We’ll agree what to connect, who owns it and the evidence that shows it’s working.",
     "readNext": "agent-driven-ui-intelligence-and-action",
     "heroImage": {
@@ -979,7 +965,7 @@
       "height": 900
     },
     "shareArtworkOnly": true,
-    "updatedAt": "2026-11-15T20:52:00Z"
+    "updatedAt": "2026-11-18T00:00:00Z"
   },
   {
     "slug": "agent-driven-ui-intelligence-and-action",
