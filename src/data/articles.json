@@ -1028,6 +1028,85 @@
     "updatedAt": "2026-11-15T21:15:44Z"
   },
   {
+    "slug": "dspy-reasoning-continuity",
+    "title": "Helping agents pick up where they left off",
+    "seoTitle": "DSPy reasoning continuity: history, model state and handoffs",
+    "excerpt": "An agent should resume a job without making you explain it again. What our DSPy example taught us about keeping progress usable after a pause.",
+    "shareLine": "Your sources, decisions and next action should survive a change of agent.",
+    "order": 16,
+    "topic": "DSPy",
+    "example": "DSPy research",
+    "tags": [
+      "agents",
+      "operations"
+    ],
+    "exampleStatus": "Tested offline example",
+    "ctaLabel": "Discuss an agent handoff",
+    "invite": "Bring a workflow that needs to resume after a pause or model change. We can examine what must survive.",
+    "readNext": "evidence-that-starts-work",
+    "steps": [
+      "Keep the goal",
+      "Save the evidence",
+      "Record decisions",
+      "Resume the work"
+    ],
+    "proof": {
+      "heading": "Code and upstream discussion",
+      "description": "Our saved-conversation example preserved information through a save and reload. Tested offline on 30 October; no live model result or accepted upstream change.",
+      "url": "https://github.com/hyperdrift-io/orchestra/pull/5",
+      "label": "Read the code and run the checks",
+      "related": {
+        "url": "https://github.com/stanfordnlp/dspy/issues/10675",
+        "label": "Follow the DSPy issue"
+      }
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/dspy-reasoning-continuity.svg",
+      "alt": "Connected wireframe conversation, book, signpost forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "reviewedAt": "2026-11-18",
+    "publishedAt": "2026-11-18T09:00:00Z",
+    "headerImage": {
+      "src": "/articles/mesh/dspy-reasoning-continuity.svg",
+      "alt": "Connected wireframe conversation, book, signpost forms in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/resume-the-work-v1.jpg",
+      "alt": "An open case retains an unfinished structure and its sources beside a disconnected processor.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "updatedAt": "2026-11-18T01:48:36Z",
+    "figures": [
+      {
+        "kind": "editorial",
+        "image": "/articles/dspy/readable-handoff.svg",
+        "alt": "Do the work, save the findings and decisions, then let the next person or agent inspect and continue them.",
+        "takeaway": "Keep a readable record of the work, with the evidence and next action.",
+        "description": "The work record should remain useful after a pause or model change. Extra continuation information may help compatible models, but does not replace the readable record.",
+        "sources": [
+          {
+            "label": "DSPy continuity proposal",
+            "url": "https://github.com/stanfordnlp/dspy/issues/10675"
+          },
+          {
+            "label": "The DSPy version tested on 30 October",
+            "url": "https://github.com/stanfordnlp/dspy/tree/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007"
+          }
+        ],
+        "reviewed": "18 November 2026",
+        "evidenceLabel": "Illustrative handoff."
+      }
+    ]
+  },
+  {
     "slug": "opentelemetry-genai-conversation-id",
     "title": "We got our first PR merged into OpenTelemetry",
     "seoTitle": "OpenTelemetry GenAI conversation ID: passing it to nested spans",

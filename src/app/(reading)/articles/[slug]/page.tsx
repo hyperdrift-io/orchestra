@@ -4,8 +4,9 @@ import { meshFallbackSvg } from '@/lib/mesh-fallback';
 import { MeshArtwork } from '@/components/MeshArtwork';
 import type { Metadata } from 'next/types';
 import { notFound } from 'next/navigation';
+import { unstable_noStore as noStore } from 'next/cache';
 import { getArticle, articleJsonLd, articleSections, figureId } from '@/lib/articles';
-import { visibleArticles, publishedArticles, articleUrl, articleDateLabel } from '@/lib/article-catalogue';
+import { visibleArticles, publishedArticles, articleUrl, articleDateLabel, isScheduledArticle } from '@/lib/article-catalogue';
 import { ArticleContents } from '@/components/ArticleContents';
 import { ArticleBody } from '@/components/ArticleBody';
 import { ArticleVisualization } from '@/components/ArticleVisualization';
@@ -38,13 +39,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ArticlePage({ params }: Props) {
-  const article = getArticle((await params).slug);
+  const { slug } = await params;
+  if (isScheduledArticle(slug)) noStore();
+  const article = getArticle(slug);
   if (!article) notFound();
   const image = new URL(articleShareImage(article).url);
   const headerImage = article.headerImage ?? article.image;
   const sections = articleSections(article);
   const next = (article.readNext && visibleArticles().find((entry) => entry.slug === article.readNext)) || visibleArticles().find((entry) => entry.order === article.order + 1);
-  const invite = article.invite ?? 'Tell us about one workflow and the tools involved. We’ll discuss where agents could help and which decisions should stay with your team.';
   return <article id="article">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd(article) }} />
     <ArticleTracker slug={article.slug} />
@@ -63,16 +65,18 @@ export default async function ArticlePage({ params }: Props) {
       <ArticleTags tags={tagsOf(article)} />
       {article.reviewedAt && <small data-reviewed="">Evidence reviewed {articleDateLabel(article.reviewedAt)} · <a href="/articles/ui-accessibility#method">Method and maintenance</a></small>}
     </header>
-    <div>
+    <div data-article-layout="">
       <ArticleContents entries={sections} />
-      <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} figureSvg={article.visualization?.kind === 'ui-accessibility' ? interfaceFigureSvg(article.slug) : undefined} />} figures={Object.fromEntries((article.figures ?? []).map((figure) => [figure.kind, <ArticleVisualization key={figure.kind} article={article} visual={figure} id={figureId(figure.kind)} />]))} />
+      <div data-article-reading="">
+        <ArticleBody blocks={article.blocks} share={{ title: article.title, text: article.shareLine, url: articleUrl(article.slug) }} visualization={<ArticleVisualization article={article} figureSvg={article.visualization?.kind === 'ui-accessibility' ? interfaceFigureSvg(article.slug) : undefined} />} figures={Object.fromEntries((article.figures ?? []).map((figure) => [figure.kind, <ArticleVisualization key={figure.kind} article={article} visual={figure} id={figureId(figure.kind)} />]))} />
+        <section data-article-endcap="" aria-label="What next">
+          <div data-invite=""><a href="#enquire" data-enquiry="" data-invite-cta="">{article.ctaLabel} →</a>{article.invite && <p>{article.invite}</p>}</div>
+          {next && <a data-read-next="" href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong></a>}
+        </section>
+        <div id="article-diagram"><ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!publishedArticles().some(entry => entry.slug === article.slug)} /></div>
+        {(!article.visualization || article.media) && <ArticleProof article={article} />}
+      </div>
     </div>
-    <figure id="article-diagram" data-has-visualization={article.visualization ? "true" : undefined}>{!article.visualization && <><figcaption><span>The idea, at a glance</span><strong>{article.shareLine}</strong></figcaption><ol>{article.steps.map((step) => <li key={step}>{step}</li>)}</ol></>}<ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!publishedArticles().some(entry => entry.slug === article.slug)} /></figure>
-    {(!article.visualization || article.media) && <ArticleProof article={article} />}
-    <section data-article-endcap="" aria-label="What next">
-      <div data-invite=""><p>Put the idea to work</p><h2>What would this look like <em>for you?</em></h2><p>{invite}</p><a href="#enquire" data-enquiry="" data-invite-cta="">{article.ctaLabel} →</a></div>
-      {next && <a data-read-next="" href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong><small>{next.excerpt}</small></a>}
-    </section>
     <EnquiryDialog paused={process.env.MIGRATION_PREVIEW === 'true'} articleSlug={article.slug} situation={article.situation} />
     <ReadNudge slug={article.slug} title={article.title} text={article.shareLine} url={articleUrl(article.slug)} />
     <footer><a href={article.series ? '/articles/ui-accessibility' : '/articles'}>{article.series ? '← The complete series' : '← All field notes'}</a></footer>

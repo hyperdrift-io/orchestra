@@ -1,4 +1,4 @@
-An agent should be able to pause a job and pick it up without asking us to explain everything again. The useful progress is already there: sources it checked, decisions we made, questions still open.
+An agent should be able to pick up a job tomorrow without asking you to explain it again. It should have the sources it checked, the decisions you made and the questions still open.
 
 That is why we investigated a gap in [DSPy's conversation history](https://github.com/stanfordnlp/dspy/issues/10675). DSPy helps developers build AI programmes. Its history can retain the words of a conversation while losing other information a model supplied to help it continue. We built a small example to find out what survived a save and reload.
 
@@ -10,7 +10,7 @@ The same applies when you choose a different model. Your goal, evidence, decisio
 
 A model may also return additional continuation information that people cannot read. A compatible model can sometimes use that information on the next call. It is different from a handoff another person or model can understand. Saving one does not replace the other.
 
-{{visual:primary}}
+{{visual:editorial}}
 
 ## What did our example show?
 
@@ -18,12 +18,12 @@ We compared two ways of saving the same exchange. The ordinary path kept the vis
 
 Seven offline checks passed on 30 October against [the DSPy version we tested](https://github.com/stanfordnlp/dspy/tree/25162c4fc05c2d2d019b0ffb5b6b2a9f315ec007). We used simulated responses, so this proves that the information survived the journey. It does not show that a live model gave a better answer or saved money.
 
-That small result gives maintainers something concrete to discuss in the [continuity proposal](https://github.com/stanfordnlp/dspy/issues/10675). Another contributor has [offered tests for saved conversations](https://github.com/stanfordnlp/dspy/issues/10675#issuecomment-6321503189). Our example is separate, and has not been accepted upstream.
+The code and test instructions are in [our Hyperdrift reference PR](https://github.com/hyperdrift-io/orchestra/pull/5). The [DSPy continuity issue](https://github.com/stanfordnlp/dspy/issues/10675) is still open, and another contributor has [offered tests for saved conversations](https://github.com/stanfordnlp/dspy/issues/10675#issuecomment-6321503189). We haven’t submitted our example to DSPy.
 
 ## What does this mean for people using agents?
 
 A useful handoff lets you see where the work stands. It keeps the goal, the evidence behind a decision and what should happen next. It also records actions already completed, so a resumed agent can check before doing them again.
 
-For Orchestra, that is the capability we want: work that remains understandable and usable after a pause or a change of model. The DSPy example examines one part of it. It is not yet an Orchestra feature or a universal way to move a model's internal state between providers.
+At Hyperdrift, we want people to be able to inspect and resume an agent’s work after a pause or a change of model. The DSPy example tests one part of that: what a compatible model can recover from a saved exchange.
 
 When choosing an agent workflow, try pausing a real task and resuming it. Can you find its sources? Does it remember the decision you changed? Can you see what it has already done? Those answers tell you more about continuity than the length of its chat history.

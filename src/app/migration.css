@@ -21,12 +21,14 @@ body > header.preview-header { position: relative; display: flex; justify-conten
   display: grid;
   grid-template-columns: minmax(0, 1fr) 34%;
   grid-template-areas: "crumb crumb" "topic art" "heading art" "summary art" "meta meta" "tags review";
-  column-gap: 2.5rem;
+  column-gap: clamp(1rem, 3vw, 2rem);
   row-gap: .75rem;
   align-items: start;
 }
-#article[data-private-draft] > header { grid-template-areas: "crumb crumb" "status status" "topic art" "heading art" "summary art" "meta meta" "tags review"; }
-#article:has([data-article-brand]) > header { grid-template-areas: "crumb crumb" "topic art" "brand art" "heading art" "summary art" "meta meta" "tags review"; }
+@media (min-width: 761px) {
+  #article:has([data-article-hero]) > header:has(> small:not([data-reviewed])) { grid-template-areas: "crumb crumb" "status status" "topic art" "heading art" "summary art" "meta meta" "tags review"; }
+  #article:has([data-article-hero]):has([data-article-brand]) > header { grid-template-areas: "crumb crumb" "topic art" "brand art" "heading art" "summary art" "meta meta" "tags review"; }
+}
 #article > header > [data-article-brand] { grid-area: brand; justify-self: start; margin: 0; min-height: 0; border-bottom: 0; }
 #article > header > [data-article-brand] img { width: 160px; height: auto; }
 #article:has([data-article-hero]) > header > nav[aria-label="Breadcrumb"] { grid-area: crumb; }
