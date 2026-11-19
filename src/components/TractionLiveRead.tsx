@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { LiveRead } from '@/lib/traction-read';
 
 const LABELS = ['Strength', 'In the way', 'Next customer move'] as const;
@@ -10,9 +10,10 @@ const Check = () => <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden=
 
 /**
  * An invited founder's first read, made while they look: their site's own name and line, each page as it is read,
- * then the three findings in place of their outlines. The page asks with its token; the address never leaves the server.
+ * then the three findings in place of their outlines. Once they are ready, one line of each comes before the door
+ * and the findings in full after it. The page asks with its token; the address never leaves the server.
  */
-export function TractionLiveRead({ token, product, host, initial }: { token: string; product: string; host: string; initial?: LiveRead }) {
+export function TractionLiveRead({ token, product, host, initial, door }: { token: string; product: string; host: string; initial?: LiveRead; door: ReactNode }) {
   const [live, setLive] = useState<LiveRead | undefined>(initial);
   const done = live?.state === 'ready' || live?.state === 'failed';
 
@@ -40,11 +41,13 @@ export function TractionLiveRead({ token, product, host, initial }: { token: str
 
   const read = live?.read;
   if (live?.state === 'failed') {
-    return <section id="read" data-journey="read" data-live="failed" aria-label={`First impression of ${product}`}>
+    return <>{door}<section id="read" data-journey="read" data-live="failed" aria-label={`First impression of ${product}`}>
       <p data-read-note="">{live.blocked ? `${host} didn’t let us read it just now. Your board reads it again when it opens.` : 'We couldn’t finish the read just now. Your board makes it again when it opens.'}</p>
-    </section>;
+    </section></>;
   }
-  return <section id="read" data-journey="read" data-live={read ? 'ready' : 'reading'} aria-label={`First impression of ${product}`} aria-busy={!read}>
+  return <>{read && <ol data-summary="">{read.findings.map((finding, index) => <li key={LABELS[index]}><p>{LABELS[index]}</p><p>{finding.headline}</p></li>)}</ol>}
+  {door}
+  <section id="read" data-journey="read" data-live={read ? 'ready' : 'reading'} aria-label={`First impression of ${product}`} aria-busy={!read}>
     {!read && <div data-reading="">
       <p data-site=""><strong>{live?.site?.title || host}</strong>{live?.site?.description && <span>{live.site.description}</span>}</p>
       <ul aria-label={`Pages read on ${host}`}>
@@ -64,5 +67,5 @@ export function TractionLiveRead({ token, product, host, initial }: { token: str
       </li>;
     })}</ol>
     <p role="status" data-sr-only="">{read ? `First impression of ${product} ready.` : ''}</p>
-  </section>;
+  </section></>;
 }
