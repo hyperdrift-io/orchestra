@@ -56,7 +56,7 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
         <li>Choose a customer search. Traction shows you potential matches, why each might fit and a draft email. You decide who to contact.</li>
       </ol>
       {/* The same door for a founder who read to the end. */}
-      <div data-start="" data-placement="invitation_end"><TractionStartLink href={href}>{open}</TractionStartLink></div>
+      <div data-start="" data-placement="invitation_end"><TractionStartLink href={href} invite={url ? token : undefined}>{open}</TractionStartLink></div>
       <p data-signed="">My invitation to you was drafted in Traction, the way your board will draft yours. <span>Yann</span></p>
       <p>Prefer to talk it through? Reply to Yann’s email.</p>
       <p><a href={continueHref}>How Traction continues after the trial →</a></p>
