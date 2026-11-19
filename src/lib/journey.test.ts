@@ -21,6 +21,12 @@ describe('journey correlation', () => {
     expect(url.search).toBe('?from=c-1234abcd');
     expect(new URLSearchParams(url.hash.slice(1)).get('journey')).toBe(id);
     expect(journeyStartHref('https://foreign.example/start')).toBe('https://foreign.example/start');
+    const token = 'a'.repeat(64);
+    const invited = new URL(journeyStartHref('https://traction.hyperdrift.io/start?from=c-1234abcd', token));
+    expect(invited.search).toBe('?from=c-1234abcd');
+    expect(Object.fromEntries(new URLSearchParams(invited.hash.slice(1)))).toEqual({ journey: id, invite: token });
+    expect(journeyStartHref('https://traction.hyperdrift.io/start', 'not-a-token')).not.toContain('invite');
+    expect(journeyStartHref('https://foreign.example/start', token)).toBe('https://foreign.example/start');
   });
   it.each([{ doNotTrack: '1' }, { globalPrivacyControl: true }])('respects browser refusal and forwards it without an identifier', privacy => {
     browser(privacy);
