@@ -15,12 +15,12 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
   const { firstName, product, audience, read, url } = invitation;
   const host = url ? new URL(url).hostname.replace(/^www\./, '') : '';
   const href = startHref(invitation.ref, url ? { url, product } : undefined);
-  const open = `Open ${product}’s Traction board now →`;
+  const open = `Open ${product}’s board →`;
   const door = <div id="your-board" data-start="" data-placement="invitation_door" data-journey="contact">
     <TractionStartLink href={href} invite={url ? token : undefined}>{open}</TractionStartLink>
-    <p>{url ? 'It opens as a trial board. One step: create a passkey on your device.' : 'It opens as a trial board. Sign up with your name, website and email, then a passkey.'}</p>
+    <p>{url ? `${product}’s board is prepared. One step opens it: a passkey on this device. The seven-day trial needs no payment.` : 'It opens as a trial board. Sign up with your name, website and email, then a passkey. The seven-day trial needs no payment.'}</p>
   </div>;
-  return <article id="traction" data-offering="" data-invitation="" data-invite-ref={invitation.ref} data-page-variant={invitation.variant}>
+  return <article id="traction" data-offering="" data-invitation="" data-invite-ref={invitation.ref} data-page-variant={invitation.variant} data-mail-variant={invitation.mail}>
     <TractionJourney />
     <header>
       <p>Traction · for {product}</p>
@@ -52,7 +52,7 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
     <section id="together" data-journey="value" aria-labelledby="together-title">
       <h2 id="together-title">What happens next</h2>
       <ol>
-        <li>{url ? `Your board uses the review of ${product}’s website. You can open it while the review runs.` : `Your board starts with a fresh read of ${product}’s website.`}</li>
+        <li>{url ? `Your board opens on this read of ${product}’s website. A passkey is the only step.` : `Your board starts with a fresh read of ${product}’s website.`}</li>
         <li>Choose a customer search. Traction shows you potential matches, why each might fit and a draft email. You decide who to contact.</li>
       </ol>
       {/* The same door for a founder who read to the end. */}
