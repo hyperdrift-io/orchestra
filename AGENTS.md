@@ -20,6 +20,8 @@ The publication boundary is the deployed `release/orchestra-traction-trial-20261
 
 Every animated scene keeps pause, reduced motion, a static fallback and readable controls.
 
+A page keeps one proposition and one action. Use cases and examples are links that open the tab or page that owns them, and every other link supports that action. On the Traction tab the action is the address field, **Read my app**; the walkthrough and the workflows live on How it works. Shortening words does not declutter a page that mixes propositions (Yann, 20 November 2026).
+
 ## Claims
 
 - NextRole is owned-product proof with fictional-data live checks, not a client success or proven adoption. Client engagements are Everything and VodafoneThree (through Tecknuovo).
