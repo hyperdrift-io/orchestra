@@ -171,6 +171,20 @@ describe('how Traction continues', () => {
     }
     const detail=await source('../site/content/traction-how-it-works.html');
     expect(detail).toContain('workflow-customers');
+    // The Traction tab keeps one proposition: its examples are links that open the How it works tab, where the walkthrough lives.
+    for (const path of ['traction','traction-how-it-works','traction-partnership','os']) {
+      const html = await source(`../site/content/${path}.html`);
+      const tab = html.slice(html.indexOf('id="traction"'), html.indexOf('id="how-it-works"'));
+      expect(tab).not.toMatch(/traction-loop|id="outreach"|One way to use Traction/);
+      expect(tab).toContain('<a href="/traction/how-it-works#outreach">How to get started with Traction');
+      expect(tab).toContain('<a href="/traction/how-it-works">Explore Traction’s AI workflows');
+      expect(html.match(/id="outreach"/g)).toHaveLength(1);
+      expect(html.indexOf('id="outreach"')).toBeGreaterThan(html.indexOf('id="how-it-works"'));
+      expect(html.indexOf('id="outreach"')).toBeLessThan(html.indexOf('id="partnership"'));
+      expect(html).not.toMatch(/href="\/traction\?chapter=/);
+    }
+    // On its own tab the walkthrough plays a chapter in place.
+    expect(detail.match(/href="#outreach" data-watch-chapter="/g)).toHaveLength(4);
     expect(await source('../app/sitemap.ts')).toContain("'/traction/how-it-works'");
   });
 

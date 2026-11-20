@@ -1,4 +1,4 @@
 import {pageMetadata} from '@/lib/site-metadata';
 import {StaticPage} from '@/site/StaticPage';
 export const metadata=pageMetadata("How Traction works","Explore how Traction connects customer research, conversations, growth plans, market evidence and delivery.","/traction/how-it-works");
-export default function Page(){return <StaticPage name="traction-how-it-works" styles={["/assets/traction-page.css?v=4"]} scripts={["/assets/traction-page.js?v=6"]}/>}
+export default function Page(){return <StaticPage name="traction-how-it-works" styles={["/assets/traction-page.css?v=5"]} scripts={["/assets/traction-page.js?v=6"]}/>}
