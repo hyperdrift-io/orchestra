@@ -186,7 +186,7 @@ if (readForm && readResult) {
       const list = el('ol');
       for (const line of answer.lines) { const item = el('li'); item.append(el('span', line.label), el('strong', line.headline)); list.append(item); }
       show(el('p', `First read of ${host}`, { class: 'app-read-title' }), list, door(address, 'Open my board on this read →'),
-        el('p', 'Free for seven days. No payment details, no commitment. Your board holds the read in full, with its sources.', { class: 'small' }));
+        el('p', 'Your board holds the read in full, with its sources.', { class: 'small' }));
       return rest();
     }
     if ((answer.state === 'queued' || answer.state === 'running') && tries < 180) {
@@ -206,7 +206,7 @@ if (readForm && readResult) {
     show(el('p', paused ? 'We’ve made all of today’s reads from this page. Your board makes yours when it opens.'
       : answer.blocked ? `${host} didn’t let us read it just now. Your board reads it again when it opens.`
         : 'We couldn’t finish the read just now. Your board makes it again when it opens.'),
-      door(address, 'Start my free seven-day trial →'), el('p', 'Free for seven days. No payment details, no commitment.', { class: 'small' }));
+      door(address, 'Start my free trial →'));
     rest();
   };
   readForm.addEventListener('submit', event => {

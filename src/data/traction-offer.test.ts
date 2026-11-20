@@ -75,10 +75,12 @@ describe('how Traction continues', () => {
       const html = await source(`../site/content/${path}.html`);
       // One field in the hero; without the page's script it still carries the address to the sign-up.
       expect(html.match(/<form class="app-read" data-app-read action="https:\/\/traction\.hyperdrift\.io\/start" method="get">/g)).toHaveLength(1);
-      expect(html).toMatch(/<input id="app-read-address" name="app" /);
-      expect(html).toMatch(/free seven-day trial: no payment details, no commitment\./);
+      expect(html).toMatch(/<input id="app-read-address" name="app" aria-label="Your app’s address" /);
+      // The terms once in the hero and once at each door, in the same words.
+      expect(html.match(/Free for seven days\. No payment details, no commitment\./g)!.length).toBeGreaterThanOrEqual(2);
+      expect(html).not.toMatch(/<label for="app-read-address">/);
       expect(html).not.toMatch(/Trial Traction →/);
-      expect(html.match(/Start my free seven-day trial →/g)!.length).toBeGreaterThanOrEqual(3);
+      expect(html.match(/Start my free trial →/g)!.length).toBeGreaterThanOrEqual(3);
     }
     const script = await source('../../public/assets/traction-page.js');
     // The script reports the step alone: the address never rides on an analytics event.

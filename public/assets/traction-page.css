@@ -166,7 +166,6 @@
 }
 /* The hero's first read: one field, then the visitor's own three lines and the door to their board. */
 .app-read { display: grid; gap: .45rem; margin-top: 1.4rem; }
-.app-read label { font-size: .8rem; color: var(--muted); }
 .app-read > div { display: flex; flex-wrap: wrap; gap: .6rem; }
 .app-read input { flex: 1 1 13rem; min-width: 0; padding: .8rem .9rem; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--cream); font: inherit; }
 .app-read input::placeholder { color: var(--muted); opacity: .7; }
