@@ -18,7 +18,7 @@ export function TractionInvitation({ invitation, token, live }: { invitation: In
   const open = `Open ${product}’s board →`;
   const door = <div id="your-board" data-start="" data-placement="invitation_door" data-journey="contact">
     <TractionStartLink href={href} invite={url ? token : undefined}>{open}</TractionStartLink>
-    <p>{url ? `${product}’s board is prepared. One step opens it: a passkey on this device. The seven-day trial needs no payment.` : 'It opens as a trial board. Sign up with your name, website and email, then a passkey. The seven-day trial needs no payment.'}</p>
+    <p>{url ? `Open your ${product} board with a passkey. Your seven-day trial needs no payment.` : 'It opens as a trial board. Sign up with your name, website and email, then a passkey. The seven-day trial needs no payment.'}</p>
   </div>;
   return <article id="traction" data-offering="" data-invitation="" data-invite-ref={invitation.ref} data-page-variant={invitation.variant} data-mail-variant={invitation.mail}>
     <TractionJourney />
