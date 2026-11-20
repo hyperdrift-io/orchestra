@@ -70,9 +70,26 @@ describe('how Traction continues', () => {
     expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
   });
 
+  it('starts a direct visitor from their own app’s address and says the trial is free', async () => {
+    for (const path of ['traction', 'traction-how-it-works', 'traction-partnership', 'os']) {
+      const html = await source(`../site/content/${path}.html`);
+      // One field in the hero; without the page's script it still carries the address to the sign-up.
+      expect(html.match(/<form class="app-read" data-app-read action="https:\/\/traction\.hyperdrift\.io\/start" method="get">/g)).toHaveLength(1);
+      expect(html).toMatch(/<input id="app-read-address" name="app" /);
+      expect(html).toMatch(/free seven-day trial: no payment details, no commitment\./);
+      expect(html).not.toMatch(/Trial Traction →/);
+      expect(html.match(/Start my free seven-day trial →/g)!.length).toBeGreaterThanOrEqual(3);
+    }
+    const script = await source('../../public/assets/traction-page.js');
+    // The script reports the step alone: the address never rides on an analytics event.
+    expect(script).toMatch(/detail: \{ event: 'site_read', step \}/);
+    expect(await source('../app/api/traction/site-read/route.ts')).toMatch(/visitorAddress\(/);
+  });
+
   it('opens an invited founder’s own board, on the read made as they landed', async () => {
     const invitation = await source('../components/TractionInvitation.tsx');
-    expect(invitation).toMatch(/Open \$\{product\}’s Traction board now →/);
+    expect(invitation).toMatch(/Open \$\{product\}’s board →/);
+    expect(invitation).toMatch(/Open your \$\{product\} board with a passkey\. Your seven-day trial needs no payment\./);
     expect(invitation).not.toMatch(/Start free/);
     expect(invitation).toMatch(/<TractionLiveRead /);
     expect(await source('../app/(reading)/traction/invitation/[token]/page.tsx')).toMatch(/await liveRead\(invitation\.url\)/);

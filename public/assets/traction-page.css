@@ -164,3 +164,21 @@
  .growth-workflow-tabs { gap: .4rem; margin-bottom: 1.5rem; }
  .growth-workflow-tabs button { font-size: .8rem; padding: .65rem; }
 }
+/* The hero's first read: one field, then the visitor's own three lines and the door to their board. */
+.app-read { display: grid; gap: .45rem; margin-top: 1.4rem; }
+.app-read label { font-size: .8rem; color: var(--muted); }
+.app-read > div { display: flex; flex-wrap: wrap; gap: .6rem; }
+.app-read input { flex: 1 1 13rem; min-width: 0; padding: .8rem .9rem; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--cream); font: inherit; }
+.app-read input::placeholder { color: var(--muted); opacity: .7; }
+.app-read input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.app-read .button { margin: 0; cursor: pointer; }
+.app-read .button:disabled { opacity: .6; cursor: progress; }
+.app-read-result { display: grid; gap: .9rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.app-read-result[hidden] { display: none; }
+.app-read-result .app-read-title { margin: 0; color: var(--cream); font-size: 1rem; }
+.app-read-result ol { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.app-read-result li { display: grid; gap: .15rem; }
+.app-read-result li span { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.app-read-result li strong { color: var(--cream); font-weight: 500; line-height: 1.4; }
+.app-read-result .button { justify-self: start; margin: 0; }
+.app-read-result .small { margin: 0; }

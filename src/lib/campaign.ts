@@ -59,7 +59,9 @@ export function campaignAttribution(): Campaign {
     // The free board a founder came from, read from the page the same way, so the rest of the visit and an enquiry carry it.
     const trial = trialAppFrom(document.querySelector<HTMLElement>('[data-trial-app]')?.dataset.trialApp);
     if (!campaign.trial_app && trial) campaign.trial_app = trial;
-    if (window.location.pathname === '/traction' || window.location.pathname.startsWith('/traction/')) {
+    // The visit's own id starts on the home page too, so a visitor who goes from there to the Traction page and on
+    // to a board is one visit; once given, it stays for the tab.
+    if (campaign.journey_id || window.location.pathname === '/' || window.location.pathname === '/traction' || window.location.pathname.startsWith('/traction/')) {
       const journey = journeyId();
       if (journey) Object.assign(campaign, { journey_id: journey, journey_schema: 'invitation_signup_v1', identity_basis: 'browser_journey' });
     }
