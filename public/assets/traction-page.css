@@ -14,9 +14,7 @@
 .traction-panel .panel-intro { padding-block: 2rem 1.5rem; }
 .panel-intro .lead { max-width: 74ch; margin-bottom: 0; }
 .traction-film figcaption { margin-top: .8rem; font-size: .75rem; line-height: 1.6; }
-.film-transcript { margin-top: .5rem; font-size: .8rem; }
 .traction-panel summary { cursor: pointer; color: var(--cream); padding-block: .5rem; }
-.film-transcript p { margin-block: .7rem; }
 .capabilities, .feature-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; margin-block: 1.5rem; }
 .capabilities h3 { font-size: 1.2rem; }
 .capabilities h3 a { text-decoration: none; }
