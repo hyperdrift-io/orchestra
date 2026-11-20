@@ -31,6 +31,8 @@ export type TractionInvitation = {
   ref?: string;
   /** Which page this invitation shows, for comparing versions fairly. */
   variant: string;
+  /** Which wording of the invitation email led here (`personal_invitation_v4`), so the mail's versions compare too. */
+  mail?: string;
 };
 
 const optional = {
@@ -39,7 +41,15 @@ const optional = {
   url: z.string().url().max(300).refine((href) => href.startsWith('https://'), 'https only').optional(),
   ref: z.string().regex(/^c-[a-f0-9]{8}$/).optional(),
   variant: z.string().regex(/^[a-z0-9_]{1,40}$/).optional(),
+  mail: z.string().regex(/^[a-z0-9_]{1,40}$/).optional(),
 };
+
+/**
+ * The page a founder's app address shows today. A version this code no longer renders cannot be named by an entry
+ * written before the change: its events would be counted under words nobody saw.
+ */
+export const LIVE_READ = 'live_read_v2';
+const SUPERSEDED = new Set(['live_read_v1']);
 
 /** Reviewed invitation details only. This registry never grants access to a Traction account. */
 export async function tractionInvitation(token: string): Promise<TractionInvitation | undefined> {
@@ -69,9 +79,11 @@ export function parseInvitation(value: unknown): TractionInvitation | undefined 
   };
   const read = field('read');
   const url = field('url');
+  const named = field('variant');
   return {
     firstName, product, welcome, contact: prefill.success ? prefill.data : undefined,
     audience: field('audience'), read, url, ref: field('ref'),
-    variant: field('variant') ?? (url ? 'live_read_v1' : read ? 'first_read_v1' : 'proposition_v1'),
+    variant: named && !SUPERSEDED.has(named) ? named : url ? LIVE_READ : read ? 'first_read_v1' : 'proposition_v1',
+    mail: field('mail'),
   };
 }

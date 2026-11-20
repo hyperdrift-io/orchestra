@@ -24,8 +24,17 @@ describe('invitation registry', () => {
   });
 
   it('reads the app live when the entry carries its https address', () => {
-    expect(parseInvitation({ ...base, url: 'https://venuebook.co/', ref: 'c-f1a7fa4e' })).toMatchObject({ url: 'https://venuebook.co/', variant: 'live_read_v1' });
+    expect(parseInvitation({ ...base, url: 'https://venuebook.co/', ref: 'c-f1a7fa4e' })).toMatchObject({ url: 'https://venuebook.co/', variant: 'live_read_v2' });
+    // An entry written before the page changed cannot name the page it no longer shows.
+    expect(parseInvitation({ ...base, url: 'https://venuebook.co/', variant: 'live_read_v1' })).toMatchObject({ variant: 'live_read_v2' });
+    expect(parseInvitation({ ...base, url: 'https://venuebook.co/', variant: 'door_first_v1' })).toMatchObject({ variant: 'door_first_v1' });
     expect(parseInvitation({ ...base, url: 'http://venuebook.co/' })).toMatchObject({ url: undefined, variant: 'proposition_v1' });
+  });
+
+  it('carries the wording of the email that led here, as a bounded tag only', () => {
+    expect(parseInvitation({ ...base, mail: 'personal_invitation_v4' })?.mail).toBe('personal_invitation_v4');
+    expect(parseInvitation({ ...base, mail: 'Hi Ada, your first read' })?.mail).toBeUndefined();
+    expect(parseInvitation(base)?.mail).toBeUndefined();
   });
 
   it('accepts only an opaque reference, never a name or email', () => {

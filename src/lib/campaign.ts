@@ -8,6 +8,8 @@ export const campaignSchema = z.object({
   /** A personal invitation's opaque reference and page version, read from the page itself. */
   invite_ref: z.string().regex(/^c-[a-f0-9]{8}$/).optional(),
   page_variant: z.string().regex(/^[a-z0-9_]{1,40}$/).optional(),
+  /** The wording of the invitation email that led to the page, read from the page like its version. */
+  mail_variant: z.string().regex(/^[a-z0-9_]{1,40}$/).optional(),
   /** The free Traction board a founder came from (`/traction?from=<app id>`), bounded as Traction bounds its app ids; never a name or an email. */
   trial_app: z.string().regex(/^[a-z0-9][a-z0-9-]{0,40}$/).optional(),
   journey_id: z.string().uuid().optional(),
@@ -51,13 +53,15 @@ export function campaignAttribution(): Campaign {
     // The invitation an earlier page in this tab didn't know about still counts for the rest of the visit.
     const invitation = document.querySelector<HTMLElement>('[data-page-variant]')?.dataset;
     if (!campaign.page_variant && invitation) {
-      const found = campaignSchema.safeParse({ invite_ref: invitation.inviteRef, page_variant: invitation.pageVariant });
+      const found = campaignSchema.safeParse({ invite_ref: invitation.inviteRef, page_variant: invitation.pageVariant, mail_variant: invitation.mailVariant });
       if (found.success) Object.assign(campaign, found.data);
     }
     // The free board a founder came from, read from the page the same way, so the rest of the visit and an enquiry carry it.
     const trial = trialAppFrom(document.querySelector<HTMLElement>('[data-trial-app]')?.dataset.trialApp);
     if (!campaign.trial_app && trial) campaign.trial_app = trial;
-    if (window.location.pathname === '/traction' || window.location.pathname.startsWith('/traction/')) {
+    // The visit's own id starts on the home page too, so a visitor who goes from there to the Traction page and on
+    // to a board is one visit; once given, it stays for the tab.
+    if (campaign.journey_id || window.location.pathname === '/' || window.location.pathname === '/traction' || window.location.pathname.startsWith('/traction/')) {
       const journey = journeyId();
       if (journey) Object.assign(campaign, { journey_id: journey, journey_schema: 'invitation_signup_v1', identity_basis: 'browser_journey' });
     }

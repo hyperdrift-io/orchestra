@@ -70,9 +70,37 @@ describe('how Traction continues', () => {
     expect(await source('../app/llms.txt/route.ts')).not.toMatch(/sample first read/i);
   });
 
+  it('starts a direct visitor from their own app’s address and says the trial is free', async () => {
+    for (const path of ['traction', 'traction-how-it-works', 'traction-partnership', 'os']) {
+      const html = await source(`../site/content/${path}.html`);
+      // The read is offered twice, each after the content that earns it: under the Traction tab's proposition and at the
+      // end of How it works. Without the page's script the field still carries the address to the sign-up.
+      expect(html.match(/<form class="app-read" data-app-read action="https:\/\/traction\.hyperdrift\.io\/start" method="get">/g)).toHaveLength(2);
+      expect(html.match(/<input id="app-read-address" name="app" aria-label="Your app’s address" /g)).toHaveLength(1);
+      expect(html.match(/Free for seven days\. No payment details, no commitment\./g)).toHaveLength(2);
+      expect(html).not.toMatch(/<label for="app-read-address">/);
+      expect(html).not.toMatch(/Trial Traction →/);
+      const tab = html.slice(html.indexOf('id="traction"'), html.indexOf('id="how-it-works"'));
+      // The proposition leads: the hero holds no field, and the read follows it as the tab's one action.
+      const hero = tab.slice(tab.indexOf('class="hero"'), tab.indexOf('</section>'));
+      expect(hero).not.toMatch(/data-app-read|class="button"/);
+      expect(tab.indexOf('class="hero"')).toBeLessThan(tab.indexOf('id="your-app"'));
+      expect(tab).not.toMatch(/traction-door|why-trust-us/);
+      // What the trial holds, and what follows it, stay folded until asked for.
+      expect(tab).toMatch(/<details class="trial-details" id="trial">\n<summary>What you get in the trial<\/summary>/);
+      expect(tab.indexOf('The trial lasts seven days')).toBeGreaterThan(tab.indexOf('<details class="trial-details"'));
+      expect(tab.indexOf('Ask for a quote')).toBeGreaterThan(tab.indexOf('<details class="trial-details"'));
+    }
+    const script = await source('../../public/assets/traction-page.js');
+    // The script reports the step alone: the address never rides on an analytics event.
+    expect(script).toMatch(/detail: \{ event: 'site_read', step \}/);
+    expect(await source('../app/api/traction/site-read/route.ts')).toMatch(/visitorAddress\(/);
+  });
+
   it('opens an invited founder’s own board, on the read made as they landed', async () => {
     const invitation = await source('../components/TractionInvitation.tsx');
-    expect(invitation).toMatch(/Open \$\{product\}’s Traction board now →/);
+    expect(invitation).toMatch(/Open \$\{product\}’s board →/);
+    expect(invitation).toMatch(/Open your \$\{product\} board with a passkey\. Your seven-day trial needs no payment\./);
     expect(invitation).not.toMatch(/Start free/);
     expect(invitation).toMatch(/<TractionLiveRead /);
     expect(await source('../app/(reading)/traction/invitation/[token]/page.tsx')).toMatch(/await liveRead\(invitation\.url\)/);
@@ -152,6 +180,20 @@ describe('how Traction continues', () => {
     }
     const detail=await source('../site/content/traction-how-it-works.html');
     expect(detail).toContain('workflow-customers');
+    // The Traction tab keeps one proposition: its examples are links that open the How it works tab, where the walkthrough lives.
+    for (const path of ['traction','traction-how-it-works','traction-partnership','os']) {
+      const html = await source(`../site/content/${path}.html`);
+      const tab = html.slice(html.indexOf('id="traction"'), html.indexOf('id="how-it-works"'));
+      expect(tab).not.toMatch(/traction-loop|id="outreach"|One way to use Traction/);
+      expect(tab).toContain('<a href="/traction/how-it-works#outreach">How to get started with Traction');
+      expect(tab).toContain('<a href="/traction/how-it-works">Explore Traction’s AI workflows');
+      expect(html.match(/id="outreach"/g)).toHaveLength(1);
+      expect(html.indexOf('id="outreach"')).toBeGreaterThan(html.indexOf('id="how-it-works"'));
+      expect(html.indexOf('id="outreach"')).toBeLessThan(html.indexOf('id="partnership"'));
+      expect(html).not.toMatch(/href="\/traction\?chapter=/);
+    }
+    // On its own tab the walkthrough plays a chapter in place.
+    expect(detail.match(/href="#outreach" data-watch-chapter="/g)).toHaveLength(4);
     expect(await source('../app/sitemap.ts')).toContain("'/traction/how-it-works'");
   });
 

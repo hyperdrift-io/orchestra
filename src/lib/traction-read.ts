@@ -28,25 +28,65 @@ export type LiveRead = {
   blocked?: boolean;
 };
 
-export async function liveRead(url: string): Promise<LiveRead | undefined> {
-  if (process.env.MIGRATION_PREVIEW === 'true') return undefined;
+type Asked = { refused: 'paused' | 'address' | 'unavailable' } | { read: LiveRead };
+
+/** One request to Traction's read, with why it was refused when it was: a paused day, an address that is not a site. */
+async function ask(url: string): Promise<Asked> {
+  if (process.env.MIGRATION_PREVIEW === 'true') return { refused: 'unavailable' };
   try {
     const response = await fetch(`${tractionOrigin()}/api/read`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url }),
       cache: 'no-store', signal: AbortSignal.timeout(8000),
     });
-    const parsed = siteReadSchema.safeParse(await response.json());
-    if (!parsed.success) return;
-    const { state, site, reading = [], on, findings, error } = parsed.data;
+    const body: unknown = await response.json();
+    const error = body && typeof body === 'object' && (body as { ok?: unknown }).ok === false ? String((body as { error?: unknown }).error ?? '') : '';
+    if (response.status === 429 || error === 'reads_paused') return { refused: 'paused' };
+    if (error === 'app_address_required') return { refused: 'address' };
+    const parsed = siteReadSchema.safeParse(body);
+    if (error || !parsed.success) return { refused: 'unavailable' };
+    const { state, site, reading = [], on, findings, error: failure } = parsed.data;
     const complete = state === 'ready' ? readSchema.safeParse({ on, findings }) : undefined;
-    return {
+    return { read: {
       state: state === 'ready' && !complete?.success ? 'failed' : state,
       ...(site ? { site } : {}),
       reading: reading.map((href) => { const { hostname, pathname } = new URL(href); return pathname === '/' ? hostname.replace(/^www\./, '') : pathname.replace(/\/+$/, ''); }),
       ...(complete?.success ? { read: complete.data } : {}),
-      ...(state === 'failed' && error === 'site_unreachable' ? { blocked: true } : {}),
-    };
+      ...(state === 'failed' && failure === 'site_unreachable' ? { blocked: true } : {}),
+    } };
   } catch {
-    return;
+    return { refused: 'unavailable' };
   }
+}
+
+export async function liveRead(url: string): Promise<LiveRead | undefined> {
+  const asked = await ask(url);
+  return 'read' in asked ? asked.read : undefined;
+}
+
+/**
+ * The read a visitor asks for from the Traction page, with their own app's address. What goes back to the page is
+ * what it shows before a sign-up: where the read stands and, once ready, each finding's one line. The findings in
+ * full, with their sources, open on the board.
+ */
+export type VisitorRead =
+  | { state: 'refused'; reason: 'paused' | 'address' | 'unavailable' }
+  | { state: 'queued' | 'running' | 'failed'; site?: LiveRead['site']; reading: string[]; blocked?: boolean }
+  | { state: 'ready'; site?: LiveRead['site']; lines: { label: string; headline: string }[] };
+
+/** A visitor's address as Traction will take it: a public https name, never credentials, a port or a bare number. */
+export function visitorAddress(raw: unknown): string | undefined {
+  if (typeof raw !== 'string' || raw.trim().length < 4 || raw.length > 300) return;
+  try {
+    const url = new URL(raw.includes('://') ? raw.trim() : `https://${raw.trim()}`);
+    if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password || url.port || !url.hostname.includes('.') || /^[\d.]+$/.test(url.hostname)) return;
+    return `https://${url.hostname.toLowerCase()}${url.pathname.replace(/\/+$/, '')}`;
+  } catch { return; }
+}
+
+export async function visitorRead(url: string): Promise<VisitorRead> {
+  const asked = await ask(url);
+  if ('refused' in asked) return { state: 'refused', reason: asked.refused };
+  const { state, site, reading, read, blocked } = asked.read;
+  if (state === 'ready' && read) return { state, ...(site ? { site } : {}), lines: read.findings.map(({ label, headline }) => ({ label, headline })) };
+  return { state: state === 'ready' ? 'failed' : state, ...(site ? { site } : {}), reading, ...(blocked ? { blocked } : {}) };
 }
