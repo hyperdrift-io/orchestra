@@ -22,9 +22,15 @@
 .capabilities h3 a { text-decoration: none; }
 .capabilities p { font-size: .95rem; }
 .capabilities article { padding-top: 1rem; border-top: 1px solid var(--line); }
-.traction-more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding-block: 1.5rem; }
-.traction-more a { color: var(--cream); text-decoration: none; }
-.traction-more a:hover, .traction-more a:focus-visible { color: var(--gold); }
+.traction-more { display: grid; gap: .7rem; justify-items: start; margin: 1.6rem 0 0; }
+.traction-read { display: grid; grid-template-columns: 1fr 1.15fr; gap: 1.5rem 36px; align-items: start; }
+.traction-read h2 { margin-top: 0; }
+.traction-read > div > p { margin-bottom: 0; }
+.traction-read .app-read { margin-top: .35rem; }
+#traction .traction-read, #how-it-works .traction-read { border-bottom: 0; }
+.trial-details { grid-column: 1 / -1; padding-top: .75rem; border-top: 1px solid var(--line); }
+.trial-details > summary { font-size: .95rem; }
+.trial-details .trial { padding-block: 1rem .5rem; }
 .outreach-film { margin-top: .5rem; }
 .outreach-film .traction-film { max-width: 900px; margin: .75rem auto 0; }
 .film-chapters { display: flex; gap: .25rem; justify-content: space-between; margin-bottom: .8rem; }
@@ -61,9 +67,7 @@
  .traction-tabs { gap: 1.25rem; flex-direction: row; flex-wrap: wrap; font-size: .85rem; }
  .traction-panel .hero, .partnership-ask, .partnership-why, .os-offer { grid-template-columns: 1fr; gap: 1.5rem; }
  .capabilities, .feature-grid { grid-template-columns: 1fr; gap: 1.5rem; }
- .traction-more { grid-template-columns: 1fr; gap: 0; padding-block: .5rem; }
- .traction-more a { padding-block: .9rem; }
- .traction-more a + a { border-top: 1px solid var(--line); }
+ .traction-read { grid-template-columns: 1fr; gap: 1.25rem; }
  .film-chapters { flex-direction: row; font-size: .8rem; }
  .film-chapters button { padding-inline: .25rem; }
  .traction-door { align-items: flex-start; flex-direction: column; gap: 1rem; }

@@ -149,12 +149,13 @@ fetch('/assets/traction-tour.json').then(response => {
   update();
 }).catch(() => { /* The film and native captions remain available. */ });
 
-// The hero's first read: a visitor's own app, read while they look, then the door to a board that opens on it.
+// The first read: a visitor's own app, read while they look, then the door to a board that opens on it. The Traction
+// tab offers it after its proposition, the How it works tab after its content.
 // Without this script the form still works: it carries the address to the sign-up. The address goes to this
 // site's own server and to Traction's sign-up, and never to analytics: `hd:track` carries the step alone.
-const readForm = document.querySelector('[data-app-read]');
-const readResult = document.querySelector('[data-app-read-result]');
-if (readForm && readResult) {
+document.querySelectorAll('[data-app-read]').forEach(readForm => {
+  const readResult = readForm.parentElement.querySelector('[data-app-read-result]');
+  if (!readResult) return;
   const input = readForm.querySelector('input[name="app"]');
   const button = readForm.querySelector('button');
   const told = new Set();
@@ -218,4 +219,4 @@ if (readForm && readResult) {
     show(el('p', 'Starting the read…', { class: 'app-read-title' }));
     ask(address, run);
   });
-}
+});

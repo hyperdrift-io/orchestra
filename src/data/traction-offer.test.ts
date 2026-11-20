@@ -73,14 +73,23 @@ describe('how Traction continues', () => {
   it('starts a direct visitor from their own app’s address and says the trial is free', async () => {
     for (const path of ['traction', 'traction-how-it-works', 'traction-partnership', 'os']) {
       const html = await source(`../site/content/${path}.html`);
-      // One field in the hero; without the page's script it still carries the address to the sign-up.
-      expect(html.match(/<form class="app-read" data-app-read action="https:\/\/traction\.hyperdrift\.io\/start" method="get">/g)).toHaveLength(1);
-      expect(html).toMatch(/<input id="app-read-address" name="app" aria-label="Your app’s address" /);
-      // The terms once in the hero and once at each door, in the same words.
-      expect(html.match(/Free for seven days\. No payment details, no commitment\./g)!.length).toBeGreaterThanOrEqual(2);
+      // The read is offered twice, each after the content that earns it: under the Traction tab's proposition and at the
+      // end of How it works. Without the page's script the field still carries the address to the sign-up.
+      expect(html.match(/<form class="app-read" data-app-read action="https:\/\/traction\.hyperdrift\.io\/start" method="get">/g)).toHaveLength(2);
+      expect(html.match(/<input id="app-read-address" name="app" aria-label="Your app’s address" /g)).toHaveLength(1);
+      expect(html.match(/Free for seven days\. No payment details, no commitment\./g)).toHaveLength(2);
       expect(html).not.toMatch(/<label for="app-read-address">/);
       expect(html).not.toMatch(/Trial Traction →/);
-      expect(html.match(/Start my free trial →/g)!.length).toBeGreaterThanOrEqual(3);
+      const tab = html.slice(html.indexOf('id="traction"'), html.indexOf('id="how-it-works"'));
+      // The proposition leads: the hero holds no field, and the read follows it as the tab's one action.
+      const hero = tab.slice(tab.indexOf('class="hero"'), tab.indexOf('</section>'));
+      expect(hero).not.toMatch(/data-app-read|class="button"/);
+      expect(tab.indexOf('class="hero"')).toBeLessThan(tab.indexOf('id="your-app"'));
+      expect(tab).not.toMatch(/traction-door|why-trust-us/);
+      // What the trial holds, and what follows it, stay folded until asked for.
+      expect(tab).toMatch(/<details class="trial-details" id="trial">\n<summary>What you get in the trial<\/summary>/);
+      expect(tab.indexOf('The trial lasts seven days')).toBeGreaterThan(tab.indexOf('<details class="trial-details"'));
+      expect(tab.indexOf('Ask for a quote')).toBeGreaterThan(tab.indexOf('<details class="trial-details"'));
     }
     const script = await source('../../public/assets/traction-page.js');
     // The script reports the step alone: the address never rides on an analytics event.

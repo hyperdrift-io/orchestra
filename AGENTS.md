@@ -20,7 +20,7 @@ The publication boundary is the deployed `release/orchestra-traction-trial-20261
 
 Every animated scene keeps pause, reduced motion, a static fallback and readable controls.
 
-A page keeps one proposition and one action. Use cases and examples are links that open the tab or page that owns them, and every other link supports that action. On the Traction tab the action is the address field, **Read my app**; the walkthrough and the workflows live on How it works. Shortening words does not declutter a page that mixes propositions (Yann, 20 November 2026).
+A page keeps one proposition and one action. The proposition leads; the action follows the content that earns it, so it reads as the natural next step and never competes with the proposition. Use cases and examples are links that open the tab or page that owns them, supporting detail stays folded until the visitor asks for it, and every other link supports the action. On the Traction tab the action is the address field, **Read my app**, under the hero, with the trial's detail folded beneath it; the walkthrough and the workflows live on How it works, which ends on the same field. Shortening words does not declutter a page that mixes propositions (Yann, 20 November 2026).
 
 ## Claims
 
