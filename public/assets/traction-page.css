@@ -173,11 +173,13 @@
 /* The hero's first read: one field, then the visitor's own three lines and the door to their board. */
 .app-read { display: grid; gap: .45rem; margin-top: 1.4rem; }
 .app-read > div { display: flex; flex-wrap: wrap; gap: .6rem; }
-.app-read input { flex: 1 1 13rem; min-width: 0; padding: .8rem .9rem; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--cream); font: inherit; }
+/* The field and its button are one control: same height, same corners, no offset. */
+.app-read input { flex: 1 1 13rem; min-width: 0; margin: 0; padding: 13px 16px; border: 1px solid var(--line); border-radius: 3px; background: transparent; color: var(--cream); font: inherit; }
 .app-read input::placeholder { color: var(--muted); opacity: .7; }
 .app-read input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.app-read .button { margin: 0; cursor: pointer; }
+.app-read .button { flex: 0 0 auto; margin: 0; cursor: pointer; }
 .app-read .button:disabled { opacity: .6; cursor: progress; }
+@media (max-width: 800px) { .app-read .button { flex: 1 1 100%; justify-content: center; } }
 .app-read-result { display: grid; gap: .9rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 .app-read-result[hidden] { display: none; }
 .app-read-result .app-read-title { margin: 0; color: var(--cream); font-size: 1rem; }
