@@ -103,5 +103,10 @@
     "target",
     "conversation",
     "chart"
+  ],
+  "alignment-before-rules": [
+    "target",
+    "conversation",
+    "chart"
   ]
 }

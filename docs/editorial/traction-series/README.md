@@ -37,3 +37,12 @@ Preview: http://localhost:3129/articles/give-motivated-founders-a-fair-chance. D
 The article prose and live release are unchanged. New visuals await the founder’s preview decision under AGENTS.md’s UI release rule. Native work `200100a572f64e7f90b4bad7fa2e9225` retains this decision. Keep `/private/tmp/orchestra-article-imagery-20261113` while its port 3129 preview is needed; remove it after that decision and delivery.
 
 After approval, release only this change on the verified installed base, following `docs/RELEASES.md`. Read back the live hero and metadata, then update the existing motivation announcement’s media and approval history in `meta/discovery/publications.json`. Preserve its 24 November 09:00 London slot and sole sender. No announcement was sent or requeued here.
+
+## Part two: Evals before rules, 21 November 2026
+
+Author: Yann VR. Audience: founders and leads who run agents or a team and answer each mistake with another rule. Question: what does an evaluation of our own agents show, and what does it teach a human team? [Article](../../../content/articles/alignment-before-rules.md). Source: Yann's conversation of 20 and 21 November 2026 and the counts measured from local agent transcripts that day; the editorial draft with its facts table is in the HD workspace at `.growth/editorial/2026-11-21-alignment-article-draft.md`. One independent editorial read of an earlier revision; its findings were applied. Yann approved the words and the release: "Yes, release both".
+
+Hero. Brief: piling up rules buried the mission, and looking at the work did more than writing another rule. One recognisable subject, the ivory stepped block from part one's cover as the work. Avoid clocks, robots, people, screens and any suggestion of a measured result. Conceptual editorial art, not evidence of real work. Recraft `recraftv4_1_pro` through `scripts/generate-recraft-asset.mjs`, 16:9 (2688 × 1536), palette in the prompt, no style reference. [Prompt](hero-prompt-part-two.txt). Three ideas tried: calipers (read as a giant V), a spirit level (read as a pen) and the lens, kept because the stack of rules and the examined work read at a glance at 360 px and in the share crop. An earlier round's compass read as a clock and was dropped. [JPEG](../../../public/articles/traction-alignment/evals-lens-v1.jpg), 1600 × 900, 177,871 bytes. Originals and dropped candidates stay outside Git.
+
+Part three, "How we evaluate our own agents", is drafted outside this repository and waits for Yann's review.
+

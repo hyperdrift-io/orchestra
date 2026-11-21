@@ -1324,5 +1324,53 @@
     },
     "shareArtworkOnly": true,
     "updatedAt": "2026-11-15T21:15:44Z"
+  },
+  {
+    "slug": "alignment-before-rules",
+    "title": "Evals before rules: what our agents taught me about alignment",
+    "seoTitle": "Evals before rules: aligning AI agents",
+    "excerpt": "What fourteen days of our own AI agents’ sessions taught me about alignment, and why a human team learns the same lesson.",
+    "shareLine": "Nearly half of one tool’s conversations opened none of the methods we had written. No rule fixes that.",
+    "order": 22,
+    "topic": "Traction · Part two",
+    "example": "Alignment",
+    "tags": [
+      "agents",
+      "operations"
+    ],
+    "exampleStatus": "Measured on our own agents",
+    "ctaLabel": "Discuss your app",
+    "situation": "traction",
+    "invite": "Tell us about your app, the people it could help and what is getting in the way. We’ll explore where Traction could help.",
+    "readNext": "give-motivated-founders-a-fair-chance",
+    "steps": [],
+    "proof": {
+      "heading": "See how Traction works",
+      "description": "Explore Traction and its approach to app growth.",
+      "url": "https://hyperdrift.io/traction",
+      "label": "Explore Traction"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/alignment-before-rules.svg",
+      "alt": "Connected wireframe target, conversation and chart forms in Hyperdrift's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · Explore the workflow in the article."
+    },
+    "headerImage": {
+      "src": "/articles/mesh/alignment-before-rules.svg",
+      "alt": "Connected wireframe target, conversation and chart forms in Hyperdrift's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "heroImage": {
+      "src": "/articles/traction-alignment/evals-lens-v1.jpg",
+      "alt": "A tall stack of paper slips stands beside a small ivory block that a gold magnifying lens examines under a beam of warm light.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true,
+    "publishedAt": "2026-11-21"
   }
 ]
