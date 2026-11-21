@@ -32,7 +32,7 @@ export const caseStudies: CaseStudy[] = [
     problem: 'People working with an assistant should be able to use a specialist product without starting their task again elsewhere.',
     capability: 'A live career product with a remote MCP interface and structured tool results.',
     stack: ['MCP', 'Streamable HTTP', 'Structured tool results'],
-    link: 'https://nextrole.site/?utm_source=orchestra&utm_medium=referral&utm_campaign=nextrole_mcp&utm_content=work',
+    link: 'https://nextrole.site/?utm_source=hyperdrift.io&utm_medium=referral&utm_campaign=nextrole_mcp&utm_content=work',
     linkLabel: 'Try NextRole',
   },
   {
