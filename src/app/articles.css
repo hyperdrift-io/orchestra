@@ -131,6 +131,18 @@ nav[aria-label="Topics"] a[aria-current="true"] { background: var(--gold); borde
 #article-body img { border: 1px solid var(--line-soft); }
 #article-end { display: block; height: 1px; }
 #article-diagram { margin-block: 1.2rem; }
+[data-intel-weekly] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .9rem 1.5rem; align-items: center; margin-block: 1.2rem; padding-block: .85rem; border-top: 1px solid var(--line-hair); }
+[data-intel-weekly] h2 { margin: 0; font: .7rem var(--font-mono); text-transform: uppercase; letter-spacing: .1em; color: var(--gold); }
+[data-intel-weekly] p { max-width: 46ch; margin: .3rem 0 0; color: var(--cream-2); font-size: .9rem; line-height: 1.55; }
+[data-intel-weekly] p a { color: var(--gold-light); }
+[data-intel-weekly] form { display: flex; gap: .5rem; }
+[data-intel-weekly] label, [data-intel-weekly] [data-trap] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-intel-weekly] input[type='email'] { flex: 1; min-width: 0; min-height: 44px; padding: .6rem .7rem; border: 1px solid var(--gold-line); border-radius: 2px; background: var(--ink); color: var(--cream); font: .9rem/1.4 var(--font-body); }
+[data-intel-weekly] button { min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--gold-line); border-radius: 2px; background: transparent; color: var(--gold-light); font: .85rem/1.4 var(--font-body); cursor: pointer; }
+[data-intel-weekly] button:hover { border-color: var(--gold-light); }
+[data-intel-weekly] :is(input, button, a):focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+@media (max-width: 720px) { [data-intel-weekly] { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { [data-intel-weekly] form { flex-direction: column; } }
 /* Proof remains within the reading column. Bound media by the frame and its own proportions. */
 #article :is(aside#article-proof, #article-recording) { max-width: 640px; margin: 1.75rem 0 0; padding-block-start: 1rem; border-top: 1px solid var(--line-hair); }
 #article :is(aside#article-proof, #article-recording) h2 { font-size: clamp(1.35rem, 2.5vw, 1.65rem); margin: .4rem 0 .65rem; }

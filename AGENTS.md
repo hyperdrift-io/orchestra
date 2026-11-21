@@ -54,6 +54,8 @@ The display face is Bricolage Grotesque (founder's choice, 11 November 2026), wi
 
 Article reading and public links: `article-experience` skill. `src/lib/article-experience/` is generated from `packages/article-experience/`; never edit it here. Unpreviewable external citations render as text (`citationStaysText`).
 
+After an article's share end-cap, `IntelWeekly` offers Intel Weekly: a plain form posting to `https://intel.hyperdrift.io/api/weekly/subscribe` with the article's address as `from`, kept visually secondary to the article's own door. Intel owns the list, the mail and the outcome page; this app stores and measures nothing about the reader. Its words match Intel's sign-up (unreleased, 21 November 2026; preview and copy wait on the founder).
+
 Article finder: `src/lib/article-search.ts`; a tag page is indexed from three articles (`INDEXABLE_FROM`).
 
 Articles are `content/articles/*.md` plus `src/data/articles.json`, with `publishedAt: null` until publication is approved. Drafts render only in development or an `ARTICLE_PREVIEW=true` build and stay out of the sitemap, `llms.txt` and `/feed.json` and `/articles/feed.xml`; feeds never carry lead data or private Traction records. Dates are honest: sitemap `lastModified` comes from the article, never the build.

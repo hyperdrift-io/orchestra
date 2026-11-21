@@ -20,6 +20,7 @@ import { articleShareImage, tractionIcons } from '@/lib/share-metadata';
 import { tagsOf } from '@/lib/article-tags';
 import { OssFlag } from '@/components/OssFlag';
 import { isTractionArticle } from '@/lib/traction-brand';
+import { IntelWeekly } from '@/components/IntelWeekly';
 
 type Props = { params: Promise<{ slug: string }> };
 export const generateStaticParams = () => visibleArticles().map(({ slug }) => ({ slug }));
@@ -71,6 +72,7 @@ export default async function ArticlePage({ params }: Props) {
           {next && <a data-read-next="" href={`/articles/${next.slug}`}><span>Read next</span><strong>{next.title} →</strong></a>}
         </section>
         <div id="article-diagram"><ArticleShare title={article.title} text={article.shareLine} url={articleUrl(article.slug)} imagePath={`${image.pathname}${image.search}`} slug={article.slug} preview={!publishedArticles().some(entry => entry.slug === article.slug)} /></div>
+        <IntelWeekly url={articleUrl(article.slug)} />
         {(!article.visualization || article.media) && <ArticleProof article={article} />}
       </div>
     </div>
