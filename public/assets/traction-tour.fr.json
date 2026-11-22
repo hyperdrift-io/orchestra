@@ -1,0 +1,62 @@
+{
+  "opening": {
+    "title": "Qui pourrait utiliser cet outil de réservation ?",
+    "line": "Une démonstration de Traction sur une application fictive destinée aux artisans."
+  },
+  "chapters": [
+    {
+      "id": "read", "start": 5, "label": "recorded", "name": "Premier avis",
+      "title": "Ce qu’un artisan comprend du site",
+      "line": "Une lecture de la page d’accueil et des tarifs donne une première piste.",
+      "says": [
+        {"at": 5.2, "text": "Le tableau s’ouvre avec une première lecture du site."},
+        {"at": 10.8, "text": "La réservation est claire. Le coût du premier mois mérite une précision."}
+      ]
+    },
+    {
+      "id": "customers", "start": 18, "label": "recorded", "name": "Clients potentiels",
+      "title": "Trois entreprises à examiner",
+      "line": "L’équipe cherche des artisans qui prennent encore leurs rendez-vous par téléphone.",
+      "says": [
+        {"at": 18.2, "text": "Traction propose trois entreprises qui prennent leurs rendez-vous par téléphone."},
+        {"at": 24, "text": "Chaque piste renvoie au site consulté. Le besoin reste à confirmer."}
+      ]
+    },
+    {
+      "id": "email", "start": 31, "label": "recorded", "name": "Premier e-mail",
+      "title": "Un brouillon pour la plomberie",
+      "line": "Le message part du mode de réservation indiqué sur le site de l’entreprise.",
+      "says": [
+        {"at": 31.2, "text": "Pour la plomberie, le premier message pose une question sur les appels après la fermeture."},
+        {"at": 38, "text": "Le brouillon est prêt à relire. Son envoi reste une décision séparée."}
+      ]
+    },
+    {
+      "id": "plan", "start": 45, "label": "recorded", "name": "Plan",
+      "title": "La recherche reste sur le tableau",
+      "line": "Le plan conserve l’initiative et permet de retrouver les contacts.",
+      "says": [
+        {"at": 45.2, "text": "La recherche apparaît dans le plan. On retrouve ici les contacts et les brouillons."}
+      ]
+    },
+    {
+      "id": "market", "start": 55, "label": "market", "name": "Marché",
+      "title": "Ce que la veille change au plan",
+      "line": "Deux articles fictifs illustrent le lien entre une information et une action à examiner.",
+      "says": [
+        {"at": 55.2, "text": "Ici, deux articles d’exemple portent sur la réservation et le prix des logiciels."},
+        {"at": 62.4, "text": "Une action proposée dans le tableau consiste à préciser le tarif. L’équipe décide si elle la retient."}
+      ]
+    }
+  ],
+  "labels": {
+    "film": "Traction en action sur un exemple fictif de logiciel de réservation",
+    "recorded": "Démonstration enregistrée dans Traction · application et entreprises fictives",
+    "replayed": "Démonstration enregistrée dans Traction · données fictives",
+    "market": "Démonstration de veille · articles et publications fictifs",
+    "end": "Un site d’exemple, trois pistes et un brouillon présenté dans cette démonstration",
+    "yourPart": "Côté fondateur", "itsPart": "Côté Traction", "play": "Lire la vidéo", "pause": "Mettre en pause", "again": "Revoir la vidéo", "chapters": "Chapitres de la démonstration"
+  },
+  "end": {"title": "Et sur votre site ?", "line": "Le premier avis commence avec l’adresse de votre application."},
+  "close": 71
+}
