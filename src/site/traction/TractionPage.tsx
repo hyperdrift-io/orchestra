@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import {tractionShareImage} from '@/lib/share-metadata';
 import {pageMetadata} from '@/lib/site-metadata';
 import {tractionHtml} from './render';
 import {frenchHref,panels,type Language,type Panel} from './routes';
@@ -15,7 +16,12 @@ export function tractionMetadata(panel:Panel,lang:Language) {
   const path=lang==='fr'?fr:en;
   const [title,description]=metadataCopy[panel][lang];
   const base=pageMetadata(title,description,path);
-  return {...base,alternates:{canonical:path,languages:{en,fr}},openGraph:{...base.openGraph,locale:lang==='fr'?'fr_FR':'en_GB'}};
+  const image={...tractionShareImage,alt:lang==='fr'?'Logo de Traction. Une voile dessine la lettre T à côté du nom de l’application.':tractionShareImage.alt};
+  return {
+    ...base,alternates:{canonical:path,languages:{en,fr}},
+    openGraph:{...base.openGraph,locale:lang==='fr'?'fr_FR':'en_GB',images:[image]},
+    twitter:{...base.twitter,images:[image]},
+  };
 }
 export function TractionPage({panel,lang}: {panel:Panel;lang:Language}) {
   return <>

@@ -1,5 +1,6 @@
 import {readFileSync} from 'node:fs';
 import {describe,expect,it} from 'vitest';
+import {tractionMetadata} from './TractionPage';
 import {tractionHtml} from './render';
 import {frenchHref,panels,type Panel} from './routes';
 
@@ -11,6 +12,15 @@ const start='https://traction.hyperdrift.io/start';
 
 describe('French Traction journey',()=>{
   for(const panel of Object.keys(panels) as Panel[]) {
+    it('shares a Traction-branded card when '+panel+' is pasted into a message',()=>{
+      for (const lang of ['en','fr'] as const) {
+        const metadata=tractionMetadata(panel,lang);
+        const [image]=metadata.openGraph.images;
+        expect(image.url).toContain('/brand/traction/og-dark.jpg');
+        expect(image.alt).toContain(lang==='fr'?'voile':'sail');
+        expect(metadata.twitter.images).toEqual([image]);
+      }
+    });
     it('keeps every link, control and example on '+panel,()=>{
       const en=tractionHtml(panel,'en',start),fr=tractionHtml(panel,'fr',start);
       const translatedDestination=(href:string) => {
