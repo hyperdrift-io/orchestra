@@ -22,6 +22,8 @@ Every animated scene keeps pause, reduced motion, a static fallback and readable
 
 A page keeps one proposition and one action. The proposition leads; the action follows the content that earns it, so it reads as the natural next step and never competes with the proposition. Use cases and examples are links that open the tab or page that owns them, supporting detail stays folded until the visitor asks for it, and every other link supports the action. On the Traction tab the action is the address field, **Read my app**, under the hero, with the trial's detail folded beneath it; the walkthrough and the workflows live on How it works, which ends on the same field. Shortening words does not declutter a page that mixes propositions (Yann, 20 November 2026).
 
+The English and French Traction offer, workflows, partnership and HD OS tabs share one template, action set and required text dictionary in `src/site/traction/` and `src/site/content/traction.html`. Change the shared journey and supply both languages. Preserve each link, form, fragment, interactive example, film chapter and offer term. A genuinely untranslated external destination stays linked with its language visible. Run the parity tests and walk both rendered journeys on phone and desktop, including the destination behind each commercial action.
+
 Controls that sit together read as one: a field and its button share height and corners, and at narrow widths their width. Check the rendered sizes, since the site's base styles give inputs and buttons different margins and radii (Yann, 20 November 2026).
 
 ## Claims

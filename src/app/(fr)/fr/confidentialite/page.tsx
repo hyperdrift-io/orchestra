@@ -4,6 +4,7 @@ const base = pageMetadata('Confidentialité','Données utilisées par Hyperdrift
 
 export const metadata = {
   ...base,
+  alternates:{canonical:'/fr/confidentialite',languages:{en:'/privacy',fr:'/fr/confidentialite'}},
   openGraph: {...base.openGraph, locale: 'fr_FR'},
 };
 

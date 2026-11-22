@@ -25,7 +25,8 @@ chooseWorkflow(workflowPanels[0].id);
 
 const selectPage = (hash, scroll = false) => {
   const target = document.getElementById(hash.slice(1));
-  const destination = {"traction": "/traction", "how-it-works": "/traction/how-it-works", "partnership": "/traction/partnership", "hd-os-example": "/os"}[target?.closest('.traction-panel')?.id];
+  const owner = target?.closest('.traction-panel');
+  const destination = owner && document.getElementById('tab-' + owner.id)?.getAttribute('href');
   if (destination && destination !== location.pathname) { location.replace(destination + location.search + hash); return; }
   const selected = target?.closest('.traction-panel') || document.getElementById(document.querySelector('.traction-page').dataset.initialPanel) || panels[0];
   if (target?.classList.contains('growth-workflow')) chooseWorkflow(target.id);
@@ -108,32 +109,28 @@ document.querySelectorAll('.traction-film').forEach(figure => {
 const walkthrough = document.querySelector('.outreach-film');
 const tourFilm = walkthrough.querySelector('video');
 const chapters = [...walkthrough.querySelectorAll('[data-chapter]')];
-chapters.forEach(chapter => chapter.addEventListener('click', () => players.get(tourFilm)(Number(chapter.dataset.start))));
 walkthrough.addEventListener('toggle', () => { if (!walkthrough.open) tourFilm.pause(); });
-// A shared chapter link opens the recording at that segment, paused for the visitor.
-const requestedChapter = chapters.find(button => button.dataset.chapter === new URLSearchParams(location.search).get('chapter'));
-if (requestedChapter && location.hash === '#outreach') {
-  walkthrough.open = true;
-  const figure = tourFilm.closest('.traction-film');
-  figure.querySelector('.film-play').hidden = true;
-  tourFilm.hidden = false;
-  tourFilm.preload = 'metadata';
-  const at = Number(requestedChapter.dataset.start);
-  const seek = () => { tourFilm.currentTime = at; };
-  if (tourFilm.readyState >= 1) seek();
-  else { tourFilm.addEventListener('loadedmetadata', seek, {once:true}); tourFilm.load(); }
-  figure.querySelectorAll('a[href$="film.mp4"]').forEach(link => { link.href += `#t=${at}`; });
-}
-
-document.querySelectorAll('[data-watch-chapter]').forEach(link => link.addEventListener('click', () => {
-  walkthrough.open = true;
-  const chapter = chapters.find(button => button.dataset.chapter === link.dataset.watchChapter);
-  if (chapter) players.get(tourFilm)(Number(chapter.dataset.start));
-}));
-fetch('/assets/traction-tour.json').then(response => {
+fetch(document.documentElement.lang==='fr'?'/assets/traction-tour.fr.json':'/assets/traction-tour.json').then(response => {
   if (!response.ok) throw new Error('Tour captions unavailable');
   return response.json();
 }).then(tour => {
+  const startChapter = (id, play) => {
+    const chapter = tour.chapters.find(item=>item.id===id);
+    if(!chapter) return;
+    walkthrough.open = true;
+    if(play) {players.get(tourFilm)(chapter.start);return;}
+    const figure=tourFilm.closest('.traction-film');
+    figure.querySelector('.film-play').hidden=true;
+    tourFilm.hidden=false;
+    tourFilm.preload='metadata';
+    const seek=()=>{tourFilm.currentTime=chapter.start;};
+    if(tourFilm.readyState>=1) seek();
+    else {tourFilm.addEventListener('loadedmetadata',seek,{once:true});tourFilm.load();}
+    figure.querySelectorAll('a[href$=".mp4"]').forEach(link=>{link.hash='t='+chapter.start;});
+  };
+  chapters.forEach(button=>button.addEventListener('click',()=>startChapter(button.dataset.chapter,true)));
+  document.querySelectorAll('[data-watch-chapter]').forEach(link=>link.addEventListener('click',()=>startChapter(link.dataset.watchChapter,true)));
+  if(location.hash==='#outreach') startChapter(new URLSearchParams(location.search).get('chapter'),false);
   const update = () => {
     const at = tourFilm.currentTime;
     const chapter = [...tour.chapters].reverse().find(item => at >= item.start);
@@ -142,7 +139,7 @@ fetch('/assets/traction-tour.json').then(response => {
     const text = ended ? tour.end : chapter || tour.opening;
     walkthrough.querySelector('[data-tour-title]').textContent = text.title;
     walkthrough.querySelector('[data-tour-line]').textContent = ended ? text.line : chapter?.says.filter(line => at >= line.at).at(-1)?.text || text.line;
-    walkthrough.querySelector('[data-tour-source]').textContent = ended ? tour.labels.end : chapter ? tour.labels[chapter.label] : 'Recorded in Traction · one of our apps, renamed Yourapp · businesses blurred';
+    walkthrough.querySelector('[data-tour-source]').textContent = ended ? tour.labels.end : chapter ? tour.labels[chapter.label] : tour.labels.recorded;
   };
   tourFilm.addEventListener('timeupdate', update);
   tourFilm.addEventListener('seeked', update);

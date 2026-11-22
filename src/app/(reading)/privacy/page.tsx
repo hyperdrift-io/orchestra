@@ -3,7 +3,7 @@ import { websiteOpenGraph } from '@/lib/share-metadata';
 
 const description = 'This site runs without cookies. Page views are counted per page load with PostHog, hosted in the EU. No session is recorded.';
 
-export const metadata: Metadata = {title:'Privacy',description,alternates:{canonical:'/privacy'},openGraph:{...websiteOpenGraph,title:'Privacy',description,url:'https://hyperdrift.io/privacy'}};
+export const metadata: Metadata = {title:'Privacy',description,alternates:{canonical:'/privacy',languages:{en:'/privacy',fr:'/fr/confidentialite'}},openGraph:{...websiteOpenGraph,title:'Privacy',description,url:'https://hyperdrift.io/privacy'}};
 
 /** Each sentence states a flow verified in this app's code: PostHog init, session storage, the contact relay and its records. */
 export default function PrivacyPage(){return <><article id="privacy" aria-labelledby="privacy-title">

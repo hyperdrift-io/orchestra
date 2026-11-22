@@ -3,17 +3,13 @@ import '@/site/styles/style.css';
 import '@/site/styles/pages.css';
 import '@/site/styles/migration.css';
 import './pilot.css';
+import {SiteHeader,SiteFooter,PreviewNotice} from '@/site/Chrome';
+import {Compatibility} from '@/site/Compatibility';
+import {SiteEnquiryDialog} from '@/components/SiteEnquiryDialog';
+import {organisation} from '@/site/metadata';
 export {metadata} from '@/site/metadata';
 
-export default function FrenchLayout({children}: {children: React.ReactNode}) {
-  return <html lang="fr"><body>
-    <header className="preview-header">
-      <a className="brand preview-brand" href="/fr/traction"><img src="/assets/hyperdrift-logo.svg" alt="" width="40" height="40"/>Hyperdrift</a>
-      <nav aria-label="Navigation principale"><a href="/fr/traction">Traction</a><a href="/traction" lang="en" hrefLang="en">English</a></nav>
-    </header>
-    {children}
-    <footer className="site-footer"><nav aria-label="Pied de page"><a href="/fr/traction">Traction</a><a href="/fr/confidentialite">Confidentialité</a></nav>
-      <p>© {new Date().getFullYear()} Hyperdrift Limited · Société immatriculée en Angleterre et au pays de Galles sous le numéro 16638188.</p>
-    </footer>
-  </body></html>;
+export default function FrenchLayout({children}: {children:React.ReactNode}) {
+  return <html lang="fr"><head><link rel="alternate" type="application/rss+xml" href="/articles/feed.xml" hrefLang="en"/><link rel="alternate" type="application/feed+json" href="/feed.json" hrefLang="en"/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:organisation}}/></head>
+    <body><PreviewNotice language="fr"/><SiteHeader language="fr"/><Compatibility/>{children}<SiteEnquiryDialog paused={process.env.MIGRATION_PREVIEW==='true'}/><SiteFooter language="fr"/></body></html>;
 }

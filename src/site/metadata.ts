@@ -8,4 +8,4 @@ export const metadata: Metadata = {
 };
 export const organisation = JSON.stringify({'@context':'https://schema.org','@graph':[
  {'@type':'Organization','@id':'https://hyperdrift.io/#organization',name:'Hyperdrift',url:'https://hyperdrift.io',logo:'https://hyperdrift.io/assets/hyperdrift-logo.svg',founder:{'@type':'Person',name:'Yann Vallery-Radot',sameAs:'https://www.linkedin.com/in/yannvr/'},sameAs:['https://github.com/hyperdrift-io']},
- {'@type':'WebSite','@id':'https://hyperdrift.io/#website',name:'Hyperdrift',url:'https://hyperdrift.io',publisher:{'@id':'https://hyperdrift.io/#organization'},inLanguage:'en-GB'}]}).replace(/</g,'\u003c');
+ {'@type':'WebSite','@id':'https://hyperdrift.io/#website',name:'Hyperdrift',url:'https://hyperdrift.io',publisher:{'@id':'https://hyperdrift.io/#organization'},inLanguage:['en-GB','fr-FR']}]}).replace(/</g,'\u003c');

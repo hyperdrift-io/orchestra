@@ -1,0 +1,794 @@
+{
+  "traction": {
+    "en": "Traction",
+    "fr": "Traction"
+  },
+  "howItWorks": {
+    "en": "How it works",
+    "fr": "Fonctionnement"
+  },
+  "partnership": {
+    "en": "Partnership",
+    "fr": "Partenariat"
+  },
+  "hdOs": {
+    "en": "HD OS",
+    "fr": "HD OS"
+  },
+  "aGrowthTeamForYourApp": {
+    "en": "A growth team for your app",
+    "fr": "Développement commercial"
+  },
+  "growYourAppWithATeamBehindYou": {
+    "en": "Grow your app with a team behind you.",
+    "fr": "Faites grandir votre application avec une équipe à vos côtés."
+  },
+  "youBuiltAnAppThatWorksTractionGives": {
+    "en": "You built an app that works. Traction gives it the team to take it to its market: an AI Growth Manager runs the work, you lead, and nothing goes out without your yes.",
+    "fr": "Votre application fonctionne. Avec Traction, une équipe se consacre à trouver son marché. Un responsable IA coordonne le travail. Vous gardez la main et validez chaque envoi."
+  },
+  "howToGetStartedWithTraction": {
+    "en": "How to get started with Traction",
+    "fr": "Comment démarrer avec Traction"
+  },
+  "exploreTractionSAiWorkflows": {
+    "en": "Explore Traction’s AI workflows",
+    "fr": "Découvrir comment les agents de Traction travaillent"
+  },
+  "theTractionFilm": {
+    "en": "the Traction film",
+    "fr": "Le film Traction"
+  },
+  "english": {
+    "en": "English",
+    "fr": "Français"
+  },
+  "openTheFilm": {
+    "en": "Open the film",
+    "fr": "Ouvrir la vidéo"
+  },
+  "playTheTractionFilm": {
+    "en": "Play the Traction film",
+    "fr": "Lire le film Traction"
+  },
+  "openTheFilmDirectly": {
+    "en": "Open the film directly",
+    "fr": "Ouvrir la vidéo directement"
+  },
+  "startWithYourApp": {
+    "en": "Start with your app",
+    "fr": "Tout commence par votre application"
+  },
+  "yourGrowthManagerReadsYourWebsiteAndSays": {
+    "en": "Your Growth Manager reads your website and says what works, what’s in the way and the move to make first.",
+    "fr": "Votre responsable de croissance découvre votre site et relève ce qui fonctionne, ce qui freine les clients et ce que vous pourriez faire en premier."
+  },
+  "yourAppSAddress": {
+    "en": "Your app’s address",
+    "fr": "Adresse du site de votre application"
+  },
+  "yourappCom": {
+    "en": "yourapp.com",
+    "fr": "monapplication.fr"
+  },
+  "readMyApp": {
+    "en": "Read my app →",
+    "fr": "Obtenir un premier avis →"
+  },
+  "freeForSevenDaysNoPaymentDetailsNo": {
+    "en": "Free for seven days. No payment details, no commitment.",
+    "fr": "Sept jours d’essai, sans carte bancaire ni engagement."
+  },
+  "whatYouGetInTheTrial": {
+    "en": "What you get in the trial",
+    "fr": "Que comprend l’essai ?"
+  },
+  "theTrialLastsSevenDaysItIncludesA": {
+    "en": "The trial lasts seven days. It includes a first impression of your website and one search for potential customers, with email drafts for the people you find. Up to three market reads, one a day, when we have coverage. When it ends, everything on your board stays there to read.",
+    "fr": "L’essai dure sept jours. Il comprend un premier avis sur votre site, une recherche de clients potentiels et un brouillon d’e-mail pour chacun. Selon la couverture de votre marché, vous pouvez aussi demander jusqu’à trois points d’actualité, à raison d’un par jour. Après l’essai, votre tableau reste consultable."
+  },
+  "whyWeReBuildingTraction": {
+    "en": "Why we’re building Traction →",
+    "fr": "Pourquoi nous développons Traction →"
+  },
+  "keepUsingTraction": {
+    "en": "Keep using Traction",
+    "fr": "Continuer avec Traction"
+  },
+  "yourMailboxConnectedSoRepliesLandOnEach": {
+    "en": "Your mailbox connected, so replies land on each person’s record. A market read each day you ask. Analytics on your own app. We’re happy to give you a quote for the level of integration you want.",
+    "fr": "Vous pouvez connecter votre messagerie pour retrouver les réponses dans la fiche de chaque contact, demander un point sur votre marché chaque jour et suivre les résultats de votre application. Nous préparons un devis selon les outils que vous souhaitez connecter."
+  },
+  "askForAQuote": {
+    "en": "Ask for a quote →",
+    "fr": "Demander un devis →"
+  },
+  "workWithUs": {
+    "en": "Work with us",
+    "fr": "Travailler avec nous"
+  },
+  "weCanDoTheCustomerResearchAndOutreach": {
+    "en": "We can do the customer research and outreach with you. We’ll start with the people you want to reach and agree who does what.",
+    "fr": "Nous pouvons rechercher et contacter des clients avec vous. Nous commençons par les personnes que vous souhaitez atteindre et convenons ensemble de la répartition du travail."
+  },
+  "exploreThePartnership": {
+    "en": "Explore the partnership →",
+    "fr": "Découvrir le partenariat →"
+  },
+  "tractionHowItWorks": {
+    "en": "Traction · How it works",
+    "fr": "Traction · Fonctionnement"
+  },
+  "aiWorkflowsForTheWorkOfGrowing": {
+    "en": "AI workflows for the work of growing.",
+    "fr": "Comment les agents de Traction travaillent pour votre croissance."
+  },
+  "chooseWhatSInTheWaySeeHow": {
+    "en": "Choose what’s in the way. See how your Growth Manager connects the work, what comes back and where you decide.",
+    "fr": "Choisissez la difficulté que vous rencontrez. Vous verrez comment votre responsable de croissance s’y prend, ce qu’il vous remet et à quel moment vous intervenez."
+  },
+  "tractionAiWorkflows": {
+    "en": "Traction AI workflows",
+    "fr": "Les agents IA de Traction"
+  },
+  "chooseATractionWorkflow": {
+    "en": "Choose a Traction workflow",
+    "fr": "Choisir une tâche à découvrir"
+  },
+  "findCustomers": {
+    "en": "Find customers",
+    "fr": "Trouver des clients"
+  },
+  "keepConversationsMoving": {
+    "en": "Keep conversations moving",
+    "fr": "Suivre les échanges"
+  },
+  "chooseTheNextMove": {
+    "en": "Choose the next move",
+    "fr": "Choisir la prochaine action"
+  },
+  "respondToTheMarket": {
+    "en": "Respond to the market",
+    "fr": "Réagir à l’actualité du marché"
+  },
+  "deliverAndLearn": {
+    "en": "Deliver and learn",
+    "fr": "Suivre les résultats"
+  },
+  "iNeedCustomersResearchTakesAllMyTime": {
+    "en": "I need customers. Research takes all my time.",
+    "fr": "« Il me faut des clients, mais la recherche prend tout mon temps. »"
+  },
+  "findPeopleYourAppCouldHelp": {
+    "en": "Find people your app could help.",
+    "fr": "Trouver à qui votre application pourrait servir."
+  },
+  "yourGrowthManagerReadsYourAppResearchesRelevant": {
+    "en": "Your Growth Manager reads your app, researches relevant businesses and prepares a first email for each. You can inspect the public evidence behind every suggested fit.",
+    "fr": "Votre responsable de croissance étudie votre application, recherche des entreprises et prépare un premier e-mail pour chacune. Vous pouvez consulter les sources publiques qui motivent chaque proposition."
+  },
+  "tryAskingYourGrowthManager": {
+    "en": "Try asking your Growth Manager",
+    "fr": "Une question à poser au responsable de croissance"
+  },
+  "findBusinessesWhoseOwnPagesSuggestTheyCould": {
+    "en": "“Find businesses whose own pages suggest they could use our app.”",
+    "fr": "« Cherche des entreprises dont le site montre que notre application pourrait leur être utile. »"
+  },
+  "seeTheCustomerSearch": {
+    "en": "See the customer search",
+    "fr": "Voir la recherche de clients"
+  },
+  "whatTheWorkflowConnects": {
+    "en": "What the workflow connects",
+    "fr": "Étapes du travail"
+  },
+  "yourApp": {
+    "en": "Your app",
+    "fr": "Votre application"
+  },
+  "customerResearch": {
+    "en": "Customer research",
+    "fr": "Recherche de clients"
+  },
+  "prospectsDrafts": {
+    "en": "Prospects + drafts",
+    "fr": "Prospects et brouillons"
+  },
+  "yourDecision": {
+    "en": "Your decision",
+    "fr": "Votre décision"
+  },
+  "whatComesBack": {
+    "en": "What comes back",
+    "fr": "Ce que vous obtenez"
+  },
+  "upToFiveProspectsOrInvestors": {
+    "en": "Up to five prospects or investors",
+    "fr": "Jusqu’à cinq prospects ou investisseurs"
+  },
+  "aSourceAndAReasonForEachPossible": {
+    "en": "A source and a reason for each possible fit",
+    "fr": "Une source et une raison de contacter chacun"
+  },
+  "personalisedDraftsReadyForYourReview": {
+    "en": "Personalised drafts, ready for your review",
+    "fr": "Des brouillons personnalisés à relire"
+  },
+  "chooseWhoIsWorthContactingAndWhatTo": {
+    "en": "Choose who is worth contacting and what to say. A possible fit becomes interest only when they reply.",
+    "fr": "Vous choisissez qui contacter et quoi dire. Seule la réponse d’une personne permet de connaître son intérêt."
+  },
+  "inTheSevenDayTrialOneSearchAnd": {
+    "en": "In the seven-day trial: one search and its drafts. You send each email yourself.",
+    "fr": "L’essai de sept jours comprend une recherche et ses brouillons. Vous envoyez vous-même chaque e-mail."
+  },
+  "iMLosingTrackOfWhoSaidWhat": {
+    "en": "I’m losing track of who said what.",
+    "fr": "« Je perds le fil des échanges. »"
+  },
+  "keepTheNextMoveBesideTheConversation": {
+    "en": "Keep the next move beside the conversation.",
+    "fr": "Retrouver la suite à donner à chaque échange."
+  },
+  "approvedProspectsAndDraftsStayOnYourCrm": {
+    "en": "Approved prospects and drafts stay on your CRM board. With your mailbox connected, replies land on the person’s record, keeping the context available for the next customer decision.",
+    "fr": "Les prospects retenus et leurs brouillons restent dans votre CRM. Une fois la messagerie connectée, les réponses rejoignent la fiche du contact. Vous retrouvez le contexte au moment de reprendre la conversation."
+  },
+  "showMeWhereEachCustomerConversationStands": {
+    "en": "“Show me where each customer conversation stands.”",
+    "fr": "« Où en sont les échanges avec chaque client ? »"
+  },
+  "seeTheOutreachWorkflow": {
+    "en": "See the outreach workflow",
+    "fr": "Voir le suivi des échanges"
+  },
+  "prospect": {
+    "en": "Prospect",
+    "fr": "Prospect"
+  },
+  "draftConversation": {
+    "en": "Draft + conversation",
+    "fr": "Brouillon et conversation"
+  },
+  "crmRecord": {
+    "en": "CRM record",
+    "fr": "Fiche du contact"
+  },
+  "nextAction": {
+    "en": "Next action",
+    "fr": "Prochaine action"
+  },
+  "theProspectAndTheirSourceEvidence": {
+    "en": "The prospect and their source evidence",
+    "fr": "Le prospect et les sources qui ont motivé sa sélection"
+  },
+  "draftsBesideThePersonTheyAreFor": {
+    "en": "Drafts beside the person they are for",
+    "fr": "Le brouillon dans la fiche de son destinataire"
+  },
+  "repliesOnThatRecordWithAConnectedMailbox": {
+    "en": "Replies on that record with a connected mailbox",
+    "fr": "Les réponses dans cette même fiche, avec la messagerie connectée"
+  },
+  "keepControlOfTheRelationshipReviewTheDraft": {
+    "en": "Keep control of the relationship: review the draft, decide what goes out and agree the next action.",
+    "fr": "Vous gardez la main sur la relation. Relisez le brouillon, décidez de l’envoi et convenez de la suite."
+  },
+  "mailboxConnectionAndAutomaticReplyCaptureAreSubscription": {
+    "en": "Mailbox connection and automatic reply capture are subscription capabilities. The trial keeps drafts available for you to send.",
+    "fr": "La connexion de la messagerie et le suivi automatique des réponses font partie de l’abonnement. Pendant l’essai, les brouillons restent disponibles pour un envoi depuis votre messagerie."
+  },
+  "thereAreTenThingsICouldDoNext": {
+    "en": "There are ten things I could do next.",
+    "fr": "« J’ai dix idées pour la suite. »"
+  },
+  "giveYourTeamAGoalGetAPlan": {
+    "en": "Give your team a goal. Get a plan you can judge.",
+    "fr": "Un objectif pour l’équipe, un plan que vous pouvez examiner."
+  },
+  "tellYourGrowthManagerWhatYouWantAnd": {
+    "en": "Tell your Growth Manager what you want and when. It proposes a plan for your date. As you report what happened, the next proposal uses the evidence already on your board.",
+    "fr": "Donnez votre objectif et votre échéance au responsable de croissance. Il propose un plan pour cette date. À mesure que vous lui indiquez ce qui s’est passé, il s’appuie sur les résultats de votre tableau pour préparer la suite."
+  },
+  "weWantMoreTrialsByTheEndOf": {
+    "en": "“We want more trials by the end of the month. Propose a plan.”",
+    "fr": "« Nous voulons davantage d’essais d’ici la fin du mois. Propose un plan. »"
+  },
+  "watchAPlanTakeShape": {
+    "en": "Watch a plan take shape",
+    "fr": "Voir la préparation d’un plan"
+  },
+  "yourGoal": {
+    "en": "Your goal",
+    "fr": "Votre objectif"
+  },
+  "growthManager": {
+    "en": "Growth Manager",
+    "fr": "Responsable de croissance"
+  },
+  "proposedPlan": {
+    "en": "Proposed plan",
+    "fr": "Plan proposé"
+  },
+  "yourAgreement": {
+    "en": "Your agreement",
+    "fr": "Votre accord"
+  },
+  "aProposalTiedToYourGoalAndDate": {
+    "en": "A proposal tied to your goal and date",
+    "fr": "Une proposition adaptée à votre objectif et à votre échéance"
+  },
+  "workAndCommitmentsKeptOnTheBoard": {
+    "en": "Work and commitments kept on the board",
+    "fr": "Le travail et les engagements conservés sur le tableau"
+  },
+  "aNextMoveInformedByWhatHappened": {
+    "en": "A next move informed by what happened",
+    "fr": "Une prochaine action qui tient compte des résultats"
+  },
+  "acceptThePlanChangeItOrAskFor": {
+    "en": "Accept the plan, change it or ask for more evidence. A proposal waits for your yes.",
+    "fr": "Vous pouvez accepter le plan, le modifier ou demander davantage d’éléments. C’est vous qui donnez votre accord."
+  },
+  "theRecordedWorkflowShowsTheGrowthManagerPreparing": {
+    "en": "The recorded workflow shows the Growth Manager preparing a plan. Implementation and connections are agreed for your app.",
+    "fr": "La démonstration montre la préparation d’un plan par le responsable de croissance. Nous convenons avec vous de sa mise en œuvre et des outils à connecter."
+  },
+  "myMarketChangesWhileIMBusyBuilding": {
+    "en": "My market changes while I’m busy building.",
+    "fr": "« Le marché évolue pendant que je développe mon produit. »"
+  },
+  "turnAMarketChangeIntoAUsefulDecision": {
+    "en": "Turn a market change into a useful decision.",
+    "fr": "Décider quoi faire lorsqu’un marché évolue."
+  },
+  "intelBringsYouRelevantChangesWithTheirSources": {
+    "en": "Intel brings you relevant changes with their sources. Your Growth Manager proposes responses to those stories. Choose a move and it becomes an initiative on your board.",
+    "fr": "Intel repère les évolutions qui vous concernent et en donne les sources. Votre responsable de croissance propose des actions en réponse à ces nouvelles. L’action que vous choisissez devient une initiative dans votre tableau."
+  },
+  "whatChangedInOurMarketAndWhatShould": {
+    "en": "“What changed in our market, and what should we do about it?”",
+    "fr": "« Qu’est-ce qui a changé sur notre marché et que pourrions-nous faire ? »"
+  },
+  "seeTheMarketRead": {
+    "en": "See the market read",
+    "fr": "Voir l’analyse du marché"
+  },
+  "marketSource": {
+    "en": "Market source",
+    "fr": "Source de l’information"
+  },
+  "intel": {
+    "en": "Intel",
+    "fr": "Intel"
+  },
+  "growthProposal": {
+    "en": "Growth proposal",
+    "fr": "Action proposée"
+  },
+  "yourInitiative": {
+    "en": "Your initiative",
+    "fr": "Votre initiative"
+  },
+  "theStoryAndItsSource": {
+    "en": "The story and its source",
+    "fr": "L’information et sa source"
+  },
+  "upToThreeProposedResponses": {
+    "en": "Up to three proposed responses",
+    "fr": "Jusqu’à trois actions proposées"
+  },
+  "yourChosenMoveRetainedAsAnInitiative": {
+    "en": "Your chosen move retained as an initiative",
+    "fr": "L’action retenue sous forme d’initiative"
+  },
+  "pursueAnOpportunityChangeDirectionOrWaitThe": {
+    "en": "Pursue an opportunity, change direction or wait. The source remains available for you to check.",
+    "fr": "Vous pouvez saisir une occasion, changer de direction ou attendre. La source reste accessible pour vérifier l’information."
+  },
+  "theTrialIncludesUpToThreeMarketReads": {
+    "en": "The trial includes up to three market reads, one a day, when coverage is available. The subscription offers a fresh read each day you ask.",
+    "fr": "L’essai comprend jusqu’à trois points sur votre marché, un par jour, selon la couverture disponible. Avec l’abonnement, vous pouvez en demander un chaque jour."
+  },
+  "thePlanLooksGoodWhatActuallyChanged": {
+    "en": "The plan looks good. What actually changed?",
+    "fr": "« Le plan me convient. Qu’est-ce qui a changé pour les clients ? »"
+  },
+  "carryAnAgreedMoveThroughToAChecked": {
+    "en": "Carry an agreed move through to a checked result.",
+    "fr": "Suivre une action jusqu’à son résultat."
+  },
+  "whenAMoveNeedsEngineeringScopedWorkCan": {
+    "en": "When a move needs engineering, scoped work can pass from the Growth Manager to Builder. The delivered change and its checks return to the same board. Connected Analytics helps you compare results with the initiative.",
+    "fr": "Lorsqu’une initiative demande des travaux techniques, le responsable de croissance peut en confier une partie au responsable du développement. Le changement livré et ses vérifications reviennent sur le même tableau. Une fois le suivi statistique connecté, vous pouvez examiner l’évolution des résultats."
+  },
+  "improveOnboardingThenCheckWhetherMorePeopleReach": {
+    "en": "“Improve onboarding, then check whether more people reach first value.”",
+    "fr": "« Améliore les premiers pas dans l’application, puis vérifie si davantage de personnes réussissent à s’en servir. »"
+  },
+  "inspectADeliveredChange": {
+    "en": "Inspect a delivered change →",
+    "fr": "Examiner un changement livré →"
+  },
+  "agreedInitiative": {
+    "en": "Agreed initiative",
+    "fr": "Initiative acceptée"
+  },
+  "builder": {
+    "en": "Builder",
+    "fr": "Responsable du développement"
+  },
+  "verifiedDelivery": {
+    "en": "Verified delivery",
+    "fr": "Livraison vérifiée"
+  },
+  "analyticsNextMove": {
+    "en": "Analytics + next move",
+    "fr": "Résultats et prochaine action"
+  },
+  "theRequestAndItsDeliveryRecord": {
+    "en": "The request and its delivery record",
+    "fr": "La demande et le détail de sa livraison"
+  },
+  "checksYouCanInspect": {
+    "en": "Checks you can inspect",
+    "fr": "Les vérifications consultables"
+  },
+  "resultsAlongsideTheInitiativeWhenAnalyticsIsConnected": {
+    "en": "Results alongside the initiative when Analytics is connected",
+    "fr": "Les résultats associés à l’initiative lorsque le suivi statistique est connecté"
+  },
+  "judgeWhatTheWorkChangedForCustomersUse": {
+    "en": "Judge what the work changed for customers. Use the evidence to continue, change direction or stop.",
+    "fr": "Regardez ce qui a changé pour les clients. Ces éléments vous aident à poursuivre, à changer de direction ou à arrêter."
+  },
+  "builderWorkNeedsAgreedScopeAnalyticsRequiresA": {
+    "en": "Builder work needs agreed scope. Analytics requires a connected subscription. These are separate from the seven-day trial.",
+    "fr": "Les travaux techniques demandent un accord sur leur périmètre. Le suivi statistique nécessite un abonnement connecté. Ces deux prestations s’ajoutent à l’essai de sept jours."
+  },
+  "howToGetStarted": {
+    "en": "How to get started",
+    "fr": "Pour commencer"
+  },
+  "findPeopleWhoCouldUseYourApp": {
+    "en": "Find people who could use your app",
+    "fr": "Trouver à qui votre application pourrait servir"
+  },
+  "seeHowTractionReviewsAnAppFindsPotential": {
+    "en": "See how Traction reviews an app, finds potential customers and drafts a first email for each. The founder chooses who to contact.",
+    "fr": "Voyez comment Traction découvre une application, trouve des clients potentiels et prépare un premier e-mail pour chacun. La personne qui dirige l’application choisit qui contacter."
+  },
+  "watchTheOutreachWalkthrough": {
+    "en": "Watch the outreach walkthrough",
+    "fr": "Voir la démonstration de prospection"
+  },
+  "chaptersOfTheOutreachFilm": {
+    "en": "Chapters of the outreach film",
+    "fr": "Chapitres de la démonstration"
+  },
+  "read": {
+    "en": "Read",
+    "fr": "Premier avis"
+  },
+  "customers": {
+    "en": "Customers",
+    "fr": "Clients"
+  },
+  "email": {
+    "en": "Email",
+    "fr": "E-mail"
+  },
+  "plan": {
+    "en": "Plan",
+    "fr": "Plan"
+  },
+  "market": {
+    "en": "Market",
+    "fr": "Marché"
+  },
+  "theOutreachWalkthrough": {
+    "en": "the outreach walkthrough",
+    "fr": "Démonstration de prospection"
+  },
+  "playTheOutreachWalkthrough": {
+    "en": "Play the outreach walkthrough",
+    "fr": "Lire la démonstration de prospection"
+  },
+  "oneAppThatNeedsToMeetItsMarket": {
+    "en": "One app that needs to meet its market?",
+    "fr": "Une application qui cherche son marché ?"
+  },
+  "everyWeekOnTopOfBuildingItSee": {
+    "en": "Every week, on top of building it. See Traction in action on one of our apps, from its sign-up to its market.",
+    "fr": "Découvrez Traction sur l’une de nos applications, de l’inscription à la recherche de clients et au suivi du marché."
+  },
+  "recordedInTractionOneOfOurAppsRenamed": {
+    "en": "Recorded in Traction · one of our apps, renamed Yourapp · businesses blurred",
+    "fr": "Enregistrement dans Traction, sur l’une de nos applications renommée Yourapp. Les entreprises sont masquées."
+  },
+  "allCapabilitiesAndWhatTheTrialIncludes": {
+    "en": "All capabilities and what the trial includes",
+    "fr": "Toutes les fonctionnalités et le contenu de l’essai"
+  },
+  "dayOne": {
+    "en": "Day one",
+    "fr": "Le premier jour"
+  },
+  "firstImpression": {
+    "en": "First impression",
+    "fr": "Premier avis"
+  },
+  "itReadsYourAppLikeANewCustomer": {
+    "en": "It reads your app like a new customer.",
+    "fr": "Votre site vu par un nouveau client."
+  },
+  "yourGrowthManagerReadsYourPublicPagesAnd": {
+    "en": "Your Growth Manager reads your public pages and says what works, what’s in the way and the move to make first. Each finding links to the pages it came from, so you can check it. It also names your market and the audience your pages point to.",
+    "fr": "Votre responsable de croissance lit vos pages publiques et relève ce qui fonctionne, ce qui freine les clients et ce que vous pourriez faire en premier. Chaque observation renvoie à ses sources. Vous retrouvez aussi le marché et le public qui se dégagent de vos pages."
+  },
+  "inTheTrial": {
+    "en": "In the trial",
+    "fr": "Pendant l’essai"
+  },
+  "aReviewOfYourWebsiteTheDayYou": {
+    "en": "A review of your website, the day you sign up.",
+    "fr": "Un premier avis sur votre site, dès l’inscription."
+  },
+  "itFindsPeopleYourAppCouldHelp": {
+    "en": "It finds people your app could help.",
+    "fr": "Des pistes de clients à partir de leurs besoins."
+  },
+  "askYourGrowthManagerForProspectsOrFor": {
+    "en": "Ask your Growth Manager for prospects or for investors. It reads their own pages and comes back with up to five, each with the public evidence that they may fit. A public page suggests a fit; only a reply confirms interest.",
+    "fr": "Demandez au responsable de croissance de chercher des prospects ou des investisseurs. Il consulte leurs sites et en retient jusqu’à cinq, avec les éléments publics qui justifient chaque choix. C’est leur réponse qui permet de connaître leur intérêt."
+  },
+  "yourFirstSearchUpToFiveProspectsOr": {
+    "en": "Your first search: up to five prospects or investors.",
+    "fr": "Une première recherche, jusqu’à cinq prospects ou investisseurs."
+  },
+  "itWritesToEachInYourVoice": {
+    "en": "It writes to each, in your voice.",
+    "fr": "Un premier message dans votre style."
+  },
+  "aFirstEmailForEachSignedWithYour": {
+    "en": "A first email for each, signed with your name, opening on a line from their own page. You read each one and decide. Approve them and they go to the CRM on your board with their drafts. Nothing leaves without your click.",
+    "fr": "Chaque brouillon porte votre signature et s’ouvre sur un élément tiré du site du destinataire. Vous le relisez et décidez de la suite. Les contacts approuvés et leurs brouillons rejoignent votre CRM. Vous décidez de chaque envoi."
+  },
+  "eachDraftOpensInYourOwnMailApp": {
+    "en": "Each draft opens in your own mail app, or copies in one click. You send it yourself.",
+    "fr": "Chaque brouillon s’ouvre dans votre messagerie ou se copie en un clic. Vous l’envoyez vous-même."
+  },
+  "withTheSubscription": {
+    "en": "With the subscription",
+    "fr": "Avec l’abonnement"
+  },
+  "connectYourMailboxAndEachEmailLeavesFrom": {
+    "en": "Connect your mailbox and each email leaves from your address, on your click. Replies land on that person’s record.",
+    "fr": "Une fois la messagerie connectée, vous déclenchez l’envoi depuis votre adresse. Les réponses rejoignent la fiche du contact."
+  },
+  "afterDayOne": {
+    "en": "After day one",
+    "fr": "Après le premier jour"
+  },
+  "askInASentenceGetAPlan": {
+    "en": "Ask in a sentence. Get a plan.",
+    "fr": "Un objectif en une phrase, puis un plan."
+  },
+  "tellYourGrowthManagerWhatYouWantWith": {
+    "en": "Tell your Growth Manager what you want, with a date. It comes back with a plan to your date and waits for your yes. Tell it what happened, and it works out what comes next from what’s on your board.",
+    "fr": "Donnez au responsable de croissance votre objectif et une date. Il propose un plan et attend votre accord. Quand vous lui indiquez les résultats, il prépare la suite à partir des informations du tableau."
+  },
+  "itKeepsUpWithYourMarket": {
+    "en": "It keeps up with your market.",
+    "fr": "Un suivi de votre marché."
+  },
+  "intelReadsAboutFifteenSourcesForTheMarket": {
+    "en": "Intel reads about fifteen sources for the market your pages named and brings you what moved, with the outlets that carry it. Your Growth Manager then proposes up to three moves, each answering one story. Take one and it becomes an initiative on your board.",
+    "fr": "Intel consulte une quinzaine de sources sur le marché identifié à partir de vos pages. Il présente les évolutions et les publications qui en parlent. Votre responsable de croissance propose jusqu’à trois actions, chacune liée à une actualité. Celle que vous retenez devient une initiative sur le tableau."
+  },
+  "upToThreeMarketReadsOneADay": {
+    "en": "Up to three market reads, one a day, when we have coverage.",
+    "fr": "Jusqu’à trois points sur votre marché, un par jour selon la couverture disponible."
+  },
+  "aFreshReadEachDayYouAskFor": {
+    "en": "A fresh read each day you ask for one.",
+    "fr": "Un nouveau point sur votre marché chaque jour où vous le demandez."
+  },
+  "results": {
+    "en": "Results",
+    "fr": "Résultats"
+  },
+  "analyticsMatchesYourNumbersToYourInitiatives": {
+    "en": "Analytics matches your numbers to your initiatives.",
+    "fr": "Les chiffres de votre application en regard de vos initiatives."
+  },
+  "visitorsTrialsAndPayingCustomersOnOneLine": {
+    "en": "Visitors, trials and paying customers on one line, with each initiative marked on it, so you can judge what each one returned and put your effort where it pays.",
+    "fr": "Les visites, les essais et les clients payants figurent sur une même chronologie. Vous y retrouvez chaque initiative pour examiner ses résultats et choisir où concentrer vos efforts."
+  },
+  "analyticsOnYourOwnAppTheResultsOf": {
+    "en": "Analytics on your own app: the results of your growth, set against each initiative. Running today on Traction’s own board.",
+    "fr": "Le suivi statistique relie les résultats de votre application à ses initiatives. Il fonctionne déjà sur le tableau de Traction."
+  },
+  "thenTheNextMoveFromWhatYouLearned": {
+    "en": "Then the next move, from what you learned.",
+    "fr": "La prochaine action tient compte de ce que vous avez appris."
+  },
+  "needThisConnectedToTheToolsYourBusiness": {
+    "en": "Need this connected to the tools your business already uses?",
+    "fr": "Besoin de relier ce travail aux outils que votre entreprise utilise déjà ?"
+  },
+  "exploreCustomAiWorkflows": {
+    "en": "Explore custom AI workflows →",
+    "fr": "Découvrir nos solutions IA sur mesure →"
+  },
+  "makeTractionWorkForYouNow": {
+    "en": "Make Traction work for you, now.",
+    "fr": "Commencer avec votre application."
+  },
+  "theTractionPartnership": {
+    "en": "The Traction Partnership",
+    "fr": "Le partenariat Traction"
+  },
+  "howWeWorkWithYou": {
+    "en": "How we work with you.",
+    "fr": "Comment nous travaillons avec vous."
+  },
+  "tractionGivesYourAppAGrowthTeamThe": {
+    "en": "Traction gives your app a growth team. The Partnership adds ours: people who work in strategy, customer relationships and AI engineering, beside you on your board.",
+    "fr": "Traction donne à votre application une équipe pour trouver ses clients. Avec le partenariat, notre équipe de stratégie, de relation client et d’ingénierie IA vous rejoint directement sur votre tableau."
+  },
+  "whatWeDoTogether": {
+    "en": "What we do together.",
+    "fr": "Ce que nous faisons ensemble."
+  },
+  "chooseTheMove": {
+    "en": "Choose the move.",
+    "fr": "Choisir une action."
+  },
+  "oneCustomerOpportunityAtATimePickedFrom": {
+    "en": "One customer opportunity at a time, picked from the evidence on your board. We agree how to judge it and who does what before we start.",
+    "fr": "Nous choisissons une occasion à la fois à partir des éléments du tableau. Avant de commencer, nous convenons de la façon d’évaluer le résultat et de la répartition du travail."
+  },
+  "doTheWork": {
+    "en": "Do the work.",
+    "fr": "Faire le travail."
+  },
+  "researchOutreachAndCustomerConversationsDoneWithYou": {
+    "en": "Research, outreach and customer conversations, done with you. Engineering when a move needs your product to change.",
+    "fr": "Nous recherchons les clients, préparons la prise de contact et participons aux échanges avec vous. Nos ingénieurs interviennent lorsque l’action retenue demande une évolution du produit."
+  },
+  "measureIt": {
+    "en": "Measure it.",
+    "fr": "Mesurer le résultat."
+  },
+  "everyMoveAndItsResultSitOnThe": {
+    "en": "Every move and its result sit on the same board, so the outcome is yours to inspect.",
+    "fr": "Chaque action et son résultat restent sur le même tableau. Vous pouvez les examiner vous-même."
+  },
+  "aiPreparesTheResearchTheDraftsAndThe": {
+    "en": "AI prepares the research, the drafts and the recommendations. People agree the work with you, and you decide.",
+    "fr": "L’IA prépare les recherches, les brouillons et les recommandations. Notre équipe convient du travail avec vous. Vous décidez."
+  },
+  "whatWeAsk": {
+    "en": "What we ask.",
+    "fr": "Ce que nous demandons."
+  },
+  "aWorkingProductAndASignThatPeople": {
+    "en": "A working product, and a sign that people value it: paying customers, people coming back, repeat work.",
+    "fr": "Un produit qui fonctionne et un signe qu’il compte pour ses utilisateurs. Il peut s’agir de clients payants, de personnes qui reviennent ou de commandes renouvelées."
+  },
+  "youActWithinTheWeek": {
+    "en": "You act within the week.",
+    "fr": "Vous agissez dans la semaine."
+  },
+  "youTellUsWhatDoesnTWork": {
+    "en": "You tell us what doesn’t work.",
+    "fr": "Vous nous dites ce qui ne fonctionne pas."
+  },
+  "youHelpAnotherFounderWhenItFits": {
+    "en": "You help another founder when it fits.",
+    "fr": "Vous donnez un coup de main à un autre fondateur quand l’occasion s’y prête."
+  },
+  "whyWeReBuildingTractionDetails": {
+    "en": "Why we’re building Traction",
+    "fr": "Pourquoi nous développons Traction"
+  },
+  "weBelieveThereSAShortWindowFor": {
+    "en": "We believe there’s a short window for great ideas to make it. AI puts more within reach of a small team. We want to use that opportunity to get worthwhile ideas into people’s hands.",
+    "fr": "Une bonne idée a parfois peu de temps pour trouver son marché. L’IA met davantage de moyens à la portée d’une petite équipe. Nous voulons nous en servir pour que les idées qui en valent la peine arrivent jusqu’aux personnes auxquelles elles sont destinées."
+  },
+  "thisIsPersonalTooManyGreatIdeasNever": {
+    "en": "This is personal. Too many great ideas never find their market. We don’t want more founders looking back and wondering what could have been.",
+    "fr": "Cela nous tient à cœur. Trop de bonnes idées ne trouvent jamais leur marché. Nous voulons éviter à d’autres fondateurs de se demander après coup ce que leur projet aurait pu devenir."
+  },
+  "thatSWhyWeReBuildingTractionWe": {
+    "en": "That’s why we’re building Traction. We’re bringing together a select few founders who do things today, not tomorrow. Keeping it small means we can work closely together and put our experience behind the ideas we believe in.",
+    "fr": "C’est pour cela que nous développons Traction. Nous réunissons un petit nombre de fondateurs prêts à agir dès aujourd’hui. En restant peu nombreux, nous pouvons travailler ensemble de près et mettre notre expérience au service des projets auxquels nous croyons."
+  },
+  "ifYouBelieveInWhatYouReBuilding": {
+    "en": "If you believe in what you’re building and you’re ready to give it your best shot, we can help. We’ll work with you to get it in front of the people it’s made for and act on what we learn.",
+    "fr": "Si vous croyez au projet que vous portez et voulez lui donner toutes ses chances, nous pouvons vous aider à le faire connaître aux bonnes personnes et à agir selon leurs retours."
+  },
+  "youLlHelpShapeTractionTooYourFeedback": {
+    "en": "You’ll help shape Traction too. Your feedback will guide what we improve as we work together.",
+    "fr": "Vous contribuerez aussi à Traction. Vos retours guideront les améliorations que nous lui apporterons ensemble."
+  },
+  "whyTrustUs": {
+    "en": "Why trust us?",
+    "fr": "Pourquoi nous faire confiance ?"
+  },
+  "howItStarts": {
+    "en": "How it starts.",
+    "fr": "Comment commencer."
+  },
+  "yourTrialBoard": {
+    "en": "Your trial board.",
+    "fr": "Votre tableau d’essai."
+  },
+  "yourWebsiteReviewIsReadyTheDayYou": {
+    "en": "Your website review is ready the day you sign up. A board you already have carries over as it is.",
+    "fr": "Le premier avis sur votre site est disponible le jour de votre inscription. Si vous avez déjà un tableau, vous le conservez avec tout son contenu."
+  },
+  "startMyFreeTrial": {
+    "en": "Start my free trial →",
+    "fr": "Commencer mon essai →"
+  },
+  "aConversation": {
+    "en": "A conversation.",
+    "fr": "Un échange."
+  },
+  "scopeCostsOwnershipAndTermsAreAgreedBefore": {
+    "en": "Scope, costs, ownership and terms are agreed before any work starts, and the conversation commits you to nothing.",
+    "fr": "Avant tout travail ensemble, nous convenons du périmètre, des coûts, des responsabilités et des conditions. Ce premier échange est sans engagement."
+  },
+  "introduceYourApp": {
+    "en": "Introduce your app.",
+    "fr": "Présenter votre application."
+  },
+  "sendUsTheLinkWhoItSFor": {
+    "en": "Send us the link, who it’s for and what you want next. We’ll reply within one working day to arrange the conversation.",
+    "fr": "Envoyez le lien de votre application, dites-nous à qui elle s’adresse et ce que vous souhaitez faire ensuite. Nous vous répondrons sous un jour ouvré pour convenir d’un échange."
+  },
+  "introduceYourAppDetails": {
+    "en": "Introduce your app →",
+    "fr": "Présenter votre application →"
+  },
+  "tractionHdOs": {
+    "en": "Traction · HD OS",
+    "fr": "Traction · HD OS"
+  },
+  "howTractionUsesHdOs": {
+    "en": "How Traction uses HD OS",
+    "fr": "Comment Traction utilise HD OS"
+  },
+  "seeHowAChangeInTheMarketA": {
+    "en": "See how a change in the market, a customer reply or new analytics can change the team’s next move.",
+    "fr": "Voyez comment une évolution du marché, la réponse d’un client ou de nouvelles statistiques peuvent changer la prochaine décision de l’équipe."
+  },
+  "howTractionUsesHdOsAnIllustrativeBooking": {
+    "en": "How Traction uses HD OS: an illustrative booking-app example",
+    "fr": "Utilisation de HD OS par Traction, illustrée sur une application de réservation"
+  },
+  "openTheHdOsExample": {
+    "en": "Open the HD OS example",
+    "fr": "Ouvrir l’exemple HD OS"
+  },
+  "whenTheDemandComes": {
+    "en": "When the demand comes",
+    "fr": "Quand la demande augmente"
+  },
+  "embedYourAppOnHdOs": {
+    "en": "Embed your app on HD OS.",
+    "fr": "Développer votre application sur HD OS."
+  },
+  "weBuildHostSecureAndSupportYourApp": {
+    "en": "We build, host, secure and support your app with you, and scale it with the demand Traction brings. Growth and the app that carries it are run by one team. We agree the scope for each app and verify each connection with you.",
+    "fr": "Nous développons, hébergeons, sécurisons et maintenons votre application avec vous. Nous la faisons évoluer en fonction de la demande suscitée par Traction. Une même équipe suit la croissance et le produit. Nous convenons du périmètre et vérifions chaque connexion avec vous."
+  },
+  "seeWhatYouGetInTheTractionTrial": {
+    "en": "See what you get in the Traction trial →",
+    "fr": "Voir ce que comprend l’essai Traction →"
+  }
+}

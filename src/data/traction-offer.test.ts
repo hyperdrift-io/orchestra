@@ -2,6 +2,7 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { boardHref, continueHref, freeBoard, partnershipHref, services, startHref, waysOn } from './traction-offer';
 import { after, dayOne, featuresIntro, howItWorks, howItWorksHref, steps, tiers, tractionPages } from './traction-features';
+import {tractionHtml} from '@/site/traction/render';
 import { tour } from './traction-tour';
 
 const source = (path: string) => readFile(new URL(path, import.meta.url), 'utf8');
@@ -71,8 +72,8 @@ describe('how Traction continues', () => {
   });
 
   it('starts a direct visitor from their own app’s address and says the trial is free', async () => {
-    for (const path of ['traction', 'traction-how-it-works', 'traction-partnership', 'os']) {
-      const html = await source(`../site/content/${path}.html`);
+    for (const path of ['traction', 'how-it-works', 'partnership', 'hd-os-example'] as const) {
+      const html = tractionHtml(path,'en','https://traction.hyperdrift.io/start');
       // The read is offered twice, each after the content that earns it: under the Traction tab's proposition and at the
       // end of How it works. Without the page's script the field still carries the address to the sign-up.
       expect(html.match(/<form class="app-read" data-app-read action="https:\/\/traction\.hyperdrift\.io\/start" method="get">/g)).toHaveLength(2);
@@ -173,16 +174,16 @@ describe('how Traction continues', () => {
 
 
   it('keeps the three Traction answers and deep links on their own pages', async () => {
-    for (const path of ['traction','traction-how-it-works','traction-partnership']) {
-      const html = await source(`../site/content/${path}.html`);
+    for (const path of ['traction','how-it-works','partnership'] as const) {
+      const html = tractionHtml(path,'en','https://traction.hyperdrift.io/start');
       expect(html).toContain('/traction/how-it-works');
       expect(html).toContain('/traction/partnership');
     }
-    const detail=await source('../site/content/traction-how-it-works.html');
+    const detail=tractionHtml('how-it-works','en');
     expect(detail).toContain('workflow-customers');
     // The Traction tab keeps one proposition: its examples are links that open the How it works tab, where the walkthrough lives.
-    for (const path of ['traction','traction-how-it-works','traction-partnership','os']) {
-      const html = await source(`../site/content/${path}.html`);
+    for (const path of ['traction','how-it-works','partnership','hd-os-example'] as const) {
+      const html = tractionHtml(path,'en','https://traction.hyperdrift.io/start');
       const tab = html.slice(html.indexOf('id="traction"'), html.indexOf('id="how-it-works"'));
       expect(tab).not.toMatch(/traction-loop|id="outreach"|One way to use Traction/);
       expect(tab).toContain('<a href="/traction/how-it-works#outreach">How to get started with Traction');

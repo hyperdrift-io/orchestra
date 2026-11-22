@@ -1,4 +1,4 @@
-import {pageMetadata} from '@/lib/site-metadata';
-import {StaticPage} from '@/site/StaticPage';
-export const metadata=pageMetadata("Traction Partnership","Work with Hyperdrift on your app’s growth. Agree the customer work, scope and decisions together.","/traction/partnership");
-export default function Page(){return <StaticPage name="traction-partnership" styles={["/assets/traction-page.css?v=10"]} scripts={["/assets/traction-page.js?v=8", "/assets/traction-site-read.js?v=1"]}/>}
+import {TractionPage,tractionMetadata} from '@/site/traction/TractionPage';
+
+export const metadata = tractionMetadata('partnership','en');
+export default function Page() {return <TractionPage panel="partnership" lang="en"/>;}

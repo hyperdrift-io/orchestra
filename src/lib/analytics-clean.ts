@@ -46,12 +46,14 @@ type Link = { origin: string; hostname: string; pathname: string; hash: string }
 /** The door a link opens, or nothing for a link we do not count. */
 export function ctaDestination(link: Link, pageOrigin: string) {
   if (link.origin === pageOrigin) {
+    const path=link.pathname.replace(/^\/fr(?=\/)/,'');
+    if (path === '/contact') return 'enquiry';
     if (link.hash === '#first-read') return 'first_read';
     if (['#contact', '#enquire'].includes(link.hash)) return 'enquiry';
-    if (link.pathname === '/partnership' || link.pathname === '/traction/partnership' || (link.pathname === '/traction' && link.hash === '#partnership')) return 'partnership';
-    if (link.pathname === '/work') return 'work';
-    if (link.pathname === '/traction') return link.hash === '#continue' ? 'continue' : 'traction';
-    return link.pathname === '/articles/traction-from-zero' ? 'launch_log' : null;
+    if (path === '/partnership' || path === '/traction/partnership' || (path === '/traction' && link.hash === '#partnership')) return 'partnership';
+    if (path === '/work') return 'work';
+    if (path === '/traction') return link.hash === '#continue' ? 'continue' : 'traction';
+    return path === '/articles/traction-from-zero' ? 'launch_log' : null;
   }
   if (link.hostname === 'nextrole.site') return 'nextrole';
   if (!(link.hostname === 'traction.hyperdrift.io' || link.hostname === 'localhost')) return null;

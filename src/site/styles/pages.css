@@ -23,5 +23,3 @@ body > header nav a[aria-current="page"] { color: var(--gold); }
  body > header nav { flex-direction: row; justify-content: flex-end; gap: 8px 16px; max-width: 200px; }
  .home-experience { padding-block: 24px 0; }
 }
-
-.traction-languages { max-width: 76rem; margin: 0 auto 1rem; padding-inline: var(--edge, 5vw); }
