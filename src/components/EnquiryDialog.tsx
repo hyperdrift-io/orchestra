@@ -1,5 +1,6 @@
 'use client';
 
+import { enquiryCopy } from '@/data/enquiry-copy';
 import { useCallback, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { EnquiryForm } from '@/components/EnquiryForm';
@@ -15,11 +16,13 @@ type Props = { articleSlug?: string; situation?: string; contact?: ContactPrefil
  */
 export function EnquiryDialog({ articleSlug, situation, contact, paused = false }: Props) {
   const pathname = usePathname();
+  const language = pathname.startsWith('/fr/') ? 'fr' : 'en';
+  const t = enquiryCopy[language];
   const [intent, setIntent] = useState({ firstRead: false, introduce: false, quote: situation === 'subscription', situation });
   const chooseIntent = useCallback((url: URL, link?: HTMLAnchorElement) => {
     const firstRead = url.hash === '#first-read' && !contact;
     const introduce = !firstRead && !contact && link?.dataset.introduce !== undefined;
-    const chosen = firstRead ? 'traction' : link?.dataset.situation || url.searchParams.get('situation') || situation || (pathname.startsWith('/traction') ? 'partnership' : undefined);
+    const chosen = firstRead ? 'traction' : link?.dataset.situation || url.searchParams.get('situation') || situation || (/^\/(?:fr\/)?traction(?:\/|$)/.test(pathname) ? 'partnership' : undefined);
     // "Ask for a quote" asks for a quote: its own title and button, and no message required.
     setIntent({ firstRead, introduce, quote: !firstRead && !introduce && !contact && chosen === 'subscription', situation: chosen });
   }, [pathname, situation, contact]);
@@ -34,10 +37,10 @@ export function EnquiryDialog({ articleSlug, situation, contact, paused = false 
     start?.focus();
   }, [intent, dialog]);
   return <dialog id="enquire" ref={dialog} aria-labelledby="enquire-heading">
-    <form method="dialog" data-dialog-close=""><button type="submit" aria-label="Close">×</button></form>
+    <form method="dialog" data-dialog-close=""><button type="submit" aria-label={t.close}>×</button></form>
     <header>
-      <h2 id="enquire-heading" tabIndex={-1}>{intent.firstRead ? 'Ask for a first impression' : intent.introduce ? 'Introduce your app' : intent.quote ? 'Ask for a quote' : 'Get in touch'}</h2>
+      <h2 id="enquire-heading" tabIndex={-1}>{intent.firstRead ? t.firstRead : intent.introduce ? t.intro : intent.quote ? t.quote : t.dialog}</h2>
     </header>
-    <EnquiryForm paused={paused} key={intent.firstRead ? 'first-read' : intent.introduce ? 'introduce' : intent.quote ? 'quote' : 'conversation'} articleSlug={articleSlug} situation={intent.situation} firstRead={intent.firstRead} introduce={intent.introduce} quote={intent.quote} contact={contact} />
+    <EnquiryForm language={language} paused={paused} key={intent.firstRead ? 'first-read' : intent.introduce ? 'introduce' : intent.quote ? 'quote' : 'conversation'} articleSlug={articleSlug} situation={intent.situation} firstRead={intent.firstRead} introduce={intent.introduce} quote={intent.quote} contact={contact} />
   </dialog>;
 }

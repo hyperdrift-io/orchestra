@@ -1,4 +1,5 @@
 'use client';
+import { enquiryCopy, type EnquiryLanguage } from '@/data/enquiry-copy';
 import { useRef, useState, type FormEvent, type FocusEvent } from 'react';
 import { enquiryChoices } from '@/data/situations';
 import { articleSession, trackArticle } from './article-tracking';
@@ -7,7 +8,8 @@ import { campaignAttribution } from './campaign';
 import { enquiryHandoff } from './enquiry-handoff';
 import { trackEvent } from './analytics';
 
-export function useEnquiry() {
+export function useEnquiry(language: EnquiryLanguage = 'en') {
+  const t = enquiryCopy[language];
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'preview' | 'error'>('idle');
   const [error, setError] = useState('');
   const started = useRef(false);
@@ -40,11 +42,16 @@ export function useEnquiry() {
         }),
       });
       const body = await response.json();
-      if (!response.ok) throw new Error(body.error || 'Please try sending your enquiry again.');
+      if (!response.ok) {
+        const reason = response.status === 429 ? t.rate : response.status === 400 || response.status === 413 ? t.invalid : t.unavailable;
+        setError(language === 'en' && typeof body.error === 'string' ? body.error : reason);
+        setStatus('error');
+        return;
+      }
       setStatus(body.preview ? 'preview' : 'sent');
       element.reset();
-    } catch (error) {
-      setStatus('error'); setError(error instanceof Error ? error.message : 'Please try again.');
+    } catch {
+      setStatus('error'); setError(t.retry);
     }
   };
   return { status, error, onFocus, onSubmit };
