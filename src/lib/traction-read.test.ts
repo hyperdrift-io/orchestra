@@ -27,6 +27,14 @@ describe('a visitor’s own read', () => {
     expect(await visitorRead('https://example.com')).toEqual({ state: 'running', reading: ['example.com', '/pricing'] });
   });
 
+  it('requests a French first read when the visitor uses the French offer', async () => {
+    answer({state:'queued', reading:[]});
+    await visitorRead('https://example.fr','fr');
+    expect(fetch).toHaveBeenCalledWith(expect.stringContaining('/api/read'),expect.objectContaining({
+      body: JSON.stringify({url:'https://example.fr',language:'fr'}),
+    }));
+  });
+
   it('tells a paused day from an address that is not a site and from an outage', async () => {
     answer({ ok: false, error: 'reads_paused' }, 429);
     expect(await visitorRead('https://example.com')).toEqual({ state: 'refused', reason: 'paused' });

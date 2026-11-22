@@ -31,11 +31,11 @@ export type LiveRead = {
 type Asked = { refused: 'paused' | 'address' | 'unavailable' } | { read: LiveRead };
 
 /** One request to Traction's read, with why it was refused when it was: a paused day, an address that is not a site. */
-async function ask(url: string): Promise<Asked> {
+async function ask(url: string, language?: 'fr'): Promise<Asked> {
   if (process.env.MIGRATION_PREVIEW === 'true') return { refused: 'unavailable' };
   try {
     const response = await fetch(`${tractionOrigin()}/api/read`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url }),
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url, ...(language ? {language} : {}) }),
       cache: 'no-store', signal: AbortSignal.timeout(8000),
     });
     const body: unknown = await response.json();
@@ -83,8 +83,8 @@ export function visitorAddress(raw: unknown): string | undefined {
   } catch { return; }
 }
 
-export async function visitorRead(url: string): Promise<VisitorRead> {
-  const asked = await ask(url);
+export async function visitorRead(url: string, language?: 'fr'): Promise<VisitorRead> {
+  const asked = await ask(url, language);
   if ('refused' in asked) return { state: 'refused', reason: asked.refused };
   const { state, site, reading, read, blocked } = asked.read;
   if (state === 'ready' && read) return { state, ...(site ? { site } : {}), lines: read.findings.map(({ label, headline }) => ({ label, headline })) };

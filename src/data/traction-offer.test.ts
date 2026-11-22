@@ -91,7 +91,7 @@ describe('how Traction continues', () => {
       expect(tab.indexOf('The trial lasts seven days')).toBeGreaterThan(tab.indexOf('<details class="trial-details"'));
       expect(tab.indexOf('Ask for a quote')).toBeGreaterThan(tab.indexOf('<details class="trial-details"'));
     }
-    const script = await source('../../public/assets/traction-page.js');
+    const script = await source('../../public/assets/traction-site-read.js');
     // The script reports the step alone: the address never rides on an analytics event.
     expect(script).toMatch(/detail: \{ event: 'site_read', step \}/);
     expect(await source('../app/api/traction/site-read/route.ts')).toMatch(/visitorAddress\(/);

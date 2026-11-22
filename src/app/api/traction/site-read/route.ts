@@ -18,6 +18,7 @@ export async function POST(request: Request) {
   try { input = text.length <= 1024 ? JSON.parse(text || '{}') : undefined; } catch { input = undefined; }
   const url = visitorAddress(input && typeof input === 'object' ? (input as { url?: unknown }).url : undefined);
   if (!url) return Response.json({ state: 'refused', reason: 'address' }, { status: 400, headers });
-  const read = await visitorRead(url);
+  const language = input && typeof input === 'object' && 'language' in input && input.language === 'fr' ? 'fr' : undefined;
+  const read = await visitorRead(url,language);
   return Response.json(read, { status: read.state === 'refused' ? (read.reason === 'paused' ? 429 : read.reason === 'address' ? 400 : 503) : 200, headers });
 }
