@@ -28,11 +28,11 @@ The useful unit is one operating record per app: the customer need, the work it 
 
 ## What embedding an app actually means
 
-Orchestra OS is the operating layer we run behind our own apps, offered to founders who bring a live product or want one built. An app joins through an agreed contract rather than a migration script.
+We use [HD OS](/os) to connect development, hosting, security and support for our own apps. When a founder brings us a live product or asks us to build one, we agree which jobs we will take on.
 
 First, people. You name the customer-success owner and the technical owner, and agree what agents may do alone, what needs a person and what stays with you. Then each of the five jobs is connected and checked: a deploy is exercised on the live customer path, an alert is sent and acknowledged, measurement is confirmed against a real event. A connection counts as ready only when its evidence exists.
 
-A signal can then lead to scoped work, with its result recorded in [Traction](/traction), the board where evidence, accepted commitments and results meet. Traction helps you find customers. Orchestra OS provides the operating layer for the app they use.
+A signal can then lead to scoped work, with its result recorded in [Traction](/traction), the board where evidence, accepted commitments and results meet. Traction helps you find customers. HD OS connects the people who build, run and support the app those customers use.
 
 ## What runs today, and what we are still proving
 

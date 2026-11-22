@@ -50,7 +50,7 @@ What is usually missing is the agreement between them: who maintains the live se
 
 ## Where we stand
 
-We checked our platform against these rules. Its maintenance configuration includes a daily dependency audit. The outside monitor is scheduled every five minutes for enabled apps in the registry; the scheduler can delay a run. Applying a dependency patch remains an authorised decision. The complete repair, carry-back and regression-gate sequence above is a proposed operating model, part of our work on [running a client's app on Orchestra OS](/articles/app-operations-after-launch).
+We checked our platform against these rules. Its maintenance configuration includes a daily dependency audit. The outside monitor is scheduled every five minutes for enabled apps in the registry; the scheduler can delay a run. Applying a dependency patch remains an authorised decision. The complete repair, carry-back and regression-gate sequence above is a proposed operating model, part of our work on [running a live app with its founder](/articles/app-operations-after-launch).
 
 ## Start with one service
 

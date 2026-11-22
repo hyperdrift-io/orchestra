@@ -809,7 +809,7 @@
     "shareLine": "A security fix is finished when it survives the next release.",
     "order": 12,
     "topic": "Security maintenance",
-    "example": "Orchestra OS",
+    "example": "HD OS",
     "tags": [
       "operations",
       "permissions"
@@ -827,19 +827,19 @@
       "heading": "Will the repair survive the next release?",
       "description": "An illustrative booking API: production is repaired from its own release, a newer feature build still carries the old parser, and the deployment gate decides whether the fix survives.",
       "url": "/os",
-      "label": "See where it sits in Orchestra OS"
+      "label": "See how HD OS supports a live app"
     },
     "media": null,
     "image": {
       "src": "/articles/mesh/production-led-security-maintenance.svg",
-      "alt": "Connected wireframe shield, wrench, clock forms in Orchestra's mesh style.",
+      "alt": "Connected wireframe symbols (shield, wrench, clock).",
       "width": 1200,
       "height": 160,
       "caption": "Editorial mesh illustration · Explore the workflow in the article."
     },
     "headerImage": {
       "src": "/articles/mesh/production-led-security-maintenance.svg",
-      "alt": "Connected wireframe shield, wrench, clock forms in Orchestra's mesh style.",
+      "alt": "Connected wireframe symbols (shield, wrench, clock).",
       "width": 1200,
       "height": 160
     },
@@ -893,7 +893,7 @@
       "height": 900
     },
     "shareArtworkOnly": true,
-    "updatedAt": "2026-11-18T00:00:00Z"
+    "updatedAt": "2026-11-22T00:00:00Z"
   },
   {
     "slug": "app-operations-after-launch",
@@ -903,7 +903,7 @@
     "shareLine": "After launch, keep the decisions and hand over the jobs.",
     "order": 13,
     "topic": "App operations",
-    "example": "Orchestra OS",
+    "example": "HD OS",
     "tags": [
       "operations",
       "agents"
@@ -919,31 +919,31 @@
     ],
     "proof": {
       "heading": "Who carries this week?",
-      "description": "Orchestra OS runs our own apps first. The interactive map shows how an app joins five connected jobs under named owners, with readiness checked connection by connection.",
+      "description": "We use HD OS to run our own apps. The example shows how a booking app could connect the five jobs, with a named owner and a readiness check for each.",
       "url": "/os",
-      "label": "Explore Orchestra OS"
+      "label": "Explore HD OS"
     },
     "media": null,
     "image": {
       "src": "/articles/mesh/app-operations-after-launch.svg",
-      "alt": "Connected wireframe gate, shield, chart forms in Orchestra's mesh style.",
+      "alt": "Connected wireframe symbols (gate, shield, chart).",
       "width": 1200,
       "height": 160,
       "caption": "Editorial mesh illustration · Explore the workflow in the article."
     },
     "headerImage": {
       "src": "/articles/mesh/app-operations-after-launch.svg",
-      "alt": "Connected wireframe gate, shield, chart forms in Orchestra's mesh style.",
+      "alt": "Connected wireframe symbols (gate, shield, chart).",
       "width": 1200,
       "height": 160
     },
     "visualization": {
       "kind": "operating-week",
       "takeaway": "Keep the decisions. Hand over the jobs.",
-      "description": "One illustrative week of a live booking app: a security advisory on Monday, a customer who can't finish a booking on Tuesday, a release on Wednesday, a sign-up dip on Thursday and an outage at 02:10 on Saturday. Run yourself, all five jobs land on the founder, with the record in an inbox, a tab or memory. On Orchestra OS each goes to its lane: an agent does the routine part, a named owner answers for it, and a receipt records the result. Only two decisions come back, with evidence attached: whether to refund the customer, and whether to roll back the new sign-up form or fix forward.",
+      "description": "One illustrative week of a live booking app: a security advisory on Monday, a customer who can't finish a booking on Tuesday, a release on Wednesday, a sign-up dip on Thursday and an outage at 02:10 on Saturday. Run yourself, all five jobs land on the founder, with the record in an inbox, a tab or memory. In the HD OS example, an agent handles the routine work, a named owner answers for each job, and the operating record shows the result. Only two decisions come back, with evidence attached: whether to refund the customer, and whether to roll back the new sign-up form or fix forward.",
       "sources": [
         {
-          "label": "Orchestra OS: how an app joins",
+          "label": "How an app joins HD OS",
           "url": "/os"
         },
         {
@@ -965,7 +965,7 @@
       "height": 900
     },
     "shareArtworkOnly": true,
-    "updatedAt": "2026-11-18T00:00:00Z"
+    "updatedAt": "2026-11-22T00:00:00Z"
   },
   {
     "slug": "agent-driven-ui-intelligence-and-action",

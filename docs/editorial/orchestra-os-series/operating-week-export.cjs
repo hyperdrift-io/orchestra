@@ -49,7 +49,7 @@ const pages = [
   {
     name: 'operating-week',
     width: 900,
-    html: head('Who carries this week? Orchestra OS', `body{padding:24px}
+    html: head('Who carries this week? HD OS', `body{padding:24px}
 body>p{margin:14px 2px 0;font:12px/1.5 var(--font-body);color:var(--cream-3)}
 body>p b{font-weight:400;color:var(--cream)}`) + `<body>${visual}<p><b>Keep the decisions. Hand over the jobs.</b> Hyperdrift · hyperdrift.io/articles · interactive version and sources in the article</p>${measure}</body></html>`,
   },
