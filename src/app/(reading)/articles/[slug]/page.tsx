@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: Props) {
         {!article.heroImage && <div data-article-orb=""><MeshArtwork key={article.slug} kind="article" fallbackSvg={meshFallbackSvg('article', article.slug)} slug={article.slug} fallback={headerImage.src} layout="title" animated /></div>}
       </div>
       <p>{article.excerpt}</p>
-      <div data-article-meta=""><span>By Yann VR · {article.minutes} min read{article.publishedAt && <> · Published <time dateTime={article.publishedAt}>{articleDateLabel(article.publishedAt)}</time></>}{article.updatedAt && article.updatedAt !== article.publishedAt && <> · Updated <time dateTime={article.updatedAt}>{articleDateLabel(article.updatedAt)}</time></>}</span><a href="#article-share">Share article ↓</a></div>
+      <div data-article-meta=""><span>{article.byline !== null && <>By {article.byline ?? 'Yann VR'} · </>}{article.minutes} min read{article.publishedAt && <> · Published <time dateTime={article.publishedAt}>{articleDateLabel(article.publishedAt)}</time></>}{article.updatedAt && article.updatedAt !== article.publishedAt && <> · Updated <time dateTime={article.updatedAt}>{articleDateLabel(article.updatedAt)}</time></>}</span><a href="#article-share">Share article ↓</a></div>
       {article.heroImage && <figure data-article-hero=""><img src={article.heroImage.src} alt={article.heroImage.alt} width={article.heroImage.width} height={article.heroImage.height} fetchPriority="high" /></figure>}
       <ArticleTags tags={tagsOf(article)} />
       {article.reviewedAt && <small data-reviewed="">Evidence reviewed {articleDateLabel(article.reviewedAt)} · <a href="/articles/ui-accessibility#method">Method and maintenance</a></small>}

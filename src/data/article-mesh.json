@@ -108,5 +108,10 @@
     "target",
     "conversation",
     "chart"
+  ],
+  "open-agent-orchestration-upstream": [
+    "checklist",
+    "book",
+    "magnifier"
   ]
 }

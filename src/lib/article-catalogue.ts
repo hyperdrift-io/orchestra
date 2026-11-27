@@ -49,6 +49,8 @@ export interface ArticleSummary {
   /** The OSS flag: an upstream open-source contribution the article reports, with its verified upstream status. */
   oss?: { project: string; status: string };
   reviewedAt?: string;
+  /** Credit beside the reading time; defaults to Yann VR, null on an unsigned draft. */
+  byline?: string | null;
   publishedAt: string | null;
   updatedAt?: string;
 }

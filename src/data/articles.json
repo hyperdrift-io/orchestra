@@ -1372,5 +1372,64 @@
     },
     "shareArtworkOnly": true,
     "publishedAt": "2026-11-21"
+  },
+  {
+    "slug": "open-agent-orchestration-upstream",
+    "title": "Why your team should own its agent orchestration",
+    "seoTitle": "Agent orchestration you own: open workflows, run records and traces",
+    "excerpt": "Keep the workflow, its run record and the telemetry from model and tool calls in open formats your team can read and move. Here's what we've contributed to OpenTelemetry and Archon to get there.",
+    "shareLine": "Your team should be able to read its agent workflows, run records and telemetry outside the provider that ran them.",
+    "order": 23,
+    "topic": "Agent orchestration",
+    "example": "OpenTelemetry and Archon",
+    "tags": [
+      "agents",
+      "operations"
+    ],
+    "exampleStatus": "Upstream contributions · one merged, three open",
+    "ctaLabel": "Discuss your agent orchestration",
+    "invite": "Bring one change an agent made for your team. We'll look at where its workflow, run record and traces live, and what you could read outside the provider.",
+    "situation": "workflow",
+    "readNext": "opentelemetry-genai-conversation-id",
+    "steps": [
+      "Define the workflow",
+      "Record each run",
+      "Trace model and tool calls",
+      "Contribute upstream"
+    ],
+    "proof": {
+      "heading": "Follow one conversation",
+      "description": "OpenTelemetry PR #556, merged 30 October 2026. On main; no tagged release yet.",
+      "url": "https://github.com/open-telemetry/semantic-conventions-genai/pull/556",
+      "label": "Read the merged pull request"
+    },
+    "media": null,
+    "image": {
+      "src": "/articles/mesh/open-agent-orchestration-upstream.svg",
+      "alt": "Connected wireframe checklist, book and magnifier in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160,
+      "caption": "Editorial mesh illustration · the workflow, its record and its traces."
+    },
+    "oss": {
+      "project": "OpenTelemetry · Archon",
+      "status": "#556 merged · #518, #764 and Archon #6437 open"
+    },
+    "byline": null,
+    "reviewedAt": "2026-11-27",
+    "publishedAt": "2026-11-27T01:10:00Z",
+    "headerImage": {
+      "src": "/articles/mesh/open-agent-orchestration-upstream.svg",
+      "alt": "Connected wireframe checklist, book and magnifier in Orchestra's mesh style.",
+      "width": 1200,
+      "height": 160
+    },
+    "heroImage": {
+      "src": "/articles/orchestra/portable-workflow-v1.jpg",
+      "alt": "An ink-and-gold cartridge holding a mint workflow path slides out of one dock toward another.",
+      "width": 1600,
+      "height": 900
+    },
+    "shareArtworkOnly": true
   }
 ]

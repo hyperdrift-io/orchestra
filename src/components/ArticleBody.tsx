@@ -20,7 +20,8 @@ function Inline({ text, sourceNotes = true }: { text: string; sourceNotes?: bool
       if (enquiryLink.test(href)) return <Fragment key={index}>{link[1]}</Fragment>;
       if (!/^(https:\/\/|\/(?!\/)|#)/.test(href)) return <Fragment key={index}>{link[1]}</Fragment>;
       if (sourceNotes && citationStaysText(href)) return <span key={index} data-citation-text="">{link[1]}</span>;
-      return <ArticleSourceLink key={index} href={href} note={sourceNotes ? articleSourceNote(href.split('#')[0]) : undefined} labels={articleLabels} intent={sourceNotes ? 'preview' : 'navigate'}>{link[1]}</ArticleSourceLink>;
+      const note = sourceNotes ? articleSourceNote(href.split('#')[0]) : undefined;
+      return <ArticleSourceLink key={index} href={href} note={note} body={note?.content && note.content.split('\n\n').map((paragraph, at) => <p key={at}>{paragraph}</p>)} labels={articleLabels} intent={sourceNotes ? 'preview' : 'navigate'}>{link[1]}</ArticleSourceLink>;
     }
     if (part.startsWith('**')) return <strong key={index}>{part.slice(2, -2)}</strong>;
     if (part.startsWith('*')) return <em key={index}>{part.slice(1, -1)}</em>;
